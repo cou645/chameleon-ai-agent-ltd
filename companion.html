@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chameleon Companion App — Android</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .channel-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .channel-card .ch-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .ch-p2p  { border-color: #667eea; } .ch-p2p  .ch-badge { background:#ede9fe; color:#4f46e5; }
+    .ch-ide  { border-color: #22c55e; } .ch-ide  .ch-badge { background:#dcfce7; color:#15803d; }
+    .ch-media{ border-color: #f59e0b; } .ch-media .ch-badge { background:#fef3c7; color:#b45309; }
+    .ch-file { border-color: #06b6d4; } .ch-file .ch-badge { background:#cffafe; color:#0e7490; }
+    .ch-acct { border-color: #ec4899; } .ch-acct .ch-badge { background:#fce7f3; color:#be185d; }
+    .ch-vnc  { border-color: #8b5cf6; } .ch-vnc  .ch-badge { background:#ede9fe; color:#6d28d9; }
+    .channel-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .channel-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .channel-card .ch-icon { font-size: 2rem; }
+    .phone-mockup {
+      background: #1a1a2e; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+      border: 3px solid #333;
+    }
+    .phone-screen {
+      background: #0f0f23; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #c8c8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #22c55e; margin-left: auto; }
+    .phone-msg { border-radius: 10px; padding: .5rem .8rem; margin-bottom: .5rem; font-size: .78rem; max-width: 85%; }
+    .msg-ai   { background: rgba(102,126,234,.25); color: #c8c8f0; }
+    .msg-user { background: rgba(34,197,94,.2); color: #d1fae5; margin-left: auto; }
+    .phone-channels {
+      display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .8rem;
+      padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .pch {
+      font-size: .65rem; padding: .2rem .5rem; border-radius: 50px;
+      font-weight: 600; letter-spacing: .04em;
+    }
+    .pch-ide   { background:rgba(34,197,94,.2);  color:#22c55e; }
+    .pch-video { background:rgba(102,126,234,.2); color:#818cf8; }
+    .pch-file  { background:rgba(6,182,212,.2);   color:#06b6d4; }
+    .pch-media { background:rgba(245,158,11,.2);  color:#f59e0b; }
+    .pch-stt   { background:rgba(236,72,153,.2);  color:#ec4899; }
+    .ws-diagram {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg);
+    }
+    .ws-row { display: flex; align-items: center; gap: 1rem; margin-bottom: .8rem; flex-wrap: wrap; }
+    .ws-node {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 8px; padding: .4rem .9rem; font-size: .82rem; color: #c8c8f0;
+      white-space: nowrap;
+    }
+    .ws-arrow { color: #667eea; font-size: 1.1rem; }
+    .ws-label { font-size: .72rem; color: #8888aa; margin-top: -.4rem; padding-left: .2rem; }
+  </style>
+</head>
+<body>
+
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TESTING IN PROGRESS — This site is under active development. Features, pricing and licensing are not finalised.
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="companion.html" class="active">Companion App</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">📱</div>
+  <h1>Chameleon Companion App</h1>
+  <p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, P2P video, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
+  <div class="hero-badges">
+    <span class="badge">🤖 AI chat via STT/TTS</span>
+    <span class="badge">📹 P2P video</span>
+    <span class="badge">🎭 Presenter remote</span>
+    <span class="badge">🌐 Tailscale-secured</span>
+    <span class="badge">🖥️ Screen / VNC</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Phone mockup + channel diagram side by side -->
+  <div class="split" style="align-items:flex-start;">
+    <div>
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="app-icon">🦎</div>
+            <span>Chameleon Companion</span>
+            <div class="phone-status">● Connected</div>
+          </div>
+          <div class="phone-msg msg-ai">How can I help? I can see your IDE, files and presenter.</div>
+          <div class="phone-msg msg-user">Show me the last error in the terminal.</div>
+          <div class="phone-msg msg-ai">Found it — line 47, NameError: 'config' not defined. Want me to fix it?</div>
+          <div class="phone-msg msg-user">Yes, apply the fix.</div>
+          <div class="phone-msg msg-ai">Done. File saved. Terminal shows exit 0.</div>
+          <div class="phone-channels">
+            <span class="pch pch-ide">IDE</span>
+            <span class="pch pch-video">P2P Video</span>
+            <span class="pch pch-file">Files</span>
+            <span class="pch pch-media">Media</span>
+            <span class="pch pch-stt">STT/TTS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-title" style="margin-top:0;">
+        <h2>Multi-channel architecture</h2>
+        <p>One WebSocket bridge, five independent communication lanes</p>
+      </div>
+      <div class="ws-diagram">
+        <div class="ws-row">
+          <div class="ws-node">📱 Android App</div>
+          <div class="ws-arrow">⟷</div>
+          <div class="ws-node">Tailscale mesh</div>
+          <div class="ws-arrow">⟷</div>
+          <div class="ws-node">🖥️ Desktop</div>
+        </div>
+        <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
+          <div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">IDE channel</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+          <div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
+          <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">File browser</div><div class="ws-label">Read · write · edit files on desktop</div></div>
+          <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Media stream</div><div class="ws-label">NAS / DLNA · cast to phone</div></div>
+          <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Screen share</div><div class="ws-label">VNC/RDP-style desktop mirror</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Communication Channels</h2>
+    <p>Each channel is independent — use one or all simultaneously</p>
+  </div>
+
+  <div class="channel-grid">
+
+    <div class="channel-card ch-ide">
+      <span class="ch-badge">CHANNEL 1</span>
+      <div class="ch-icon">🧠</div>
+      <h3>IDE AI Channel</h3>
+      <p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">AI streaming</span><span class="tag">File upload</span><span class="tag">Screenshots</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-p2p">
+      <span class="ch-badge">CHANNEL 2</span>
+      <div class="ch-icon">📹</div>
+      <h3>P2P Video &amp; Voice</h3>
+      <p>WebRTC peer-to-peer video and audio between phone and desktop (or between multiple peers). The Chameleon signal server handles SDP and ICE negotiation over WebSocket on port 8766 — runs on Termux on Android as well as desktop. No central media server; no monthly streaming bill.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">WebRTC</span><span class="tag">Tailscale P2P</span><span class="tag">Termux</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-ide" style="border-color:#764ba2;">
+      <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">CHANNEL 3</span>
+      <div class="ch-icon">🎭</div>
+      <h3>Kameleon Presenter Remote</h3>
+      <p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-vnc">
+      <span class="ch-badge">CHANNEL 4</span>
+      <div class="ch-icon">🖥️</div>
+      <h3>Screen Mirror (VNC/RDP-style)</h3>
+      <p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Screen capture</span><span class="tag">Tap-to-click</span><span class="tag">Tailscale only</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-file">
+      <span class="ch-badge">CHANNEL 5</span>
+      <div class="ch-icon">📂</div>
+      <h3>Remote File Browser &amp; Editor</h3>
+      <p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Browse</span><span class="tag">Edit</span><span class="tag">Upload from camera</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-media">
+      <span class="ch-badge">CHANNEL 6</span>
+      <div class="ch-icon">🎵</div>
+      <h3>Media Streaming (NAS / DLNA)</h3>
+      <p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Tailscale bridge</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-acct">
+      <span class="ch-badge">CHANNEL 7</span>
+      <div class="ch-icon">🧾</div>
+      <h3>Accounting — Receipt Capture</h3>
+      <p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Receipt OCR</span><span class="tag">Draft journal</span><span class="tag">VAT extraction</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-p2p" style="border-color:#ec4899;">
+      <span class="ch-badge" style="background:#fce7f3;color:#be185d;">CHANNEL 8</span>
+      <div class="ch-icon">🗣️</div>
+      <h3>Voice AI — Phone STT &amp; TTS</h3>
+      <p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">On-device STT</span><span class="tag">TTS playback</span><span class="tag">Hands-free</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>How it connects</h2>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">🔐</div>
+      <div class="strip-body">
+        <h4>Tailscale-secured mesh</h4>
+        <p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔌</div>
+      <div class="strip-body">
+        <h4>Single WebSocket bridge</h4>
+        <p>The desktop runs <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🤖</div>
+      <div class="strip-body">
+        <h4>Termux on Android</h4>
+        <p>The signal server (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">📶</div>
+      <div class="strip-body">
+        <h4>LAN fallback</h4>
+        <p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732) and audio over UDP (port 47733) directly on the local network — same channels, no VPN overhead.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>Interested in the Companion App?</h3>
+    <p>Currently in testing — contact us to register interest or request a demo.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="index.html" class="btn">← Back to overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+    <a href="companion.html">Companion App</a><a href="companion.html">Companion App</a><a href="accounting.html">Accounting</a>
+    <a href="technician.html">PC Technician</a><a href="trading.html">Trading</a>
+    <a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
+</footer>
+</body>
+</html>
