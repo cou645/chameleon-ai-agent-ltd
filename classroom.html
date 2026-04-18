@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Classroom — Chameleon AI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html" class="active">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">🎓</div>
+  <h1>Language Classroom</h1>
+  <p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
+  <div class="hero-badges">
+    <span class="badge">📹 WebRTC video</span>
+    <span class="badge">🌐 Tailscale mesh</span>
+    <span class="badge">💳 Stripe · Alipay · PayPal</span>
+    <span class="badge">🔐 Enrolment DB</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Classroom mockup -->
+  <div class="classroom-grid">
+    <div class="student-tile teacher-tile">
+      <div class="av">👩‍🏫</div>
+      <div>Teacher</div>
+      <div class="status">● Live</div>
+    </div>
+    <div class="student-tile">
+      <div class="av">🧑</div>
+      <div>Student A</div>
+      <div class="status">● Connected</div>
+    </div>
+    <div class="student-tile">
+      <div class="av">👩</div>
+      <div>Student B</div>
+      <div class="status">● Connected</div>
+    </div>
+    <div class="student-tile">
+      <div class="av">🧒</div>
+      <div>Student C</div>
+      <div class="status">○ Joining…</div>
+    </div>
+    <div class="student-tile">
+      <div class="av">👦</div>
+      <div>Student D</div>
+      <div class="status">● Connected</div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>Live Video Lessons</h2>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">📹</div>
+      <div class="strip-body">
+        <h4>WebRTC peer-to-peer video</h4>
+        <p>Low-latency video and audio via WebRTC — no central media server. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay over WebSocket on port 8766. Runs on Termux on Android too.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔐</div>
+      <div class="strip-body">
+        <h4>Tailscale-secured connections</h4>
+        <p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🎭</div>
+      <div class="strip-body">
+        <h4>Integrated Kameleon Presenter</h4>
+        <p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🗣️</div>
+      <div class="strip-body">
+        <h4>Pronunciation widget</h4>
+        <p>Built-in pronunciation coaching widget (<code>pronunciation_widget.py</code>) with phoneme-level feedback — ideal for language teaching where precise articulation matters.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🌐</div>
+      <div class="strip-body">
+        <h4>LAN video fallback</h4>
+        <p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Payments &amp; Enrolment</h2>
+    <p>Accept payment from students worldwide before granting lesson access</p>
+  </div>
+
+  <div class="payment-logos">
+    <div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">(GBP primary)</span></div>
+    <div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Chinese students)</span></div>
+    <div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(fallback)</span></div>
+  </div>
+
+  <div class="cards" style="margin-top:1.5rem;">
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>Course &amp; enrolment DB</h3>
+      <p>Courses and student enrolments stored in <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Multi-currency support</h3>
+      <p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📸</div>
+      <h3>WeChat screenshot payments</h3>
+      <p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Payment links</h3>
+      <p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Payment Command Reference</h2>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>AI Command</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>payment_create_course</code></td><td>Create a new course with price, title and description</td></tr>
+      <tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
+      <tr><td><code>payment_status</code></td><td>Check a student's payment and enrolment status</td></tr>
+      <tr><td><code>payment_enrol</code></td><td>Manually enrol a student (e.g. after cash payment)</td></tr>
+      <tr><td><code>payment_revoke</code></td><td>Remove a student's enrolment access</td></tr>
+      <tr><td><code>payment_unpaid</code></td><td>List all students with outstanding balances</td></tr>
+      <tr><td><code>payment_screenshot</code></td><td>Log a WeChat Pay screenshot as proof of payment</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta-band">
+    <h3>Launch your online language school</h3>
+    <p>Everything you need — video, slides, payments and enrolment — in a single desktop application.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="index.html" class="btn">← Back to overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+    <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a><a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Built by Marcos M Contant</p>
+</footer>
+</body>
+</html>

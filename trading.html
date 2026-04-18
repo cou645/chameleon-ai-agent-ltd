@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Trading — Chameleon AI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .regime-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width:600px) { .regime-grid { grid-template-columns: 1fr; } }
+    .regime-card {
+      border-radius: var(--radius); padding: 1.4rem;
+      border: 1px solid var(--border); background: white; box-shadow: var(--shadow);
+    }
+    .regime-card h4 { margin-bottom: .4rem; }
+    .ranging h4 { color: #3b82f6; }
+    .volatile h4 { color: #f59e0b; }
+    .ticker-strip {
+      background: #0f0f1a; border-radius: var(--radius); padding: 1rem 1.5rem;
+      display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+    .ticker { text-align: center; }
+    .ticker .sym { font-family: monospace; font-size: .8rem; color: #6b7280; }
+    .ticker .price { font-family: monospace; font-size: 1.1rem; font-weight: 700; }
+    .ticker .up { color: #4ade80; }
+    .ticker .dn { color: #f87171; }
+    .ticker .chg { font-size: .78rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html" class="active">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">📈</div>
+  <h1>Crypto Trading Engine</h1>
+  <p class="sub">Active position management on Binance — spot, futures and margin — with AI-adaptive trailing stops, regime detection and WebSocket live feeds.</p>
+  <div class="hero-badges">
+    <span class="badge">⚡ Binance WebSocket feeds</span>
+    <span class="badge">🔄 Trailing stops</span>
+    <span class="badge">📊 Regime detection</span>
+    <span class="badge">🧪 Testnet first</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Fake ticker strip for visual interest -->
+  <div class="ticker-strip">
+    <div class="ticker"><div class="sym">BTC/USDT</div><div class="price up">$83,412</div><div class="chg up">+2.4%</div></div>
+    <div class="ticker"><div class="sym">ETH/USDT</div><div class="price up">$3,104</div><div class="chg up">+1.8%</div></div>
+    <div class="ticker"><div class="sym">BNB/USDT</div><div class="price dn">$598</div><div class="chg dn">−0.6%</div></div>
+    <div class="ticker"><div class="sym">SOL/USDT</div><div class="price up">$168</div><div class="chg up">+3.1%</div></div>
+    <div class="ticker"><div class="sym">Position P&L</div><div class="price up">+£412.50</div><div class="chg up">Open: 3</div></div>
+  </div>
+
+  <div class="section-title">
+    <h2>Position Management</h2>
+    <p>Active positions tracked in real time with adaptive exit rules</p>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">📌</div>
+      <div class="strip-body">
+        <h4>Trailing stops</h4>
+        <p>Trailing stop activates once a position is up <strong>+2%</strong>. The stop follows the price upward and locks in profit if the market reverses. Configurable activation threshold per strategy.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">📊</div>
+      <div class="strip-body">
+        <h4>Scale-in at +3%</h4>
+        <p>When a winning position reaches <strong>+3%</strong>, the engine adds to the position (scale-in) to maximise gains on trending moves. Maximum 3 scale-ins per position to control risk.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">⏱️</div>
+      <div class="strip-body">
+        <h4>Time exits</h4>
+        <p>Positions that have been flat (< ±0.3%) for <strong>30 minutes</strong> are closed automatically. Flat markets tie up margin and accumulate fees — time exits free capital for better opportunities.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🐳</div>
+      <div class="strip-body">
+        <h4>Whale-aware strategy</h4>
+        <p>The <code>whale_aware_strategy.py</code> module monitors order-book depth for large block orders that indicate institutional activity. Positions are sized and timed to avoid being caught on the wrong side of whale moves.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Adaptive Regime Detection</h2>
+    <p>Stop distances adjust automatically based on whether the market is ranging or volatile</p>
+  </div>
+
+  <div class="regime-grid">
+    <div class="regime-card ranging">
+      <h4>🔵 Ranging market</h4>
+      <p>Tight <strong>1% stop</strong> — in a sideways chop, wide stops give up too much ground before the market moves in your favour. Tighter exits protect capital and allow re-entry.</p>
+    </div>
+    <div class="regime-card volatile">
+      <h4>🟡 Volatile market</h4>
+      <p>Wider <strong>3% stop</strong> — in high-volatility regimes, tight stops get hit by noise. The wider stop rides out normal swings while still protecting against a true reversal.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Markets Supported</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🪙</div>
+      <h3>Spot trading</h3>
+      <p>Standard buy/sell of crypto assets on Binance spot markets. Full order-book access, market and limit orders, real-time P&amp;L tracking per position.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Futures (USDⓈ-M)</h3>
+      <p>Leveraged long and short positions on Binance USDⓈ-M perpetual futures. Margin management, liquidation monitoring and funding-rate tracking included.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <h3>Margin trading</h3>
+      <p>Cross and isolated margin on Binance margin accounts. Borrow, repay and track interest automatically as part of position lifecycle management.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Setup &amp; Safety</h2>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Step</th><th>Command</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>1. Configure API keys</td><td><code>python3 binance_setup.py --setup</code></td><td>Keys stored in <code>api_keys.env</code></td></tr>
+      <tr><td>2. Test on testnet</td><td><code>BINANCE_TESTNET=1 python3 strategy_live_runner.py</code></td><td>No real funds at risk</td></tr>
+      <tr><td>3. Run live</td><td><code>python3 strategy_live_runner.py</code></td><td>WebSocket feed, active position loop</td></tr>
+      <tr><td>4. Backtest strategy</td><td><code>python3 binance_backtest.py</code></td><td>Historical OHLCV replay</td></tr>
+      <tr><td>5. Anti-manipulation</td><td><code>python3 binance_anti_manip.py</code></td><td>Detects wash-trade and spoofing patterns</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta-band">
+    <h3>Automate your crypto strategy</h3>
+    <p>Contact us to discuss how Chameleon's trading engine can fit your workflow. Testnet setup included.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="index.html" class="btn">← Back to overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+    <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a><a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Built by Marcos M Contant</p>
+</footer>
+</body>
+</html>

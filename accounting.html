@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK Accounting — Chameleon AI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="accounting.html" class="active">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">📊</div>
+  <h1>UK Accounting</h1>
+  <p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+  <div class="hero-badges">
+    <span class="badge">🇬🇧 UK Chart of Accounts</span>
+    <span class="badge">📋 MTD-ready</span>
+    <span class="badge">🔒 Local SQLite</span>
+    <span class="badge">🤖 AI-parseable JSON output</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="section-title">
+    <h2>Double-Entry Ledger</h2>
+    <p>Every transaction balanced to the penny — debits always equal credits</p>
+  </div>
+
+  <div class="ledger-sample">
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
+────────────┼──────────────────────────┼───────────┼────────────┼────
+2026-04-01  │ 4000 Sales Revenue       │           │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
+2026-04-01  │ 1100 Trade Debtors       │ <span class="dr">1,440.00</span>  │            │
+────────────┼──────────────────────────┼───────────┼────────────┼────
+2026-04-05  │ 6100 Office Expenses     │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │            │
+2026-04-05  │ 1200 Bank Current        │           │    <span class="cr">102.00</span>  │
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>UK Chart of Accounts</h3>
+      <p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🗄️</div>
+      <h3>SQLite ledger</h3>
+      <p>All data stored in <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Runs completely offline. Multiple company support — switch between entities with a command flag.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <h3>UK tax year</h3>
+      <p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>Forensic anomaly scan</h3>
+      <p>Run <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>AI-readable output</h3>
+      <p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>WebSocket bridge</h3>
+      <p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>VAT Codes Supported</h2>
+  </div>
+
+  <div class="vat-grid">
+    <div class="vat-code"><div class="vc">S20</div><p>Standard rate 20%</p></div>
+    <div class="vat-code"><div class="vc">R5</div><p>Reduced rate 5%</p></div>
+    <div class="vat-code"><div class="vc">Z</div><p>Zero-rated</p></div>
+    <div class="vat-code"><div class="vc">E</div><p>Exempt</p></div>
+    <div class="vat-code"><div class="vc">O</div><p>Out of scope</p></div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Reports</h2>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">📈</div>
+      <div class="strip-body">
+        <h4>Profit &amp; Loss</h4>
+        <p>Income vs expenses for the period. Sales, cost of goods, gross profit, operating expenses, net profit — all broken down by account code. Run with <code>--report pl</code>.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">⚖️</div>
+      <div class="strip-body">
+        <h4>Balance Sheet</h4>
+        <p>Assets, liabilities and equity at a point in time. Confirms double-entry integrity — assets must equal liabilities plus equity. Run with <code>--report bs</code>.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🧾</div>
+      <div class="strip-body">
+        <h4>VAT Return Summary</h4>
+        <p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>CLI Quick Reference</h2>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Profit &amp; Loss for current tax year</td></tr>
+      <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Balance Sheet as of today</td></tr>
+      <tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
+      <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Anomaly &amp; integrity scan</td></tr>
+      <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Full command reference</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta-band">
+    <h3>Streamline your UK bookkeeping</h3>
+    <p>Purpose-built for freelancers and small businesses operating under UK tax rules.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="index.html" class="btn">← Back to overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+    <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a><a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Built by Marcos M Contant</p>
+</footer>
+</body>
+</html>

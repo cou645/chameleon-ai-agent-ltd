@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chameleon AI — Adaptive Intelligence Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .feature-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 2.5rem 0;
+    }
+    .feature-nav a {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: .5rem;
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-nav a .fn-icon { font-size: 2.4rem; }
+    .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
+    .feature-nav a span { color: var(--muted); font-size: .85rem; }
+    .intro-block {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2.5rem;
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+    }
+    .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
+    .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
+    .license-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
+    }
+    .license-pill {
+      background: #eeeeff; border: 1px solid var(--border);
+      border-radius: 50px; padding: .5rem 1.2rem;
+      font-size: .88rem; color: var(--brand-start); font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon"><img src="icon.png" alt="Chameleon AI" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"></div>
+  <h1>Chameleon AI Platform</h1>
+  <p class="sub">A complete AI-powered desktop suite — IDE, presenter, accounting, trading, classroom and more. Built for freelancers and small businesses.</p>
+  <div class="hero-badges">
+    <span class="badge"><span class="pulse"></span> Actively developed</span>
+    <span class="badge">🇬🇧 UK Business</span>
+    <span class="badge">🔒 Local-first / Privacy-first</span>
+    <span class="badge">🐧 Linux · Windows · macOS</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="intro-block">
+    <h2>One platform. Eight disciplines.</h2>
+    <p>Chameleon AI is a PyQt6 desktop application built by Marcos M Contant for Chameleon AI Technicians Ltd. It bundles a professional AI code editor, a theatre-inspired presentation system, full UK double-entry accounting, Binance crypto trading, language-teaching video classrooms, P2P networking and more — all running locally on your machine with no cloud dependency.</p>
+    <p>AI providers are swappable at runtime: DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot and more. Keys never leave your device.</p>
+    <div class="license-row">
+      <span class="license-pill">GPL 3.0 — Personal / unpaid use</span>
+      <span class="license-pill">UAL — Commercial / paid use</span>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>Explore the Platform</h2>
+    <p>Click any feature to learn more</p>
+  </div>
+
+  <nav class="feature-nav">
+    <a href="ide.html">
+      <span class="fn-icon">🧠</span>
+      <strong>AI IDE</strong>
+      <span>Multi-provider AI code editor with voice, diff view &amp; command bridge</span>
+    </a>
+    <a href="presenter.html">
+      <span class="fn-icon">🎭</span>
+      <strong>Kameleon Presenter</strong>
+      <span>Theatre-metaphor slides with live mobile control &amp; collaborative drawing</span>
+    </a>
+    <a href="accounting.html">
+      <span class="fn-icon">📊</span>
+      <strong>Accounting</strong>
+      <span>UK double-entry ledger, VAT, P&amp;L, Balance Sheet — Making Tax Digital ready</span>
+    </a>
+    <a href="technician.html">
+      <span class="fn-icon">🔧</span>
+      <strong>AI PC Technician</strong>
+      <span>AI-guided system repair, USB driver profiler &amp; Linux kernel module generator</span>
+    </a>
+    <a href="trading.html">
+      <span class="fn-icon">📈</span>
+      <strong>Crypto Trading</strong>
+      <span>Binance spot, futures &amp; margin with AI trailing stops and regime detection</span>
+    </a>
+    <a href="classroom.html">
+      <span class="fn-icon">🎓</span>
+      <strong>Language Classroom</strong>
+      <span>WebRTC video teaching, Tailscale mesh, Stripe/Alipay/PayPal payments</span>
+    </a>
+    <a href="contact.html">
+      <span class="fn-icon">✉️</span>
+      <strong>Contact &amp; Licensing</strong>
+      <span>Get in touch, request a demo or purchase a commercial licence</span>
+    </a>
+  </nav>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Platform Highlights</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🔒</div>
+      <h3>Local-first privacy</h3>
+      <p>All data — ledgers, chat history, trading positions — lives in <code>~/.chameleon/</code> on your machine. Nothing is sent to a third-party server unless you explicitly choose a cloud AI provider.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <h3>Swappable AI providers</h3>
+      <p>Switch between DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot and more in one click. Run local models via Ollama or LM Studio with zero cost.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Mobile companion</h3>
+      <p>Android bridge over WebSocket relays AI chat, screenshots and file uploads from your phone. Control the presenter, trigger recordings and approve submissions remotely.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Tailscale mesh</h3>
+      <p>Peer-to-peer video and voice over your own Tailscale network. Manage ACLs, device authorisation and keys directly from the IDE.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎙️</div>
+      <h3>Voice in, voice out</h3>
+      <p>Whisper-based speech-to-text for hands-free coding. Piper TTS reads AI responses aloud. Dictate code, documentation or messages naturally.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🐧</div>
+      <h3>Cross-platform</h3>
+      <p>Runs on Linux, Windows and macOS. Platform-specific paths, audio players and TTS binaries are abstracted in <em>platform_utils.py</em> — one codebase everywhere.</p>
+    </div>
+  </div>
+
+  <!-- SCREENSHOTS: drop real images in here when ready
+       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>See it in action</h2>
+    <p>Screenshots coming soon</p>
+  </div>
+  <div class="screenshots">
+    <div class="screenshot-frame">
+      <div class="screenshot-placeholder">
+        <div class="ph-icon">🧠</div>
+        <strong>AI IDE</strong>
+        <span>ide-main.png</span>
+      </div>
+      <div class="screenshot-caption">AI IDE — chat panel, code editor, diff view</div>
+    </div>
+    <div class="screenshot-frame">
+      <div class="screenshot-placeholder">
+        <div class="ph-icon">🎭</div>
+        <strong>Kameleon Presenter</strong>
+        <span>presenter-stage.png</span>
+      </div>
+      <div class="screenshot-caption">Kameleon Presenter — stage with live student submissions</div>
+    </div>
+    <div class="screenshot-frame phone">
+      <div class="screenshot-placeholder phone-ratio">
+        <div class="ph-icon">📱</div>
+        <strong>Android app</strong>
+        <span>android-companion.png</span>
+      </div>
+      <div class="screenshot-caption">Android companion — AI chat &amp; presenter remote</div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>Ready to see Chameleon in action?</h3>
+    <p>Contact us for a demo or to discuss licensing for your business.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="mailto:stemsee@chameleon-ai-agent-ltd.net" class="btn">stemsee@chameleon-ai-agent-ltd.net</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="ide.html">AI IDE</a>
+    <a href="presenter.html">Presenter</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a>
+    <a href="classroom.html">Classroom</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · GPL 3.0 / UAL · Built by Marcos M Contant</p>
+</footer>
+
+</body>
+</html>

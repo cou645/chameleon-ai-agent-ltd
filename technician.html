@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI PC Technician — Chameleon AI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html" class="active">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">🔧</div>
+  <h1>AI PC Technician</h1>
+  <p class="sub">AI-guided system diagnosis and repair — plus a USB device profiler that reverse-engineers hardware protocols and generates Linux kernel drivers automatically.</p>
+  <div class="hero-badges">
+    <span class="badge">🔬 Hardware profiling</span>
+    <span class="badge">🐧 Kernel module generation</span>
+    <span class="badge">🌐 Remote via Tailscale</span>
+    <span class="badge">⚡ ARM cross-compile</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="section-title">
+    <h2>AI-Guided System Repair</h2>
+    <p>The AI follows a structured surgical protocol — diagnose before touching, verify at every step</p>
+  </div>
+
+  <div class="terminal-block">
+<span class="comment"># Chameleon AI diagnosis sequence</span>
+<span class="cmd">$ lsusb -v | head -80</span>
+<span class="out">Bus 002 Device 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ dmesg | tail -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: renamed from eth0</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152    94208  0</span>
+<span class="cmd">$ modinfo r8152 | grep version</span>
+<span class="out">version: v1.12.13</span>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">🔍</div>
+      <div class="strip-body">
+        <h4>Structured diagnosis sequence</h4>
+        <p>Hardware → kernel state → driver status → network → storage. The AI runs each step, reads the JSON result, then decides the next action. It never skips steps or makes assumptions.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🏥</div>
+      <div class="strip-body">
+        <h4>Surgical repair protocol</h4>
+        <p>Non-destructive first (reload module, restart service). Persist before risk (snapshot config). Verify at each step. Every reboot-requiring action triggers a Dead Man's Switch that sets a <code>@reboot</code> resume script automatically.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🌐</div>
+      <div class="strip-body">
+        <h4>Remote repair over Tailscale</h4>
+        <p>Diagnose and repair machines anywhere on your Tailscale mesh. The AI issues commands on the remote machine via the terminal bridge, reads results and continues — even across reboots using the checkpoint/resume system.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>USB Driver Porter</h2>
+    <p>Profile any USB device → analyse its protocol → generate a ready-to-install Linux driver</p>
+  </div>
+
+  <div class="path-cards">
+    <div class="path-card path-a">
+      <div class="path-label">Path A</div>
+      <h4>Standard protocols</h4>
+      <p>No vendor pages found. Generates udev rules + modprobe config. <strong>No compilation required.</strong> Works with HID, CDC, mass storage and other standard classes.</p>
+      <div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+    </div>
+    <div class="path-card path-b">
+      <div class="path-label">Path B</div>
+      <h4>Partial vendor protocol</h4>
+      <p>Vendor pages detected (≤2). Generates a hidraw/uhid userspace daemon or ALSA plugin. Runs in user space — no kernel compilation needed.</p>
+      <div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">hidraw</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">ALSA plugin</span></div>
+    </div>
+    <div class="path-card path-c">
+      <div class="path-label">Path C</div>
+      <h4>Proprietary protocol</h4>
+      <p>Fully custom protocol. Generates a complete kernel module with DKMS packaging and ARM cross-compile support for Raspberry Pi 3, 4 and 5.</p>
+      <div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Kernel module</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">ARM</span></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:2rem;">
+    <h2>Profiler Workflow</h2>
+  </div>
+
+  <div class="terminal-block">
+<span class="comment"># Step 1 — profile the device (30-second capture)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Profiling USB 1234:5678 for 30s...
+Wrote ~/.chameleon/drivers/1234_5678/profile.json</span>
+
+<span class="comment"># Step 2 — generate the driver</span>
+<span class="cmd">$ python3 device_porter.py --latest</span>
+<span class="out">Path selected: C (proprietary, 3 vendor pages)
+Generated: /tmp/driver_1234_5678/
+  ├── chameleon_1234_5678.c
+  ├── Makefile          (cross-aarch64, cross-armv7)
+  ├── install.sh
+  ├── test_device.sh
+  └── analysis.json</span>
+
+<span class="comment"># Step 3 — install</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS — device /dev/chameleon0 responds correctly</span>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🖥️</div>
+      <h3>Cross-platform capture backends</h3>
+      <p>ETW on Windows, IOKit on macOS, usbmon on Linux. Profile on any OS and generate a Linux driver from the resulting <code>profile.json</code>.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🍓</div>
+      <h3>Raspberry Pi cross-compile</h3>
+      <p>Makefile targets <code>cross-aarch64</code> (Pi 4/5) and <code>cross-armv7</code> (Pi 3) are included automatically in Path C. Build on x86 and deploy to ARM.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <h3>DKMS packaging</h3>
+      <p>Path C drivers are packaged for DKMS so they survive kernel upgrades without manual recompilation. The AI reviews <code>analysis.json</code> and prompts for any remaining TODO stubs.</p>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>Fix the unfixable</h3>
+    <p>Whether it's a kernel panic, a dead USB device or a proprietary peripheral with no Linux support — Chameleon AI PC Technician has you covered.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="index.html" class="btn">← Back to overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+    <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a><a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Built by Marcos M Contant</p>
+</footer>
+</body>
+</html>

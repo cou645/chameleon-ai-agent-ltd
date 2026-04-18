@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Licensing — Chameleon AI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    @media (max-width: 680px) { .contact-layout { grid-template-columns: 1fr; } }
+    .contact-box {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2rem; box-shadow: var(--shadow);
+    }
+    .contact-box h3 { color: var(--brand-start); margin-bottom: 1rem; font-size: 1.2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.2rem; }
+    .contact-item .ci { font-size: 1.6rem; flex-shrink: 0; margin-top: .1rem; }
+    .contact-item a { color: var(--brand-start); text-decoration: none; font-weight: 500; }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-item p { color: var(--muted); font-size: .9rem; margin-top: .15rem; }
+    .lic-table { width: 100%; border-collapse: collapse; }
+    .lic-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .9rem;
+    }
+    .lic-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); font-size: .9rem; color: var(--muted); }
+    .lic-table tr:last-child td { border-bottom: none; }
+    .lic-table .yes { color: #16a34a; font-weight: 600; }
+    .lic-table .no  { color: #dc2626; font-weight: 600; }
+    .faq { margin-top: 2rem; }
+    .faq-item { background: white; border-radius: var(--radius); border: 1px solid var(--border); padding: 1.3rem 1.5rem; margin-bottom: .8rem; box-shadow: var(--shadow); }
+    .faq-item h4 { color: var(--brand-start); margin-bottom: .4rem; }
+    .faq-item p  { color: var(--muted); font-size: .93rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">✉️</div>
+  <h1>Contact &amp; Licensing</h1>
+  <p class="sub">Get in touch for demos, commercial licences, custom integrations or general enquiries. We're a small UK business — you'll speak directly with the developer.</p>
+  <div class="hero-badges">
+    <span class="badge">🇬🇧 UK company</span>
+    <span class="badge">⚡ Fast response</span>
+    <span class="badge">🤝 Direct with developer</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="contact-layout">
+    <div class="contact-box">
+      <h3>Get in touch</h3>
+
+      <div class="contact-item">
+        <div class="ci">📧</div>
+        <div>
+          <a href="mailto:stemsee@chameleon-ai-agent-ltd.net">stemsee@chameleon-ai-agent-ltd.net</a>
+          <p>Primary contact — demos, licensing, support</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci">🏢</div>
+        <div>
+          <strong>Chameleon AI Technicians Ltd</strong>
+          <p>Registered in England &amp; Wales · Freelance AI tooling for businesses and individuals</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci">👤</div>
+        <div>
+          <strong>Marcos M Contant</strong>
+          <p>Lead developer — all enquiries answered personally</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci">⏱️</div>
+        <div>
+          <strong>Response time</strong>
+          <p>Typically within 1 business day (UK hours)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <h3>What to include in your email</h3>
+      <ul style="color:var(--muted);padding-left:1.2rem;line-height:2.1;">
+        <li>Which features interest you most</li>
+        <li>Your intended use case (personal / business / classroom)</li>
+        <li>Number of users or seats required</li>
+        <li>Your operating system (Linux / Windows / macOS)</li>
+        <li>Any integration or customisation requirements</li>
+        <li>Whether you'd like a live demo (video call)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Licensing</h2>
+    <p>Two licences depending on how you use Chameleon AI</p>
+  </div>
+
+  <div class="split">
+    <div class="card">
+      <div class="card-icon">🆓</div>
+      <h3>GPL 3.0 — Personal use</h3>
+      <p>Free for personal, unpaid use. You may study, modify and redistribute the source code under the terms of the GNU General Public Licence v3.</p>
+      <ul style="margin-top:.8rem;color:var(--muted);padding-left:1.1rem;font-size:.93rem;line-height:2;">
+        <li>Personal projects ✓</li>
+        <li>Learning &amp; experimentation ✓</li>
+        <li>Modifications must remain GPL 3.0 ✓</li>
+        <li>Paid commercial use ✗</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h3>UAL — Commercial use</h3>
+      <p>A Unique Arbitrary Licence (UAL) is required for any paid or commercial use — running a language school, billing clients with the accounting module, operating a trading desk, etc.</p>
+      <ul style="margin-top:.8rem;color:var(--muted);padding-left:1.1rem;font-size:.93rem;line-height:2;">
+        <li>Commercial operations ✓</li>
+        <li>Client-facing deployments ✓</li>
+        <li>Private modifications allowed ✓</li>
+        <li>Contact us to discuss pricing ✓</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Feature Comparison</h2>
+  </div>
+
+  <table class="lic-table" style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+    <thead><tr><th>Use case</th><th>GPL 3.0 (Free)</th><th>UAL (Commercial)</th></tr></thead>
+    <tbody>
+      <tr><td>Personal coding &amp; AI chat</td><td class="yes">✓ Free</td><td class="yes">✓ Included</td></tr>
+      <tr><td>Personal accounting records</td><td class="yes">✓ Free</td><td class="yes">✓ Included</td></tr>
+      <tr><td>Self-directed crypto trading</td><td class="yes">✓ Free</td><td class="yes">✓ Included</td></tr>
+      <tr><td>Teaching students &amp; charging fees</td><td class="no">✗ Requires UAL</td><td class="yes">✓ Included</td></tr>
+      <tr><td>Billing clients with the accounting module</td><td class="no">✗ Requires UAL</td><td class="yes">✓ Included</td></tr>
+      <tr><td>Deploying for a team or organisation</td><td class="no">✗ Requires UAL</td><td class="yes">✓ Included</td></tr>
+      <tr><td>SaaS or managed-service deployment</td><td class="no">✗ Requires UAL</td><td class="yes">✓ Contact us</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq">
+    <div class="faq-item">
+      <h4>Can I try Chameleon before purchasing a commercial licence?</h4>
+      <p>Yes — install under GPL 3.0 for personal evaluation. When you're ready to use it commercially, contact us to discuss UAL pricing. We're happy to arrange a live demo via video call first.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Does it work without an internet connection?</h4>
+      <p>Most features work offline: the editor, accounting, presenter and the driver porter all run locally. AI features require an internet connection for cloud providers (DeepSeek, OpenAI, etc.) but work offline with a local Ollama or LM Studio instance.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Which platforms are supported?</h4>
+      <p>Linux is the primary development platform. Windows and macOS are supported via <code>platform_utils.py</code>. The Android companion app connects over WebSocket to the desktop application.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can you add a feature or integrate with our system?</h4>
+      <p>Yes — custom integrations are available under the UAL. Contact us with your requirements. Common requests include custom AI providers, bespoke accounting workflows and Tailscale ACL automation.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Are API keys safe?</h4>
+      <p>API keys are stored in <code>api_keys.env</code> on your local machine and never transmitted anywhere other than the provider you choose. The read-only DB API server (port 8769) is restricted to your Tailscale network.</p>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>Ready to talk?</h3>
+    <p>Drop us an email and we'll get back to you within one business day.</p>
+    <a href="mailto:stemsee@chameleon-ai-agent-ltd.net" class="btn btn-solid">stemsee@chameleon-ai-agent-ltd.net</a>
+    <a href="index.html" class="btn">← Back to overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+    <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a><a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Built by Marcos M Contant</p>
+</footer>
+</body>
+</html>
