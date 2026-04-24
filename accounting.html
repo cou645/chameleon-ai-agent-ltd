@@ -150,6 +150,60 @@
   </div>
 
   <div class="section-title" style="margin-top:3rem;">
+    <h2>Invoicing</h2>
+    <p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">🧾</div>
+      <div class="strip-body">
+        <h4>UK-compliant invoice fields</h4>
+        <p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🏢</div>
+      <div class="strip-body">
+        <h4>Company Setup</h4>
+        <p>Open <em>File → Invoices → Company Setup</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> alongside the ledger and auto-loaded whenever invoices are generated for that client.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">👥</div>
+      <div class="strip-body">
+        <h4>Customer contacts database</h4>
+        <p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🖨️</div>
+      <div class="strip-body">
+        <h4>Print, PDF and send to phone</h4>
+        <p>From the Invoice Manager (<em>File → Invoices…</em>) select any invoice and choose: <strong>Print</strong> (opens the OS print dialog — any printer or PDF driver), <strong>Save PDF</strong> (directly to disk via Qt's built-in PDF export), or <strong>Send to Phone</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards" style="margin-top:1.5rem;">
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <h3>Date of supply</h3>
+      <p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Mobile invoice printing</h3>
+      <p>The Companion app can print any invoice wirelessly. Tap the print icon on any invoice row — the app fetches the HTML from the IDE, converts it to PDF on-device via the <code>printing</code> package, and opens the Android system print dialog.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✅</div>
+      <h3>HMRC Notice 700 compliance</h3>
+      <p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
     <h2>CLI Quick Reference</h2>
   </div>
 

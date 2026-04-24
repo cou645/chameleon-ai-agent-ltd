@@ -105,10 +105,11 @@
 <div class="hero">
   <div class="hero-icon">📱</div>
   <h1>Chameleon Companion App</h1>
-  <p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, P2P video, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
+  <p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
   <div class="hero-badges">
     <span class="badge">🤖 AI chat via STT/TTS</span>
-    <span class="badge">📹 P2P video</span>
+    <span class="badge">📹 Group P2P video (4+)</span>
+    <span class="badge">📞 SIM call bridge</span>
     <span class="badge">🎭 Presenter remote</span>
     <span class="badge">🌐 Tailscale-secured</span>
     <span class="badge">🖥️ Screen / VNC</span>
@@ -186,10 +187,20 @@
     <div class="channel-card ch-p2p">
       <span class="ch-badge">CHANNEL 2</span>
       <div class="ch-icon">📹</div>
-      <h3>P2P Video &amp; Voice</h3>
-      <p>WebRTC peer-to-peer video and audio between phone and desktop (or between multiple peers). The Chameleon signal server handles SDP and ICE negotiation over WebSocket on port 8766 — runs on Termux on Android as well as desktop. No central media server; no monthly streaming bill.</p>
+      <h3>Group P2P Video &amp; Voice</h3>
+      <p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Group video</strong> to call all online peers at once. The grid adapts automatically as participants join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid. Your local feed floats as a picture-in-picture. Bitrate scales down per peer to keep quality balanced at any group size.</p>
       <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">WebRTC</span><span class="tag">Tailscale P2P</span><span class="tag">Termux</span>
+        <span class="tag">WebRTC full-mesh</span><span class="tag">Adaptive grid</span><span class="tag">PiP local feed</span><span class="tag">Termux signal server</span>
+      </div>
+    </div>
+
+    <div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
+      <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">SIM BRIDGE</span>
+      <div class="ch-icon">📞</div>
+      <h3>SIM Call Bridge</h3>
+      <p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Add to call group</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>earpiece only</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Hardware conference</span><span class="tag">BT SCO fallback</span><span class="tag">Earpiece only</span><span class="tag">ConnectionService</span>
       </div>
     </div>
 

@@ -92,6 +92,16 @@
       <div>Student D</div>
       <div class="status">● Connected</div>
     </div>
+    <div class="student-tile">
+      <div class="av">👩‍💼</div>
+      <div>Student E</div>
+      <div class="status">● Connected</div>
+    </div>
+    <div class="student-tile">
+      <div class="av">🧑‍🎓</div>
+      <div>Student F</div>
+      <div class="status">○ Joining…</div>
+    </div>
   </div>
 
   <div class="section-title">
@@ -102,8 +112,8 @@
     <div class="strip-item">
       <div class="strip-icon">📹</div>
       <div class="strip-body">
-        <h4>WebRTC peer-to-peer video</h4>
-        <p>Low-latency video and audio via WebRTC — no central media server. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay over WebSocket on port 8766. Runs on Termux on Android too.</p>
+        <h4>WebRTC group video — 4+ participants</h4>
+        <p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
       </div>
     </div>
     <div class="strip-item">
@@ -132,6 +142,42 @@
       <div class="strip-body">
         <h4>LAN video fallback</h4>
         <p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Telecom &amp; SIM Call Bridge</h2>
+    <p>Connect app calls and real SIM phone calls into a single multi-way conversation — directly from the Companion app</p>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">📞</div>
+      <div class="strip-body">
+        <h4>Two kinds of call — one conversation</h4>
+        <p>The Companion app supports two parallel call channels: an <strong>App Call</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>SIM Call</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>and</em> simultaneously make a SIM call to a third party, then conference them together for a multi-way conversation — without leaving the app.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">📊</div>
+      <div class="strip-body">
+        <h4>Telecom status bar</h4>
+        <p>A persistent status bar at the top of the Companion app shows the live state of both channels: idle, ringing, in-call, or muted. A single glance tells you which calls are active. Each channel has independent mute and end controls — ending the SIM call does not drop the app call, and vice versa.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔀</div>
+      <div class="strip-body">
+        <h4>Multi-way lesson flow</h4>
+        <p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔴</div>
+      <div class="strip-body">
+        <h4>UK call recording law — all parties must be notified</h4>
+        <p>Under RIPA 2000 and the Telecommunications (Lawful Business Practice) Regulations, a party recording a call may do so without the other party's consent for their own lawful use — but for the recording to be <strong>admissible in court</strong> all parties must be informed before the recording begins. The Companion app displays a prominent <strong>🔴 RECORDING</strong> banner to all connected participants whenever recording is active. For SIM callers, verbal notification is required at the start of the call. Voice data is personal data under GDPR and must be handled accordingly.</p>
       </div>
     </div>
   </div>
