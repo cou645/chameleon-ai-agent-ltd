@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logistics 4×4 — Cross-Border Fleet Communications</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TESTING IN PROGRESS — This site is under active development. Features, pricing and licensing are not finalised.
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="ide.html">AI IDE</a>
+      <a href="presenter.html">Presenter</a>
+      <a href="companion.html">Companion App</a>
+      <a href="logistics4x4.html" class="active">Logistics 4×4</a>
+      <a href="accounting.html">Accounting</a>
+      <a href="technician.html">PC Technician</a>
+      <a href="trading.html">Trading</a>
+      <a href="classroom.html">Classroom</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-icon">🚛</div>
+  <h1>Logistics 4×4</h1>
+  <p class="sub">Cross-border fleet communications for small operators. Four SIM callers and four P2P video peers share a single call space — driver at the border, head office, customs, customer — all in the room at once. Live maps, GPX routes, cargo manifests, translated voice chat and emergency broadcasts, all on a standard Android phone.</p>
+  <div class="hero-badges">
+    <span class="badge">📹 4 video peers</span>
+    <span class="badge">📞 4 SIM callers</span>
+    <span class="badge">🗺 Live maps + GPX</span>
+    <span class="badge">🧭 Offline compass</span>
+    <span class="badge">🌍 15 languages</span>
+    <span class="badge">📋 Manifest + run sheet</span>
+    <span class="badge">🚨 Emergency broadcast</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ── Intro split ───────────────────────────────────────────────── -->
+  <div class="split" style="align-items:flex-start; gap:2rem;">
+    <div>
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="app-icon">🚛</div>
+            <span>Logistics 4×4</span>
+            <div class="phone-status">● Fleet online</div>
+          </div>
+          <div class="p-ticker p-ticker-instr">📋 Cross Waypoint 3 — stay on B4301</div>
+          <div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: &ldquo;Customs cleared, proceeding to gate 7&rdquo;</div>
+          <div class="p-chat p-chat-out">En route — ETA 14 min</div>
+          <div class="p-chat p-chat-in">Customer on SIM — connecting now…</div>
+          <div class="p-chat p-chat-out">📍 Location shared with fleet</div>
+          <div class="p-peers">
+            <span class="p-peer p-peer-on">🎥 Dispatch</span>
+            <span class="p-peer p-peer-on">🎥 Driver B</span>
+            <span class="p-peer p-peer-sim">📞 Customs</span>
+            <span class="p-peer p-peer-sim">📞 Customer</span>
+            <span class="p-peer p-peer-map">🗺 Map</span>
+            <span class="p-peer p-peer-map">🧭 Compass</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title" style="margin-top:0;">
+        <h2>The 4×4 call space</h2>
+        <p>SIM phone calls and P2P video share one connected space</p>
+      </div>
+      <div class="fourbyfour">
+        <div class="fbf-title">One call space — eight participants</div>
+        <div class="fbf-grid">
+          <div class="fbf-half fbf-sim">
+            <h4>📞 4 SIM callers</h4>
+            <ul>
+              <li>Standard cellular voice</li>
+              <li>No internet required</li>
+              <li>Customs officer</li>
+              <li>Customer abroad</li>
+              <li>Head office landline</li>
+            </ul>
+          </div>
+          <div class="fbf-half fbf-p2p">
+            <h4>📹 4 P2P video peers</h4>
+            <ul>
+              <li>WebRTC — no server bill</li>
+              <li>Full mesh video + audio</li>
+              <li>Driver to driver</li>
+              <li>Dispatch controller</li>
+              <li>Remote team member</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fbf-note">Audio from SIM calls is hardware-merged into the group call via Android's telecom stack or Bluetooth SCO — earpiece only, private.</div>
+      </div>
+      <p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistics 4×4 does not aim to replace a professional proprietary logistics platform like those used by large courier networks. It fills the gap for <strong>small operators</strong>, sole traders and situations a big-enterprise tool cannot reach — a driver at a remote border crossing who needs to connect instantly with head office, a second driver three miles back, the customs inspector in the booth, and the customer in another country who can only dial in by phone.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Who it is for</h2>
+    <p>Designed for high-stakes, low-infrastructure field communications</p>
+  </div>
+
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <div class="sc-icon">🛃</div>
+      <h4>Border crossing</h4>
+      <p>Driver connects the customs officer (SIM call), head office (video), the receiving customer (SIM call) and a second driver in convoy (video) — all simultaneously, with live translated chat visible to everyone.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-icon">🚚</div>
+      <h4>Long-haul convoy</h4>
+      <p>Trucks spread over 50 miles stay in a shared call with push-to-talk, location sharing on the same live map, and dispatcher route pushes arriving as GPX files loaded directly in the map.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-icon">🏕</div>
+      <h4>Off-road / trekking</h4>
+      <p>No data signal? The offline compass shows bearing arrows to every other fleet member. Add POI waypoints for navigation assistance. Long-range hotspot links between trucks with directional aerials can reach 50+ miles.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-icon">🌐</div>
+      <h4>Multilingual teams</h4>
+      <p>Push-to-talk transcribes speech, detects the speaker's language, translates, and delivers text + audio in each listener's own locale — 15 languages, powered by a local Argos Translate server on the phone.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-icon">📦</div>
+      <h4>Proof of delivery</h4>
+      <p>Driver scans the depot QR code to load the manifest, then scans the customer POD QR on delivery. Refused delivery? Capture a photo and a written exception note. Customer signature captured on screen.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-icon">🏢</div>
+      <h4>Dispatch office</h4>
+      <p>Dispatcher screen shows all drivers on the live map, runs the run sheet, pushes manifests and routes to individual drivers over the peer channel, and broadcasts emergency alerts fleet-wide.</p>
+    </div>
+  </div>
+
+  <!-- ── Map section ────────────────────────────────────────────────── -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Live Map &amp; Compass</h2>
+    <p>OSM, satellite and hybrid layers — peer locations, GPX routes and offline tile cache</p>
+  </div>
+
+  <div class="split" style="align-items:flex-start; gap:2rem;">
+    <div style="flex:1;">
+      <div class="map-preview">
+        <div class="map-roads"></div>
+        <div class="map-route"></div>
+        <div class="map-pin map-pin-a">📍</div>
+        <div class="map-pin map-pin-b">🚛</div>
+        <div class="map-pin map-pin-c">🚚</div>
+        <div class="map-pin map-pin-d">🏢</div>
+        <div class="map-overlay-tags">
+          <span class="map-tag mt-street">Street</span>
+          <span class="map-tag mt-sat">Satellite</span>
+          <span class="map-tag mt-hybrid">Hybrid</span>
+          <span class="map-tag mt-gpx">GPX route</span>
+          <span class="map-tag mt-offline">Offline cache</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">OpenStreetMap tiles</span>
+        <span class="tag">Esri World Imagery</span>
+        <span class="tag">2.5D buildings</span>
+        <span class="tag">OSRM routing</span>
+        <span class="tag">Nominatim place search</span>
+        <span class="tag">Disk tile cache</span>
+      </div>
+    </div>
+    <div style="flex:1.2;">
+      <div class="strip" style="flex-direction:column; gap:.8rem;">
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">🗺</div>
+          <div class="strip-body">
+            <h4>Three map layers</h4>
+            <p>Cycle between <strong>Street</strong> (OpenStreetMap), <strong>Satellite</strong> (Esri World Imagery) and <strong>Hybrid</strong> (satellite base + OSM road overlay) with a single tap. All tiles are disk-cached — previously viewed areas load offline without data.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">📍</div>
+          <div class="strip-body">
+            <h4>Peer locations on the map</h4>
+            <p>Every fleet member who enables location sharing appears as a live pin. Tap a pin to see their name and ETA. Dispatcher can see the whole fleet at a glance without a separate tracking platform.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">📁</div>
+          <div class="strip-body">
+            <h4>GPX route push</h4>
+            <p>Office pushes a <code>.gpx</code> route file from Chameleon PC directly to a driver's phone over the peer channel. The route loads instantly in the map as a coloured overlay. Recent routes are stored locally for reuse. Supports GCJ-02 coordinate offset correction for China.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">🔄</div>
+          <div class="strip-body">
+            <h4>Compass-lock or north-up</h4>
+            <p>Map rotates live with the device compass for heads-up driving orientation, or locks north-up for traditional map reading — toggle in settings per driver preference.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">🧭</div>
+          <div class="strip-body">
+            <h4>Compass screen — offline peer navigation</h4>
+            <p>No data? The full-screen compass rose shows a bearing arrow for each online peer using last-known GPS. Peer distances and compass headings update from cached locations — useful for trekkers, off-road convoy navigation and mountain rescue coordination.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Features grid ─────────────────────────────────────────────── -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>All features</h2>
+    <p>Every screen and service in the app</p>
+  </div>
+
+  <div class="feat-grid">
+
+    <div class="feat-card fc-video">
+      <span class="fc-badge">PEERS</span>
+      <div class="fc-icon">📹</div>
+      <h3>Group P2P Video</h3>
+      <p>Full-mesh WebRTC video and audio for up to 4+ peers — no central media server, no monthly call bill. Adaptive grid: 1 peer = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2. Local feed floats as picture-in-picture. Bitrate scales per peer (1.5 Mbps → 350 Kbps) to keep quality even at every group size. Incoming calls ring and vibrate even when the app is in the background.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">WebRTC full-mesh</span><span class="tag">Adaptive grid</span><span class="tag">PiP local</span><span class="tag">Ring + vibrate</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-sim">
+      <span class="fc-badge">SIM BRIDGE</span>
+      <div class="fc-icon">📞</div>
+      <h3>SIM Call Bridge</h3>
+      <p>In a cellular call and want to pull in a P2P peer? Tap <strong>Add to group</strong> — Android's telecom stack registers the WebRTC session alongside the SIM call and presents a native "Merge calls" option. Audio mixing happens in the telephony chip — <strong>earpiece only</strong>, fully private. When the device or carrier doesn't support hardware conference, Bluetooth SCO headset routing is used as a fallback.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Hardware conference</span><span class="tag">BT SCO fallback</span><span class="tag">Earpiece only</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-chat">
+      <span class="fc-badge">COMMS</span>
+      <div class="fc-icon">🗣️</div>
+      <h3>Push-to-Talk + Live Translation</h3>
+      <p>Hold the PTT button to speak — Android's speech recogniser (16 kHz, 16-bit) transcribes to text in real time. The detected language is sent to an on-device <strong>Argos Translate</strong> server. Each listener receives the message translated into their own selected locale and read aloud by TTS. Partial transcriptions stream as a live typing indicator while recording. Works over the P2P channel or standalone over a hotspot.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Auto language detect</span><span class="tag">Argos Translate</span><span class="tag">Live TTS readout</span><span class="tag">15 languages</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-ticker">
+      <span class="fc-badge">BROADCAST</span>
+      <div class="fc-icon">🚨</div>
+      <h3>Ticker &amp; Emergency Broadcast</h3>
+      <p>Dispatcher broadcasts a message fleet-wide — it appears as a full-width ticker bar at the top of every screen. Four priority levels: <strong style="color:#dc2626;">Emergency</strong> (flashing red, rate-limited per sender), <strong style="color:#dc2626;">Important</strong> (red on white), <strong style="color:#16a34a;">Instructions</strong> (black on green), <strong>Info</strong> (yellow on black). Messages can trigger TTS readout on recipient phones. Configurable TTL: 1 minute to &ldquo;until dismissed&rdquo;.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Fleet-wide broadcast</span><span class="tag">4 priority levels</span><span class="tag">TTS readout</span><span class="tag">Auto-expire</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-disp">
+      <span class="fc-badge">DISPATCHER</span>
+      <div class="fc-icon">🗂</div>
+      <h3>Dispatcher Dashboard</h3>
+      <p>Three-tab dispatcher view: <strong>Drivers</strong> (live positions, push manifests, assign routes), <strong>Run Sheet</strong> (drag-to-reorder multi-drop stops, tap-to-cycle status, CSV import/export) and <strong>Cargo Manifest</strong> (QR scan loading at depot, POD QR scan at delivery). Dispatcher can push GPX routes and invoice files directly to individual drivers over the peer channel.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Driver tracking</span><span class="tag">Manifest push</span><span class="tag">Route push</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-disp" style="border-color:#ea580c;">
+      <span class="fc-badge" style="background:#ffedd5;color:#c2410c;">MANIFEST</span>
+      <div class="fc-icon">📦</div>
+      <h3>Cargo Manifest</h3>
+      <p>Scan the depot QR code to load items onto the manifest. At delivery, scan the customer's POD QR to mark delivered. Exception handling: refused delivery logs a photo and written note; safe-drop records a photo of the drop location; customer signature is captured on the touchscreen. All events are timestamped with GPS coordinates.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">QR scan in/out</span><span class="tag">Photo POD</span><span class="tag">Screen signature</span><span class="tag">GPS timestamps</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-disp" style="border-color:#65a30d;">
+      <span class="fc-badge" style="background:#ecfccb;color:#365314;">RUN SHEET</span>
+      <div class="fc-icon">🛣</div>
+      <h3>Run Sheet</h3>
+      <p>Multi-drop delivery list with drag-to-reorder stops. Tap the status icon to cycle each stop: Pending → Arrived → Delivered. Tap any address to open it in the phone's map app for turn-by-turn navigation. Import from CSV — header-aware, compatible with Onfleet, Routific, Circuit and custom exports. Export to CSV and share via the system share sheet.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Drag reorder</span><span class="tag">CSV import</span><span class="tag">Onfleet / Routific compatible</span><span class="tag">Share export</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-inv">
+      <span class="fc-badge">INVOICES</span>
+      <div class="fc-icon">🧾</div>
+      <h3>Invoices</h3>
+      <p>Create, print and share invoices directly from the phone. Office can push a pre-prepared invoice from the Chameleon PC accounting module to the driver over the peer channel — the driver reviews, signs and sends it on the spot. Role-gated accounting dashboard: guest (totals only), operator (full transactions + invoices) and admin (MTD submit + QR access grants).</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Push from PC</span><span class="tag">Print / PDF</span><span class="tag">Role-gated</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-misc">
+      <span class="fc-badge">CONTACTS</span>
+      <div class="fc-icon">👥</div>
+      <h3>Contacts &amp; Groups</h3>
+      <p>Unified contact book combining SIM phone numbers, Tailscale peer IDs and mixed groups. Create a <em>Border Team</em> group containing two P2P peers and a SIM number — tap the group to start a call to all three. Call history with timestamps. Per-contact avatar photos. Search across all contacts.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">SIM + peers</span><span class="tag">Mixed groups</span><span class="tag">Call history</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+      <span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">NETWORK</span>
+      <div class="fc-icon">📶</div>
+      <h3>Flexible Networking</h3>
+      <p>Connect via <strong>Tailscale</strong> (remote, over the internet) or direct <strong>LAN / hotspot</strong> — useful for trucks in convoy or where a long-range directional aerial is fitted (50+ miles in open terrain). mDNS auto-discovery finds other fleet phones on the same Wi-Fi without entering IP addresses manually.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Tailscale</span><span class="tag">LAN / hotspot</span><span class="tag">mDNS discovery</span><span class="tag">50+ mile hotspot range</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-map" style="border-color:#0ea5e9;">
+      <span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">FLOAT</span>
+      <div class="fc-icon">🪟</div>
+      <h3>Floating Overlay</h3>
+      <p>The app can float as a persistent overlay above all other apps — useful when a driver needs to check navigation while keeping the call active in a corner of the screen. Incoming peer calls bring the overlay to the front automatically with ring + vibration, ensuring the driver never misses an urgent call from dispatch.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Always-on-top overlay</span><span class="tag">Auto-bring-to-front</span><span class="tag">Ring + vibrate</span>
+      </div>
+    </div>
+
+    <div class="feat-card fc-map">
+      <span class="fc-badge">CHAMELEON</span>
+      <div class="fc-icon">🖥️</div>
+      <h3>Chameleon PC Integration</h3>
+      <p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, invoice PDFs and manifest data to drivers in the field. The Chameleon signal server (<code>chameleon_signal.py</code>) runs on the PC or in Termux on any phone in the fleet, so no cloud relay is required.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">Route push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">Termux signal server</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Language section ───────────────────────────────────────────── -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>15 languages</h2>
+    <p>Full UI translation plus live PTT speech translation powered by on-device Argos Translate</p>
+  </div>
+
+  <div class="lang-strip">
+    <span class="lang-chip">🇬🇧 English</span>
+    <span class="lang-chip">🇨🇳 中文（简体）</span>
+    <span class="lang-chip">🇫🇷 Français</span>
+    <span class="lang-chip">🇩🇪 Deutsch</span>
+    <span class="lang-chip">🇪🇸 Español</span>
+    <span class="lang-chip">🇯🇵 日本語</span>
+    <span class="lang-chip">🇷🇺 Русский</span>
+    <span class="lang-chip">🇰🇷 한국어</span>
+    <span class="lang-chip">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</span>
+    <span class="lang-chip">🇧🇷 Português</span>
+    <span class="lang-chip">🇸🇦 العربية</span>
+    <span class="lang-chip">🇮🇳 हिन्दी</span>
+    <span class="lang-chip">🇵🇱 Polski</span>
+    <span class="lang-chip">🇷🇴 Română</span>
+    <span class="lang-chip">🇻🇳 Tiếng Việt</span>
+  </div>
+
+  <div class="strip" style="margin-top:1.5rem;">
+    <div class="strip-item">
+      <div class="strip-icon">🎤</div>
+      <div class="strip-body">
+        <h4>Auto language detection</h4>
+        <p>The PTT service detects the speaker's language automatically — a German-speaking driver and a Spanish-speaking dispatcher can push-to-talk freely without selecting a language each time.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔒</div>
+      <div class="strip-body">
+        <h4>On-device translation — no cloud</h4>
+        <p>Translations are handled by an Argos Translate server running locally on the phone inside Termux. Speech and text never leave the device for translation. Works offline once language packs are installed.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔊</div>
+      <div class="strip-body">
+        <h4>TTS in the listener's language</h4>
+        <p>After translation each message is read aloud in the receiver's locale using Android TTS — the listener hears the translated message even without looking at the screen, ideal for a driver keeping eyes on the road.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── How it differs strip ───────────────────────────────────────── -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Designed around the gap</h2>
+    <p>Not a replacement for enterprise logistics software — a solution for where enterprise software isn't</p>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">💰</div>
+      <div class="strip-body">
+        <h4>No per-seat, per-driver bill</h4>
+        <p>WebRTC peer calls are direct phone-to-phone with no media relay server and no monthly per-user fee. The app runs on standard Android phones the team already carries.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🌐</div>
+      <div class="strip-body">
+        <h4>Works where enterprise apps don't</h4>
+        <p>Designed for border crossings, remote terrain and international operations where standard logistics apps assume a fast, reliable data connection. Falls back to offline compass and cached maps when data disappears.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">📱</div>
+      <div class="strip-body">
+        <h4>Standard Android phone</h4>
+        <p>No specialist hardware. No MDM enrolment. Any Android 7.0+ phone (minSdk 24) running the APK is a full fleet node. A long-range hotspot aerial fitted to a truck cab can extend P2P coverage to 50+ miles in open countryside.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🚀</div>
+      <div class="strip-body">
+        <h4>Future roadmap</h4>
+        <p>Planned additions include full tachograph compliance, duty-hour monitoring, DVSA digital tachograph integration and expanded POI layers for trekking and mountain rescue. The foundation is already built.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>Interested in Logistics 4×4?</h3>
+    <p>Currently in testing — contact us to discuss a pilot, request a build or ask about licensing for your fleet.</p>
+    <a href="contact.html" class="btn btn-solid">Get in touch</a>
+    <a href="companion.html" class="btn">← Companion App</a>
+    <a href="index.html" class="btn">← Overview</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="ide.html">AI IDE</a>
+    <a href="presenter.html">Presenter</a>
+    <a href="companion.html">Companion App</a>
+    <a href="logistics4x4.html">Logistics 4×4</a>
+    <a href="services.html">Web Services</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="technician.html">PC Technician</a>
+    <a href="trading.html">Trading</a>
+    <a href="classroom.html">Classroom</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>&copy; 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
+</footer>
+</body>
+</html>
