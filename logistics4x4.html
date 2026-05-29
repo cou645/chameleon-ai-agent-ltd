@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logistics 4×4 — Cross-Border Fleet Communications</title>
+  <!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── Card grid ────────────────────────────────────────────────── */
@@ -30,6 +31,7 @@
     .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
     .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
     .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
     .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
     .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
     .feat-card .fc-icon { font-size: 2rem; }
@@ -140,7 +142,18 @@
     .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
     .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
     .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
     .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
 
     /* ── Language strip ───────────────────────────────────────────── */
     .lang-strip {
@@ -200,10 +213,12 @@
     <span class="badge">📹 4 video peers</span>
     <span class="badge">📞 4 SIM callers</span>
     <span class="badge">🗺 Live maps + GPX</span>
+    <span class="badge">📍 POI layer</span>
     <span class="badge">🧭 Offline compass</span>
     <span class="badge">🌍 15 languages</span>
     <span class="badge">📋 Manifest + run sheet</span>
     <span class="badge">🚨 Emergency broadcast</span>
+    <span class="badge">📟 Emergency Mode — SMS &amp; peer</span>
   </div>
 </div>
 
@@ -293,7 +308,7 @@
     <div class="scenario-card">
       <div class="sc-icon">🏕</div>
       <h4>Off-road / trekking</h4>
-      <p>No data signal? The offline compass shows bearing arrows to every other fleet member. Add POI waypoints for navigation assistance. Long-range hotspot links between trucks with directional aerials can reach 50+ miles.</p>
+      <p>No data signal? The offline compass shows bearing arrows to every other fleet member. POI pins mark fuel stops, hazards and rendezvous points — embedded in a pushed GPX file or dropped by any driver on the map. Long-range hotspot links between trucks with directional aerials can reach 50+ miles.</p>
     </div>
     <div class="scenario-card">
       <div class="sc-icon">🌐</div>
@@ -314,8 +329,8 @@
 
   <!-- ── Map section ────────────────────────────────────────────────── -->
   <div class="section-title" style="margin-top:3rem;">
-    <h2>Live Map &amp; Compass</h2>
-    <p>OSM, satellite and hybrid layers — peer locations, GPX routes and offline tile cache</p>
+    <h2>Live Map, POIs &amp; Compass</h2>
+    <p>OSM, satellite and hybrid layers — peer locations, GPX routes, points of interest and offline tile cache</p>
   </div>
 
   <div class="split" style="align-items:flex-start; gap:2rem;">
@@ -327,11 +342,14 @@
         <div class="map-pin map-pin-b">🚛</div>
         <div class="map-pin map-pin-c">🚚</div>
         <div class="map-pin map-pin-d">🏢</div>
+        <div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+        <div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
         <div class="map-overlay-tags">
           <span class="map-tag mt-street">Street</span>
           <span class="map-tag mt-sat">Satellite</span>
           <span class="map-tag mt-hybrid">Hybrid</span>
           <span class="map-tag mt-gpx">GPX route</span>
+          <span class="map-tag mt-poi">POI layer</span>
           <span class="map-tag mt-offline">Offline cache</span>
         </div>
       </div>
@@ -342,6 +360,12 @@
         <span class="tag">OSRM routing</span>
         <span class="tag">Nominatim place search</span>
         <span class="tag">Disk tile cache</span>
+        <span class="tag">POI layer</span>
+      </div>
+      <div class="poi-legend">
+        <span class="poi-dot poi-gpx">📍 Route waypoints</span>
+        <span class="poi-dot poi-push">📍 IDE-pushed</span>
+        <span class="poi-dot poi-manual">📍 Driver-dropped</span>
       </div>
     </div>
     <div style="flex:1.2;">
@@ -384,6 +408,14 @@
           <div class="strip-body">
             <h4>Compass screen — offline peer navigation</h4>
             <p>No data? The full-screen compass rose shows a bearing arrow for each online peer using last-known GPS. Peer distances and compass headings update from cached locations — useful for trekkers, off-road convoy navigation and mountain rescue coordination.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">📍</div>
+          <div class="strip-body">
+            <h4>Points of Interest (POI) layer</h4>
+            <p>Three sources of POIs shown as colour-coded pins on the map. <strong style="color:#f59e0b;">Amber</strong> pins come from <code>&lt;wpt&gt;</code> waypoints embedded in a GPX file — they load with the route and clear with it. <strong style="color:#22c55e;">Green</strong> pins are pushed directly from the Chameleon PC IDE (fuel stops, hazards, delivery addresses) independently of any route. <strong style="color:#ef4444;">Red</strong> pins are dropped by the driver with a long-press on the map. All POIs persist across sessions; tap any pin to navigate, open in Maps, or delete. Icons adapt to type: ⛽ fuel, 🚚 delivery, ⚠️ hazard, 🏥 hospital, 🅿️ parking, ✈️ airport and more.</p>
           </div>
         </div>
 
@@ -479,13 +511,25 @@
       </div>
     </div>
 
+    <div class="feat-card fc-sms">
+      <span class="fc-badge">EMERGENCY</span>
+      <div class="fc-icon">📟</div>
+      <h3>Emergency Mode — SMS &amp; Peer</h3>
+      <p>No data? The app falls back to a compact coded protocol. Driver (<strong>D</strong>), Hiker (<strong>H</strong>), and Emergency Services (<strong>X</strong>) profiles share a universal alert scale. GPS coordinates embed automatically. Messages are decoded and read aloud by TTS on receipt. A99+H99 is the universal SOS — broadcast to all contacts and fleet peers in one tap. When data is available, frames travel over the peer channel instead of SMS — selectable per send: <strong>SMS only</strong>, <strong>Peers only</strong>, or <strong>Both</strong>.</p>
+      <div class="tags" style="margin-top:.8rem;">
+        <span class="tag">3 user profiles</span><span class="tag">GPS embedded</span><span class="tag">TTS decode</span><span class="tag">METHANE aligned</span>
+        <span class="tag">SMS · Peers · Both</span>
+        <span class="tag"><a href="codes.html" target="_blank" style="color:inherit;text-decoration:none;">📋 Code reference →</a></span>
+      </div>
+    </div>
+
     <div class="feat-card fc-misc">
       <span class="fc-badge">CONTACTS</span>
       <div class="fc-icon">👥</div>
       <h3>Contacts &amp; Groups</h3>
-      <p>Unified contact book combining SIM phone numbers, Tailscale peer IDs and mixed groups. Create a <em>Border Team</em> group containing two P2P peers and a SIM number — tap the group to start a call to all three. Call history with timestamps. Per-contact avatar photos. Search across all contacts.</p>
+      <p>Unified contact book combining SIM phone numbers, Tailscale peer IDs and mixed groups. Create a <em>Border Team</em> group containing two P2P peers and a SIM number — tap the group to start a call to all three. Call history with timestamps. Per-contact avatar photos. Each fleet member sets a profile photo in Settings — it is shared automatically over the signal channel when they connect, so every peer sees a real photo instead of an initial letter.</p>
       <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">SIM + peers</span><span class="tag">Mixed groups</span><span class="tag">Call history</span>
+        <span class="tag">SIM + peers</span><span class="tag">Mixed groups</span><span class="tag">Call history</span><span class="tag">Avatar sharing</span>
       </div>
     </div>
 
@@ -513,9 +557,9 @@
       <span class="fc-badge">CHAMELEON</span>
       <div class="fc-icon">🖥️</div>
       <h3>Chameleon PC Integration</h3>
-      <p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, invoice PDFs and manifest data to drivers in the field. The Chameleon signal server (<code>chameleon_signal.py</code>) runs on the PC or in Termux on any phone in the fleet, so no cloud relay is required.</p>
+      <p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes (with embedded waypoints parsed as POIs automatically), standalone POI sets, invoice PDFs and manifest data to drivers in the field — all over the always-on signal channel, no active video call required. The Chameleon signal server (<code>chameleon_signal.py</code>) runs on the PC or in Termux on any phone in the fleet, so no cloud relay is needed.</p>
       <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Route push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">Termux signal server</span>
+        <span class="tag">Route push</span><span class="tag">POI push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">Termux signal server</span>
       </div>
     </div>
 
@@ -569,6 +613,99 @@
     </div>
   </div>
 
+  <!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+  <div class="section-title" style="margin-top:3rem;">
+    <h2>Emergency Mode — SMS &amp; Peer Channel</h2>
+    <p>A compact code protocol that works over SMS when data is gone, or over the fleet peer channel when it isn't</p>
+  </div>
+
+  <div class="split" style="align-items:flex-start; gap:2rem;">
+    <div style="flex:1.2;">
+
+      <div class="strip" style="margin-top:0;">
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">📟</div>
+          <div class="strip-body">
+            <h4>Dual transport — SMS or peer channel</h4>
+            <p>When there is no mobile data — deep in the bush, at a remote border crossing, or during a network outage — Logistics 4×4 sends coded status frames over standard SMS. When data <em>is</em> available, the same frames travel over the fleet peer channel at full speed. A per-send selector lets you choose <strong>SMS only</strong>, <strong>Peers only</strong>, or <strong>Both</strong>. SOS always fires on every available channel simultaneously regardless of the setting.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">👥</div>
+          <div class="strip-body">
+            <h4>Three profiles — one shared language</h4>
+            <p>Codes are organised into three user profiles that share a common alert vocabulary: <strong>D — Driver</strong> (border, cargo, convoy, fuel, road conditions), <strong>H — Hiker</strong> (vitals, trail, gear, check-in schedule), and <strong>X — Emergency Services</strong> (triage, incident type, resources on scene, evacuation status). An SOS from any profile is understood by all.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">🏥</div>
+          <div class="strip-body">
+            <h4>Aligned with international emergency standards</h4>
+            <p>The Emergency Services profile uses the international P1–P4 triage scale (Immediate / Delayed / Minor / Expectant) and incident categories aligned with the METHANE major-incident framework used by joint emergency services worldwide. A paramedic or SAR coordinator joining a cross-agency operation will recognise the terminology immediately.</p>
+          </div>
+        </div>
+
+        <div class="strip-item" style="margin:0;">
+          <div class="strip-icon">🔊</div>
+          <div class="strip-body">
+            <h4>Auto-read on receipt</h4>
+            <p>Incoming coded messages are decoded and read aloud by text-to-speech — a driver keeping eyes on the road or a responder with hands occupied hears the full plain-English meaning of every code without touching the phone. Corrupted messages trigger an automatic resend request.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="flex:1;">
+
+      <!-- Code samples -->
+      <div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+        <div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Example coded messages</div>
+
+        <div style="margin-bottom:1rem;">
+          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Driver — fuel stop, customs delay</div>
+          <div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Driver on stop &middot; Fuel quarter &middot; At customs queue</div>
+        </div>
+
+        <div style="margin-bottom:1rem;">
+          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Hiker — injury, requesting help</div>
+          <div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + &ldquo;ankle fracture cannot walk&rdquo;</div>
+          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Serious injury stopped &middot; Need rescue team &middot; Urgent</div>
+        </div>
+
+        <div style="margin-bottom:1rem;">
+          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Emergency services — RTC, P1 casualties</div>
+          <div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Road traffic collision &middot; P1 life-threat casualties &middot; 2–5 persons &middot; Ambulance on scene &middot; Air ambulance required</div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS — any profile</div>
+          <div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS with GPS location — sent to all registered contacts immediately</div>
+        </div>
+      </div>
+
+      <!-- Download reference -->
+      <div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+          <span style="font-size:1.8rem;">📋</span>
+          <div>
+            <div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Field Code Reference</div>
+            <div style="color:var(--muted);font-size:.82rem;">All codes for all profiles — print and carry</div>
+          </div>
+        </div>
+        <p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">The complete code table for Driver, Hiker, and Emergency Services profiles. Download as PDF and keep a copy on your phone, in the cab, or in your pack.</p>
+        <a href="codes.html" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;">
+          📥 View &amp; download code reference
+        </a>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ── How it differs strip ───────────────────────────────────────── -->
   <div class="section-title" style="margin-top:3rem;">
     <h2>Designed around the gap</h2>
@@ -601,7 +738,7 @@
       <div class="strip-icon">🚀</div>
       <div class="strip-body">
         <h4>Future roadmap</h4>
-        <p>Planned additions include full tachograph compliance, duty-hour monitoring, DVSA digital tachograph integration and expanded POI layers for trekking and mountain rescue. The foundation is already built.</p>
+        <p>Planned additions include full tachograph compliance, duty-hour monitoring, DVSA digital tachograph integration and KML/GeoJSON import for POI bulk upload. The foundation is already built.</p>
       </div>
     </div>
   </div>
