@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lớp Học Ngôn Ngữ — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../logistics4x4.html">Hậu cần 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a>
+<a class="active" href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>Lớp học ngôn ngữ</h1>
+<p class="sub">Các bài học video trực tiếp về WebRTC với kết nối P2P được bảo mật bằng Tailscale, thanh toán tích hợp và Kameleon Presenter — tất cả trong một ứng dụng.</p>
+<div class="hero-badges">
+<span class="badge">📹 Video WebRTC</span>
+<span class="badge">🌐 Lưới vảy đuôi</span>
+<span class="badge">💳 Sọc · Alipay · PayPal</span>
+<span class="badge">🔐 Cơ sở tuyển sinh</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>Giáo viên</div>
+<div class="status">● Trực tiếp</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>Sinh viên A</div>
+<div class="status">● Đã kết nối</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>Sinh viên B</div>
+<div class="status">● Đã kết nối</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>Sinh viên C</div>
+<div class="status">○ Tham gia…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>Sinh viên D</div>
+<div class="status">● Đã kết nối</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>Sinh viên E</div>
+<div class="status">● Đã kết nối</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>Sinh viên F</div>
+<div class="status">○ Tham gia…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>Bài học video trực tiếp</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>Video nhóm WebRTC — hơn 4 người tham gia</h4>
+<p>Video và âm thanh WebRTC toàn lưới có độ trễ thấp dành cho nhóm từ 4 người trở lên — không cần máy chủ phương tiện trung tâm, không mất phí hàng tháng. Máy chủ tín hiệu Chameleon (<code>chameleon_signal.py</code>) xử lý chuyển tiếp SDP và ICE (cổng 8766) và cũng chạy trên Termux trên Android. Ứng dụng Đồng hành hiển thị một lưới thích ứng tự động phát triển khi học sinh tham gia: 1 = toàn màn hình, 2 = cạnh nhau, 3 = 2+1, 4 = 2×2, 5+ = lưới tự động điều chỉnh có thể cuộn — với nguồn cấp dữ liệu địa phương của giáo viên luôn ở dạng hình trong ảnh.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Kết nối được bảo mật bằng quy mô đuôi</h4>
+<p>Tất cả các đồng nghiệp kết nối thông qua lưới Tailscale của bạn - không có IP công cộng, không chuyển tiếp cổng. IDE quản lý ACL, ủy quyền thiết bị và tạo khóa xác thực mà không cần rời khỏi ứng dụng.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>Trình dẫn chương trình Kameleon tích hợp</h4>
+<p>Dạy với giai đoạn Kameleon đầy đủ trong bài học của bạn. Học sinh có thể đẩy câu trả lời, bản vẽ và hình ảnh trực tiếp vào ngăn xếp ở chế độ Giai đoạn - kiểm duyệt và hiển thị trong thời gian thực mà không cần chuyển đổi ứng dụng.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>Tiện ích phát âm</h4>
+<p>Tiện ích huấn luyện phát âm tích hợp (<code>pronunciation_widget.py</code>) với phản hồi ở cấp độ âm vị — lý tưởng cho việc giảng dạy ngôn ngữ trong đó việc phát âm chính xác là vấn đề quan trọng.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Dự phòng video LAN</h4>
+<p>Khi Tailscale không có sẵn, <code>lan_video.py</code> truyền phát video qua UDP (cổng 47732), âm thanh qua UDP (cổng 47733) và các khác biệt cộng tác qua WebSocket (cổng 47731) — tất cả đều trên mạng cục bộ.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Cầu gọi viễn thông &amp; SIM</h2>
+<p>Kết nối cuộc gọi trong ứng dụng và cuộc gọi điện thoại SIM thực vào một cuộc trò chuyện đa chiều duy nhất — trực tiếp từ ứng dụng Đồng hành</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>Hai loại cuộc gọi - một cuộc trò chuyện</h4>
+<p>Ứng dụng Đồng hành hỗ trợ hai kênh cuộc gọi song song: một <strong>Cuộc gọi ứng dụng</strong> (WebRTC, ngang hàng trên Tailscale, miễn phí) và <strong>Cuộc gọi SIM</strong> (mạng di động tiêu chuẩn, bất kỳ số điện thoại nào). Bạn có thể tham gia cuộc gọi WebRTC với một người ngang hàng <em>Và</em> đồng thời thực hiện cuộc gọi SIM tới bên thứ ba, sau đó hội thảo họ lại với nhau để trò chuyện nhiều chiều — mà không cần rời khỏi ứng dụng.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>Thanh trạng thái viễn thông</h4>
+<p>Thanh trạng thái liên tục ở đầu ứng dụng Đồng hành hiển thị trạng thái trực tiếp của cả hai kênh: không hoạt động, đang đổ chuông, đang gọi hoặc bị tắt tiếng. Chỉ cần nhìn thoáng qua là bạn sẽ biết cuộc gọi nào đang hoạt động. Mỗi kênh có các nút điều khiển tắt tiếng và kết thúc độc lập — việc kết thúc cuộc gọi SIM không làm gián đoạn cuộc gọi trong ứng dụng và ngược lại.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>Luồng bài học đa chiều</h4>
+<p>Hữu ích cho các bài học ngôn ngữ: yêu cầu học sinh thực hiện cuộc gọi trong ứng dụng WebRTC, sau đó gọi cho người bản ngữ trên SIM để trò chuyện tự phát trong thế giới thực. Cả ba bên đều có thể nghe thấy nhau. Giáo viên kiểm duyệt thông qua ứng dụng trong khi Kameleon Presenter tiếp tục chạy trên IDE.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>Luật ghi âm cuộc gọi của Vương quốc Anh - tất cả các bên phải được thông báo</h4>
+<p>Theo RIPA 2000 và Quy định về Viễn thông (Thực hành Kinh doanh Hợp pháp), một bên ghi âm cuộc gọi có thể thực hiện việc đó mà không cần có sự đồng ý của bên kia để sử dụng hợp pháp cho riêng mình — nhưng để bản ghi âm được <strong>được chấp nhận tại tòa án</strong> tất cả các bên phải được thông báo trước khi bắt đầu ghi hình. Ứng dụng Đồng hành hiển thị một biểu tượng nổi bật <strong>🔴 GHI ÂM</strong> biểu ngữ cho tất cả những người tham gia được kết nối bất cứ khi nào quá trình ghi được kích hoạt. Đối với người gọi SIM, cần phải thông báo bằng lời nói khi bắt đầu cuộc gọi. Dữ liệu giọng nói là dữ liệu cá nhân theo GDPR và phải được xử lý tương ứng.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Thanh toán &amp; Đăng ký</h2>
+<p>Chấp nhận thanh toán từ sinh viên trên toàn thế giới trước khi cấp quyền truy cập bài học</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 Sọc <span style="color:var(--muted);font-weight:400">(GBP chính)</span></div>
+<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Sinh viên Trung Quốc)</span></div>
+<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(dự phòng)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Khóa học &amp; tuyển sinh DB</h3>
+<p>Các khóa học và tuyển sinh sinh viên được lưu trữ trong <code>~/.chameleon/courses.db</code>. AI có thể tạo các khóa học, đăng ký danh sách, kiểm tra trạng thái thanh toán và thu hồi quyền truy cập - tất cả đều thông qua các lệnh IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Hỗ trợ đa tiền tệ</h3>
+<p>Stripe xử lý các khoản thanh toán GBP từ sinh viên Vương quốc Anh và quốc tế. Alipay nhắm đến sinh viên Trung Quốc thanh toán bằng CNY. PayPal cung cấp một giải pháp dự phòng phổ quát với phạm vi phủ sóng rộng khắp trên toàn quốc.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>Thanh toán ảnh chụp màn hình WeChat</h3>
+<p>Đối với sinh viên không có quyền truy cập thẻ, hãy chấp nhận ảnh chụp màn hình bằng chứng thanh toán của WeChat Pay. AI đọc hình ảnh, trích xuất số tiền và thông tin tham khảo, đồng thời ghi lại khoản thanh toán thủ công đối với việc đăng ký.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>Liên kết thanh toán</h3>
+<p>Tạo liên kết thanh toán được lưu trữ trên máy chủ Stripe cho bất kỳ khóa học nào. Chia sẻ liên kết - sinh viên trả tiền - việc đăng ký được tạo tự động. Không có trang thanh toán để xây dựng hoặc lưu trữ.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Tham chiếu lệnh thanh toán</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Lệnh AI</th><th>Sự miêu tả</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>Tạo một khóa học mới với giá, tiêu đề và mô tả</td></tr>
+<tr><td><code>payment_links</code></td><td>Tạo liên kết thanh toán Stripe cho khóa học</td></tr>
+<tr><td><code>payment_status</code></td><td>Kiểm tra trạng thái thanh toán và đăng ký của sinh viên</td></tr>
+<tr><td><code>payment_enrol</code></td><td>Đăng ký học sinh theo cách thủ công (ví dụ: sau khi thanh toán bằng tiền mặt)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>Xóa quyền truy cập ghi danh của sinh viên</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>Liệt kê tất cả sinh viên có số dư chưa thanh toán</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>Ghi lại ảnh chụp màn hình WeChat Pay làm bằng chứng thanh toán</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Ra mắt trường học ngôn ngữ trực tuyến của bạn</h3>
+<p>Mọi thứ bạn cần — video, trang trình bày, thanh toán và đăng ký — trong một ứng dụng dành cho máy tính để bàn.</p>
+<a class="btn btn-solid" href="../contact.html">Hãy liên lạc</a>
+<a class="btn" href="../index.html">← Quay lại tổng quan</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a><a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+</footer>
+</body>
+</html>

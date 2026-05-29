@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kameleon 演讲者 — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a class="active" href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>变色龙主持人</h1>
+<p class="sub">一个受剧院启发的演示系统，其中您的幻灯片是舞台，您的内容块是演员，过渡是提示 - 所有这些都可以通过手机控制。</p>
+<div class="hero-badges">
+<span class="badge">🎬 戏剧隐喻</span>
+<span class="badge">📱 手机控制</span>
+<span class="badge">✏️ 协作绘图</span>
+<span class="badge">🖥️ Android ADB 镜像</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>剧院模型</h2>
+<p>演示文稿的构建就像舞台制作一样——对象有入口、出口和提示</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">舞台上的 KameleonStack 对象</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 内容堆栈 — 讲座幻灯片</div>
+<div class="stage-obj obj-stage">🟡 Stage Stack — 学生提交的作品</div>
+<div class="stage-obj obj-misc">🖼️ 图片框</div>
+<div class="stage-obj obj-misc">📄 PDF 盒</div>
+<div class="stage-obj obj-misc">📱 ADB 手机镜像</div>
+<div class="stage-obj obj-misc">🖥️PPT镜子</div>
+<div class="stage-obj obj-misc">✏️画板</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      白色边框 = 活动 · 橙色脉冲 = 等待同行提交 · 绿色 = 内容堆栈 · 黄色 = 阶段堆栈
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>KameleonStack</h3>
+<p>通用内容容器。每个堆栈包含多个插槽（图像、文本、PDF）。两种模式：</p>
+<ul>
+<li><strong style="color:#22c55e">内容</strong> — 教师控制的幻灯片</li>
+<li><strong style="color:#eab308">阶段</strong> - 接受同行推送的提交</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>动画系统</h3>
+<p>带有徒手运动路径的每个对象进入/退出动画。路径在屏幕上绘制，在存储之前通过 Douglas-Peucker 压缩和 Catmull-Rom 样条插值进行平滑处理。</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>梳妆台面板</h3>
+<p>舞台外保留区域 - 在梳妆台中创建对象，双击即可在舞台上预览。从右键单击菜单拖回到 Dresser。属性面板显示进入/退出动画状态。</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>编号提示</h3>
+<p>触发点逐步推进演示，就像戏剧灯光提示一样。每个提示都可以将对象动画移入或移出、切换堆栈槽或执行定时序列。</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>.kpt 项目包</h3>
+<p>项目保存为 ZIP 存档（<code>.kpt</code>）包含所有媒体资源、布局数据和动画配置。在任何运行 Chameleon 的机器上打开。</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>逻辑坐标</h3>
+<p>该舞台使用 0-10,000 的逻辑坐标空间，与显示分辨率无关。演示文稿在笔记本电脑屏幕或 4K 投影仪上看起来完全相同。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>移动和对等控制</h2>
+<p>从您的手机运行演示者；让学生推送他们自己的内容</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Android 移动桥</h4>
+<p>Chameleon 移动桥 (WebSocket) 可中继来自任何 Android 设备的影院命令。控制 <strong>stack_next/上一个/播放/暂停/停止</strong>，将图像或文本槽推入堆栈，并实时查看堆栈状态广播。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>同行提交的意见</h4>
+<p>学生将图像或文本从手机推送到舞台模式堆栈。提交的内容会显示在带有橙色脉动边框的缩略图条中。主持人可以 <strong>批准、保留、拒绝或促进</strong> 每一个在屏幕上播出之前。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>共享画板</h4>
+<p>可通过移动桥控制协作手绘画布 — <strong>绘制_描边/清除/撤消</strong>。非常适合注释幻灯片、头脑风暴或现场测验。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>ADB手机镜像&amp;PPT截图</h4>
+<p><strong>ADB电话盒</strong> 通过 ADB 将实时 Android 屏幕直接传输到舞台上。 <strong>PPT镜盒</strong> 捕获 PowerPoint 窗口 — 在 Kameleon 中展示您现有的幻灯片，无需转换。</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>让您的演示文稿栩栩如生</h3>
+<p>请联系我们讨论许可证或安排 Kameleon Presenter 的现场演示。</p>
+<a class="btn btn-solid" href="../contact.html">请求演示</a>
+<a class="btn" href="../index.html">← 返回概述</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

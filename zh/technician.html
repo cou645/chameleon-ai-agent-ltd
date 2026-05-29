@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI PC 技术员 — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a class="active" href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>人工智能电脑技术员</h1>
+<p class="sub">AI 引导的系统诊断和修复 - 加上 USB 设备分析器，可对硬件协议进行逆向工程并自动生成 Linux 内核驱动程序。</p>
+<div class="hero-badges">
+<span class="badge">🔬 硬件分析</span>
+<span class="badge">🐧 内核模块生成</span>
+<span class="badge">🌐 通过 Tailscale 远程</span>
+<span class="badge">⚡ ARM交叉编译</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>人工智能引导系统修复</h2>
+<p>人工智能遵循结构化手术方案——触摸前诊断，每一步验证</p>
+</div>
+<div class="terminal-block">
+<span class="comment">#变色龙AI诊断序列</span>
+<span class="cmd">$ lsusb -v | lsusb头-80</span>
+<span class="out">总线 002 设备 003：ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ dmesg |尾-30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1：从 eth0 重命名</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152 94208 0</span>
+<span class="cmd">$ modinfo r8152 | grep 版本</span>
+<span class="out">版本：v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>结构化诊断序列</h4>
+<p>硬件→内核状态→驱动程序状态→网络→存储。 AI 运行每个步骤，读取 JSON 结果，然后决定下一步操作。它从不跳过步骤或做出假设。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>手术修复方案</h4>
+<p>首先是非破坏性的（重新加载模块，重新启动服务）。在风险之前保留（快照配置）。每一步都进行验证。每个需要重新启动的操作都会触发一个“死亡开关”，该开关设置 <code>@reboot</code> 自动恢复脚本。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>通过 Tailscale 进行远程修复</h4>
+<p>诊断和修复 Tailscale 网格上任何位置的机器。人工智能通过终端桥在远程机器上发出命令，读取结果并继续——甚至使用检查点/恢复系统重新启动。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>USB驱动搬运工</h2>
+<p>分析任何 USB 设备 → 分析其协议 → 生成可立即安装的 Linux 驱动程序</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">路径A</div>
+<h4>标准协议</h4>
+<p>未找到供应商页面。生成 udev 规则 + modprobe 配置。 <strong>无需编译。</strong> 适用于 HID、CDC、大容量存储和其他标准类别。</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">乌德夫</span><span class="tag" style="background:#dcfce7;color:#16a34a">模组探针</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">路径B</div>
+<h4>部分供应商协议</h4>
+<p>检测到供应商页面 (≤2)。生成 hidraw/uhid 用户空间守护进程或 ALSA 插件。在用户空间中运行——无需内核编译。</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">绘图</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">ALSA插件</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">路径C</div>
+<h4>专有协议</h4>
+<p>完全定制的协议。生成完整的内核模块，具有 DKMS 打包和 Raspberry Pi 3、4 和 5 的 ARM 交叉编译支持。</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">内核模块</span><span class="tag" style="background:#fef3c7;color:#b45309">数据管理系统</span><span class="tag" style="background:#fef3c7;color:#b45309">手臂</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>分析器工作流程</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># 第 1 步 — 分析设备（30 秒捕获）</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">分析 USB 1234:5678 30 秒...
+写入〜/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># 第 2 步 — 生成驱动程序</span>
+<span class="cmd">$ python3 device_porter.py --最新</span>
+<span class="out">选择的路径：C（专有，3 个供应商页面）
+生成：/tmp/driver_1234_5678/
+  ├── chameleon_1234_5678.c
+  ├── Makefile（跨aarch64、跨armv7）
+  ├── 安装.sh
+  ├── 测试设备.sh
+  └── 分析.json</span>
+<span class="comment"># 第 3 步 — 安装</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS — 设备 /dev/chameleon0 正确响应</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>跨平台捕获后端</h3>
+<p>Windows 上的 ETW、macOS 上的 IOKit、Linux 上的 usbmon。在任何操作系统上进行分析并根据结果生成 Linux 驱动程序 <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>树莓派交叉编译</h3>
+<p>生成文件目标 <code>cross-aarch64</code> (Pi 4/5) 和 <code>cross-armv7</code> (Pi 3) 自动包含在路径 C 中。在 x86 上构建并部署到 ARM。</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>DKMS包装</h3>
+<p>路径 C 驱动程序是为 DKMS 打包的，因此它们可以在内核升级后继续存在，而无需手动重新编译。人工智能评论 <code>analysis.json</code> 并提示输入任何剩余的 TODO 存根。</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>修复无法修复的地方</h3>
+<p>无论是内核崩溃、USB 设备失效还是不支持 Linux 的专有外设 — Chameleon AI PC 技术人员都能满足您的需求。</p>
+<a class="btn btn-solid" href="../contact.html">联系我们</a>
+<a class="btn" href="../index.html">← 返回概述</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

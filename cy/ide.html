@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI IDE — AI Chameleon</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a class="active" href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../services.html">Gwasanaethau Gwe</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a>
+<a href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🧠</div>
+<h1>IDE AI-Power</h1>
+<p class="sub">Golygydd cod PyQt6 llawn sylw lle nad yw AI yn unig yn awgrymu - mae'n darllen, yn ysgrifennu, yn rhedeg ac yn gwirio cod ar eich rhan trwy bont orchymyn strwythuredig.</p>
+<div class="hero-badges">
+<span class="badge">Aml-ddarparwr AI</span>
+<span class="badge">🎙️ Mewnbwn llais &amp; TTS</span>
+<span class="badge">🔀 Golygfa wahanol</span>
+<span class="badge">⚡ Ffrydio ymatebion</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Pont Gorchymyn AI</h2>
+<p>Nid sgwrsio yn unig y mae AI - mae'n gweithredu'r golygydd trwy brotocol JSON strwythuredig</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📖</div>
+<div class="strip-body">
+<h4>Darllenwch unwaith, golygwch yn rhydd</h4>
+<p>Mae'r AI yn darllen ffeil unwaith gyda <strong>cael_ffeil_cynnwys</strong>, yn dal y cynnwys yn ei gyd-destun, yna'n cyhoeddi golygiadau angor lluosog heb eu hail-ddarllen rhwng pob newid. Dim teithiau crwn wedi'u gwastraffu.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>replace_text yn seiliedig ar angor</h4>
+<p>Mae'n golygu'r union destun i'w ddarganfod, nid rhifau llinellau. Mae rhifau llinellau'n symud wrth i'r cod gael ei ychwanegu neu ei ddileu - nid yw angorau yn gwneud hynny. Lluosog <code>replace_text</code> gellir sypynnu galwadau mewn un ymateb, i gyd yn cael eu cymhwyso'n atomig.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📝</div>
+<div class="strip-body">
+<h4>write_file ar gyfer ailysgrifennu llawn</h4>
+<p>Ar gyfer modiwlau newydd neu ailysgrifennu cyflawn mae'r AI yn anfon cynnwys cyfan y ffeil mewn un gorchymyn. Mae'r system yn creu a <code>.bak</code> gwneud copi wrth gefn cyn trosysgrifo ac yn agor y canlyniad mewn tab golygydd newydd.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">💻</div>
+<div class="strip-body">
+<h4>Integreiddio terfynell</h4>
+<p>Gall yr AI redeg gorchmynion cregyn a derbyn canlyniad JSON cyn parhau. Mae'n aros am bob canlyniad, yn trin codau ymadael, ac yn gwahaniaethu gorchmynion diagnostig, cyfluniad, dinistriol a diwedd sesiwn yn awtomatig.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🛡️</div>
+<div class="strip-body">
+<h4>Amddiffyniad chwistrellu</h4>
+<p>Mae'r holl gynnwys a ddychwelir o ffeiliau, terfynellau a thudalennau gwe wedi'i lapio i mewn <code>[UNTRUSTED_CONTENT]</code> marcwyr. Mae'r AI yn cael ei gyfarwyddo i drin popeth y tu mewn fel data - byth gyfarwyddiadau - atal ymosodiadau chwistrellu prydlon o gynnwys ffeiliau maleisus.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Nodweddion Golygydd</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Golygydd cod aml-tab</h3>
+<p>Agor ffeiliau lluosog ar yr un pryd. Mae pob tab yn olrhain ei hanes dadwneud ei hun, amlygu cystrawen a chyd-destun gorchymyn AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔀</div>
+<h3>Golygfa diff adeiledig</h3>
+<p>Un clic i gymharu cyflwr presennol y golygydd â'r fersiwn olaf a gadwyd. Diff unedig â chod lliw gydag aroleuo ychwanegu/dileu. Gadael modd diff i ddychwelyd i'r golygu llawn.</p>
+</div>
+<div class="card">
+<div class="card-icon">💬</div>
+<h3>Ffrydio sgwrs AI</h3>
+<p>Mae'r ymatebion yn ffrydio tocyn-wrth-tocyn i'r panel sgwrsio. Mae gorchmynion IDE yn cael eu tynnu a'u gweithredu mewn edefyn cefndir felly mae'r UI yn aros yn ymatebol drwyddo draw.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>System brydlon modiwlaidd</h3>
+<p>Ffeiliau modiwl testun plaen yw anogwyr system <code>~/.chameleon/prompts/</code>. Pentyrru unrhyw gyfuniad: Tech Repair + Academaidd + Sgwrsio. Cyfrif tocyn byw ac amcangyfrif cost fesul darparwr.</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>Hanes gorchymyn DB</h3>
+<p>Mae pob gorchymyn AI wedi'i logio i <code>history.db</code> gydag ID sesiwn, stamp amser a chanlyniad. Trywydd archwilio llawn ar gyfer pob newid ffeil a wnaed gan yr AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌳</div>
+<h3>Porwr ffeil</h3>
+<p>Panel coeden prosiect ar gyfer llywio cyflym. Mae'r AI yn defnyddio <code>list_project_files</code> a <code>list_open_files</code> i ddarganfod llwybrau go iawn - nid yw byth yn dyfeisio lleoliadau ffeil.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Llais a Lleferydd</h2>
+</div>
+<div class="split">
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Sibrwd lleferydd-i-destun</h3>
+<p>Mae Local Whisper (whisper.cpp) yn trawsgrifio'ch llais i'r mewnbwn sgwrsio. Codio heb ddwylo - pennu cwestiynau, gorchmynion neu anogwyr cyfan heb gyffwrdd â'r bysellfwrdd.</p>
+<div class="tags"><span class="tag">sibrwd.cpp</span><span class="tag">Casgliad lleol</span><span class="tag">Dim STT cwmwl</span></div>
+</div>
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Piper testun-i-leferydd</h3>
+<p>Mae ymatebion AI yn cael eu darllen yn uchel gan ddefnyddio Piper TTS — lleisiau cyflym, lleol, naturiol eu sain. Yn ddelfrydol ar gyfer hygyrchedd neu weithio gyda'ch dwylo wedi'u meddiannu. Llwybrau platfform yn cael eu datrys yn awtomatig ar Linux, Windows a macOS.</p>
+<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Casgliad lleol</span><span class="tag">Llais ffurfweddadwy</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Darparwyr AI â Chymorth</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Darparwr</th><th>Math</th><th>Cost (tua)</th><th>Nodiadau</th></tr></thead>
+<tbody>
+<tr><td>DwfnSeek</td><td>Cloud API</td><td>$0.00014 / tocynnau 1K</td><td>Diofyn; ansawdd cod rhagorol</td></tr>
+<tr><td>OpenAI (GPT-4o)</td><td>Cloud API</td><td>$0.0050 / tocynnau 1K</td><td>Rhesymu cyffredinol gorau</td></tr>
+<tr><td>Anthropig (Claude)</td><td>Cloud API</td><td>$0.0030 / 1K tocynnau</td><td>Cryf wrth olygu cyd-destun hir</td></tr>
+<tr><td>Cod Claude (Anthropig)</td><td>Terfynell / pty</td><td>Defnydd API</td><td>Yn rhedeg fel proses druenus y tu mewn i derfynell IDE - codio asiantaidd llawn mewn cragen fyw</td></tr>
+<tr><td>Groc</td><td>Cloud API</td><td>$0.00005 / tocynnau 1K</td><td>Casgliad hynod gyflym</td></tr>
+<tr><td>Mistral</td><td>Cloud API</td><td>$0.00025 / tocynnau 1K</td><td>Opsiwn da a gynhelir gan Ewrop</td></tr>
+<tr><td>Moonshot / Kimi</td><td>Cloud API</td><td>$0.00012 / tocynnau 1K</td><td>Ffenestr cyd-destun mawr</td></tr>
+<tr><td>I fod</td><td>Lleol</td><td>Rhad ac am ddim</td><td>Rhedeg unrhyw fodel GGUF yn lleol</td></tr>
+<tr><td>Stiwdio LM</td><td>Lleol</td><td>Rhad ac am ddim</td><td>Casgliad lleol cyfeillgar i GUI</td></tr>
+</tbody>
+</table>
+<!-- ═══════════════════════════════════════════════════════════════════
+       SCREENSHOTS — replace placeholder divs with real <img> tags when ready
+       Suggested shots:
+         ide-main.png     — full IDE window with chat panel + code editor open
+         ide-diff.png     — diff view showing before/after a code change
+         ide-voice.png    — voice recording indicator active
+       ════════════════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sgrinluniau</h2>
+<p>Yn dod yn fuan - DRhA ar waith</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🖥️</div>
+<strong>IDE - prif ffenestr</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">Panel sgwrsio AI + golygydd cod gydag amlygu cystrawen</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🔀</div>
+<strong>Golygfa wahanol</strong>
+<span>id-diff.png</span>
+</div>
+<div class="screenshot-caption">Cyn/ar ôl cymharu newid cod cymhwyso AI</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>Cydymaith Android</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">Ap symudol - ras gyfnewid sgwrsio a rheoli cyflwynwyr</div>
+</div>
+</div>
+<!-- ── Company Command Station ─────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Gorsaf Reoli'r Cwmni (CCS)</h2>
+<p>Rhedeg y Chameleon IDE fel canolbwynt swyddfa ar gyfer eich fflyd Logisteg 4 × 4 - nid oes angen meddalwedd anfon ar wahân</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Gwthio llwybrau a POIs i yrwyr</h4>
+<p>Anfon a <code>.gpx</code> ffeil o'r DRhA yn uniongyrchol i unrhyw ffôn gyrrwr dros y sianel cyfoedion. Mae llwybrau'n llwytho ar unwaith ar fap byw y gyrrwr. Gellir gwthio setiau POI annibynnol - arosfannau tanwydd, peryglon, cyfeiriadau danfon - yn annibynnol ar unrhyw lwybr ac ymddangos fel pinnau â chôd lliw.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📦</div>
+<div class="strip-body">
+<h4>Maniffest ac anfon anfoneb</h4>
+<p>Adeiladwch faniffest cargo neu paratowch anfoneb yn y DRhA, yna gwthiwch ef rhwng cyfoedion i ffôn y gyrrwr. Mae'r gyrrwr yn gweld y maniffest wedi'i lwytho ymlaen llaw - dim sganio, dim mynediad â llaw. Gellir llofnodi anfonebau ar y sgrin a'u dychwelyd dros yr un sianel.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚨</div>
+<div class="strip-body">
+<h4>Darllediad tocynwr fflyd</h4>
+<p>Anfonwch rybudd blaenoriaeth - Argyfwng, Pwysig, Cyfarwyddiadau neu Wybodaeth - ac mae'n ymddangos fel bar ticiwr lled llawn ar sgrin pob gyrrwr ar yr un pryd. Mae'r swyddfa yn cadw rheolaeth lawn ar sylw'r fflyd heb alwad ffôn i bob cerbyd.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📡</div>
+<div class="strip-body">
+<h4>Gweinydd signal adeiledig - dim cyfnewid cwmwl</h4>
+<p>Gweinydd signal Chameleon (<code>chameleon_signal.py</code>) yn rhedeg yn uniongyrchol ar gyfrifiadur personol y swyddfa ochr yn ochr â'r DRhA, neu y tu mewn i Termux ar unrhyw ffôn Android yn y fflyd. Mae ffonau fflyd yn cysylltu ag ef dros Tailscale neu'r man cychwyn lleol - dim ras gyfnewid trydydd parti, dim bil gweinyddwr misol.</p>
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+<span style="font-size:2rem;">🏢</span>
+<div>
+<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC Swyddfa yn rhedeg Chameleon IDE</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · both WebSocket · Gorchymyn fflyd</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+<span style="color:#94a3b8;font-size:.83rem;">Fflyd gysylltiedig →</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Gyrrwr A</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Gyrrwr B</span>
+<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Tîm Maes</span>
+<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Argyfwng</span>
+</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Trwy Tailscale (o bell) neu fan problemus LAN (confoi) · Dim cyfnewid cwmwl · E2E wedi'i amgryptio</div>
+</div>
+<div class="cta-band">
+<h3>Gweler yr AI IDE ar waith</h3>
+<p>Cysylltwch â ni am demo byw neu i drafod trwydded ar gyfer eich tîm.</p>
+<a class="btn btn-solid" href="../contact.html">Gofyn am demo</a>
+<a class="btn" href="../logistics4x4.html">Logisteg 4×4 →</a>
+<a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
+<a href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a><a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Adeiladwyd gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kế toán Vương quốc Anh — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../logistics4x4.html">Hậu cần 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a class="active" href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>Kế toán Vương quốc Anh</h1>
+<p class="sub">Ghi sổ kế toán kép, theo dõi VAT, Lãi &amp; Lỗ, Bảng cân đối kế toán - tất cả đều nằm trong sổ cái SQLite cục bộ nhắm mục tiêu HMRC Lập Thuế Kỹ thuật số.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 Sơ đồ tài khoản của Vương quốc Anh</span>
+<span class="badge">📋 Sẵn sàng cho MTD</span>
+<span class="badge">🔒 SQLite cục bộ</span>
+<span class="badge">🤖 Đầu ra JSON có thể phân tích cú pháp bằng AI</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Sổ cái ghi kép</h2>
+<p>Mọi giao dịch đều được cân bằng đến từng xu - khoản ghi nợ luôn bằng khoản tín dụng</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">Ngày │ Tài khoản │ Nợ (£) │ Có (£) │ VAT</span>
+────────────┼───────────────────── ─────┼───────────┼────────────┼────
+2026-04-01 │ 4000 Doanh thu bán hàng │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01 │ 2200 Kiểm soát VAT │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ 1100 Con nợ thương mại │ <span class="dr">1,440.00</span>  │ │
+────────────┼───────────────────── ─────┼───────────┼────────────┼────
+2026-04-05 │ 6100 Chi phí văn phòng │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200 Kiểm soát VAT │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 1200 Ngân hàng hiện tại │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Sơ đồ tài khoản của Vương quốc Anh</h3>
+<p>Mã tài khoản tiêu chuẩn của Vương quốc Anh - tài sản, nợ phải trả, vốn chủ sở hữu, thu nhập và chi phí được ánh xạ tới các danh mục HMRC. Mở rộng với các tài khoản tùy chỉnh nếu cần.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>Sổ cái SQLite</h3>
+<p>Tất cả dữ liệu được lưu trữ trong <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Chạy hoàn toàn ngoại tuyến. Hỗ trợ nhiều công ty - chuyển đổi giữa các thực thể bằng cờ lệnh.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Năm tính thuế của Vương quốc Anh</h3>
+<p>Cuối năm được đặt chính xác thành ngày 5 tháng 4 (năm tài chính của Vương quốc Anh từ ngày 6 tháng 4 đến ngày 5 tháng 4). Báo cáo P&amp;L và VAT tự động kéo dài đúng kỳ mà không cần điều chỉnh ngày theo cách thủ công.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Quét pháp y bất thường</h3>
+<p>Chạy <code>--forensic</code> để phát hiện các mục không cân bằng, tài liệu tham khảo trùng lặp, VAT không khớp và các bất thường khác. Kết quả được in dưới dạng JSON có cấu trúc để AI đánh giá.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Đầu ra có thể đọc được bằng AI</h3>
+<p>Tất cả các báo cáo đều xuất JSON có cấu trúc thành thiết bị xuất chuẩn để Chameleon AI có thể phân tích cú pháp, tóm tắt và tư vấn về tình hình tài chính của bạn bằng ngôn ngữ tự nhiên.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>WebCầu ổ cắm</h3>
+<p>Cầu WebSocket kế toán (<code>acct_ws_bridge.py</code>) hiển thị các truy vấn sổ cái tới trang tổng quan đồng hành trên thiết bị di động và bên ngoài qua mạng Tailscale của bạn.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Mã VAT được hỗ trợ</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>Tỷ lệ tiêu chuẩn 20%</p></div>
+<div class="vat-code"><div class="vc">R5</div><p>Tỷ lệ giảm 5%</p></div>
+<div class="vat-code"><div class="vc">Z</div><p>Không được xếp hạng</p></div>
+<div class="vat-code"><div class="vc">E</div><p>Miễn trừ</p></div>
+<div class="vat-code"><div class="vc">ồ</div><p>Ngoài phạm vi</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Báo cáo</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>Lãi &amp; Lỗ</h4>
+<p>Thu nhập so với chi phí trong kỳ. Doanh thu, giá vốn hàng hóa, lợi nhuận gộp, chi phí hoạt động, lợi nhuận ròng - tất cả được chia nhỏ theo mã tài khoản. Chạy với <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>Bảng cân đối kế toán</h4>
+<p>Tài sản, nợ phải trả và vốn chủ sở hữu tại một thời điểm. Xác nhận tính toàn vẹn của mục nhập kép - tài sản phải bằng nợ phải trả cộng với vốn chủ sở hữu. Chạy với <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Tóm tắt tờ khai thuế GTGT</h4>
+<p>Số liệu VAT theo từng hộp khớp với định dạng tờ khai VAT của HMRC MTD: Hộp 1 (thuế đầu ra), Hộp 4 (thuế đầu vào), Hộp 6 (doanh thu thuần), Hộp 7 (mua ròng). Chạy với <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>lập hóa đơn</h2>
+<p>Thông báo HMRC Hóa đơn tuân thủ 700 — được in, lưu dưới dạng PDF hoặc được đẩy vào điện thoại của bạn chỉ bằng một cú nhấp chuột</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Các trường hóa đơn tuân thủ quy định của Vương quốc Anh</h4>
+<p>Mỗi hóa đơn bao gồm tất cả các trường theo yêu cầu của Thông báo 700 của HMRC: số hóa đơn tuần tự duy nhất, tên và địa chỉ nhà cung cấp, số đăng ký VAT, ngày lập hóa đơn, ngày cung cấp (thời gian cung cấp), tên và địa chỉ khách hàng, số VAT của khách hàng nếu có, mô tả dòng được chia thành từng khoản với số lượng và đơn giá, thuế suất VAT trên mỗi dòng, tổng phụ VAT và ròng cũng như tổng số tiền đến hạn. Không có gì bị thiếu, không có gì được đoán.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>Thành lập công ty</h4>
+<p>Mở <em>Tệp → Hóa đơn → Thành lập công ty</em> để nhập tên công ty đã đăng ký, địa chỉ, số nhà công ty, số VAT, email, điện thoại và chi tiết ngân hàng. Cài đặt được lưu cho mỗi cơ sở dữ liệu khách hàng trong <code>company.json</code> cùng với sổ cái và tự động tải bất cứ khi nào hóa đơn được tạo cho khách hàng đó.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Cơ sở dữ liệu liên hệ khách hàng</h4>
+<p>Lần đầu tiên bạn lập hóa đơn cho khách hàng, tên, địa chỉ và số VAT của họ sẽ được lưu vào bảng liên hệ bên trong sổ cái. Trên các hóa đơn tiếp theo, việc nhập tên khách hàng sẽ tự động hoàn thành thông tin chi tiết của họ — không cần nhập lại. Danh bạ có thể chỉnh sửa bất cứ lúc nào.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>In, PDF và gửi tới điện thoại</h4>
+<p>Từ Trình quản lý hóa đơn (<em>Tệp → Hóa đơn…</em>) chọn bất kỳ hóa đơn nào và chọn: <strong>In</strong> (mở hộp thoại in hệ điều hành - bất kỳ máy in hoặc trình điều khiển PDF nào), <strong>Lưu PDF</strong> (trực tiếp vào đĩa thông qua tính năng xuất PDF tích hợp của Qt) hoặc <strong>Gửi tới điện thoại</strong> (đẩy HTML hóa đơn vào ứng dụng Đồng hành nơi ứng dụng này mở hộp thoại in Android — in không dây tới bất kỳ AirPrint hoặc máy in nào gần đó).</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Ngày cung cấp</h3>
+<p>Trường "Ngày cung cấp" (thời gian cung cấp) riêng biệt — khác với ngày lập hóa đơn. Được yêu cầu bởi HMRC cho mục đích VAT. Mặc định là hôm nay nhưng có thể chỉnh sửa độc lập cho mỗi hóa đơn.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>In hóa đơn di động</h3>
+<p>Ứng dụng Đồng hành có thể in bất kỳ hóa đơn nào qua mạng không dây. Nhấn vào biểu tượng in trên bất kỳ hàng hóa đơn nào — ứng dụng sẽ tìm nạp HTML từ IDE, chuyển đổi nó thành PDF trên thiết bị thông qua <code>printing</code> gói và mở hộp thoại in hệ thống Android.</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>Tuân thủ Thông báo HMRC 700</h3>
+<p>Tất cả 12 trường bắt buộc cho hóa đơn VAT đầy đủ của Vương quốc Anh đều có sẵn và được điền. Các dòng giảm giá và xếp hạng 0 được dán nhãn rõ ràng. Dãy số hóa đơn tăng đều đều, không có khoảng trống.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>CLI tham khảo nhanh</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Yêu cầu</th><th>Sự miêu tả</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Lãi lỗ cho năm tính thuế hiện tại</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Bảng cân đối kế toán tính đến ngày hôm nay</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Tóm tắt tờ khai VAT (hộp MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Quét sự bất thường và tính toàn vẹn</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Tham chiếu lệnh đầy đủ</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Hợp lý hóa sổ sách kế toán ở Vương quốc Anh của bạn</h3>
+<p>Được xây dựng có mục đích dành cho những người làm việc tự do và các doanh nghiệp nhỏ hoạt động theo các quy định về thuế của Vương quốc Anh.</p>
+<a class="btn btn-solid" href="../contact.html">Hãy liên lạc</a>
+<a class="btn" href="../index.html">← Quay lại tổng quan</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a><a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+</footer>
+</body>
+</html>

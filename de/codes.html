@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Referenz zum Field Communications Code – Logistik 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Start</a>
+<a class="active" href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../contact.html">Kontakt</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 Code-Referenz für Feldkommunikation</h1>
+<div class="edition">Logistik 4×4 · Ausgabe 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>Ein kompaktes Codeprotokoll zur Verwendung, wenn keine Datenkonnektivität verfügbar ist. Konzipiert für LKW-Fahrer, Wanderer und Rettungsdienste, die grenzüberschreitend oder in abgelegenem Gelände tätig sind. Drei Benutzerprofile verfügen über ein gemeinsames Warn- und Systemvokabular und ermöglichen so eine behördenübergreifende Kommunikation auch unter stark beeinträchtigten Bedingungen.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Das Teilen dieser Referenz wird empfohlen. Die Interoperabilität hängt davon ab, dass alle Parteien die Codes kennen.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>Speichern Sie diese Seite als PDF mit der Druckfunktion Ihres Browsers – <strong>Datei → Drucken → Als PDF speichern</strong>. Bewahren Sie eine Kopie zur Offline-Referenz auf Ihrem Telefon auf.</p>
+<button class="btn-print" onclick="window.print()">🖨 Drucken / Speichern als PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← Zurück zu Logistik 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>So funktionieren die Codes</h3>
+<p>Jeder Code ist ein <strong>Brief</strong> (Kategorie) gefolgt von <strong>zweistellig</strong> (Schweregrad oder Untertyp). Innerhalb jeder Kategorie bedeuten niedrigere Zahlen <em>normal oder geringfügig</em>, höhere Zahlen bedeuten <em>ernst oder kritisch</em>. Der Code 99 ist immer der schwerwiegendste.</p>
+<div class="code-block">A 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── Schweregrad  11 = nominell → 99 = Notfall</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── Kategoriebuchstabe</span>
+</div>
+<p style="margin-top:.8rem;">Mehrere Codes können in einer einzigen Nachricht kombiniert werden. Für zusätzliche Details kann eine Freitextnotiz angehängt werden.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">D</div>
+<div>
+<strong>Treiber</strong>
+<span>Lkw-/grenzüberschreitender Betreiber</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">H</div>
+<div>
+<strong>Wanderer</strong>
+<span>Mitglied des Outdoor-/Trekking-Teams</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">X</div>
+<div>
+<strong>Notdienste</strong>
+<span>SAR / Sanitäter / Ranger / Feuerwehr</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>Universelles SOS – funktioniert auf allen Profilen</h4>
+<p>Senden Sie diese beiden Codes zusammen, um eine sofortige lebensbedrohliche Notfallwarnung mit GPS-Standort an alle registrierten Kontakte auszulösen.</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">Universelle Codes – alle Profile</div>
+<div class="ph-sub">A (Alarm) und Z (System) sind bei Fahrer-, Wander- und Notfalldiensten identisch</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">A</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">Alarmstufe</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">A11</td><td>Alles klar. Situation normal.</td></tr>
+<tr><td class="code-cell">A22</td><td>Kleiner Vorfall. Selbstabfertigung.</td></tr>
+<tr><td class="code-cell">A33</td><td>Vorsicht. Mögliches Problem entsteht. Überwachung.</td></tr>
+<tr><td class="code-cell">A44</td><td>Hilfe benötigt. Nicht dringend.</td></tr>
+<tr><td class="code-cell">A55</td><td>Hilfe wird dringend benötigt.</td></tr>
+<tr><td class="code-cell">A66</td><td>Schwerer Vorfall im Gange.</td></tr>
+<tr><td class="code-cell">A77</td><td>Kritische Situation. Mehrere Probleme.</td></tr>
+<tr><td class="code-cell">A88</td><td>Extreme Gefahr.</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>SOS. Lebensbedrohlicher Notfall. Senden Sie sofort Hilfe.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">Z</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">System/Protokoll</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>Herzschlag. Keine Änderung.</td></tr>
+<tr><td class="code-cell">Z01</td><td>Beginn der Schicht/Wanderung/Einsatz.</td></tr>
+<tr><td class="code-cell">Z02</td><td>Ende der Schicht/Wanderung. Sicher zurückgetreten.</td></tr>
+<tr><td class="code-cell">Z03</td><td>Nachricht bestätigt.</td></tr>
+<tr><td class="code-cell">Z04</td><td>Nachricht beschädigt. Bitte erneut senden.</td></tr>
+<tr><td class="code-cell">Z05</td><td>Leiten Sie diese Nachricht weiter.</td></tr>
+<tr><td class="code-cell">Z06</td><td>Leiten Sie diese Nachricht an die Basis weiter.</td></tr>
+<tr><td class="code-cell">Z07</td><td>Basis oder Befehl, der von allen den Status anfordert.</td></tr>
+<tr><td class="code-cell">Z08</td><td>Statusanfrage von diesem bestimmten Kontakt.</td></tr>
+<tr><td class="code-cell">Z09</td><td>Auflösung einer Gruppe oder eines Konvois.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">Fahrercodes – Präfix D</div>
+<div class="ph-sub">LKW-Fahrer, grenzüberschreitende Logistik, Konvoifahrer</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">B</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">Grenze</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">B11</td><td>Annäherung an die Grenze. Innerhalb von zwanzig Kilometern.</td></tr>
+<tr><td class="code-cell">B22</td><td>In der Warteschlange am Grenzposten. Normales Warten.</td></tr>
+<tr><td class="code-cell">B33</td><td>Verspätung an der Grenze. Problem mit dem Papierkram.</td></tr>
+<tr><td class="code-cell">B44</td><td>Warenkontrolle angeordnet.</td></tr>
+<tr><td class="code-cell">B55</td><td>Inoffizielle Zahlung verlangt.</td></tr>
+<tr><td class="code-cell">B66</td><td>Von den Behörden beschlagnahmte Waren.</td></tr>
+<tr><td class="code-cell">B77</td><td>Fahrzeug beschlagnahmt.</td></tr>
+<tr><td class="code-cell">B88</td><td>Fahrer festgenommen.</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>Einreise verweigert. Zurückgedreht.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">C</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">Ladung</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">C11</td><td>Fracht geladen. Alles sicher. Normal.</td></tr>
+<tr><td class="code-cell">C22</td><td>Teillast oder geringfügige Schicht.</td></tr>
+<tr><td class="code-cell">C33</td><td>Last verlagert. Anhalten zum erneuten Sichern.</td></tr>
+<tr><td class="code-cell">C44</td><td>Ladung beschädigt.</td></tr>
+<tr><td class="code-cell">C55</td><td>Verschüttete Flüssigkeiten oder vom Fahrzeug heruntergefallene Gegenstände.</td></tr>
+<tr><td class="code-cell">C66</td><td>Ladung teilweise gestohlen.</td></tr>
+<tr><td class="code-cell">C77</td><td>Sämtliche Ladung wurde gestohlen oder beschlagnahmt.</td></tr>
+<tr><td class="code-cell">C88</td><td>Gefahrgut- oder Kühlkettenvorfall.</td></tr>
+<tr class="crit"><td class="code-cell">C99</td><td>Totaler Ladungsverlust.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">D</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">Fahrerstatus</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">D11</td><td>Fahrer im Dienst. Normales Fahren.</td></tr>
+<tr><td class="code-cell">D22</td><td>Fahrer angehalten. Treibstoff, Mahlzeit oder Pause.</td></tr>
+<tr><td class="code-cell">D33</td><td>Fahrer lädt oder entlädt Fracht.</td></tr>
+<tr><td class="code-cell">D44</td><td>Fahrer wartet. Zoll, Kontrollpunkt oder Verkehr.</td></tr>
+<tr><td class="code-cell">D55</td><td>Fahrer verspätet. Problem. Kann noch nicht fortfahren.</td></tr>
+<tr><td class="code-cell">D66</td><td>Der Fahrer fühlt sich unwohl oder müde.</td></tr>
+<tr><td class="code-cell">D77</td><td>Fahrer festgenommen oder mit rechtlichen Problemen konfrontiert.</td></tr>
+<tr><td class="code-cell">D88</td><td>Fahrerpanne. Ohne Hilfe geht es nicht weiter.</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>Fahrernotfall. Fahrer in Gefahr.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">E</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">Fahrzeugfehler</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>Motorwarnleuchte. Unerheblich. Fortsetzung.</td></tr>
+<tr><td class="code-cell">E22</td><td>Einzelner platter Reifen. Jetzt ändern.</td></tr>
+<tr><td class="code-cell">E33</td><td>Mehrere platte Reifen. Kann nicht geändert werden.</td></tr>
+<tr><td class="code-cell">E44</td><td>Überhitzung des Motors. Überfahren.</td></tr>
+<tr><td class="code-cell">E55</td><td>Mechanischer Ausfall. Nicht motorisch.</td></tr>
+<tr><td class="code-cell">E66</td><td>Kompletter Motorschaden.</td></tr>
+<tr><td class="code-cell">E77</td><td>Feuer.</td></tr>
+<tr><td class="code-cell">E88</td><td>Unfallschaden. Fahrzeug kann sich nicht bewegen.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Fahrzeugabschreibung. Totalschaden.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">F</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">Kraftstoff</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>Kraftstofftank voll.</td></tr>
+<tr><td class="code-cell">F22</td><td>Treibstoff drei Viertel.</td></tr>
+<tr><td class="code-cell">F33</td><td>Treibstoff halb.</td></tr>
+<tr><td class="code-cell">F44</td><td>Treibstoffviertel.</td></tr>
+<tr><td class="code-cell">F55</td><td>Fuel low. Im Umkreis von 50 km muss getankt werden.</td></tr>
+<tr><td class="code-cell">F66</td><td>Kraftstoff kritisch. Muss jetzt tanken.</td></tr>
+<tr><td class="code-cell">F77</td><td>Läuft mit Kanistern oder Reservetank.</td></tr>
+<tr><td class="code-cell">F88</td><td>Kraftstoff verunreinigt oder falscher Kraftstoff verwendet.</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>Kein Treibstoff. Angehalten.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">G</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">Konvoi</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>Solofahrzeug. Kein Konvoi.</td></tr>
+<tr><td class="code-cell">G22</td><td>Leitfahrzeug des Konvois.</td></tr>
+<tr><td class="code-cell">G33</td><td>Konvoi mittlere Position.</td></tr>
+<tr><td class="code-cell">G44</td><td>Konvoi-Heckfahrzeug.</td></tr>
+<tr><td class="code-cell">G55</td><td>Konvoi intakt. Alle LKWs vorhanden.</td></tr>
+<tr><td class="code-cell">G66</td><td>Ein Fahrzeug fehlt im Konvoi.</td></tr>
+<tr><td class="code-cell">G77</td><td>Mehrere Fahrzeuge fehlen.</td></tr>
+<tr><td class="code-cell">G88</td><td>Konvoi getrennt. Gruppieren Sie sich am nächsten Wegpunkt neu.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>Der Konvoi wurde aufgelöst.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">H</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">Hilfe benötigt</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>Ich benötige die Lieferung von Treibstoff an meinen Standort.</td></tr>
+<tr><td class="code-cell">H22</td><td>Benötigen Sie einen Mechaniker oder eine mobile Werkstatt.</td></tr>
+<tr><td class="code-cell">H33</td><td>Benötigen Sie medizinische Hilfe oder einen Krankenwagen.</td></tr>
+<tr><td class="code-cell">H44</td><td>Benötigen Sie Polizei oder offizielle Begleitung.</td></tr>
+<tr><td class="code-cell">H55</td><td>Benötigen Sie einen Bergungswagen oder einen Kran.</td></tr>
+<tr><td class="code-cell">H66</td><td>Brauchen Sie Nahrung, Wasser oder Vorräte?</td></tr>
+<tr><td class="code-cell">H77</td><td>Benötigen Sie Hilfe beim Zollagenten oder bei der Dokumentation.</td></tr>
+<tr><td class="code-cell">H88</td><td>Benötigt bewaffnete Eskorte.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Schwerwiegender Vorfall. Alle Hilfe wird dringend benötigt.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">J</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">Reisefortschritt</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>Die Reise hat begonnen. Pünktlich abgereist.</td></tr>
+<tr><td class="code-cell">J22</td><td>25 % der Route abgeschlossen.</td></tr>
+<tr><td class="code-cell">J33</td><td>Halb. 50 % abgeschlossen.</td></tr>
+<tr><td class="code-cell">J44</td><td>75 % abgeschlossen.</td></tr>
+<tr><td class="code-cell">J55</td><td>Ziel nähert sich. Unter 10 km.</td></tr>
+<tr><td class="code-cell">J66</td><td>Am Ziel angekommen.</td></tr>
+<tr><td class="code-cell">J77</td><td>Strecke deutlich verlängert. Großer Umweg.</td></tr>
+<tr><td class="code-cell">J88</td><td>Zurückgedreht. Route zurückverfolgen.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>Verloren. Völlig abseits der Route.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">K</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">Kommunikation</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>Vollständige Kommunikation. Alles normal.</td></tr>
+<tr><td class="code-cell">K22</td><td>Nur Daten. Keine Sprachanrufe.</td></tr>
+<tr><td class="code-cell">K33</td><td>Nur SMS. Keine Daten oder Sprache.</td></tr>
+<tr><td class="code-cell">K44</td><td>Nur Stimme. Keine Daten oder SMS.</td></tr>
+<tr><td class="code-cell">K55</td><td>Nur Funkkontakt.</td></tr>
+<tr><td class="code-cell">K66</td><td>Satellitenkommunikation aktiv.</td></tr>
+<tr><td class="code-cell">K77</td><td>Nur Mesh-WLAN. Kein Mobilfunk.</td></tr>
+<tr><td class="code-cell">K88</td><td>Diese Nachricht wurde über ein anderes Gerät weitergeleitet.</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>Keine Kommunikation. Wird über einen Drittanbieter gesendet.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">R</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">Straßenverhältnisse</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">R11</td><td>Gute Asphaltstraße.</td></tr>
+<tr><td class="code-cell">R22</td><td>Asphalt mit Schlaglöchern.</td></tr>
+<tr><td class="code-cell">R33</td><td>Schotter- oder Feldweg. Befahrbar.</td></tr>
+<tr><td class="code-cell">R44</td><td>Raue Strecke. Schlamm oder schlechter Untergrund.</td></tr>
+<tr><td class="code-cell">R55</td><td>Straße teilweise gesperrt.</td></tr>
+<tr><td class="code-cell">R66</td><td>Straße gesperrt oder einspurige Behinderung.</td></tr>
+<tr><td class="code-cell">R77</td><td>Überbrückung oder gefährlich.</td></tr>
+<tr><td class="code-cell">R88</td><td>Straße unpassierbar.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Keine Route. Off-Road oder völlig verloren.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">S</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">Sicherheit</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>Situation normal. Keine Drohungen.</td></tr>
+<tr><td class="code-cell">S22</td><td>Allgemeine Vorsicht in der Gegend.</td></tr>
+<tr><td class="code-cell">S33</td><td>Inoffizieller Kontrollpunkt oder Fahrzeugverfolgung.</td></tr>
+<tr><td class="code-cell">S44</td><td>Es wurde eine kriminelle Straßensperre gemeldet.</td></tr>
+<tr><td class="code-cell">S55</td><td>Bestechung verlangt.</td></tr>
+<tr><td class="code-cell">S66</td><td>Raubversuch. Abgestoßen.</td></tr>
+<tr><td class="code-cell">S77</td><td>Raubüberfall im Gange.</td></tr>
+<tr><td class="code-cell">S88</td><td>Bewaffneter Angriff auf Konvoi.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Entführung oder Entführung.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">T</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">Zeitplan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>Rechtzeitig. Planmäßig.</td></tr>
+<tr><td class="code-cell">T22</td><td>Etwas verzögert. Unter einer Stunde.</td></tr>
+<tr><td class="code-cell">T33</td><td>Ein bis zwei Stunden Verspätung.</td></tr>
+<tr><td class="code-cell">T44</td><td>Zwei bis vier Stunden verspätet.</td></tr>
+<tr><td class="code-cell">T55</td><td>Verspätung um vier bis acht Stunden.</td></tr>
+<tr><td class="code-cell">T66</td><td>Einen Tag Verspätung.</td></tr>
+<tr><td class="code-cell">T77</td><td>Große Verzögerung. ETA unbekannt.</td></tr>
+<tr><td class="code-cell">T88</td><td>Zeitplan aufgegeben.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Reise abgebrochen. Rückkehr.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">Fahrzeugbewegung</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>Fahrzeug geparkt. Sicher angehalten.</td></tr>
+<tr><td class="code-cell">V22</td><td>Fahrzeug bewegt sich normal.</td></tr>
+<tr><td class="code-cell">V33</td><td>Fahrzeug bewegt sich langsam. Unter 20 km/h.</td></tr>
+<tr><td class="code-cell">V44</td><td>Fahrzeug steckt fest. Schlamm, Sand oder Graben.</td></tr>
+<tr><td class="code-cell">V55</td><td>Abschleppen eines anderen Fahrzeugs.</td></tr>
+<tr><td class="code-cell">V66</td><td>Abgeschleppt werden.</td></tr>
+<tr><td class="code-cell">V77</td><td>Fahrzeug überschlug sich.</td></tr>
+<tr><td class="code-cell">V88</td><td>Unfall. Fahrzeug kann sich nicht bewegen.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Abschreibung. Totalschaden.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">W</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">Wetter</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Code</th><th>Bedeutung</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>Klar und trocken. Gute Sicht.</td></tr>
+<tr><td class="code-cell">W22</td><td>Leichter Regen oder Dunst.</td></tr>
+<tr><td class="code-cell">W33</td><td>Starker Regen.</td></tr>
+<tr><td class="code-cell">W44</td><td>Gewitter oder starker Wind.</td></tr>
+<tr><td class="code-cell">W55</td><td>Nebel oder schlechte Sicht.</td></tr>
+<tr><td class="code-cell">W66</td><td>Flut. Straße nass, aber passabel.</td></tr>
+<tr><td class="code-cell">W77</td><td>Flut. Straße unpassierbar.</td></tr>
+<tr><td class="code-cell">W88</td><td>Staubsturm oder Harmattan. Nahezu null Sicht.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>Extreme Wetterbedingungen. Angehalten.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">Wanderercodes – Präfix H</div>
+<div class="ph-sub">Trekker, Outdoor-Teams, Wildnisexpeditionen</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">Hilfe benötigt</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Brauchen Sie Nahrung oder Wasser.</td></tr>
+<tr><td class="code-cell">H22</td><td>Benötigen Sie Erste Hilfe oder ein medizinisches Set?</td></tr>
+<tr><td class="code-cell">H33</td><td>Benötigen Sie medizinische Hilfe oder eine Evakuierungsbegutachtung.</td></tr>
+<tr><td class="code-cell">H44</td><td>Brauchen Sie ein Rettungsteam.</td></tr>
+<tr><td class="code-cell">H55</td><td>Helikopter- oder Luftevakuierung erforderlich.</td></tr>
+<tr><td class="code-cell">H66</td><td>Suche und Rettung nötig.</td></tr>
+<tr><td class="code-cell">H77</td><td>Brauchen Sie eine Unterkunft oder ein Notbiwak?</td></tr>
+<tr><td class="code-cell">H88</td><td>Brauche dringende Evakuierung. Kann nicht laufen.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Schwerer Notfall. Alle Hilfe wurde sofort benötigt.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">T</div><div class="cat-icon">🏔</div><div class="cat-name">Wegbedingungen</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>Guter Weg. Gut markiert. Unbeschwerte.</td></tr>
+<tr><td class="code-cell">T22</td><td>Weg unterbrochen oder überwuchert.</td></tr>
+<tr><td class="code-cell">T33</td><td>Spur verloren. Navigieren mit GPS oder Kompass.</td></tr>
+<tr><td class="code-cell">T44</td><td>Abseits der Spur. Offenes Gelände. Schiffbar.</td></tr>
+<tr><td class="code-cell">T55</td><td>Steiler Aufstieg. Verlangsamtes Tempo.</td></tr>
+<tr><td class="code-cell">T66</td><td>Steiler Abstieg. Aufpassen.</td></tr>
+<tr><td class="code-cell">T77</td><td>Technisches Gelände. Klettern, Fels oder Schnee.</td></tr>
+<tr><td class="code-cell">T88</td><td>Gefährlicher Abschnitt. Vorsichtig überqueren.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Gelände unpassierbar. Zur Umkehr gezwungen.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">U</div><div class="cat-icon">🎒</div><div class="cat-name">Ausrüstung / Ausrüstung</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>Alle Geräte in gutem Zustand.</td></tr>
+<tr><td class="code-cell">U22</td><td>Kleineres Getriebeproblem. Unkritisch.</td></tr>
+<tr><td class="code-cell">U33</td><td>Ausrüstung beschädigt, aber Problemumgehung gefunden.</td></tr>
+<tr><td class="code-cell">U44</td><td>Kritischer Artikelfehler. Zelt, Herd oder Filter.</td></tr>
+<tr><td class="code-cell">U55</td><td>Navigationsausrüstung verloren oder ausgefallen.</td></tr>
+<tr><td class="code-cell">U66</td><td>Erste-Hilfe-Kasten im Einsatz.</td></tr>
+<tr><td class="code-cell">U77</td><td>Notunterkunft erforderlich. Biwak aufbauen.</td></tr>
+<tr><td class="code-cell">U88</td><td>Mehrere kritische Getriebeausfälle.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>Alle wichtigen Ausrüstungsgegenstände verloren. Katastrophal.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">Vitalwerte / Gruppengesundheit</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Alle Gruppenmitglieder sind fit und wohlauf.</td></tr>
+<tr><td class="code-cell">V22</td><td>Leichte Müdigkeit oder Unwohlsein. Fortsetzung.</td></tr>
+<tr><td class="code-cell">V33</td><td>Blasen oder leichte Verletzungen. Etwas langsamer.</td></tr>
+<tr><td class="code-cell">V44</td><td>Verletzung. Deutlich langsameres Tempo.</td></tr>
+<tr><td class="code-cell">V55</td><td>Das Mitglied kann sein normales Tempo nicht halten.</td></tr>
+<tr><td class="code-cell">V66</td><td>Schwere Verletzung. Angehalten. Bewertung der Evakuierung.</td></tr>
+<tr><td class="code-cell">V77</td><td>Mitglied ist zusammengebrochen oder bewusstlos.</td></tr>
+<tr><td class="code-cell">V88</td><td>Medizinischer Notfall. Evakuierung erforderlich.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Lebensgefährlich. Sofortiger Rettungsdienst erforderlich.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Y</div><div class="cat-icon">✅</div><div class="cat-name">Geplanter Check-in</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>Geplanter Check-in. Alles gut. Unterwegs.</td></tr>
+<tr><td class="code-cell">Y22</td><td>Einchecken. Leichte Verzögerung. Immer noch sicher.</td></tr>
+<tr><td class="code-cell">Y33</td><td>Einchecken. Erhebliche Verzögerung. Immer noch sicher.</td></tr>
+<tr><td class="code-cell">Y44</td><td>Abseits der Route, aber sicher und navigierbar.</td></tr>
+<tr><td class="code-cell">Y55</td><td>Vorheriges Check-in-Fenster verpasst. Jetzt berichten.</td></tr>
+<tr><td class="code-cell">Y66</td><td>Bitte um Bestätigung von der Basis.</td></tr>
+<tr><td class="code-cell">Y77</td><td>Sichere Ankunft im Camp oder geplanten Wegpunkt.</td></tr>
+<tr><td class="code-cell">Y88</td><td>Absteigend. Letzte Etappe zum Ausgangspunkt.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>Mehrere Check-ins verpasst. Notfallalarm ausgelöst.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">S</div><div class="cat-icon">🛡</div><div class="cat-name">Sicherheit</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Situation normal. Keine Drohungen.</td></tr>
+<tr><td class="code-cell">S22</td><td>Allgemeine Vorsicht. Unbekanntes Gebiet.</td></tr>
+<tr><td class="code-cell">S33</td><td>Verdächtige Aktivität in der Nähe.</td></tr>
+<tr><td class="code-cell">S44</td><td>Bedrohung durch Wildtiere. Abstand halten.</td></tr>
+<tr><td class="code-cell">S55</td><td>Begegnung mit Wildtieren. Zurückweichen.</td></tr>
+<tr><td class="code-cell">S66</td><td>Aggressive Tierwelt. Rückzug.</td></tr>
+<tr><td class="code-cell">S77</td><td>Feindselige Menschen angetroffen.</td></tr>
+<tr><td class="code-cell">S88</td><td>Bedroht oder verfolgt. Auf dem Weg in die Sicherheit.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Unmittelbare Gefahr durch Menschen oder Wildtiere.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">Notdienstcodes – Präfix X</div>
+<div class="ph-sub">SAR, Sanitäter, Feuerwehrleute, Ranger – Einsätze mit eingeschränkter Kommunikation</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>Abgestimmt auf internationale Notfallstandards</strong>
+    Die Kategorie P (Triage) verwendet die internationale Prioritätsskala P1–P4 (P1 = Sofort, P2 = Verzögert, P3 = Geringfügig, P4 = Erwartungsgemäß). Die Kategorien I (Vorfall) und N (Anzahl) spiegeln den Melderahmen für METHAN-schwere Vorfälle wider, der von gemeinsamen Rettungsdiensten verwendet wird.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ICH</div><div class="cat-icon">🔥</div><div class="cat-name">Art des Vorfalls</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">I11</td><td>Medizinischer Notfall. Keine Gefahr am Unfallort.</td></tr>
+<tr><td class="code-cell">I22</td><td>Verkehrsunfall.</td></tr>
+<tr><td class="code-cell">I33</td><td>Suchen und retten. Vermisste Person.</td></tr>
+<tr><td class="code-cell">I44</td><td>Brand oder baulicher Vorfall.</td></tr>
+<tr><td class="code-cell">I55</td><td>Hochwasser- oder Wasserrettung.</td></tr>
+<tr><td class="code-cell">I66</td><td>Freisetzung gefährlicher Stoffe oder Chemikalien.</td></tr>
+<tr><td class="code-cell">I77</td><td>Struktureller Zusammenbruch.</td></tr>
+<tr><td class="code-cell">I88</td><td>Bürgerunruhen, Gewalt oder bewaffnete Zwischenfälle.</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>Schwerwiegender Vorfall erklärt.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">P</div><div class="cat-icon">🏥</div><div class="cat-name">Patiententriage</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">P11</td><td>Keine Verletzten vor Ort.</td></tr>
+<tr><td class="code-cell">P22</td><td>Nur Verwundete gehen. P3 – Moll.</td></tr>
+<tr><td class="code-cell">P33</td><td>Ernsthaft, aber stabil. P2 – verzögert.</td></tr>
+<tr><td class="code-cell">P44</td><td>Lebensgefährliche Verluste. P1 – sofort.</td></tr>
+<tr><td class="code-cell">P55</td><td>Erwartete Verluste. P4 – palliativ.</td></tr>
+<tr><td class="code-cell">P66</td><td>Gemischte Triage. Mehrere Kategorien vorhanden.</td></tr>
+<tr><td class="code-cell">P77</td><td>Massenverletzter Vorfall gemeldet.</td></tr>
+<tr><td class="code-cell">P88</td><td>Zahl der Opfer unvollständig. Szene nicht gelöscht.</td></tr>
+<tr class="crit"><td class="code-cell">P99</td><td>Katastrophal. Mehrere Todesfälle bestätigt.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">Anzahl der Opfer</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>Ein Todesopfer.</td></tr>
+<tr><td class="code-cell">N22</td><td>Zwei bis fünf Opfer.</td></tr>
+<tr><td class="code-cell">N33</td><td>Sechs bis zehn Opfer.</td></tr>
+<tr><td class="code-cell">N44</td><td>Elf bis zwanzig Opfer.</td></tr>
+<tr><td class="code-cell">N55</td><td>Zwanzig bis fünfzig Opfer.</td></tr>
+<tr><td class="code-cell">N66</td><td>Fünfzig bis hundert Opfer.</td></tr>
+<tr><td class="code-cell">N77</td><td>Über hundert Opfer.</td></tr>
+<tr><td class="code-cell">N88</td><td>Unbekannte Nummer. Szenenbewertung läuft.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>Verluste an mehreren Orten.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">Vitalwerte des Patienten</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Bewusst und aufmerksam. Normal reden.</td></tr>
+<tr><td class="code-cell">V22</td><td>Bewusst, aber verwirrt oder aufgeregt.</td></tr>
+<tr><td class="code-cell">V33</td><td>Reagiert nur auf Sprachbefehle.</td></tr>
+<tr><td class="code-cell">V44</td><td>Nur auf Schmerzen reagieren. Unbewusst.</td></tr>
+<tr><td class="code-cell">V55</td><td>Nicht ansprechbar. Atmung vorhanden.</td></tr>
+<tr><td class="code-cell">V66</td><td>Nicht atmen. HLW läuft.</td></tr>
+<tr><td class="code-cell">V77</td><td>Schwere Blutung. Tourniquet angelegt.</td></tr>
+<tr><td class="code-cell">V88</td><td>Herzstillstand.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Verstorben. Bestätigt.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Ressourcen vor Ort</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">R11</td><td>Nur Ersthelfer. Kein professioneller Responder.</td></tr>
+<tr><td class="code-cell">R22</td><td>Sanitäter oder fortgeschrittener Ersthelfer vor Ort.</td></tr>
+<tr><td class="code-cell">R33</td><td>Rettungswagenbesatzung vor Ort.</td></tr>
+<tr><td class="code-cell">R44</td><td>Feuerwehr vor Ort.</td></tr>
+<tr><td class="code-cell">R55</td><td>Polizei vor Ort.</td></tr>
+<tr><td class="code-cell">R66</td><td>Mehrere Rettungsdienste vor Ort.</td></tr>
+<tr><td class="code-cell">R77</td><td>Einsatzkommandant festgelegt.</td></tr>
+<tr><td class="code-cell">R88</td><td>Feldlazarett oder Unfallaufnahmestation aktiv.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Alle Ressourcen überfordert. Dringende Verstärkung erforderlich.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">H</div><div class="cat-icon">📞</div><div class="cat-name">Erforderliche Ressourcen</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Keine zusätzlichen Ressourcen erforderlich.</td></tr>
+<tr><td class="code-cell">H22</td><td>Zusätzlicher Krankenwagen am Boden erforderlich.</td></tr>
+<tr><td class="code-cell">H33</td><td>Ambulanzflugzeug oder Hubschrauber erforderlich.</td></tr>
+<tr><td class="code-cell">H44</td><td>Feuer und Rettung erforderlich.</td></tr>
+<tr><td class="code-cell">H55</td><td>Polizei- oder bewaffnete Reaktion erforderlich.</td></tr>
+<tr><td class="code-cell">H66</td><td>HAZMAT oder Kontaminationsteam erforderlich.</td></tr>
+<tr><td class="code-cell">H77</td><td>Schweres Rettungs- oder Stadtsuchteam erforderlich.</td></tr>
+<tr><td class="code-cell">H88</td><td>Militärische oder fachliche Unterstützung erforderlich.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Reaktion auf Massenverletzte. Alle erforderlichen Ressourcen.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">E</div><div class="cat-icon">🚁</div><div class="cat-name">Evakuierungsstatus</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>Keine Evakuierung erforderlich. Behandlung vor Ort.</td></tr>
+<tr><td class="code-cell">E22</td><td>Selbstevakuierung möglich. Verletzte gehen zum Transport.</td></tr>
+<tr><td class="code-cell">E33</td><td>Fahrzeugevakuierung möglich. Die Straße ist zugänglich.</td></tr>
+<tr><td class="code-cell">E44</td><td>Evakuierung auf einer Trage erforderlich.</td></tr>
+<tr><td class="code-cell">E55</td><td>Luftevakuierung erforderlich. Landezone erforderlich.</td></tr>
+<tr><td class="code-cell">E66</td><td>Evakuierung über Wasser oder Boot erforderlich.</td></tr>
+<tr><td class="code-cell">E77</td><td>Technische Rettung erforderlich. Seil oder begrenzter Raum.</td></tr>
+<tr><td class="code-cell">E88</td><td>Evakuierungsweg gefährdet. Suche eine Alternative.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Evakuierung unmöglich. Verletzte suchen vor Ort Schutz.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">S</div><div class="cat-icon">⚠️</div><div class="cat-name">Szenensicherheit</div></div>
+<table class="code-table"><thead><tr><th>Code</th><th>Bedeutung</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Szenensicher. Keine Gefahren.</td></tr>
+<tr><td class="code-cell">S22</td><td>Mögliche Gefahren vorhanden. Vorsicht geboten.</td></tr>
+<tr><td class="code-cell">S33</td><td>Brand-, chemische oder strukturelle Gefahr vor Ort.</td></tr>
+<tr><td class="code-cell">S44</td><td>Aktive Bedrohung. Szene noch nicht gesichert.</td></tr>
+<tr><td class="code-cell">S55</td><td>Feindselige Personen vor Ort. Strafverfolgung erforderlich.</td></tr>
+<tr><td class="code-cell">S66</td><td>Kontaminationsgefahr. Sperrzone erforderlich.</td></tr>
+<tr><td class="code-cell">S77</td><td>Szene teilweise geklärt. Anhaltendes Risiko.</td></tr>
+<tr><td class="code-cell">S88</td><td>Szene unsicher. Die Antwortenden wurden zurückgezogen.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Unmittelbare Gefahr für die Einsatzkräfte. Evakuieren Sie den Tatort.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>Kurzreferenz – häufige Situationen</h2>
+<p>Codes gleicher Bedeutung in den drei Profilen</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>Situation</th>
+<th>Fahrer (D)</th>
+<th>Wanderer (H)</th>
+<th>Notfall (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Alles klar / normal</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>Brauche dringend Hilfe</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
+<tr><td>Lebensgefahr – SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
+<tr><td>Kommunikation nur per SMS</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>Pünktlich / unterwegs</td><td>T11 / D11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>Am Ziel angekommen</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>Verloren/abseits der Route</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>Unwetter</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>Anerkannt</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>Beschädigte Nachricht</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>Logistik 4×4</h3>
+<p>Grenzüberschreitende Flottenkommunikation für kleine Betreiber – Live-Karten, Gruppenvideo, SIM-Bridge und dieses Notfallprotokoll, alles auf einem Standard-Android-Telefon.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">Erfahren Sie mehr</a>
+<a class="btn" href="../contact.html">Nehmen Sie Kontakt auf</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · Logistics 4×4 Field Communications Protocol · Ausgabe 1<br/>
+    Die Weitergabe dieser Referenz wird empfohlen – die Interoperabilität erfordert dies.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Start</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../contact.html">Kontakt</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Lizenzierung ausstehend · Gebaut von Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

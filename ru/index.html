@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon AI — платформа адаптивного интеллекта</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .feature-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 2.5rem 0;
+    }
+    .feature-nav a {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: .5rem;
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-nav a .fn-icon { font-size: 2.4rem; }
+    .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
+    .feature-nav a span { color: var(--muted); font-size: .85rem; }
+    .intro-block {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2.5rem;
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+    }
+    .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
+    .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
+    .license-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
+    }
+    .license-pill {
+      background: #eeeeff; border: 1px solid var(--border);
+      border-radius: 50px; padding: .5rem 1.2rem;
+      font-size: .88rem; color: var(--brand-start); font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ Идет ТЕСТИРОВАНИЕ — Сайт находится в активной разработке. Функции, цены и лицензирование еще не окончательно определены. Не полагайтесь ни на какую информацию, представленную здесь.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
+<div class="nav-links">
+<a class="active" href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../presenter.html">Ведущий</a>
+<a href="../companion.html">Сопутствующее приложение</a>
+<a href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../services.html">Веб-службы</a>
+<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a>
+<a href="../technician.html">ПК-техник</a>
+<a href="../trading.html">Торговля</a>
+<a href="../classroom.html">u041au043bu0430u0441u0441</a>
+<a href="../contact.html">Контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../index.html">🌐 EN — English</a><a href="../ar/index.html">🇸🇦 AR — العربية</a><a href="../cy/index.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/index.html">🇩🇪 DE — Deutsch</a><a href="../es/index.html">🇪🇸 ES — Español</a><a href="../fr/index.html">🇫🇷 FR — Français</a><a href="../hi/index.html">🇮🇳 HI — हिन्दी</a><a href="../it/index.html">🇮🇹 IT — Italiano</a><a href="../ja/index.html">🇯🇵 JA — 日本語</a><a href="../ko/index.html">🇰🇷 KO — 한국어</a><a href="../pt/index.html">🇵🇹 PT — Português</a><a href="../zh/index.html">🇨🇳 ZH — 中文</a><a href="../el/index.html">🇬🇷 EL — Ελληνικά</a><a href="../id/index.html">🇮🇩 ID — Indonesia</a><a href="../pl/index.html">🇵🇱 PL — Polski</a><a href="../ro/index.html">🇷🇴 RO — Română</a><a href="../sw/index.html">🇰🇪 SW — Kiswahili</a><a href="../uk/index.html">🇺🇦 UK — Українська</a><a href="../vi/index.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon"><img alt="Chameleon AI" src="../icon.png" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"/></div>
+<h1>Платформа искусственного интеллекта Хамелеон</h1>
+<p class="sub">Полный набор настольных компьютеров на базе искусственного интеллекта — IDE, презентатор, бухгалтерский учет, торговля, классная комната и многое другое. Создан для фрилансеров и малого бизнеса.</p>
+<div class="hero-badges">
+<span class="badge"><span class="pulse"></span> Активно развивается</span>
+<span class="badge">🇷🇧 Бизнес в Великобритании</span>
+<span class="badge">🔒 В первую очередь локальность/в первую очередь конфиденциальность</span>
+<span class="badge">🐧 Linux · Windows · macOS</span>
+</div>
+</div>
+<div class="page">
+<div class="intro-block">
+<h2>Одна платформа. Восемь дисциплин.</h2>
+<p>Chameleon AI — это настольное приложение PyQt6, созданное Маркосом, также известным как Stemsee, для Chameleon AI Technicians Ltd. Оно включает в себя профессиональный редактор кода искусственного интеллекта, театральную систему презентаций, полную двойную бухгалтерию в Великобритании, криптоторговлю на Binance, видеоклассы по обучению языкам, P2P-сети и многое другое — все это работает локально на вашем компьютере без зависимости от облака. AI IDE интегрирует Claude Code, работающий в терминале (pty), для прямого редактирования кода с помощью AI.</p>
+<p>Поставщики ИИ можно заменять во время выполнения: DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot и другие. Ключи никогда не покидают ваше устройство.</p>
+<div class="license-row">
+<span class="license-pill">Лицензирование — ожидается завершение</span>
+<span class="license-pill">Пока не доступен к выпуску</span>
+</div>
+</div>
+<div class="section-title">
+<h2>Изучите платформу</h2>
+<p>Нажмите на любую функцию, чтобы узнать больше</p>
+</div>
+<nav class="feature-nav">
+<a href="../ide.html">
+<span class="fn-icon">🧠</span>
+<strong>У ВАС ЕСТЬ ИДЕИ</strong>
+<span>Редактор кода AI для нескольких поставщиков с голосовым управлением, просмотром различий и командным мостом</span>
+</a>
+<a href="../presenter.html">
+<span class="fn-icon">🎭</span>
+<strong>Ведущий Хамелеон</strong>
+<span>Театральные метафорические слайды с живым мобильным управлением и совместным рисованием</span>
+</a>
+<a href="../companion.html">
+<span class="fn-icon">📱</span>
+<strong>Сопутствующее приложение</strong>
+<span>Android Bridge — AI-чат, P2P-видео, удаленное управление докладчиком, файлы, мультимедиа и квитанции</span>
+</a>
+<a href="../logistics4x4.html">
+<span class="fn-icon">🚛</span>
+<strong>Логистика 4х4</strong>
+<span>Трансграничная связь автопарка — 4 видеоточки + 4 абонента по SIM-карте, живые карты, манифесты и 15 языков.</span>
+</a>
+<a href="../services.html">
+<span class="fn-icon">🌐</span>
+<strong>Веб-службы</strong>
+<span>Конструктор веб-сайтов с искусственным интеллектом, бесплатный хостинг, настройка домена, управляемый почтовый ящик и SEO</span>
+</a>
+<a href="../accounting.html">
+<span class="fn-icon">📊</span>
+<strong>u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</strong>
+<span>Книга двойной записи в Великобритании, НДС, прибыли и убытки, балансовый отчет — подготовка налоговой цифровой системы</span>
+</a>
+<a href="../technician.html">
+<span class="fn-icon">🔧</span>
+<strong>Техник по ПК с искусственным интеллектом</strong>
+<span>Восстановление системы под управлением искусственного интеллекта, профилировщик USB-драйверов и генератор модулей ядра Linux</span>
+</a>
+<a href="../trading.html">
+<span class="fn-icon">📈</span>
+<strong>Крипто-трейдинг</strong>
+<span>Спот Binance, фьючерсы и маржа с ИИ-трейлинг-стопом и определением режима</span>
+</a>
+<a href="../classroom.html">
+<span class="fn-icon">🎓</span>
+<strong>Языковой класс</strong>
+<span>Видеообучение WebRTC, сетка Tailscale, платежи Stripe/Alipay/PayPal</span>
+</a>
+<a href="../contact.html">
+<span class="fn-icon">✉️</span>
+<strong>Контакты и лицензирование</strong>
+<span>Свяжитесь с нами, запросите демо-версию или приобретите коммерческую лицензию</span>
+</a>
+</nav>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Основные характеристики платформы</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Локальная конфиденциальность</h3>
+<p>Все данные — реестры, история чатов, торговые позиции — хранятся в <code>~/.chameleon/</code> на вашей машине. Ничего не отправляется на сторонний сервер, если вы явно не выберете поставщика облачного ИИ.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔄</div>
+<h3>Сменные поставщики ИИ</h3>
+<p>Переключайтесь между DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot и другими в один клик. Запускайте локальные модели через Ollama или LM Studio бесплатно.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Мобильный компаньон</h3>
+<p>Мост Android через WebSocket передает чат AI, снимки экрана и загрузку файлов с вашего телефона. Управляйте докладчиком, запускайте записи и утверждайте материалы удаленно.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Сетка хвостовой чешуи</h3>
+<p>Одноранговое видео и голосовая связь через вашу собственную сеть Tailscale. Управляйте списками управления доступом, авторизацией устройств и ключами непосредственно из IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Голосовой вход, голосовой выход</h3>
+<p>Преобразование речи в текст на основе шепота для кодирования без помощи рук. Пайпер TTS зачитывает ответы ИИ вслух. Диктуйте код, документацию или сообщения естественным образом.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐧</div>
+<h3>Кросс-платформенный</h3>
+<p>Работает на Linux, Windows и macOS. Пути, специфичные для платформы, аудиоплееры и двоичные файлы TTS абстрагированы в <em>платформа_utils.py</em> — везде одна кодовая база.</p>
+</div>
+</div>
+<!-- SCREENSHOTS: drop real images in here when ready
+       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Посмотрите это в действии</h2>
+<p>Скриншоты скоро будут</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🧠</div>
+<strong>У ВАС ЕСТЬ ИДЕИ</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">AI IDE — панель чата, редактор кода, просмотр различий</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🎭</div>
+<strong>Ведущий Хамелеон</strong>
+<span>ведущий-stage.png</span>
+</div>
+<div class="screenshot-caption">Kameleon Presenter — сцена с живыми выступлениями студентов</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>Android-приложение</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">Android-компаньон — чат с искусственным интеллектом и удаленное управление презентатором</div>
+</div>
+</div>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ Официальное уведомление и отказ от ответственности</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Этот веб-сайт является частью активного процесса тестирования и разработки. Контент создан с помощью искусственного интеллекта (Claude Code, Anthropic) и может содержать неточности, неполную информацию или текст-заполнитель. Ничто на этом сайте не является окончательным предложением продукта, гарантией или юридическим обязательством.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Условия лицензирования <strong>в ожидании завершения</strong>. Никакая лицензия на программное обеспечение — коммерческая, личная или иная — не предоставляется и не подразумевается данным веб-сайтом. Не принимайте деловые решения на основе представленной здесь информации.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© Chameleon AI Technicians Ltd, 2026. Все права защищены. Зарегистрировано в Англии и Уэльсе. Этот сайт предназначен только для информационных и тестовых целей.</p>
+</div>
+<div class="cta-band">
+<h3>Вас интересует Хамелеон?</h3>
+<p>Свяжитесь с нами — продукт находится в стадии тестирования и еще не доступен к выпуску.</p>
+<a class="btn btn-solid" href="../contact.html">Свяжитесь с нами</a>
+<a class="btn" href="mailto:stemsee@chameleon-ai-agent-ltd.net">Stemsee@chameleon-ai-agent-ltd.net</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../presenter.html">Ведущий</a>
+<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a>
+<a href="../technician.html">ПК-техник</a>
+<a href="../trading.html">Торговля</a>
+<a href="../classroom.html">u041au043bu0430u0441u0441</a>
+<a href="../contact.html">Контакт</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Ожидается лицензирование · Создано Маркосом, также известным как Stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>फ़ील्ड संचार कोड संदर्भ - लॉजिस्टिक्स 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a class="active" href="../logistics4x4.html">रसद 4×4</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 फ़ील्ड संचार कोड संदर्भ</h1>
+<div class="edition">लॉजिस्टिक्स 4×4 · संस्करण 1 · 2026 · गिरगिट एआई तकनीशियन लिमिटेड</div>
+<p>डेटा कनेक्टिविटी अनुपलब्ध होने पर उपयोग के लिए एक कॉम्पैक्ट कोड प्रोटोकॉल। ट्रक ड्राइवरों, पैदल यात्रियों और सीमाओं के पार या दूरदराज के इलाकों में काम करने वाली आपातकालीन सेवाओं के लिए डिज़ाइन किया गया है। तीन उपयोगकर्ता प्रोफाइल एक सामान्य अलर्ट और सिस्टम शब्दावली साझा करते हैं - गंभीर रूप से खराब परिस्थितियों में भी क्रॉस-एजेंसी संचार को सक्षम करते हैं।</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">इस संदर्भ को साझा करने को प्रोत्साहित किया जाता है। अंतरसंचालनीयता कोड जानने वाले सभी पक्षों पर निर्भर करती है।</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>अपने ब्राउज़र के प्रिंट फ़ंक्शन का उपयोग करके इस पृष्ठ को पीडीएफ के रूप में सहेजें - <strong>फ़ाइल → प्रिंट → पीडीएफ के रूप में सहेजें</strong>. ऑफ़लाइन संदर्भ के लिए अपने फ़ोन पर एक प्रति रखें।</p>
+<button class="btn-print" onclick="window.print()">🖨 पीडीएफ के रूप में प्रिंट/सेव करें</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← लॉजिस्टिक्स 4×4 पर वापस</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>कोड कैसे काम करते हैं</h3>
+<p>प्रत्येक कोड एक है <strong>पत्र</strong> (श्रेणी) के बाद <strong>दो अंक</strong> (गंभीरता या उप-प्रकार)। प्रत्येक श्रेणी के भीतर, कम संख्या का मतलब है <em>सामान्य या मामूली</em>, अधिक संख्या का मतलब है <em>गंभीर या गंभीर</em>. 99 कोड हमेशा सबसे गंभीर होता है।</p>
+<div class="code-block">ए 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── गंभीरता 11 = नाममात्र → 99 = आपातकालीन</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── श्रेणी पत्र</span>
+</div>
+<p style="margin-top:.8rem;">एक ही संदेश में अनेक कोड जोड़े जा सकते हैं. अतिरिक्त विवरण के लिए एक निःशुल्क-पाठ नोट जोड़ा जा सकता है।</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">डी</div>
+<div>
+<strong>चालक</strong>
+<span>ट्रक/सीमा पार ऑपरेटर</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">एच</div>
+<div>
+<strong>यात्री</strong>
+<span>आउटडोर/ट्रेकिंग टीम के सदस्य</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">एक्स</div>
+<div>
+<strong>आपातकालीन सेवाएं</strong>
+<span>एसएआर/पैरामेडिक/रेंजर/फायर</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>यूनिवर्सल एसओएस - सभी प्रोफाइल पर काम करता है</h4>
+<p>सभी पंजीकृत संपर्कों पर जीपीएस स्थान के साथ तत्काल जीवन-खतरे की आपातकालीन चेतावनी ट्रिगर करने के लिए इन दोनों कोड को एक साथ भेजें।</p>
+<div class="sos-codes">
+<span class="sos-chip">ए99</span>
+<span class="sos-chip">एच99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">यूनिवर्सल कोड - सभी प्रोफ़ाइल</div>
+<div class="ph-sub">A (अलर्ट) और Z (सिस्टम) ड्राइवर, हाइकर और आपातकालीन सेवाओं में समान हैं</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">ए</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">चेतावनी स्तर</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ए11</td><td>सब साफ। स्थिति सामान्य.</td></tr>
+<tr><td class="code-cell">ए22</td><td>छोटी घटना. स्वयं संभालना।</td></tr>
+<tr><td class="code-cell">ए33</td><td>सावधानी। संभावित समस्या विकसित हो रही है. निगरानी.</td></tr>
+<tr><td class="code-cell">ए44</td><td>सहायता की आवश्यकता है. गैर जरूरी.</td></tr>
+<tr><td class="code-cell">ए55</td><td>सहायता की तत्काल आवश्यकता है.</td></tr>
+<tr><td class="code-cell">ए66</td><td>गंभीर घटना चल रही है.</td></tr>
+<tr><td class="code-cell">ए77</td><td>नाज़ुक पतिस्थिति। अनेक समस्याएँ.</td></tr>
+<tr><td class="code-cell">ए88</td><td>अत्यधिक ख़तरा.</td></tr>
+<tr class="crit"><td class="code-cell">ए99</td><td>एसओएस. जीवन को ख़तरे में डालने वाला आपातकाल. तुरंत सहायता भेजें.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">जेड</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">सिस्टम/प्रोटोकॉल</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>दिल की धड़कन. कोई परिवर्तन नहीं होता है।</td></tr>
+<tr><td class="code-cell">Z01</td><td>शिफ्ट/बढ़ोतरी/तैनाती की शुरुआत.</td></tr>
+<tr><td class="code-cell">Z02</td><td>पारी/बढ़ोतरी का अंत. सकुशल नीचे खड़ा हो गया.</td></tr>
+<tr><td class="code-cell">Z03</td><td>संदेश स्वीकार किया गया.</td></tr>
+<tr><td class="code-cell">Z04</td><td>संदेश दूषित. कृपया पुनः भेजें।</td></tr>
+<tr><td class="code-cell">Z05</td><td>इस संदेश को आगे बढ़ाएं.</td></tr>
+<tr><td class="code-cell">Z06</td><td>इस संदेश को वापस आधार पर रिले करें.</td></tr>
+<tr><td class="code-cell">Z07</td><td>सभी से स्थिति का अनुरोध करने वाला आधार या आदेश।</td></tr>
+<tr><td class="code-cell">Z08</td><td>इस विशिष्ट संपर्क से स्थिति का अनुरोध किया जा रहा है।</td></tr>
+<tr><td class="code-cell">Z09</td><td>समूह या काफिले का विघटन।</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">ड्राइवर कोड - उपसर्ग डी</div>
+<div class="ph-sub">ट्रक ऑपरेटर, सीमा पार रसद, काफिला चालक</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">बी</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">सीमा</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">बी11</td><td>सीमा के निकट पहुँचना। बीस किलोमीटर के भीतर.</td></tr>
+<tr><td class="code-cell">बी22</td><td>सीमा चौकी पर कतार में. सामान्य प्रतीक्षा.</td></tr>
+<tr><td class="code-cell">बी33</td><td>सीमा पर देरी हुई. कागजी कार्रवाई का मामला.</td></tr>
+<tr><td class="code-cell">बी44</td><td>माल निरीक्षण का आदेश दिया गया.</td></tr>
+<tr><td class="code-cell">बी55</td><td>अनौपचारिक भुगतान की मांग की गई।</td></tr>
+<tr><td class="code-cell">बी66</td><td>अधिकारियों द्वारा जब्त किया गया सामान।</td></tr>
+<tr><td class="code-cell">बी77</td><td>वाहन जब्त कर लिया गया।</td></tr>
+<tr><td class="code-cell">बी88</td><td>ड्राइवर को हिरासत में लिया गया.</td></tr>
+<tr class="crit"><td class="code-cell">बी99</td><td>प्रवेश से इनकार कर दिया. पीछे देखा।</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">सी</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">माल</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">सी11</td><td>माल लदा हुआ. सब सुरक्षित. सामान्य।</td></tr>
+<tr><td class="code-cell">सी22</td><td>आंशिक भार या मामूली बदलाव।</td></tr>
+<tr><td class="code-cell">सी33</td><td>लोड शिफ्ट हो गया. पुनः सुरक्षित करने के लिए रुकना।</td></tr>
+<tr><td class="code-cell">सी44</td><td>माल क्षतिग्रस्त.</td></tr>
+<tr><td class="code-cell">सी55</td><td>वाहन से गिरा हुआ सामान या सामान।</td></tr>
+<tr><td class="code-cell">सी66</td><td>माल आंशिक रूप से चोरी हो गया।</td></tr>
+<tr><td class="code-cell">सी77</td><td>सारा माल चोरी हो गया या जब्त कर लिया गया।</td></tr>
+<tr><td class="code-cell">सी88</td><td>हज़मत या कोल्ड-चेन घटना।</td></tr>
+<tr class="crit"><td class="code-cell">सी99</td><td>कुल माल हानि.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">डी</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">ड्राइवर की स्थिति</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">डी11</td><td>ड्राइवर ड्यूटी पर. सामान्य रूप से गाड़ी चलाना.</td></tr>
+<tr><td class="code-cell">D22</td><td>ड्राइवर रुकने पर. ईंधन, भोजन, या ब्रेक।</td></tr>
+<tr><td class="code-cell">डी33</td><td>चालक माल लाद रहा है या उतार रहा है।</td></tr>
+<tr><td class="code-cell">डी44</td><td>ड्राइवर इंतज़ार कर रहा है. सीमा शुल्क, चौकी, या यातायात।</td></tr>
+<tr><td class="code-cell">D55</td><td>ड्राइवर ने देरी की. संकट। अभी आगे नहीं बढ़ सकते.</td></tr>
+<tr><td class="code-cell">डी66</td><td>ड्राइवर अस्वस्थ या थका हुआ महसूस कर रहा है।</td></tr>
+<tr><td class="code-cell">डी77</td><td>ड्राइवर हिरासत में लिया गया है या कानूनी समस्या का सामना कर रहा है।</td></tr>
+<tr><td class="code-cell">डी88</td><td>ड्राइवर का ख़राब होना. मदद के बिना जारी नहीं रख सकते.</td></tr>
+<tr class="crit"><td class="code-cell">डी99</td><td>ड्राइवर आपातकालीन. ड्राइवर खतरे में.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ई</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">वाहन दोष</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>इंजन चेतावनी प्रकाश. नाबालिग। जारी.</td></tr>
+<tr><td class="code-cell">E22</td><td>सिंगल फ्लैट टायर. अब बदल रहा हूँ.</td></tr>
+<tr><td class="code-cell">E33</td><td>एकाधिक फ्लैट टायर. बदल नहीं सकते।</td></tr>
+<tr><td class="code-cell">E44</td><td>इंजन का ज़्यादा गर्म होना. एक तरफ घुमाया।</td></tr>
+<tr><td class="code-cell">E55</td><td>यांत्रिक खराबी. गैर इंजन.</td></tr>
+<tr><td class="code-cell">ई66</td><td>पूर्ण इंजन विफलता.</td></tr>
+<tr><td class="code-cell">ई77</td><td>आग।</td></tr>
+<tr><td class="code-cell">ई88</td><td>दुर्घटना क्षति. वाहन नहीं चल सकते.</td></tr>
+<tr class="crit"><td class="code-cell">ई99</td><td>वाहन बट्टे खाते में डालना. पूरा नुकसान।</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">एफ</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">ईंधन</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>ईंधन टैंक भरा हुआ.</td></tr>
+<tr><td class="code-cell">F22</td><td>ईंधन तीन-चौथाई.</td></tr>
+<tr><td class="code-cell">F33</td><td>ईंधन आधा.</td></tr>
+<tr><td class="code-cell">F44</td><td>ईंधन क्वार्टर.</td></tr>
+<tr><td class="code-cell">F55</td><td>ईंधन कम. 50 किमी के भीतर ईंधन की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">F66</td><td>ईंधन महत्वपूर्ण. अब ईंधन की जरूरत है.</td></tr>
+<tr><td class="code-cell">F77</td><td>जेरी कैन या रिजर्व टैंक पर चल रहा है।</td></tr>
+<tr><td class="code-cell">F88</td><td>ईंधन दूषित या ग़लत ईंधन इस्तेमाल किया गया।</td></tr>
+<tr class="crit"><td class="code-cell">एफ99</td><td>कोई ईंधन नहीं. रुक गया.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">जी</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">काफिले</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">जी11</td><td>एकल वाहन. कोई काफिला नहीं.</td></tr>
+<tr><td class="code-cell">जी22</td><td>काफिले का नेतृत्व करने वाला वाहन.</td></tr>
+<tr><td class="code-cell">जी33</td><td>काफिले की मध्य स्थिति.</td></tr>
+<tr><td class="code-cell">जी44</td><td>काफिला पूँछ वाहन.</td></tr>
+<tr><td class="code-cell">जी55</td><td>काफिला बरकरार. सभी ट्रक मौजूद हैं।</td></tr>
+<tr><td class="code-cell">जी66</td><td>काफिले से एक गाड़ी गायब.</td></tr>
+<tr><td class="code-cell">जी -77</td><td>कई वाहन गायब.</td></tr>
+<tr><td class="code-cell">जी88</td><td>काफिला अलग हो गया. अगले मार्गबिंदु पर पुनः समूहित करें।</td></tr>
+<tr class="crit"><td class="code-cell">जी99</td><td>काफिला भंग हो गया.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">एच</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">मदद की जरूरत है</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">एच11</td><td>मेरे स्थान पर ईंधन पहुंचाने की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच22</td><td>मैकेनिक या मोबाइल वर्कशॉप की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच33</td><td>चिकित्सा सहायता या एम्बुलेंस की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">ह 44</td><td>पुलिस या आधिकारिक अनुरक्षण की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच55</td><td>रिकवरी ट्रक या क्रेन की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच66</td><td>भोजन, पानी, या आपूर्ति की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच77</td><td>सीमा शुल्क एजेंट या दस्तावेज़ीकरण सहायता की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच88</td><td>सशस्त्र अनुरक्षण की आवश्यकता है.</td></tr>
+<tr class="crit"><td class="code-cell">एच99</td><td>बड़ी घटना. सभी सहायता की तत्काल आवश्यकता है।</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">जे</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">यात्रा प्रगति</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">जे11</td><td>यात्रा शुरू हुई. निर्धारित समय पर प्रस्थान किया।</td></tr>
+<tr><td class="code-cell">जे22</td><td>मार्ग का 25% पूरा।</td></tr>
+<tr><td class="code-cell">जे33</td><td>आधे रास्ते. 50% पूर्ण.</td></tr>
+<tr><td class="code-cell">जे44</td><td>75% पूर्ण।</td></tr>
+<tr><td class="code-cell">जे55</td><td>गंतव्य के निकट पहुँच रहा हूँ। 10 किमी से कम.</td></tr>
+<tr><td class="code-cell">जे66</td><td>गंतव्य पर पहुँच गए।</td></tr>
+<tr><td class="code-cell">जे77</td><td>रूट काफ़ी बढ़ाया गया. प्रमुख मोड़.</td></tr>
+<tr><td class="code-cell">जे88</td><td>पीछे देखा। पुनः अनुरेखण मार्ग.</td></tr>
+<tr class="crit"><td class="code-cell">जे99</td><td>खो गया। पूरी तरह से ऑफ रूट.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">के</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">संचार</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>पूर्ण संचार. सब सामान्य.</td></tr>
+<tr><td class="code-cell">K22</td><td>केवल डेटा. कोई वॉयस कॉल नहीं.</td></tr>
+<tr><td class="code-cell">K33</td><td>केवल एसएमएस. कोई डेटा या आवाज नहीं.</td></tr>
+<tr><td class="code-cell">K44</td><td>केवल आवाज. कोई डेटा या एसएमएस नहीं.</td></tr>
+<tr><td class="code-cell">K55</td><td>केवल रेडियो संपर्क.</td></tr>
+<tr><td class="code-cell">K66</td><td>उपग्रह संचार सक्रिय.</td></tr>
+<tr><td class="code-cell">K77</td><td>केवल मेश वाईफाई। कोई सेल्युलर नहीं.</td></tr>
+<tr><td class="code-cell">K88</td><td>यह संदेश किसी अन्य डिवाइस के माध्यम से प्रसारित हुआ।</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>कोई संचार नहीं. तीसरे पक्ष के माध्यम से भेजा गया.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">आर</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">सड़क की स्थिति</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">आर11</td><td>अच्छी पक्की सड़क.</td></tr>
+<tr><td class="code-cell">आर22</td><td>गड्ढों वाला डामर।</td></tr>
+<tr><td class="code-cell">आर33</td><td>बजरी या गंदगी वाली सड़क. पारित करने योग्य.</td></tr>
+<tr><td class="code-cell">आर44</td><td>उबड़-खाबड़ ट्रैक. कीचड़ या ख़राब सतह.</td></tr>
+<tr><td class="code-cell">आर55</td><td>सड़क आंशिक रूप से अवरुद्ध है.</td></tr>
+<tr><td class="code-cell">आर66</td><td>सड़क बंद है या एक लेन में रुकावट है.</td></tr>
+<tr><td class="code-cell">आर77</td><td>ब्रिज आउट या खतरनाक.</td></tr>
+<tr><td class="code-cell">आर88</td><td>सड़क अगम्य.</td></tr>
+<tr class="crit"><td class="code-cell">आर99</td><td>कोई मार्ग नहीं. सड़क से हट गया या पूरी तरह खो गया।</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">एस</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">सुरक्षा</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">एस11</td><td>स्थिति सामान्य. कोई धमकी नहीं.</td></tr>
+<tr><td class="code-cell">S22</td><td>क्षेत्र में सामान्य सावधानी.</td></tr>
+<tr><td class="code-cell">एस33</td><td>अनौपचारिक चौकी या वाहन का पीछा करना।</td></tr>
+<tr><td class="code-cell">एस44</td><td>आपराधिक सड़क अवरोध की सूचना आगे दी गई।</td></tr>
+<tr><td class="code-cell">S55</td><td>रिश्वत की मांग की.</td></tr>
+<tr><td class="code-cell">एस66</td><td>डकैती का प्रयास. विकर्षित।</td></tr>
+<tr><td class="code-cell">एस77</td><td>डकैती चल रही है.</td></tr>
+<tr><td class="code-cell">एस88</td><td>काफिले पर हथियारबंद हमला.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>अपहरण या अपहरण.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">टी</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">अनुसूची</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">टी11</td><td>समय पर। तय समय पर.</td></tr>
+<tr><td class="code-cell">टी22</td><td>थोड़ा विलंब हुआ. एक घंटे से कम.</td></tr>
+<tr><td class="code-cell">टी33</td><td>एक से दो घंटे की देरी हुई.</td></tr>
+<tr><td class="code-cell">टी44</td><td>दो-चार घंटे देर हो गयी.</td></tr>
+<tr><td class="code-cell">टी55</td><td>चार से आठ घंटे की देरी.</td></tr>
+<tr><td class="code-cell">टी66</td><td>एक दिन विलंब हुआ.</td></tr>
+<tr><td class="code-cell">टी77</td><td>बड़ी देरी. ईटीए अज्ञात.</td></tr>
+<tr><td class="code-cell">टी88</td><td>शेड्यूल छोड़ दिया गया.</td></tr>
+<tr class="crit"><td class="code-cell">टी99</td><td>यात्रा निरस्त कर दी गई. लौट रहा है.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">वी</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">वाहन संचलन</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">वी11</td><td>वाहन पार्क किया गया. सुरक्षित रूप से रोका गया.</td></tr>
+<tr><td class="code-cell">वी22</td><td>वाहन सामान्य रूप से चल रहे हैं.</td></tr>
+<tr><td class="code-cell">वी33</td><td>वाहन धीरे-धीरे चल रहे हैं. 20 किमी/घंटा से कम.</td></tr>
+<tr><td class="code-cell">वी44</td><td>वाहन फंसे. कीचड़, रेत, या खाई।</td></tr>
+<tr><td class="code-cell">V55</td><td>दूसरे वाहन को खींचना.</td></tr>
+<tr><td class="code-cell">वी66</td><td>खींचा जा रहा है.</td></tr>
+<tr><td class="code-cell">वी77</td><td>वाहन पलट गया.</td></tr>
+<tr><td class="code-cell">वी88</td><td>दुर्घटना। वाहन नहीं चल सकते.</td></tr>
+<tr class="crit"><td class="code-cell">वी99</td><td>ख़ारिज करना। पूरा नुकसान।</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">डब्ल्यू</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">मौसम</div>
+</div>
+<table class="code-table">
+<thead><tr><th>कोड</th><th>अर्थ</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>साफ़ और सूखा. अच्छी दृश्यता.</td></tr>
+<tr><td class="code-cell">W22</td><td>हल्की बारिश या धुंध.</td></tr>
+<tr><td class="code-cell">W33</td><td>भारी वर्षा।</td></tr>
+<tr><td class="code-cell">W44</td><td>आंधी या तेज़ हवा.</td></tr>
+<tr><td class="code-cell">W55</td><td>कोहरा या खराब दृश्यता.</td></tr>
+<tr><td class="code-cell">W66</td><td>बाढ़। सड़क गीली है लेकिन चलने योग्य है।</td></tr>
+<tr><td class="code-cell">W77</td><td>बाढ़। सड़क अगम्य.</td></tr>
+<tr><td class="code-cell">W88</td><td>धूल भरी आँधी या हरमट्टन। लगभग शून्य दृश्यता.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>मुश्किल मौसम की स्थिति। रुक गया.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">हाइकर कोड - उपसर्ग एच</div>
+<div class="ph-sub">ट्रेकर्स, आउटडोर टीमें, जंगल अभियान</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">एच</div><div class="cat-icon">🆘</div><div class="cat-name">मदद की जरूरत है</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">एच11</td><td>भोजन या पानी चाहिए.</td></tr>
+<tr><td class="code-cell">एच22</td><td>प्राथमिक चिकित्सा या चिकित्सा किट की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच33</td><td>चिकित्सा सहायता या निकासी मूल्यांकन की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">ह 44</td><td>बचाव दल की जरूरत है.</td></tr>
+<tr><td class="code-cell">एच55</td><td>हेलीकाप्टर या हवाई निकासी की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच66</td><td>खोज और बचाव की जरूरत है.</td></tr>
+<tr><td class="code-cell">एच77</td><td>आश्रय या आपातकालीन आवास की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच88</td><td>तत्काल निकासी की आवश्यकता है. नहीं चल सकता।</td></tr>
+<tr class="crit"><td class="code-cell">एच99</td><td>प्रमुख आपातकाल. सभी सहायता की तत्काल आवश्यकता है।</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">टी</div><div class="cat-icon">🏔</div><div class="cat-name">राह की स्थितियाँ</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">टी11</td><td>अच्छा मार्ग. अच्छी तरह से चिह्नित. आरामपसंद।</td></tr>
+<tr><td class="code-cell">टी22</td><td>पगडंडी रुक-रुक कर या बहुत ऊंची हो गई है।</td></tr>
+<tr><td class="code-cell">टी33</td><td>राह खो गई. जीपीएस या कम्पास द्वारा नेविगेट करना।</td></tr>
+<tr><td class="code-cell">टी44</td><td>रास्ते से हट गया. खुला भूभाग. नौगम्य.</td></tr>
+<tr><td class="code-cell">टी55</td><td>खड़ी चढ़ाई. धीमी गति.</td></tr>
+<tr><td class="code-cell">टी66</td><td>अत्यधिक अवरोह, अतिशालीन। ध्यान रखना।</td></tr>
+<tr><td class="code-cell">टी77</td><td>तकनीकी भूभाग. हाथापाई, चट्टान, या बर्फ़।</td></tr>
+<tr><td class="code-cell">टी88</td><td>खतरनाक अनुभाग. सावधानी से पार करें।</td></tr>
+<tr class="crit"><td class="code-cell">टी99</td><td>इलाक़ा अगम्य. मजबूरन वापस लौटना पड़ा.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">यू</div><div class="cat-icon">🎒</div><div class="cat-name">गियर/उपकरण</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">यू 11</td><td>सभी गियर अच्छी स्थिति में हैं।</td></tr>
+<tr><td class="code-cell">U22</td><td>मामूली गियर समस्या. निरर्थक।</td></tr>
+<tr><td class="code-cell">उ33</td><td>गियर क्षतिग्रस्त हो गया लेकिन समाधान मिल गया।</td></tr>
+<tr><td class="code-cell">उ44</td><td>महत्वपूर्ण वस्तु विफल हो रही है. तम्बू, स्टोव, या फ़िल्टर।</td></tr>
+<tr><td class="code-cell">U55</td><td>नेविगेशन उपकरण खो गया या विफल हो गया।</td></tr>
+<tr><td class="code-cell">उ66</td><td>उपयोग में प्राथमिक चिकित्सा किट.</td></tr>
+<tr><td class="code-cell">उ77</td><td>आपातकालीन आश्रय की आवश्यकता. बिवौक की स्थापना.</td></tr>
+<tr><td class="code-cell">उ88</td><td>एकाधिक महत्वपूर्ण गियर विफलताएँ।</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>सभी आवश्यक उपकरण नष्ट हो गये। विनाशकारी.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">वी</div><div class="cat-icon">❤️</div><div class="cat-name">वाइटल्स/समूह स्वास्थ्य</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">वी11</td><td>समूह के सभी सदस्य फिट और स्वस्थ हैं।</td></tr>
+<tr><td class="code-cell">वी22</td><td>मामूली थकान या परेशानी. जारी.</td></tr>
+<tr><td class="code-cell">वी33</td><td>छाले या मामूली चोट. थोड़ा धीमा.</td></tr>
+<tr><td class="code-cell">वी44</td><td>चोट। काफ़ी धीमी गति.</td></tr>
+<tr><td class="code-cell">V55</td><td>सदस्य सामान्य गति बनाए नहीं रख सकता.</td></tr>
+<tr><td class="code-cell">वी66</td><td>गंभीर चोट. रुक गया. निकासी का आकलन.</td></tr>
+<tr><td class="code-cell">वी77</td><td>सदस्य गिर गया या बेहोश हो गया.</td></tr>
+<tr><td class="code-cell">वी88</td><td>चिकित्सा आपातकाल. निकासी की आवश्यकता है.</td></tr>
+<tr class="crit"><td class="code-cell">वी99</td><td>जीवन को ख़तरा. आपातकालीन सेवाओं की तत्काल आवश्यकता है।</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">वाई</div><div class="cat-icon">✅</div><div class="cat-name">निर्धारित चेक-इन</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>निर्धारित चेक-इन. कुशल तो है। रास्ते पर।</td></tr>
+<tr><td class="code-cell">Y22</td><td>चेक इन। कुछ देरी। अभी भी सुरक्षित है.</td></tr>
+<tr><td class="code-cell">Y33</td><td>चेक इन। काफ़ी देरी. अभी भी सुरक्षित है.</td></tr>
+<tr><td class="code-cell">Y44</td><td>रास्ते से हटकर लेकिन सुरक्षित और नेविगेट करने योग्य।</td></tr>
+<tr><td class="code-cell">Y55</td><td>पिछली चेक-इन विंडो छूट गई। अब रिपोर्टिंग.</td></tr>
+<tr><td class="code-cell">Y66</td><td>आधार से पावती का अनुरोध.</td></tr>
+<tr><td class="code-cell">Y77</td><td>शिविर या नियोजित मार्ग बिंदु पर सुरक्षित आगमन।</td></tr>
+<tr><td class="code-cell">Y88</td><td>उतरता हुआ। ट्रेलहेड तक अंतिम चरण।</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>एकाधिक चेक-इन छूट गए। आपातकालीन चेतावनी शुरू हो गई.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">एस</div><div class="cat-icon">🛡</div><div class="cat-name">सुरक्षा</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">एस11</td><td>स्थिति सामान्य. कोई धमकी नहीं.</td></tr>
+<tr><td class="code-cell">S22</td><td>सामान्य सावधानी. अपरिचित क्षेत्र.</td></tr>
+<tr><td class="code-cell">एस33</td><td>आस-पास संदिग्ध गतिविधि.</td></tr>
+<tr><td class="code-cell">एस44</td><td>वन्यजीव खतरा. दूरी बनाकर रखना.</td></tr>
+<tr><td class="code-cell">S55</td><td>वन्यजीव मुठभेड़. समर्थन हटाना।</td></tr>
+<tr><td class="code-cell">एस66</td><td>आक्रामक वन्य जीवन. पीछे हटना.</td></tr>
+<tr><td class="code-cell">एस77</td><td>शत्रुतापूर्ण लोगों का सामना करना पड़ा.</td></tr>
+<tr><td class="code-cell">एस88</td><td>धमकाया या पीछा किया। सुरक्षा की ओर बढ़ रहा हूँ.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>लोगों या वन्यजीवों से तत्काल खतरा।</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">आपातकालीन सेवा कोड - उपसर्ग X</div>
+<div class="ph-sub">एसएआर, पैरामेडिक्स, फायर क्रू, रेंजर्स - डिग्रेडेड-कॉम्स ऑपरेशन</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>अंतरराष्ट्रीय आपातकालीन मानकों के अनुरूप</strong>
+    पी (ट्राइएज) श्रेणी अंतरराष्ट्रीय पी1-पी4 प्राथमिकता पैमाने (पी1=तत्काल, पी2=विलंबित, पी3=मामूली, पी4=अपेक्षित) का उपयोग करती है। I (घटना) और N (गिनती) श्रेणियां संयुक्त आपातकालीन सेवाओं द्वारा उपयोग किए जाने वाले मीथेन प्रमुख-घटना घोषणा ढांचे को दर्शाती हैं।
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">मैं</div><div class="cat-icon">🔥</div><div class="cat-name">घटना का प्रकार</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">मैं11</td><td>चिकित्सा आपातकाल. कोई दृश्य खतरा नहीं.</td></tr>
+<tr><td class="code-cell">मैं22</td><td>सड़क यातायात टकराव.</td></tr>
+<tr><td class="code-cell">मैं33</td><td>खोजें और बचाव करें. लापता व्यक्ति.</td></tr>
+<tr><td class="code-cell">मैं44</td><td>आग या संरचनात्मक घटना.</td></tr>
+<tr><td class="code-cell">मैं55</td><td>बाढ़ या जल बचाव.</td></tr>
+<tr><td class="code-cell">मैं66</td><td>खतरनाक सामग्री या रासायनिक रिहाई.</td></tr>
+<tr><td class="code-cell">मैं77</td><td>संरचनात्मक पतन.</td></tr>
+<tr><td class="code-cell">मैं88</td><td>नागरिक अशांति, हिंसा, या सशस्त्र घटना।</td></tr>
+<tr class="crit"><td class="code-cell">मैं99</td><td>बड़ी घटना घोषित.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">पी</div><div class="cat-icon">🏥</div><div class="cat-name">रोगी ट्राइएज</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">पी11</td><td>घटनास्थल पर कोई हताहत नहीं.</td></tr>
+<tr><td class="code-cell">पी22</td><td>केवल घायल होकर चल रहे हैं। पी3 - लघु.</td></tr>
+<tr><td class="code-cell">पी33</td><td>गंभीर लेकिन स्थिर. पी2 - विलंबित।</td></tr>
+<tr><td class="code-cell">पी44</td><td>जीवन-घातक हताहत। पी1 - तत्काल।</td></tr>
+<tr><td class="code-cell">पी55</td><td>प्रत्याशित हताहत. पी4 - उपशामक।</td></tr>
+<tr><td class="code-cell">पी66</td><td>मिश्रित ट्राइएज. एकाधिक श्रेणियां मौजूद हैं.</td></tr>
+<tr><td class="code-cell">पी77</td><td>बड़े पैमाने पर जनहानि की घटना घोषित.</td></tr>
+<tr><td class="code-cell">पी88</td><td>हताहतों की संख्या अधूरी. सीन क्लियर नहीं हुआ.</td></tr>
+<tr class="crit"><td class="code-cell">पी99</td><td>विनाशकारी. कई मौतों की पुष्टि.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">एन</div><div class="cat-icon">👥</div><div class="cat-name">हताहतों की संख्या</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">एन11</td><td>एक हताहत.</td></tr>
+<tr><td class="code-cell">एन22</td><td>दो से पांच लोग हताहत।</td></tr>
+<tr><td class="code-cell">एन33</td><td>छह से दस लोग हताहत।</td></tr>
+<tr><td class="code-cell">एन44</td><td>ग्यारह से बीस लोग हताहत।</td></tr>
+<tr><td class="code-cell">एन55</td><td>बीस से पचास लोग हताहत।</td></tr>
+<tr><td class="code-cell">एन66</td><td>पचास से एक सौ लोग हताहत।</td></tr>
+<tr><td class="code-cell">एन77</td><td>सौ से अधिक लोग हताहत।</td></tr>
+<tr><td class="code-cell">एन88</td><td>अज्ञात नंबर. दृश्य मूल्यांकन जारी है.</td></tr>
+<tr class="crit"><td class="code-cell">एन99</td><td>कई स्थानों पर हताहत।</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">वी</div><div class="cat-icon">💓</div><div class="cat-name">रोगी के प्राण</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">वी11</td><td>सचेत और सतर्क. सामान्य रूप से बात करना.</td></tr>
+<tr><td class="code-cell">वी22</td><td>सचेत लेकिन भ्रमित या उत्तेजित।</td></tr>
+<tr><td class="code-cell">वी33</td><td>केवल वॉयस कमांड का जवाब देना।</td></tr>
+<tr><td class="code-cell">वी44</td><td>केवल दर्द पर प्रतिक्रिया करना। अचेत।</td></tr>
+<tr><td class="code-cell">V55</td><td>अनुत्तरदायी. श्वास वर्तमान.</td></tr>
+<tr><td class="code-cell">वी66</td><td>साँस नहीं ले रहा. सीपीआर प्रगति पर है.</td></tr>
+<tr><td class="code-cell">वी77</td><td>गंभीर रक्तस्राव. टूर्निकेट लगाया गया.</td></tr>
+<tr><td class="code-cell">वी88</td><td>दिल की धड़कन रुकना।</td></tr>
+<tr class="crit"><td class="code-cell">वी99</td><td>मृतक। की पुष्टि की।</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">आर</div><div class="cat-icon">🚒</div><div class="cat-name">घटनास्थल पर संसाधन</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">आर11</td><td>केवल प्राथमिक उपचार। कोई पेशेवर उत्तरदाता नहीं.</td></tr>
+<tr><td class="code-cell">आर22</td><td>घटनास्थल पर पैरामेडिक या उन्नत प्राथमिक उपचारकर्ता।</td></tr>
+<tr><td class="code-cell">आर33</td><td>घटनास्थल पर एम्बुलेंस कर्मी।</td></tr>
+<tr><td class="code-cell">आर44</td><td>अग्निशमन दल मौके पर।</td></tr>
+<tr><td class="code-cell">आर55</td><td>पुलिस मौके पर.</td></tr>
+<tr><td class="code-cell">आर66</td><td>घटनास्थल पर कई आपातकालीन सेवाएं।</td></tr>
+<tr><td class="code-cell">आर77</td><td>इंसीडेंट कमांडर स्थापित.</td></tr>
+<tr><td class="code-cell">आर88</td><td>फील्ड अस्पताल या कैजुअल्टी क्लियरिंग स्टेशन सक्रिय।</td></tr>
+<tr class="crit"><td class="code-cell">आर99</td><td>सभी संसाधन अभिभूत हो गये। तत्काल सुदृढीकरण की आवश्यकता है.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">एच</div><div class="cat-icon">📞</div><div class="cat-name">संसाधन आवश्यक</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">एच11</td><td>किसी अतिरिक्त संसाधन की आवश्यकता नहीं है.</td></tr>
+<tr><td class="code-cell">एच22</td><td>अतिरिक्त ग्राउंड एम्बुलेंस की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच33</td><td>एयर एम्बुलेंस या हेलीकाप्टर की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">ह 44</td><td>आग और बचाव की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच55</td><td>पुलिस या सशस्त्र प्रतिक्रिया की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एच66</td><td>HAZMAT या संदूषण टीम की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच77</td><td>भारी बचाव या शहरी खोज दल की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">एच88</td><td>सैन्य या विशेषज्ञ सहायता की आवश्यकता है.</td></tr>
+<tr class="crit"><td class="code-cell">एच99</td><td>बड़े पैमाने पर हताहत प्रतिक्रिया. सभी संसाधनों की आवश्यकता है.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ई</div><div class="cat-icon">🚁</div><div class="cat-name">निकासी की स्थिति</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>निकासी की आवश्यकता नहीं है. मौके पर इलाज किया जा रहा है.</td></tr>
+<tr><td class="code-cell">E22</td><td>स्व-निकासी संभव. हताहतों को परिवहन के लिए पैदल चलना।</td></tr>
+<tr><td class="code-cell">E33</td><td>वाहन निकासी संभव. सड़क सुलभ है.</td></tr>
+<tr><td class="code-cell">E44</td><td>स्ट्रेचर निकासी की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">E55</td><td>वायु निकासी आवश्यक है. लैंडिंग जोन की जरूरत.</td></tr>
+<tr><td class="code-cell">ई66</td><td>पानी या नाव से निकासी की आवश्यकता है।</td></tr>
+<tr><td class="code-cell">ई77</td><td>तकनीकी बचाव की आवश्यकता है. रस्सी या सीमित स्थान।</td></tr>
+<tr><td class="code-cell">ई88</td><td>निकासी मार्ग से समझौता किया गया. विकल्प की तलाश.</td></tr>
+<tr class="crit"><td class="code-cell">ई99</td><td>निकासी असंभव. हताहतों को जगह-जगह आश्रय दिया जा रहा है।</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">एस</div><div class="cat-icon">⚠️</div><div class="cat-name">दृश्य सुरक्षा</div></div>
+<table class="code-table"><thead><tr><th>कोड</th><th>अर्थ</th></tr></thead><tbody>
+<tr><td class="code-cell">एस11</td><td>घटनास्थल सुरक्षित. कोई ख़तरा नहीं.</td></tr>
+<tr><td class="code-cell">S22</td><td>संभावित ख़तरे मौजूद हैं. सावधानी बरतने की सलाह दी गई.</td></tr>
+<tr><td class="code-cell">एस33</td><td>घटनास्थल पर आग, रासायनिक या संरचनात्मक खतरा।</td></tr>
+<tr><td class="code-cell">एस44</td><td>सक्रिय ख़तरा. दृश्य अभी सुरक्षित नहीं है.</td></tr>
+<tr><td class="code-cell">S55</td><td>घटनास्थल पर शत्रुतापूर्ण व्यक्ति. कानून प्रवर्तन की आवश्यकता है.</td></tr>
+<tr><td class="code-cell">एस66</td><td>संदूषण का खतरा. बहिष्करण क्षेत्र आवश्यक है.</td></tr>
+<tr><td class="code-cell">एस77</td><td>दृश्य आंशिक रूप से साफ़ किया गया। चल रहा जोखिम.</td></tr>
+<tr><td class="code-cell">एस88</td><td>दृश्य असुरक्षित. उत्तरदाताओं ने वापस ले लिया.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>उत्तरदाताओं के लिए तत्काल खतरा. अब दृश्य खाली करें.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>त्वरित संदर्भ - सामान्य परिस्थितियाँ</h2>
+<p>तीनों प्रोफाइलों में समान-अर्थ वाले कोड</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>परिस्थिति</th>
+<th>ड्राइवर (डी)</th>
+<th>हाइकर (एच)</th>
+<th>आपातकाल (एक्स)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>सब साफ़/सामान्य</td><td>ए11</td><td>ए11</td><td>ए11</td></tr>
+<tr><td>तत्काल मदद की जरूरत है</td><td>ए55 + एच44</td><td>ए55 + एच44</td><td>ए55 + एच33</td></tr>
+<tr><td>जीवन को ख़तरा - एसओएस</td><td>ए99 + एच99</td><td>ए99 + एच99</td><td>ए99 + एच99</td></tr>
+<tr><td>केवल एसएमएस कॉम</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>निर्धारित समय पर / रास्ते में</td><td>टी11/डी11</td><td>Y11</td><td>जे11</td></tr>
+<tr><td>गंतव्य पर पहुँच गए</td><td>जे66</td><td>जे66</td><td>जे66</td></tr>
+<tr><td>रास्ता भटक गया / भटक गया</td><td>जे99</td><td>जे99</td><td>जे99</td></tr>
+<tr><td>गंभीर मौसम</td><td>W77-W99</td><td>W77-W99</td><td>W77-W99</td></tr>
+<tr><td>स्वीकार किया</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>दूषित संदेश</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>रसद 4×4</h3>
+<p>छोटे ऑपरेटरों के लिए सीमा पार बेड़े संचार - लाइव मानचित्र, समूह वीडियो, सिम ब्रिज और यह आपातकालीन प्रोटोकॉल, सभी एक मानक एंड्रॉइड फोन पर।</p>
+<a class="btn btn-solid" href="../logistics4x4.html">और अधिक जानें</a>
+<a class="btn" href="../contact.html">संपर्क में रहो</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 गिरगिट एआई तकनीशियन लिमिटेड · लॉजिस्टिक्स 4×4 फील्ड कम्युनिकेशंस प्रोटोकॉल · संस्करण 1<br/>
+    इस संदर्भ को साझा करने को प्रोत्साहित किया जाता है - अंतरसंचालनीयता के लिए इसकी आवश्यकता होती है।
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../contact.html">संपर्क</a>
+</div>
+<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · लाइसेंसिंग लंबित · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

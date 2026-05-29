@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Referință cod de comunicații pe teren — Logistică 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a class="active" href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 Referință cod de comunicații pe teren</h1>
+<div class="edition">Logistică 4×4 · Ediția 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>Un protocol de cod compact pentru utilizare atunci când conectivitatea de date nu este disponibilă. Proiectat pentru șoferii de camion, drumeții și serviciile de urgență care operează peste granițe sau pe teren îndepărtat. Trei profiluri de utilizator au în comun un vocabular comun de alertă și sistem - permițând comunicarea între agenții chiar și în condiții grav degradate.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Partajarea acestei referințe este încurajată. Interoperabilitatea depinde de faptul că toate părțile cunosc codurile.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>Salvați această pagină ca PDF utilizând funcția de imprimare a browserului dvs. — <strong>Fișier → Imprimare → Salvare ca PDF</strong>. Păstrați o copie pe telefon pentru referință offline.</p>
+<button class="btn-print" onclick="window.print()">🖨 Imprimați/Salvați ca PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← Înapoi la Logistică 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>Cum funcționează codurile</h3>
+<p>Fiecare cod este a <strong>scrisoare</strong> (categorie) urmat de <strong>două cifre</strong> (gravitate sau subtip). În cadrul fiecărei categorii, înseamnă numere mai mici <em>normale sau minore</em>, numere mai mari înseamnă <em>serios sau critic</em>. Codul 99 este întotdeauna cel mai sever.</p>
+<div class="code-block">A 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── Severitate  11 = nominal → 99 = urgență</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── Literă de categorie</span>
+</div>
+<p style="margin-top:.8rem;">Mai multe coduri pot fi combinate într-un singur mesaj. O notă cu text liber poate fi atașată pentru detalii suplimentare.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">D</div>
+<div>
+<strong>Șofer</strong>
+<span>Camion / operator transfrontalier</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">H</div>
+<div>
+<strong>Excursionist</strong>
+<span>Membru al echipei în aer liber / trekking</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">X</div>
+<div>
+<strong>Servicii de urgență</strong>
+<span>SAR / paramedic / ranger / foc</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>SOS universal — funcționează pe toate profilurile</h4>
+<p>Trimiteți aceste două coduri împreună pentru a declanșa o alertă imediată de urgență cu amenințare de viață cu locație GPS către toate contactele înregistrate.</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">Coduri universale — toate profilurile</div>
+<div class="ph-sub">A (alertă) și Z (sistem) sunt identice în toate serviciile pentru șofer, drumeți și urgență</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">O</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">Nivel de alertă</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">A11</td><td>Toate clare. Situatie normala.</td></tr>
+<tr><td class="code-cell">A22</td><td>Incident minor. Auto-manevrare.</td></tr>
+<tr><td class="code-cell">A33</td><td>Atenţie. Posibilă problemă în curs de dezvoltare. Monitorizare.</td></tr>
+<tr><td class="code-cell">A44</td><td>Asistență necesară. Neurgent.</td></tr>
+<tr><td class="code-cell">A55</td><td>Asistență necesară urgent.</td></tr>
+<tr><td class="code-cell">A66</td><td>Incident grav în curs.</td></tr>
+<tr><td class="code-cell">A77</td><td>Situație critică. Probleme multiple.</td></tr>
+<tr><td class="code-cell">A88</td><td>Pericol extrem.</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>SOS. Urgență care pune viața în pericol. Trimite ajutor imediat.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">Z</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">Sistem / protocol</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>Bătăile inimii. Nicio schimbare.</td></tr>
+<tr><td class="code-cell">Z01</td><td>Începutul schimbului / excursie / desfășurare.</td></tr>
+<tr><td class="code-cell">Z02</td><td>Sfârșitul turei / drumeție. S-a oprit în siguranță.</td></tr>
+<tr><td class="code-cell">Z03</td><td>Mesajul a fost confirmat.</td></tr>
+<tr><td class="code-cell">Z04</td><td>Mesaj corupt. Vă rugăm să retrimiteți.</td></tr>
+<tr><td class="code-cell">Z05</td><td>Transmite acest mesaj înainte.</td></tr>
+<tr><td class="code-cell">Z06</td><td>Transmite acest mesaj înapoi la bază.</td></tr>
+<tr><td class="code-cell">Z07</td><td>Baza sau comandă care solicită statut de la toți.</td></tr>
+<tr><td class="code-cell">Z08</td><td>Se solicită stare de la acest contact specific.</td></tr>
+<tr><td class="code-cell">Z09</td><td>Desființarea grupului sau a convoiului.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">Codurile șoferului - prefixul D</div>
+<div class="ph-sub">Operatori de camioane, logistică transfrontalieră, șoferi de convoi</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">B</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">Frontieră</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">B11</td><td>Se apropie de graniță. În douăzeci de kilometri.</td></tr>
+<tr><td class="code-cell">B22</td><td>La coadă la punctul de frontieră. Așteptați normal.</td></tr>
+<tr><td class="code-cell">B33</td><td>Întârziat la graniță. Problema cu documentele.</td></tr>
+<tr><td class="code-cell">B44</td><td>Inspectie marfa comandata.</td></tr>
+<tr><td class="code-cell">B55</td><td>Plată neoficială cerută.</td></tr>
+<tr><td class="code-cell">B66</td><td>Bunuri confiscate de autorități.</td></tr>
+<tr><td class="code-cell">B77</td><td>Vehicul confiscat.</td></tr>
+<tr><td class="code-cell">B88</td><td>Șofer reținut.</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>Intrarea refuzată. Întors înapoi.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">C</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">Marfă</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">C11</td><td>Marfă încărcată. Toate în siguranță. Normal.</td></tr>
+<tr><td class="code-cell">C22</td><td>Sarcină parțială sau schimbare minoră.</td></tr>
+<tr><td class="code-cell">C33</td><td>Sarcina deplasată. Oprire pentru a re-securiza.</td></tr>
+<tr><td class="code-cell">C44</td><td>Marfa avariată.</td></tr>
+<tr><td class="code-cell">C55</td><td>Scurgeri sau obiecte căzute din vehicul.</td></tr>
+<tr><td class="code-cell">C66</td><td>Marfa parțial furată.</td></tr>
+<tr><td class="code-cell">C77</td><td>Toate marfurile furate sau confiscate.</td></tr>
+<tr><td class="code-cell">C88</td><td>Incident cu materii nocive sau cu lanțul rece.</td></tr>
+<tr class="crit"><td class="code-cell">C99</td><td>Pierdere totală de marfă.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">D</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">Starea șoferului</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">D11</td><td>Șofer de serviciu. Conducerea normală.</td></tr>
+<tr><td class="code-cell">D22</td><td>Șofer în oprire. Combustibil, masă sau pauză.</td></tr>
+<tr><td class="code-cell">D33</td><td>Sofer care incarca sau descarca marfa.</td></tr>
+<tr><td class="code-cell">D44</td><td>Șoferul așteaptă. Vamă, punct de control sau trafic.</td></tr>
+<tr><td class="code-cell">D55</td><td>Șoferul a întârziat. Problemă. Nu se poate continua încă.</td></tr>
+<tr><td class="code-cell">D66</td><td>Șoferul se simte rău sau obosit.</td></tr>
+<tr><td class="code-cell">D77</td><td>Șofer reținut sau se confruntă cu probleme legale.</td></tr>
+<tr><td class="code-cell">D88</td><td>Avaria șoferului. Nu pot continua fără ajutor.</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>Urgență șofer. Șofer în pericol.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">E</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">Defecțiune a vehiculului</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>Lampa de avertizare a motorului. Minor. Continuând.</td></tr>
+<tr><td class="code-cell">E22</td><td>Anvelopă cu o singură plată. Schimbarea acum.</td></tr>
+<tr><td class="code-cell">E33</td><td>Cauciucuri multiple. Nu se poate schimba.</td></tr>
+<tr><td class="code-cell">E44</td><td>Supraîncălzirea motorului. Tras peste.</td></tr>
+<tr><td class="code-cell">E55</td><td>Avarie mecanică. Non-motor.</td></tr>
+<tr><td class="code-cell">E66</td><td>Defecțiune completă a motorului.</td></tr>
+<tr><td class="code-cell">E77</td><td>Foc.</td></tr>
+<tr><td class="code-cell">E88</td><td>Daune accidentale. Vehiculul nu se poate mișca.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Radierea vehiculului. Pierdere totală.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">F</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">Combustibil</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>Rezervor de combustibil plin.</td></tr>
+<tr><td class="code-cell">F22</td><td>Combustibil trei sferturi.</td></tr>
+<tr><td class="code-cell">F33</td><td>Jumătate de combustibil.</td></tr>
+<tr><td class="code-cell">F44</td><td>Sfertul de combustibil.</td></tr>
+<tr><td class="code-cell">F55</td><td>Combustibil scăzut. Trebuie alimentat în termen de 50 km.</td></tr>
+<tr><td class="code-cell">F66</td><td>Combustibil critic. Trebuie alimentat acum.</td></tr>
+<tr><td class="code-cell">F77</td><td>Funcționează pe bidon sau rezervor de rezervă.</td></tr>
+<tr><td class="code-cell">F88</td><td>Combustibil contaminat sau folosit incorect.</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>Fara combustibil. oprit.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">G</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">Convoi</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>Vehicul solo. Nici un convoi.</td></tr>
+<tr><td class="code-cell">G22</td><td>Vehicul conducător al convoiului.</td></tr>
+<tr><td class="code-cell">G33</td><td>Poziția de mijloc a convoiului.</td></tr>
+<tr><td class="code-cell">G44</td><td>Vehicul cu coada convoiului.</td></tr>
+<tr><td class="code-cell">G55</td><td>Convoiul intact. Toate camioanele prezente.</td></tr>
+<tr><td class="code-cell">G66</td><td>Un vehicul lipsește din convoi.</td></tr>
+<tr><td class="code-cell">G77</td><td>Mai multe vehicule dispărute.</td></tr>
+<tr><td class="code-cell">G88</td><td>Convoiul separat. Regrupați-vă la următorul punct de referință.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>Convoiul a fost desființat.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">H</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">Ajutor necesar</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>Am nevoie de combustibil livrat la locația mea.</td></tr>
+<tr><td class="code-cell">H22</td><td>Ai nevoie de atelier mecanic sau mobil.</td></tr>
+<tr><td class="code-cell">H33</td><td>Aveți nevoie de asistență medicală sau ambulanță.</td></tr>
+<tr><td class="code-cell">H44</td><td>Aveți nevoie de escortă de poliție sau oficială.</td></tr>
+<tr><td class="code-cell">H55</td><td>Aveți nevoie de camion sau macara de recuperare.</td></tr>
+<tr><td class="code-cell">H66</td><td>Aveți nevoie de alimente, apă sau provizii.</td></tr>
+<tr><td class="code-cell">H77</td><td>Aveți nevoie de ajutor de agent vamal sau documentare.</td></tr>
+<tr><td class="code-cell">H88</td><td>Am nevoie de escortă înarmată.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Incident major. Toată asistența necesară urgent.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">J</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">Progresul călătoriei</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>Călătoria a început. A plecat conform programului.</td></tr>
+<tr><td class="code-cell">J22</td><td>25% din traseu finalizat.</td></tr>
+<tr><td class="code-cell">J33</td><td>La jumătatea drumului. 50% complet.</td></tr>
+<tr><td class="code-cell">J44</td><td>75% complet.</td></tr>
+<tr><td class="code-cell">J55</td><td>Se apropie de destinație. Sub 10 km.</td></tr>
+<tr><td class="code-cell">J66</td><td>Ajuns la destinație.</td></tr>
+<tr><td class="code-cell">J77</td><td>Traseul extins semnificativ. Ocol major.</td></tr>
+<tr><td class="code-cell">J88</td><td>Întors înapoi. Retras traseul.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>Pierdut. În afara traseului în întregime.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">K</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">Comunicatii</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>Comunicații complete. Toate normale.</td></tr>
+<tr><td class="code-cell">K22</td><td>Numai date. Fără apeluri vocale.</td></tr>
+<tr><td class="code-cell">K33</td><td>Numai SMS-uri. Fără date sau voce.</td></tr>
+<tr><td class="code-cell">K44</td><td>Numai voce. Fără date sau SMS.</td></tr>
+<tr><td class="code-cell">K55</td><td>Numai contact radio.</td></tr>
+<tr><td class="code-cell">K66</td><td>Comunicații prin satelit sunt active.</td></tr>
+<tr><td class="code-cell">K77</td><td>Doar WiFi Mesh. Fără telefon mobil.</td></tr>
+<tr><td class="code-cell">K88</td><td>Acest mesaj a fost transmis prin intermediul unui alt dispozitiv.</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>Fara comunicatii. Trimis prin terță parte.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">R</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">Condițiile drumului</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">R11</td><td>Drum asfaltat bun.</td></tr>
+<tr><td class="code-cell">R22</td><td>Tarmac cu gropi.</td></tr>
+<tr><td class="code-cell">R33</td><td>Drum cu pietriș sau pământ. Acceptabil.</td></tr>
+<tr><td class="code-cell">R44</td><td>Pistă dură. Noroi sau suprafață slabă.</td></tr>
+<tr><td class="code-cell">R55</td><td>Drum parțial blocat.</td></tr>
+<tr><td class="code-cell">R66</td><td>Drum închis sau obstacol cu ​​o singură bandă.</td></tr>
+<tr><td class="code-cell">R77</td><td>Pod sau periculos.</td></tr>
+<tr><td class="code-cell">R88</td><td>Drum impracticabil.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Nici un traseu. Off road sau complet pierdut.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">S</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">Securitate</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>Situatie normala. Fără amenințări.</td></tr>
+<tr><td class="code-cell">S22</td><td>Atenție generală în zonă.</td></tr>
+<tr><td class="code-cell">S33</td><td>Punct de control neoficial sau următor vehicul.</td></tr>
+<tr><td class="code-cell">S44</td><td>Baraj rutier penal a fost raportat înainte.</td></tr>
+<tr><td class="code-cell">S55</td><td>Mită cerută.</td></tr>
+<tr><td class="code-cell">S66</td><td>Tentativa de jaf. Respins.</td></tr>
+<tr><td class="code-cell">S77</td><td>Jaf în curs.</td></tr>
+<tr><td class="code-cell">S88</td><td>Atac armat asupra convoiului.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Deturnarea sau răpirea.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">T</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">Programa</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>La timp. Conform programului.</td></tr>
+<tr><td class="code-cell">T22</td><td>Puțin întârziat. Sub o oră.</td></tr>
+<tr><td class="code-cell">T33</td><td>Întârziat cu una până la două ore.</td></tr>
+<tr><td class="code-cell">T44</td><td>Întârziat cu două până la patru ore.</td></tr>
+<tr><td class="code-cell">T55</td><td>Întârziată cu patru până la opt ore.</td></tr>
+<tr><td class="code-cell">T66</td><td>Întârziat cu o zi.</td></tr>
+<tr><td class="code-cell">T77</td><td>Întârziere majoră. ETA necunoscută.</td></tr>
+<tr><td class="code-cell">T88</td><td>Program abandonat.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Călătoria a fost întreruptă. Întorcându-se.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">Mișcarea vehiculului</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>Vehicul parcat. S-a oprit în siguranță.</td></tr>
+<tr><td class="code-cell">V22</td><td>Vehiculul se deplasează normal.</td></tr>
+<tr><td class="code-cell">V33</td><td>Vehiculul se deplasează încet. Sub 20 km/h.</td></tr>
+<tr><td class="code-cell">V44</td><td>Vehicul blocat. Noroi, nisip sau șanț.</td></tr>
+<tr><td class="code-cell">V55</td><td>Tractarea unui alt vehicul.</td></tr>
+<tr><td class="code-cell">V66</td><td>Fiind remorcat.</td></tr>
+<tr><td class="code-cell">V77</td><td>Vehiculul s-a răsturnat.</td></tr>
+<tr><td class="code-cell">V88</td><td>Accident. Vehiculul nu se poate mișca.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Achita. Pierdere totală.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">W</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">Vreme</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Sens</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>Limpede și uscată. Vizibilitate bună.</td></tr>
+<tr><td class="code-cell">W22</td><td>Ploaie ușoară sau ceață.</td></tr>
+<tr><td class="code-cell">W33</td><td>Ploaie puternică.</td></tr>
+<tr><td class="code-cell">W44</td><td>Furtună sau vânt puternic.</td></tr>
+<tr><td class="code-cell">W55</td><td>Ceață sau vizibilitate slabă.</td></tr>
+<tr><td class="code-cell">W66</td><td>Potop. Drum umed, dar practicabil.</td></tr>
+<tr><td class="code-cell">W77</td><td>Potop. Drum impracticabil.</td></tr>
+<tr><td class="code-cell">W88</td><td>Furtună de praf sau harmattan. Vizibilitate aproape de zero.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>Condiții meteorologice extreme. oprit.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">Codurile de drumeție - prefixul H</div>
+<div class="ph-sub">Trekkers, echipe în aer liber, expediții în sălbăticie</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">Ajutor necesar</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Aveți nevoie de mâncare sau apă.</td></tr>
+<tr><td class="code-cell">H22</td><td>Aveți nevoie de prim ajutor sau trusă medicală.</td></tr>
+<tr><td class="code-cell">H33</td><td>Aveți nevoie de asistență medicală sau evaluare de evacuare.</td></tr>
+<tr><td class="code-cell">H44</td><td>Trebuie echipa de salvare.</td></tr>
+<tr><td class="code-cell">H55</td><td>Aveți nevoie de elicopter sau evacuare aeriană.</td></tr>
+<tr><td class="code-cell">H66</td><td>Aveți nevoie de căutare și salvare.</td></tr>
+<tr><td class="code-cell">H77</td><td>Aveți nevoie de adăpost sau bivuac de urgență.</td></tr>
+<tr><td class="code-cell">H88</td><td>Trebuie evacuare urgentă. Nu pot merge.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Urgență majoră. Toată asistența necesară imediat.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">T</div><div class="cat-icon">🏔</div><div class="cat-name">Condițiile traseului</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>Traseu bun. Bine marcat. Comod.</td></tr>
+<tr><td class="code-cell">T22</td><td>Pista intermitentă sau supra-aglomerată.</td></tr>
+<tr><td class="code-cell">T33</td><td>Drum pierdut. Navigarea prin GPS sau busolă.</td></tr>
+<tr><td class="code-cell">T44</td><td>În afara traseului. Teren deschis. Navigabil.</td></tr>
+<tr><td class="code-cell">T55</td><td>Urcare abruptă. Ritm încetinit.</td></tr>
+<tr><td class="code-cell">T66</td><td>Coborâre abruptă. Având grijă.</td></tr>
+<tr><td class="code-cell">T77</td><td>Teren tehnic. Scramble, rock, sau snow.</td></tr>
+<tr><td class="code-cell">T88</td><td>Secțiune periculoasă. Traversând cu grijă.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Teren impracticabil. Forțat să se întoarcă.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">U</div><div class="cat-icon">🎒</div><div class="cat-name">Echipament / echipament</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>Toate echipamentele in stare buna.</td></tr>
+<tr><td class="code-cell">U22</td><td>Problemă minoră cu echipamentul. Non-critice.</td></tr>
+<tr><td class="code-cell">U33</td><td>Echipament deteriorat, dar soluție de soluție găsită.</td></tr>
+<tr><td class="code-cell">U44</td><td>Element critic eșuat. Cort, aragaz sau filtru.</td></tr>
+<tr><td class="code-cell">U55</td><td>Echipament de navigație pierdut sau defect.</td></tr>
+<tr><td class="code-cell">U66</td><td>Trusa de prim ajutor în uz.</td></tr>
+<tr><td class="code-cell">U77</td><td>Este nevoie de adăpost de urgență. Amenajarea bivuacului.</td></tr>
+<tr><td class="code-cell">U88</td><td>Defecțiuni critice multiple ale angrenajului.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>Toate echipamentele esențiale pierdute. Catastrofal.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">Vitale / sănătatea grupului</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Toți membrii grupului se potrivesc și bine.</td></tr>
+<tr><td class="code-cell">V22</td><td>Oboseală sau disconfort minor. Continuând.</td></tr>
+<tr><td class="code-cell">V33</td><td>vezicule sau răni minore. Încetinind ușor.</td></tr>
+<tr><td class="code-cell">V44</td><td>rănire. Ritm semnificativ mai lent.</td></tr>
+<tr><td class="code-cell">V55</td><td>Membrul nu poate menține ritmul normal.</td></tr>
+<tr><td class="code-cell">V66</td><td>Rănire gravă. oprit. Evaluarea evacuării.</td></tr>
+<tr><td class="code-cell">V77</td><td>Membru prăbușit sau inconștient.</td></tr>
+<tr><td class="code-cell">V88</td><td>Urgenta medicala. Evacuare necesară.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Amenințător de viață. Serviciile de urgență sunt necesare imediat.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Y</div><div class="cat-icon">✅</div><div class="cat-name">Check-in programat</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>Check-in programat. Toate bine. Pe traseu.</td></tr>
+<tr><td class="code-cell">Y22</td><td>Check-in. Ușoară întârziere. Încă în siguranță.</td></tr>
+<tr><td class="code-cell">Y33</td><td>Check-in. Întârziere semnificativă. Încă în siguranță.</td></tr>
+<tr><td class="code-cell">Y44</td><td>În afara traseului, dar în siguranță și în navigare.</td></tr>
+<tr><td class="code-cell">Y55</td><td>A ratat fereastra anterioară de check-in. Acum raportare.</td></tr>
+<tr><td class="code-cell">Y66</td><td>Solicitarea de confirmare de la bază.</td></tr>
+<tr><td class="code-cell">Y77</td><td>Sosire în siguranță la tabără sau la punctul de trecere planificat.</td></tr>
+<tr><td class="code-cell">Y88</td><td>Descendent. Ultimul pas până la capătul traseului.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>Înregistrări multiple ratate. Alertă de urgență declanșată.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">S</div><div class="cat-icon">🛡</div><div class="cat-name">Securitate</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Situatie normala. Fără amenințări.</td></tr>
+<tr><td class="code-cell">S22</td><td>Atenție generală. Zonă necunoscută.</td></tr>
+<tr><td class="code-cell">S33</td><td>Activitate suspectă în apropiere.</td></tr>
+<tr><td class="code-cell">S44</td><td>Amenințarea faunei sălbatice. Păstrarea distanței.</td></tr>
+<tr><td class="code-cell">S55</td><td>Întâlnire cu animale sălbatice. Îndepărtându-se.</td></tr>
+<tr><td class="code-cell">S66</td><td>Fauna sălbatică agresivă. În retragere.</td></tr>
+<tr><td class="code-cell">S77</td><td>Oameni ostili întâlniți.</td></tr>
+<tr><td class="code-cell">S88</td><td>Amenințat sau urmărit. Trecerea în siguranță.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Pericol imediat din partea oamenilor sau a animalelor sălbatice.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">Codurile serviciilor de urgență - prefixul X</div>
+<div class="ph-sub">SAR, paramedici, echipaje de pompieri, rangeri — operațiuni de comunicații degradate</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>Aliniat la standardele internaționale de urgență</strong>
+    Categoria P (triaj) folosește scala internațională de prioritate P1–P4 (P1=Imediat, P2=Întârziat, P3=Minor, P4=Așteptător). Categoriile I (incident) și N (număr) reflectă cadrul de declarare a incidentului major METAN utilizat de serviciile comune de urgență.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">eu</div><div class="cat-icon">🔥</div><div class="cat-name">Tipul incidentului</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">I11</td><td>Urgenta medicala. Fără pericol de scenă.</td></tr>
+<tr><td class="code-cell">I22</td><td>Ciocnire rutieră.</td></tr>
+<tr><td class="code-cell">I33</td><td>Căutare și salvare. Persoană dispărută.</td></tr>
+<tr><td class="code-cell">I44</td><td>Incendiu sau incident structural.</td></tr>
+<tr><td class="code-cell">I55</td><td>Salvare prin inundații sau apă.</td></tr>
+<tr><td class="code-cell">I66</td><td>Materiale periculoase sau eliberare chimică.</td></tr>
+<tr><td class="code-cell">I77</td><td>Colapsul structural.</td></tr>
+<tr><td class="code-cell">I88</td><td>Tulburări civile, violență sau incident armat.</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>Incident major declarat.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">P</div><div class="cat-icon">🏥</div><div class="cat-name">Triajul pacientului</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">P11</td><td>Fără victime la fața locului.</td></tr>
+<tr><td class="code-cell">P22</td><td>Mergând doar răniți. P3 — minor.</td></tr>
+<tr><td class="code-cell">P33</td><td>Serios dar stabil. P2 — întârziat.</td></tr>
+<tr><td class="code-cell">P44</td><td>Victime care pun viața în pericol. P1 — imediată.</td></tr>
+<tr><td class="code-cell">P55</td><td>Victime în așteptare. P4 — paliativ.</td></tr>
+<tr><td class="code-cell">P66</td><td>Triaj mixt. Sunt prezente mai multe categorii.</td></tr>
+<tr><td class="code-cell">P77</td><td>Incident cu victime în masă declarat.</td></tr>
+<tr><td class="code-cell">P88</td><td>Număr de victime incomplet. Scena nu este curățată.</td></tr>
+<tr class="crit"><td class="code-cell">P99</td><td>Catastrofal. Decese multiple confirmate.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">Numărul victimelor</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>O victimă.</td></tr>
+<tr><td class="code-cell">N22</td><td>Două până la cinci victime.</td></tr>
+<tr><td class="code-cell">N33</td><td>Șase până la zece victime.</td></tr>
+<tr><td class="code-cell">N44</td><td>Unsprezece până la douăzeci de victime.</td></tr>
+<tr><td class="code-cell">N55</td><td>Douăzeci până la cincizeci de victime.</td></tr>
+<tr><td class="code-cell">N66</td><td>Cincizeci până la o sută de victime.</td></tr>
+<tr><td class="code-cell">N77</td><td>Peste o sută de victime.</td></tr>
+<tr><td class="code-cell">N88</td><td>Număr necunoscut. Evaluarea scenei este în curs.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>Victime în mai multe locații.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">Elementele vitale ale pacientului</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Conștient și alert. Vorbesc normal.</td></tr>
+<tr><td class="code-cell">V22</td><td>Conștient, dar confuz sau agitat.</td></tr>
+<tr><td class="code-cell">V33</td><td>Răspuns numai la comenzi vocale.</td></tr>
+<tr><td class="code-cell">V44</td><td>Răspunzând doar la durere. Inconştient.</td></tr>
+<tr><td class="code-cell">V55</td><td>Nu răspunde. Respirația prezentă.</td></tr>
+<tr><td class="code-cell">V66</td><td>Nu respiră. RCP în curs.</td></tr>
+<tr><td class="code-cell">V77</td><td>Hemoragie severă. Garou aplicat.</td></tr>
+<tr><td class="code-cell">V88</td><td>Stop cardiac.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Decedat. Confirmat.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Resurse la fața locului</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">R11</td><td>Doar primul ajutor. Nici un răspuns profesionist.</td></tr>
+<tr><td class="code-cell">R22</td><td>Paramedic sau prim ajutor avansat la fața locului.</td></tr>
+<tr><td class="code-cell">R33</td><td>Echipajul de ambulanță la fața locului.</td></tr>
+<tr><td class="code-cell">R44</td><td>Echipajul de pompieri la fața locului.</td></tr>
+<tr><td class="code-cell">R55</td><td>Poliția la fața locului.</td></tr>
+<tr><td class="code-cell">R66</td><td>Mai multe servicii de urgență la fața locului.</td></tr>
+<tr><td class="code-cell">R77</td><td>Comandant de incident stabilit.</td></tr>
+<tr><td class="code-cell">R88</td><td>Spitalul de campanie sau statia de compensare a victimelor activa.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Toate resursele depășite. Este necesară întărirea urgentă.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">H</div><div class="cat-icon">📞</div><div class="cat-name">Resurse necesare</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Nu sunt necesare resurse suplimentare.</td></tr>
+<tr><td class="code-cell">H22</td><td>Este necesară o ambulanță terestră suplimentară.</td></tr>
+<tr><td class="code-cell">H33</td><td>Este necesară ambulanța aeriană sau elicopterul.</td></tr>
+<tr><td class="code-cell">H44</td><td>Sunt necesare incendii și salvare.</td></tr>
+<tr><td class="code-cell">H55</td><td>Este necesară intervenția poliției sau armată.</td></tr>
+<tr><td class="code-cell">H66</td><td>Echipă HAZMAT sau contaminare necesară.</td></tr>
+<tr><td class="code-cell">H77</td><td>Este necesară o echipă grea de salvare sau de căutare urbană.</td></tr>
+<tr><td class="code-cell">H88</td><td>Este necesar sprijin militar sau de specialitate.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Răspunsul în masă a victimelor. Toate resursele necesare.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">E</div><div class="cat-icon">🚁</div><div class="cat-name">Starea de evacuare</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>Nu este necesară evacuarea. Tratarea la fața locului.</td></tr>
+<tr><td class="code-cell">E22</td><td>Autoevacuare posibilă. Victime care merg pe jos la transport.</td></tr>
+<tr><td class="code-cell">E33</td><td>Evacuarea vehiculului posibil. Drumul este accesibil.</td></tr>
+<tr><td class="code-cell">E44</td><td>Evacuarea targă necesară.</td></tr>
+<tr><td class="code-cell">E55</td><td>Este necesară evacuarea aerului. Este necesară zona de aterizare.</td></tr>
+<tr><td class="code-cell">E66</td><td>Este necesară evacuarea cu apă sau cu barca.</td></tr>
+<tr><td class="code-cell">E77</td><td>Este necesară salvarea tehnică. Frânghie sau spațiu închis.</td></tr>
+<tr><td class="code-cell">E88</td><td>Calea de evacuare compromisă. Caut alternativa.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Evacuarea imposibilă. Victimele se adăpostesc pe loc.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">S</div><div class="cat-icon">⚠️</div><div class="cat-name">Siguranța scenei</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Sens</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Scenă în siguranță. Fără pericole.</td></tr>
+<tr><td class="code-cell">S22</td><td>Pericole potențiale prezente. Se recomandă prudență.</td></tr>
+<tr><td class="code-cell">S33</td><td>Pericol de incendiu, chimic sau structural la fața locului.</td></tr>
+<tr><td class="code-cell">S44</td><td>Amenințare activă. Scena nu este încă securizată.</td></tr>
+<tr><td class="code-cell">S55</td><td>Persoane ostile la fața locului. Este necesară aplicarea legii.</td></tr>
+<tr><td class="code-cell">S66</td><td>Pericol de contaminare. Zona de excludere este necesară.</td></tr>
+<tr><td class="code-cell">S77</td><td>Scena parțial eliberată. Risc continuu.</td></tr>
+<tr><td class="code-cell">S88</td><td>Scena nesigură. Răspunzătorii s-au retras.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Pericol imediat pentru respondenți. Evacuează scena acum.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>Referință rapidă - situații comune</h2>
+<p>Coduri cu același sens în cele trei profiluri</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>Situaţie</th>
+<th>Șofer (D)</th>
+<th>Excursionist (H)</th>
+<th>Urgență (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Toate clare/normale</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>Am nevoie de ajutor urgent</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
+<tr><td>Amenințarea vieții – SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
+<tr><td>Comunicații numai prin SMS</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>La program / pe drum</td><td>T11 / D11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>Ajuns la destinație</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>Pierdut / în afara traseului</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>Vreme severă</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>Recunoscut</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>Mesaj corupt</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>Logistica 4×4</h3>
+<p>Comunicații transfrontaliere ale flotei pentru operatorii mici — hărți în direct, videoclipuri de grup, pod SIM și acest protocol de urgență, toate pe un telefon Android standard.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">Află mai multe</a>
+<a class="btn" href="../contact.html">Luați legătura</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · Logistică 4×4 Field Communications Protocol · Ediția 1<br/>
+    Partajarea acestei referințe este încurajată – interoperabilitatea o cere.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licențiere în așteptare · Construit de Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

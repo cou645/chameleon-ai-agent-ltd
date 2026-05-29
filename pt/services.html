@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Serviços da Web – Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️TESTES EM ANDAMENTO — Este site está em desenvolvimento ativo. Recursos, preços e licenciamento não foram finalizados.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleão AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Inu00edcio</a>
+<a href="../ide.html">VOCÊ TEM IDEIAS</a>
+<a href="../presenter.html">Apresentador</a>
+<a href="../companion.html">Aplicativo complementar</a>
+<a href="../logistics4x4.html">Logística 4×4</a>
+<a class="active" href="../services.html">Serviços Web</a>
+<a href="../accounting.html">Contabilidade</a>
+<a href="../technician.html">Técnico de informática</a>
+<a href="../trading.html">Negociação</a>
+<a href="../classroom.html">Aula</a>
+<a href="../contact.html">Contato</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇵🇹 PT ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>Serviços Web de IA</h1>
+<p class="sub">Do zero a um site profissional ao vivo — criado por IA a partir dos arquivos do seu projeto, hospedado gratuitamente e gerenciado continuamente. Não é necessária experiência em web design.</p>
+<div class="hero-badges">
+<span class="badge">🤖 IA criada a partir de seus arquivos</span>
+<span class="badge">🆓 Opções de hospedagem gratuita</span>
+<span class="badge">🌍 Domínio personalizado</span>
+<span class="badge">📧 Caixa de entrada gerenciada</span>
+<span class="badge">🇬🇧 Serviço no Reino Unido</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">SERVIÇO 1</div>
+<h2>🏗️ Construtor de sites com IA</h2>
+<p class="tier-sub">A IA lê os arquivos, documentos e descrições do seu projeto e, em seguida, cria um site completo de várias páginas do zero. Sem modelos, sem arrastar e soltar. Um site real derivado do que você realmente faz.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">O que entregamos</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Site de várias páginas: página inicial, sobre, recursos, contato</li>
+<li>Conteúdo derivado dos arquivos e documentos do seu projeto</li>
+<li>Sua marca: cores, logotipo, preferências de estilo</li>
+<li>Layout responsivo a dispositivos móveis</li>
+<li>Espaços reservados para captura de tela e mídia — substituídos quando estiverem prontos</li>
+<li>Isenção de responsabilidade legal e banner de teste durante o desenvolvimento</li>
+<li>Privacidade em primeiro lugar – sem rastreadores, sem scripts de terceiros</li>
+<li class="planned">Seção de blog/notícias com atualizações escritas por IA</li>
+<li class="planned">Versões multilíngues</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Como funciona</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Você compartilha a pasta do seu projeto ou uma descrição escrita – a IA lê tudo e faz perguntas esclarecedoras</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Você escolhe as cores, o estilo e as páginas que precisa (conversa de 5 minutos)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>A IA cria o site completo localmente – você o visualiza imediatamente</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>Uma rodada de feedback → IA aplica alterações → site está pronto para publicação</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Transferência: você possui os arquivos, o repositório e o domínio — sem dependência</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">SERVIÇO 2</div>
+<h2>🌍 Configuração de nome de domínio</h2>
+<p class="tier-sub">A configuração do DNS é a parte que a maioria das pessoas considera confusa: logins de registradores, tipos de registros, esperas de propagação. A IA cuida disso diretamente sempre que possível e fornece orientação passo a passo exata em qualquer outro lugar.</p>
+<ul class="deliverable-list">
+<li>Identifique seu registrador automaticamente ou por meio de um breve questionário</li>
+<li>Gere os registros DNS exatos necessários (A, AAAA, CNAME) em uma tabela de copiar e colar</li>
+<li>Forneça instruções específicas para registradores — Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg e mais</li>
+<li>Explicação em inglês simples de cada tipo de registro antes de você tocar em qualquer coisa</li>
+<li>Defina um domínio personalizado por meio da API GitHub Pages — sem entrada manual no formulário</li>
+<li>Monitore a propagação do DNS e confirme a emissão do certificado HTTPS</li>
+<li class="planned">Automação completa para registradores que fornecem API (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>Por que isso é importante:</strong> <span>Em nossos próprios testes, a configuração do domínio causou a maior confusão: um domínio migrou silenciosamente do Google Domains para o Squarespace sem nenhum redirecionamento óbvio e os tipos de registro DNS (A, AAAA, CNAME) eram completamente desconhecidos. A IA agora pergunta antecipadamente ao seu registrador e fornece instruções que não exigem nenhum conhecimento prévio de DNS.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">SERVIÇO 3</div>
+<h2>🖥️ Configuração e implantação de hospedagem</h2>
+<p class="tier-sub">Coloque seu site no ar com custo mensal zero - ou hospede-o em sua própria máquina por meio do Tailscale. A IA cuida da configuração, da primeira implantação e ensina o único comando necessário para cada atualização futura.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>Páginas do GitHub</h4>
+<p>Site estático hospedado em um repositório GitHub. Domínio personalizado, HTTPS, CDN global. Totalmente gerenciado pelo script de implantação de IA.</p>
+<div class="ho-cost">Grátis para sempre</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Páginas Cloudflare</h4>
+<p>CDN global rápido com nível gratuito generoso. AI lida com conexão de repositório e implanta ganchos. Boa alternativa se você já usa Cloudflare DNS.</p>
+<div class="ho-cost">Nível gratuito disponível</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify/Vercel</h4>
+<p>Implantação com um clique a partir de um repositório git. HTTPS automático, URLs de visualização por filial. AI define as configurações de compilação.</p>
+<div class="ho-cost">Nível gratuito disponível</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale auto-hospedado</h4>
+<p>Sirva seu site em sua própria máquina por meio do Tailscale Funnel – acesso público à Internet sem dependência de nuvem. Controle total.</p>
+<div class="ho-cost">Gratuito (seu hardware)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Implantação contínua</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>Cada vez que você atualiza o site, um comando o coloca no ar: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Ou diga <em>"implantar o site"</em> no chat Chameleon AI - o IDE faz isso automaticamente por meio do <code>gh_deploy</code> ação da ponte de comando</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">SERVIÇO 4</div>
+<h2>📬 Gerenciamento de presença na Web com IA</h2>
+<p class="tier-sub">Assim que seu site estiver no ar, o agente de IA o monitora e gerencia – lendo e-mails de consulta, redigindo respostas, coletando detalhes do cliente, gerando relatórios e sinalizando qualquer coisa que precise de sua atenção.</p>
+<ul class="deliverable-list">
+<li>Ler e fazer a triagem de envios de formulários de contato e e-mails recebidos</li>
+<li>Elabore respostas personalizadas para sua análise antes de enviar</li>
+<li>Reúna detalhes do cliente – caso de uso, contagem de licenças, sistema operacional, requisitos – por meio de acompanhamento estruturado</li>
+<li>Relatório semanal: visitantes, consultas, conversões, respostas pendentes</li>
+<li>Sinalize mensagens urgentes (solicitações de demonstração, consultas de licença comercial) imediatamente</li>
+<li class="planned">Responda automaticamente a perguntas comuns usando uma base de conhecimento criada a partir do conteúdo do seu site</li>
+<li class="planned">Registro de contato estilo CRM: todos os leads rastreados desde o primeiro e-mail até a licença assinada</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">SERVIÇO 5</div>
+<h2>📈 Visibilidade e crescimento</h2>
+<p class="tier-sub">Ser encontrado – motores de busca, diretórios e redes profissionais. A IA cuida da base técnica de SEO e ajuda você a construir uma presença online confiável sem publicidade paga.</p>
+<ul class="deliverable-list">
+<li>Meta tags de SEO, Open Graph e marcação de Twitter Card em todas as páginas</li>
+<li>sitemap.xml e robots.txt gerados e mantidos atualizados</li>
+<li>Dados estruturados do Schema.org (Organização, Produto, ContactPoint)</li>
+<li>Envie para o Google Search Console e as Ferramentas para webmasters do Bing</li>
+<li>Análises que respeitam a privacidade – Plausible ou Umami auto-hospedado (sem necessidade de banner de cookie)</li>
+<li class="planned">Postagens de blog e estudos de caso escritos por IA para direcionar o tráfego de pesquisa orgânica</li>
+<li class="planned">Alinhamento do perfil do LinkedIn/GitHub com o conteúdo do site</li>
+</ul>
+<div class="suggest-box">
+<h4>Por que este é o Serviço 5</h4>
+<p>Um site que ninguém encontra vale pouco. Os serviços 1–4 constroem e administram o site. O serviço 5 torna-o detectável. SEO, dados estruturados e análises são todos automatizáveis ​​​​por IA - não é necessária nenhuma contratação contínua da agência.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Jornada do cliente – do início ao fim</h2>
+<p>Engajamento típico: uma sessão para construir, no mesmo dia para ir ao ar</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Chamada de descoberta (15 min)</h4>
+<p>Questionário de IA: nome da empresa, descrição, registrador, nome de usuário do GitHub, preferências de cores, páginas necessárias. Não é necessário conhecimento prévio da web - todas as perguntas são em inglês simples com exemplos.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Construir (mesma sessão)</h4>
+<p>AI lê os arquivos do projeto e constrói o site completo. Você pode visualizá-lo localmente por meio de um link Tailscale Funnel – sem necessidade de servidor. Uma rodada de feedback e está pronto.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Publicar (30 min guiado)</h4>
+<p>AI cria o repositório GitHub e envia o site. Fornece instruções de DNS passo a passo exatas do seu registrador. Monitora a propagação – confirma HTTPS ao vivo. No mesmo dia na maioria dos casos.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Transferência + gestão contínua</h4>
+<p>Você recebe uma folha de dicas de uma página: como atualizar o site (um comando), como adicionar conteúdo, como ler o relatório semanal. O agente de IA monitora desde o primeiro dia.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Interessado em serviços da Web de IA?</h3>
+<p>O serviço está em desenvolvimento – entre em contato conosco para registrar interesse ou discutir suas necessidades.</p>
+<a class="btn btn-solid" href="../contact.html">Entre em contato</a>
+<a class="btn" href="../index.html">← Voltar à visão geral</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Inu00edcio</a><a href="../ide.html">VOCÊ TEM IDEIAS</a><a href="../presenter.html">Apresentador</a>
+<a href="../companion.html">Aplicativo complementar</a>
+<a href="../logistics4x4.html">Logística 4×4</a><a href="../services.html">Serviços Web</a>
+<a href="../accounting.html">Contabilidade</a><a href="../technician.html">Técnico de informática</a>
+<a href="../trading.html">Negociação</a><a href="../classroom.html">Aula</a><a href="../contact.html">Contato</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licenciamento pendente · Construído por Marcos, também conhecido como stemsee</p>
+</footer>
+</body>
+</html>

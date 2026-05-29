@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kỹ thuật viên PC AI — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../logistics4x4.html">Hậu cần 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a href="../accounting.html">Kế toán</a>
+<a class="active" href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>Kỹ thuật viên PC AI</h1>
+<p class="sub">Chẩn đoán và sửa chữa hệ thống được hướng dẫn bởi AI — cùng với trình phân tích thiết bị USB có khả năng đảo ngược các giao thức phần cứng và tự động tạo trình điều khiển nhân Linux.</p>
+<div class="hero-badges">
+<span class="badge">🔬 Hồ sơ phần cứng</span>
+<span class="badge">🐧 Tạo mô-đun hạt nhân</span>
+<span class="badge">🌐 Điều khiển từ xa qua Tailscale</span>
+<span class="badge">⚡ Biên dịch chéo ARM</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Sửa chữa hệ thống có hướng dẫn của AI</h2>
+<p>AI tuân theo một quy trình phẫu thuật có cấu trúc - chẩn đoán trước khi chạm vào, xác minh ở mọi bước</p>
+</div>
+<div class="terminal-block">
+<span class="comment"># Trình tự chẩn đoán AI của Chameleon</span>
+<span class="cmd">$ lsusb -v | đầu -80</span>
+<span class="out">Bus 002 Thiết bị 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$dmesg | đuôi -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: đổi tên từ eth0</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152 94208 0</span>
+<span class="cmd">$ sửa đổi thông tin r8152 | phiên bản grep</span>
+<span class="out">phiên bản: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>Trình tự chẩn đoán có cấu trúc</h4>
+<p>Phần cứng → trạng thái hạt nhân → trạng thái trình điều khiển → mạng → bộ nhớ. AI chạy từng bước, đọc kết quả JSON rồi quyết định hành động tiếp theo. Nó không bao giờ bỏ qua các bước hoặc đưa ra giả định.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Phác đồ sửa chữa phẫu thuật</h4>
+<p>Đầu tiên không phá hủy (tải lại mô-đun, khởi động lại dịch vụ). Kiên trì trước rủi ro (cấu hình chụp nhanh). Xác minh ở mỗi bước. Mỗi hành động yêu cầu khởi động lại sẽ kích hoạt Công tắc của Người chết để đặt <code>@reboot</code> tiếp tục tập lệnh tự động.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Sửa chữa từ xa trên Tailscale</h4>
+<p>Chẩn đoán và sửa chữa máy ở bất cứ đâu trên lưới Tailscale của bạn. AI đưa ra lệnh trên máy từ xa thông qua cầu nối đầu cuối, đọc kết quả và tiếp tục — ngay cả khi khởi động lại bằng hệ thống điểm kiểm tra/tiếp tục.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Trình điều khiển USB</h2>
+<p>Lập cấu hình bất kỳ thiết bị USB nào → phân tích giao thức của nó → tạo trình điều khiển Linux sẵn sàng cài đặt</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">Đường dẫn A</div>
+<h4>Giao thức chuẩn</h4>
+<p>Không tìm thấy trang nhà cung cấp. Tạo quy tắc udev + cấu hình modprobe. <strong>Không cần biên soạn.</strong> Hoạt động với HID, CDC, bộ lưu trữ lớn và các lớp tiêu chuẩn khác.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">máy dò mod</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">Đường dẫn B</div>
+<h4>Giao thức nhà cung cấp một phần</h4>
+<p>Đã phát hiện thấy các trang của nhà cung cấp (&lt;2). Tạo daemon không gian người dùng hidraw/uhid hoặc plugin ALSA. Chạy trong không gian người dùng - không cần biên dịch kernel.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">trốn</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Plugin ALSA</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">Đường dẫn C</div>
+<h4>Giao thức độc quyền</h4>
+<p>Giao thức hoàn toàn tùy chỉnh. Tạo mô-đun hạt nhân hoàn chỉnh với gói DKMS và hỗ trợ biên dịch chéo ARM cho Raspberry Pi 3, 4 và 5.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">mô-đun hạt nhân</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">CÁNH TAY</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>Quy trình làm việc của Trình hồ sơ</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># Bước 1 - lập hồ sơ thiết bị (chụp 30 giây)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Cấu hình USB 1234:5678 trong 30 giây...
+Đã viết ~/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># Bước 2 - tạo trình điều khiển</span>
+<span class="cmd">$ python3 device_porter.py --latest</span>
+<span class="out">Đường dẫn đã chọn: C (độc quyền, 3 trang của nhà cung cấp)
+Đã tạo: /tmp/driver_1234_5678/
+  ├── tắc kè hoa_1234_5678.c
+  ├── Makefile (cross-aarch64, cross-armv7)
+  ├── cài đặt.sh
+  ├── test_device.sh
+  └── phân tích.json</span>
+<span class="comment"># Bước 3 - cài đặt</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS - thiết bị /dev/chameleon0 phản hồi chính xác</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Phụ trợ chụp đa nền tảng</h3>
+<p>ETW trên Windows, IOKit trên macOS, usbmon trên Linux. Cấu hình trên bất kỳ hệ điều hành nào và tạo trình điều khiển Linux từ kết quả <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Biên dịch chéo Raspberry Pi</h3>
+<p>Mục tiêu Makefile <code>cross-aarch64</code> (Pi 4/5) và <code>cross-armv7</code> (Pi 3) được tự động đưa vào Đường dẫn C. Xây dựng trên x86 và triển khai lên ARM.</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>Bao bì DKMS</h3>
+<p>Trình điều khiển Path C được đóng gói cho DKMS để chúng tồn tại trong quá trình nâng cấp kernel mà không cần biên dịch lại thủ công. Đánh giá AI <code>analysis.json</code> và nhắc nhở mọi phần TODO còn lại.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Sửa cái không thể sửa được</h3>
+<p>Cho dù đó là lỗi kernel, thiết bị USB chết hay thiết bị ngoại vi độc quyền không hỗ trợ Linux — Kỹ thuật viên PC Chameleon AI sẽ hỗ trợ bạn.</p>
+<a class="btn btn-solid" href="../contact.html">Hãy liên lạc</a>
+<a class="btn" href="../index.html">← Quay lại tổng quan</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a><a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+</footer>
+</body>
+</html>

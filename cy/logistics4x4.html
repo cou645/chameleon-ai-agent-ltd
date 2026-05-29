@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logisteg 4×4 — Cyfathrebu Fflyd Trawsffiniol</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ PROFI AR Y CYNNYDD - Mae'r wefan hon yn cael ei datblygu ar hyn o bryd. Nid yw nodweddion, prisiau a thrwyddedu wedi'u pennu'n derfynol.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a class="active" href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a>
+<a href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Logisteg 4×4</h1>
+<p class="sub">Cyfathrebu fflyd trawsffiniol ar gyfer gweithredwyr bach. Mae pedwar galwr SIM a phedwar o gymheiriaid fideo P2P yn rhannu un man galw - gyrrwr ar y ffin, prif swyddfa, tollau, cwsmer - i gyd yn yr ystafell ar unwaith. Mapiau byw, llwybrau GPX, maniffestau cargo, sgwrs llais wedi'i chyfieithu a darllediadau brys, i gyd ar ffôn Android safonol.</p>
+<div class="hero-badges">
+<span class="badge">📹 4 cyfoedion fideo</span>
+<span class="badge">📞 4 galwad SIM</span>
+<span class="badge">🗺 Mapiau byw + GPX</span>
+<span class="badge">📍 haen POI</span>
+<span class="badge">🧭 Cwmpawd all-lein</span>
+<span class="badge">🌍 15 iaith</span>
+<span class="badge">📋 Maniffest + taflen rhedeg</span>
+<span class="badge">🚨 Darllediad brys</span>
+<span class="badge">📟 Modd Argyfwng - SMS a chyfoedion</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Logisteg 4×4</span>
+<div class="phone-status">● Fflyd ar-lein</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Cross Waypoint 3 — arhoswch ar y B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: “Tollau wedi’u clirio, mynd ymlaen i giât 7”</div>
+<div class="p-chat p-chat-out">Ar y ffordd - ETA 14 mun</div>
+<div class="p-chat p-chat-in">Cwsmer ar SIM - cysylltu nawr ...</div>
+<div class="p-chat p-chat-out">📍 Lleoliad wedi'i rannu â'r fflyd</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Anfon</span>
+<span class="p-peer p-peer-on">🎥 Gyrrwr B</span>
+<span class="p-peer p-peer-sim">📞 Tollau</span>
+<span class="p-peer p-peer-sim">📞 Cwsmer</span>
+<span class="p-peer p-peer-map">🗺 Map</span>
+<span class="p-peer p-peer-map">🧭 Cwmpawd</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Y gofod galw 4×4</h2>
+<p>Mae galwadau ffôn SIM a fideo P2P yn rhannu un gofod cysylltiedig</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">Un man galw - wyth cyfranogwr</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 galwad SIM</h4>
+<ul>
+<li>Llais cellog safonol</li>
+<li>Dim angen rhyngrwyd</li>
+<li>Swyddog tollau</li>
+<li>Cwsmer dramor</li>
+<li>Llinell dir y brif swyddfa</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 cyfoedion fideo P2P</h4>
+<ul>
+<li>WebRTC - dim bil gweinydd</li>
+<li>Fideo rhwyll llawn + sain</li>
+<li>Gyrrwr i'r gyrrwr</li>
+<li>Rheolydd anfon</li>
+<li>Aelod tîm o bell</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Mae sain o alwadau SIM yn cael ei gyfuno â chaledwedd â'r alwad grŵp trwy stac telathrebu Android neu SCO Bluetooth - clustffon yn unig, preifat.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Nid yw logisteg 4 × 4 yn ceisio disodli platfform logisteg perchnogol proffesiynol fel y rhai a ddefnyddir gan rwydweithiau negeswyr mawr. Mae'n llenwi'r bwlch ar gyfer <strong>gweithredwyr bach</strong>, unig fasnachwyr a sefyllfaoedd na all offeryn menter fawr eu cyrraedd - gyrrwr ar groesfan ffin anghysbell y mae angen iddo gysylltu ar unwaith â'r brif swyddfa, ail yrrwr dair milltir yn ôl, yr arolygydd tollau yn y bwth, a'r cwsmer mewn gwlad arall na all ddeialu dros y ffôn yn unig.
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ar gyfer pwy y mae</h2>
+<p>Wedi'i gynllunio ar gyfer cyfathrebiadau maes seilwaith isel, lle mae llawer yn y fantol</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Croesfan ffin</h4>
+<p>Mae Driver yn cysylltu'r swyddog tollau (galwad SIM), y brif swyddfa (fideo), y cwsmer sy'n derbyn (galwad SIM) ac ail yrrwr mewn confoi (fideo) - i gyd ar yr un pryd, gyda sgwrs fyw wedi'i chyfieithu yn weladwy i bawb.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Confoi pellter hir</h4>
+<p>Mae tryciau wedi'u gwasgaru dros 50 milltir yn aros mewn galwad a rennir gyda gwthio-i-siarad, rhannu lleoliad ar yr un map byw, a gwthio llwybr anfonwr yn cyrraedd wrth i ffeiliau GPX gael eu llwytho'n uniongyrchol yn y map.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Oddi ar y ffordd / merlota</h4>
+<p>Dim signal data? Mae'r cwmpawd all-lein yn dangos dwyn saethau i bob aelod fflyd arall. Mae pinnau POI yn nodi arosfannau tanwydd, peryglon a phwyntiau rendezvous - wedi'u hymgorffori mewn ffeil GPX wedi'i gwthio neu ei gollwng gan unrhyw yrrwr ar y map. Gall cysylltiadau pellter hir rhwng tryciau ag erialau cyfeiriadol gyrraedd 50+ milltir.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Timau amlieithog</h4>
+<p>Mae gwthio-i-siarad yn trawsgrifio lleferydd, yn canfod iaith y siaradwr, yn cyfieithu, ac yn cyflwyno testun + sain yn locale pob gwrandäwr ei hun - 15 iaith, wedi'u pweru gan weinydd Argos Translate lleol ar y ffôn.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Prawf o ddanfoniad</h4>
+<p>Mae'r gyrrwr yn sganio cod QR y depo i lwytho'r maniffest, yna'n sganio POD QR y cwsmer wrth ei ddanfon. Wedi gwrthod danfon? Tynnwch lun a nodyn eithrio ysgrifenedig. Llofnod cwsmer wedi'i ddal ar y sgrin.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Swyddfa anfon</h4>
+<p>Mae sgrin anfonwr yn dangos yr holl yrwyr ar y map byw, yn rhedeg y daflen redeg, yn gwthio maniffestau a llwybrau at yrwyr unigol dros y sianel gyfoedion, ac yn darlledu rhybuddion brys ledled y fflyd.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Map Byw, POIs a Chwmpawd</h2>
+<p>Haenau OSM, lloeren a hybrid - lleoliadau cyfoedion, llwybrau GPX, pwyntiau o ddiddordeb a storfa teils all-lein</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Stryd</span>
+<span class="map-tag mt-sat">Lloeren</span>
+<span class="map-tag mt-hybrid">Hybrid</span>
+<span class="map-tag mt-gpx">Llwybr GPX</span>
+<span class="map-tag mt-poi">Haenau POI</span>
+<span class="map-tag mt-offline">Celc all-lein</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Teils OpenStreetMap</span>
+<span class="tag">Delweddaeth Byd Esri</span>
+<span class="tag">adeiladau 2.5D</span>
+<span class="tag">Llwybro OSRM</span>
+<span class="tag">Sef chwilio lle</span>
+<span class="tag">Celc teils disg</span>
+<span class="tag">Haenau POI</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Cyfeirbwyntiau llwybr</span>
+<span class="poi-dot poi-push">📍 IDE-gwthio</span>
+<span class="poi-dot poi-manual">📍 Gyrrwr wedi'i ollwng</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Tair haen map</h4>
+<p>Beicio rhwng <strong>Stryd</strong> (OpenStreetMap), <strong>Lloeren</strong> (Delweddaeth Byd Esri) a <strong>Hybrid</strong> (sylfaen lloeren + troshaen ffordd OSM) gydag un tap. Mae pob teils wedi'i storio ar ddisg - mae ardaloedd a welwyd yn flaenorol yn llwytho all-lein heb ddata.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Lleoliadau cyfoedion ar y map</h4>
+<p>Mae pob aelod fflyd sy'n galluogi rhannu lleoliad yn ymddangos fel pin byw. Tapiwch bin i weld eu henw ac ETA. Gall anfonwr weld cipolwg ar y fflyd gyfan heb lwyfan olrhain ar wahân.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>Gwthiad llwybr GPX</h4>
+<p>Swyddfa gwthio a <code>.gpx</code> ffeil llwybr o Chameleon PC yn uniongyrchol i ffôn gyrrwr dros y sianel cyfoedion. Mae'r llwybr yn llwytho'n syth yn y map fel troshaen lliw. Mae llwybrau diweddar yn cael eu storio'n lleol i'w hailddefnyddio. Yn cefnogi cywiro gwrthbwyso cydlynu GCJ-02 ar gyfer Tsieina.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Cwmpawd-clo neu o'r gogledd i fyny</h4>
+<p>Mae'r map yn cylchdroi yn fyw gyda chwmpawd y ddyfais ar gyfer cyfeiriadedd gyrru pennau i fyny, neu'n cloi i'r gogledd ar gyfer darllen map traddodiadol - toglwch mewn gosodiadau fesul dewis gyrrwr.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Sgrîn cwmpawd — llywio gan gymheiriaid all-lein</h4>
+<p>Dim data? Mae'r rhosyn cwmpawd sgrin lawn yn dangos saeth dwyn ar gyfer pob cyfoedion ar-lein gan ddefnyddio GPS hysbys ddiwethaf. Mae pellteroedd cyfoedion a phenawdau cwmpawd yn diweddaru o leoliadau sydd wedi'u storio - yn ddefnyddiol ar gyfer merlotwyr, llywio confoi oddi ar y ffordd a chydgysylltu achub mynydd.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Haen Pwyntiau o Ddiddordeb (POI).</h4>
+<p>Tair ffynhonnell POIs wedi'u dangos fel pinnau â chôd lliw ar y map. <strong style="color:#f59e0b;">Ambr</strong> pins yn dod o <code>&lt;wpt&gt;</code> cyfeirbwyntiau wedi'u mewnosod mewn ffeil GPX - maen nhw'n llwytho gyda'r llwybr ac yn clirio ag ef. <strong style="color:#22c55e;">Gwyrdd</strong> mae pinnau'n cael eu gwthio'n uniongyrchol o IDE PC Chameleon (arosfannau tanwydd, peryglon, cyfeiriadau danfon) yn annibynnol ar unrhyw lwybr. <strong style="color:#ef4444;">Coch</strong> pinnau'n cael eu gollwng gan y gyrrwr gyda gwasg hir ar y map. Mae pob POIs yn parhau ar draws sesiynau; tapiwch unrhyw bin i lywio, agor yn Maps, neu ddileu. Mae eiconau'n addasu i'r math: ⛽ tanwydd, 🚚 danfoniad, ⚠️ perygl, 🏥 ysbyty, 🅿️ parcio, ✈️ maes awyr a mwy.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Pob nodwedd</h2>
+<p>Pob sgrin a gwasanaeth yn yr ap</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">CYFEILLION</span>
+<div class="fc-icon">📹</div>
+<h3>Fideo Grŵp P2P</h3>
+<p>Fideo a sain WebRTC rhwyll llawn ar gyfer hyd at 4+ o gymheiriaid - dim gweinydd cyfryngau canolog, dim bil galwad misol. Grid addasol: 1 cyfoedion = sgrin lawn, 2 = ochr yn ochr, 3 = 2 + 1, 4 = 2 × 2. Mae porthiant lleol yn arnofio fel llun-mewn-llun. Graddfeydd didau fesul cyfoedion (1.5 Mbps → 350 Kbps) i gadw ansawdd hyd yn oed ym mhob maint grŵp. Mae galwadau sy'n dod i mewn yn canu ac yn dirgrynu hyd yn oed pan fydd yr ap yn y cefndir.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC llawn-rwyll</span><span class="tag">Grid addasol</span><span class="tag">PiP lleol</span><span class="tag">Modrwy + dirgrynu</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">PONT SIM</span>
+<div class="fc-icon">📞</div>
+<h3>Pont Galw SIM</h3>
+<p>Mewn galwad cellog ac eisiau tynnu cyfoedion P2P i mewn? Tap <strong>Ychwanegu at y grŵp</strong> — Mae pentwr telathrebu Android yn cofrestru'r sesiwn WebRTC ochr yn ochr â'r alwad SIM ac yn cyflwyno opsiwn "Cyfuno galwadau" brodorol. Mae cymysgu sain yn digwydd yn y sglodyn teleffoni - <strong>clustffon yn unig</strong>, yn gwbl breifat. Pan nad yw'r ddyfais neu'r cludwr yn cefnogi cynhadledd caledwedd, defnyddir llwybro clustffonau Bluetooth SCO fel wrth gefn.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Cynhadledd caledwedd</span><span class="tag">BT SCO wrth gefn</span><span class="tag">Clustffon yn unig</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">COMMS</span>
+<div class="fc-icon">🗣️</div>
+<h3>Gwthio-i-Siarad + Cyfieithu Byw</h3>
+<p>Daliwch y botwm PTT i siarad - mae teclyn adnabod lleferydd Android (16 kHz, 16-bit) yn trawsgrifio i destun mewn amser real. Anfonir yr iaith a ganfuwyd i ddyfais ar-lein <strong>Argos Cyfieithu</strong> gweinydd. Mae pob gwrandäwr yn derbyn y neges wedi'i chyfieithu i'w leoliad dethol ei hun a'i ddarllen yn uchel gan TTS. Mae trawsgrifiadau rhannol yn llifo fel dangosydd teipio byw wrth recordio. Yn gweithio dros y sianel P2P neu'n annibynnol dros fan problemus.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Canfod iaith yn awtomatig</span><span class="tag">Argos Cyfieithu</span><span class="tag">Darlleniad TTS byw</span><span class="tag">15 iaith</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">DARLLEDIAD</span>
+<div class="fc-icon">🚨</div>
+<h3>Darllediad Tocyn a Argyfwng</h3>
+<p>Mae Dispatcher yn darlledu neges ar draws y fflyd - mae'n ymddangos fel bar ticker lled llawn ar frig pob sgrin. Pedair lefel flaenoriaeth: <strong style="color:#dc2626;">Argyfwng</strong> (fflachio coch, cyfradd-gyfyngedig fesul anfonwr), <strong style="color:#dc2626;">Pwysig</strong> (coch ar wyn), <strong style="color:#16a34a;">Cyfarwyddiadau</strong> (du ar wyrdd), <strong>Gwybodaeth</strong> (melyn ar ddu). Gall negeseuon ysgogi darlleniad TTS ar ffonau derbynwyr. TTL ffurfweddadwy: 1 munud i “nes ei ddiswyddo”.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Darllediad ar draws y fflyd</span><span class="tag">4 lefel blaenoriaeth</span><span class="tag">Darlleniad TTS</span><span class="tag">Auto-dod i ben</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">TRAETHODYDD</span>
+<div class="fc-icon">🗂</div>
+<h3>Dangosfwrdd Anfonwr</h3>
+<p>Golygfa anfonwr tri thab: <strong>Gyrwyr</strong> (safleoedd byw, maniffestau gwthio, aseinio llwybrau), <strong>Taflen Rhedeg</strong> (arosfannau aml-ollwng llusgo-i-ail-archebu, statws tap-i-feic, mewnforio/allforio CSV) a <strong>Maniffest Cargo</strong> (Llwytho sgan QR yn y depo, sgan POD QR wrth ddanfon). Gall anfonwr wthio llwybrau GPX a ffeiliau anfoneb yn uniongyrchol i yrwyr unigol dros y sianel cyfoedion.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Olrhain gyrrwr</span><span class="tag">Gwthiad amlwg</span><span class="tag">Gwthio llwybr</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">MANIFFEST</span>
+<div class="fc-icon">📦</div>
+<h3>Maniffest Cargo</h3>
+<p>Sganiwch god QR y depo i lwytho eitemau ar y maniffest. Ar adeg danfon, sganiwch POD QR y cwsmer i nodi'r danfoniad. Trin eithriadau: danfoniad a wrthodwyd yn cofnodi llun a nodyn ysgrifenedig; Mae safe-drop yn cofnodi llun o'r lleoliad gollwng; llofnod cwsmer yn cael ei ddal ar y sgrin gyffwrdd. Mae gan bob digwyddiad stamp amser gyda chyfesurynnau GPS.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Sgan QR i mewn/allan</span><span class="tag">Llun POD</span><span class="tag">Llofnod sgrin</span><span class="tag">Stampiau amser GPS</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">TAFLEN RHEDEG</span>
+<div class="fc-icon">🛣</div>
+<h3>Taflen Rhedeg</h3>
+<p>Rhestr ddosbarthu aml-ollwng gydag arosfannau llusgo-i-ail-archebu. Tapiwch yr eicon statws i feicio pob stop: Wrth aros → Wedi cyrraedd → Wedi'i ddanfon. Tapiwch unrhyw gyfeiriad i'w agor yn ap map y ffôn ar gyfer llywio tro wrth dro. Mewnforio o CSV - yn ymwybodol o benawdau, sy'n gydnaws ag allforion Onfleet, Routific, Circuit ac arferiad. Allforio i CSV a rhannu drwy'r daflen rhannu system.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Llusgwch ad-drefnu</span><span class="tag">Mewnforio CSV</span><span class="tag">Onfleet / Routific gydnaws</span><span class="tag">Rhannu allforio</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">ANFONEBAU</span>
+<div class="fc-icon">🧾</div>
+<h3>Anfonebau</h3>
+<p>Creu, argraffu a rhannu anfonebau yn uniongyrchol o'r ffôn. Gall Office wthio anfoneb a baratowyd ymlaen llaw o fodiwl cyfrifo Chameleon PC i'r gyrrwr dros y sianel cyfoedion - mae'r gyrrwr yn adolygu, yn llofnodi ac yn ei anfon yn y fan a'r lle. Dangosfwrdd cyfrifo â giât rôl: gwestai (cyfanswm yn unig), gweithredwr (trafodion llawn + anfonebau) a gweinyddwr (MTD yn cyflwyno + grantiau mynediad QR).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Gwthio o PC</span><span class="tag">Argraffu / PDF</span><span class="tag">Rôl-adwy</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">ARGYFWNG</span>
+<div class="fc-icon">📟</div>
+<h3>Modd Argyfwng - SMS &amp; Cyfoedion</h3>
+<p>Dim data? Mae'r ap yn disgyn yn ôl i brotocol â chod cryno. Gyrrwr (<strong>D</strong>), cerddwr (<strong>H</strong>), a Gwasanaethau Brys (<strong>X</strong>) mae proffiliau yn rhannu graddfa rybuddio gyffredinol. Mae cyfesurynnau GPS yn gwreiddio'n awtomatig. Mae negeseuon yn cael eu datgodio a'u darllen yn uchel gan TTS ar ôl eu derbyn. A99 + H99 yw'r SOS cyffredinol - a ddarlledir i bob cyswllt a chyfoedion fflyd mewn un tap. Pan fydd data ar gael, mae fframiau'n teithio dros y sianel cyfoedion yn lle SMS - y gellir eu dewis fesul anfon: <strong>SMS yn unig</strong>, <strong>Cyfoedion yn unig</strong>, neu <strong>Y ddau</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 phroffil defnyddiwr</span><span class="tag">GPS wedi'i fewnosod</span><span class="tag">Datgodio TTS</span><span class="tag">METHANE wedi'i alinio</span>
+<span class="tag">SMS · Cyfoedion · Y ddau</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Cyfeirnod cod →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">CYSYLLTIADAU</span>
+<div class="fc-icon">👥</div>
+<h3>Cysylltiadau a Grwpiau</h3>
+<p>Llyfr cyswllt unedig yn cyfuno rhifau ffôn SIM, IDau cyfoedion Tailscale a grwpiau cymysg. Creu a <em>Tîm Ffiniau</em> grŵp sy'n cynnwys dau gymar P2P a rhif SIM - tapiwch y grŵp i gychwyn galwad i'r tri. Hanes galwadau gyda stampiau amser. Lluniau avatar fesul cyswllt. Mae pob aelod fflyd yn gosod llun proffil mewn Gosodiadau - caiff ei rannu'n awtomatig dros y sianel signal pan fyddant yn cysylltu, felly mae pob cymar yn gweld llun go iawn yn lle llythyren gychwynnol.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + cyfoedion</span><span class="tag">Grwpiau cymysg</span><span class="tag">Hanes galwadau</span><span class="tag">Rhannu avatar</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">RHWYDWAITH</span>
+<div class="fc-icon">📶</div>
+<h3>Rhwydweithio Hyblyg</h3>
+<p>Cysylltwch drwy <strong>Graddfa gynffon</strong> (o bell, dros y rhyngrwyd) neu'n uniongyrchol <strong>LAN / man cychwyn</strong> — yn ddefnyddiol ar gyfer tryciau mewn confoi neu lle gosodir erial cyfeiriadol pellter hir (50+ milltir mewn tir agored). Mae auto-darganfod mDNS yn dod o hyd i ffonau fflyd eraill ar yr un Wi-Fi heb fynd i mewn i gyfeiriadau IP â llaw.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Graddfa gynffon</span><span class="tag">LAN / man cychwyn</span><span class="tag">mDNS darganfyddiad</span><span class="tag">Amrediad o fannau problemus 50+ milltir</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">LLWYTH</span>
+<div class="fc-icon">🪟</div>
+<h3>Troshaen arnawf</h3>
+<p>Gall yr ap arnofio fel troshaen barhaus uwchlaw pob ap arall - yn ddefnyddiol pan fydd angen i yrrwr wirio llywio wrth gadw'r alwad yn weithredol mewn cornel o'r sgrin. Mae galwadau gan gymheiriaid sy'n dod i mewn yn dod â'r troshaen i'r blaen yn awtomatig gyda chylch + dirgryniad, gan sicrhau nad yw'r gyrrwr byth yn colli galwad frys o'i anfon.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Troshaen bob amser-ar-ben</span><span class="tag">Auto-dod-i-flaen</span><span class="tag">Modrwy + dirgrynu</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">CAMELION</span>
+<div class="fc-icon">🖥️</div>
+<h3>Integreiddio PC Chameleon</h3>
+<p>Yn cysylltu â'r Chameleon AI IDE ar bwrdd gwaith neu gyfrifiadur personol swyddfa trwy WebSocket. Gall y swyddfa wthio llwybrau GPX (gyda chyfeirbwyntiau wedi'u mewnosod wedi'u dosrannu fel POIs yn awtomatig), setiau POI annibynnol, anfonebu PDFs a data amlwg i yrwyr yn y maes - ar hyd a lled y sianel signal bob amser, nid oes angen galwad fideo weithredol. Gweinydd signal Chameleon (<code>chameleon_signal.py</code>) yn rhedeg ar y cyfrifiadur personol neu yn Termux ar unrhyw ffôn yn y fflyd, felly nid oes angen cyfnewid cwmwl.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Gwthio llwybr</span><span class="tag">YNA gwthio</span><span class="tag">Gwthiad anfoneb</span><span class="tag">Dim ras gyfnewid cwmwl</span><span class="tag">Gweinydd signal Termux</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 iaith</h2>
+<p>Cyfieithiad UI llawn ynghyd â chyfieithiad lleferydd PTT byw wedi'i bweru gan Argos Translate ar y ddyfais</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 Saesneg</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 Ffrangeg</span>
+<span class="lang-chip">🇩🇪 Deutsch</span>
+<span class="lang-chip">🇪🇸 Español</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</span>
+<span class="lang-chip">🇧🇷 Portiwgaleg</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 Pwyleg</span>
+<span class="lang-chip">🇷🇴 Rwmaneg</span>
+<span class="lang-chip">🇻🇳 Fietnameg</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Canfod iaith yn awtomatig</h4>
+<p>Mae'r gwasanaeth PTT yn canfod iaith y siaradwr yn awtomatig - gall gyrrwr sy'n siarad Almaeneg a dosbarthwr sy'n siarad Sbaeneg wthio-i-siarad yn rhydd heb ddewis iaith bob tro.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>Cyfieithu ar ddyfais - dim cwmwl</h4>
+<p>Ymdrinnir â chyfieithiadau gan weinydd Argos Translate sy'n rhedeg yn lleol ar y ffôn y tu mewn i Termux. Nid yw lleferydd a thestun byth yn gadael y ddyfais i'w chyfieithu. Yn gweithio all-lein unwaith y bydd pecynnau iaith wedi'u gosod.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS yn iaith y gwrandäwr</h4>
+<p>Ar ôl cyfieithu mae pob neges yn cael ei darllen yn uchel yn locale y derbynnydd gan ddefnyddio Android TTS - mae'r gwrandäwr yn clywed y neges wedi'i chyfieithu hyd yn oed heb edrych ar y sgrin, sy'n ddelfrydol ar gyfer gyrrwr sy'n cadw golwg ar y ffordd.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Modd Argyfwng - SMS a Sianel Cyfoedion</h2>
+<p>Protocol cod cryno sy'n gweithio dros SMS pan fydd data wedi diflannu, neu dros sianel gyfoedion y fflyd pan nad yw</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Cludiant deuol - SMS neu sianel cyfoedion</h4>
+<p>Pan nad oes data symudol - yn ddwfn yn y llwyn, ar groesfan ffin anghysbell, neu yn ystod toriad rhwydwaith - mae Logisteg 4 × 4 yn anfon fframiau statws wedi'u codio dros SMS safonol. Pan fydd data <em>yn</em> ar gael, mae'r un fframiau'n teithio dros sianel gyfoedion y fflyd ar gyflymder llawn. Mae dewisydd fesul anfon yn gadael i chi ddewis <strong>SMS yn unig</strong>, <strong>Cyfoedion yn unig</strong>, neu <strong>Y ddau</strong>. Mae SOS bob amser yn tanio ar bob sianel sydd ar gael ar yr un pryd waeth beth fo'r lleoliad.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Tri phroffil - un iaith a rennir</h4>
+<p>Mae codau wedi'u trefnu'n dri phroffil defnyddiwr sy'n rhannu geirfa rybuddio gyffredin: <strong>D— Gyrrwr</strong> (ffiniol, cargo, confoi, tanwydd, amodau ffyrdd), <strong>H—Hiciwr</strong> (hanfodolion, llwybr, gêr, amserlen gofrestru), a <strong>X — Gwasanaethau Brys</strong> (brysbennu, math o ddigwyddiad, adnoddau yn y lleoliad, statws gwacáu). Mae pawb yn deall SOS o unrhyw broffil.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Wedi'i alinio â safonau brys rhyngwladol</h4>
+<p>Mae proffil y Gwasanaethau Brys yn defnyddio'r raddfa frysbennu P1-P4 rhyngwladol (Ar unwaith / Oedi / Mân / Disgwyliedig) a chategorïau digwyddiadau sy'n cyd-fynd â fframwaith digwyddiadau mawr METHANE a ddefnyddir gan wasanaethau brys ar y cyd ledled y byd. Bydd parafeddyg neu gydlynydd SAR sy'n ymuno â gweithrediad traws-asiantaeth yn adnabod y derminoleg ar unwaith.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Darllen yn awtomatig ar dderbyn</h4>
+<p>Mae negeseuon wedi'u codio sy'n dod i mewn yn cael eu datgodio a'u darllen yn uchel trwy destun-i-leferydd - mae gyrrwr sy'n cadw llygaid ar y ffordd neu ymatebydd â'i ddwylo yn ei feddiant yn clywed ystyr Saesneg plaen llawn pob cod heb gyffwrdd â'r ffôn. Mae negeseuon llygredig yn sbarduno cais ailanfon awtomatig.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Enghreifftiau o negeseuon wedi'u codio</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Gyrrwr - stop tanwydd, oedi tollau</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Gyrrwr wrth ei arhosfan · Chwarter tanwydd · Wrth y ciw tollau</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Hiker - anaf, gofyn am help</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + “ni all toriad ffêr gerdded”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Anaf difrifol wedi'i atal · Angen tîm achub · Brys</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Gwasanaethau brys — gwrthdrawiadau ar y ffyrdd, anafiadau P1</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Gwrthdrawiad traffig ar y ffordd · P1 anafusion sy'n bygwth bywyd · 2–5 o bobl · Ambiwlans yn y lleoliad · Angen ambiwlans awyr</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS - unrhyw broffil</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS gyda lleoliad GPS - wedi'i anfon at bob cyswllt cofrestredig ar unwaith</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Cyfeirnod Cod Maes</div>
+<div style="color:var(--muted);font-size:.82rem;">Pob cod ar gyfer pob proffil — argraffu a chario</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">Y tabl cod cyflawn ar gyfer proffiliau Gyrwyr, Hiker, a Gwasanaethau Brys. Lawrlwythwch fel PDF a chadwch gopi ar eich ffôn, yn y cab, neu yn eich pecyn.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 Gweld a lawrlwytho cyfeirnod cod
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Wedi'i gynllunio o amgylch y bwlch</h2>
+<p>Ddim yn disodli meddalwedd logisteg menter - ateb ar gyfer lle nad yw meddalwedd menter</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>Dim bil fesul sedd, fesul gyrrwr</h4>
+<p>Mae galwadau cymheiriaid WebRTC yn uniongyrchol o'r ffôn i'r ffôn heb unrhyw weinydd cyfnewid cyfryngau a dim ffi fisol fesul defnyddiwr. Mae'r ap yn rhedeg ar ffonau Android safonol y mae'r tîm eisoes yn eu cario.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Yn gweithio lle nad yw apps menter yn gwneud hynny</h4>
+<p>Wedi'i gynllunio ar gyfer croesfannau ffin, tir anghysbell a gweithrediadau rhyngwladol lle mae apiau logisteg safonol yn tybio cysylltiad data cyflym a dibynadwy. Yn disgyn yn ôl i'r cwmpawd all-lein a mapiau wedi'u storio pan fydd data'n diflannu.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Ffôn Android safonol</h4>
+<p>Dim caledwedd arbenigol. Dim cofrestriad MDM. Mae unrhyw ffôn Android 7.0+ (minSdk 24) sy'n rhedeg yr APK yn nod fflyd llawn. Gall erial man poeth pellter hir sydd wedi'i osod ar gaban lori ymestyn cwmpas P2P i 50+ milltir mewn cefn gwlad agored.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Map ffordd y dyfodol</h4>
+<p>Mae ychwanegiadau arfaethedig yn cynnwys cydymffurfiad tacograff llawn, monitro oriau dyletswydd, integreiddio tacograff digidol DVSA a mewnforio KML/GeoJSON ar gyfer swmp-lwytho POI. Mae'r sylfaen eisoes wedi'i hadeiladu.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Diddordeb mewn Logisteg 4×4?</h3>
+<p>Mewn profion ar hyn o bryd - cysylltwch â ni i drafod cynllun peilot, i ofyn am adeilad neu i ofyn am drwyddedu ar gyfer eich fflyd.</p>
+<a class="btn btn-solid" href="../contact.html">Cysylltwch</a>
+<a class="btn" href="../companion.html">← Ap Cydymaith</a>
+<a class="btn" href="../index.html">← Trosolwg</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../services.html">Gwasanaethau Gwe</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a>
+<a href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Trwyddedu yn yr arfaeth · Adeiladwyd gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

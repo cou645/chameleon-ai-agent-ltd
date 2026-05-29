@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>语言课堂——Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a class="active" href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>语言教室</h1>
+<p class="sub">实时 WebRTC 视频课程，具有 Tailscale 安全的 P2P 连接、集成支付和 Kameleon Presenter — 所有这些都在一个应用程序中。</p>
+<div class="hero-badges">
+<span class="badge">📹 WebRTC 视频</span>
+<span class="badge">🌐 尾鳞网格</span>
+<span class="badge">💳 Stripe · 支付宝 · PayPal</span>
+<span class="badge">🔐 招生数据库</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>老师</div>
+<div class="status">● 直播</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>学生A</div>
+<div class="status">● 已连接</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>学生乙</div>
+<div class="status">● 已连接</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>学生C</div>
+<div class="status">○ 加入…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>学生D</div>
+<div class="status">● 已连接</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>学生E</div>
+<div class="status">● 已连接</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>F同学</div>
+<div class="status">○ 加入…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>现场视频课程</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>WebRTC 群组视频 — 4 名以上参与者</h4>
+<p>适合 4 人或以上团体的低延迟全网状 WebRTC 视频和音频 — 无需中央媒体服务器，无需每月付费。 Chameleon 信号服务器（<code>chameleon_signal.py</code>）处理 SDP 和 ICE 中继（端口 8766），也可以在 Android 上的 Termux 上运行。 Companion 应用程序显示一个自适应网格，该网格会随着学生的加入而自动增长：1 = 全屏、2 = 并排、3 = 2+1、4 = 2×2、5+ = 可滚动自动调整网格 — 教师的本地提要始终显示在画中画中。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Tailscale 安全连接</h4>
+<p>所有对等点都通过您的 Tailscale 网格进行连接 — 没有公共 IP，没有端口转发。 IDE 无需离开应用程序即可管理 ACL、设备授权和身份验证密钥生成。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>集成 Kameleon 演示器</h4>
+<p>在课程中使用完整的 Kameleon 阶段进行教学。学生可以将答案、绘图和图像直接推送到舞台模式堆栈 - 实时调整和显示，无需切换应用程序。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>发音小部件</h4>
+<p>内置发音辅导小部件（<code>pronunciation_widget.py</code>）具有音素级反馈——非常适合精确发音很重要的语言教学。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>LAN 视频回退</h4>
+<p>当 Tailscale 不可用时， <code>lan_video.py</code> 通过 UDP（端口 47732）传输视频，通过 UDP（端口 47733）传输音频，并通过 WebSocket（端口 47731）传输协作差异 — 全部都在本地网络上。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>电信和 SIM 呼叫桥</h2>
+<p>将应用程序通话和真正的 SIM 电话通话直接从 Companion 应用程序连接到单个多方对话中</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>两种通话——一种对话</h4>
+<p>Companion 应用程序支持两个并行呼叫通道： <strong>应用程序调用</strong> （WebRTC，Tailscale 上的点对点，免费）和 <strong>SIM卡通话</strong> （标准移动网络，任何电话号码）。您可以与同伴进行 WebRTC 通话 <em>和</em> 同时向第三方拨打 SIM 卡呼叫，然后将他们聚集在一起进行多方对话 - 无需离开应用程序。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>电信状态栏</h4>
+<p>Companion 应用程序顶部的持久状态栏显示两个通道的实时状态：空闲、响铃、通话中或静音。只需看一眼即可知道哪些呼叫处于活动状态。每个通道都有独立的静音和结束控制 - 结束 SIM 通话不会断开应用程序通话，反之亦然。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>多方课程流程</h4>
+<p>对于语言课程很有用：让学生进行 WebRTC 应用通话，然后通过 SIM 拨打母语人士的电话，进行自发的现实对话。三方都能听到对方的声音。教师通过应用程序进行主持，而 Kameleon Presenter 继续在 IDE 上运行。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>英国通话录音法——必须通知各方</h4>
+<p>根据 RIPA 2000 和电信（合法商业惯例）条例，录音一方可以在未经另一方同意的情况下为自己的合法用途进行录音，但录音必须 <strong>法庭可受理</strong> 录音开始前必须通知所有各方。配套应用程序会显示一个突出的 <strong>🔴录音</strong> 每当录制处于活动状态时，都会向所有连接的参与者显示横幅。对于 SIM 卡呼叫者，需要在通话开始时进行口头通知。根据 GDPR，语音数据属于个人数据，必须进行相应处理。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>付款和注册</h2>
+<p>在授予课程访问权限之前接受世界各地学生的付款</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 条纹 <span style="color:var(--muted);font-weight:400">（英镑主要）</span></div>
+<div class="pay-pill">🟦支付宝 <span style="color:var(--muted);font-weight:400">（中国学生）</span></div>
+<div class="pay-pill">🅿️贝宝 <span style="color:var(--muted);font-weight:400">（倒退）</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>课程和招生数据库</h3>
+<p>课程和学生注册存储在 <code>~/.chameleon/courses.db</code>。人工智能可以创建课程、列出注册情况、检查付款状态和撤销访问权限——所有这些都通过 IDE 命令进行。</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>多币种支持</h3>
+<p>Stripe 处理英国和国际学生的英镑付款。支付宝的目标客户是用人民币付款的中国学生。 PayPal 提供覆盖广泛国家的通用后备方案。</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>微信截图支付</h3>
+<p>对于没有刷卡权限的学生，接受微信支付付款证明截图。人工智能读取图像，提取金额和参考，并根据注册记录手动付款。</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>付款链接</h3>
+<p>为任何课程生成 Stripe 托管的付款链接。分享链接 — 学生付款 — 注册会自动创建。无需构建或托管结账页面。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>支付命令参考</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>人工智能指令</th><th>描述</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>创建包含价格、标题和说明的新课程</td></tr>
+<tr><td><code>payment_links</code></td><td>生成课程的 Stripe 付款链接</td></tr>
+<tr><td><code>payment_status</code></td><td>检查学生的付款和注册状态</td></tr>
+<tr><td><code>payment_enrol</code></td><td>手动注册学生（例如现金付款后）</td></tr>
+<tr><td><code>payment_revoke</code></td><td>删除学生的注册访问权限</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>列出所有未结余额的学生</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>记录微信支付截图作为付款证明</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>启动您的在线语言学校</h3>
+<p>您需要的一切——视频、幻灯片、付款和注册——都在一个桌面应用程序中。</p>
+<a class="btn btn-solid" href="../contact.html">联系我们</a>
+<a class="btn" href="../index.html">← 返回概述</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

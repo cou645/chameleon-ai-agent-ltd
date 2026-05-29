@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programu ya Mwenzi wa Chameleon - Android</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .channel-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .channel-card .ch-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .ch-p2p  { border-color: #667eea; } .ch-p2p  .ch-badge { background:#ede9fe; color:#4f46e5; }
+    .ch-ide  { border-color: #22c55e; } .ch-ide  .ch-badge { background:#dcfce7; color:#15803d; }
+    .ch-media{ border-color: #f59e0b; } .ch-media .ch-badge { background:#fef3c7; color:#b45309; }
+    .ch-file { border-color: #06b6d4; } .ch-file .ch-badge { background:#cffafe; color:#0e7490; }
+    .ch-acct { border-color: #ec4899; } .ch-acct .ch-badge { background:#fce7f3; color:#be185d; }
+    .ch-vnc  { border-color: #8b5cf6; } .ch-vnc  .ch-badge { background:#ede9fe; color:#6d28d9; }
+    .channel-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .channel-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .channel-card .ch-icon { font-size: 2rem; }
+    .phone-mockup {
+      background: #1a1a2e; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+      border: 3px solid #333;
+    }
+    .phone-screen {
+      background: #0f0f23; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #c8c8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #22c55e; margin-left: auto; }
+    .phone-msg { border-radius: 10px; padding: .5rem .8rem; margin-bottom: .5rem; font-size: .78rem; max-width: 85%; }
+    .msg-ai   { background: rgba(102,126,234,.25); color: #c8c8f0; }
+    .msg-user { background: rgba(34,197,94,.2); color: #d1fae5; margin-left: auto; }
+    .phone-channels {
+      display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .8rem;
+      padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .pch {
+      font-size: .65rem; padding: .2rem .5rem; border-radius: 50px;
+      font-weight: 600; letter-spacing: .04em;
+    }
+    .pch-ide   { background:rgba(34,197,94,.2);  color:#22c55e; }
+    .pch-video { background:rgba(102,126,234,.2); color:#818cf8; }
+    .pch-file  { background:rgba(6,182,212,.2);   color:#06b6d4; }
+    .pch-media { background:rgba(245,158,11,.2);  color:#f59e0b; }
+    .pch-stt   { background:rgba(236,72,153,.2);  color:#ec4899; }
+    .ws-diagram {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg);
+    }
+    .ws-row { display: flex; align-items: center; gap: 1rem; margin-bottom: .8rem; flex-wrap: wrap; }
+    .ws-node {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 8px; padding: .4rem .9rem; font-size: .82rem; color: #c8c8f0;
+      white-space: nowrap;
+    }
+    .ws-arrow { color: #667eea; font-size: 1.1rem; }
+    .ws-label { font-size: .72rem; color: #8888aa; margin-top: -.4rem; padding-left: .2rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ MAJARIBIO INAENDELEA — Tovuti hii inaendelezwa amilifu. Vipengele, bei na leseni hazijakamilishwa.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a class="active" href="../companion.html">Programu Mwenza</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../companion.html">🌐 EN — English</a><a href="../ar/companion.html">🇸🇦 AR — العربية</a><a href="../cy/companion.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/companion.html">🇩🇪 DE — Deutsch</a><a href="../es/companion.html">🇪🇸 ES — Español</a><a href="../fr/companion.html">🇫🇷 FR — Français</a><a href="../hi/companion.html">🇮🇳 HI — हिन्दी</a><a href="../it/companion.html">🇮🇹 IT — Italiano</a><a href="../ja/companion.html">🇯🇵 JA — 日本語</a><a href="../ko/companion.html">🇰🇷 KO — 한국어</a><a href="../pt/companion.html">🇵🇹 PT — Português</a><a href="../ru/companion.html">🇷🇺 RU — Русский</a><a href="../zh/companion.html">🇨🇳 ZH — 中文</a><a href="../el/companion.html">🇬🇷 EL — Ελληνικά</a><a href="../id/companion.html">🇮🇩 ID — Indonesia</a><a href="../pl/companion.html">🇵🇱 PL — Polski</a><a href="../ro/companion.html">🇷🇴 RO — Română</a><a href="../uk/companion.html">🇺🇦 UK — Українська</a><a href="../vi/companion.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📱</div>
+<h1>Programu ya Mwenzi wa Chameleon</h1>
+<p class="sub">Simu yako ya Android inakuwa daraja la idhaa nyingi kwenye eneo-kazi - upeanaji wa gumzo wa AI, video ya kikundi cha P2P kwa washiriki 4+, kuunganisha simu za SIM, udhibiti wa mbali, ufikiaji wa faili, utiririshaji wa media na uhasibu - kote kwenye wavu wako wa kibinafsi wa Tailscale.</p>
+<div class="hero-badges">
+<span class="badge">🤖 Gumzo la AI kupitia STT/TTS</span>
+<span class="badge">📹 Video ya kikundi cha P2P (4+)</span>
+<span class="badge">📞 Daraja la simu za SIM</span>
+<span class="badge">🎭 kidhibiti cha mbali cha mtangazaji</span>
+<span class="badge">🌐 Imelindwa kwa kipimo cha mkia</span>
+<span class="badge">🖥️ Skrini / VNC</span>
+</div>
+</div>
+<div class="page">
+<!-- Phone mockup + channel diagram side by side -->
+<div class="split" style="align-items:flex-start;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🦎</div>
+<span>Mwenzi wa Kinyonga</span>
+<div class="phone-status">● Imeunganishwa</div>
+</div>
+<div class="phone-msg msg-ai">Ninawezaje kusaidia? Ninaweza kuona IDE yako, faili na mtangazaji.</div>
+<div class="phone-msg msg-user">Nionyeshe kosa la mwisho kwenye terminal.</div>
+<div class="phone-msg msg-ai">Nimeipata - mstari wa 47, NameError: 'config' haijafafanuliwa. Unataka nirekebishe?</div>
+<div class="phone-msg msg-user">Ndiyo, tumia kurekebisha.</div>
+<div class="phone-msg msg-ai">Imekamilika. Faili imehifadhiwa. Kituo kinaonyesha kutoka 0.</div>
+<div class="phone-channels">
+<span class="pch pch-ide">IDE</span>
+<span class="pch pch-video">Video ya P2P</span>
+<span class="pch pch-file">Faili</span>
+<span class="pch pch-media">Vyombo vya habari</span>
+<span class="pch pch-stt">STT/TTS</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Usanifu wa vituo vingi</h2>
+<p>Daraja moja la WebSocket, njia tano huru za mawasiliano</p>
+</div>
+<div class="ws-diagram">
+<div class="ws-row">
+<div class="ws-node">📱 Programu ya Android</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">Mesh ya mikia</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">🖥️ Kompyuta ya mezani</div>
+</div>
+<div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Kituo cha IDE</div><div class="ws-label">Gumzo la AI · amri · picha za skrini · upakiaji wa faili</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Video ya P2P</div><div class="ws-label">WebRTC SDP/ICE relay · latency ya chini A/V</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Kivinjari cha faili</div><div class="ws-label">Soma · andika · hariri faili kwenye eneo-kazi</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Mtiririko wa media</div><div class="ws-label">NAS / DLNA · kutupwa kwa simu</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Kushiriki skrini</div><div class="ws-label">Kioo cha eneo-kazi cha mtindo wa VNC/RDP</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Njia za Mawasiliano</h2>
+<p>Kila kituo kinajitegemea - tumia moja au zote kwa wakati mmoja</p>
+</div>
+<div class="channel-grid">
+<div class="channel-card ch-ide">
+<span class="ch-badge">KITUO 1</span>
+<div class="ch-icon">🧠</div>
+<h3>IDE AI Channel</h3>
+<p>Daraja kamili la njia mbili kwa AI ya eneo-kazi. Tuma vidokezo kutoka kwa simu yako, pokea majibu yanayotiririshwa. AI inaweza kusoma faili, kutekeleza amri za wastaafu na kutumia uhariri wa msimbo - yote yakichochewa kutoka mfukoni mwako. Ambatisha picha za skrini au picha moja kwa moja kutoka kwa kamera yako kama muktadha.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Utiririshaji wa AI</span><span class="tag">Upakiaji wa faili</span><span class="tag">Picha za skrini</span>
+</div>
+</div>
+<div class="channel-card ch-p2p">
+<span class="ch-badge">KITUO 2</span>
+<div class="ch-icon">📹</div>
+<h3>Video na Sauti ya Kikundi cha P2P</h3>
+<p>Video na sauti za WebRTC zenye wavu kamili kwa vikundi vya watu 4 au zaidi - hakuna seva kuu ya media, hakuna bili ya kila mwezi. Gonga <strong>Video ya kikundi</strong> kuwapigia simu wenzao wote mtandaoni mara moja. Gridi hujirekebisha kiotomatiki washiriki wanapojiunga: 1 = skrini nzima, 2 = ubavu kwa upande, 3 = 2+1, 4 = 2×2, 5+ = gridi ya kutoshea kiotomatiki inayoweza kusongeka. Mipasho ya eneo lako inaelea kama picha-ndani-picha. Mizani ya biti chini kwa kila rika ili kuweka ubora katika saizi yoyote ya kikundi.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC full-mesh</span><span class="tag">Gridi ya kubadilika</span><span class="tag">Mlisho wa ndani wa PiP</span><span class="tag">Seva ya ishara ya terminal</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
+<span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">DARAJA LA SIM</span>
+<div class="ch-icon">📞</div>
+<h3>Daraja la Simu la SIM</h3>
+<p>Je, tayari uko kwenye simu ya rununu na ungependa kuleta rika la P2P? Gonga <strong>Ongeza kwenye kikundi cha simu</strong> - programu husajili simu ya WebRTC na rundo la mawasiliano ya simu la Android pamoja na simu ya SIM. Android inatoa chaguo asili la "Unganisha simu"; kuikubali huleta uchanganyaji wa sauti kwa maunzi ya simu. Simu iliyounganishwa inacheza kwenye <strong>sikio pekee</strong> — kwa faragha kabisa, hakuna spika, hakuna mtu chumbani anayesikia. Wakati mkutano wa maunzi hautumiki na mtoa huduma, daraja la vifaa vya sauti vya Bluetooth hupitisha sauti zote kupitia kiungo cha BT SCO badala yake.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Mkutano wa vifaa</span><span class="tag">Njia mbadala ya BT SCO</span><span class="tag">Vifaa vya masikioni pekee</span><span class="tag">ConnectionService</span>
+</div>
+</div>
+<div class="channel-card ch-ide" style="border-color:#764ba2;">
+<span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">KITUO 3</span>
+<div class="ch-icon">🎭</div>
+<h3>Kameleon Presenter Remote</h3>
+<p>Dhibiti hatua nzima ya Kameleon kutoka kwa simu yako. Slaidi za mapema, viashiria vya kuamsha, sukuma picha au maandishi moja kwa moja kwenye mkusanyiko wa jukwaa, idhinisha au ukatae mawasilisho ya marafiki na udhibiti ubao shirikishi wa kuchora - yote bila kugusa kibodi ya eneo-kazi.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">rundo_idhinisha</span><span class="tag">draw_stroke</span>
+</div>
+</div>
+<div class="channel-card ch-vnc">
+<span class="ch-badge">KITUO 4</span>
+<div class="ch-icon">🖥️</div>
+<h3>Kioo cha Skrini (mtindo wa VNC/RDP)</h3>
+<p>Tazama na uwasiliane na skrini ya eneo-kazi lako kutoka kwa simu. Inatekelezwa kama mkondo mwepesi wa kunasa skrini juu ya wavu wa Tailscale - seva ya VNC ya wahusika wengine haihitajiki. Gonga ili kubofya, telezesha kidole ili kusogeza. Inafaa kwa ufuatiliaji wa michakato inayoendesha au kuidhinisha vitendo vya AI ukiwa mbali.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Kukamata skrini</span><span class="tag">Gonga-ili-kubofya</span><span class="tag">Tailscale tu</span>
+</div>
+</div>
+<div class="channel-card ch-file">
+<span class="ch-badge">KITUO 5</span>
+<div class="ch-icon">📂</div>
+<h3>Kivinjari na Kihariri cha Faili ya Mbali</h3>
+<p>Vinjari mfumo wako wa faili wa eneo-kazi kutoka kwa simu. Fungua, soma na uhariri faili za maandishi. Pakia faili kutoka kwa kamera ya simu au hifadhi moja kwa moja kwenye folda ya mradi. Uliza IDE AI kuchakata faili iliyopakiwa mara tu baada ya kuhamisha - k.m. "ongeza picha hii kwenye hatua ya mtangazaji".</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Vinjari</span><span class="tag">Hariri</span><span class="tag">Pakia kutoka kwa kamera</span>
+</div>
+</div>
+<div class="channel-card ch-media">
+<span class="ch-badge">KITUO 6</span>
+<div class="ch-icon">🎵</div>
+<h3>Utiririshaji wa Vyombo vya Habari (NAS / DLNA)</h3>
+<p>Tiririsha muziki na video kutoka kwa seva ya NAS au DLNA kwenye mtandao wako wa nyumbani hadi kwa simu kupitia Tailscale. Vinjari maktaba ya midia, nyimbo za foleni na udhibiti uchezaji - eneo-kazi hufanya kama daraja kati ya seva yako ya media ya karibu na simu popote ulipo kwenye mtandao wa nyuma.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Daraja la mkia</span>
+</div>
+</div>
+<div class="channel-card ch-acct">
+<span class="ch-badge">KITUO CHA 7</span>
+<div class="ch-icon">🧾</div>
+<h3>Uhasibu - Receipt Capture</h3>
+<p>Piga picha ya risiti kwenye simu yako na uitume moja kwa moja kwa moduli ya uhasibu. IDE AI husoma picha, kutoa kiasi, tarehe, mtoa huduma na VAT, na kuweka rasimu ya ingizo la jarida kwenye leja yenye ingizo mbili - tayari kwako kukagua na kuchapisha kwenye eneo-kazi.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">OCR ya kupokea</span><span class="tag">Jarida la rasimu</span><span class="tag">Uchimbaji wa VAT</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#ec4899;">
+<span class="ch-badge" style="background:#fce7f3;color:#be185d;">KITUO 8</span>
+<div class="ch-icon">🗣️</div>
+<h3>Sauti AI - Simu STT &amp; TTS</h3>
+<p>Zungumza na IDE AI kutoka kwa simu yako ukitumia hotuba-kwa-maandishi kwenye kifaa. Majibu ya AI yanarudishwa nyuma na kusomwa kwa sauti kupitia maandishi-hadi-hotuba. Usaidizi wa kuandika bila kugusa wakati eneo-kazi lako linafanya kazi bila kushughulikiwa - amuru kurekebisha, sikia matokeo, thibitisha kutoka kwa simu.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">STT kwenye kifaa</span><span class="tag">Uchezaji wa TTS</span><span class="tag">Bila mikono</span>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Jinsi inavyounganishwa</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Mesh iliyolindwa kwa mikia</h4>
+<p>Vituo vyote hupitia mtandao wako wa faragha wa Tailscale. Hakuna bandari zinazofunguliwa kwa mtandao wa umma. Ni lazima simu iidhinishwe kwenye mtandao wako wa simu - kila kitu kingine kimesimbwa kwa njia fiche kutoka mwanzo hadi mwisho kwa WireGuard.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔌</div>
+<div class="strip-body">
+<h4>Daraja moja la WebSocket</h4>
+<p>Desktop inaendesha <code>chameleon_mobile_bridge.py</code> kama nyuzi ya daemon ndani ya mchakato wa Qt. Programu ya simu inaunganishwa na bandari 8770 kwenye IP ya Tailscale. Muunganisho mmoja unaoendelea hubeba chaneli zote kama jumbe za JSON zilizoandikwa.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Termux kwenye Android</h4>
+<p>Seva ya ishara (<code>chameleon_signal.py</code>) inaweza kufanya kazi moja kwa moja kwenye simu ya Android kupitia Termux — kuifanya simu kuwa mteja na nodi ya kuashiria. Hakuna upeanaji wa wingu unaohitajika kwa miunganisho ya programu rika kwenye WebRTC kwenye mtandao wako.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📶</div>
+<div class="strip-body">
+<h4>Njia mbadala ya LAN</h4>
+<p>Wakati Tailscale haipatikani, <code>lan_video.py</code> hutiririsha video kupitia UDP (bandari 47732) na sauti kupitia UDP (bandari 47733) moja kwa moja kwenye mtandao wa ndani - vituo sawa, hakuna VPN ya juu.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Je, ungependa kutumia Companion App?</h3>
+<p>Kwa sasa inajaribiwa - wasiliana nasi ili kusajili riba au uombe onyesho.</p>
+<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a><a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a><a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a><a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Utoaji leseni unasubiri · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

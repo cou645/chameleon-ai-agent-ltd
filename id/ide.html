@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI IDE — Bunglon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a class="active" href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Layanan Web</a>
+<a href="../accounting.html">Akuntansi</a>
+<a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a>
+<a href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🧠</div>
+<h1>IDE yang didukung AI</h1>
+<p class="sub">Editor kode PyQt6 berfitur lengkap yang tidak hanya disarankan oleh AI — ia membaca, menulis, menjalankan, dan memverifikasi kode atas nama Anda melalui jembatan perintah terstruktur.</p>
+<div class="hero-badges">
+<span class="badge">AI multi-penyedia</span>
+<span class="badge">🎙️ Masukan suara &amp; TTS</span>
+<span class="badge">🔀 Tampilan berbeda</span>
+<span class="badge">⚡ Respons streaming</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Jembatan Komando AI</h2>
+<p>AI tidak hanya mengobrol — ia mengoperasikan editor melalui protokol JSON terstruktur</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📖</div>
+<div class="strip-body">
+<h4>Baca sekali, edit dengan bebas</h4>
+<p>AI membaca file satu kali dengan <strong>get_file_content</strong>, menyimpan konten dalam konteks, lalu mengeluarkan beberapa pengeditan berbasis jangkar tanpa membaca ulang di antara setiap perubahan. Tidak ada perjalanan pulang pergi yang sia-sia.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>replace_text berbasis jangkar</h4>
+<p>Pengeditan merujuk pada teks yang tepat untuk ditemukan, bukan nomor baris. Nomor baris bergeser saat kode ditambahkan atau dihapus — jangkar tidak. Banyak <code>replace_text</code> panggilan dapat dikelompokkan dalam satu respons, semuanya diterapkan secara atom.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📝</div>
+<div class="strip-body">
+<h4>write_file untuk penulisan ulang penuh</h4>
+<p>Untuk modul baru atau penulisan ulang lengkap, AI mengirimkan seluruh konten file dalam satu perintah. Sistem secara otomatis membuat a <code>.bak</code> cadangan sebelum menimpa dan membuka hasilnya di tab editor baru.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">💻</div>
+<div class="strip-body">
+<h4>Integrasi terminal</h4>
+<p>AI dapat menjalankan perintah shell dan menerima hasil JSON sebelum melanjutkan. Ia menunggu setiap hasil, menangani kode keluar, dan membedakan perintah diagnostik, konfigurasi, destruktif, dan mengakhiri sesi secara otomatis.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🛡️</div>
+<div class="strip-body">
+<h4>Perlindungan injeksi</h4>
+<p>Semua konten yang dikembalikan dari file, terminal, dan halaman web dibungkus <code>[UNTRUSTED_CONTENT]</code> penanda. AI diinstruksikan untuk memperlakukan semua yang ada di dalamnya sebagai data — bukan instruksi — untuk mencegah serangan injeksi cepat dari konten file berbahaya.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Fitur Penyunting</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Editor kode multi-tab</h3>
+<p>Buka banyak file secara bersamaan. Setiap tab melacak riwayat pembatalannya sendiri, penyorotan sintaksis, dan konteks perintah AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔀</div>
+<h3>Tampilan perbedaan bawaan</h3>
+<p>Satu klik untuk membandingkan status editor saat ini dengan versi terakhir yang disimpan. Perbedaan terpadu berkode warna dengan penyorotan tambah/hapus. Keluar dari mode diff untuk kembali ke pengeditan penuh.</p>
+</div>
+<div class="card">
+<div class="card-icon">💬</div>
+<h3>Streaming obrolan AI</h3>
+<p>Tanggapan mengalirkan token demi token ke dalam panel obrolan. Perintah IDE diekstraksi dan dieksekusi di thread latar belakang sehingga UI tetap responsif.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Sistem prompt modular</h3>
+<p>Perintah sistem adalah file modul teks biasa <code>~/.chameleon/prompts/</code>. Tumpuk kombinasi apa pun: Perbaikan Teknologi + Akademik + Obrolan. Jumlah token langsung dan perkiraan biaya per penyedia.</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>DB riwayat perintah</h3>
+<p>Setiap perintah AI dicatat <code>history.db</code> dengan ID sesi, stempel waktu dan hasil. Jejak audit penuh untuk setiap perubahan file yang dibuat AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌳</div>
+<h3>Peramban berkas</h3>
+<p>Panel pohon proyek untuk navigasi cepat. AI menggunakan <code>list_project_files</code> Dan <code>list_open_files</code> untuk menemukan jalur sebenarnya — ia tidak pernah menemukan lokasi file.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Suara &amp; Ucapan</h2>
+</div>
+<div class="split">
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Bisikan ucapan-ke-teks</h3>
+<p>Bisikan Lokal (whisper.cpp) mentranskripsikan suara Anda ke dalam masukan obrolan. Pengodean bebas genggam — mendiktekan pertanyaan, perintah, atau seluruh perintah tanpa menyentuh keyboard.</p>
+<div class="tags"><span class="tag">berbisik.cpp</span><span class="tag">Inferensi lokal</span><span class="tag">Tidak ada awan STT</span></div>
+</div>
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Piper teks-ke-ucapan</h3>
+<p>Respons AI dibacakan dengan lantang menggunakan Piper TTS — suara yang cepat, lokal, dan terdengar alami. Ideal untuk aksesibilitas atau bekerja dengan tangan sibuk. Jalur platform diselesaikan secara otomatis di Linux, Windows, dan macOS.</p>
+<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Inferensi lokal</span><span class="tag">Suara yang dapat dikonfigurasi</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Penyedia AI yang Didukung</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Penyedia</th><th>Jenis</th><th>Biaya (perkiraan)</th><th>Catatan</th></tr></thead>
+<tbody>
+<tr><td>Pencarian Mendalam</td><td>API Awan</td><td>$0,00014 / 1K token</td><td>Bawaan; kualitas kode yang sangat baik</td></tr>
+<tr><td>OpenAI (GPT-4o)</td><td>API Awan</td><td>$0,0050 / 1K token</td><td>Penalaran umum terbaik</td></tr>
+<tr><td>Antropis (Claude)</td><td>API Awan</td><td>$0,0030 / 1K token</td><td>Kuat dalam pengeditan konteks panjang</td></tr>
+<tr><td>Kode Claude (Antropik)</td><td>Terminal / pty</td><td>penggunaan API</td><td>Berjalan sebagai proses pty di dalam terminal IDE — pengkodean agen penuh dalam shell aktif</td></tr>
+<tr><td>Grok</td><td>API Awan</td><td>$0,00005 / 1K token</td><td>Inferensi ultra-cepat</td></tr>
+<tr><td>Mistral</td><td>API Awan</td><td>$0,00025 / 1K token</td><td>Opsi yang dihosting di Eropa</td></tr>
+<tr><td>Tembakan Bulan / Kimi</td><td>API Awan</td><td>$0,00012 / 1K token</td><td>Jendela konteks besar</td></tr>
+<tr><td>Menjadi</td><td>Lokal</td><td>Bebas</td><td>Jalankan model GGUF apa pun secara lokal</td></tr>
+<tr><td>Studio LM</td><td>Lokal</td><td>Bebas</td><td>Inferensi lokal yang ramah GUI</td></tr>
+</tbody>
+</table>
+<!-- ═══════════════════════════════════════════════════════════════════
+       SCREENSHOTS — replace placeholder divs with real <img> tags when ready
+       Suggested shots:
+         ide-main.png     — full IDE window with chat panel + code editor open
+         ide-diff.png     — diff view showing before/after a code change
+         ide-voice.png    — voice recording indicator active
+       ════════════════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Tangkapan layar</h2>
+<p>Segera hadir — IDE beraksi</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🖥️</div>
+<strong>IDE — jendela utama</strong>
+<span>ide-utama.png</span>
+</div>
+<div class="screenshot-caption">Panel obrolan AI + editor kode dengan penyorotan sintaksis</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🔀</div>
+<strong>Tampilan berbeda</strong>
+<span>ide-diff.png</span>
+</div>
+<div class="screenshot-caption">Sebelum/sesudah perbandingan perubahan kode yang diterapkan AI</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>pendamping Android</strong>
+<span>pendamping android.png</span>
+</div>
+<div class="screenshot-caption">Aplikasi seluler — relai obrolan &amp; kontrol penyaji</div>
+</div>
+</div>
+<!-- ── Company Command Station ─────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Stasiun Komando Perusahaan (CCS)</h2>
+<p>Jalankan Chameleon IDE sebagai hub kantor untuk armada Logistik 4×4 Anda — tidak diperlukan perangkat lunak pengiriman terpisah</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Dorong rute &amp; POI ke pengemudi</h4>
+<p>Kirim a <code>.gpx</code> file dari IDE langsung ke telepon pengemudi mana pun melalui saluran rekan. Rute dimuat secara instan di peta langsung pengemudi. Kumpulan POI mandiri — pemberhentian bahan bakar, bahaya, alamat pengiriman — dapat didorong secara independen dari rute mana pun dan muncul sebagai pin berkode warna.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📦</div>
+<div class="strip-body">
+<h4>Pengiriman manifes &amp; faktur</h4>
+<p>Buat manifes kargo atau siapkan faktur di IDE, lalu kirimkan secara peer-to-peer ke telepon pengemudi. Pengemudi melihat manifes yang dimuat sebelumnya — tanpa pemindaian, tanpa entri manual. Faktur dapat ditandatangani di layar dan dikembalikan melalui saluran yang sama.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚨</div>
+<div class="strip-body">
+<h4>Siaran ticker seluruh armada</h4>
+<p>Kirim peringatan prioritas — Darurat, Penting, Petunjuk, atau Info — dan peringatan tersebut akan muncul sebagai bilah ticker lebar penuh di setiap layar pengemudi secara bersamaan. Kantor tetap memegang kendali penuh atas perhatian armada tanpa perlu menelepon setiap kendaraan.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📡</div>
+<div class="strip-body">
+<h4>Server sinyal internal — tanpa relai cloud</h4>
+<p>Server sinyal Bunglon (<code>chameleon_signal.py</code>) berjalan langsung di PC kantor bersama IDE, atau di dalam Termux di ponsel Android mana pun di armada. Ponsel armada terhubung melalui Tailscale atau hotspot lokal — tanpa relay pihak ketiga, tanpa tagihan server bulanan.</p>
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+<span style="font-size:2rem;">🏢</span>
+<div>
+<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC Office yang menjalankan Chameleon IDE</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Hub WebSocket · Komando armada</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+<span style="color:#94a3b8;font-size:.83rem;">Armada yang terhubung →</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Sopir A</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Pengemudi B</span>
+<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Tim Lapangan</span>
+<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Darurat</span>
+</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Melalui Tailscale (jarak jauh) atau hotspot LAN (konvoi) · Tanpa cloud relay · Terenkripsi E2E</div>
+</div>
+<div class="cta-band">
+<h3>Lihat AI IDE beraksi</h3>
+<p>Hubungi kami untuk demo langsung atau mendiskusikan lisensi untuk tim Anda.</p>
+<a class="btn btn-solid" href="../contact.html">Minta demo</a>
+<a class="btn" href="../logistics4x4.html">Logistik 4×4 →</a>
+<a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a><a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

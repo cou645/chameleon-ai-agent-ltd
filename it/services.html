@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servizi Web: intelligenza artificiale Chameleon</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TEST IN CORSO — Questo sito è in fase di sviluppo attivo. Funzionalità, prezzi e licenza non sono definitivi.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>IA camaleonte</strong></a>
+<div class="nav-links">
+<a href="../index.html">Casa</a>
+<a href="../ide.html">HAI IDEE</a>
+<a href="../presenter.html">Presentatore</a>
+<a href="../companion.html">Applicazione complementare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a class="active" href="../services.html">Servizi Web</a>
+<a href="../accounting.html">Contabilità</a>
+<a href="../technician.html">Tecnico informatico</a>
+<a href="../trading.html">Commercio</a>
+<a href="../classroom.html">Aula</a>
+<a href="../contact.html">Contatto</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇹 IT ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>Servizi Web di intelligenza artificiale</h1>
+<p class="sub">Da zero a un sito web live e professionale, creato dall'intelligenza artificiale a partire dai file dei tuoi progetti, ospitato gratuitamente e gestito costantemente. Non è necessaria alcuna esperienza di web design.</p>
+<div class="hero-badges">
+<span class="badge">🤖 Creato dall'intelligenza artificiale dai tuoi file</span>
+<span class="badge">🆓 Opzioni di hosting gratuite</span>
+<span class="badge">🌍 Dominio personalizzato</span>
+<span class="badge">📧 Posta in arrivo gestita</span>
+<span class="badge">🇬🇧 Servizio nel Regno Unito</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">SERVIZIO 1</div>
+<h2>🏗️ Costruttore di siti Web AI</h2>
+<p class="tier-sub">L'intelligenza artificiale legge i file, i documenti e le descrizioni del tuo progetto, quindi crea da zero un sito Web completo di più pagine. Nessun modello, nessun trascinamento della selezione. Un sito vero e proprio derivato da ciò che realmente fai.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">Cosa forniamo</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Sito multipagina: Home, Informazioni, Funzionalità, Contatti</li>
+<li>Contenuti derivati ​​dai file e dai documenti del tuo progetto</li>
+<li>Il tuo branding: colori, logo, preferenze di stile</li>
+<li>Layout reattivo ai dispositivi mobili</li>
+<li>Screenshot e segnaposto multimediali: sostituiti quando pronti</li>
+<li>Disclaimer legale e banner di test durante lo sviluppo</li>
+<li>La privacy prima di tutto: nessun tracker, nessuno script di terze parti</li>
+<li class="planned">Sezione blog/notizie con aggiornamenti scritti dall'intelligenza artificiale</li>
+<li class="planned">Versioni multilingue</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Come funziona</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Condividi la cartella del tuo progetto o una descrizione scritta: l'intelligenza artificiale legge tutto e pone domande chiarificatrici</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Scegli i colori, lo stile e le pagine di cui hai bisogno (conversazione di 5 minuti)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>L'intelligenza artificiale crea l'intero sito localmente: puoi visualizzarne immediatamente l'anteprima</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>Un giro di feedback → L'intelligenza artificiale applica le modifiche → il sito è pronto per la pubblicazione</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Trasferimento: possiedi i file, il repository e il dominio, senza alcun vincolo</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">SERVIZIO 2</div>
+<h2>🌍 Configurazione del nome di dominio</h2>
+<p class="tier-sub">La configurazione DNS è la parte che la maggior parte delle persone trova confusa: accessi al registrar, tipi di record, attese di propagazione. L'intelligenza artificiale lo gestisce direttamente laddove possibile e fornisce una guida esatta passo dopo passo ovunque.</p>
+<ul class="deliverable-list">
+<li>Identifica il tuo registrar automaticamente o tramite un breve questionario</li>
+<li>Genera gli esatti record DNS richiesti (A, AAAA, CNAME) in una tabella copia-incolla</li>
+<li>Fornisci istruzioni specifiche per il registrar: Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg e altro</li>
+<li>Spiegazione in inglese semplice di ogni tipo di record prima di toccare qualsiasi cosa</li>
+<li>Imposta un dominio personalizzato tramite l'API GitHub Pages: nessuna immissione manuale del modulo</li>
+<li>Monitora la propagazione DNS e conferma l'emissione del certificato HTTPS</li>
+<li class="planned">Automazione completa per i registrar che forniscono un'API (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>Perché questo è importante:</strong> <span>Nei nostri test, la configurazione del dominio ha causato la massima confusione: un dominio era migrato silenziosamente da Google Domains a Squarespace senza reindirizzamento evidente e i tipi di record DNS (A, AAAA, CNAME) erano completamente sconosciuti. L'intelligenza artificiale ora chiede in anticipo al tuo registrar e fornisce istruzioni che non richiedono alcuna conoscenza preliminare del DNS.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">SERVIZIO 3</div>
+<h2>🖥️ Configurazione e distribuzione dell'hosting</h2>
+<p class="tier-sub">Rendi attivo il tuo sito a costo mensile zero oppure ospitalo autonomamente sul tuo computer tramite Tailscale. L'intelligenza artificiale gestisce la configurazione, la prima distribuzione e ti insegna il singolo comando necessario per ogni aggiornamento futuro.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>Pagine GitHub</h4>
+<p>Sito statico ospitato da un repository GitHub. Dominio personalizzato, HTTPS, CDN globale. Completamente gestito dallo script di distribuzione AI.</p>
+<div class="ho-cost">Libero per sempre</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Pagine di Cloudflare</h4>
+<p>CDN globale veloce con un generoso livello gratuito. L'intelligenza artificiale gestisce la connessione del repository e distribuisce gli hook. Buona alternativa se usi già Cloudflare DNS.</p>
+<div class="ho-cost">Livello gratuito disponibile</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify/Vercel</h4>
+<p>Distribuzione con un clic da un repository git. HTTPS automatico, URL di anteprima per ramo. L'intelligenza artificiale configura le impostazioni di costruzione.</p>
+<div class="ho-cost">Livello gratuito disponibile</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale self-hosted</h4>
+<p>Servi il tuo sito dal tuo computer tramite Tailscale Funnel: accesso pubblico a Internet senza dipendenza dal cloud. Controllo completo.</p>
+<div class="ho-cost">Gratuito (il tuo hardware)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Distribuzione continua</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>Ogni volta che aggiorni il sito, un comando lo rende attivo: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Oppure dillo <em>"distribuire il sito Web"</em> nella chat Chameleon AI: l'IDE lo fa automaticamente tramite il file <code>gh_deploy</code> azione del ponte di comando</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">SERVIZIO 4</div>
+<h2>📬Gestione della presenza sul Web tramite intelligenza artificiale</h2>
+<p class="tier-sub">Una volta che il tuo sito è attivo, l'agente AI lo monitora e lo gestisce, leggendo le e-mail di richiesta, redigendo risposte, raccogliendo i dettagli del cliente, generando report e segnalando tutto ciò che richiede la tua attenzione.</p>
+<ul class="deliverable-list">
+<li>Leggere e valutare gli invii di moduli di contatto e le e-mail in arrivo</li>
+<li>Bozza di risposte personalizzate da sottoporre a revisione prima dell'invio</li>
+<li>Raccogli i dettagli del cliente (caso d'uso, numero di postazioni, sistema operativo, requisiti) tramite un follow-up strutturato</li>
+<li>Report settimanale: visitatori, richieste, conversioni, risposte eccezionali</li>
+<li>Contrassegna immediatamente i messaggi urgenti (richieste demo, richieste di licenze commerciali).</li>
+<li class="planned">Rispondi automaticamente alle domande più comuni utilizzando una knowledge base creata dal contenuto del tuo sito</li>
+<li class="planned">Registro dei contatti in stile CRM: ogni lead tracciato dalla prima e-mail alla licenza firmata</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">SERVIZIO 5</div>
+<h2>📈 Visibilità e Crescita</h2>
+<p class="tier-sub">Farsi trovare: motori di ricerca, directory e reti professionali. L'intelligenza artificiale gestisce le basi tecniche della SEO e ti aiuta a costruire una presenza online credibile senza pubblicità a pagamento.</p>
+<ul class="deliverable-list">
+<li>Meta tag SEO, Open Graph e markup Twitter Card su ogni pagina</li>
+<li>sitemap.xml e robots.txt generati e mantenuti aggiornati</li>
+<li>Dati strutturati di Schema.org (Organizzazione, Prodotto, ContactPoint)</li>
+<li>Invia a Google Search Console e Bing Webmaster Tools</li>
+<li>Analisi rispettose della privacy: Plausible o Umami ospitate autonomamente (non è necessario il banner cookie)</li>
+<li class="planned">Post di blog e case study scritti dall'intelligenza artificiale per indirizzare il traffico di ricerca organico</li>
+<li class="planned">Allineamento del profilo LinkedIn / GitHub con il contenuto del sito web</li>
+</ul>
+<div class="suggest-box">
+<h4>Perché questo è il Servizio 5</h4>
+<p>Un sito che nessuno riesce a trovare vale poco. I servizi 1–4 creano ed eseguono il sito. Il servizio 5 lo rende rilevabile. SEO, dati strutturati e analisi sono tutti automatizzabili dall'intelligenza artificiale: non è necessario alcun impegno continuo da parte dell'agenzia.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Viaggio del cliente: dall'inizio alla fine</h2>
+<p>Coinvolgimento tipico: una sessione da costruire, lo stesso giorno per essere pubblicato</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Chiamata conoscitiva (15 min)</h4>
+<p>Questionario AI: nome dell'azienda, descrizione, registrar, nome utente GitHub, preferenze di colore, pagine necessarie. Non è richiesta alcuna conoscenza preliminare del web: ogni domanda è in inglese semplice con esempi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Costruisci (stessa sessione)</h4>
+<p>L'intelligenza artificiale legge i file di progetto e crea il sito completo. Puoi visualizzarne l'anteprima localmente tramite un collegamento Tailscale Funnel: non è necessario alcun server. Un giro di feedback, poi è pronto.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Pubblica (30 minuti guidati)</h4>
+<p>L'intelligenza artificiale crea il repository GitHub e invia il sito. Fornisce le esatte istruzioni DNS dettagliate del tuo registrar. Monitora la propagazione: conferma l'attivazione di HTTPS. Lo stesso giorno nella maggior parte dei casi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Passaggio di consegne + gestione continuativa</h4>
+<p>Riceverai un cheat sheet di una pagina: come aggiornare il sito (un comando), come aggiungere contenuti, come leggere il report settimanale. L'agente AI monitora dal primo giorno.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Interessato ai servizi Web AI?</h3>
+<p>Il servizio è in fase di sviluppo: contattaci per registrare il tuo interesse o discutere le tue esigenze.</p>
+<a class="btn btn-solid" href="../contact.html">Mettiti in contatto</a>
+<a class="btn" href="../index.html">← Torna alla panoramica</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Casa</a><a href="../ide.html">HAI IDEE</a><a href="../presenter.html">Presentatore</a>
+<a href="../companion.html">Applicazione complementare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a><a href="../services.html">Servizi Web</a>
+<a href="../accounting.html">Contabilità</a><a href="../technician.html">Tecnico informatico</a>
+<a href="../trading.html">Commercio</a><a href="../classroom.html">Aula</a><a href="../contact.html">Contatto</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licenza in attesa · Costruito da Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

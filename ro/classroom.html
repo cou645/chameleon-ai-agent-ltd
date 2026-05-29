@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clasa de limbi străine — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">AI IDE</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a>
+<a class="active" href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>Clasa de limbi străine</h1>
+<p class="sub">Lecții video WebRTC live cu conexiuni P2P securizate Tailscale, plăți integrate și Kameleon Presenter — toate într-o singură aplicație.</p>
+<div class="hero-badges">
+<span class="badge">📹 Videoclip WebRTC</span>
+<span class="badge">🌐 Plasă de coadă</span>
+<span class="badge">💳 Stripe · Alipay · PayPal</span>
+<span class="badge">🔐 DB de înscriere</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>Profesor</div>
+<div class="status">● În direct</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>Elevul A</div>
+<div class="status">● Conectat</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>Elevul B</div>
+<div class="status">● Conectat</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>Elevul C</div>
+<div class="status">○ Se alătură...</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>Elevul D</div>
+<div class="status">● Conectat</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>Elevul E</div>
+<div class="status">● Conectat</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>Elevul F</div>
+<div class="status">○ Se alătură...</div>
+</div>
+</div>
+<div class="section-title">
+<h2>Lecții video live</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>Video de grup WebRTC — 4+ participanți</h4>
+<p>Video și sunet WebRTC cu latență redusă, full-mesh, pentru grupuri de 4 sau mai multe — fără server media central, fără cost lunar. Serverul de semnal Cameleon (<code>chameleon_signal.py</code>) gestionează SDP și releul ICE (port 8766) și rulează și pe Termux pe Android. Aplicația Companion arată o grilă adaptivă care crește automat pe măsură ce elevii se alătură: 1 = ecran complet, 2 = unul lângă altul, 3 = 2+1, 4 = 2×2, 5+ = grilă de potrivire automată derulabilă - cu feedul local al profesorului întotdeauna într-o imagine în imagine.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Conexiuni securizate de coada</h4>
+<p>Toți colegii se conectează prin rețeaua Tailscale - fără IP public, fără redirecționare de porturi. IDE gestionează ACL-urile, autorizarea dispozitivului și generarea cheilor de autentificare fără a părăsi aplicația.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>Prezentator Kameleon integrat</h4>
+<p>Predați cu întreaga etapă Kameleon în timpul lecției. Elevii pot împinge răspunsuri, desene și imagini direct într-o stivă în modul Stage — moderează și afișează în timp real fără a schimba aplicațiile.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>Widget de pronunție</h4>
+<p>Widget de instruire a pronunției încorporat (<code>pronunciation_widget.py</code>) cu feedback la nivel de fonem — ideal pentru predarea limbilor străine unde articularea precisă contează.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Rezervare video LAN</h4>
+<p>Când Tailscale nu este disponibil, <code>lan_video.py</code> transmite în flux video prin UDP (portul 47732), audio prin UDP (portul 47733) și diferențe de colaborare prin WebSocket (portul 47731) - toate în rețeaua locală.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Telecom și SIM Call Bridge</h2>
+<p>Conectați apelurile din aplicație și apelurile telefonice SIM reale într-o singură conversație multidirecțională - direct din aplicația Companion</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>Două tipuri de apeluri — o conversație</h4>
+<p>Aplicația Companion acceptă două canale de apel paralele: a <strong>Apel aplicație</strong> (WebRTC, peer-to-peer peste Tailscale, gratuit) și a <strong>Apel SIM</strong> (rețea mobilă standard, orice număr de telefon). Puteți participa la un apel WebRTC cu un peer <em>şi</em> efectuați simultan un apel SIM către o terță parte, apoi conferiți-le împreună pentru o conversație în mai multe sensuri - fără a părăsi aplicația.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>Bara de stare Telecom</h4>
+<p>O bară de stare persistentă în partea de sus a aplicației Companion arată starea live a ambelor canale: inactiv, sunet, în apel sau dezactivat. O singură privire vă spune ce apeluri sunt active. Fiecare canal are comenzi independente de dezactivare a sunetului și de terminare - terminarea apelului SIM nu renunță la apelul aplicației și invers.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>Flux de lecție în mai multe sensuri</h4>
+<p>Util pentru lecțiile de limbă: puneți un student la un apel pentru aplicația WebRTC, apoi apelați un vorbitor nativ pe SIM pentru o conversație spontană în lumea reală. Toate cele trei părți se pot auzi. Profesorul moderează prin intermediul aplicației în timp ce Kameleon Presenter continuă să ruleze pe IDE.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>Legea privind înregistrarea apelurilor din Marea Britanie — toate părțile trebuie anunțate</h4>
+<p>În conformitate cu RIPA 2000 și Reglementările în domeniul telecomunicațiilor (practici comerciale legale), o parte care înregistrează un apel poate face acest lucru fără consimțământul celeilalte părți pentru propria sa utilizare legală - dar pentru ca înregistrarea să fie <strong>admisibil in instanta</strong> toate părțile trebuie informate înainte de începerea înregistrării. Aplicația Companion afișează o imagine proeminentă <strong>🔴 ÎNREGISTRARE</strong> banner pentru toți participanții conectați ori de câte ori înregistrarea este activă. Pentru apelanții SIM, notificarea verbală este necesară la începutul apelului. Datele vocale sunt date personale conform GDPR și trebuie tratate în consecință.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Plăți și înscriere</h2>
+<p>Acceptați plata de la studenți din întreaga lume înainte de a acorda acces la lecție</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 Dungă <span style="color:var(--muted);font-weight:400">(GBP primar)</span></div>
+<div class="pay-pill">🦁 Alipay <span style="color:var(--muted);font-weight:400">(studenti chinezi)</span></div>
+<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(da înapoi)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Curs și înscrieri DB</h3>
+<p>Cursurile și înscrierile studenților stocate în <code>~/.chameleon/courses.db</code>. AI poate crea cursuri, lista înscrierile, poate verifica starea plăților și poate revoca accesul - totul prin comenzi IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Suport multi-valută</h3>
+<p>Stripe gestionează plățile în GBP de la studenți din Marea Britanie și internaționali. Alipay vizează studenții chinezi care plătesc în CNY. PayPal oferă o rezervă universală cu o acoperire largă de țară.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>Plăți prin captură de ecran WeChat</h3>
+<p>Pentru studenții fără acces cu cardul, acceptați capturile de ecran pentru dovada plății WeChat Pay. AI citește imaginea, extrage suma și referința și înregistrează plata manuală în funcție de înscriere.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>Link-uri de plată</h3>
+<p>Generați linkuri de plată găzduite de Stripe pentru orice curs. Distribuiți linkul — studentul plătește — înscrierea este creată automat. Nicio pagină de plată de creat sau de găzduit.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Referință pentru comenzile de plată</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Comanda AI</th><th>Descriere</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>Creați un curs nou cu preț, titlu și descriere</td></tr>
+<tr><td><code>payment_links</code></td><td>Generați linkul de plată Stripe pentru un curs</td></tr>
+<tr><td><code>payment_status</code></td><td>Verificați starea de plată și înscriere a unui student</td></tr>
+<tr><td><code>payment_enrol</code></td><td>Înscrieți manual un student (de exemplu, după plata în numerar)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>Eliminați accesul de înscriere al unui student</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>Listați toți studenții cu solduri restante</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>Înregistrați o captură de ecran WeChat Pay ca dovadă a plății</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Lansează-ți școala de limbi străine online</h3>
+<p>Tot ce aveți nevoie — video, diapozitive, plăți și înscriere — într-o singură aplicație desktop.</p>
+<a class="btn btn-solid" href="../contact.html">Luați legătura</a>
+<a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Prezentator</a>
+<a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a><a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Construit de Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

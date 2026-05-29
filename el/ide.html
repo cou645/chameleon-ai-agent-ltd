@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI IDE — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a class="active" href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Companion App</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🧠</div>
+<h1>AI-Powered IDE</h1>
+<p class="sub">Ένα πρόγραμμα επεξεργασίας κώδικα PyQt6 με πλήρεις δυνατότητες, όπου το AI δεν προτείνει απλώς — διαβάζει, γράφει, εκτελεί και επαληθεύει τον κώδικα εκ μέρους σας μέσω μιας δομημένης γέφυρας εντολών.</p>
+<div class="hero-badges">
+<span class="badge">AI πολλών παρόχων</span>
+<span class="badge">🎙️ Φωνητική είσοδος &amp; TTS</span>
+<span class="badge">🔀 Προβολή διαφοράς</span>
+<span class="badge">⚡ Αποκρίσεις ροής</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Η γέφυρα AI Command</h2>
+<p>Η τεχνητή νοημοσύνη δεν κάνει απλώς συνομιλία — χειρίζεται τον επεξεργαστή μέσω ενός δομημένου πρωτοκόλλου JSON</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📖</div>
+<div class="strip-body">
+<h4>Διαβάστε μια φορά, επεξεργαστείτε ελεύθερα</h4>
+<p>Το AI διαβάζει ένα αρχείο μία φορά με <strong>get_file_content</strong>, κρατά το περιεχόμενο στο πλαίσιο και, στη συνέχεια, εκδίδει πολλαπλές επεξεργασίες που βασίζονται σε άγκυρα χωρίς να διαβάζει ξανά μεταξύ κάθε αλλαγής. Χωρίς σπατάλη μετ' επιστροφής.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>Αντικατάσταση_κειμένου που βασίζεται σε άγκυρα</h4>
+<p>Επεξεργάζεται το ακριβές κείμενο αναφοράς για εύρεση, όχι αριθμούς γραμμών. Οι αριθμοί γραμμών αλλάζουν καθώς προστίθεται ή αφαιρείται κώδικας — οι αγκυρώσεις όχι. Πολλαπλούς <code>replace_text</code> Οι κλήσεις μπορούν να ομαδοποιηθούν σε μία μόνο απόκριση, όλες εφαρμόζονται ατομικά.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📝</div>
+<div class="strip-body">
+<h4>write_file για πλήρη επανεγγραφή</h4>
+<p>Για νέες ενότητες ή πλήρεις επανεγγραφές, το AI στέλνει ολόκληρο το περιεχόμενο του αρχείου σε μία εντολή. Το σύστημα δημιουργεί αυτόματα ένα <code>.bak</code> δημιουργία αντιγράφων ασφαλείας πριν από την αντικατάσταση και ανοίγει το αποτέλεσμα σε μια νέα καρτέλα επεξεργασίας.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">💻</div>
+<div class="strip-body">
+<h4>Ενοποίηση τερματικού</h4>
+<p>Το AI μπορεί να εκτελέσει εντολές φλοιού και να λάβει το αποτέλεσμα JSON πριν συνεχίσει. Περιμένει για κάθε αποτέλεσμα, χειρίζεται κωδικούς εξόδου και διακρίνει αυτόματα τις εντολές διάγνωσης, διαμόρφωσης, καταστροφής και τερματισμού περιόδου λειτουργίας.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🛡️</div>
+<div class="strip-body">
+<h4>Προστασία έγχυσης</h4>
+<p>Όλο το περιεχόμενο που επιστρέφεται από αρχεία, τερματικά και ιστοσελίδες είναι τυλιγμένο <code>[UNTRUSTED_CONTENT]</code> μαρκαδόροι. Η τεχνητή νοημοσύνη έχει εντολή να αντιμετωπίζει τα πάντα μέσα ως δεδομένα - ποτέ οδηγίες - αποτρέποντας επιθέσεις άμεσης έγχυσης από κακόβουλο περιεχόμενο αρχείων.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Χαρακτηριστικά επεξεργασίας</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Επεξεργαστής κώδικα πολλαπλών καρτελών</h3>
+<p>Ανοίξτε πολλά αρχεία ταυτόχρονα. Κάθε καρτέλα παρακολουθεί το δικό της ιστορικό αναίρεσης, επισήμανση σύνταξης και πλαίσιο εντολών AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔀</div>
+<h3>Ενσωματωμένη προβολή διαφορών</h3>
+<p>Ένα κλικ για να συγκρίνετε την τρέχουσα κατάσταση του προγράμματος επεξεργασίας με την τελευταία αποθηκευμένη έκδοση. Χρωματικά κωδικοποιημένη ενοποιημένη διαφορά με επισήμανση προσθήκης/αφαίρεσης. Βγείτε από τη λειτουργία διαφοράς για να επιστρέψετε στην πλήρη επεξεργασία.</p>
+</div>
+<div class="card">
+<div class="card-icon">💬</div>
+<h3>Ροή συνομιλίας AI</h3>
+<p>Οι απαντήσεις μεταδίδονται διακριτικά προς διακριτικό στον πίνακα συνομιλίας. Οι εντολές IDE εξάγονται και εκτελούνται σε ένα νήμα φόντου, έτσι ώστε η διεπαφή χρήστη να παραμένει αποκριτική καθ' όλη τη διάρκεια.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Αρθρωτό σύστημα προτροπής</h3>
+<p>Τα μηνύματα προτροπής συστήματος είναι αρχεία λειτουργικής μονάδας απλού κειμένου <code>~/.chameleon/prompts/</code>. Στοιβάξτε οποιονδήποτε συνδυασμό: Tech Repair + Academic + Chat. Αριθμός ζωντανών κουπονιών και εκτίμηση κόστους ανά πάροχο.</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>DB ιστορικού εντολών</h3>
+<p>Κάθε εντολή AI είναι συνδεδεμένη <code>history.db</code> με αναγνωριστικό περιόδου σύνδεσης, χρονική σήμανση και αποτέλεσμα. Πλήρης διαδρομή ελέγχου για κάθε αλλαγή αρχείου που έγινε.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌳</div>
+<h3>Πρόγραμμα περιήγησης αρχείων</h3>
+<p>Πίνακας δέντρου έργου για γρήγορη πλοήγηση. Το AI χρησιμοποιεί <code>list_project_files</code> και <code>list_open_files</code> για να ανακαλύψει πραγματικές διαδρομές — δεν εφευρίσκει ποτέ τοποθεσίες αρχείων.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Φωνή &amp; Λόγος</h2>
+</div>
+<div class="split">
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Ψιθυρίστε ομιλία σε κείμενο</h3>
+<p>Το Local Whisper (whisper.cpp) μεταγράφει τη φωνή σας στην είσοδο συνομιλίας. Κωδικοποίηση hands-free — υπαγορεύστε ερωτήσεις, εντολές ή ολόκληρα μηνύματα χωρίς να αγγίξετε το πληκτρολόγιο.</p>
+<div class="tags"><span class="tag">ψιθυρίζω.cpp</span><span class="tag">Τοπικό συμπέρασμα</span><span class="tag">Χωρίς σύννεφο STT</span></div>
+</div>
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Piper μετατροπή κειμένου σε ομιλία</h3>
+<p>Οι απαντήσεις AI διαβάζονται δυνατά χρησιμοποιώντας το Piper TTS — γρήγορες, τοπικές φωνές με φυσικό ήχο. Ιδανικό για προσβασιμότητα ή εργασία με τα χέρια κατειλημμένα. Οι διαδρομές πλατφόρμας επιλύθηκαν αυτόματα σε Linux, Windows και macOS.</p>
+<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Τοπικό συμπέρασμα</span><span class="tag">Ρυθμιζόμενη φωνή</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Υποστηριζόμενοι πάροχοι AI</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Προμηθευτής</th><th>Τύπος</th><th>Κόστος (περίπου)</th><th>Σημειώσεις</th></tr></thead>
+<tbody>
+<tr><td>DeepSeek</td><td>Cloud API</td><td>$0,00014 / 1.000 μάρκες</td><td>Αθέτηση; εξαιρετική ποιότητα κώδικα</td></tr>
+<tr><td>OpenAI (GPT-4o)</td><td>Cloud API</td><td>$0,0050 / 1.000 μάρκες</td><td>Καλύτερος γενικός συλλογισμός</td></tr>
+<tr><td>Anthropic (Claude)</td><td>Cloud API</td><td>$0,0030 / 1.000 μάρκες</td><td>Ισχυρή στο μακροχρόνιο μοντάζ</td></tr>
+<tr><td>Κώδικας Claude (Anthropic)</td><td>Τερματικό / pty</td><td>Χρήση API</td><td>Εκτελείται ως διαδικασία pty μέσα στο τερματικό IDE — πλήρης κωδικοποίηση πρακτόρων σε ζωντανό κέλυφος</td></tr>
+<tr><td>Γκροκ</td><td>Cloud API</td><td>$0,00005 / 1.000 μάρκες</td><td>Εξαιρετικά γρήγορο συμπέρασμα</td></tr>
+<tr><td>Mistral</td><td>Cloud API</td><td>$0,00025 / 1.000 μάρκες</td><td>Καλή επιλογή που φιλοξενείται στην Ευρώπη</td></tr>
+<tr><td>Moonshot / Κύμη</td><td>Cloud API</td><td>$0,00012 / 1.000 μάρκες</td><td>Μεγάλο παράθυρο περιβάλλοντος</td></tr>
+<tr><td>Να είσαι</td><td>Τοπικός</td><td>Δωρεάν</td><td>Εκτελέστε οποιοδήποτε μοντέλο GGUF τοπικά</td></tr>
+<tr><td>LM Studio</td><td>Τοπικός</td><td>Δωρεάν</td><td>Τοπικό συμπέρασμα φιλικό προς το GUI</td></tr>
+</tbody>
+</table>
+<!-- ═══════════════════════════════════════════════════════════════════
+       SCREENSHOTS — replace placeholder divs with real <img> tags when ready
+       Suggested shots:
+         ide-main.png     — full IDE window with chat panel + code editor open
+         ide-diff.png     — diff view showing before/after a code change
+         ide-voice.png    — voice recording indicator active
+       ════════════════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Στιγμιότυπα οθόνης</h2>
+<p>Προσεχώς — IDE σε δράση</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🖥️</div>
+<strong>IDE — κύριο παράθυρο</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">Πίνακας συνομιλίας AI + πρόγραμμα επεξεργασίας κώδικα με επισήμανση σύνταξης</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🔀</div>
+<strong>Διαφορική προβολή</strong>
+<span>ide-diff.png</span>
+</div>
+<div class="screenshot-caption">Πριν/μετά τη σύγκριση μιας αλλαγής κώδικα που εφαρμόζεται με AI</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>Σύντροφος Android</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">Εφαρμογή για κινητά — αναμετάδοση συνομιλίας και έλεγχος παρουσιαστή</div>
+</div>
+</div>
+<!-- ── Company Command Station ─────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Σταθμός Διοίκησης Εταιρείας (CCS)</h2>
+<p>Εκτελέστε το Chameleon IDE ως το κέντρο γραφείου για τον στόλο Logistics 4×4 — δεν χρειάζεται ξεχωριστό λογισμικό αποστολής</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Push διαδρομές και POI στους οδηγούς</h4>
+<p>Αποστολή α <code>.gpx</code> αρχείο από το IDE απευθείας στο τηλέφωνο οποιουδήποτε προγράμματος οδήγησης μέσω του ομότιμου καναλιού. Οι διαδρομές φορτώνονται αμέσως στον ζωντανό χάρτη του οδηγού. Αυτόνομα σύνολα POI — στάσεις καυσίμου, κίνδυνοι, διευθύνσεις παράδοσης — μπορούν να προωθηθούν ανεξάρτητα από οποιαδήποτε διαδρομή και να εμφανίζονται ως καρφίτσες με χρωματική κωδικοποίηση.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📦</div>
+<div class="strip-body">
+<h4>Αποστολή δήλωσης &amp; τιμολογίου</h4>
+<p>Δημιουργήστε ένα δηλωτικό φορτίου ή ετοιμάστε ένα τιμολόγιο στο IDE και, στη συνέχεια, σπρώξτε το peer-to-peer στο τηλέφωνο του οδηγού. Το πρόγραμμα οδήγησης βλέπει το μανιφέστο προφορτωμένο — χωρίς σάρωση, χωρίς μη αυτόματη καταχώριση. Τα τιμολόγια μπορούν να υπογραφούν στην οθόνη και να επιστραφούν μέσω του ίδιου καναλιού.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚨</div>
+<div class="strip-body">
+<h4>Εκπομπή σε όλο τον στόλο</h4>
+<p>Στείλτε μια ειδοποίηση προτεραιότητας — Έκτακτη ανάγκη, Σημαντικό, Οδηγίες ή Πληροφορίες — και θα εμφανίζεται ταυτόχρονα ως γραμμή ελέγχου πλήρους πλάτους στην οθόνη κάθε οδηγού. Το γραφείο διατηρεί πλήρως την προσοχή του στόλου χωρίς τηλεφώνημα σε κάθε όχημα.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📡</div>
+<div class="strip-body">
+<h4>Ενσωματωμένος διακομιστής σήματος — χωρίς ρελέ σύννεφο</h4>
+<p>Ο διακομιστής σημάτων Chameleon (<code>chameleon_signal.py</code>) εκτελείται απευθείας στον υπολογιστή γραφείου μαζί με το IDE ή μέσα στο Termux σε οποιοδήποτε τηλέφωνο Android του στόλου. Τα τηλέφωνα Fleet συνδέονται σε αυτό μέσω Tailscale ή του τοπικού hotspot — χωρίς αναμετάδοση τρίτων, χωρίς μηνιαίο λογαριασμό διακομιστή.</p>
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+<span style="font-size:2rem;">🏢</span>
+<div>
+<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Υπολογιστής γραφείου που τρέχει το Chameleon IDE</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Διανομέας WebSocket · Εντολή Fleet</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+<span style="color:#94a3b8;font-size:.83rem;">Συνδεδεμένος στόλος →</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Οδηγός Α</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Οδηγός Β</span>
+<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Ομάδα γηπέδου</span>
+<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Έκτακτη ανάγκη</span>
+</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Μέσω Tailscale (απομακρυσμένο) ή LAN hotspot (convoy) · Χωρίς ρελέ σύννεφο · E2E κρυπτογραφημένο</div>
+</div>
+<div class="cta-band">
+<h3>Δείτε το AI IDE σε δράση</h3>
+<p>Επικοινωνήστε μαζί μας για μια ζωντανή επίδειξη ή για να συζητήσουμε μια άδεια για την ομάδα σας.</p>
+<a class="btn btn-solid" href="../contact.html">Ζητήστε μια επίδειξη</a>
+<a class="btn" href="../logistics4x4.html">Logistics 4×4 →</a>
+<a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a><a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

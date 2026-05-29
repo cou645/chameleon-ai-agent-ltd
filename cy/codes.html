@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cyfeirnod Cod Cyfathrebu Maes — Logisteg 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a class="active" href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 Cyfeirnod Cod Cyfathrebu Maes</h1>
+<div class="edition">Logisteg 4×4 · Argraffiad 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>Protocol cod cryno i'w ddefnyddio pan nad yw cysylltedd data ar gael. Wedi'i gynllunio ar gyfer gyrwyr tryciau, cerddwyr, a gwasanaethau brys sy'n gweithredu ar draws ffiniau neu mewn tir anghysbell. Mae tri phroffil defnyddiwr yn rhannu geirfa rhybudd a system gyffredin - gan alluogi cyfathrebu traws-asiantaeth hyd yn oed o dan amodau sydd wedi'u diraddio'n ddifrifol.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Anogir rhannu'r cyfeiriad hwn. Mae rhyngweithrededd yn dibynnu ar bob parti yn gwybod y codau.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>Cadwch y dudalen hon fel PDF gan ddefnyddio swyddogaeth Argraffu eich porwr - <strong>Ffeil → Argraffu → Cadw fel PDF</strong>. Cadwch gopi ar eich ffôn i gyfeirio ato all-lein.</p>
+<button class="btn-print" onclick="window.print()">🖨 Argraffu / Cadw fel PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← Yn ôl i Logisteg 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>Sut mae'r codau'n gweithio</h3>
+<p>Mae pob cod yn a <strong>llythyren</strong> (categori) a ddilynir gan <strong>dau ddigid</strong> (difrifoldeb neu is-fath). O fewn pob categori, mae niferoedd is yn golygu <em>normal neu fach</em>, mae niferoedd uwch yn golygu <em>difrifol neu feirniadol</em>. Y cod 99 yw'r mwyaf difrifol bob amser.</p>
+<div class="code-block">A 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── Difrifoldeb   11 = enwol → 99 = argyfwng</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── Llythyren categori</span>
+</div>
+<p style="margin-top:.8rem;">Gellir cyfuno codau lluosog mewn un neges. Gellir atodi nodyn testun rhydd am fanylion ychwanegol.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">D</div>
+<div>
+<strong>Gyrrwr</strong>
+<span>Gweithredwr lori / trawsffiniol</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">H</div>
+<div>
+<strong>Cerddwr</strong>
+<span>Aelod tîm awyr agored / merlota</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">X</div>
+<div>
+<strong>Gwasanaethau Brys</strong>
+<span>SAR / parafeddyg / ceidwad / tân</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>Universal SOS - yn gweithio ar bob proffil</h4>
+<p>Anfonwch y ddau god hyn at ei gilydd i sbarduno rhybudd brys sy'n peryglu bywyd ar unwaith gyda lleoliad GPS i bob cyswllt cofrestredig.</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">Codau cyffredinol - pob proffil</div>
+<div class="ph-sub">Mae A (Rhybudd) a Z (System) yn union yr un fath ar draws Gyrwyr, Hiker, a Gwasanaethau Brys</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">A</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">Lefel rhybudd</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">A11</td><td>Pawb yn glir. Y sefyllfa arferol.</td></tr>
+<tr><td class="code-cell">A22</td><td>Mân ddigwyddiad. Hunan-drin.</td></tr>
+<tr><td class="code-cell">A33</td><td>Rhybudd. Problem bosibl yn datblygu. Monitro.</td></tr>
+<tr><td class="code-cell">A44</td><td>Angen cymorth. Heb fod yn frys.</td></tr>
+<tr><td class="code-cell">A55</td><td>Angen cymorth ar frys.</td></tr>
+<tr><td class="code-cell">A66</td><td>Digwyddiad difrifol ar y gweill.</td></tr>
+<tr><td class="code-cell">A77</td><td>Sefyllfa argyfyngus. Problemau lluosog.</td></tr>
+<tr><td class="code-cell">A88</td><td>Perygl eithafol.</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>SOS. Argyfwng sy'n bygwth bywyd. Anfonwch help ar unwaith.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">Z</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">System / protocol</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>Curiad y galon. Dim newid.</td></tr>
+<tr><td class="code-cell">Z01</td><td>Dechrau shifft / hike / lleoli.</td></tr>
+<tr><td class="code-cell">Z02</td><td>Diwedd shifft / hike. Safodd i lawr yn ddiogel.</td></tr>
+<tr><td class="code-cell">Z03</td><td>Neges wedi'i chydnabod.</td></tr>
+<tr><td class="code-cell">Z04</td><td>Neges wedi'i llygru. Os gwelwch yn dda ailanfon.</td></tr>
+<tr><td class="code-cell">Z05</td><td>Trosglwyddo'r neges hon ymlaen.</td></tr>
+<tr><td class="code-cell">Z06</td><td>Trosglwyddo'r neges hon yn ôl i'r sylfaen.</td></tr>
+<tr><td class="code-cell">Z07</td><td>Sylfaen neu orchymyn yn gofyn am statws gan bawb.</td></tr>
+<tr><td class="code-cell">Z08</td><td>Yn gofyn am statws gan y cyswllt penodol hwn.</td></tr>
+<tr><td class="code-cell">Z09</td><td>Grŵp neu gonfoi yn chwalu.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">Codau gyrrwr - rhagddodiad D</div>
+<div class="ph-sub">Gweithredwyr tryciau, logisteg trawsffiniol, gyrwyr confoi</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">B</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">Ffin</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">b11</td><td>Yn nesáu at y ffin. O fewn ugain cilomedr.</td></tr>
+<tr><td class="code-cell">B22</td><td>Mewn ciw wrth bostyn y ffin. Aros arferol.</td></tr>
+<tr><td class="code-cell">B33</td><td>Oedi ar y ffin. Mater gwaith papur.</td></tr>
+<tr><td class="code-cell">B44</td><td>Archebu archwiliad nwyddau.</td></tr>
+<tr><td class="code-cell">b55</td><td>Taliad answyddogol yn ofynnol.</td></tr>
+<tr><td class="code-cell">B66</td><td>Nwyddau a atafaelwyd gan awdurdodau.</td></tr>
+<tr><td class="code-cell">B77</td><td>Cerbyd wedi'i gronni.</td></tr>
+<tr><td class="code-cell">b88</td><td>Gyrrwr yn cael ei gadw.</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>Mynediad wedi'i wrthod. Wedi troi yn ôl.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">C</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">Cargo</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">C11</td><td>Cargo wedi'i lwytho. Pawb yn ddiogel. Arferol.</td></tr>
+<tr><td class="code-cell">C22</td><td>Llwyth rhannol neu fân shifft.</td></tr>
+<tr><td class="code-cell">C33</td><td>Llwyth wedi'i symud. Stopio i ail-ddiogelu.</td></tr>
+<tr><td class="code-cell">C44</td><td>Cargo wedi'i ddifrodi.</td></tr>
+<tr><td class="code-cell">C55</td><td>Gollyngiad neu eitemau sydd wedi disgyn o gerbyd.</td></tr>
+<tr><td class="code-cell">C66</td><td>Cargo wedi'i ddwyn yn rhannol.</td></tr>
+<tr><td class="code-cell">C77</td><td>Pob cargo wedi'i ddwyn neu ei atafaelu.</td></tr>
+<tr><td class="code-cell">C88</td><td>Hazmat neu ddigwyddiad cadwyn oer.</td></tr>
+<tr class="crit"><td class="code-cell">C99</td><td>Cyfanswm colled cargo.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">D</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">Statws gyrrwr</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">D11</td><td>Gyrrwr ar ddyletswydd. Gyrru fel arfer.</td></tr>
+<tr><td class="code-cell">D22</td><td>Gyrrwr ar stop. Tanwydd, pryd, neu egwyl.</td></tr>
+<tr><td class="code-cell">D33</td><td>Gyrrwr yn llwytho neu'n dadlwytho cargo.</td></tr>
+<tr><td class="code-cell">D44</td><td>Gyrrwr yn aros. Tollau, pwynt gwirio, neu draffig.</td></tr>
+<tr><td class="code-cell">D55</td><td>Gyrrwr oedi. Problem. Methu symud ymlaen eto.</td></tr>
+<tr><td class="code-cell">D66</td><td>Gyrrwr yn teimlo'n sâl neu'n flinedig.</td></tr>
+<tr><td class="code-cell">D77</td><td>Gyrrwr yn cael ei gadw neu'n wynebu mater cyfreithiol.</td></tr>
+<tr><td class="code-cell">D88</td><td>Chwaliad gyrrwr. Methu parhau heb gymorth.</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>Argyfwng gyrrwr. Gyrrwr mewn perygl.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">E</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">Nam cerbyd</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>Golau rhybudd injan. Mân. Yn parhau.</td></tr>
+<tr><td class="code-cell">E22</td><td>Teiar fflat sengl. Yn newid nawr.</td></tr>
+<tr><td class="code-cell">E33</td><td>Teiars fflat lluosog. Methu newid.</td></tr>
+<tr><td class="code-cell">E44</td><td>Injan yn gorboethi. Wedi'i dynnu drosodd.</td></tr>
+<tr><td class="code-cell">E55</td><td>Chwaliad mecanyddol. Di-beiriant.</td></tr>
+<tr><td class="code-cell">E66</td><td>Methiant injan llwyr.</td></tr>
+<tr><td class="code-cell">E77</td><td>Tân.</td></tr>
+<tr><td class="code-cell">E88</td><td>Difrod damwain. Ni all y cerbyd symud.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Dileu cerbydau. Cyfanswm colled.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Dd</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">Tanwydd</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Dd11</td><td>Tanc tanwydd yn llawn.</td></tr>
+<tr><td class="code-cell">Dd22</td><td>Tanwydd tri chwarter.</td></tr>
+<tr><td class="code-cell">Dd33</td><td>Hanner tanwydd.</td></tr>
+<tr><td class="code-cell">Dd44</td><td>Chwarter tanwydd.</td></tr>
+<tr><td class="code-cell">Dd55</td><td>Tanwydd yn isel. Angen ail-lenwi o fewn 50 km.</td></tr>
+<tr><td class="code-cell">Dd66</td><td>Tanwydd yn hollbwysig. Angen ail-lenwi nawr.</td></tr>
+<tr><td class="code-cell">Dd77</td><td>Yn rhedeg ar ganiau jerry neu danc wrth gefn.</td></tr>
+<tr><td class="code-cell">F88</td><td>Tanwydd wedi'i halogi neu ddefnyddio tanwydd anghywir.</td></tr>
+<tr class="crit"><td class="code-cell">Dd99</td><td>Dim tanwydd. Wedi stopio.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">G</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">Confoi</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>Unawd cerbyd. Dim confoi.</td></tr>
+<tr><td class="code-cell">G22</td><td>Cerbyd arweiniol confoi.</td></tr>
+<tr><td class="code-cell">G33</td><td>Confoi safle canol.</td></tr>
+<tr><td class="code-cell">G44</td><td>Cerbyd cynffon confoi.</td></tr>
+<tr><td class="code-cell">G55</td><td>Confoi yn gyfan. Pob tryc yn bresennol.</td></tr>
+<tr><td class="code-cell">G66</td><td>Un cerbyd ar goll o gonfoi.</td></tr>
+<tr><td class="code-cell">G77</td><td>Cerbydau lluosog ar goll.</td></tr>
+<tr><td class="code-cell">G88</td><td>Confoi wedi gwahanu. Ailgrwpio yn y man cychwyn nesaf.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>Confoi wedi'i chwalu.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">H</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">Angen cymorth</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>Angen danfon tanwydd i'm lleoliad.</td></tr>
+<tr><td class="code-cell">H22</td><td>Angen mecanic neu weithdy symudol.</td></tr>
+<tr><td class="code-cell">H33</td><td>Angen cymorth meddygol neu ambiwlans.</td></tr>
+<tr><td class="code-cell">H44</td><td>Angen heddlu neu hebryngwr swyddogol.</td></tr>
+<tr><td class="code-cell">H55</td><td>Angen tryc neu graen adfer.</td></tr>
+<tr><td class="code-cell">H66</td><td>Angen bwyd, dŵr neu gyflenwadau.</td></tr>
+<tr><td class="code-cell">H77</td><td>Angen help asiant tollau neu ddogfennaeth.</td></tr>
+<tr><td class="code-cell">H88</td><td>Angen hebryngwr arfog.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Digwyddiad mawr. Angen pob cymorth ar frys.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">J</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">Cynnydd taith</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>Dechreuodd y daith. Ymadawodd ar amser.</td></tr>
+<tr><td class="code-cell">J22</td><td>25% o'r llwybr wedi'i gwblhau.</td></tr>
+<tr><td class="code-cell">J33</td><td>Hanner ffordd. 50% wedi'i gwblhau.</td></tr>
+<tr><td class="code-cell">J44</td><td>75% yn gyflawn.</td></tr>
+<tr><td class="code-cell">J55</td><td>Cyrchfan agosáu. O dan 10 km.</td></tr>
+<tr><td class="code-cell">J66</td><td>Wedi cyrraedd cyrchfan.</td></tr>
+<tr><td class="code-cell">J77</td><td>Llwybr wedi'i ymestyn yn sylweddol. Dargyfeirio mawr.</td></tr>
+<tr><td class="code-cell">J88</td><td>Wedi troi yn ôl. Llwybr ôl-olrhain.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>Wedi colli. Oddi ar y llwybr yn gyfan gwbl.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">K</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">Cyfathrebu</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>Cyfathrebu llawn. Pob normal.</td></tr>
+<tr><td class="code-cell">K22</td><td>Data yn unig. Dim galwadau llais.</td></tr>
+<tr><td class="code-cell">K33</td><td>SMS yn unig. Dim data na llais.</td></tr>
+<tr><td class="code-cell">K44</td><td>Llais yn unig. Dim data na SMS.</td></tr>
+<tr><td class="code-cell">K55</td><td>Cyswllt radio yn unig.</td></tr>
+<tr><td class="code-cell">K66</td><td>Cyfathrebiadau lloeren yn weithredol.</td></tr>
+<tr><td class="code-cell">K77</td><td>Rhwyll WiFi yn unig. Dim cellog.</td></tr>
+<tr><td class="code-cell">K88</td><td>Trosglwyddwyd y neges hon trwy ddyfais arall.</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>Dim cyfathrebiadau. Anfonir drwy drydydd parti.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">R</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">Amodau ffyrdd</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">R11</td><td>Ffordd darmac dda.</td></tr>
+<tr><td class="code-cell">R22</td><td>Tarmac gyda thyllau yn y ffordd.</td></tr>
+<tr><td class="code-cell">R33</td><td>Ffordd graean neu faw. Pasiadwy.</td></tr>
+<tr><td class="code-cell">R44</td><td>Llwybr garw. Mwd neu arwyneb gwael.</td></tr>
+<tr><td class="code-cell">R55</td><td>Ffordd wedi'i rhwystro'n rhannol.</td></tr>
+<tr><td class="code-cell">R66</td><td>Ffordd ar gau neu rwystr un lôn.</td></tr>
+<tr><td class="code-cell">R77</td><td>Pont allan neu beryglus.</td></tr>
+<tr><td class="code-cell">R88</td><td>Ffordd anhygyrch.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Dim llwybr. Oddi ar y ffordd neu ar goll yn llwyr.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">S</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">Diogelwch</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>Y sefyllfa arferol. Dim bygythiadau.</td></tr>
+<tr><td class="code-cell">S22</td><td>Rhybudd cyffredinol yn yr ardal.</td></tr>
+<tr><td class="code-cell">S33</td><td>Man gwirio answyddogol neu gerbyd yn dilyn.</td></tr>
+<tr><td class="code-cell">S44</td><td>Rhwystr ffordd troseddol wedi'i adrodd ymlaen llaw.</td></tr>
+<tr><td class="code-cell">S55</td><td>Llwgrwobrwyo mynnu.</td></tr>
+<tr><td class="code-cell">S66</td><td>Ymgais i ladrata. Gwrthyrru.</td></tr>
+<tr><td class="code-cell">S77</td><td>Lladrad ar y gweill.</td></tr>
+<tr><td class="code-cell">S88</td><td>Ymosodiad arfog ar gonfoi.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>herwgipio neu herwgipio.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">T</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">Atodlen</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>Ar amser. Ar amserlen.</td></tr>
+<tr><td class="code-cell">T22</td><td>Ychydig o oedi. O dan awr.</td></tr>
+<tr><td class="code-cell">T33</td><td>Oedi rhwng awr a dwy.</td></tr>
+<tr><td class="code-cell">T44</td><td>Oedi dwy i bedair awr.</td></tr>
+<tr><td class="code-cell">T55</td><td>Oedi pedair i wyth awr.</td></tr>
+<tr><td class="code-cell">T66</td><td>Oedi un diwrnod.</td></tr>
+<tr><td class="code-cell">T77</td><td>Oedi mawr. ETA anhysbys.</td></tr>
+<tr><td class="code-cell">T88</td><td>Amserlen wedi'i gadael.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Erthylu'r daith. Yn dychwelyd.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">Symudiad cerbyd</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">v11</td><td>Cerbyd wedi parcio. Wedi stopio yn ddiogel.</td></tr>
+<tr><td class="code-cell">V22</td><td>Cerbyd yn symud fel arfer.</td></tr>
+<tr><td class="code-cell">v33</td><td>Cerbyd yn symud yn araf. O dan 20 km/h.</td></tr>
+<tr><td class="code-cell">v44</td><td>Cerbyd yn sownd. Mwd, tywod, neu ffos.</td></tr>
+<tr><td class="code-cell">v55</td><td>Tynnu cerbyd arall.</td></tr>
+<tr><td class="code-cell">V66</td><td>Cael ei dynnu.</td></tr>
+<tr><td class="code-cell">V77</td><td>Cerbyd wedi troi drosodd.</td></tr>
+<tr><td class="code-cell">V88</td><td>Damwain. Ni all y cerbyd symud.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Dileu. Cyfanswm colled.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">W</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">Tywydd</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>Yn glir ac yn sych. Gwelededd da.</td></tr>
+<tr><td class="code-cell">W22</td><td>Glaw ysgafn neu niwl.</td></tr>
+<tr><td class="code-cell">W33</td><td>Glaw trwm.</td></tr>
+<tr><td class="code-cell">W44</td><td>Storm a tharanau neu wynt uchel.</td></tr>
+<tr><td class="code-cell">W55</td><td>Niwl neu welededd gwael.</td></tr>
+<tr><td class="code-cell">W66</td><td>Llifogydd. Ffordd yn wlyb ond yn hawdd mynd heibio.</td></tr>
+<tr><td class="code-cell">W77</td><td>Llifogydd. Ffordd anhygyrch.</td></tr>
+<tr><td class="code-cell">W88</td><td>Storm llwch neu harmattan. Ger gwelededd sero.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>Tywydd eithafol. Wedi stopio.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">Codau hiker - rhagddodiad H</div>
+<div class="ph-sub">Trekkers, timau awyr agored, teithiau gwyllt</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">Angen cymorth</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Angen bwyd neu ddŵr.</td></tr>
+<tr><td class="code-cell">H22</td><td>Angen cymorth cyntaf neu git meddygol.</td></tr>
+<tr><td class="code-cell">H33</td><td>Angen cymorth meddygol neu asesiad gwacáu.</td></tr>
+<tr><td class="code-cell">H44</td><td>Angen tîm achub.</td></tr>
+<tr><td class="code-cell">H55</td><td>Angen gwacáu hofrennydd neu aer.</td></tr>
+<tr><td class="code-cell">H66</td><td>Angen chwilio ac achub.</td></tr>
+<tr><td class="code-cell">H77</td><td>Angen lloches neu bivouac brys.</td></tr>
+<tr><td class="code-cell">H88</td><td>Angen gwacáu ar frys. Methu cerdded.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Argyfwng mawr. Angen pob cymorth ar unwaith.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">T</div><div class="cat-icon">🏔</div><div class="cat-name">Amodau'r llwybr</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>Llwybr da. Wedi'i farcio'n dda. Hawdd mynd.</td></tr>
+<tr><td class="code-cell">T22</td><td>Llwybr ysbeidiol neu wedi gordyfu.</td></tr>
+<tr><td class="code-cell">T33</td><td>Llwybr ar goll. Llywio gan GPS neu gwmpawd.</td></tr>
+<tr><td class="code-cell">T44</td><td>Oddi ar y llwybr. Tir agored. Mordwyol.</td></tr>
+<tr><td class="code-cell">T55</td><td>Esgyniad serth. Cyflymder arafu.</td></tr>
+<tr><td class="code-cell">T66</td><td>Disgyniad serth. Cymryd gofal.</td></tr>
+<tr><td class="code-cell">T77</td><td>Tir technegol. Sgramblo, roc, neu eira.</td></tr>
+<tr><td class="code-cell">T88</td><td>Adran beryglus. Croesi'n ofalus.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Tir anhygyrch. Gorfod troi yn ôl.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">U</div><div class="cat-icon">🎒</div><div class="cat-name">Gêr / offer</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>Pob gêr mewn cyflwr da.</td></tr>
+<tr><td class="code-cell">U22</td><td>Mân fater gêr. Anfeirniadol.</td></tr>
+<tr><td class="code-cell">U33</td><td>Gêr wedi'i ddifrodi ond dod o hyd i ateb i'r ateb.</td></tr>
+<tr><td class="code-cell">U44</td><td>Eitem hollbwysig yn methu. Pabell, stôf, neu hidlydd.</td></tr>
+<tr><td class="code-cell">U55</td><td>Offer mordwyo ar goll neu wedi methu.</td></tr>
+<tr><td class="code-cell">U66</td><td>Pecyn cymorth cyntaf yn cael ei ddefnyddio.</td></tr>
+<tr><td class="code-cell">U77</td><td>Angen lloches brys. Sefydlu bivouac.</td></tr>
+<tr><td class="code-cell">U88</td><td>Methiannau gêr critigol lluosog.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>Pob gêr hanfodol wedi'i golli. Trychinebus.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">Hanfodion / iechyd grŵp</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">v11</td><td>Mae holl aelodau'r grŵp yn ffit ac yn iach.</td></tr>
+<tr><td class="code-cell">V22</td><td>Mân flinder neu anghysur. Yn parhau.</td></tr>
+<tr><td class="code-cell">v33</td><td>Pothelli neu fân anafiadau. Arafu ychydig.</td></tr>
+<tr><td class="code-cell">v44</td><td>Anaf. Cyflymder sylweddol arafach.</td></tr>
+<tr><td class="code-cell">v55</td><td>Ni all Aelod gadw ar gyflymder arferol.</td></tr>
+<tr><td class="code-cell">V66</td><td>Anaf difrifol. Wedi stopio. Asesu gwacáu.</td></tr>
+<tr><td class="code-cell">V77</td><td>Aelod wedi cwympo neu'n anymwybodol.</td></tr>
+<tr><td class="code-cell">V88</td><td>Argyfwng meddygol. Mae angen gwacáu.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Bygythiol bywyd. Mae angen y gwasanaethau brys ar unwaith.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Y</div><div class="cat-icon">✅</div><div class="cat-name">Cofrestru wedi'i drefnu</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>Cofrestru wedi'i drefnu. Pawb yn dda. Ar y ffordd.</td></tr>
+<tr><td class="code-cell">Y22</td><td>Gwirio i mewn. Oedi bach. Dal yn ddiogel.</td></tr>
+<tr><td class="code-cell">Y33</td><td>Gwirio i mewn. Oedi sylweddol. Dal yn ddiogel.</td></tr>
+<tr><td class="code-cell">Y44</td><td>Oddi ar y ffordd ond yn ddiogel ac yn mordwyo.</td></tr>
+<tr><td class="code-cell">Y55</td><td>Methwyd y ffenestr gofrestru flaenorol. Yn awr yn adrodd.</td></tr>
+<tr><td class="code-cell">Y66</td><td>Gofyn am gydnabyddiaeth gan y sylfaen.</td></tr>
+<tr><td class="code-cell">Y77</td><td>Cyrraedd y gwersyll yn ddiogel neu'r cyfeirbwynt wedi'i gynllunio.</td></tr>
+<tr><td class="code-cell">Y88</td><td>Disgyn. Y cymal olaf i flaen y llwybr.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>Methwyd cofrestru lluosog. Rhybudd brys wedi'i sbarduno.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">S</div><div class="cat-icon">🛡</div><div class="cat-name">Diogelwch</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Y sefyllfa arferol. Dim bygythiadau.</td></tr>
+<tr><td class="code-cell">S22</td><td>Rhybudd cyffredinol. Ardal anghyfarwydd.</td></tr>
+<tr><td class="code-cell">S33</td><td>Gweithgaredd amheus gerllaw.</td></tr>
+<tr><td class="code-cell">S44</td><td>Bygythiad bywyd gwyllt. Cadw pellter.</td></tr>
+<tr><td class="code-cell">S55</td><td>Cyfarfyddiad bywyd gwyllt. Cefnu i ffwrdd.</td></tr>
+<tr><td class="code-cell">S66</td><td>Bywyd gwyllt ymosodol. Cilio.</td></tr>
+<tr><td class="code-cell">S77</td><td>Daeth pobl elyniaethus ar eu traws.</td></tr>
+<tr><td class="code-cell">S88</td><td>Dan fygythiad neu ddilyn. Symud i ddiogelwch.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Perygl uniongyrchol gan bobl neu fywyd gwyllt.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">Codau Gwasanaethau Brys — rhagddodiad X</div>
+<div class="ph-sub">SAR, parafeddygon, criwiau tân, ceidwaid - gweithrediadau cyfathrebu diraddedig</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>Wedi'i alinio â safonau brys rhyngwladol</strong>
+    Mae'r categori P (brysbennu) yn defnyddio'r raddfa flaenoriaeth ryngwladol P1-P4 (P1=Ar unwaith, P2=Oedi, P3=Mân, P4=Disgwyliad). Mae'r categorïau I (digwyddiad) ac N (cyfrif) yn adlewyrchu'r fframwaith datganiadau digwyddiad mawr METHANE a ddefnyddir gan y gwasanaethau brys ar y cyd.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">i</div><div class="cat-icon">🔥</div><div class="cat-name">Math o ddigwyddiad</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">I11</td><td>Argyfwng meddygol. Dim perygl golygfa.</td></tr>
+<tr><td class="code-cell">I22</td><td>Gwrthdrawiad traffig ffordd.</td></tr>
+<tr><td class="code-cell">I33</td><td>Chwilio ac achub. Person ar goll.</td></tr>
+<tr><td class="code-cell">I44</td><td>Tân neu ddigwyddiad strwythurol.</td></tr>
+<tr><td class="code-cell">I55</td><td>Achub llifogydd neu ddŵr.</td></tr>
+<tr><td class="code-cell">I66</td><td>Deunyddiau peryglus neu ryddhau cemegol.</td></tr>
+<tr><td class="code-cell">I77</td><td>Cwymp strwythurol.</td></tr>
+<tr><td class="code-cell">I88</td><td>Aflonyddwch sifil, trais, neu ddigwyddiad arfog.</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>Digwyddiad mawr wedi ei ddatgan.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">P</div><div class="cat-icon">🏥</div><div class="cat-name">Brysbennu claf</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">t11</td><td>Dim anafiadau yn y fan a'r lle.</td></tr>
+<tr><td class="code-cell">t22</td><td>Cerdded clwyfedig yn unig. P3 — mân.</td></tr>
+<tr><td class="code-cell">t33</td><td>Difrifol ond sefydlog. P2 — oedi.</td></tr>
+<tr><td class="code-cell">t44</td><td>Anafusion sy'n bygwth bywyd. P1 — ar unwaith.</td></tr>
+<tr><td class="code-cell">t55</td><td>Anafusion disgwyliedig. Ll4 — lliniarol.</td></tr>
+<tr><td class="code-cell">t66</td><td>Brysbennu cymysg. Categorïau lluosog yn bresennol.</td></tr>
+<tr><td class="code-cell">t77</td><td>Digwyddiad anafusion torfol wedi'i ddatgan.</td></tr>
+<tr><td class="code-cell">t88</td><td>Cyfrif anafiadau yn anghyflawn. Golygfa heb ei chlirio.</td></tr>
+<tr class="crit"><td class="code-cell">t99</td><td>Trychinebus. Marwolaethau lluosog wedi'u cadarnhau.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">Nifer yr anafusion</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>Un anafedig.</td></tr>
+<tr><td class="code-cell">N22</td><td>Dau i bump o anafusion.</td></tr>
+<tr><td class="code-cell">N33</td><td>Chwech i ddeg o anafiadau.</td></tr>
+<tr><td class="code-cell">N44</td><td>Un ar ddeg i ugain o anafusion.</td></tr>
+<tr><td class="code-cell">N55</td><td>Ugain i hanner cant o anafiadau.</td></tr>
+<tr><td class="code-cell">N66</td><td>Hanner cant i gant o anafiadau.</td></tr>
+<tr><td class="code-cell">N77</td><td>Dros gant o anafusion.</td></tr>
+<tr><td class="code-cell">N88</td><td>Rhif anhysbys. Asesiad golygfa yn parhau.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>Anafusion mewn lleoliadau lluosog.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">Hanfodion claf</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">v11</td><td>Yn ymwybodol ac yn effro. Siarad yn normal.</td></tr>
+<tr><td class="code-cell">V22</td><td>Ymwybodol ond yn ddryslyd neu'n gynhyrfus.</td></tr>
+<tr><td class="code-cell">v33</td><td>Ymateb i orchmynion llais yn unig.</td></tr>
+<tr><td class="code-cell">v44</td><td>Ymateb i boen yn unig. Anymwybodol.</td></tr>
+<tr><td class="code-cell">v55</td><td>Anymateb. Anadlu yn bresennol.</td></tr>
+<tr><td class="code-cell">V66</td><td>Ddim yn anadlu. CPR ar y gweill.</td></tr>
+<tr><td class="code-cell">V77</td><td>Gwaedlif difrifol. Cymhwyswyd twrnamaint.</td></tr>
+<tr><td class="code-cell">V88</td><td>Ataliad y galon.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Ymadawedig. Cadarnhawyd.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Adnoddau ar y safle</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">R11</td><td>Swyddog cymorth cyntaf yn unig. Dim ymatebwr proffesiynol.</td></tr>
+<tr><td class="code-cell">R22</td><td>Parafeddyg neu uwch swyddog cymorth cyntaf yn y fan a'r lle.</td></tr>
+<tr><td class="code-cell">R33</td><td>Criw ambiwlans ar leoliad.</td></tr>
+<tr><td class="code-cell">R44</td><td>Criw tân ar leoliad.</td></tr>
+<tr><td class="code-cell">R55</td><td>Heddlu ar leoliad.</td></tr>
+<tr><td class="code-cell">R66</td><td>Gwasanaethau brys lluosog yn y lleoliad.</td></tr>
+<tr><td class="code-cell">R77</td><td>Sefydlu cadlywydd digwyddiad.</td></tr>
+<tr><td class="code-cell">R88</td><td>Ysbyty maes neu orsaf glirio anafusion yn weithredol.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Yr holl adnoddau wedi eu llethu. Angen atgyfnerthu brys.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">H</div><div class="cat-icon">📞</div><div class="cat-name">Adnoddau sydd eu hangen</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Dim angen adnoddau ychwanegol.</td></tr>
+<tr><td class="code-cell">H22</td><td>Angen ambiwlans daear ychwanegol.</td></tr>
+<tr><td class="code-cell">H33</td><td>Angen ambiwlans awyr neu hofrennydd.</td></tr>
+<tr><td class="code-cell">H44</td><td>Angen tân ac achub.</td></tr>
+<tr><td class="code-cell">H55</td><td>Angen ymateb heddlu neu arfog.</td></tr>
+<tr><td class="code-cell">H66</td><td>Mae angen HAZMAT neu dîm halogi.</td></tr>
+<tr><td class="code-cell">H77</td><td>Angen tîm achub trwm neu chwilio trefol.</td></tr>
+<tr><td class="code-cell">H88</td><td>Angen cymorth milwrol neu arbenigol.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Ymateb anafiadau torfol. Yr holl adnoddau sydd eu hangen.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">E</div><div class="cat-icon">🚁</div><div class="cat-name">Statws gwacáu</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>Nid oes angen gwacáu. Trin yn y fan a'r lle.</td></tr>
+<tr><td class="code-cell">E22</td><td>Hunan-gwacáu yn bosibl. Anafusion yn cerdded i gludiant.</td></tr>
+<tr><td class="code-cell">E33</td><td>Gwacáu cerbyd yn bosibl. Ffordd yn hygyrch.</td></tr>
+<tr><td class="code-cell">E44</td><td>Mae angen gwacáu'r estynnwr.</td></tr>
+<tr><td class="code-cell">E55</td><td>Mae angen gwacáu aer. Angen parth glanio.</td></tr>
+<tr><td class="code-cell">E66</td><td>Mae angen gwacáu dŵr neu gwch.</td></tr>
+<tr><td class="code-cell">E77</td><td>Angen achub technegol. Rhaff neu le cyfyng.</td></tr>
+<tr><td class="code-cell">E88</td><td>Cyfaddawdu llwybr gwacáu. Ceisio dewis arall.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Gwacáu yn amhosibl. Cysgodi anafusion yn ei le.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">S</div><div class="cat-icon">⚠️</div><div class="cat-name">Diogelwch golygfa</div></div>
+<table class="code-table"><thead><tr><th>Cod</th><th>Ystyr geiriau:</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Golygfa yn ddiogel. Dim peryglon.</td></tr>
+<tr><td class="code-cell">S22</td><td>Peryglon posibl yn bresennol. Cynghorir rhybudd.</td></tr>
+<tr><td class="code-cell">S33</td><td>Perygl tân, cemegol neu adeileddol yn y fan a'r lle.</td></tr>
+<tr><td class="code-cell">S44</td><td>Bygythiad gweithredol. Golygfa ddim yn ddiogel eto.</td></tr>
+<tr><td class="code-cell">S55</td><td>Pobl elyniaethus yn y fan a'r lle. Mae angen gorfodi'r gyfraith.</td></tr>
+<tr><td class="code-cell">S66</td><td>Perygl halogiad. Angen parth gwahardd.</td></tr>
+<tr><td class="code-cell">S77</td><td>Golygfa wedi'i chlirio'n rhannol. Risg barhaus.</td></tr>
+<tr><td class="code-cell">S88</td><td>Golygfa anniogel. Ymatebwyr wedi'u tynnu'n ôl.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Perygl uniongyrchol i ymatebwyr. Gwacáu'r olygfa nawr.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>Cyfeirio cyflym - sefyllfaoedd cyffredin</h2>
+<p>Codau o'r un ystyr ar draws y tri phroffil</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>Sefyllfa</th>
+<th>Gyrrwr (D)</th>
+<th>cerddwr (H)</th>
+<th>Argyfwng (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Pawb yn glir / normal</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>Angen cymorth brys</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
+<tr><td>Bygythiad bywyd - SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
+<tr><td>Cyfathrebu SMS yn unig</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>Ar amserlen / ar y ffordd</td><td>T11/D11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>Wedi cyrraedd cyrchfan</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>Ar goll / oddi ar y llwybr</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>Tywydd garw</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>Cydnabyddir</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>Neges lygredig</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>Logisteg 4×4</h3>
+<p>Cyfathrebu fflyd trawsffiniol ar gyfer gweithredwyr bach - mapiau byw, fideo grŵp, pont SIM, a'r protocol brys hwn, i gyd ar ffôn Android safonol.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">Dysgwch fwy</a>
+<a class="btn" href="../contact.html">Cysylltwch</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · Logisteg 4×4 Protocol Cyfathrebu Maes · Rhifyn 1<br/>
+    Anogir rhannu'r cyfeiriad hwn - mae rhyngweithrededd yn gofyn am hynny.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a>
+<a href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../contact.html">Cysylltwch</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Trwyddedu yn yr arfaeth · Adeiladwyd gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logistics 4×4 — Cross-Border Fleet Communications</title>
-  <!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
-  <link rel="stylesheet" href="style.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logistics 4×4 — Cross-Border Fleet Communications</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="style.css" rel="stylesheet"/>
+<style>
     /* ── Card grid ────────────────────────────────────────────────── */
     .feat-grid {
       display: grid;
@@ -182,592 +182,537 @@
   </style>
 </head>
 <body>
-
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
   ⚠️ TESTING IN PROGRESS — This site is under active development. Features, pricing and licensing are not finalised.
 </div>
-
 <nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="ide.html">AI IDE</a>
-      <a href="presenter.html">Presenter</a>
-      <a href="companion.html">Companion App</a>
-      <a href="logistics4x4.html" class="active">Logistics 4×4</a>
-      <a href="accounting.html">Accounting</a>
-      <a href="technician.html">PC Technician</a>
-      <a href="trading.html">Trading</a>
-      <a href="classroom.html">Classroom</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="hero-icon">🚛</div>
-  <h1>Logistics 4×4</h1>
-  <p class="sub">Cross-border fleet communications for small operators. Four SIM callers and four P2P video peers share a single call space — driver at the border, head office, customs, customer — all in the room at once. Live maps, GPX routes, cargo manifests, translated voice chat and emergency broadcasts, all on a standard Android phone.</p>
-  <div class="hero-badges">
-    <span class="badge">📹 4 video peers</span>
-    <span class="badge">📞 4 SIM callers</span>
-    <span class="badge">🗺 Live maps + GPX</span>
-    <span class="badge">📍 POI layer</span>
-    <span class="badge">🧭 Offline compass</span>
-    <span class="badge">🌍 15 languages</span>
-    <span class="badge">📋 Manifest + run sheet</span>
-    <span class="badge">🚨 Emergency broadcast</span>
-    <span class="badge">📟 Emergency Mode — SMS &amp; peer</span>
-  </div>
+<div class="nav-inner">
+<a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="ide.html">AI IDE</a>
+<a href="presenter.html">Presenter</a>
+<a href="companion.html">Companion App</a>
+<a class="active" href="logistics4x4.html">Logistics 4×4</a>
+<a href="accounting.html">Accounting</a>
+<a href="technician.html">PC Technician</a>
+<a href="trading.html">Trading</a>
+<a href="classroom.html">Classroom</a>
+<a href="contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🌐 EN ▾</button><div class="lang-menu"><a href="ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="es/logistics4x4.html">🇪🇸 ES — Español</a><a href="fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
-
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Logistics 4×4</h1>
+<p class="sub">Cross-border fleet communications for small operators. Four SIM callers and four P2P video peers share a single call space — driver at the border, head office, customs, customer — all in the room at once. Live maps, GPX routes, cargo manifests, translated voice chat and emergency broadcasts, all on a standard Android phone.</p>
+<div class="hero-badges">
+<span class="badge">📹 4 video peers</span>
+<span class="badge">📞 4 SIM callers</span>
+<span class="badge">🗺 Live maps + GPX</span>
+<span class="badge">📍 POI layer</span>
+<span class="badge">🧭 Offline compass</span>
+<span class="badge">🌍 15 languages</span>
+<span class="badge">📋 Manifest + run sheet</span>
+<span class="badge">🚨 Emergency broadcast</span>
+<span class="badge">📟 Emergency Mode — SMS &amp; peer</span>
+</div>
+</div>
 <div class="page">
-
-  <!-- ── Intro split ───────────────────────────────────────────────── -->
-  <div class="split" style="align-items:flex-start; gap:2rem;">
-    <div>
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <div class="phone-header">
-            <div class="app-icon">🚛</div>
-            <span>Logistics 4×4</span>
-            <div class="phone-status">● Fleet online</div>
-          </div>
-          <div class="p-ticker p-ticker-instr">📋 Cross Waypoint 3 — stay on B4301</div>
-          <div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: &ldquo;Customs cleared, proceeding to gate 7&rdquo;</div>
-          <div class="p-chat p-chat-out">En route — ETA 14 min</div>
-          <div class="p-chat p-chat-in">Customer on SIM — connecting now…</div>
-          <div class="p-chat p-chat-out">📍 Location shared with fleet</div>
-          <div class="p-peers">
-            <span class="p-peer p-peer-on">🎥 Dispatch</span>
-            <span class="p-peer p-peer-on">🎥 Driver B</span>
-            <span class="p-peer p-peer-sim">📞 Customs</span>
-            <span class="p-peer p-peer-sim">📞 Customer</span>
-            <span class="p-peer p-peer-map">🗺 Map</span>
-            <span class="p-peer p-peer-map">🧭 Compass</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="section-title" style="margin-top:0;">
-        <h2>The 4×4 call space</h2>
-        <p>SIM phone calls and P2P video share one connected space</p>
-      </div>
-      <div class="fourbyfour">
-        <div class="fbf-title">One call space — eight participants</div>
-        <div class="fbf-grid">
-          <div class="fbf-half fbf-sim">
-            <h4>📞 4 SIM callers</h4>
-            <ul>
-              <li>Standard cellular voice</li>
-              <li>No internet required</li>
-              <li>Customs officer</li>
-              <li>Customer abroad</li>
-              <li>Head office landline</li>
-            </ul>
-          </div>
-          <div class="fbf-half fbf-p2p">
-            <h4>📹 4 P2P video peers</h4>
-            <ul>
-              <li>WebRTC — no server bill</li>
-              <li>Full mesh video + audio</li>
-              <li>Driver to driver</li>
-              <li>Dispatch controller</li>
-              <li>Remote team member</li>
-            </ul>
-          </div>
-        </div>
-        <div class="fbf-note">Audio from SIM calls is hardware-merged into the group call via Android's telecom stack or Bluetooth SCO — earpiece only, private.</div>
-      </div>
-      <p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Logistics 4×4</span>
+<div class="phone-status">● Fleet online</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Cross Waypoint 3 — stay on B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: “Customs cleared, proceeding to gate 7”</div>
+<div class="p-chat p-chat-out">En route — ETA 14 min</div>
+<div class="p-chat p-chat-in">Customer on SIM — connecting now…</div>
+<div class="p-chat p-chat-out">📍 Location shared with fleet</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Dispatch</span>
+<span class="p-peer p-peer-on">🎥 Driver B</span>
+<span class="p-peer p-peer-sim">📞 Customs</span>
+<span class="p-peer p-peer-sim">📞 Customer</span>
+<span class="p-peer p-peer-map">🗺 Map</span>
+<span class="p-peer p-peer-map">🧭 Compass</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>The 4×4 call space</h2>
+<p>SIM phone calls and P2P video share one connected space</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">One call space — eight participants</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 SIM callers</h4>
+<ul>
+<li>Standard cellular voice</li>
+<li>No internet required</li>
+<li>Customs officer</li>
+<li>Customer abroad</li>
+<li>Head office landline</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 P2P video peers</h4>
+<ul>
+<li>WebRTC — no server bill</li>
+<li>Full mesh video + audio</li>
+<li>Driver to driver</li>
+<li>Dispatch controller</li>
+<li>Remote team member</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Audio from SIM calls is hardware-merged into the group call via Android's telecom stack or Bluetooth SCO — earpiece only, private.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
         Logistics 4×4 does not aim to replace a professional proprietary logistics platform like those used by large courier networks. It fills the gap for <strong>small operators</strong>, sole traders and situations a big-enterprise tool cannot reach — a driver at a remote border crossing who needs to connect instantly with head office, a second driver three miles back, the customs inspector in the booth, and the customer in another country who can only dial in by phone.
       </p>
-    </div>
-  </div>
-
-  <!-- ── Use-case scenarios ─────────────────────────────────────────── -->
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>Who it is for</h2>
-    <p>Designed for high-stakes, low-infrastructure field communications</p>
-  </div>
-
-  <div class="scenario-grid">
-    <div class="scenario-card">
-      <div class="sc-icon">🛃</div>
-      <h4>Border crossing</h4>
-      <p>Driver connects the customs officer (SIM call), head office (video), the receiving customer (SIM call) and a second driver in convoy (video) — all simultaneously, with live translated chat visible to everyone.</p>
-    </div>
-    <div class="scenario-card">
-      <div class="sc-icon">🚚</div>
-      <h4>Long-haul convoy</h4>
-      <p>Trucks spread over 50 miles stay in a shared call with push-to-talk, location sharing on the same live map, and dispatcher route pushes arriving as GPX files loaded directly in the map.</p>
-    </div>
-    <div class="scenario-card">
-      <div class="sc-icon">🏕</div>
-      <h4>Off-road / trekking</h4>
-      <p>No data signal? The offline compass shows bearing arrows to every other fleet member. POI pins mark fuel stops, hazards and rendezvous points — embedded in a pushed GPX file or dropped by any driver on the map. Long-range hotspot links between trucks with directional aerials can reach 50+ miles.</p>
-    </div>
-    <div class="scenario-card">
-      <div class="sc-icon">🌐</div>
-      <h4>Multilingual teams</h4>
-      <p>Push-to-talk transcribes speech, detects the speaker's language, translates, and delivers text + audio in each listener's own locale — 15 languages, powered by a local Argos Translate server on the phone.</p>
-    </div>
-    <div class="scenario-card">
-      <div class="sc-icon">📦</div>
-      <h4>Proof of delivery</h4>
-      <p>Driver scans the depot QR code to load the manifest, then scans the customer POD QR on delivery. Refused delivery? Capture a photo and a written exception note. Customer signature captured on screen.</p>
-    </div>
-    <div class="scenario-card">
-      <div class="sc-icon">🏢</div>
-      <h4>Dispatch office</h4>
-      <p>Dispatcher screen shows all drivers on the live map, runs the run sheet, pushes manifests and routes to individual drivers over the peer channel, and broadcasts emergency alerts fleet-wide.</p>
-    </div>
-  </div>
-
-  <!-- ── Map section ────────────────────────────────────────────────── -->
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>Live Map, POIs &amp; Compass</h2>
-    <p>OSM, satellite and hybrid layers — peer locations, GPX routes, points of interest and offline tile cache</p>
-  </div>
-
-  <div class="split" style="align-items:flex-start; gap:2rem;">
-    <div style="flex:1;">
-      <div class="map-preview">
-        <div class="map-roads"></div>
-        <div class="map-route"></div>
-        <div class="map-pin map-pin-a">📍</div>
-        <div class="map-pin map-pin-b">🚛</div>
-        <div class="map-pin map-pin-c">🚚</div>
-        <div class="map-pin map-pin-d">🏢</div>
-        <div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
-        <div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
-        <div class="map-overlay-tags">
-          <span class="map-tag mt-street">Street</span>
-          <span class="map-tag mt-sat">Satellite</span>
-          <span class="map-tag mt-hybrid">Hybrid</span>
-          <span class="map-tag mt-gpx">GPX route</span>
-          <span class="map-tag mt-poi">POI layer</span>
-          <span class="map-tag mt-offline">Offline cache</span>
-        </div>
-      </div>
-      <div class="tags">
-        <span class="tag">OpenStreetMap tiles</span>
-        <span class="tag">Esri World Imagery</span>
-        <span class="tag">2.5D buildings</span>
-        <span class="tag">OSRM routing</span>
-        <span class="tag">Nominatim place search</span>
-        <span class="tag">Disk tile cache</span>
-        <span class="tag">POI layer</span>
-      </div>
-      <div class="poi-legend">
-        <span class="poi-dot poi-gpx">📍 Route waypoints</span>
-        <span class="poi-dot poi-push">📍 IDE-pushed</span>
-        <span class="poi-dot poi-manual">📍 Driver-dropped</span>
-      </div>
-    </div>
-    <div style="flex:1.2;">
-      <div class="strip" style="flex-direction:column; gap:.8rem;">
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">🗺</div>
-          <div class="strip-body">
-            <h4>Three map layers</h4>
-            <p>Cycle between <strong>Street</strong> (OpenStreetMap), <strong>Satellite</strong> (Esri World Imagery) and <strong>Hybrid</strong> (satellite base + OSM road overlay) with a single tap. All tiles are disk-cached — previously viewed areas load offline without data.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">📍</div>
-          <div class="strip-body">
-            <h4>Peer locations on the map</h4>
-            <p>Every fleet member who enables location sharing appears as a live pin. Tap a pin to see their name and ETA. Dispatcher can see the whole fleet at a glance without a separate tracking platform.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">📁</div>
-          <div class="strip-body">
-            <h4>GPX route push</h4>
-            <p>Office pushes a <code>.gpx</code> route file from Chameleon PC directly to a driver's phone over the peer channel. The route loads instantly in the map as a coloured overlay. Recent routes are stored locally for reuse. Supports GCJ-02 coordinate offset correction for China.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">🔄</div>
-          <div class="strip-body">
-            <h4>Compass-lock or north-up</h4>
-            <p>Map rotates live with the device compass for heads-up driving orientation, or locks north-up for traditional map reading — toggle in settings per driver preference.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">🧭</div>
-          <div class="strip-body">
-            <h4>Compass screen — offline peer navigation</h4>
-            <p>No data? The full-screen compass rose shows a bearing arrow for each online peer using last-known GPS. Peer distances and compass headings update from cached locations — useful for trekkers, off-road convoy navigation and mountain rescue coordination.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">📍</div>
-          <div class="strip-body">
-            <h4>Points of Interest (POI) layer</h4>
-            <p>Three sources of POIs shown as colour-coded pins on the map. <strong style="color:#f59e0b;">Amber</strong> pins come from <code>&lt;wpt&gt;</code> waypoints embedded in a GPX file — they load with the route and clear with it. <strong style="color:#22c55e;">Green</strong> pins are pushed directly from the Chameleon PC IDE (fuel stops, hazards, delivery addresses) independently of any route. <strong style="color:#ef4444;">Red</strong> pins are dropped by the driver with a long-press on the map. All POIs persist across sessions; tap any pin to navigate, open in Maps, or delete. Icons adapt to type: ⛽ fuel, 🚚 delivery, ⚠️ hazard, 🏥 hospital, 🅿️ parking, ✈️ airport and more.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Features grid ─────────────────────────────────────────────── -->
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>All features</h2>
-    <p>Every screen and service in the app</p>
-  </div>
-
-  <div class="feat-grid">
-
-    <div class="feat-card fc-video">
-      <span class="fc-badge">PEERS</span>
-      <div class="fc-icon">📹</div>
-      <h3>Group P2P Video</h3>
-      <p>Full-mesh WebRTC video and audio for up to 4+ peers — no central media server, no monthly call bill. Adaptive grid: 1 peer = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2. Local feed floats as picture-in-picture. Bitrate scales per peer (1.5 Mbps → 350 Kbps) to keep quality even at every group size. Incoming calls ring and vibrate even when the app is in the background.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">WebRTC full-mesh</span><span class="tag">Adaptive grid</span><span class="tag">PiP local</span><span class="tag">Ring + vibrate</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-sim">
-      <span class="fc-badge">SIM BRIDGE</span>
-      <div class="fc-icon">📞</div>
-      <h3>SIM Call Bridge</h3>
-      <p>In a cellular call and want to pull in a P2P peer? Tap <strong>Add to group</strong> — Android's telecom stack registers the WebRTC session alongside the SIM call and presents a native "Merge calls" option. Audio mixing happens in the telephony chip — <strong>earpiece only</strong>, fully private. When the device or carrier doesn't support hardware conference, Bluetooth SCO headset routing is used as a fallback.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Hardware conference</span><span class="tag">BT SCO fallback</span><span class="tag">Earpiece only</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-chat">
-      <span class="fc-badge">COMMS</span>
-      <div class="fc-icon">🗣️</div>
-      <h3>Push-to-Talk + Live Translation</h3>
-      <p>Hold the PTT button to speak — Android's speech recogniser (16 kHz, 16-bit) transcribes to text in real time. The detected language is sent to an on-device <strong>Argos Translate</strong> server. Each listener receives the message translated into their own selected locale and read aloud by TTS. Partial transcriptions stream as a live typing indicator while recording. Works over the P2P channel or standalone over a hotspot.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Auto language detect</span><span class="tag">Argos Translate</span><span class="tag">Live TTS readout</span><span class="tag">15 languages</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-ticker">
-      <span class="fc-badge">BROADCAST</span>
-      <div class="fc-icon">🚨</div>
-      <h3>Ticker &amp; Emergency Broadcast</h3>
-      <p>Dispatcher broadcasts a message fleet-wide — it appears as a full-width ticker bar at the top of every screen. Four priority levels: <strong style="color:#dc2626;">Emergency</strong> (flashing red, rate-limited per sender), <strong style="color:#dc2626;">Important</strong> (red on white), <strong style="color:#16a34a;">Instructions</strong> (black on green), <strong>Info</strong> (yellow on black). Messages can trigger TTS readout on recipient phones. Configurable TTL: 1 minute to &ldquo;until dismissed&rdquo;.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Fleet-wide broadcast</span><span class="tag">4 priority levels</span><span class="tag">TTS readout</span><span class="tag">Auto-expire</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-disp">
-      <span class="fc-badge">DISPATCHER</span>
-      <div class="fc-icon">🗂</div>
-      <h3>Dispatcher Dashboard</h3>
-      <p>Three-tab dispatcher view: <strong>Drivers</strong> (live positions, push manifests, assign routes), <strong>Run Sheet</strong> (drag-to-reorder multi-drop stops, tap-to-cycle status, CSV import/export) and <strong>Cargo Manifest</strong> (QR scan loading at depot, POD QR scan at delivery). Dispatcher can push GPX routes and invoice files directly to individual drivers over the peer channel.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Driver tracking</span><span class="tag">Manifest push</span><span class="tag">Route push</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-disp" style="border-color:#ea580c;">
-      <span class="fc-badge" style="background:#ffedd5;color:#c2410c;">MANIFEST</span>
-      <div class="fc-icon">📦</div>
-      <h3>Cargo Manifest</h3>
-      <p>Scan the depot QR code to load items onto the manifest. At delivery, scan the customer's POD QR to mark delivered. Exception handling: refused delivery logs a photo and written note; safe-drop records a photo of the drop location; customer signature is captured on the touchscreen. All events are timestamped with GPS coordinates.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">QR scan in/out</span><span class="tag">Photo POD</span><span class="tag">Screen signature</span><span class="tag">GPS timestamps</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-disp" style="border-color:#65a30d;">
-      <span class="fc-badge" style="background:#ecfccb;color:#365314;">RUN SHEET</span>
-      <div class="fc-icon">🛣</div>
-      <h3>Run Sheet</h3>
-      <p>Multi-drop delivery list with drag-to-reorder stops. Tap the status icon to cycle each stop: Pending → Arrived → Delivered. Tap any address to open it in the phone's map app for turn-by-turn navigation. Import from CSV — header-aware, compatible with Onfleet, Routific, Circuit and custom exports. Export to CSV and share via the system share sheet.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Drag reorder</span><span class="tag">CSV import</span><span class="tag">Onfleet / Routific compatible</span><span class="tag">Share export</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-inv">
-      <span class="fc-badge">INVOICES</span>
-      <div class="fc-icon">🧾</div>
-      <h3>Invoices</h3>
-      <p>Create, print and share invoices directly from the phone. Office can push a pre-prepared invoice from the Chameleon PC accounting module to the driver over the peer channel — the driver reviews, signs and sends it on the spot. Role-gated accounting dashboard: guest (totals only), operator (full transactions + invoices) and admin (MTD submit + QR access grants).</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Push from PC</span><span class="tag">Print / PDF</span><span class="tag">Role-gated</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-sms">
-      <span class="fc-badge">EMERGENCY</span>
-      <div class="fc-icon">📟</div>
-      <h3>Emergency Mode — SMS &amp; Peer</h3>
-      <p>No data? The app falls back to a compact coded protocol. Driver (<strong>D</strong>), Hiker (<strong>H</strong>), and Emergency Services (<strong>X</strong>) profiles share a universal alert scale. GPS coordinates embed automatically. Messages are decoded and read aloud by TTS on receipt. A99+H99 is the universal SOS — broadcast to all contacts and fleet peers in one tap. When data is available, frames travel over the peer channel instead of SMS — selectable per send: <strong>SMS only</strong>, <strong>Peers only</strong>, or <strong>Both</strong>.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">3 user profiles</span><span class="tag">GPS embedded</span><span class="tag">TTS decode</span><span class="tag">METHANE aligned</span>
-        <span class="tag">SMS · Peers · Both</span>
-        <span class="tag"><a href="codes.html" target="_blank" style="color:inherit;text-decoration:none;">📋 Code reference →</a></span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-misc">
-      <span class="fc-badge">CONTACTS</span>
-      <div class="fc-icon">👥</div>
-      <h3>Contacts &amp; Groups</h3>
-      <p>Unified contact book combining SIM phone numbers, Tailscale peer IDs and mixed groups. Create a <em>Border Team</em> group containing two P2P peers and a SIM number — tap the group to start a call to all three. Call history with timestamps. Per-contact avatar photos. Each fleet member sets a profile photo in Settings — it is shared automatically over the signal channel when they connect, so every peer sees a real photo instead of an initial letter.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">SIM + peers</span><span class="tag">Mixed groups</span><span class="tag">Call history</span><span class="tag">Avatar sharing</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-misc" style="border-color:#8b5cf6;">
-      <span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">NETWORK</span>
-      <div class="fc-icon">📶</div>
-      <h3>Flexible Networking</h3>
-      <p>Connect via <strong>Tailscale</strong> (remote, over the internet) or direct <strong>LAN / hotspot</strong> — useful for trucks in convoy or where a long-range directional aerial is fitted (50+ miles in open terrain). mDNS auto-discovery finds other fleet phones on the same Wi-Fi without entering IP addresses manually.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Tailscale</span><span class="tag">LAN / hotspot</span><span class="tag">mDNS discovery</span><span class="tag">50+ mile hotspot range</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-map" style="border-color:#0ea5e9;">
-      <span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">FLOAT</span>
-      <div class="fc-icon">🪟</div>
-      <h3>Floating Overlay</h3>
-      <p>The app can float as a persistent overlay above all other apps — useful when a driver needs to check navigation while keeping the call active in a corner of the screen. Incoming peer calls bring the overlay to the front automatically with ring + vibration, ensuring the driver never misses an urgent call from dispatch.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Always-on-top overlay</span><span class="tag">Auto-bring-to-front</span><span class="tag">Ring + vibrate</span>
-      </div>
-    </div>
-
-    <div class="feat-card fc-map">
-      <span class="fc-badge">CHAMELEON</span>
-      <div class="fc-icon">🖥️</div>
-      <h3>Chameleon PC Integration</h3>
-      <p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes (with embedded waypoints parsed as POIs automatically), standalone POI sets, invoice PDFs and manifest data to drivers in the field — all over the always-on signal channel, no active video call required. The Chameleon signal server (<code>chameleon_signal.py</code>) runs on the PC or in Termux on any phone in the fleet, so no cloud relay is needed.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Route push</span><span class="tag">POI push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">Termux signal server</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ── Language section ───────────────────────────────────────────── -->
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>15 languages</h2>
-    <p>Full UI translation plus live PTT speech translation powered by on-device Argos Translate</p>
-  </div>
-
-  <div class="lang-strip">
-    <span class="lang-chip">🇬🇧 English</span>
-    <span class="lang-chip">🇨🇳 中文（简体）</span>
-    <span class="lang-chip">🇫🇷 Français</span>
-    <span class="lang-chip">🇩🇪 Deutsch</span>
-    <span class="lang-chip">🇪🇸 Español</span>
-    <span class="lang-chip">🇯🇵 日本語</span>
-    <span class="lang-chip">🇷🇺 Русский</span>
-    <span class="lang-chip">🇰🇷 한국어</span>
-    <span class="lang-chip">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</span>
-    <span class="lang-chip">🇧🇷 Português</span>
-    <span class="lang-chip">🇸🇦 العربية</span>
-    <span class="lang-chip">🇮🇳 हिन्दी</span>
-    <span class="lang-chip">🇵🇱 Polski</span>
-    <span class="lang-chip">🇷🇴 Română</span>
-    <span class="lang-chip">🇻🇳 Tiếng Việt</span>
-  </div>
-
-  <div class="strip" style="margin-top:1.5rem;">
-    <div class="strip-item">
-      <div class="strip-icon">🎤</div>
-      <div class="strip-body">
-        <h4>Auto language detection</h4>
-        <p>The PTT service detects the speaker's language automatically — a German-speaking driver and a Spanish-speaking dispatcher can push-to-talk freely without selecting a language each time.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">🔒</div>
-      <div class="strip-body">
-        <h4>On-device translation — no cloud</h4>
-        <p>Translations are handled by an Argos Translate server running locally on the phone inside Termux. Speech and text never leave the device for translation. Works offline once language packs are installed.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">🔊</div>
-      <div class="strip-body">
-        <h4>TTS in the listener's language</h4>
-        <p>After translation each message is read aloud in the receiver's locale using Android TTS — the listener hears the translated message even without looking at the screen, ideal for a driver keeping eyes on the road.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>Emergency Mode — SMS &amp; Peer Channel</h2>
-    <p>A compact code protocol that works over SMS when data is gone, or over the fleet peer channel when it isn't</p>
-  </div>
-
-  <div class="split" style="align-items:flex-start; gap:2rem;">
-    <div style="flex:1.2;">
-
-      <div class="strip" style="margin-top:0;">
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">📟</div>
-          <div class="strip-body">
-            <h4>Dual transport — SMS or peer channel</h4>
-            <p>When there is no mobile data — deep in the bush, at a remote border crossing, or during a network outage — Logistics 4×4 sends coded status frames over standard SMS. When data <em>is</em> available, the same frames travel over the fleet peer channel at full speed. A per-send selector lets you choose <strong>SMS only</strong>, <strong>Peers only</strong>, or <strong>Both</strong>. SOS always fires on every available channel simultaneously regardless of the setting.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">👥</div>
-          <div class="strip-body">
-            <h4>Three profiles — one shared language</h4>
-            <p>Codes are organised into three user profiles that share a common alert vocabulary: <strong>D — Driver</strong> (border, cargo, convoy, fuel, road conditions), <strong>H — Hiker</strong> (vitals, trail, gear, check-in schedule), and <strong>X — Emergency Services</strong> (triage, incident type, resources on scene, evacuation status). An SOS from any profile is understood by all.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">🏥</div>
-          <div class="strip-body">
-            <h4>Aligned with international emergency standards</h4>
-            <p>The Emergency Services profile uses the international P1–P4 triage scale (Immediate / Delayed / Minor / Expectant) and incident categories aligned with the METHANE major-incident framework used by joint emergency services worldwide. A paramedic or SAR coordinator joining a cross-agency operation will recognise the terminology immediately.</p>
-          </div>
-        </div>
-
-        <div class="strip-item" style="margin:0;">
-          <div class="strip-icon">🔊</div>
-          <div class="strip-body">
-            <h4>Auto-read on receipt</h4>
-            <p>Incoming coded messages are decoded and read aloud by text-to-speech — a driver keeping eyes on the road or a responder with hands occupied hears the full plain-English meaning of every code without touching the phone. Corrupted messages trigger an automatic resend request.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div style="flex:1;">
-
-      <!-- Code samples -->
-      <div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
-        <div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Example coded messages</div>
-
-        <div style="margin-bottom:1rem;">
-          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Driver — fuel stop, customs delay</div>
-          <div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
-          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Driver on stop &middot; Fuel quarter &middot; At customs queue</div>
-        </div>
-
-        <div style="margin-bottom:1rem;">
-          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Hiker — injury, requesting help</div>
-          <div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + &ldquo;ankle fracture cannot walk&rdquo;</div>
-          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Serious injury stopped &middot; Need rescue team &middot; Urgent</div>
-        </div>
-
-        <div style="margin-bottom:1rem;">
-          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Emergency services — RTC, P1 casualties</div>
-          <div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
-          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Road traffic collision &middot; P1 life-threat casualties &middot; 2–5 persons &middot; Ambulance on scene &middot; Air ambulance required</div>
-        </div>
-
-        <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
-          <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS — any profile</div>
-          <div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
-          <div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS with GPS location — sent to all registered contacts immediately</div>
-        </div>
-      </div>
-
-      <!-- Download reference -->
-      <div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
-        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
-          <span style="font-size:1.8rem;">📋</span>
-          <div>
-            <div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Field Code Reference</div>
-            <div style="color:var(--muted);font-size:.82rem;">All codes for all profiles — print and carry</div>
-          </div>
-        </div>
-        <p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">The complete code table for Driver, Hiker, and Emergency Services profiles. Download as PDF and keep a copy on your phone, in the cab, or in your pack.</p>
-        <a href="codes.html" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;">
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Who it is for</h2>
+<p>Designed for high-stakes, low-infrastructure field communications</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Border crossing</h4>
+<p>Driver connects the customs officer (SIM call), head office (video), the receiving customer (SIM call) and a second driver in convoy (video) — all simultaneously, with live translated chat visible to everyone.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Long-haul convoy</h4>
+<p>Trucks spread over 50 miles stay in a shared call with push-to-talk, location sharing on the same live map, and dispatcher route pushes arriving as GPX files loaded directly in the map.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Off-road / trekking</h4>
+<p>No data signal? The offline compass shows bearing arrows to every other fleet member. POI pins mark fuel stops, hazards and rendezvous points — embedded in a pushed GPX file or dropped by any driver on the map. Long-range hotspot links between trucks with directional aerials can reach 50+ miles.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Multilingual teams</h4>
+<p>Push-to-talk transcribes speech, detects the speaker's language, translates, and delivers text + audio in each listener's own locale — 15 languages, powered by a local Argos Translate server on the phone.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Proof of delivery</h4>
+<p>Driver scans the depot QR code to load the manifest, then scans the customer POD QR on delivery. Refused delivery? Capture a photo and a written exception note. Customer signature captured on screen.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Dispatch office</h4>
+<p>Dispatcher screen shows all drivers on the live map, runs the run sheet, pushes manifests and routes to individual drivers over the peer channel, and broadcasts emergency alerts fleet-wide.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Live Map, POIs &amp; Compass</h2>
+<p>OSM, satellite and hybrid layers — peer locations, GPX routes, points of interest and offline tile cache</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Street</span>
+<span class="map-tag mt-sat">Satellite</span>
+<span class="map-tag mt-hybrid">Hybrid</span>
+<span class="map-tag mt-gpx">GPX route</span>
+<span class="map-tag mt-poi">POI layer</span>
+<span class="map-tag mt-offline">Offline cache</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">OpenStreetMap tiles</span>
+<span class="tag">Esri World Imagery</span>
+<span class="tag">2.5D buildings</span>
+<span class="tag">OSRM routing</span>
+<span class="tag">Nominatim place search</span>
+<span class="tag">Disk tile cache</span>
+<span class="tag">POI layer</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Route waypoints</span>
+<span class="poi-dot poi-push">📍 IDE-pushed</span>
+<span class="poi-dot poi-manual">📍 Driver-dropped</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Three map layers</h4>
+<p>Cycle between <strong>Street</strong> (OpenStreetMap), <strong>Satellite</strong> (Esri World Imagery) and <strong>Hybrid</strong> (satellite base + OSM road overlay) with a single tap. All tiles are disk-cached — previously viewed areas load offline without data.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Peer locations on the map</h4>
+<p>Every fleet member who enables location sharing appears as a live pin. Tap a pin to see their name and ETA. Dispatcher can see the whole fleet at a glance without a separate tracking platform.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>GPX route push</h4>
+<p>Office pushes a <code>.gpx</code> route file from Chameleon PC directly to a driver's phone over the peer channel. The route loads instantly in the map as a coloured overlay. Recent routes are stored locally for reuse. Supports GCJ-02 coordinate offset correction for China.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Compass-lock or north-up</h4>
+<p>Map rotates live with the device compass for heads-up driving orientation, or locks north-up for traditional map reading — toggle in settings per driver preference.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Compass screen — offline peer navigation</h4>
+<p>No data? The full-screen compass rose shows a bearing arrow for each online peer using last-known GPS. Peer distances and compass headings update from cached locations — useful for trekkers, off-road convoy navigation and mountain rescue coordination.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Points of Interest (POI) layer</h4>
+<p>Three sources of POIs shown as colour-coded pins on the map. <strong style="color:#f59e0b;">Amber</strong> pins come from <code>&lt;wpt&gt;</code> waypoints embedded in a GPX file — they load with the route and clear with it. <strong style="color:#22c55e;">Green</strong> pins are pushed directly from the Chameleon PC IDE (fuel stops, hazards, delivery addresses) independently of any route. <strong style="color:#ef4444;">Red</strong> pins are dropped by the driver with a long-press on the map. All POIs persist across sessions; tap any pin to navigate, open in Maps, or delete. Icons adapt to type: ⛽ fuel, 🚚 delivery, ⚠️ hazard, 🏥 hospital, 🅿️ parking, ✈️ airport and more.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>All features</h2>
+<p>Every screen and service in the app</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">PEERS</span>
+<div class="fc-icon">📹</div>
+<h3>Group P2P Video</h3>
+<p>Full-mesh WebRTC video and audio for up to 4+ peers — no central media server, no monthly call bill. Adaptive grid: 1 peer = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2. Local feed floats as picture-in-picture. Bitrate scales per peer (1.5 Mbps → 350 Kbps) to keep quality even at every group size. Incoming calls ring and vibrate even when the app is in the background.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC full-mesh</span><span class="tag">Adaptive grid</span><span class="tag">PiP local</span><span class="tag">Ring + vibrate</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">SIM BRIDGE</span>
+<div class="fc-icon">📞</div>
+<h3>SIM Call Bridge</h3>
+<p>In a cellular call and want to pull in a P2P peer? Tap <strong>Add to group</strong> — Android's telecom stack registers the WebRTC session alongside the SIM call and presents a native "Merge calls" option. Audio mixing happens in the telephony chip — <strong>earpiece only</strong>, fully private. When the device or carrier doesn't support hardware conference, Bluetooth SCO headset routing is used as a fallback.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Hardware conference</span><span class="tag">BT SCO fallback</span><span class="tag">Earpiece only</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">COMMS</span>
+<div class="fc-icon">🗣️</div>
+<h3>Push-to-Talk + Live Translation</h3>
+<p>Hold the PTT button to speak — Android's speech recogniser (16 kHz, 16-bit) transcribes to text in real time. The detected language is sent to an on-device <strong>Argos Translate</strong> server. Each listener receives the message translated into their own selected locale and read aloud by TTS. Partial transcriptions stream as a live typing indicator while recording. Works over the P2P channel or standalone over a hotspot.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Auto language detect</span><span class="tag">Argos Translate</span><span class="tag">Live TTS readout</span><span class="tag">15 languages</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">BROADCAST</span>
+<div class="fc-icon">🚨</div>
+<h3>Ticker &amp; Emergency Broadcast</h3>
+<p>Dispatcher broadcasts a message fleet-wide — it appears as a full-width ticker bar at the top of every screen. Four priority levels: <strong style="color:#dc2626;">Emergency</strong> (flashing red, rate-limited per sender), <strong style="color:#dc2626;">Important</strong> (red on white), <strong style="color:#16a34a;">Instructions</strong> (black on green), <strong>Info</strong> (yellow on black). Messages can trigger TTS readout on recipient phones. Configurable TTL: 1 minute to “until dismissed”.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Fleet-wide broadcast</span><span class="tag">4 priority levels</span><span class="tag">TTS readout</span><span class="tag">Auto-expire</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">DISPATCHER</span>
+<div class="fc-icon">🗂</div>
+<h3>Dispatcher Dashboard</h3>
+<p>Three-tab dispatcher view: <strong>Drivers</strong> (live positions, push manifests, assign routes), <strong>Run Sheet</strong> (drag-to-reorder multi-drop stops, tap-to-cycle status, CSV import/export) and <strong>Cargo Manifest</strong> (QR scan loading at depot, POD QR scan at delivery). Dispatcher can push GPX routes and invoice files directly to individual drivers over the peer channel.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Driver tracking</span><span class="tag">Manifest push</span><span class="tag">Route push</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">MANIFEST</span>
+<div class="fc-icon">📦</div>
+<h3>Cargo Manifest</h3>
+<p>Scan the depot QR code to load items onto the manifest. At delivery, scan the customer's POD QR to mark delivered. Exception handling: refused delivery logs a photo and written note; safe-drop records a photo of the drop location; customer signature is captured on the touchscreen. All events are timestamped with GPS coordinates.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">QR scan in/out</span><span class="tag">Photo POD</span><span class="tag">Screen signature</span><span class="tag">GPS timestamps</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">RUN SHEET</span>
+<div class="fc-icon">🛣</div>
+<h3>Run Sheet</h3>
+<p>Multi-drop delivery list with drag-to-reorder stops. Tap the status icon to cycle each stop: Pending → Arrived → Delivered. Tap any address to open it in the phone's map app for turn-by-turn navigation. Import from CSV — header-aware, compatible with Onfleet, Routific, Circuit and custom exports. Export to CSV and share via the system share sheet.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Drag reorder</span><span class="tag">CSV import</span><span class="tag">Onfleet / Routific compatible</span><span class="tag">Share export</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">INVOICES</span>
+<div class="fc-icon">🧾</div>
+<h3>Invoices</h3>
+<p>Create, print and share invoices directly from the phone. Office can push a pre-prepared invoice from the Chameleon PC accounting module to the driver over the peer channel — the driver reviews, signs and sends it on the spot. Role-gated accounting dashboard: guest (totals only), operator (full transactions + invoices) and admin (MTD submit + QR access grants).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Push from PC</span><span class="tag">Print / PDF</span><span class="tag">Role-gated</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">EMERGENCY</span>
+<div class="fc-icon">📟</div>
+<h3>Emergency Mode — SMS &amp; Peer</h3>
+<p>No data? The app falls back to a compact coded protocol. Driver (<strong>D</strong>), Hiker (<strong>H</strong>), and Emergency Services (<strong>X</strong>) profiles share a universal alert scale. GPS coordinates embed automatically. Messages are decoded and read aloud by TTS on receipt. A99+H99 is the universal SOS — broadcast to all contacts and fleet peers in one tap. When data is available, frames travel over the peer channel instead of SMS — selectable per send: <strong>SMS only</strong>, <strong>Peers only</strong>, or <strong>Both</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 user profiles</span><span class="tag">GPS embedded</span><span class="tag">TTS decode</span><span class="tag">METHANE aligned</span>
+<span class="tag">SMS · Peers · Both</span>
+<span class="tag"><a href="codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Code reference →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">CONTACTS</span>
+<div class="fc-icon">👥</div>
+<h3>Contacts &amp; Groups</h3>
+<p>Unified contact book combining SIM phone numbers, Tailscale peer IDs and mixed groups. Create a <em>Border Team</em> group containing two P2P peers and a SIM number — tap the group to start a call to all three. Call history with timestamps. Per-contact avatar photos. Each fleet member sets a profile photo in Settings — it is shared automatically over the signal channel when they connect, so every peer sees a real photo instead of an initial letter.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + peers</span><span class="tag">Mixed groups</span><span class="tag">Call history</span><span class="tag">Avatar sharing</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">NETWORK</span>
+<div class="fc-icon">📶</div>
+<h3>Flexible Networking</h3>
+<p>Connect via <strong>Tailscale</strong> (remote, over the internet) or direct <strong>LAN / hotspot</strong> — useful for trucks in convoy or where a long-range directional aerial is fitted (50+ miles in open terrain). mDNS auto-discovery finds other fleet phones on the same Wi-Fi without entering IP addresses manually.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Tailscale</span><span class="tag">LAN / hotspot</span><span class="tag">mDNS discovery</span><span class="tag">50+ mile hotspot range</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">FLOAT</span>
+<div class="fc-icon">🪟</div>
+<h3>Floating Overlay</h3>
+<p>The app can float as a persistent overlay above all other apps — useful when a driver needs to check navigation while keeping the call active in a corner of the screen. Incoming peer calls bring the overlay to the front automatically with ring + vibration, ensuring the driver never misses an urgent call from dispatch.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Always-on-top overlay</span><span class="tag">Auto-bring-to-front</span><span class="tag">Ring + vibrate</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">CHAMELEON</span>
+<div class="fc-icon">🖥️</div>
+<h3>Chameleon PC Integration</h3>
+<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes (with embedded waypoints parsed as POIs automatically), standalone POI sets, invoice PDFs and manifest data to drivers in the field — all over the always-on signal channel, no active video call required. The Chameleon signal server (<code>chameleon_signal.py</code>) runs on the PC or in Termux on any phone in the fleet, so no cloud relay is needed.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Route push</span><span class="tag">POI push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">Termux signal server</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 languages</h2>
+<p>Full UI translation plus live PTT speech translation powered by on-device Argos Translate</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 English</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 Français</span>
+<span class="lang-chip">🇩🇪 Deutsch</span>
+<span class="lang-chip">🇪🇸 Español</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</span>
+<span class="lang-chip">🇧🇷 Português</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 Polski</span>
+<span class="lang-chip">🇷🇴 Română</span>
+<span class="lang-chip">🇻🇳 Tiếng Việt</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Auto language detection</h4>
+<p>The PTT service detects the speaker's language automatically — a German-speaking driver and a Spanish-speaking dispatcher can push-to-talk freely without selecting a language each time.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>On-device translation — no cloud</h4>
+<p>Translations are handled by an Argos Translate server running locally on the phone inside Termux. Speech and text never leave the device for translation. Works offline once language packs are installed.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS in the listener's language</h4>
+<p>After translation each message is read aloud in the receiver's locale using Android TTS — the listener hears the translated message even without looking at the screen, ideal for a driver keeping eyes on the road.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Emergency Mode — SMS &amp; Peer Channel</h2>
+<p>A compact code protocol that works over SMS when data is gone, or over the fleet peer channel when it isn't</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Dual transport — SMS or peer channel</h4>
+<p>When there is no mobile data — deep in the bush, at a remote border crossing, or during a network outage — Logistics 4×4 sends coded status frames over standard SMS. When data <em>is</em> available, the same frames travel over the fleet peer channel at full speed. A per-send selector lets you choose <strong>SMS only</strong>, <strong>Peers only</strong>, or <strong>Both</strong>. SOS always fires on every available channel simultaneously regardless of the setting.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Three profiles — one shared language</h4>
+<p>Codes are organised into three user profiles that share a common alert vocabulary: <strong>D — Driver</strong> (border, cargo, convoy, fuel, road conditions), <strong>H — Hiker</strong> (vitals, trail, gear, check-in schedule), and <strong>X — Emergency Services</strong> (triage, incident type, resources on scene, evacuation status). An SOS from any profile is understood by all.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Aligned with international emergency standards</h4>
+<p>The Emergency Services profile uses the international P1–P4 triage scale (Immediate / Delayed / Minor / Expectant) and incident categories aligned with the METHANE major-incident framework used by joint emergency services worldwide. A paramedic or SAR coordinator joining a cross-agency operation will recognise the terminology immediately.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Auto-read on receipt</h4>
+<p>Incoming coded messages are decoded and read aloud by text-to-speech — a driver keeping eyes on the road or a responder with hands occupied hears the full plain-English meaning of every code without touching the phone. Corrupted messages trigger an automatic resend request.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Example coded messages</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Driver — fuel stop, customs delay</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Driver on stop · Fuel quarter · At customs queue</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Hiker — injury, requesting help</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + “ankle fracture cannot walk”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Serious injury stopped · Need rescue team · Urgent</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Emergency services — RTC, P1 casualties</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Road traffic collision · P1 life-threat casualties · 2–5 persons · Ambulance on scene · Air ambulance required</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS — any profile</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS with GPS location — sent to all registered contacts immediately</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Field Code Reference</div>
+<div style="color:var(--muted);font-size:.82rem;">All codes for all profiles — print and carry</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">The complete code table for Driver, Hiker, and Emergency Services profiles. Download as PDF and keep a copy on your phone, in the cab, or in your pack.</p>
+<a href="codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
           📥 View &amp; download code reference
         </a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ── How it differs strip ───────────────────────────────────────── -->
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>Designed around the gap</h2>
-    <p>Not a replacement for enterprise logistics software — a solution for where enterprise software isn't</p>
-  </div>
-
-  <div class="strip">
-    <div class="strip-item">
-      <div class="strip-icon">💰</div>
-      <div class="strip-body">
-        <h4>No per-seat, per-driver bill</h4>
-        <p>WebRTC peer calls are direct phone-to-phone with no media relay server and no monthly per-user fee. The app runs on standard Android phones the team already carries.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">🌐</div>
-      <div class="strip-body">
-        <h4>Works where enterprise apps don't</h4>
-        <p>Designed for border crossings, remote terrain and international operations where standard logistics apps assume a fast, reliable data connection. Falls back to offline compass and cached maps when data disappears.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">📱</div>
-      <div class="strip-body">
-        <h4>Standard Android phone</h4>
-        <p>No specialist hardware. No MDM enrolment. Any Android 7.0+ phone (minSdk 24) running the APK is a full fleet node. A long-range hotspot aerial fitted to a truck cab can extend P2P coverage to 50+ miles in open countryside.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">🚀</div>
-      <div class="strip-body">
-        <h4>Future roadmap</h4>
-        <p>Planned additions include full tachograph compliance, duty-hour monitoring, DVSA digital tachograph integration and KML/GeoJSON import for POI bulk upload. The foundation is already built.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cta-band">
-    <h3>Interested in Logistics 4×4?</h3>
-    <p>Currently in testing — contact us to discuss a pilot, request a build or ask about licensing for your fleet.</p>
-    <a href="contact.html" class="btn btn-solid">Get in touch</a>
-    <a href="companion.html" class="btn">← Companion App</a>
-    <a href="index.html" class="btn">← Overview</a>
-  </div>
-
 </div>
-
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Designed around the gap</h2>
+<p>Not a replacement for enterprise logistics software — a solution for where enterprise software isn't</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>No per-seat, per-driver bill</h4>
+<p>WebRTC peer calls are direct phone-to-phone with no media relay server and no monthly per-user fee. The app runs on standard Android phones the team already carries.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Works where enterprise apps don't</h4>
+<p>Designed for border crossings, remote terrain and international operations where standard logistics apps assume a fast, reliable data connection. Falls back to offline compass and cached maps when data disappears.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Standard Android phone</h4>
+<p>No specialist hardware. No MDM enrolment. Any Android 7.0+ phone (minSdk 24) running the APK is a full fleet node. A long-range hotspot aerial fitted to a truck cab can extend P2P coverage to 50+ miles in open countryside.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Future roadmap</h4>
+<p>Planned additions include full tachograph compliance, duty-hour monitoring, DVSA digital tachograph integration and KML/GeoJSON import for POI bulk upload. The foundation is already built.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Interested in Logistics 4×4?</h3>
+<p>Currently in testing — contact us to discuss a pilot, request a build or ask about licensing for your fleet.</p>
+<a class="btn btn-solid" href="contact.html">Get in touch</a>
+<a class="btn" href="companion.html">← Companion App</a>
+<a class="btn" href="index.html">← Overview</a>
+</div>
+</div>
 <footer>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="ide.html">AI IDE</a>
-    <a href="presenter.html">Presenter</a>
-    <a href="companion.html">Companion App</a>
-    <a href="logistics4x4.html">Logistics 4×4</a>
-    <a href="services.html">Web Services</a>
-    <a href="accounting.html">Accounting</a>
-    <a href="technician.html">PC Technician</a>
-    <a href="trading.html">Trading</a>
-    <a href="classroom.html">Classroom</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <p>&copy; 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
+<div class="foot-links">
+<a href="index.html">Home</a>
+<a href="ide.html">AI IDE</a>
+<a href="presenter.html">Presenter</a>
+<a href="companion.html">Companion App</a>
+<a href="logistics4x4.html">Logistics 4×4</a>
+<a href="services.html">Web Services</a>
+<a href="accounting.html">Accounting</a>
+<a href="technician.html">PC Technician</a>
+<a href="trading.html">Trading</a>
+<a href="classroom.html">Classroom</a>
+<a href="contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

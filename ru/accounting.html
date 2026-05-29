@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Бухгалтерский учет в Великобритании — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../presenter.html">Ведущий</a>
+<a href="../companion.html">Сопутствующее приложение</a>
+<a href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../services.html">Веб-службы</a>
+<a class="active" href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a>
+<a href="../technician.html">ПК-техник</a>
+<a href="../trading.html">Торговля</a>
+<a href="../classroom.html">u041au043bu0430u0441u0441</a>
+<a href="../contact.html">Контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>Бухгалтерский учет в Великобритании</h1>
+<p class="sub">Двойная бухгалтерия, отслеживание НДС, отчет о прибылях и убытках, балансовый отчет — все это в локальном реестре SQLite, ориентированном на HMRC Making Tax Digital.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 План счетов Великобритании</span>
+<span class="badge">📋 Готовность к MTD</span>
+<span class="badge">🔒 Локальный SQLite</span>
+<span class="badge">🤖 Вывод JSON с возможностью анализа AI</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Книга двойной записи</h2>
+<p>Каждая транзакция сбалансирована до копейки — дебет всегда равен кредиту</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">Дата │ Счет │ Дебет (фунтов стерлингов) │ Кредит (фунтов стерлингов) │ НДС</span>
+───────────┼─────────────────────────┼───────────┼────────────┼────
+01.04.2026 │ 4000 Выручка от продаж │ │  <span class="cr">1,200.00</span>  │ С20
+01.04.2026 │ 2200 Контроль НДС │ │    <span class="cr">240.00</span>  │
+01.04.2026 │ 1100 торговых должников │ <span class="dr">1,440.00</span>  │ │
+─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─
+05.04.2026 │ 6100 Офисные расходы │   <span class="dr">85.00</span>   │ │ S20
+05.04.2026 │ 2200 Контроль НДС │   <span class="dr">17.00</span>   │ │
+05.04.2026 │ 1200 Текущий банк │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>План счетов Великобритании</h3>
+<p>Стандартные коды счетов Великобритании «из коробки» — активы, обязательства, капитал, доходы и расходы сопоставлены с категориями HMRC. При необходимости расширяйте возможности с помощью пользовательских учетных записей.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>SQLite реестр</h3>
+<p>Все данные, хранящиеся в <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Работает полностью в автономном режиме. Поддержка нескольких компаний — переключение между сущностями с помощью командного флага.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Налоговый год Великобритании</h3>
+<p>Конец года правильно установлен на 5 апреля (финансовый год в Великобритании с 6 по 5 апреля). Отчеты о прибылях и убытках и НДС автоматически охватывают правильный период без ручной корректировки даты.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Криминалистическое сканирование аномалий</h3>
+<p>Бегать <code>--forensic</code> для выявления несбалансированных проводок, дублирующих ссылок, несоответствий НДС и других нарушений. Результаты распечатываются в виде структурированного JSON для проверки ИИ.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>AI-читаемый вывод</h3>
+<p>Все отчеты выводят структурированный JSON на стандартный вывод, чтобы ИИ-хамелеон мог анализировать, обобщать и давать рекомендации о вашем финансовом положении на естественном языке.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Мост WebSocket</h3>
+<p>Учётный мост WebSocket (<code>acct_ws_bridge.py</code>) предоставляет запросы реестра мобильному помощнику и внешним информационным панелям через вашу сеть Tailscale.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Поддерживаемые коды НДС</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">С20</div><p>Стандартная ставка 20%</p></div>
+<div class="vat-code"><div class="vc">Р5</div><p>Сниженная ставка 5%</p></div>
+<div class="vat-code"><div class="vc">З</div><p>Нулевой рейтинг</p></div>
+<div class="vat-code"><div class="vc">Э</div><p>Освобождать</p></div>
+<div class="vat-code"><div class="vc">О</div><p>Вне области действия</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Отчеты</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>Прибыль и убытки</h4>
+<p>Доходы и расходы за период. Продажи, себестоимость продукции, валовая прибыль, операционные расходы, чистая прибыль — все в разбивке по кодам счетов. Беги с <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>Балансовый отчет</h4>
+<p>Активы, обязательства и капитал в определенный момент времени. Подтверждает двойную целостность — активы должны равняться обязательствам плюс собственный капитал. Беги с <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Сводная информация по декларации по НДС</h4>
+<p>Подробные данные по НДС соответствуют формату декларации по НДС HMRC MTD: Графа 1 (исходящий налог), Графа 4 (входной налог), Графа 6 (чистые продажи), Графа 7 (чистые покупки). Беги с <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Выставление счетов</h2>
+<p>Счета-фактуры, соответствующие требованиям HMRC Notification 700 — распечатываются, сохраняются в формате PDF или пересылаются на телефон одним щелчком мыши.</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Поля счета, соответствующие требованиям Великобритании</h4>
+<p>Каждый счет включает в себя все поля, требуемые Уведомлением HMRC 700: уникальный последовательный номер счета, имя и адрес поставщика, регистрационный номер НДС, дату счета, дату поставки (время поставки), имя и адрес клиента, номер НДС клиента, где это применимо, детализированные описания строк с указанием количества и цен за единицу, ставку НДС по каждой строке, чистые суммы и промежуточные суммы НДС, а также общую сумму к оплате. Ничего не упущено, ничего не угадано.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>Создание компании</h4>
+<p>Открыть <em>Файл → Счета → Настройка компании</em> чтобы ввести зарегистрированное название компании, адрес, номер Регистрационной палаты, номер плательщика НДС, адрес электронной почты, телефон и банковские реквизиты. Настройки сохраняются для каждой клиентской базы данных в <code>company.json</code> вместе с бухгалтерской книгой и автоматически загружаются всякий раз, когда для этого клиента создаются счета.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>База контактов клиентов</h4>
+<p>При первом выставлении счета клиенту его имя, адрес и номер плательщика НДС сохраняются в таблице контактов внутри книги. В последующих счетах при вводе имени клиента его данные заполняются автоматически — повторный ввод не требуется. Контакты доступны для редактирования в любое время.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>Распечатать, PDF и отправить на телефон</h4>
+<p>От Менеджера счетов (<em>Файл → Счета…</em>) выберите любой счет и выберите: <strong>Распечатать</strong> (открывает диалог печати ОС — любой принтер или драйвер PDF), <strong>Сохранить PDF</strong> (непосредственно на диск через встроенный PDF-экспорт Qt) или <strong>Отправить на телефон</strong> (отправляет HTML-код счета в приложение Companion, где открывается диалоговое окно печати Android — печатайте по беспроводной сети на любом AirPrint или ближайшем принтере).</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Дата поставки</h3>
+<p>Отдельное поле «Дата поставки» (время поставки) — отличное от даты выставления счета. Требуется HMRC для целей НДС. По умолчанию используется сегодняшний день, но его можно редактировать независимо для каждого счета.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Мобильная печать счетов</h3>
+<p>Приложение Companion позволяет распечатать любой счет по беспроводной сети. Коснитесь значка печати в любой строке счета — приложение получит HTML-код из IDE, преобразует его в PDF на устройстве с помощью <code>printing</code> пакет и открывает диалоговое окно печати системы Android.</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>Соответствие Уведомлению HMRC 700</h3>
+<p>Все 12 обязательных полей для полного счета-фактуры с НДС в Великобритании присутствуют и заполнены. Линии с пониженной и нулевой ставкой четко обозначены. Последовательность номеров счетов строго монотонно возрастающая, без пропусков.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Краткое руководство по интерфейсу командной строки</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Команда</th><th>Описание</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Прибыль и убыток за текущий налоговый год</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Баланс на сегодняшний день</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Сводная декларация по НДС (ящики MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Сканирование аномалий и целостности</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Полный справочник команд</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Оптимизируйте свою бухгалтерию в Великобритании</h3>
+<p>Специально создан для фрилансеров и малых предприятий, работающих в соответствии с налоговыми правилами Великобритании.</p>
+<a class="btn btn-solid" href="../contact.html">Свяжитесь с нами</a>
+<a class="btn" href="../index.html">← Вернуться к обзору</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
+<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a><a href="../technician.html">ПК-техник</a>
+<a href="../trading.html">Торговля</a><a href="../classroom.html">u041au043bu0430u0441u0441</a><a href="../contact.html">Контакт</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Создано Маркосом, также известным как Stemsee.</p>
+</footer>
+</body>
+</html>

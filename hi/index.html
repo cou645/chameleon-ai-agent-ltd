@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>गिरगिट एआई - अनुकूली इंटेलिजेंस प्लेटफ़ॉर्म</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .feature-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 2.5rem 0;
+    }
+    .feature-nav a {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: .5rem;
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-nav a .fn-icon { font-size: 2.4rem; }
+    .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
+    .feature-nav a span { color: var(--muted); font-size: .85rem; }
+    .intro-block {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2.5rem;
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+    }
+    .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
+    .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
+    .license-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
+    }
+    .license-pill {
+      background: #eeeeff; border: 1px solid var(--border);
+      border-radius: 50px; padding: .5rem 1.2rem;
+      font-size: .88rem; color: var(--brand-start); font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ परीक्षण प्रगति पर है - यह साइट सक्रिय विकास के अधीन है। सुविधाएँ, मूल्य निर्धारण और लाइसेंसिंग को अंतिम रूप नहीं दिया गया है। यहां प्रस्तुत किसी भी जानकारी पर भरोसा न करें।
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<div class="nav-links">
+<a class="active" href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">सहयोगी ऐप</a>
+<a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../services.html">वेब सेवाएं</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../index.html">🌐 EN — English</a><a href="../ar/index.html">🇸🇦 AR — العربية</a><a href="../cy/index.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/index.html">🇩🇪 DE — Deutsch</a><a href="../es/index.html">🇪🇸 ES — Español</a><a href="../fr/index.html">🇫🇷 FR — Français</a><a href="../it/index.html">🇮🇹 IT — Italiano</a><a href="../ja/index.html">🇯🇵 JA — 日本語</a><a href="../ko/index.html">🇰🇷 KO — 한국어</a><a href="../pt/index.html">🇵🇹 PT — Português</a><a href="../ru/index.html">🇷🇺 RU — Русский</a><a href="../zh/index.html">🇨🇳 ZH — 中文</a><a href="../el/index.html">🇬🇷 EL — Ελληνικά</a><a href="../id/index.html">🇮🇩 ID — Indonesia</a><a href="../pl/index.html">🇵🇱 PL — Polski</a><a href="../ro/index.html">🇷🇴 RO — Română</a><a href="../sw/index.html">🇰🇪 SW — Kiswahili</a><a href="../uk/index.html">🇺🇦 UK — Українська</a><a href="../vi/index.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon"><img alt="Chameleon AI" src="../icon.png" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"/></div>
+<h1>गिरगिट एआई प्लेटफार्म</h1>
+<p class="sub">एक संपूर्ण एआई-संचालित डेस्कटॉप सुइट - आईडीई, प्रस्तुतकर्ता, लेखांकन, व्यापार, कक्षा और बहुत कुछ। फ्रीलांसरों और छोटे व्यवसायों के लिए बनाया गया।</p>
+<div class="hero-badges">
+<span class="badge"><span class="pulse"></span> सक्रिय रूप से विकसित</span>
+<span class="badge">🇬🇧 यूके बिजनेस</span>
+<span class="badge">🔒 स्थानीय-प्रथम / गोपनीयता-प्रथम</span>
+<span class="badge">🐧 लिनक्स · विंडोज़ · मैकओएस</span>
+</div>
+</div>
+<div class="page">
+<div class="intro-block">
+<h2>एक मंच. आठ अनुशासन.</h2>
+<p>गिरगिट एआई एक PyQt6 डेस्कटॉप एप्लिकेशन है जिसे मार्कोस उर्फ ​​​​स्टेमसी ने गिरगिट एआई तकनीशियनों लिमिटेड के लिए बनाया है। यह एक पेशेवर एआई कोड संपादक, एक थिएटर-प्रेरित प्रस्तुति प्रणाली, पूर्ण यूके डबल-एंट्री अकाउंटिंग, बिनेंस क्रिप्टो ट्रेडिंग, भाषा-शिक्षण वीडियो क्लासरूम, पी 2 पी नेटवर्किंग और बहुत कुछ बंडल करता है - सभी बिना किसी क्लाउड निर्भरता के आपकी मशीन पर स्थानीय रूप से चल रहे हैं। एआई आईडीई सीधे एआई-संचालित कोड संपादन के लिए टर्मिनल (पीटीआई) में चल रहे क्लाउड कोड को एकीकृत करता है।</p>
+<p>एआई प्रदाता रनटाइम पर स्वैपेबल हैं: डीपसीक, ओपनएआई, एंथ्रोपिक, ग्रोक, ओलामा, मिस्ट्रल, मूनशॉट और बहुत कुछ। चाबियाँ आपके डिवाइस को कभी नहीं छोड़तीं।</p>
+<div class="license-row">
+<span class="license-pill">लाइसेंसिंग - अंतिम रूप देने के लिए लंबित</span>
+<span class="license-pill">अभी रिलीज़ के लिए उपलब्ध नहीं है</span>
+</div>
+</div>
+<div class="section-title">
+<h2>प्लेटफ़ॉर्म का अन्वेषण करें</h2>
+<p>अधिक जानने के लिए किसी भी सुविधा पर क्लिक करें</p>
+</div>
+<nav class="feature-nav">
+<a href="../ide.html">
+<span class="fn-icon">🧠</span>
+<strong>आपके पास विचार हैं</strong>
+<span>आवाज, अंतर दृश्य और कमांड ब्रिज के साथ बहु-प्रदाता एआई कोड संपादक</span>
+</a>
+<a href="../presenter.html">
+<span class="fn-icon">🎭</span>
+<strong>गिरगिट प्रस्तुतकर्ता</strong>
+<span>लाइव मोबाइल नियंत्रण और सहयोगी ड्राइंग के साथ थिएटर-रूपक स्लाइड</span>
+</a>
+<a href="../companion.html">
+<span class="fn-icon">📱</span>
+<strong>सहयोगी ऐप</strong>
+<span>एंड्रॉइड ब्रिज - एआई चैट, पी2पी वीडियो, प्रस्तुतकर्ता रिमोट, फ़ाइलें, मीडिया और रसीदें</span>
+</a>
+<a href="../logistics4x4.html">
+<span class="fn-icon">🚛</span>
+<strong>रसद 4×4</strong>
+<span>क्रॉस-बॉर्डर फ्लीट कॉम - 4 वीडियो पीयर + 4 सिम कॉलर्स, लाइव मैप, मैनिफ़ेस्ट और 15 भाषाएँ</span>
+</a>
+<a href="../services.html">
+<span class="fn-icon">🌐</span>
+<strong>वेब सेवाएं</strong>
+<span>एआई वेबसाइट बिल्डर, मुफ्त होस्टिंग, डोमेन सेटअप, प्रबंधित इनबॉक्स और एसईओ</span>
+</a>
+<a href="../accounting.html">
+<span class="fn-icon">📊</span>
+<strong>u0932u0947u0916u093e</strong>
+<span>यूके डबल-एंट्री लेजर, वैट, पी एंड एल, बैलेंस शीट - टैक्स को डिजिटल तैयार करना</span>
+</a>
+<a href="../technician.html">
+<span class="fn-icon">🔧</span>
+<strong>एआई पीसी तकनीशियन</strong>
+<span>एआई-निर्देशित सिस्टम मरम्मत, यूएसबी ड्राइवर प्रोफाइलर और लिनक्स कर्नेल मॉड्यूल जनरेटर</span>
+</a>
+<a href="../trading.html">
+<span class="fn-icon">📈</span>
+<strong>क्रिप्टो ट्रेडिंग</strong>
+<span>एआई ट्रेलिंग स्टॉप और रिजीम डिटेक्शन के साथ बिनेंस स्पॉट, फ्यूचर्स और मार्जिन</span>
+</a>
+<a href="../classroom.html">
+<span class="fn-icon">🎓</span>
+<strong>भाषा कक्षा</strong>
+<span>WebRTC वीडियो शिक्षण, टेलस्केल मेश, स्ट्राइप/Alipay/PayPal भुगतान</span>
+</a>
+<a href="../contact.html">
+<span class="fn-icon">✉️</span>
+<strong>संपर्क एवं लाइसेंसिंग</strong>
+<span>संपर्क करें, डेमो का अनुरोध करें या वाणिज्यिक लाइसेंस खरीदें</span>
+</a>
+</nav>
+<div class="section-title" style="margin-top:3rem;">
+<h2>प्लेटफ़ॉर्म हाइलाइट्स</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>स्थानीय-प्रथम गोपनीयता</h3>
+<p>सारा डेटा - बही-खाता, चैट इतिहास, व्यापारिक स्थिति - इसमें रहता है <code>~/.chameleon/</code> आपकी मशीन पर. जब तक आप स्पष्ट रूप से क्लाउड AI प्रदाता नहीं चुनते, तब तक तृतीय-पक्ष सर्वर पर कुछ भी नहीं भेजा जाता है।</p>
+</div>
+<div class="card">
+<div class="card-icon">🔄</div>
+<h3>स्वैपेबल एआई प्रदाता</h3>
+<p>एक क्लिक में डीपसीक, ओपनएआई, एंथ्रोपिक, ग्रोक, ओलामा, मिस्ट्रल, मूनशॉट और अन्य के बीच स्विच करें। शून्य लागत पर ओलामा या एलएम स्टूडियो के माध्यम से स्थानीय मॉडल चलाएं।</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>मोबाइल साथी</h3>
+<p>वेबसॉकेट पर एंड्रॉइड ब्रिज आपके फोन से एआई चैट, स्क्रीनशॉट और फ़ाइल अपलोड को रिले करता है। प्रस्तुतकर्ता को नियंत्रित करें, रिकॉर्डिंग ट्रिगर करें और सबमिशन को दूरस्थ रूप से स्वीकृत करें।</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>टेलस्केल जाल</h3>
+<p>आपके अपने टेलस्केल नेटवर्क पर पीयर-टू-पीयर वीडियो और वॉइस। आईडीई से सीधे एसीएल, डिवाइस प्राधिकरण और कुंजियाँ प्रबंधित करें।</p>
+</div>
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>आवाज अन्दर, आवाज बाहर</h3>
+<p>हाथों से मुक्त कोडिंग के लिए कानाफूसी-आधारित भाषण-से-पाठ। पाइपर टीटीएस एआई प्रतिक्रियाओं को ज़ोर से पढ़ता है। कोड, दस्तावेज़ीकरण या संदेशों को स्वाभाविक रूप से निर्देशित करें।</p>
+</div>
+<div class="card">
+<div class="card-icon">🐧</div>
+<h3>क्रॉस-प्लेटफॉर्म</h3>
+<p>Linux, Windows और macOS पर चलता है। प्लेटफ़ॉर्म-विशिष्ट पथ, ऑडियो प्लेयर और टीटीएस बायनेरिज़ को संक्षेप में प्रस्तुत किया गया है <em>platform_utils.py</em> - हर जगह एक कोडबेस।</p>
+</div>
+</div>
+<!-- SCREENSHOTS: drop real images in here when ready
+       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>इसे क्रियान्वित करके देखें</h2>
+<p>स्क्रीनशॉट जल्द ही आ रहे हैं</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🧠</div>
+<strong>आपके पास विचार हैं</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">एआई आईडीई - चैट पैनल, कोड एडिटर, डिफ व्यू</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🎭</div>
+<strong>गिरगिट प्रस्तुतकर्ता</strong>
+<span>प्रस्तुतकर्ता-मंच.png</span>
+</div>
+<div class="screenshot-caption">कैमेलियन प्रस्तुतकर्ता - लाइव छात्र प्रस्तुतिकरण के साथ मंच</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>एंड्रॉइड ऐप</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">एंड्रॉइड साथी - एआई चैट और प्रस्तुतकर्ता रिमोट</div>
+</div>
+</div>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ कानूनी नोटिस और अस्वीकरण</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">यह वेबसाइट एक सक्रिय परीक्षण और विकास प्रक्रिया का हिस्सा है। सामग्री एआई (क्लाउड कोड, एंथ्रोपिक) की सहायता से तैयार की गई है और इसमें अशुद्धियाँ, अधूरी जानकारी या प्लेसहोल्डर टेक्स्ट हो सकता है। इस साइट पर कुछ भी अंतिम उत्पाद प्रस्ताव, वारंटी या कानूनी प्रतिबद्धता नहीं है।</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">लाइसेंसिंग शर्तें हैं <strong>अंतिम रूप दिया जाना लंबित है</strong>. इस वेबसाइट द्वारा कोई सॉफ़्टवेयर लाइसेंस - वाणिज्यिक, व्यक्तिगत या अन्यथा - प्रदान या निहित नहीं किया गया है। यहां दिखाई गई जानकारी के आधार पर व्यावसायिक निर्णय न लें।</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 गिरगिट एआई तकनीशियन लिमिटेड। सर्वाधिकार सुरक्षित। इंग्लैंड और वेल्स में पंजीकृत। यह साइट केवल जानकारी और परीक्षण उद्देश्यों के लिए प्रदान की गई है।</p>
+</div>
+<div class="cta-band">
+<h3>गिरगिट में रुचि है?</h3>
+<p>संपर्क करें - उत्पाद परीक्षण में है और अभी तक रिलीज के लिए उपलब्ध नहीं है।</p>
+<a class="btn btn-solid" href="../contact.html">संपर्क में रहो</a>
+<a class="btn" href="mailto:stemsee@chameleon-ai-agent-ltd.net">स्टेमसी@गिरगिट-एआई-एजेंट-ltd.net</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+</div>
+<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · लाइसेंसिंग लंबित · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicii web — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TESTARE ÎN CARE — Acest site este în curs de dezvoltare activă. Caracteristicile, prețurile și licențele nu sunt finalizate.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">AI IDE</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a class="active" href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>Servicii web AI</h1>
+<p class="sub">De la zero la un site web profesionist, creat de AI din fișierele de proiect, găzduit gratuit și gestionat în mod continuu. Nu este nevoie de experiență în design web.</p>
+<div class="hero-badges">
+<span class="badge">🤖 AI creat din fișierele dvs</span>
+<span class="badge">🆓 Opțiuni gratuite de găzduire</span>
+<span class="badge">🌍 Domeniu personalizat</span>
+<span class="badge">📧 Mesaje primite gestionate</span>
+<span class="badge">🇬🇧 Serviciu din Marea Britanie</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">SERVICIUL 1</div>
+<h2>🏗️ AI Website Builder</h2>
+<p class="tier-sub">AI citește fișierele, documentele și descrierile proiectelor dvs. - apoi construiește de la zero un site web complet cu mai multe pagini. Fără șabloane, fără drag-and-drop. Un site real derivat din ceea ce faci de fapt.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">Ceea ce livrăm</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Site cu mai multe pagini: Acasă, Despre, Caracteristici, Contact</li>
+<li>Conținut derivat din fișierele și documentele proiectului dvs</li>
+<li>Brandingul dvs.: culori, logo, preferințe de stil</li>
+<li>Aspect receptiv la mobil</li>
+<li>Captură de ecran și substituenți media — înlocuiți când sunt gata</li>
+<li>Disclaimer legal și banner de testare în timpul dezvoltării</li>
+<li>În primul rând confidențialitatea – fără trackere, fără scripturi terță parte</li>
+<li class="planned">Blog / secțiune de știri cu actualizări scrise prin AI</li>
+<li class="planned">Versiuni în mai multe limbi</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Cum funcționează</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Partajați folderul proiectului sau o descriere scrisă — AI citește totul și pune întrebări clarificatoare</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Tu alegi culorile, stilul și ce pagini ai nevoie (conversație de 5 minute)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>AI creează întregul site la nivel local - îl previzualizați imediat</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>O rundă de feedback → AI aplică modificări → site-ul este gata de publicare</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Hand-off: dețineți fișierele, depozitul și domeniul - fără blocare</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">SERVICIUL 2</div>
+<h2>🌍 Configurarea numelui de domeniu</h2>
+<p class="tier-sub">Configurația DNS este partea pe care cei mai mulți oameni o consideră confuză - autentificări ale registratorului, tipuri de înregistrări, așteptări de propagare. AI se ocupă direct acolo unde este posibil și oferă îndrumare exactă pas cu pas peste tot în altă parte.</p>
+<ul class="deliverable-list">
+<li>Identificați-vă registratorul automat sau printr-un scurt chestionar</li>
+<li>Generați înregistrările DNS exacte necesare (A, AAAA, CNAME) într-un tabel copy-paste</li>
+<li>Furnizați instrucțiuni specifice registratorului — Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg și multe altele</li>
+<li>Explicație simplă în engleză pentru fiecare tip de înregistrare înainte de a atinge ceva</li>
+<li>Setați un domeniu personalizat prin API-ul GitHub Pages - fără introducere manuală a formularului</li>
+<li>Monitorizați propagarea DNS și confirmați emiterea certificatului HTTPS</li>
+<li class="planned">Automatizare completă pentru registratorii care furnizează un API (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>De ce contează asta:</strong> <span>În propriile noastre teste, configurația domeniului a provocat cea mai mare confuzie - un domeniu migrase în tăcere de la Google Domains la Squarespace fără redirecționare evidentă, iar tipurile de înregistrări DNS (A, AAAA, CNAME) erau complet necunoscute. AI vă întreabă acum registratorul în avans și vă oferă instrucțiuni care nu necesită cunoștințe DNS anterioare.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">SERVICIUL 3</div>
+<h2>🖥️ Configurarea și implementarea găzduirii</h2>
+<p class="tier-sub">Afișați site-ul dvs. la un cost lunar zero - sau găzduiți-l pe propriul computer prin Tailscale. AI se ocupă de configurare, implementează mai întâi și vă învață singura comandă necesară pentru fiecare actualizare viitoare.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>Pagini GitHub</h4>
+<p>Site static găzduit dintr-un depozit GitHub. Domeniu personalizat, HTTPS, CDN global. Gestionat complet de scriptul de implementare AI.</p>
+<div class="ho-cost">Liber pentru totdeauna</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Pagini Cloudflare</h4>
+<p>CDN global rapid cu nivel gratuit generos. AI gestionează conexiunea repo și implementează cârlige. Alternativă bună dacă utilizați deja Cloudflare DNS.</p>
+<div class="ho-cost">Nivel gratuit disponibil</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify / Vercel</h4>
+<p>Implementare cu un singur clic dintr-un depozit git. HTTPS automat, previzualizare adrese URL per ramură. AI configurează setările de construcție.</p>
+<div class="ho-cost">Nivel gratuit disponibil</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale Self-Gazduit</h4>
+<p>Serviți-vă site-ul de pe propria mașină prin Tailscale Funnel — acces public la internet fără dependență de cloud. Control total.</p>
+<div class="ho-cost">Gratuit (hardware-ul dvs.)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Desfășurare în curs de desfășurare</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>De fiecare dată când actualizați site-ul, o comandă îl trimite live: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Sau spune <em>„implementați site-ul”</em> în chatul Chameleon AI — IDE-ul o face automat prin intermediul <code>gh_deploy</code> acţiunea podului de comandă</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">SERVICIUL 4</div>
+<h2>📬 Managementul prezenței web AI</h2>
+<p class="tier-sub">Odată ce site-ul dvs. este activ, agentul AI îl monitorizează și îl gestionează — citind e-mailurile de întrebări, redactând răspunsuri, culegând detalii despre clienți, generând rapoarte și semnalând orice necesită atenția dvs.</p>
+<ul class="deliverable-list">
+<li>Citiți și triați trimiterile de formulare de contact și e-mailurile primite</li>
+<li>Înainte de a le trimite, redactați răspunsuri personalizate pentru evaluarea dvs</li>
+<li>Adunați detalii despre client - caz de utilizare, număr de locuri, sistem de operare, cerințe - printr-o urmărire structurată</li>
+<li>Raport săptămânal: vizitatori, întrebări, conversii, răspunsuri restante</li>
+<li>Semnalați imediat mesajele urgente (cereri demo, solicitări de licență comercială).</li>
+<li class="planned">Răspundeți automat la întrebările frecvente folosind o bază de cunoștințe construită din conținutul site-ului dvs</li>
+<li class="planned">Jurnal de contact în stil CRM: fiecare client potențial urmărit de la primul e-mail până la semnarea licenței</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">SERVICIUL 5</div>
+<h2>📈 Vizibilitate și creștere</h2>
+<p class="tier-sub">Găsirea — motoare de căutare, directoare și rețele profesionale. AI se ocupă de bazele tehnice SEO și vă ajută să vă construiți o prezență online credibilă fără publicitate plătită.</p>
+<ul class="deliverable-list">
+<li>Metaetichete SEO, Open Graph și marcaj Twitter Card pe fiecare pagină</li>
+<li>sitemap.xml și robots.txt generate și ținute la zi</li>
+<li>Date structurate Schema.org (organizație, produs, ContactPoint)</li>
+<li>Trimiteți la Google Search Console și Bing Webmaster Tools</li>
+<li>Analize care respectă confidențialitatea - Plausible sau Umami auto-găzduit (nu este necesar un banner cookie)</li>
+<li class="planned">Postări de blog scrise prin inteligență artificială și studii de caz pentru a genera trafic de căutare organic</li>
+<li class="planned">Alinierea profilului LinkedIn / GitHub cu conținutul site-ului web</li>
+</ul>
+<div class="suggest-box">
+<h4>De ce acesta este Serviciul 5</h4>
+<p>Un site pe care nimeni nu-l poate găsi valorează puțin. Serviciile 1–4 construiesc și rulează site-ul. Serviciul 5 îl face descoperibil. SEO, datele structurate și analizele sunt toate automatizate de AI - nu este nevoie de un reținere permanentă a agenției.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Călătoria clientului — de la început până la sfârșit</h2>
+<p>Angajament tipic: o sesiune de construit, aceeași zi de difuzat</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Apel de descoperire (15 min)</h4>
+<p>Chestionar AI: numele companiei, descrierea, registratorul, numele de utilizator GitHub, preferințele de culoare, paginile necesare. Nu sunt necesare cunoștințe anterioare de web - fiecare întrebare este în limba engleză simplă, cu exemple.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Construire (aceeași sesiune)</h4>
+<p>AI citește fișierele de proiect și construiește site-ul complet. Îl previzualizați local printr-un link Tailscale Funnel - nu este nevoie de server. O rundă de feedback, apoi este gata.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Publicare (30 min ghidat)</h4>
+<p>AI creează depozitul GitHub și împinge site-ul. Oferă instrucțiunile DNS pas cu pas exacte ale registratorului dvs. Monitorizează propagarea — confirmă HTTPS live. În aceeași zi, în majoritatea cazurilor.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Predare + management continuu</h4>
+<p>Primești o foaie de cheat de o pagină: cum să actualizezi site-ul (o singură comandă), cum să adaugi conținut, cum să citești raportul săptămânal. Agentul AI monitorizează din prima zi.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Vă interesează serviciile web AI?</h3>
+<p>Serviciul este în curs de dezvoltare — contactați-ne pentru a vă înregistra interesul sau pentru a discuta cerințele dumneavoastră.</p>
+<a class="btn btn-solid" href="../contact.html">Luați legătura</a>
+<a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a><a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a><a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licențiere în așteptare · Construit de Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

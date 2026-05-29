@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Huduma za Wavuti - Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ MAJARIBIO INAENDELEA — Tovuti hii inaendelezwa amilifu. Vipengele, bei na leseni hazijakamilishwa.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a class="active" href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>Huduma za Wavuti za AI</h1>
+<p class="sub">Kuanzia sufuri hadi wavuti moja kwa moja, ya kitaalamu - iliyojengwa na AI kutoka kwa faili zako za mradi, iliyopangishwa bila malipo, na inayodhibitiwa inayoendelea. Hakuna uzoefu wa muundo wa wavuti unaohitajika.</p>
+<div class="hero-badges">
+<span class="badge">🤖 AI-imejengwa kutoka kwa faili zako</span>
+<span class="badge">🆓 Chaguzi za upangishaji zisizolipishwa</span>
+<span class="badge">🌍 Kikoa maalum</span>
+<span class="badge">📧 Kikasha kinachosimamiwa</span>
+<span class="badge">🇬🇧 Huduma ya Uingereza</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">HUDUMA 1</div>
+<h2>🏗️ Mjenzi wa Tovuti wa AI</h2>
+<p class="tier-sub">AI husoma faili zako za mradi, hati na maelezo - kisha huunda tovuti kamili ya kurasa nyingi kutoka mwanzo. Hakuna violezo, hakuna kuburuta na kudondosha. Tovuti halisi inayotokana na kile unachofanya.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">Tunachotoa</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Tovuti ya kurasa nyingi: Nyumbani, Kuhusu, Vipengee, Mawasiliano</li>
+<li>Maudhui yanayotokana na faili na hati za mradi wako</li>
+<li>Chapa yako: rangi, nembo, mapendeleo ya mtindo</li>
+<li>Mpangilio unaojibu kwa rununu</li>
+<li>Picha ya skrini na vishika nafasi vya media - hubadilishwa ikiwa tayari</li>
+<li>Kanusho la kisheria na bango la majaribio wakati linatengenezwa</li>
+<li>Faragha kwanza - hakuna vifuatiliaji, hakuna hati za watu wengine</li>
+<li class="planned">Sehemu ya blogi / habari iliyo na visasisho vilivyoandikwa na AI</li>
+<li class="planned">Matoleo ya lugha nyingi</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Jinsi inavyofanya kazi</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Unashiriki folda ya mradi wako au maelezo yaliyoandikwa - AI inasoma kila kitu na kuuliza maswali ya kufafanua</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Unachagua rangi, mtindo na kurasa gani unahitaji (mazungumzo ya dakika 5)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>AI huunda tovuti kamili ndani ya nchi - unaihakiki mara moja</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>Awamu moja ya maoni → AI inatekeleza mabadiliko → tovuti iko tayari kuchapishwa</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Kutoa mkono: unamiliki faili, repo na kikoa - hakuna lock-in</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">HUDUMA 2</div>
+<h2>🌍 Usanidi wa Jina la Kikoa</h2>
+<p class="tier-sub">Usanidi wa DNS ndio sehemu ambayo watu wengi hupata kutatanisha - kuingia kwa msajili, aina za rekodi, kusubiri kwa uenezi. AI huishughulikia moja kwa moja inapowezekana na hutoa mwongozo kamili wa hatua kwa hatua popote kwingine.</p>
+<ul class="deliverable-list">
+<li>Tambua msajili wako kiotomatiki au kupitia dodoso fupi</li>
+<li>Tengeneza rekodi kamili za DNS zinazohitajika (A, AAAA, CNAME) katika jedwali la kunakili-kubandika</li>
+<li>Toa maagizo mahususi ya msajili - Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg na zaidi</li>
+<li>Maelezo ya kila aina ya rekodi kabla ya kugusa chochote</li>
+<li>Weka kikoa maalum kupitia API ya Kurasa za GitHub - hakuna ingizo la fomu mwenyewe</li>
+<li>Fuatilia uenezi wa DNS na uthibitishe utoaji wa cheti cha HTTPS</li>
+<li class="planned">Otomatiki kamili kwa wasajili ambao hutoa API (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>Kwa nini hii ni muhimu:</strong> <span>Katika majaribio yetu wenyewe, usanidi wa kikoa ulisababisha mkanganyiko mkubwa zaidi - kikoa kilikuwa kimehamishwa kimyakimya kutoka Vikoa vya Google hadi Squarespace bila kuelekezwa kwingine dhahiri, na aina za rekodi za DNS (A, AAAA, CNAME) hazikufahamika kabisa. AI sasa inauliza msajili wako mapema na inatoa maagizo ambayo hayahitaji maarifa ya awali ya DNS.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">HUDUMA 3</div>
+<h2>🖥️ Mipangilio ya Kupangisha na Usambazaji</h2>
+<p class="tier-sub">Pata tovuti yako moja kwa moja kwa gharama ya sifuri kila mwezi - au ijiandae kwa mashine yako mwenyewe kupitia Tailscale. AI hushughulikia usanidi, kwanza kupeleka na kukufundisha amri moja inayohitajika kwa kila sasisho la siku zijazo.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>Kurasa za GitHub</h4>
+<p>Tovuti tulivu iliyopangishwa kutoka hazina ya GitHub. Kikoa maalum, HTTPS, CDN ya kimataifa. Inasimamiwa kikamilifu na hati ya kusambaza ya AI.</p>
+<div class="ho-cost">Bure milele</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Kurasa za Cloudflare</h4>
+<p>CDN ya haraka ya kimataifa na kiwango cha bure cha ukarimu. AI hushughulikia muunganisho wa repo na kupeleka ndoano. Njia mbadala nzuri ikiwa tayari unatumia Cloudflare DNS.</p>
+<div class="ho-cost">Kiwango cha bure kinapatikana</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify / Vercel</h4>
+<p>Tumia kwa kubofya mara moja kutoka kwa git repo. HTTPS otomatiki, hakiki URL kwa kila tawi. AI husanidi mipangilio ya ujenzi.</p>
+<div class="ho-cost">Kiwango cha bure kinapatikana</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale Mwenyeji Mwenyewe</h4>
+<p>Tumia tovuti yako kutoka kwa mashine yako mwenyewe kupitia Tailscale Funnel - ufikiaji wa mtandao wa umma bila utegemezi wa wingu. Udhibiti kamili.</p>
+<div class="ho-cost">Bure (vifaa vyako)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Usambazaji unaoendelea</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>Kila wakati unaposasisha tovuti, amri moja huisukuma moja kwa moja: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Au kusema <em>"peleka tovuti"</em> kwenye soga ya Chameleon AI — IDE huifanya kiotomatiki kupitia <code>gh_deploy</code> amri hatua ya daraja</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">HUDUMA 4</div>
+<h2>📬 Usimamizi wa Uwepo wa Wavuti wa AI</h2>
+<p class="tier-sub">Mara tu tovuti yako inapoonyeshwa moja kwa moja, wakala wa AI huifuatilia na kuisimamia - kusoma barua pepe za uchunguzi, kuandaa majibu, kukusanya maelezo ya mteja, kutoa ripoti na kuripoti chochote kinachohitaji uangalizi wako.</p>
+<ul class="deliverable-list">
+<li>Soma na uhakiki mawasilisho ya fomu ya mawasiliano na barua pepe zinazoingia</li>
+<li>Rasimu ya majibu yaliyobinafsishwa kwa ukaguzi wako kabla ya kutuma</li>
+<li>Kusanya maelezo ya mteja - kesi ya matumizi, idadi ya viti, OS, mahitaji - kupitia ufuatiliaji uliopangwa</li>
+<li>Ripoti ya kila wiki: wageni, maswali, mabadiliko, majibu bora</li>
+<li>Ripoti ujumbe wa dharura (maombi ya onyesho, maswali ya leseni ya kibiashara) mara moja</li>
+<li class="planned">Jibu maswali ya kawaida kiotomatiki kwa kutumia msingi wa maarifa uliojengwa kutoka kwa maudhui ya tovuti yako</li>
+<li class="planned">Rekodi ya anwani ya mtindo wa CRM: kila uongozi unaofuatiliwa kutoka barua pepe ya kwanza hadi leseni iliyotiwa saini</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">HUDUMA 5</div>
+<h2>📈 Mwonekano na Ukuaji</h2>
+<p class="tier-sub">Kupata - injini za utafutaji, saraka na mitandao ya kitaaluma. AI hushughulikia misingi ya kiufundi ya SEO na hukusaidia kujenga uwepo wa kuaminika mtandaoni bila utangazaji unaolipishwa.</p>
+<ul class="deliverable-list">
+<li>Lebo za meta za SEO, Grafu wazi na alama za Kadi ya Twitter kwenye kila ukurasa</li>
+<li>sitemap.xml na robots.txt imetolewa na kusasishwa</li>
+<li>Data iliyopangwa ya Schema.org (Shirika, Bidhaa, MawasilianoPoint)</li>
+<li>Wasilisha kwa Dashibodi ya Tafuta na Google na Zana za Wasimamizi wa Tovuti wa Bing</li>
+<li>Uchanganuzi wa kuheshimu faragha — Plausible iliyojipangisha yenyewe au Umami (bango la kidakuzi halihitajiki)</li>
+<li class="planned">Machapisho ya blogu yaliyoandikwa na AI na tafiti za kifani ili kuendesha trafiki ya utafutaji wa kikaboni</li>
+<li class="planned">Upatanishi wa wasifu wa LinkedIn / GitHub na yaliyomo kwenye tovuti</li>
+</ul>
+<div class="suggest-box">
+<h4>Kwa nini hii ni Huduma 5</h4>
+<p>Tovuti ambayo hakuna mtu anayeweza kuipata ina thamani ndogo. Huduma 1–4 huunda na kuendesha tovuti. Huduma ya 5 inafanya kugundulika. SEO, data iliyopangwa na uchanganuzi zote zinaweza kuendeshwa kiotomatiki na AI - hakuna kihifadhi kinachoendelea cha wakala kinachohitajika.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Safari ya mteja - anza kumaliza</h2>
+<p>Uchumba wa kawaida: kipindi kimoja cha kuunda, siku hiyo hiyo ya kuonyeshwa moja kwa moja</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Simu ya ugunduzi (dakika 15)</h4>
+<p>Hojaji ya AI: jina la biashara, maelezo, msajili, jina la mtumiaji la GitHub, mapendeleo ya rangi, kurasa zinazohitajika. Hakuna maarifa ya awali ya wavuti yanayohitajika - kila swali ni Kiingereza rahisi na mifano.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Jenga (kipindi sawa)</h4>
+<p>AI inasoma faili za mradi na huunda tovuti kamili. Unaikagua kwanza ndani yako kupitia kiungo cha Funeli ya Tailscale - seva haihitajiki. Mzunguko mmoja wa maoni, basi yako tayari.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Chapisha (kwa mwongozo wa dakika 30)</h4>
+<p>AI huunda repo la GitHub na kusukuma tovuti. Hutoa maagizo ya DNS ya hatua kwa hatua ya msajili wako. Wachunguzi wa uenezi - huthibitisha HTTPS moja kwa moja. Siku moja katika hali nyingi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Makabidhiano + usimamizi unaoendelea</h4>
+<p>Unapokea karatasi ya kudanganya ya ukurasa mmoja: jinsi ya kusasisha tovuti (amri moja), jinsi ya kuongeza maudhui, jinsi ya kusoma ripoti ya kila wiki. Wachunguzi wa wakala wa AI kutoka siku ya kwanza.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Je, ungependa kupata Huduma za Wavuti za AI?</h3>
+<p>Huduma inatengenezwa - wasiliana nasi ili kusajili nia au kujadili mahitaji yako.</p>
+<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a href="../logistics4x4.html">Vifaa 4×4</a><a href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a><a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Utoaji leseni unasubiri · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

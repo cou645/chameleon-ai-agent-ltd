@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ruang Kelas Bahasa — Bunglon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Layanan Web</a>
+<a href="../accounting.html">Akuntansi</a>
+<a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a>
+<a class="active" href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>Kelas Bahasa</h1>
+<p class="sub">Pelajaran video WebRTC langsung dengan koneksi P2P yang diamankan Tailscale, pembayaran terintegrasi, dan Kameleon Presenter — semuanya dalam satu aplikasi.</p>
+<div class="hero-badges">
+<span class="badge">📹 Video WebRTC</span>
+<span class="badge">🌐 Jaring sisik ekor</span>
+<span class="badge">💳 Garis · Alipay · PayPal</span>
+<span class="badge">🔐 DB Pendaftaran</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>Guru</div>
+<div class="status">● Langsung</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>Siswa A</div>
+<div class="status">● Terhubung</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>Siswa B</div>
+<div class="status">● Terhubung</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>Siswa C</div>
+<div class="status">○ Bergabung…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>Siswa D</div>
+<div class="status">● Terhubung</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>Siswa E</div>
+<div class="status">● Terhubung</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>Siswa F</div>
+<div class="status">○ Bergabung…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>Pelajaran Video Langsung</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>Video grup WebRTC — 4+ peserta</h4>
+<p>Video dan audio WebRTC full-mesh latensi rendah untuk grup beranggotakan 4 orang atau lebih — tanpa server media pusat, tanpa biaya bulanan. Server sinyal Bunglon (<code>chameleon_signal.py</code>) menangani relai SDP dan ICE (port 8766) dan juga berjalan di Termux di Android. Aplikasi Pendamping menampilkan kisi adaptif yang tumbuh secara otomatis saat siswa bergabung: 1 = layar penuh, 2 = berdampingan, 3 = 2+1, 4 = 2×2, 5+ = kisi penyesuaian otomatis yang dapat digulir — dengan umpan lokal pengajar selalu dalam gambar-dalam-gambar.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Koneksi yang aman pada skala ekor</h4>
+<p>Semua rekan terhubung melalui mesh Tailscale Anda — tanpa IP publik, tanpa penerusan porta. IDE mengelola ACL, otorisasi perangkat, dan pembuatan kunci autentikasi tanpa meninggalkan aplikasi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>Presenter Kameleon Terintegrasi</h4>
+<p>Ajarkan dengan tahap Kameleon penuh selama pelajaran Anda. Siswa dapat memasukkan jawaban, gambar, dan gambar langsung ke tumpukan mode Tahap — memoderasi dan menampilkan secara real-time tanpa berpindah aplikasi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>Widget pengucapan</h4>
+<p>Widget pelatihan pengucapan bawaan (<code>pronunciation_widget.py</code>) dengan umpan balik tingkat fonem — ideal untuk pengajaran bahasa yang mengutamakan artikulasi yang tepat.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Penggantian video LAN</h4>
+<p>Saat Tailscale tidak tersedia, <code>lan_video.py</code> mengalirkan video melalui UDP (port 47732), audio melalui UDP (port 47733) dan perbedaan kolaboratif melalui WebSocket (port 47731) — semuanya di jaringan lokal.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Jembatan Panggilan Telekomunikasi &amp; SIM</h2>
+<p>Hubungkan panggilan aplikasi dan panggilan telepon SIM asli ke dalam satu percakapan multi-arah — langsung dari aplikasi Pendamping</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>Dua jenis panggilan — satu percakapan</h4>
+<p>Aplikasi Pendamping mendukung dua saluran panggilan paralel: an <strong>Panggilan Aplikasi</strong> (WebRTC, peer-to-peer melalui Tailscale, gratis) dan a <strong>Panggilan SIM</strong> (jaringan seluler standar, nomor telepon apa pun). Anda dapat melakukan panggilan WebRTC dengan rekan <em>Dan</em> secara bersamaan melakukan panggilan SIM ke pihak ketiga, lalu melakukan konferensi bersama untuk percakapan multi-arah — tanpa meninggalkan aplikasi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>Bilah status telekomunikasi</h4>
+<p>Bilah status tetap di bagian atas aplikasi Pendamping menunjukkan status siaran langsung kedua saluran: tidak ada aktivitas, berdering, sedang dalam panggilan, atau tidak bersuara. Sekilas memberi tahu Anda panggilan mana yang aktif. Setiap saluran memiliki kontrol bisu dan akhiri yang independen — mengakhiri panggilan SIM tidak menghentikan panggilan aplikasi, dan sebaliknya.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>Alur pelajaran multi-arah</h4>
+<p>Berguna untuk pelajaran bahasa: ajak siswa melakukan panggilan aplikasi WebRTC, lalu hubungi penutur asli di SIM untuk melakukan percakapan spontan di dunia nyata. Ketiga pihak dapat mendengar satu sama lain. Guru memoderasi melalui aplikasi sementara Kameleon Presenter terus berjalan di IDE.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>Undang-undang perekaman panggilan Inggris — semua pihak harus diberitahu</h4>
+<p>Berdasarkan RIPA 2000 dan Peraturan Telekomunikasi (Praktik Bisnis yang Sah), pihak yang merekam panggilan dapat melakukannya tanpa persetujuan pihak lain untuk penggunaan sah mereka sendiri — namun agar rekaman tersebut tetap dapat digunakan secara sah. <strong>dapat diterima di pengadilan</strong> semua pihak harus diberitahu sebelum perekaman dimulai. Aplikasi Pendamping menampilkan yang menonjol <strong>🔴 PEREKAMAN</strong> spanduk ke semua peserta yang terhubung setiap kali perekaman aktif. Untuk penelepon SIM, pemberitahuan lisan diperlukan pada awal panggilan. Data suara adalah data pribadi berdasarkan GDPR dan harus ditangani sebagaimana mestinya.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Pembayaran &amp; Pendaftaran</h2>
+<p>Terima pembayaran dari siswa di seluruh dunia sebelum memberikan akses pelajaran</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 Garis <span style="color:var(--muted);font-weight:400">(GBP utama)</span></div>
+<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Mahasiswa Tiongkok)</span></div>
+<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(mundur)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>DB kursus &amp; pendaftaran</h3>
+<p>Kursus dan pendaftaran siswa disimpan di <code>~/.chameleon/courses.db</code>. AI dapat membuat kursus, membuat daftar pendaftaran, memeriksa status pembayaran, dan mencabut akses — semuanya melalui perintah IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Dukungan multi-mata uang</h3>
+<p>Stripe menangani pembayaran GBP dari pelajar Inggris dan internasional. Alipay menargetkan pelajar Tiongkok yang membayar dalam CNY. PayPal menyediakan cadangan universal dengan cakupan negara yang luas.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>Pembayaran tangkapan layar WeChat</h3>
+<p>Untuk pelajar yang tidak memiliki akses kartu, terima tangkapan layar bukti pembayaran WeChat Pay. AI membaca gambar, mengekstrak jumlah dan referensi, dan mencatat pembayaran manual terhadap pendaftaran.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>Tautan pembayaran</h3>
+<p>Hasilkan tautan pembayaran yang dihosting Stripe untuk kursus apa pun. Bagikan tautan — pembayaran siswa — pendaftaran dibuat secara otomatis. Tidak ada halaman checkout untuk dibuat atau dihosting.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Referensi Perintah Pembayaran</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Perintah AI</th><th>Keterangan</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>Buat kursus baru dengan harga, judul dan deskripsi</td></tr>
+<tr><td><code>payment_links</code></td><td>Buat tautan pembayaran Stripe untuk suatu kursus</td></tr>
+<tr><td><code>payment_status</code></td><td>Periksa pembayaran siswa dan status pendaftaran</td></tr>
+<tr><td><code>payment_enrol</code></td><td>Mendaftarkan siswa secara manual (misalnya setelah pembayaran tunai)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>Hapus akses pendaftaran siswa</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>Daftar semua siswa dengan saldo terutang</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>Catat tangkapan layar WeChat Pay sebagai bukti pembayaran</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Luncurkan sekolah bahasa online Anda</h3>
+<p>Semua yang Anda perlukan — video, slide, pembayaran, dan pendaftaran — dalam satu aplikasi desktop.</p>
+<a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
+<a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a>
+<a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a><a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

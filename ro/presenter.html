@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prezentator Kameleon — Cameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">AI IDE</a>
+<a class="active" href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>Prezentator Cameleon</h1>
+<p class="sub">Un sistem de prezentare inspirat de teatru, în care diapozitivele sunt o scenă, blocurile de conținut sunt actori și tranzițiile sunt indicii - toate controlabile de pe telefon.</p>
+<div class="hero-badges">
+<span class="badge">🎬 Metafora teatrului</span>
+<span class="badge">📱 Control mobil</span>
+<span class="badge">✏️ Desen colaborativ</span>
+<span class="badge">🖥️ Oglindă Android ADB</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Modelul Teatrului</h2>
+<p>Prezentări construite ca o producție de scenă - obiectele au intrări, ieșiri și repere</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Obiecte KameleonStack pe scenă</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 Stiva de conținut — diapozitive de prelegere</div>
+<div class="stage-obj obj-stage">🟡 Stage Stack — trimiteri ale studenților</div>
+<div class="stage-obj obj-misc">🖼️ ImageBox</div>
+<div class="stage-obj obj-misc">📄 PDFBox</div>
+<div class="stage-obj obj-misc">📱 ADB Phone Mirror</div>
+<div class="stage-obj obj-misc">🖥️ Oglindă PPT</div>
+<div class="stage-obj obj-misc">✏️ Tablă de desen</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      Chenar alb = activ · Puls portocaliu = în așteptare trimitere de la egal la egal · Verde = stivă de conținut · Galben = stivă de etapă
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>KameleonStack</h3>
+<p>Containerul universal pentru conținut. Fiecare stivă deține mai multe sloturi (imagini, text, PDF-uri). Două moduri:</p>
+<ul>
+<li><strong style="color:#22c55e">Conţinut</strong> — diapozitive controlate de profesor</li>
+<li><strong style="color:#eab308">Etapă</strong> — acceptă trimiteri peer-pused</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>Sistem de animație</h3>
+<p>Animații de intrare/ieșire pentru fiecare obiect cu căi de mișcare manuală. Căile sunt desenate pe ecran, netezite prin compresia Douglas-Peucker și interpolarea spline Catmull-Rom înainte de stocare.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Panou pentru sifonier</h3>
+<p>Zona de deținere în afara scenei — creați obiecte în dulap, previzualizați pe scenă cu un dublu clic. Trageți înapoi la Dresser din meniul de clic dreapta. Panoul de proprietăți arată starea de intrare/ieșire din animație.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>Indici numerotate</h3>
+<p>Punctele de declanșare avansează prezentarea pas cu pas, la fel ca indicațiile de iluminare teatrală. Fiecare tac poate anima obiecte înăuntru sau în afara, poate schimba sloturile de stivă sau poate executa secvențe cronometrate.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>pachete de proiecte .kpt</h3>
+<p>Proiectele sunt salvate ca arhive ZIP (<code>.kpt</code>) care conține toate elementele media, datele de aspect și configurațiile de animație. Deschideți pe orice mașină care rulează Chameleon.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Coordonate logice</h3>
+<p>Scena folosește un spațiu de coordonate logice 0-10.000, independent de rezoluția afișajului. Prezentările arată identic pe ecranul unui laptop sau pe un proiector 4K.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Mobil și control de la egal la egal</h2>
+<p>Rulați prezentatorul de pe telefon; lăsați elevii să împingă conținut din al lor</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Pod mobil Android</h4>
+<p>Podul mobil Chameleon (WebSocket) transmite comenzile de teatru de pe orice dispozitiv Android. Controla <strong>stack_next / prev / redare / pauză / oprire</strong>, împingeți sloturile pentru imagini sau text într-o stivă și vedeți starea stivei difuzată în timp real.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>Trimiterile de la egal la egal</h4>
+<p>Elevii împing imagini sau text într-o stivă în modul Stage de pe telefoanele lor. Trimiterile apar în banda de miniaturi cu un chenar portocaliu pulsatoriu. Prezentatorul poate <strong>aproba, reține, respinge sau promovează</strong> fiecare înainte de a fi live pe ecran.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>Planșă de desen comună</h4>
+<p>Pânză colaborativă cu mână liberă controlabilă de pe puntea mobilă — <strong>draw_stroke / clear / undo</strong>. Ideal pentru adnotarea diapozitivelor, brainstorming sau chestionare live.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Oglindă telefon ADB și captură PPT</h4>
+<p><strong>ADBPphoneBox</strong> transmite un ecran live Android direct pe scenă prin ADB. <strong>PPTMirorBox</strong> surprinde o fereastră PowerPoint - prezentați-vă pachetele existente în Kameleon fără conversie.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Dă viață prezentărilor tale</h3>
+<p>Contactați-ne pentru a discuta despre o licență sau pentru a aranja o demonstrație live a Kameleon Presenter.</p>
+<a class="btn btn-solid" href="../contact.html">Solicitați o demonstrație</a>
+<a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Prezentator</a>
+<a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a><a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Construit de Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

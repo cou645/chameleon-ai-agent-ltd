@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mtangazaji wa Kameleon - Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a class="active" href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>Mtangazaji wa Kinyonga</h1>
+<p class="sub">Mfumo wa uwasilishaji unaoongozwa na ukumbi wa michezo ambapo slaidi zako ni Jukwaa, vizuizi vya maudhui yako ni Waigizaji na mabadiliko ni Vidokezo - vyote vinaweza kudhibitiwa kutoka kwa simu.</p>
+<div class="hero-badges">
+<span class="badge">🎬 Sitiari ya ukumbi wa michezo</span>
+<span class="badge">📱 Udhibiti wa rununu</span>
+<span class="badge">✏️ Mchoro shirikishi</span>
+<span class="badge">🖥️ Kioo cha Android ADB</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Mfano wa Theatre</h2>
+<p>Mawasilisho yaliyoundwa kama toleo la jukwaa - vipengee vina viingilio, njia za kutokea na viashiria</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Vitu vya KameleonStack kwenye jukwaa</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 Rafu ya Maudhui - slaidi za mihadhara</div>
+<div class="stage-obj obj-stage">🟡 Stack ya Hatua - mawasilisho ya wanafunzi</div>
+<div class="stage-obj obj-misc">🖼️ Kisanduku cha Picha</div>
+<div class="stage-obj obj-misc">📄Kisanduku cha PDF</div>
+<div class="stage-obj obj-misc">📱 Kioo cha Simu cha ADB</div>
+<div class="stage-obj obj-misc">🖥️ Kioo cha PPT</div>
+<div class="stage-obj obj-misc">✏️ Ubao wa Kuchora</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      Mpaka mweupe = amilifu · Mapigo ya chungwa = inasubiri uwasilishaji wa wenzao · Kijani = mrundikano wa maudhui · Njano = mrundikano wa hatua
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>KameleonStack</h3>
+<p>Chombo cha maudhui ya ulimwengu wote. Kila mrundikano una nafasi nyingi (picha, maandishi, PDF). Njia mbili:</p>
+<ul>
+<li><strong style="color:#22c55e">Maudhui</strong> - slaidi zinazodhibitiwa na mwalimu</li>
+<li><strong style="color:#eab308">Jukwaa</strong> - inakubali mawasilisho yanayosukumwa na rika</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>Mfumo wa uhuishaji</h3>
+<p>Kwa kila kitu ingiza/toka uhuishaji ukitumia njia za mwendo bila malipo. Njia huchorwa kwenye skrini, zikisainishwa kupitia ukandamizaji wa Douglas-Peucker na ukalimani wa safu ya kati ya Catmull-Rom kabla ya kuhifadhi.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Paneli ya mavazi</h3>
+<p>Sehemu ya kushikilia nje ya jukwaa — tengeneza vitu kwenye kabati, hakiki jukwaani kwa kubofya mara mbili. Buruta nyuma kwa Dresser kutoka kwa menyu ya kubofya kulia. Paneli ya sifa inaonyesha ingiza/toka hali ya uhuishaji.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>Viashiria vya nambari</h3>
+<p>Anzisha pointi huendeleza wasilisho hatua kwa hatua, kama vile viashiria vya taa za ukumbi wa michezo. Kila kidokezo kinaweza kuhuisha vitu ndani au nje, kubadilisha nafasi za rafu au kutekeleza mfuatano ulioratibiwa.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>.kpt vifurushi vya mradi</h3>
+<p>Miradi huhifadhiwa kama kumbukumbu za ZIP (<code>.kpt</code>) iliyo na vipengee vyote vya media, data ya mpangilio na usanidi wa uhuishaji. Fungua kwenye mashine yoyote inayoendesha Kinyonga.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Kuratibu za kimantiki</h3>
+<p>Jukwaa hutumia nafasi ya kimantiki ya 0–10,000 ya kuratibu isiyo na azimio la kuonyesha. Mawasilisho yanafanana kwenye skrini ya kompyuta ya mkononi au projekta ya 4K.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Simu ya Mkononi &amp; Udhibiti wa Rika</h2>
+<p>Endesha mtangazaji kutoka kwa simu yako; waache wanafunzi wasukume maudhui kutoka kwao</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Android simu daraja</h4>
+<p>Daraja la simu la Chameleon (WebSocket) hutuma amri za uigizaji kutoka kwa kifaa chochote cha Android. Udhibiti <strong>stack_next / prev / cheza / sitisha / simamisha</strong>, sukuma picha au nafasi za maandishi kwenye rafu, na uone matangazo ya hali ya rafu katika muda halisi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>Mawasilisho ya rika</h4>
+<p>Wanafunzi husukuma picha au maandishi kwenye mrundikano wa Hali ya Hatua kutoka kwa simu zao. Mawasilisho yanaonekana katika ukanda wa kijipicha wenye mpaka wa rangi ya chungwa. Mtoa mada anaweza <strong>kupitisha, kushikilia, kukataa au kukuza</strong> kila moja kabla haijaonyeshwa moja kwa moja kwenye skrini.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>Ubao wa kuchora ulioshirikiwa</h4>
+<p>Turubai shirikishi za mkono wa bure zinazoweza kudhibitiwa kutoka kwa daraja la rununu - <strong>draw_stroke / wazi / tengua</strong>. Inafaa kwa kufafanua slaidi, kuchangia mawazo au maswali ya moja kwa moja.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Kioo cha simu cha ADB &amp; kunasa PPT</h4>
+<p><strong>ADBPhoneBox</strong> hutiririsha moja kwa moja skrini ya Android moja kwa moja kwenye jukwaa kupitia ADB. <strong>PPTMirrorBox</strong> kunasa kidirisha cha PowerPoint - wasilisha safu zako zilizopo ndani ya Kameleon bila ubadilishaji.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Ifanye mawasilisho yako yawe hai</h3>
+<p>Wasiliana nasi ili kujadili leseni au kupanga onyesho la moja kwa moja la Kameleon Presenter.</p>
+<a class="btn btn-solid" href="../contact.html">Omba onyesho</a>
+<a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a><a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

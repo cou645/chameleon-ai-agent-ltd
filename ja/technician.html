@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI PC 技術者 — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
+<div class="nav-links">
+<a href="../index.html">u30dbu30fcu30e0</a>
+<a href="../ide.html">あなたにはアイデアがあります</a>
+<a href="../presenter.html">プレゼンター</a>
+<a href="../companion.html">コンパニオンアプリ</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">ウェブサービス</a>
+<a href="../accounting.html">u7d4cu7406</a>
+<a class="active" href="../technician.html">パソコン技術者</a>
+<a href="../trading.html">トレーディング</a>
+<a href="../classroom.html">u6388u696d</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>AI PC技術者</h1>
+<p class="sub">AI ガイドによるシステム診断と修復 - さらに、ハードウェア プロトコルをリバース エンジニアリングして Linux カーネル ドライバーを自動的に生成する USB デバイス プロファイラーも備えています。</p>
+<div class="hero-badges">
+<span class="badge">🔬 ハードウェアプロファイリング</span>
+<span class="badge">🐧 カーネルモジュールの生成</span>
+<span class="badge">🌐 Tailscale経由でリモート</span>
+<span class="badge">⚡ ARM クロスコンパイル</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>AI ガイドによるシステム修復</h2>
+<p>AI は構造化された手術プロトコルに従います - 触れる前に診断し、すべてのステップで検証します</p>
+</div>
+<div class="terminal-block">
+<span class="comment">#カメレオンAI診断シーケンス</span>
+<span class="cmd">$ lsusb -v |頭 -80</span>
+<span class="out">バス 002 デバイス 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ dmesg |尻尾 -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: eth0 から名前変更されました</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152 94208 0</span>
+<span class="cmd">$ modinfo r8152 | grep バージョン</span>
+<span class="out">バージョン: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>構造化された診断シーケンス</h4>
+<p>ハードウェア→カーネル状態→ドライバー状態→ネットワーク→ストレージ。 AI は各ステップを実行し、JSON 結果を読み取り、次のアクションを決定します。手順を省略したり、仮定したりすることはありません。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>外科的修復プロトコル</h4>
+<p>最初は非破壊的 (モジュールのリロード、サービスの再起動)。リスクの前に持続します (スナップショット構成)。各ステップで確認します。再起動が必要なアクションごとにデッドマンズ スイッチがトリガーされ、 <code>@reboot</code> スクリプトを自動的に再開します。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Tailscale を介したリモート修復</h4>
+<p>Tailscale メッシュ上の任意の場所でマシンを診断し、修復します。 AI は、ターミナル ブリッジ経由でリモート マシンにコマンドを発行し、結果を読み取り、チェックポイント/再開システムを使用して再起動しても続行します。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>USBドライバーポーター</h2>
+<p>USB デバイスのプロファイリング → プロトコルの分析 → すぐにインストールできる Linux ドライバーの生成</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">パスA</div>
+<h4>標準プロトコル</h4>
+<p>ベンダーのページが見つかりませんでした。 udev ルール + modprobe 構成を生成します。 <strong>コンパイルは必要ありません。</strong> HID、CDC、大容量ストレージ、その他の標準クラスで動作します。</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">モッドプローブ</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">パスB</div>
+<h4>部分的なベンダープロトコル</h4>
+<p>ベンダー ページが検出されました (≤2)。 hidraw/uhid ユーザー空間デーモンまたは ALSA プラグインを生成します。ユーザー空間で実行されます。カーネルのコンパイルは必要ありません。</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">ハイドロー</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">ALSA プラグイン</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">パスC</div>
+<h4>独自のプロトコル</h4>
+<p>完全にカスタムのプロトコル。 DKMS パッケージングと Raspberry Pi 3、4、5 の ARM クロスコンパイル サポートを備えた完全なカーネル モジュールを生成します。</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">カーネルモジュール</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">アーム</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>プロファイラーのワークフロー</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># ステップ 1 — デバイスのプロファイリング (30 秒のキャプチャ)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">USB 1234:5678 を 30 秒間プロファイリングしています...
+~/.chameleon/drivers/1234_5678/profile.json を書きました</span>
+<span class="comment"># ステップ 2 — ドライバーを生成する</span>
+<span class="cmd">$ python3 device_porter.py --最新</span>
+<span class="out">選択されたパス: C (独自、3 ベンダー ページ)
+生成される: /tmp/driver_1234_5678/
+  §── カメレオン_1234_5678.c
+  §── Makefile (cross-aarch64、cross-armv7)
+  §── install.sh
+  §── test_device.sh
+  ━── 分析.json</span>
+<span class="comment"># ステップ 3 — インストール</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS — デバイス /dev/chameleon0 は正しく応答します</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>クロスプラットフォームのキャプチャ バックエンド</h3>
+<p>Windows では ETW、macOS では IOKit、Linux では usbmon。任意の OS 上でプロファイルを作成し、その結果から Linux ドライバーを生成します。 <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Raspberry Pi のクロスコンパイル</h3>
+<p>メイクファイルのターゲット <code>cross-aarch64</code> (円周率4/5)および <code>cross-armv7</code> (Pi 3) はパス C に自動的に含まれます。x86 上でビルドし、ARM にデプロイします。</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>DKMSパッケージング</h3>
+<p>パス C ドライバーは DKMS 用にパッケージ化されているため、手動で再コンパイルしなくてもカーネルのアップグレードを継続できます。 AI によるレビュー <code>analysis.json</code> 残りの TODO スタブの入力を求めるプロンプトが表示されます。</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>修正不可能なものを修正する</h3>
+<p>カーネル パニック、USB デバイスの故障、または Linux をサポートしていない独自の周辺機器のいずれであっても、Chameleon AI PC Technician が対応します。</p>
+<a class="btn btn-solid" href="../contact.html">連絡する</a>
+<a class="btn" href="../index.html">← 概要に戻る</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
+<a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
+<a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
+</footer>
+</body>
+</html>

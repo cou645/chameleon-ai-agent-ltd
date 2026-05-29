@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Мовний клас — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a>
+<a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a>
+<a class="active" href="../classroom.html">Класна кімната</a>
+<a href="../contact.html">контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>Мовний кабінет</h1>
+<p class="sub">Живі відеоуроки WebRTC із захищеними P2P-з’єднаннями Tailscale, інтегрованими платежами та Kameleon Presenter — усе в одній програмі.</p>
+<div class="hero-badges">
+<span class="badge">📹 Відео WebRTC</span>
+<span class="badge">🌐 Сітка з лускою</span>
+<span class="badge">💳 Stripe · Alipay · PayPal</span>
+<span class="badge">🔐 БД реєстрації</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>вчитель</div>
+<div class="status">● Наживо</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>Студент А</div>
+<div class="status">● Підключено</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>Студент Б</div>
+<div class="status">● Підключено</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>Студент С</div>
+<div class="status">○ Приєднання…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>Студент Д</div>
+<div class="status">● Підключено</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>Студент Є</div>
+<div class="status">● Підключено</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>Студент Ф</div>
+<div class="status">○ Приєднання…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>Відеоуроки в реальному часі</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>Групове відео WebRTC — 4+ учасників</h4>
+<p>Відео й аудіо WebRTC із повною сіткою з низькою затримкою для груп із 4 і більше — без центрального медіа-сервера й без щомісячних витрат. Сигнальний сервер Chameleon (<code>chameleon_signal.py</code>) обробляє реле SDP і ICE (порт 8766) і також працює на Termux на Android. Додаток Companion показує адаптивну сітку, яка автоматично збільшується, коли учні приєднуються: 1 = повний екран, 2 = пліч-о-пліч, 3 = 2+1, 4 = 2×2, 5+ = сітка з автоматичним розміром, що прокручується — із локальною стрічкою вчителя, яка завжди відображається у форматі «картинка в картинці».</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>З’єднання, захищені хвостовою шкалою</h4>
+<p>Усі вузли з’єднуються через сітку Tailscale — без публічної IP-адреси та переадресації портів. IDE керує списками ACL, авторизацією пристрою та генерацією ключів автентифікації, не виходячи з програми.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>Вбудований Kameleon Presenter</h4>
+<p>Навчайте на повному етапі Kameleon під час уроку. Учні можуть надсилати відповіді, малюнки та зображення безпосередньо в стек у режимі Stage — модерувати та відображати в реальному часі, не перемикаючи програми.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>Віджет вимови</h4>
+<p>Вбудований віджет навчання вимови (<code>pronunciation_widget.py</code>) із зворотним зв’язком на рівні фонеми — ідеально підходить для навчання мови, де важлива точна артикуляція.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Запасне відео LAN</h4>
+<p>Коли Tailscale недоступний, <code>lan_video.py</code> передає відео через UDP (порт 47732), аудіо через UDP (порт 47733) і спільні відмінності через WebSocket (порт 47731) — усе в локальній мережі.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Телеком і SIM-дзвінок</h2>
+<p>Поєднайте виклики додатків і телефонні дзвінки зі справжньої SIM-карти в одну багатосторонню розмову — безпосередньо з програми Companion</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>Два види дзвінків — одна розмова</h4>
+<p>Програма Companion підтримує два паралельні канали виклику: an <strong>Виклик програми</strong> (WebRTC, одноранговий через Tailscale, безкоштовно) і a <strong>SIM-дзвінок</strong> (стандартна мобільна мережа, будь-який номер телефону). Ви можете розмовляти через WebRTC з партнером <em>і</em> одночасно здійсніть дзвінок із SIM-карти третій стороні, а потім зв’яжіться з ними для багатосторонньої розмови — не виходячи з програми.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>Рядок стану Telecom</h4>
+<p>Постійний рядок стану у верхній частині програми Companion показує поточний стан обох каналів: бездіяльність, дзвінок, дзвінок або звук вимкнено. Одним поглядом ви дізнаєтесь, які виклики є активними. Кожен канал має окремі елементи керування вимкненням звуку та завершення — завершення виклику на SIM-карті не припиняє виклик програми, і навпаки.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>Багатосторонній хід уроку</h4>
+<p>Корисно для уроків мови: запропонуйте учневі дзвінок через додаток WebRTC, а потім наберіть носія мови на SIM-картці для спонтанної розмови в реальному світі. Усі три сторони чують одна одну. Учитель модерує через додаток, а Kameleon Presenter продовжує працювати в IDE.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>Закон Великобританії про запис розмов — усі сторони повинні бути повідомлені</h4>
+<p>Відповідно до RIPA 2000 і Положення про телекомунікації (законна ділова практика), сторона, яка записує дзвінок, може робити це без згоди іншої сторони для свого власного законного використання, але щоб запис був <strong>прийнятні в суді</strong> усі сторони повинні бути проінформовані перед початком запису. Додаток Companion відображає помітний <strong>🔴 ЗАПИС</strong> банер для всіх підключених учасників кожного разу, коли запис активний. Для тих, хто телефонує на SIM-карті, на початку розмови потрібне усне сповіщення. Голосові дані є персональними даними відповідно до GDPR і повинні оброблятися відповідно.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Оплата та реєстрація</h2>
+<p>Прийміть оплату від студентів з усього світу, перш ніж надати доступ до уроків</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 Смужка <span style="color:var(--muted);font-weight:400">(GBP первинний)</span></div>
+<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(китайські студенти)</span></div>
+<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(запасний)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>База даних курсу та реєстрації</h3>
+<p>Курси та записи студентів зберігаються в <code>~/.chameleon/courses.db</code>. Штучний інтелект може створювати курси, створювати списки записів, перевіряти статус платежів і скасовувати доступ — і все це за допомогою команд IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Підтримка мультивалютності</h3>
+<p>Stripe обробляє платежі у фунтах стерлінгів від британських та іноземних студентів. Alipay націлений на китайських студентів, які платять у юанях. PayPal забезпечує універсальний запасний варіант із широким покриттям країни.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>Платежі зі скріншотів WeChat</h3>
+<p>Для студентів, які не мають доступу до картки, приймайте скріншоти WeChat Pay для підтвердження платежу. Штучний інтелект зчитує зображення, витягує суму та посилання та реєструє платіж, здійснений вручну, проти реєстрації.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>Платіжні посилання</h3>
+<p>Створення платіжних посилань на Stripe для будь-якого курсу. Поділіться посиланням — платить студент — зарахування створюється автоматично. Немає сторінки оформлення замовлення для створення чи розміщення.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Довідка про платіжні команди</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Команда ШІ</th><th>опис</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>Створіть новий курс із ціною, назвою та описом</td></tr>
+<tr><td><code>payment_links</code></td><td>Згенеруйте платіжне посилання Stripe для курсу</td></tr>
+<tr><td><code>payment_status</code></td><td>Перевірте статус оплати та зарахування студента</td></tr>
+<tr><td><code>payment_enrol</code></td><td>Зарахувати студента вручну (наприклад, після оплати готівкою)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>Скасувати доступ студента до реєстрації</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>Перелічіть усіх студентів із заборгованістю</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>Зареєструйте знімок екрана WeChat Pay як підтвердження платежу</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Запустіть свою онлайн-школу мов</h3>
+<p>Усе, що вам потрібно — відео, слайди, платежі та реєстрація — в одній програмі для комп’ютера.</p>
+<a class="btn btn-solid" href="../contact.html">Зв'яжіться</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
+</div>
+<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

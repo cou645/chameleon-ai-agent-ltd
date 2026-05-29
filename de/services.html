@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Webdienste – Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TESTEN LÄUFT – Diese Website befindet sich in der aktiven Entwicklung. Funktionen, Preise und Lizenzierung stehen noch nicht fest.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Start</a>
+<a href="../ide.html">SIE HABEN IDEEN</a>
+<a href="../presenter.html">Moderator</a>
+<a href="../companion.html">Begleit-App</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a class="active" href="../services.html">Webdienste</a>
+<a href="../accounting.html">Buchhaltung</a>
+<a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a>
+<a href="../classroom.html">Unterricht</a>
+<a href="../contact.html">Kontakt</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>KI-Webdienste</h1>
+<p class="sub">Von Null zu einer professionellen Live-Website – von KI aus Ihren Projektdateien erstellt, kostenlos gehostet und fortlaufend verwaltet. Keine Webdesign-Erfahrung erforderlich.</p>
+<div class="hero-badges">
+<span class="badge">🤖 KI-erstellt aus Ihren Dateien</span>
+<span class="badge">🆓 Kostenlose Hosting-Optionen</span>
+<span class="badge">🌍 Benutzerdefinierte Domain</span>
+<span class="badge">📧 Verwalteter Posteingang</span>
+<span class="badge">🇬🇧 UK-Service</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">DIENST 1</div>
+<h2>🏗️ KI-Website-Builder</h2>
+<p class="tier-sub">Die KI liest Ihre Projektdateien, Dokumente und Beschreibungen und erstellt dann eine komplette mehrseitige Website von Grund auf. Keine Vorlagen, kein Drag-and-Drop. Eine echte Website, abgeleitet von dem, was Sie tatsächlich tun.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">Was wir liefern</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Mehrseitige Website: Startseite, Über uns, Funktionen, Kontakt</li>
+<li>Aus Ihren Projektdateien und Dokumenten abgeleitete Inhalte</li>
+<li>Ihr Branding: Farben, Logo, Stilvorlieben</li>
+<li>Auf Mobilgeräte ansprechendes Layout</li>
+<li>Screenshot- und Medienplatzhalter – werden ersetzt, wenn sie fertig sind</li>
+<li>Rechtlicher Haftungsausschluss und Testbanner während der Entwicklung</li>
+<li>Datenschutz geht vor – keine Tracker, keine Skripte von Drittanbietern</li>
+<li class="planned">Blog-/News-Bereich mit KI-geschriebenen Updates</li>
+<li class="planned">Mehrsprachige Versionen</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Wie es funktioniert</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Sie teilen Ihren Projektordner oder eine schriftliche Beschreibung – die KI liest alles und stellt klärende Fragen</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Sie wählen Farben, Stil und die benötigten Seiten (5-minütiges Gespräch)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>KI erstellt die gesamte Website lokal – Sie können sie sofort in der Vorschau anzeigen</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>Eine Feedback-Runde → KI übernimmt Änderungen → Website ist zur Veröffentlichung bereit</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Übergabe: Sie besitzen die Dateien, das Repo und die Domain – keine Bindung</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">DIENST 2</div>
+<h2>🌍 Domänennamenkonfiguration</h2>
+<p class="tier-sub">Die DNS-Konfiguration ist der Teil, den die meisten Leute als verwirrend empfinden – Registrar-Anmeldungen, Datensatztypen, Ausbreitungswartezeiten. Die KI kümmert sich wo möglich direkt darum und sorgt überall sonst für eine genaue Schritt-für-Schritt-Anleitung.</p>
+<ul class="deliverable-list">
+<li>Identifizieren Sie Ihren Registrar automatisch oder über einen kurzen Fragebogen</li>
+<li>Generieren Sie die genauen erforderlichen DNS-Einträge (A, AAAA, CNAME) in einer Tabelle zum Kopieren und Einfügen</li>
+<li>Geben Sie registrierungsstellenspezifische Anweisungen – Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg und mehr</li>
+<li>Erklärung jedes Datensatztyps in einfacher Sprache, bevor Sie etwas anfassen</li>
+<li>Legen Sie eine benutzerdefinierte Domäne über die GitHub Pages API fest – keine manuelle Formulareingabe</li>
+<li>Überwachen Sie die DNS-Weitergabe und bestätigen Sie die Ausstellung von HTTPS-Zertifikaten</li>
+<li class="planned">Vollständige Automatisierung für Registrare, die eine API bereitstellen (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>Warum das wichtig ist:</strong> <span>In unseren eigenen Tests sorgte die Domain-Konfiguration für die größte Verwirrung – eine Domain war stillschweigend von Google Domains zu Squarespace migriert, ohne offensichtliche Weiterleitung, und die DNS-Eintragstypen (A, AAAA, CNAME) waren völlig unbekannt. Die KI fragt nun Ihren Registrar im Voraus und gibt Anweisungen, die keine DNS-Vorkenntnisse erfordern.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">DIENST 3</div>
+<h2>🖥️ Hosting-Einrichtung und -Bereitstellung</h2>
+<p class="tier-sub">Schalten Sie Ihre Website ohne monatliche Kosten live – oder hosten Sie sie über Tailscale selbst auf Ihrem eigenen Computer. Die KI übernimmt die Einrichtung, die erste Bereitstellung und bringt Ihnen den einzelnen Befehl bei, der für jedes zukünftige Update erforderlich ist.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>GitHub-Seiten</h4>
+<p>Statische Site, gehostet von einem GitHub-Repository. Benutzerdefinierte Domäne, HTTPS, globales CDN. Vollständig verwaltet durch das AI-Bereitstellungsskript.</p>
+<div class="ho-cost">Für immer kostenlos</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Cloudflare-Seiten</h4>
+<p>Schnelles globales CDN mit großzügigem Gratiskontingent. KI kümmert sich um die Repo-Verbindung und stellt Hooks bereit. Gute Alternative, wenn Sie Cloudflare DNS bereits verwenden.</p>
+<div class="ho-cost">Kostenloses Kontingent verfügbar</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify / Vercel</h4>
+<p>Bereitstellung mit einem Klick aus einem Git-Repo. Automatisches HTTPS, Vorschau-URLs pro Zweig. AI konfiguriert die Build-Einstellungen.</p>
+<div class="ho-cost">Kostenloses Kontingent verfügbar</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale selbst gehostet</h4>
+<p>Bedienen Sie Ihre Website von Ihrem eigenen Computer aus über Tailscale Funnel – öffentlicher Internetzugang ohne Cloud-Abhängigkeit. Volle Kontrolle.</p>
+<div class="ho-cost">Kostenlos (Ihre Hardware)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Laufender Einsatz</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>Jedes Mal, wenn Sie die Site aktualisieren, wird sie mit einem Befehl live geschaltet: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Oder sagen wir <em>„Website bereitstellen“</em> im Chameleon AI-Chat – die IDE erledigt das automatisch über <code>gh_deploy</code> Befehlsbrückenaktion</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">DIENST 4</div>
+<h2>📬 KI-Webpräsenzmanagement</h2>
+<p class="tier-sub">Sobald Ihre Website online ist, überwacht und verwaltet der KI-Agent sie – er liest Anfrage-E-Mails, verfasst Antworten, sammelt Kundendaten, erstellt Berichte und markiert alles, was Ihre Aufmerksamkeit erfordert.</p>
+<ul class="deliverable-list">
+<li>Lesen und selektieren Sie eingehende Kontaktformulareinsendungen und E-Mails</li>
+<li>Entwerfen Sie personalisierte Antworten zur Überprüfung, bevor Sie sie senden</li>
+<li>Sammeln Sie Kundendaten – Anwendungsfall, Sitzanzahl, Betriebssystem, Anforderungen – durch strukturierte Nachverfolgung</li>
+<li>Wöchentlicher Bericht: Besucher, Anfragen, Conversions, herausragende Antworten</li>
+<li>Markieren Sie dringende Nachrichten (Demoanfragen, Anfragen zu kommerziellen Lizenzen) sofort</li>
+<li class="planned">Beantworten Sie häufig gestellte Fragen automatisch mithilfe einer Wissensdatenbank, die auf den Inhalten Ihrer Website basiert</li>
+<li class="planned">Kontaktprotokoll im CRM-Stil: Jeder Lead wird von der ersten E-Mail bis zur Lizenzunterzeichnung verfolgt</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">DIENST 5</div>
+<h2>📈 Sichtbarkeit und Wachstum</h2>
+<p class="tier-sub">Gefunden werden – Suchmaschinen, Verzeichnisse und berufliche Netzwerke. Die KI übernimmt die technischen SEO-Grundlagen und hilft Ihnen, eine glaubwürdige Online-Präsenz ohne bezahlte Werbung aufzubauen.</p>
+<ul class="deliverable-list">
+<li>SEO-Meta-Tags, Open Graph und Twitter Card-Markup auf jeder Seite</li>
+<li>sitemap.xml und robots.txt generiert und aktuell gehalten</li>
+<li>Schema.org strukturierte Daten (Organisation, Produkt, ContactPoint)</li>
+<li>Senden Sie es an die Google Search Console und die Bing Webmaster-Tools</li>
+<li>Datenschutzorientierte Analysen – selbstgehostete Plausible- oder Umami-Analysen (kein Cookie-Banner erforderlich)</li>
+<li class="planned">KI-geschriebene Blogbeiträge und Fallstudien zur Steigerung des organischen Suchverkehrs</li>
+<li class="planned">Ausrichtung des LinkedIn-/GitHub-Profils mit Website-Inhalten</li>
+</ul>
+<div class="suggest-box">
+<h4>Warum das Service 5 ist</h4>
+<p>Eine Seite, die niemand finden kann, ist wenig wert. Die Dienste 1–4 erstellen und betreiben die Site. Service 5 macht es auffindbar. SEO, strukturierte Daten und Analysen sind alle durch KI automatisierbar – es ist kein ständiger Agenturauftrag erforderlich.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Kundenreise – vom Anfang bis zum Ende</h2>
+<p>Typisches Engagement: Eine Sitzung zum Aufbau, der Start am selben Tag</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Entdeckungsgespräch (15 Min.)</h4>
+<p>KI-Fragebogen: Firmenname, Beschreibung, Registrar, GitHub-Benutzername, Farbeinstellungen, benötigte Seiten. Es sind keine Web-Vorkenntnisse erforderlich – jede Frage ist in einfachem Englisch mit Beispielen verfasst.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Erstellen (gleiche Sitzung)</h4>
+<p>AI liest Projektdateien und erstellt die vollständige Site. Sie können es lokal über einen Tailscale Funnel-Link in der Vorschau anzeigen – kein Server erforderlich. Eine Runde Feedback, dann ist es fertig.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Veröffentlichen (30 Minuten mit Anleitung)</h4>
+<p>AI erstellt das GitHub-Repo und pusht die Site. Bietet die genauen Schritt-für-Schritt-DNS-Anweisungen Ihres Registrators. Überwacht die Ausbreitung – bestätigt HTTPS live. In den meisten Fällen noch am selben Tag.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Übergabe + laufende Verwaltung</h4>
+<p>Sie erhalten einen einseitigen Spickzettel: Informationen zum Aktualisieren der Website (ein Befehl), zum Hinzufügen von Inhalten und zum Lesen des wöchentlichen Berichts. KI-Agent überwacht vom ersten Tag an.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Interessiert an KI-Webdiensten?</h3>
+<p>Der Service befindet sich in der Entwicklung – kontaktieren Sie uns, um Interesse anzumelden oder Ihre Anforderungen zu besprechen.</p>
+<a class="btn btn-solid" href="../contact.html">Nehmen Sie Kontakt auf</a>
+<a class="btn" href="../index.html">← Zurück zur Übersicht</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Start</a><a href="../ide.html">SIE HABEN IDEEN</a><a href="../presenter.html">Moderator</a>
+<a href="../companion.html">Begleit-App</a>
+<a href="../logistics4x4.html">Logistik 4×4</a><a href="../services.html">Webdienste</a>
+<a href="../accounting.html">Buchhaltung</a><a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a><a href="../classroom.html">Unterricht</a><a href="../contact.html">Kontakt</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Lizenzierung ausstehend · Gebaut von Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

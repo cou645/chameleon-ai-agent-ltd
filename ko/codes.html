@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>현장 통신 코드 참조 - 물류 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ud648</a>
+<a class="active" href="../logistics4x4.html">물류 4×4</a>
+<a href="../contact.html">연락하다</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 현장 통신 코드 참조</h1>
+<div class="edition">Logistics 4×4 · 에디션 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>데이터 연결이 불가능할 때 사용하기 위한 컴팩트 코드 프로토콜입니다. 국경을 넘거나 외딴 지역에서 활동하는 트럭 운전사, 등산객 및 응급 서비스를 위해 설계되었습니다. 세 가지 사용자 프로필은 공통 경고 및 시스템 용어를 공유하므로 심각하게 성능이 저하된 조건에서도 기관 간 통신이 가능합니다.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">이 참조 자료를 공유하는 것이 좋습니다. 상호 운용성은 코드를 아는 모든 당사자에 따라 달라집니다.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>브라우저의 인쇄 기능을 사용하여 이 페이지를 PDF로 저장하세요 — <strong>파일 → 인쇄 → PDF로 저장</strong>. 오프라인 참조를 위해 휴대폰에 사본을 보관하세요.</p>
+<button class="btn-print" onclick="window.print()">🖨 인쇄/PDF로 저장</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← 물류 4×4로 돌아가기</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>코드 작동 방식</h3>
+<p>각 코드는 <strong>편지</strong> (범주) 다음에 <strong>두 자리</strong> (심각도 또는 하위 유형). 각 카테고리 내에서 숫자가 낮을수록 <em>정상 또는 사소한</em>, 숫자가 높을수록 의미 <em>심각하거나 중대한</em>. 99 코드는 항상 가장 심각합니다.</p>
+<div class="code-block">1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── 심각도  11 = 보통 → 99 = 긴급</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── 카테고리 문자</span>
+</div>
+<p style="margin-top:.8rem;">여러 코드를 하나의 메시지로 결합할 수 있습니다. 추가 세부사항을 위해 자유 텍스트 메모를 첨부할 수 있습니다.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">디</div>
+<div>
+<strong>운전사</strong>
+<span>트럭/국경을 넘나드는 운영자</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">시간</div>
+<div>
+<strong>도보 여행자</strong>
+<span>아웃도어/트레킹 팀원</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">엑스</div>
+<div>
+<strong>응급 서비스</strong>
+<span>SAR / 구급대원 / 레인저 / 소방관</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>Universal SOS — 모든 프로필에서 작동</h4>
+<p>이 두 코드를 함께 보내면 등록된 모든 연락처에 GPS 위치가 포함된 즉각적인 생명 위협 긴급 경보가 발령됩니다.</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">범용 코드 - 모든 프로필</div>
+<div class="ph-sub">A(경보)와 Z(시스템)는 운전자, 등산객, 응급 서비스에서 동일합니다.</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">에이</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">경고 수준</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">A11</td><td>공습 경보 신호. 상황은 정상입니다.</td></tr>
+<tr><td class="code-cell">A22</td><td>사소한 사건. 자가 처리.</td></tr>
+<tr><td class="code-cell">A33</td><td>주의. 문제가 발생할 수 있습니다. 모니터링.</td></tr>
+<tr><td class="code-cell">A44</td><td>도움이 필요합니다. 긴급하지 않습니다.</td></tr>
+<tr><td class="code-cell">A55</td><td>긴급하게 도움이 필요합니다.</td></tr>
+<tr><td class="code-cell">A66</td><td>심각한 사건이 진행 중입니다.</td></tr>
+<tr><td class="code-cell">A77</td><td>심각한 상황입니다. 여러 문제.</td></tr>
+<tr><td class="code-cell">A88</td><td>극도의 위험.</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>위급 신호. 생명을 위협하는 응급상황. 즉시 도움을 보내십시오.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">지</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">시스템/프로토콜</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>심장 박동. 변화가 없습니다.</td></tr>
+<tr><td class="code-cell">Z01</td><td>교대근무/하이킹/배치 시작.</td></tr>
+<tr><td class="code-cell">Z02</td><td>교대/하이킹 종료. 무사히 일어섰다.</td></tr>
+<tr><td class="code-cell">Z03</td><td>메시지가 확인되었습니다.</td></tr>
+<tr><td class="code-cell">Z04</td><td>메시지가 손상되었습니다. 다시 보내주세요.</td></tr>
+<tr><td class="code-cell">Z05</td><td>이 메시지를 전달하세요.</td></tr>
+<tr><td class="code-cell">Z06</td><td>이 메시지를 기지로 다시 전달하세요.</td></tr>
+<tr><td class="code-cell">Z07</td><td>모든 사람에게 상태를 요청하는 기지 또는 명령.</td></tr>
+<tr><td class="code-cell">Z08</td><td>이 특정 연락처로부터 상태를 요청합니다.</td></tr>
+<tr><td class="code-cell">Z09</td><td>그룹 또는 호송대 해체.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">드라이버 코드 - 접두사 D</div>
+<div class="ph-sub">트럭 운전사, 국경 간 물류, 호송 운전사</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">비</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">국경</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">B11</td><td>국경에 접근 중입니다. 20km 이내.</td></tr>
+<tr><td class="code-cell">B22</td><td>국경 초소에 줄을 서 있습니다. 보통 대기.</td></tr>
+<tr><td class="code-cell">B33</td><td>국경에서 지연되었습니다. 서류 문제.</td></tr>
+<tr><td class="code-cell">B44</td><td>물품검사 명령을 받았습니다.</td></tr>
+<tr><td class="code-cell">B55</td><td>비공식 지불을 요구했습니다.</td></tr>
+<tr><td class="code-cell">B66</td><td>당국이 압수한 물품.</td></tr>
+<tr><td class="code-cell">B77</td><td>차량이 압수되었습니다.</td></tr>
+<tr><td class="code-cell">B88</td><td>운전자가 구금되었습니다.</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>입국이 거부되었습니다. 돌아섰습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">기음</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">뱃짐</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">C11</td><td>화물이 실렸습니다. 모두 안전합니다. 정상.</td></tr>
+<tr><td class="code-cell">C22</td><td>부분 부하 또는 사소한 변화.</td></tr>
+<tr><td class="code-cell">C33</td><td>부하가 이동되었습니다. 재보안을 위해 정지합니다.</td></tr>
+<tr><td class="code-cell">C44</td><td>화물이 손상되었습니다.</td></tr>
+<tr><td class="code-cell">C55</td><td>차량에서 유출물이나 물건이 떨어졌습니다.</td></tr>
+<tr><td class="code-cell">C66</td><td>화물이 부분적으로 도난당했습니다.</td></tr>
+<tr><td class="code-cell">C77</td><td>모든 화물이 도난당하거나 압수됩니다.</td></tr>
+<tr><td class="code-cell">C88</td><td>Hazmat 또는 저온 유통 사고.</td></tr>
+<tr class="crit"><td class="code-cell">C99</td><td>총 화물 손실.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">디</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">운전자 상태</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">D11</td><td>근무중인 운전사. 정상적으로 운전합니다.</td></tr>
+<tr><td class="code-cell">D22</td><td>운전자가 정지 중입니다. 연료, 식사 또는 휴식.</td></tr>
+<tr><td class="code-cell">D33</td><td>화물을 싣거나 내리는 운전자.</td></tr>
+<tr><td class="code-cell">D44</td><td>운전기사가 기다리고 있습니다. 세관, 검문소 또는 교통.</td></tr>
+<tr><td class="code-cell">D55</td><td>운전자가 지연되었습니다. 문제. 아직 진행할 수 없습니다.</td></tr>
+<tr><td class="code-cell">D66</td><td>운전자가 몸이 불편하거나 피곤함을 느낍니다.</td></tr>
+<tr><td class="code-cell">D77</td><td>운전자가 구금되었거나 법적 문제에 직면해 있습니다.</td></tr>
+<tr><td class="code-cell">D88</td><td>드라이버 고장. 도움 없이는 계속할 수 없습니다.</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>운전자 비상. 위험에 처한 운전자.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">이자형</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">차량 결함</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>엔진 경고등. 미성년자. 계속합니다.</td></tr>
+<tr><td class="code-cell">E22</td><td>싱글 플랫 타이어. 지금 바꾸세요.</td></tr>
+<tr><td class="code-cell">E33</td><td>여러 펑크난 타이어. 변경할 수 없습니다.</td></tr>
+<tr><td class="code-cell">E44</td><td>엔진 과열. 차를 세웠습니다.</td></tr>
+<tr><td class="code-cell">E55</td><td>기계적 고장. 비엔진.</td></tr>
+<tr><td class="code-cell">E66</td><td>완전한 엔진 고장.</td></tr>
+<tr><td class="code-cell">E77</td><td>불.</td></tr>
+<tr><td class="code-cell">E88</td><td>사고 피해. 차량이 움직일 수 없습니다.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>차량 상각. 총 손실.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">에프</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">연료</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>연료 탱크가 가득 찼습니다.</td></tr>
+<tr><td class="code-cell">F22</td><td>연료 3/4.</td></tr>
+<tr><td class="code-cell">F33</td><td>연료 반.</td></tr>
+<tr><td class="code-cell">F44</td><td>연료 분기.</td></tr>
+<tr><td class="code-cell">F55</td><td>연료가 부족합니다. 50km 이내에서는 재급유가 필요합니다.</td></tr>
+<tr><td class="code-cell">F66</td><td>연료가 중요합니다. 지금 재충전이 필요합니다.</td></tr>
+<tr><td class="code-cell">F77</td><td>제리 캔 또는 예비 탱크에서 실행됩니다.</td></tr>
+<tr><td class="code-cell">F88</td><td>연료가 오염되었거나 잘못된 연료를 사용했습니다.</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>연료가 없습니다. 중지되었습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">G</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">호송</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>솔로 차량. 호송은 없습니다.</td></tr>
+<tr><td class="code-cell">G22</td><td>호송 선두 차량.</td></tr>
+<tr><td class="code-cell">G33</td><td>호송 중간 위치.</td></tr>
+<tr><td class="code-cell">G44</td><td>호송 꼬리 차량.</td></tr>
+<tr><td class="code-cell">G55</td><td>호송대는 온전합니다. 모든 트럭이 존재합니다.</td></tr>
+<tr><td class="code-cell">G66</td><td>호송대에서 차량 1대가 누락되었습니다.</td></tr>
+<tr><td class="code-cell">G77</td><td>다수의 차량이 누락되었습니다.</td></tr>
+<tr><td class="code-cell">G88</td><td>호송대가 분리되었습니다. 다음 웨이포인트에서 재집결하세요.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>호송대가 해체되었습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">시간</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">도움이 필요합니다</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>내 위치로 연료를 배달해야 합니다.</td></tr>
+<tr><td class="code-cell">H22</td><td>기계공이나 이동식 작업장이 필요합니다.</td></tr>
+<tr><td class="code-cell">H33</td><td>의료 지원이나 구급차가 필요합니다.</td></tr>
+<tr><td class="code-cell">H44</td><td>경찰이나 공식 호위가 필요합니다.</td></tr>
+<tr><td class="code-cell">H55</td><td>복구 트럭이나 크레인이 필요합니다.</td></tr>
+<tr><td class="code-cell">H66</td><td>음식, 물, 보급품이 필요합니다.</td></tr>
+<tr><td class="code-cell">H77</td><td>세관원이나 서류의 도움이 필요합니다.</td></tr>
+<tr><td class="code-cell">H88</td><td>무장 호위가 필요합니다.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>중대한 사건. 모든 지원이 긴급히 필요합니다.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">제이</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">여행 진행</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>여행이 시작되었습니다. 예정대로 출발했습니다.</td></tr>
+<tr><td class="code-cell">J22</td><td>경로의 25%가 완료되었습니다.</td></tr>
+<tr><td class="code-cell">J33</td><td>중간. 50% 완료되었습니다.</td></tr>
+<tr><td class="code-cell">J44</td><td>75% 완료.</td></tr>
+<tr><td class="code-cell">J55</td><td>목적지에 접근 중입니다. 10km 미만.</td></tr>
+<tr><td class="code-cell">J66</td><td>목적지에 도착했습니다.</td></tr>
+<tr><td class="code-cell">J77</td><td>노선이 대폭 연장되었습니다. 주요 우회로.</td></tr>
+<tr><td class="code-cell">J88</td><td>돌아섰습니다. 경로를 되짚는 중입니다.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>잃어버린. 완전히 경로를 벗어났습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">케이</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">연락</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>완전한 커뮤니케이션. 모두 정상입니다.</td></tr>
+<tr><td class="code-cell">K22</td><td>데이터만. 음성 통화가 없습니다.</td></tr>
+<tr><td class="code-cell">K33</td><td>SMS만 가능합니다. 데이터나 음성이 없습니다.</td></tr>
+<tr><td class="code-cell">K44</td><td>음성만 가능합니다. 데이터나 SMS가 없습니다.</td></tr>
+<tr><td class="code-cell">K55</td><td>무선 연락만 가능합니다.</td></tr>
+<tr><td class="code-cell">K66</td><td>위성 통신이 활성화되었습니다.</td></tr>
+<tr><td class="code-cell">K77</td><td>메시 WiFi만 가능합니다. 셀룰러가 없습니다.</td></tr>
+<tr><td class="code-cell">K88</td><td>이 메시지는 다른 장치를 통해 전달되었습니다.</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>통신이 없습니다. 제3자를 통해 전송되었습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">아르 자형</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">도로 상황</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">R11</td><td>좋은 활주로 도로.</td></tr>
+<tr><td class="code-cell">R22</td><td>움푹 들어간 곳이 있는 활주로.</td></tr>
+<tr><td class="code-cell">R33</td><td>자갈길이나 비포장도로. 상당한.</td></tr>
+<tr><td class="code-cell">R44</td><td>거친 트랙. 진흙이 많거나 표면이 좋지 않습니다.</td></tr>
+<tr><td class="code-cell">R55</td><td>도로가 부분적으로 차단되었습니다.</td></tr>
+<tr><td class="code-cell">R66</td><td>도로 폐쇄 또는 1차선 방해.</td></tr>
+<tr><td class="code-cell">R77</td><td>브리지 아웃 또는 위험.</td></tr>
+<tr><td class="code-cell">R88</td><td>지나갈 수 없는 도로.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>경로가 없습니다. 도로에서 벗어나거나 완전히 길을 잃었습니다.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">에스</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">보안</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>상황은 정상입니다. 위협은 없습니다.</td></tr>
+<tr><td class="code-cell">S22</td><td>해당 지역에서는 일반적인 주의가 필요합니다.</td></tr>
+<tr><td class="code-cell">S33</td><td>비공식 검문소 또는 차량 추적.</td></tr>
+<tr><td class="code-cell">S44</td><td>범죄적 장애물이 미리 보고되었습니다.</td></tr>
+<tr><td class="code-cell">S55</td><td>뇌물을 요구했습니다.</td></tr>
+<tr><td class="code-cell">S66</td><td>강도 시도. 격퇴.</td></tr>
+<tr><td class="code-cell">S77</td><td>강도가 진행 중입니다.</td></tr>
+<tr><td class="code-cell">S88</td><td>호송대에 대한 무장 공격.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>납치 또는 납치.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">티</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">일정</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>정시에. 예정대로.</td></tr>
+<tr><td class="code-cell">T22</td><td>약간 지연되었습니다. 1시간 미만.</td></tr>
+<tr><td class="code-cell">T33</td><td>1~2시간 지연되었습니다.</td></tr>
+<tr><td class="code-cell">T44</td><td>2~4시간 지연됐어요.</td></tr>
+<tr><td class="code-cell">T55</td><td>4~8시간 지연되었습니다.</td></tr>
+<tr><td class="code-cell">T66</td><td>하루 지연되었습니다.</td></tr>
+<tr><td class="code-cell">T77</td><td>심각한 지연. 도착 예정 시간을 알 수 없습니다.</td></tr>
+<tr><td class="code-cell">T88</td><td>일정이 취소되었습니다.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>여행이 중단되었습니다. 돌아오는 중.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">다섯</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">차량 이동</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>차량이 주차되었습니다. 안전하게 멈췄습니다.</td></tr>
+<tr><td class="code-cell">V22</td><td>정상적으로 운행중인 차량입니다.</td></tr>
+<tr><td class="code-cell">V33</td><td>천천히 움직이는 차량. 20km/h 미만.</td></tr>
+<tr><td class="code-cell">V44</td><td>차량이 막혔습니다. 진흙, 모래 또는 도랑.</td></tr>
+<tr><td class="code-cell">V55</td><td>다른 차량을 견인합니다.</td></tr>
+<tr><td class="code-cell">V66</td><td>견인 중입니다.</td></tr>
+<tr><td class="code-cell">V77</td><td>차량이 전복되었습니다.</td></tr>
+<tr><td class="code-cell">V88</td><td>사고. 차량이 움직일 수 없습니다.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>상각. 총 손실.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">여</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">날씨</div>
+</div>
+<table class="code-table">
+<thead><tr><th>암호</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>맑고 건조함. 가시성이 좋습니다.</td></tr>
+<tr><td class="code-cell">W22</td><td>가벼운 비 또는 안개.</td></tr>
+<tr><td class="code-cell">W33</td><td>폭우.</td></tr>
+<tr><td class="code-cell">W44</td><td>뇌우 또는 강풍.</td></tr>
+<tr><td class="code-cell">W55</td><td>안개가 끼거나 시야가 좋지 않습니다.</td></tr>
+<tr><td class="code-cell">W66</td><td>홍수. 도로는 젖었지만 통과할 수 있습니다.</td></tr>
+<tr><td class="code-cell">W77</td><td>홍수. 지나갈 수 없는 도로.</td></tr>
+<tr><td class="code-cell">W88</td><td>먼지 폭풍 또는 harmattan. 가시성이 거의 없습니다.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>극단적인 기상 조건. 중지되었습니다.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">등산객 코드 — 접두사 H</div>
+<div class="ph-sub">트레커, 야외 팀, 황야 탐험</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">시간</div><div class="cat-icon">🆘</div><div class="cat-name">도움이 필요합니다</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>음식이나 물이 필요합니다.</td></tr>
+<tr><td class="code-cell">H22</td><td>응급처치나 의료 키트가 필요합니다.</td></tr>
+<tr><td class="code-cell">H33</td><td>의료 지원이나 대피 평가가 필요합니다.</td></tr>
+<tr><td class="code-cell">H44</td><td>구조팀이 필요합니다.</td></tr>
+<tr><td class="code-cell">H55</td><td>헬리콥터나 공중 대피가 필요합니다.</td></tr>
+<tr><td class="code-cell">H66</td><td>수색과 구조가 필요합니다.</td></tr>
+<tr><td class="code-cell">H77</td><td>대피소나 비상 야영지가 필요합니다.</td></tr>
+<tr><td class="code-cell">H88</td><td>긴급 대피가 필요합니다. 걸을 수 없습니다.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>중대한 비상사태. 모든 지원이 즉시 필요합니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">티</div><div class="cat-icon">🏔</div><div class="cat-name">트레일 조건</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>좋은 길. 잘 표시되어 있습니다. 쉽게 가세요.</td></tr>
+<tr><td class="code-cell">T22</td><td>트레일이 간헐적이거나 무성합니다.</td></tr>
+<tr><td class="code-cell">T33</td><td>흔적이 사라졌습니다. GPS 또는 나침반으로 탐색합니다.</td></tr>
+<tr><td class="code-cell">T44</td><td>오프 트레일. 개방형 지형. 탐색 가능.</td></tr>
+<tr><td class="code-cell">T55</td><td>가파른 상승. 속도가 느려집니다.</td></tr>
+<tr><td class="code-cell">T66</td><td>가파른 하강. 돌보는 중.</td></tr>
+<tr><td class="code-cell">T77</td><td>기술 지형. 스크램블, 바위 또는 눈.</td></tr>
+<tr><td class="code-cell">T88</td><td>위험한 섹션. 조심스럽게 건너세요.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>통과할 수 없는 지형입니다. 강제로 돌아갑니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">유</div><div class="cat-icon">🎒</div><div class="cat-name">장비/장비</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>모든 장비는 양호한 상태입니다.</td></tr>
+<tr><td class="code-cell">U22</td><td>사소한 기어 문제. 중요하지 않음.</td></tr>
+<tr><td class="code-cell">U33</td><td>장비가 손상되었지만 해결 방법을 찾았습니다.</td></tr>
+<tr><td class="code-cell">U44</td><td>중요한 항목이 실패했습니다. 텐트, 스토브 또는 필터.</td></tr>
+<tr><td class="code-cell">U55</td><td>내비게이션 장비가 분실되거나 고장났습니다.</td></tr>
+<tr><td class="code-cell">U66</td><td>응급처치 키트를 사용 중입니다.</td></tr>
+<tr><td class="code-cell">U77</td><td>긴급 대피소가 필요합니다. 야영지 설정.</td></tr>
+<tr><td class="code-cell">U88</td><td>다수의 심각한 기어 고장.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>모든 필수 장비가 분실되었습니다. 재앙적이다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">다섯</div><div class="cat-icon">❤️</div><div class="cat-name">바이탈/그룹 건강</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>그룹 구성원 모두 건강하고 건강합니다.</td></tr>
+<tr><td class="code-cell">V22</td><td>경미한 피로나 불편함. 계속합니다.</td></tr>
+<tr><td class="code-cell">V33</td><td>물집이나 경미한 부상. 약간 느려집니다.</td></tr>
+<tr><td class="code-cell">V44</td><td>부상. 속도가 현저히 느려집니다.</td></tr>
+<tr><td class="code-cell">V55</td><td>회원은 정상적인 속도를 유지할 수 없습니다.</td></tr>
+<tr><td class="code-cell">V66</td><td>심각한 부상. 중지되었습니다. 대피 평가.</td></tr>
+<tr><td class="code-cell">V77</td><td>회원이 쓰러졌거나 의식을 잃었습니다.</td></tr>
+<tr><td class="code-cell">V88</td><td>의료 응급 상황. 대피가 필요합니다.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>생명을 위협합니다. 즉시 응급 서비스가 필요합니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">와이</div><div class="cat-icon">✅</div><div class="cat-name">예정된 체크인</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>예정된 체크인. 모두 잘. 경로 중.</td></tr>
+<tr><td class="code-cell">Y22</td><td>체크인. 약간의 지연. 여전히 안전합니다.</td></tr>
+<tr><td class="code-cell">Y33</td><td>체크인. 상당한 지연. 여전히 안전합니다.</td></tr>
+<tr><td class="code-cell">Y44</td><td>경로를 벗어났지만 안전하고 탐색 가능합니다.</td></tr>
+<tr><td class="code-cell">Y55</td><td>이전 체크인 창을 놓쳤습니다. 이제 보고합니다.</td></tr>
+<tr><td class="code-cell">Y66</td><td>베이스로부터 승인을 요청합니다.</td></tr>
+<tr><td class="code-cell">Y77</td><td>캠프 또는 예정된 중간지점에 안전하게 도착합니다.</td></tr>
+<tr><td class="code-cell">Y88</td><td>내림차순. 트레일헤드로 향하는 마지막 다리.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>여러 번 체크인을 놓쳤습니다. 긴급 경보가 발동되었습니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">에스</div><div class="cat-icon">🛡</div><div class="cat-name">보안</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>상황은 정상입니다. 위협은 없습니다.</td></tr>
+<tr><td class="code-cell">S22</td><td>일반적인 주의. 익숙하지 않은 지역.</td></tr>
+<tr><td class="code-cell">S33</td><td>근처에서 의심스러운 활동이 발생했습니다.</td></tr>
+<tr><td class="code-cell">S44</td><td>야생동물 위협. 거리를 유지합니다.</td></tr>
+<tr><td class="code-cell">S55</td><td>야생동물 만남. 물러나다.</td></tr>
+<tr><td class="code-cell">S66</td><td>공격적인 야생 동물. 후퇴.</td></tr>
+<tr><td class="code-cell">S77</td><td>적대적인 사람들이 만났습니다.</td></tr>
+<tr><td class="code-cell">S88</td><td>위협하거나 따랐습니다. 안전을 위해 이동합니다.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>사람이나 야생동물로 인한 즉각적인 위험.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">응급 서비스 코드 - 접두사 X</div>
+<div class="ph-sub">SAR, 구급대원, 소방대원, 순찰대원 - 통신 성능 저하</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>국제 비상 표준에 맞춰</strong>
+    P(분류) 범주는 국제 P1–P4 우선 순위 척도(P1=즉시, P2=지연, P3=경미, P4=예상)를 사용합니다. I(사고) 및 N(횟수) 범주는 합동 응급 서비스에서 사용하는 메탄 주요 사고 선언 프레임워크를 반영합니다.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">나</div><div class="cat-icon">🔥</div><div class="cat-name">사고 유형</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">I11</td><td>의료 응급 상황. 현장 위험이 없습니다.</td></tr>
+<tr><td class="code-cell">I22</td><td>도로 교통 충돌.</td></tr>
+<tr><td class="code-cell">I33</td><td>수색 및 구조. 실종자.</td></tr>
+<tr><td class="code-cell">I44</td><td>화재 또는 구조적 사고.</td></tr>
+<tr><td class="code-cell">I55</td><td>홍수 또는 물 구조.</td></tr>
+<tr><td class="code-cell">I66</td><td>위험 물질 또는 화학 물질 방출.</td></tr>
+<tr><td class="code-cell">I77</td><td>구조적 붕괴.</td></tr>
+<tr><td class="code-cell">I88</td><td>시민 불안, 폭력, 무장 사건.</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>중대한 사건이 선언되었습니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">피</div><div class="cat-icon">🏥</div><div class="cat-name">환자 분류</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">P11</td><td>현장 사상자 없음.</td></tr>
+<tr><td class="code-cell">P22</td><td>걷기만 하면 부상을 입는다. P3 — 사소한.</td></tr>
+<tr><td class="code-cell">P33</td><td>심각하지만 안정적입니다. P2 - 지연됨.</td></tr>
+<tr><td class="code-cell">P44</td><td>생명을 위협하는 사상자. P1 — 즉시.</td></tr>
+<tr><td class="code-cell">P55</td><td>예상되는 사상자. P4 - 완화제.</td></tr>
+<tr><td class="code-cell">P66</td><td>혼합 분류. 여러 카테고리가 존재합니다.</td></tr>
+<tr><td class="code-cell">P77</td><td>대규모 사상자 ​​발생이 선언되었습니다.</td></tr>
+<tr><td class="code-cell">P88</td><td>사상자 집계가 불완전합니다. 장면이 지워지지 않았습니다.</td></tr>
+<tr class="crit"><td class="code-cell">P99</td><td>재앙적이다. 다수의 사망자가 확인되었습니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">사상자 수</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>사상자 1명.</td></tr>
+<tr><td class="code-cell">N22</td><td>사상자는 2~5명.</td></tr>
+<tr><td class="code-cell">N33</td><td>사상자는 6~10명.</td></tr>
+<tr><td class="code-cell">N44</td><td>사상자는 11~20명.</td></tr>
+<tr><td class="code-cell">N55</td><td>사상자는 20~50명.</td></tr>
+<tr><td class="code-cell">N66</td><td>사상자는 50~100명이다.</td></tr>
+<tr><td class="code-cell">N77</td><td>사상자는 100명이 넘습니다.</td></tr>
+<tr><td class="code-cell">N88</td><td>알 수 없는 번호입니다. 현장 평가가 진행 중입니다.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>여러 장소에서 사상자가 발생했습니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">다섯</div><div class="cat-icon">💓</div><div class="cat-name">환자의 활력소</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>의식이 있고 경계심이 있습니다. 정상적으로 이야기하고 있습니다.</td></tr>
+<tr><td class="code-cell">V22</td><td>의식은 있지만 혼란스럽거나 불안합니다.</td></tr>
+<tr><td class="code-cell">V33</td><td>음성 명령에만 응답합니다.</td></tr>
+<tr><td class="code-cell">V44</td><td>통증에만 반응합니다. 무의식.</td></tr>
+<tr><td class="code-cell">V55</td><td>응답이 없습니다. 호흡하는 현재.</td></tr>
+<tr><td class="code-cell">V66</td><td>숨을 쉬지 않습니다. 심폐소생술이 진행 중입니다.</td></tr>
+<tr><td class="code-cell">V77</td><td>심한 출혈. 지혈대가 적용되었습니다.</td></tr>
+<tr><td class="code-cell">V88</td><td>심정지.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>고인. 확인되었습니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">아르 자형</div><div class="cat-icon">🚒</div><div class="cat-name">현장의 자원</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">R11</td><td>응급처치만 가능합니다. 전문적인 응답자가 없습니다.</td></tr>
+<tr><td class="code-cell">R22</td><td>현장에 구급대원 또는 고급 응급처치원이 있습니다.</td></tr>
+<tr><td class="code-cell">R33</td><td>현장에 출동한 구급차 승무원.</td></tr>
+<tr><td class="code-cell">R44</td><td>현장에 출동한 소방대원들.</td></tr>
+<tr><td class="code-cell">R55</td><td>경찰이 현장에 있습니다.</td></tr>
+<tr><td class="code-cell">R66</td><td>현장에서 다양한 응급 서비스를 제공합니다.</td></tr>
+<tr><td class="code-cell">R77</td><td>사건지휘관이 설치되었습니다.</td></tr>
+<tr><td class="code-cell">R88</td><td>야전병원이나 사상자 처리소가 활성화되어 있습니다.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>모든 리소스가 압도되었습니다. 긴급 보강이 필요합니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">시간</div><div class="cat-icon">📞</div><div class="cat-name">필요한 리소스</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>추가 리소스가 필요하지 않습니다.</td></tr>
+<tr><td class="code-cell">H22</td><td>추가 지상 구급차가 필요합니다.</td></tr>
+<tr><td class="code-cell">H33</td><td>구급차나 헬리콥터가 필요합니다.</td></tr>
+<tr><td class="code-cell">H44</td><td>화재 및 구조가 필요합니다.</td></tr>
+<tr><td class="code-cell">H55</td><td>경찰이나 무장 대응이 필요합니다.</td></tr>
+<tr><td class="code-cell">H66</td><td>HAZMAT 또는 오염팀이 필요합니다.</td></tr>
+<tr><td class="code-cell">H77</td><td>대형 구조팀이나 도시 수색팀이 필요합니다.</td></tr>
+<tr><td class="code-cell">H88</td><td>군사 또는 전문가 지원이 필요합니다.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>대량 사상자 대응. 모든 리소스가 필요합니다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">이자형</div><div class="cat-icon">🚁</div><div class="cat-name">피난 상황</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>대피가 필요하지 않습니다. 현장에서 치료 중입니다.</td></tr>
+<tr><td class="code-cell">E22</td><td>자가 대피가 가능합니다. 이송을 위해 걸어가는 사상자.</td></tr>
+<tr><td class="code-cell">E33</td><td>차량 대피 가능. 도로 접근이 가능합니다.</td></tr>
+<tr><td class="code-cell">E44</td><td>들것 대피가 필요합니다.</td></tr>
+<tr><td class="code-cell">E55</td><td>공중 대피가 필요합니다. 착륙 지역이 필요합니다.</td></tr>
+<tr><td class="code-cell">E66</td><td>물이나 보트로 대피해야 합니다.</td></tr>
+<tr><td class="code-cell">E77</td><td>기술적인 구조가 필요합니다. 로프 또는 제한된 공간.</td></tr>
+<tr><td class="code-cell">E88</td><td>대피 경로가 손상되었습니다. 대안을 추구합니다.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>대피가 불가능합니다. 부상자들은 제자리에 대피 중이다.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">에스</div><div class="cat-icon">⚠️</div><div class="cat-name">현장 안전</div></div>
+<table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>현장 안전. 위험이 없습니다.</td></tr>
+<tr><td class="code-cell">S22</td><td>잠재적인 위험이 존재합니다. 주의가 필요합니다.</td></tr>
+<tr><td class="code-cell">S33</td><td>현장의 화재, 화학적 또는 구조적 위험.</td></tr>
+<tr><td class="code-cell">S44</td><td>적극적인 위협. 아직 안전하지 않은 장면입니다.</td></tr>
+<tr><td class="code-cell">S55</td><td>현장에 있는 적대적인 사람. 법 집행이 필요합니다.</td></tr>
+<tr><td class="code-cell">S66</td><td>오염 위험. 제외 구역이 필요합니다.</td></tr>
+<tr><td class="code-cell">S77</td><td>장면이 부분적으로 지워졌습니다. 지속적인 위험.</td></tr>
+<tr><td class="code-cell">S88</td><td>장면이 안전하지 않습니다. 응답자가 철회되었습니다.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>대응자에게 즉각적인 위험이 발생합니다. 지금 현장에서 대피하세요.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>빠른 참조 - 일반적인 상황</h2>
+<p>세 프로필에서 동일한 의미의 코드</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>상황</th>
+<th>드라이버(D)</th>
+<th>등산객 (H)</th>
+<th>비상(X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>올 클리어 / 노멀</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>긴급한 도움이 필요합니다</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
+<tr><td>생명 위협 - SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
+<tr><td>SMS 전용 커뮤니케이션</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>예정대로 / 도중에</td><td>T11 / D11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>목적지에 도착했습니다</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>분실/경로 이탈</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>악천후</td><td>W77~W99</td><td>W77~W99</td><td>W77~W99</td></tr>
+<tr><td>확인됨</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>손상된 메시지</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>물류 4×4</h3>
+<p>소규모 사업자를 위한 국경 간 차량 통신 — 실시간 지도, 그룹 비디오, SIM 브리지 및 이 비상 프로토콜이 모두 표준 Android 휴대전화에 있습니다.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">자세히 알아보기</a>
+<a class="btn" href="../contact.html">연락하세요</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · Logistics 4×4 Field Communications Protocol · 에디션 1<br/>
+    이 참조를 공유하는 것이 권장됩니다. 상호 운용성을 위해서는 공유가 필요합니다.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ud648</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a href="../contact.html">연락하다</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 라이센스 보류 중 · Marcos aka 줄기시 제작</p>
+</footer>
+</body>
+</html>

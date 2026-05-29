@@ -220,3 +220,30 @@ footer .foot-links a:hover { color: #fff; text-decoration: underline; }
   .hero h1 { font-size: 2rem; }
   .hero .sub { font-size: 1rem; }
 }
+
+/* ── Language switcher ── */
+.lang-switcher { position: relative; flex-shrink: 0; margin-left: .4rem; }
+.lang-btn {
+  background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
+  border-radius: 20px; color: white; cursor: pointer; font-size: .82rem;
+  font-weight: 600; letter-spacing: .02em;
+  padding: .28rem .8rem; white-space: nowrap;
+  transition: background .2s;
+}
+.lang-btn:hover { background: rgba(255,255,255,.3); }
+.lang-menu {
+  display: none; position: absolute; right: 0; top: calc(100% + 8px);
+  background: white; border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.18);
+  border: 1px solid var(--border); min-width: 140px; z-index: 200;
+  overflow: hidden;
+}
+.lang-switcher.open .lang-menu { display: block; }
+.lang-switcher .lang-menu a {
+  display: block; padding: .45rem 1rem; color: var(--text) !important;
+  text-decoration: none; font-size: .88rem; white-space: nowrap;
+  background: none; border-radius: 0;
+  transition: background .15s;
+}
+.lang-switcher .lang-menu a:hover { background: var(--bg) !important; }
+@media (max-width: 700px) { .lang-switcher { display: none; } }

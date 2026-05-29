@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>कैमेलियन प्रस्तुतकर्ता - गिरगिट एआई</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a class="active" href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">सहयोगी ऐप</a>
+<a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../services.html">वेब सेवाएं</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>गिरगिट प्रस्तुतकर्ता</h1>
+<p class="sub">एक थिएटर-प्रेरित प्रेजेंटेशन सिस्टम जहां आपकी स्लाइड्स एक स्टेज हैं, आपके कंटेंट ब्लॉक अभिनेता हैं और ट्रांज़िशन संकेत हैं - सभी को एक फोन से नियंत्रित किया जा सकता है।</p>
+<div class="hero-badges">
+<span class="badge">🎬 रंगमंच रूपक</span>
+<span class="badge">📱 मोबाइल नियंत्रण</span>
+<span class="badge">✏️ सहयोगात्मक ड्राइंग</span>
+<span class="badge">🖥️एंड्रॉइड एडीबी मिरर</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>थिएटर मॉडल</h2>
+<p>प्रस्तुतियाँ एक स्टेज प्रोडक्शन की तरह निर्मित होती हैं - वस्तुओं में प्रवेश, निकास और संकेत होते हैं</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">मंच पर कैमेलोनस्टैक वस्तुएं</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 सामग्री ढेर - व्याख्यान स्लाइड</div>
+<div class="stage-obj obj-stage">🟡 स्टेज स्टैक - छात्र प्रस्तुतियाँ</div>
+<div class="stage-obj obj-misc">🖼️इमेजबॉक्स</div>
+<div class="stage-obj obj-misc">📄 पीडीएफबॉक्स</div>
+<div class="stage-obj obj-misc">📱एडीबी फोन मिरर</div>
+<div class="stage-obj obj-misc">🖥️ पीपीटी मिरर</div>
+<div class="stage-obj obj-misc">✏️ ड्राइंग बोर्ड</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      सफ़ेद बॉर्डर = सक्रिय · नारंगी पल्स = लंबित सहकर्मी प्रस्तुतिकरण · हरा = सामग्री स्टैक · पीला = स्टेज स्टैक
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>कैमेलोनस्टैक</h3>
+<p>सार्वभौमिक सामग्री कंटेनर. प्रत्येक स्टैक में कई स्लॉट (चित्र, पाठ, पीडीएफ) होते हैं। दो मोड:</p>
+<ul>
+<li><strong style="color:#22c55e">सामग्री</strong> — शिक्षक-नियंत्रित स्लाइड</li>
+<li><strong style="color:#eab308">अवस्था</strong> - सहकर्मी द्वारा प्रेरित प्रस्तुतियाँ स्वीकार करता है</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>एनीमेशन प्रणाली</h3>
+<p>मुक्तहस्त गति पथों के साथ प्रति-ऑब्जेक्ट प्रवेश/निकास एनिमेशन। पथों को स्क्रीन पर खींचा जाता है, भंडारण से पहले डगलस-पीकर संपीड़न और कैटमुल-रोम स्पलाइन इंटरपोलेशन के माध्यम से चिकना किया जाता है।</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>ड्रेसर पैनल</h3>
+<p>ऑफ-स्टेज होल्डिंग एरिया - ड्रेसर में ऑब्जेक्ट बनाएं, डबल-क्लिक के साथ स्टेज पर पूर्वावलोकन करें। राइट-क्लिक मेनू से ड्रेसर पर वापस खींचें। गुण पैनल प्रवेश/निकास एनीमेशन स्थिति दिखाता है।</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>क्रमांकित संकेत</h3>
+<p>ट्रिगर पॉइंट नाटकीय प्रकाश संकेतों की तरह, प्रस्तुति को चरण दर चरण आगे बढ़ाते हैं। प्रत्येक क्यू वस्तुओं को अंदर या बाहर चेतन कर सकता है, स्टैक स्लॉट स्विच कर सकता है या समयबद्ध अनुक्रम निष्पादित कर सकता है।</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>.kpt प्रोजेक्ट बंडल</h3>
+<p>परियोजनाओं को ज़िप अभिलेखागार के रूप में सहेजा जाता है (<code>.kpt</code>) जिसमें सभी मीडिया संपत्तियां, लेआउट डेटा और एनीमेशन कॉन्फ़िगरेशन शामिल हैं। गिरगिट चलाने वाली किसी भी मशीन पर खोलें।</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>तार्किक निर्देशांक</h3>
+<p>यह चरण डिस्प्ले रिज़ॉल्यूशन से स्वतंत्र 0-10,000 तार्किक समन्वय स्थान का उपयोग करता है। प्रेजेंटेशन लैपटॉप स्क्रीन या 4K प्रोजेक्टर पर समान दिखते हैं।</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>मोबाइल एवं सहकर्मी नियंत्रण</h2>
+<p>अपने फ़ोन से प्रस्तुतकर्ता चलाएँ; विद्यार्थियों को अपनी सामग्री आगे बढ़ाने दें</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>एंड्रॉइड मोबाइल ब्रिज</h4>
+<p>गिरगिट मोबाइल ब्रिज (वेबसॉकेट) किसी भी एंड्रॉइड डिवाइस से थिएटर कमांड रिले करता है। नियंत्रण <strong>स्टैक_नेक्स्ट / प्रीव / प्ले / पॉज़ / स्टॉप</strong>, छवि या टेक्स्ट स्लॉट को स्टैक में पुश करें, और वास्तविक समय में स्टैक स्थिति का प्रसारण देखें।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>सहकर्मी प्रस्तुतियाँ</h4>
+<p>छात्र अपने फ़ोन से छवियों या टेक्स्ट को स्टेज-मोड स्टैक पर धकेलते हैं। सबमिशन थंबनेल पट्टी में नारंगी स्पंदनशील बॉर्डर के साथ दिखाई देते हैं। प्रस्तुतकर्ता कर सकता है <strong>स्वीकृत करना, रोकना, अस्वीकार करना या प्रचारित करना</strong> स्क्रीन पर लाइव होने से पहले हर एक।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>साझा ड्राइंग बोर्ड</h4>
+<p>मोबाइल ब्रिज से नियंत्रित किया जाने वाला सहयोगात्मक फ्रीहैंड कैनवास - <strong>ड्रा_स्ट्रोक / साफ़ / पूर्ववत करें</strong>. स्लाइडों पर टिप्पणी करने, विचार-मंथन करने या लाइव क्विज़ के लिए आदर्श।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>एडीबी फोन मिरर और पीपीटी कैप्चर</h4>
+<p><strong>एडीबीफोनबॉक्स</strong> एडीबी के माध्यम से एक लाइव एंड्रॉइड स्क्रीन को सीधे मंच पर स्ट्रीम करता है। <strong>पीपीटीमिररबॉक्स</strong> एक पावरपॉइंट विंडो कैप्चर करता है - अपने मौजूदा डेक को बिना रूपांतरण के केमेलियन के अंदर प्रस्तुत करें।</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>अपनी प्रस्तुतियों को जीवंत बनाएं</h3>
+<p>लाइसेंस पर चर्चा करने या कैमेलियन प्रस्तुतकर्ता के लाइव प्रदर्शन की व्यवस्था करने के लिए हमसे संपर्क करें।</p>
+<a class="btn btn-solid" href="../contact.html">डेमो का अनुरोध करें</a>
+<a class="btn" href="../index.html">← सिंहावलोकन पर वापस जाएँ</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0939u094bu092e</a><a href="../ide.html">आपके पास विचार हैं</a><a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a><a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a><a href="../classroom.html">u0915u0915u094du0937u093e</a><a href="../contact.html">संपर्क</a>
+</div>
+<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

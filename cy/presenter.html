@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cyflwynydd Kameleon - Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a class="active" href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../services.html">Gwasanaethau Gwe</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a>
+<a href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>Cyflwynydd Chameleon</h1>
+<p class="sub">System gyflwyno wedi'i hysbrydoli gan theatr lle mae'ch sleidiau'n Llwyfan, eich blociau cynnwys yn Actorion a thrawsnewidiadau yn Giwiau - i gyd yn rheoladwy o ffôn.</p>
+<div class="hero-badges">
+<span class="badge">🎬 Trosiad theatr</span>
+<span class="badge">📱 Rheolaeth symudol</span>
+<span class="badge">✏️ Lluniadu cydweithredol</span>
+<span class="badge">🖥️ Drych ADB Android</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Model y Theatr</h2>
+<p>Cyflwyniadau wedi'u hadeiladu fel cynhyrchiad llwyfan — mae gan wrthrychau fynedfeydd, allanfeydd a chiwiau</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Gwrthrychau KameleonStack ar y llwyfan</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 Stack Cynnwys — sleidiau darlith</div>
+<div class="stage-obj obj-stage">🟡 Stac Llwyfan — cyflwyniadau myfyrwyr</div>
+<div class="stage-obj obj-misc">🖼️ Blwch Delwedd</div>
+<div class="stage-obj obj-misc">📄Blwch PDF</div>
+<div class="stage-obj obj-misc">📱 Drych Ffôn ADB</div>
+<div class="stage-obj obj-misc">🖥️ Drych PPT</div>
+<div class="stage-obj obj-misc">✏️ Bwrdd Darlunio</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      Border gwyn = gweithredol · Curiad oren = arfaeth cyflwyniad cyfoedion · Gwyrdd = pentwr cynnwys · Melyn = pentwr llwyfan
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>Stack Kameleon</h3>
+<p>Y cynhwysydd cynnwys cyffredinol. Mae pob pentwr yn dal slotiau lluosog (delweddau, testun, PDFs). Dau fodd:</p>
+<ul>
+<li><strong style="color:#22c55e">Cynnwys</strong> — sleidiau a reolir gan yr athro</li>
+<li><strong style="color:#eab308">Llwyfan</strong> — yn derbyn cyflwyniadau wedi'u gwthio gan gymheiriaid</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>System animeiddio</h3>
+<p>Animeiddiadau mynd i mewn/allan fesul gwrthrych gyda llwybrau symud llawrydd. Mae llwybrau'n cael eu tynnu ar y sgrin, wedi'u llyfnhau trwy gywasgiad Douglas-Peucker a rhyngosod spline Catmull-Rom cyn storio.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Panel dreser</h3>
+<p>Ardal ddal oddi ar y llwyfan — creu gwrthrychau yn y dreser, rhagolwg ar y llwyfan gyda chlic dwbl. Llusgwch yn ôl i Dreser o'r ddewislen clic dde. Mae'r panel priodweddau yn dangos cyflwr animeiddio mynd i mewn/allan.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>Ciwiau wedi'u rhifo</h3>
+<p>Mae pwyntiau sbarduno yn symud y cyflwyniad gam wrth gam ymlaen, yn union fel ciwiau goleuo theatrig. Gall pob ciw animeiddio gwrthrychau i mewn neu allan, newid slotiau pentwr neu weithredu dilyniannau wedi'u hamseru.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>bwndeli prosiect .kpt</h3>
+<p>Mae prosiectau'n cael eu cadw fel archifau ZIP (<code>.kpt</code>) yn cynnwys yr holl asedau cyfryngau, data gosodiad a chyfluniadau animeiddio. Ar agor ar unrhyw beiriant sy'n rhedeg Chameleon.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Cyfesurynnau rhesymegol</h3>
+<p>Mae'r llwyfan yn defnyddio gofod cydgysylltu rhesymegol 0-10,000 yn annibynnol ar gydraniad arddangos. Mae cyflwyniadau'n edrych yn union yr un fath ar sgrin gliniadur neu daflunydd 4K.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Symudol a Rheoli Cyfoedion</h2>
+<p>Rhedeg y cyflwynydd o'ch ffôn; gadael i fyfyrwyr wthio cynnwys o'u rhai nhw</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Pont symudol Android</h4>
+<p>Mae pont symudol Chameleon (WebSocket) yn trosglwyddo gorchmynion theatr o unrhyw ddyfais Android. Rheolaeth <strong>stack_next / prev / chwarae / oedi / stopio</strong>, gwthio delwedd neu destun slotiau i mewn i stac, a gweld darllediad cyflwr stac mewn amser real.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>Cyflwyniadau cyfoedion</h4>
+<p>Myfyrwyr yn gwthio delweddau neu destun i stac modd Llwyfan o'u ffonau. Mae cyflwyniadau yn ymddangos yn y stribed bawd gyda border pulsing oren. Gall y cyflwynydd <strong>cymeradwyo, dal, gwrthod neu hyrwyddo</strong> pob un cyn iddo fynd yn fyw ar y sgrin.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>Bwrdd lluniadu a rennir</h4>
+<p>Cynfas llawrydd cydweithredol y gellir ei reoli o'r bont symudol — <strong>draw_stroke / clir / dadwneud</strong>. Delfrydol ar gyfer anodi sleidiau, taflu syniadau neu gwisiau byw.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Drych ffôn ADB a dal PPT</h4>
+<p><strong>ADBPhoneBox</strong> yn ffrydio sgrin Android fyw yn uniongyrchol i'r llwyfan trwy ADB. <strong>Blwch drych PPTM</strong> yn dal ffenestr PowerPoint - cyflwynwch eich deciau presennol y tu mewn i Kameleon heb eu trosi.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Dewch â'ch cyflwyniadau yn fyw</h3>
+<p>Cysylltwch â ni i drafod trwydded neu i drefnu arddangosiad byw o Kameleon Cyflwynydd.</p>
+<a class="btn btn-solid" href="../contact.html">Gofyn am demo</a>
+<a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
+<a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a><a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Adeiladwyd gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

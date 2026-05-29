@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Компьютерный техник по искусственному интеллекту — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../presenter.html">Ведущий</a>
+<a href="../companion.html">Сопутствующее приложение</a>
+<a href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../services.html">Веб-службы</a>
+<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a>
+<a class="active" href="../technician.html">ПК-техник</a>
+<a href="../trading.html">Торговля</a>
+<a href="../classroom.html">u041au043bu0430u0441u0441</a>
+<a href="../contact.html">Контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>Техник по ПК с искусственным интеллектом</h1>
+<p class="sub">Диагностика и ремонт системы под управлением искусственного интеллекта, а также профилировщик USB-устройств, который выполняет реверс-инжиниринг аппаратных протоколов и автоматически генерирует драйверы ядра Linux.</p>
+<div class="hero-badges">
+<span class="badge">🔬 Профилирование оборудования</span>
+<span class="badge">🐧 Генерация модулей ядра</span>
+<span class="badge">🌐 Удаленно через Tailscale</span>
+<span class="badge">⚡ Кросс-компиляция ARM</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Ремонт системы под управлением искусственного интеллекта</h2>
+<p>ИИ следует структурированному хирургическому протоколу: диагностируйте, прежде чем прикасаться, проверяйте на каждом этапе</p>
+</div>
+<div class="terminal-block">
+<span class="comment"># Последовательность диагностики искусственного интеллекта-хамелеона</span>
+<span class="cmd">$ lsusb -v | голова -80</span>
+<span class="out">Шина 002 Устройство 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ dmesg | хвост -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: переименован из eth0</span>
+<span class="cmd">$ лсмод | grep r8152</span>
+<span class="out">р8152 94208 0</span>
+<span class="cmd">$ модинфо r8152 | grep-версия</span>
+<span class="out">версия: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>Структурированная последовательность диагностики</h4>
+<p>Оборудование → состояние ядра → состояние драйвера → сеть → хранилище. ИИ выполняет каждый шаг, считывает результат JSON, а затем решает, что делать дальше. Он никогда не пропускает шаги и не делает предположений.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Протокол хирургического восстановления</h4>
+<p>Сначала неразрушающий (перезагрузка модуля, перезапуск службы). Сохранять до возникновения риска (конфигурация моментального снимка). Проверяйте на каждом этапе. Каждое действие, требующее перезагрузки, запускает «Выключатель мертвеца», который устанавливает <code>@reboot</code> возобновить сценарий автоматически.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Удаленный ремонт через Tailscale</h4>
+<p>Диагностика и ремонт машин в любой точке сети Tailscale. ИИ выдает команды на удаленном компьютере через терминальный мост, считывает результаты и продолжает работу — даже после перезагрузки с использованием системы контрольных точек/возобновления.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Портер USB-драйверов</h2>
+<p>Профилируйте любое USB-устройство → анализируйте его протокол → сгенерируйте готовый к установке драйвер Linux.</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">Путь А</div>
+<h4>Стандартные протоколы</h4>
+<p>Страницы поставщиков не найдены. Генерирует правила udev + конфигурацию modprobe. <strong>Никакой компиляции не требуется.</strong> Работает с HID, CDC, запоминающими устройствами и другими стандартными классами.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">удев</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">Путь Б</div>
+<h4>Частичный протокол поставщика</h4>
+<p>Обнаружены страницы поставщиков (≤2). Создает демон пользовательского пространства hidraw/uhid или плагин ALSA. Запускается в пространстве пользователя — компиляция ядра не требуется.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">Hidraw</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Плагин АЛСА</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">Путь С</div>
+<h4>Собственный протокол</h4>
+<p>Полностью индивидуальный протокол. Создает полный модуль ядра с упаковкой DKMS и поддержкой кросс-компиляции ARM для Raspberry Pi 3, 4 и 5.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Модуль ядра</span><span class="tag" style="background:#fef3c7;color:#b45309">ДКМС</span><span class="tag" style="background:#fef3c7;color:#b45309">РУКА</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>Рабочий процесс профилировщика</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># Шаг 1 — профилирование устройства (30-секундный захват)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Профилирование USB 1234:5678 на 30 с...
+Написал ~/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># Шаг 2 — сгенерируйте драйвер</span>
+<span class="cmd">$ python3 device_porter.py --latest</span>
+<span class="out">Выбранный путь: C (собственный, 3 страницы поставщиков)
+Сгенерировано: /tmp/driver_1234_5678/
+  ├── хамелеон_1234_5678.c
+  ├── Makefile (cross-aarch64, cross-armv7)
+  ├── install.sh
+  ├── test_device.sh
+  └── Analysis.json</span>
+<span class="comment"># Шаг 3 — установка</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS — устройство /dev/chameleon0 отвечает правильно</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Межплатформенные серверы захвата</h3>
+<p>ETW в Windows, IOKit в macOS, usbmon в Linux. Профилируйте на любой ОС и на основе полученного сгенерируйте драйвер для Linux. <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Кросс-компиляция Raspberry Pi</h3>
+<p>Цели Makefile <code>cross-aarch64</code> (Пи 4/5) и <code>cross-armv7</code> (Pi 3) автоматически включаются в путь C. Создайте версию на платформе x86 и разверните ее на ARM.</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>Упаковка ДКМС</h3>
+<p>Драйверы пути C упакованы для DKMS, поэтому они выдерживают обновления ядра без перекомпиляции вручную. Обзоры ИИ <code>analysis.json</code> и запросит все оставшиеся заглушки TODO.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Исправить непоправимое</h3>
+<p>Будь то паника ядра, неисправное USB-устройство или проприетарное периферийное устройство без поддержки Linux — Chameleon AI PC Technician поможет вам.</p>
+<a class="btn btn-solid" href="../contact.html">Свяжитесь с нами</a>
+<a class="btn" href="../index.html">← Вернуться к обзору</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
+<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a><a href="../technician.html">ПК-техник</a>
+<a href="../trading.html">Торговля</a><a href="../classroom.html">u041au043bu0430u0441u0441</a><a href="../contact.html">Контакт</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Создано Маркосом, также известным как Stemsee.</p>
+</footer>
+</body>
+</html>

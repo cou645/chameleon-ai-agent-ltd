@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>언어교실 — 카멜레온 AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ud648</a>
+<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a href="../services.html">웹 서비스</a>
+<a href="../accounting.html">ud68cuacc4</a>
+<a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a>
+<a class="active" href="../classroom.html">uc218uc5c5</a>
+<a href="../contact.html">연락하다</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>어학교실</h1>
+<p class="sub">Tailscale 보안 P2P 연결, 통합 결제 및 Kameleon Presenter가 모두 하나의 애플리케이션에 포함된 라이브 WebRTC 비디오 강의입니다.</p>
+<div class="hero-badges">
+<span class="badge">📹 WebRTC 비디오</span>
+<span class="badge">🌐 테일스케일 메쉬</span>
+<span class="badge">💳 스트라이프 · 알리페이 · 페이팔</span>
+<span class="badge">🔐 등록 DB</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>선생님</div>
+<div class="status">● 라이브</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>학생 A</div>
+<div class="status">● 연결됨</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>학생B</div>
+<div class="status">● 연결됨</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>학생 C</div>
+<div class="status">○ 가입 중…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>학생 D</div>
+<div class="status">● 연결됨</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>학생E</div>
+<div class="status">● 연결됨</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>학생 F</div>
+<div class="status">○ 가입 중…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>라이브 비디오 레슨</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>WebRTC 그룹 비디오 — 4명 이상의 참가자</h4>
+<p>4명 이상의 그룹을 위한 저지연 풀 메시 WebRTC 비디오 및 오디오 — 중앙 미디어 서버가 없고 월별 비용이 없습니다. 카멜레온 시그널 서버(<code>chameleon_signal.py</code>)는 SDP 및 ICE 릴레이(포트 8766)를 처리하고 Android의 Termux에서도 실행됩니다. Companion 앱은 학생이 참여할 때 자동으로 커지는 적응형 그리드를 표시합니다. 1 = 전체 화면, 2 = 나란히, 3 = 2+1, 4 = 2×2, 5+ = 스크롤 가능한 자동 맞춤 그리드 — 교사의 로컬 피드는 항상 PIP(Picture-in-Picture)에 표시됩니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Tailscale 보안 연결</h4>
+<p>모든 피어는 공개 IP나 포트 전달 없이 Tailscale 메시를 통해 연결됩니다. IDE는 앱을 종료하지 않고도 ACL, 장치 승인 및 인증 키 생성을 관리합니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>통합 Kameleon 발표자</h4>
+<p>수업 중에 전체 Kameleon 무대를 사용하여 가르칩니다. 학생들은 답변, 그림 및 이미지를 스테이지 모드 스택에 직접 푸시할 수 있습니다. 즉, 앱을 전환하지 않고도 실시간으로 검토하고 표시할 수 있습니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>발음 위젯</h4>
+<p>내장된 발음 코칭 위젯(<code>pronunciation_widget.py</code>) 음소 수준 피드백 포함 - 정확한 발음이 중요한 언어 교육에 이상적입니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>LAN 비디오 폴백</h4>
+<p>Tailscale을 사용할 수 없는 경우, <code>lan_video.py</code> UDP(포트 47732)를 통한 비디오, UDP(포트 47733)를 통한 오디오 및 WebSocket(포트 47731)을 통한 협업 비교를 모두 로컬 네트워크에서 스트리밍합니다.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>통신 및 SIM 통화 브리지</h2>
+<p>앱 통화와 실제 SIM 전화 통화를 Companion 앱에서 직접 단일 다자간 대화로 연결하세요.</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>두 종류의 통화 - 하나의 대화</h4>
+<p>Companion 앱은 두 가지 병렬 호출 채널을 지원합니다. <strong>앱콜</strong> (WebRTC, Tailscale을 통한 P2P, 무료) 및 <strong>SIM 통화</strong> (표준 모바일 네트워크, 모든 전화번호) 동료와 WebRTC 통화를 할 수 있습니다. <em>그리고</em> 동시에 제3자에게 SIM 전화를 걸고 앱을 종료하지 않고도 다자간 대화를 위해 함께 회의를 할 수 있습니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>통신 상태 표시줄</h4>
+<p>Companion 앱 상단의 지속적인 상태 표시줄에는 두 채널의 실시간 상태(유휴, 벨 울림, 통화 중 또는 음소거)가 표시됩니다. 한 눈에 어떤 통화가 활성 상태인지 알 수 있습니다. 각 채널에는 독립적인 음소거 및 종료 제어 기능이 있습니다. SIM 통화를 종료해도 앱 통화는 중단되지 않으며 그 반대의 경우도 마찬가지입니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>다방향 수업 흐름</h4>
+<p>언어 수업에 유용합니다. 학생에게 WebRTC 앱 호출을 요청한 다음 SIM에서 원어민에게 전화를 걸어 자연스러운 실제 대화를 해보세요. 세 당사자 모두 서로의 말을 들을 수 있습니다. Kameleon Presenter가 IDE에서 계속 실행되는 동안 교사는 앱을 통해 조정합니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>영국 통화 녹음법 - 모든 당사자에게 통보되어야 함</h4>
+<p>RIPA 2000 및 통신(합법적 사업 관행) 규정에 따라 통화를 녹음하는 당사자는 상대방의 합법적인 사용에 대한 동의 없이 녹음할 수 있습니다. <strong>법정에서 인정 가능</strong> 녹음이 시작되기 전에 모든 당사자에게 알려야 합니다. Companion 앱에 눈에 띄는 표시가 표시됩니다. <strong>🔴 녹음 중</strong> 녹화가 활성화될 때마다 연결된 모든 참가자에게 배너를 표시합니다. SIM 발신자의 경우 통화 시작 시 구두 알림이 필요합니다. 음성 데이터는 GDPR에 따른 개인 데이터이므로 그에 따라 처리해야 합니다.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>uacb0uc81c ubc0f ub4f1ub85d</h2>
+<p>수업 액세스 권한을 부여하기 전에 전 세계 학생으로부터 결제를 수락하세요.</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 스트라이프 <span style="color:var(--muted);font-weight:400">(GBP 기본)</span></div>
+<div class="pay-pill">🟦 알리페이 <span style="color:var(--muted);font-weight:400">(중국학생)</span></div>
+<div class="pay-pill">🅿️ 페이팔 <span style="color:var(--muted);font-weight:400">(대체)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>수강신청 DB</h3>
+<p>다음에 저장된 강좌 및 학생 등록 <code>~/.chameleon/courses.db</code>. AI는 IDE 명령을 통해 강좌를 생성하고, 등록을 나열하고, 결제 상태를 확인하고, 액세스를 취소할 수 있습니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>다중 통화 지원</h3>
+<p>Stripe은 영국 및 유학생의 GBP 결제를 처리합니다. Alipay는 CNY로 결제하는 중국 학생을 대상으로 합니다. PayPal은 광범위한 국가에 적용되는 보편적인 대체 서비스를 제공합니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>위챗 스크린샷 결제</h3>
+<p>카드 액세스 권한이 없는 학생의 경우 WeChat Pay 결제 증명 스크린샷을 허용하세요. AI는 이미지를 읽고 금액과 참조를 추출한 후 등록에 대한 수동 결제를 기록합니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>결제 링크</h3>
+<p>모든 코스에 대해 Stripe에서 호스팅하는 결제 링크를 생성합니다. 링크를 공유하세요(학생 지불). 등록이 자동으로 생성됩니다. 구축하거나 호스팅할 결제 페이지가 없습니다.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>결제 명령 참조</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>AI 명령</th><th>설명</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>가격, 제목, 설명이 포함된 새 강좌 만들기</td></tr>
+<tr><td><code>payment_links</code></td><td>강좌에 대한 Stripe 결제 링크 생성</td></tr>
+<tr><td><code>payment_status</code></td><td>학생의 결제 및 등록 상태 확인</td></tr>
+<tr><td><code>payment_enrol</code></td><td>수동으로 학생 등록(예: 현금 결제 후)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>학생의 등록 액세스 제거</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>미결제 잔액이 있는 모든 학생 목록</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>WeChat Pay 스크린샷을 결제 증거로 기록하세요.</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>온라인 어학원을 시작하세요</h3>
+<p>비디오, 슬라이드, 결제, 등록 등 필요한 모든 것이 단일 데스크톱 애플리케이션에 있습니다.</p>
+<a class="btn btn-solid" href="../contact.html">연락하세요</a>
+<a class="btn" href="../index.html">← 개요로 돌아가기</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
+<a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+</footer>
+</body>
+</html>

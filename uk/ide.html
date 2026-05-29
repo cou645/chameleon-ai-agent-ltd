@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI IDE — Хамелеон ШІ</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a class="active" href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a>
+<a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a>
+<a href="../classroom.html">Класна кімната</a>
+<a href="../contact.html">контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🧠</div>
+<h1>IDE на основі ШІ</h1>
+<p class="sub">Повнофункціональний редактор коду PyQt6, де штучний інтелект не просто пропонує — він читає, записує, виконує та перевіряє код від вашого імені через структурований командний міст.</p>
+<div class="hero-badges">
+<span class="badge">Багатопровайдерний ШІ</span>
+<span class="badge">🎙️ Голосове введення та TTS</span>
+<span class="badge">🔀 Різниця</span>
+<span class="badge">⚡ Потокове передавання відповідей</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Командний міст AI</h2>
+<p>ШІ не просто спілкується в чаті — він керує редактором через структурований протокол JSON</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📖</div>
+<div class="strip-body">
+<h4>Прочитайте один раз, редагуйте вільно</h4>
+<p>ШІ читає файл один раз за допомогою <strong>get_file_content</strong>, утримує вміст у контексті, а потім видає кілька редагувань на основі прив’язки без повторного читання між кожною зміною. Без марних поїздок туди й назад.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>Замінений текст на основі прив’язки</h4>
+<p>Редагує посилання на точний текст для пошуку, а не номери рядків. Номери рядків зміщуються, коли код додається або видаляється, а прив’язки — ні. множинний <code>replace_text</code> виклики можна групувати в одній відповіді, усі застосовані атомарно.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📝</div>
+<div class="strip-body">
+<h4>write_file для повного перезапису</h4>
+<p>Для нових модулів або повного перезапису AI надсилає весь вміст файлу однією командою. Система автоматично створює a <code>.bak</code> резервне копіювання перед перезаписом і відкриває результат у новій вкладці редактора.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">💻</div>
+<div class="strip-body">
+<h4>Термінальна інтеграція</h4>
+<p>ШІ може виконувати команди оболонки та отримувати результат JSON, перш ніж продовжити. Він очікує кожного результату, обробляє коди виходу та автоматично розрізняє діагностичні, конфігураційні, деструктивні команди та команди завершення сеансу.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🛡️</div>
+<div class="strip-body">
+<h4>Захист від упорскування</h4>
+<p>Увесь вміст, що повертається з файлів, терміналів і веб-сторінок, загортається в <code>[UNTRUSTED_CONTENT]</code> маркери. Штучний інтелект отримує вказівки розглядати все, що знаходиться всередині, як дані, а не інструкції, запобігаючи атакам швидкого впровадження шкідливого вмісту файлів.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Функції редактора</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Редактор коду з кількома вкладками</h3>
+<p>Відкрийте кілька файлів одночасно. Кожна вкладка відстежує власну історію скасувань, підсвічування синтаксису та контекст команд ШІ.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔀</div>
+<h3>Вбудований перегляд відмінностей</h3>
+<p>Один клік, щоб порівняти поточний стан редактора з останньою збереженою версією. Уніфікована відмінність із кольоровим кодуванням із підсвічуванням додавання/видалення. Вийдіть із режиму розрізнення, щоб повернутися до повного редагування.</p>
+</div>
+<div class="card">
+<div class="card-icon">💬</div>
+<h3>Потоковий чат AI</h3>
+<p>Відповіді токен за токеном надсилаються на панель чату. Команди IDE витягуються та виконуються у фоновому потоці, тому користувальницький інтерфейс залишається чутливим протягом усього часу.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Модульна система підказок</h3>
+<p>Системні підказки є простими текстовими файлами модуля <code>~/.chameleon/prompts/</code>. Складіть будь-яку комбінацію: технічний ремонт + академічний + чат. Кількість живих токенів і оцінка вартості для кожного постачальника.</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>БД історії команд</h3>
+<p>Кожна команда AI реєструється <code>history.db</code> з ідентифікатором сеансу, міткою часу та результатом. Повний контрольний журнал для кожної зміни файлу, зробленої штучним інтелектом.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌳</div>
+<h3>Браузер файлів</h3>
+<p>Панель дерева проектів для швидкої навігації. ШІ використовує <code>list_project_files</code> і <code>list_open_files</code> для виявлення реальних шляхів — він ніколи не винаходить розташування файлів.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Голос і мова</h2>
+</div>
+<div class="split">
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Перетворення мовлення в текст пошепки</h3>
+<p>Local Whisper (whisper.cpp) транскрибує ваш голос у вхідні дані чату. Кодування без використання рук — диктуйте запитання, команди чи цілі підказки, не торкаючись клавіатури.</p>
+<div class="tags"><span class="tag">whisper.cpp</span><span class="tag">Локальний висновок</span><span class="tag">Немає хмарних STT</span></div>
+</div>
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Перетворення тексту в мовлення Piper</h3>
+<p>Відповіді штучного інтелекту читаються вголос за допомогою Piper TTS — швидкі, місцеві, природні голоси. Ідеально підходить для доступності або роботи із зайнятими руками. Шляхи платформи розпізнаються автоматично в Linux, Windows і macOS.</p>
+<div class="tags"><span class="tag">Пайпер ТТС</span><span class="tag">Локальний висновок</span><span class="tag">Настроюваний голос</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Підтримувані постачальники AI</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Провайдер</th><th>Тип</th><th>Вартість (прибл.)</th><th>Примітки</th></tr></thead>
+<tbody>
+<tr><td>DeepSeek</td><td>Хмарний API</td><td>0,00014 $ / 1K токенів</td><td>за замовчуванням; відмінна якість коду</td></tr>
+<tr><td>OpenAI (GPT-4o)</td><td>Хмарний API</td><td>$0,0050 / 1K жетонів</td><td>Найкраще загальне міркування</td></tr>
+<tr><td>Антропік (Клод)</td><td>Хмарний API</td><td>$0,0030 / 1 тис. токенів</td><td>Сильний у редагуванні тривалого контексту</td></tr>
+<tr><td>Клод Код (Антропік)</td><td>Термінал / шт</td><td>Використання API</td><td>Запускається як процес pty всередині терміналу IDE — повне агентне кодування в живій оболонці</td></tr>
+<tr><td>Grok</td><td>Хмарний API</td><td>$0,00005 / 1K токенів</td><td>Надшвидкий висновок</td></tr>
+<tr><td>Містраль</td><td>Хмарний API</td><td>$0,00025 / 1K токенів</td><td>Хороший європейський варіант</td></tr>
+<tr><td>Місячний постріл / Кімі</td><td>Хмарний API</td><td>$0,00012 / 1K токенів</td><td>Велике контекстне вікно</td></tr>
+<tr><td>Бути</td><td>Місцевий</td><td>безкоштовно</td><td>Запустіть будь-яку модель GGUF локально</td></tr>
+<tr><td>LM Studio</td><td>Місцевий</td><td>безкоштовно</td><td>Дружній графічний інтерфейс локального висновку</td></tr>
+</tbody>
+</table>
+<!-- ═══════════════════════════════════════════════════════════════════
+       SCREENSHOTS — replace placeholder divs with real <img> tags when ready
+       Suggested shots:
+         ide-main.png     — full IDE window with chat panel + code editor open
+         ide-diff.png     — diff view showing before/after a code change
+         ide-voice.png    — voice recording indicator active
+       ════════════════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Скріншоти</h2>
+<p>Незабаром — IDE в дії</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🖥️</div>
+<strong>IDE — головне вікно</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">Панель чату AI + редактор коду з підсвічуванням синтаксису</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🔀</div>
+<strong>Вигляд різниці</strong>
+<span>ide-diff.png</span>
+</div>
+<div class="screenshot-caption">До/після порівняння зміни коду, застосованого ШІ</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>Android компаньйон</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">Мобільний додаток — реле чату та керування презентатором</div>
+</div>
+</div>
+<!-- ── Company Command Station ─────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Командна станція роти (CCS)</h2>
+<p>Запустіть Chameleon IDE як офісний центр для вашого парку логістики 4×4 — окреме програмне забезпечення для відправки не потрібне</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Надішліть маршрути та POI водіям</h4>
+<p>Надіслати a <code>.gpx</code> файл із IDE безпосередньо на будь-який телефон водія через одноранговий канал. Маршрути миттєво завантажуються на живу карту водія. Окремі набори POI — зупинки заправки, небезпеки, адреси доставки — можна натискати незалежно від будь-якого маршруту та відображатися у вигляді кольорових шпильок.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📦</div>
+<div class="strip-body">
+<h4>Відправка маніфесту та рахунків-фактур</h4>
+<p>Створіть вантажний маніфест або підготуйте рахунок-фактуру в середовищі IDE, а потім надішліть його в одноранговому режимі на телефон водія. Драйвер бачить попередньо завантажений маніфест — без сканування та введення вручну. Рахунки-фактури можна підписувати на екрані та повертати тим же каналом.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚨</div>
+<div class="strip-body">
+<h4>Трансляція тикерів на весь флот</h4>
+<p>Надішліть пріоритетне сповіщення — надзвичайне, важливе, інструкції чи інформацію — і воно з’явиться у вигляді смужки на всю ширину на екрані кожного водія одночасно. Офіс повністю контролює весь автопарк без телефонних дзвінків до кожного автомобіля.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📡</div>
+<div class="strip-body">
+<h4>Вбудований сервер сигналів — немає хмарного ретранслятора</h4>
+<p>Сигнальний сервер Chameleon (<code>chameleon_signal.py</code>) працює безпосередньо на офісному ПК разом із IDE або всередині Termux на будь-якому телефоні Android у парку. Телефони автопарку підключаються до нього через Tailscale або локальну точку доступу — без ретрансляції сторонніх розробників і щомісячного рахунку за сервер.</p>
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+<span style="font-size:2rem;">🏢</span>
+<div>
+<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Офісний ПК під керуванням Chameleon IDE</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · WebSocket hub · Команда Fleet</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+<span style="color:#94a3b8;font-size:.83rem;">Підключений автопарк →</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Водій А</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Водій Б</span>
+<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Польова команда</span>
+<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — надзвичайна ситуація</span>
+</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Через Tailscale (віддалено) або точку доступу LAN (конвой) · Немає хмарного ретранслятора · Зашифровано E2E</div>
+</div>
+<div class="cta-band">
+<h3>Подивіться AI IDE у дії</h3>
+<p>Зв’яжіться з нами, щоб отримати демонстраційну версію або обговорити ліцензію для вашої команди.</p>
+<a class="btn btn-solid" href="../contact.html">Запит на демонстрацію</a>
+<a class="btn" href="../logistics4x4.html">Логістика 4×4 →</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
+</div>
+<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Контакти та ліцензування — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    @media (max-width: 680px) { .contact-layout { grid-template-columns: 1fr; } }
+    .contact-box {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2rem; box-shadow: var(--shadow);
+    }
+    .contact-box h3 { color: var(--brand-start); margin-bottom: 1rem; font-size: 1.2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.2rem; }
+    .contact-item .ci { font-size: 1.6rem; flex-shrink: 0; margin-top: .1rem; }
+    .contact-item a { color: var(--brand-start); text-decoration: none; font-weight: 500; }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-item p { color: var(--muted); font-size: .9rem; margin-top: .15rem; }
+    .lic-table { width: 100%; border-collapse: collapse; }
+    .lic-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .9rem;
+    }
+    .lic-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); font-size: .9rem; color: var(--muted); }
+    .lic-table tr:last-child td { border-bottom: none; }
+    .lic-table .yes { color: #16a34a; font-weight: 600; }
+    .lic-table .no  { color: #dc2626; font-weight: 600; }
+    .faq { margin-top: 2rem; }
+    .faq-item { background: white; border-radius: var(--radius); border: 1px solid var(--border); padding: 1.3rem 1.5rem; margin-bottom: .8rem; box-shadow: var(--shadow); }
+    .faq-item h4 { color: var(--brand-start); margin-bottom: .4rem; }
+    .faq-item p  { color: var(--muted); font-size: .93rem; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a>
+<a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a>
+<a href="../classroom.html">Класна кімната</a>
+<a class="active" href="../contact.html">контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../contact.html">🌐 EN — English</a><a href="../ar/contact.html">🇸🇦 AR — العربية</a><a href="../cy/contact.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/contact.html">🇩🇪 DE — Deutsch</a><a href="../es/contact.html">🇪🇸 ES — Español</a><a href="../fr/contact.html">🇫🇷 FR — Français</a><a href="../hi/contact.html">🇮🇳 HI — हिन्दी</a><a href="../it/contact.html">🇮🇹 IT — Italiano</a><a href="../ja/contact.html">🇯🇵 JA — 日本語</a><a href="../ko/contact.html">🇰🇷 KO — 한국어</a><a href="../pt/contact.html">🇵🇹 PT — Português</a><a href="../ru/contact.html">🇷🇺 RU — Русский</a><a href="../zh/contact.html">🇨🇳 ZH — 中文</a><a href="../el/contact.html">🇬🇷 EL — Ελληνικά</a><a href="../id/contact.html">🇮🇩 ID — Indonesia</a><a href="../pl/contact.html">🇵🇱 PL — Polski</a><a href="../ro/contact.html">🇷🇴 RO — Română</a><a href="../sw/contact.html">🇰🇪 SW — Kiswahili</a><a href="../vi/contact.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">✉️</div>
+<h1>Контакти та ліцензування</h1>
+<p class="sub">Зв’яжіться з нами, щоб отримати демонстраційні версії, комерційні ліцензії, користувацькі інтеграції або загальні запитання. Ми невелика компанія у Великій Британії — ви будете говорити безпосередньо з розробником.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 Британська компанія</span>
+<span class="badge">⚡ Швидка відповідь</span>
+<span class="badge">🤝 Зверніться безпосередньо до розробника</span>
+</div>
+</div>
+<div class="page">
+<div class="contact-layout">
+<div class="contact-box">
+<h3>Зв'яжіться</h3>
+<div class="contact-item">
+<div class="ci">📧</div>
+<div>
+<a href="mailto:stemsee@chameleon-ai-agent-ltd.net">stemsee@chameleon-ai-agent-ltd.net</a>
+<p>Основний контакт — демонстрації, ліцензування, підтримка</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="ci">🏢</div>
+<div>
+<strong>Chameleon AI Technicians Ltd</strong>
+<p>Зареєстровано в Англії та Уельсі · Фрілансовий інструментарій ШІ для компаній і окремих осіб</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="ci">👤</div>
+<div>
+<strong>Маркос aka stemsee</strong>
+<p>Ведучий розробник — на всі питання відповідає особисто</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="ci">⏱️</div>
+<div>
+<strong>Час відгуку</strong>
+<p>Зазвичай протягом 1 робочого дня (години у Великобританії)</p>
+</div>
+</div>
+</div>
+<div class="contact-box">
+<h3>Що додати до електронної пошти</h3>
+<ul style="color:var(--muted);padding-left:1.2rem;line-height:2.1;">
+<li>Які функції вас найбільше цікавлять</li>
+<li>Ваш передбачуваний варіант використання (особистий/діловий/класна кімната)</li>
+<li>Необхідна кількість користувачів або місць</li>
+<li>Ваша операційна система (Linux / Windows / macOS)</li>
+<li>Будь-які вимоги до інтеграції чи налаштування</li>
+<li>Чи бажаєте ви демонстрацію в прямому ефірі (відеодзвінок)</li>
+</ul>
+</div>
+</div>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ Ліцензування — очікує завершення</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">Chameleon AI ще не випущено. Жодна ліцензія — особиста, комерційна чи інша — наразі не пропонується й не надається. Умови ліцензування знаходяться на стадії розробки та можуть бути змінені без попередження. Не приймайте жодних ділових або юридичних рішень на основі інформації про ліцензування, наведеної на цьому сайті.</p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Планове ліцензування (можливі зміни)</h2>
+<p>Ці умови є орієнтовними і ще не вступили в силу</p>
+</div>
+<div class="split">
+<div class="card" style="opacity:.7;">
+<div class="card-icon">🆓</div>
+<h3>GPL 3.0 — Особисте використання <span style="font-size:.75rem;color:#b91c1c;font-weight:400;">(ще не активний)</span></h3>
+<p>Призначено для особистого безоплатного використання згідно з GNU General Public License v3. Умови ще не визначені.</p>
+<ul style="margin-top:.8rem;color:var(--muted);padding-left:1.1rem;font-size:.93rem;line-height:2;">
+<li>Особисті проекти — плануються</li>
+<li>Навчання та експерименти — планується</li>
+<li>Підлягає доопрацюванню</li>
+</ul>
+</div>
+<div class="card" style="opacity:.7;">
+<div class="card-icon">🏢</div>
+<h3>Комерційна ліцензія <span style="font-size:.75rem;color:#b91c1c;font-weight:400;">(ще не активний)</span></h3>
+<p>Комерційна ліцензія планується для платного або комерційного використання. Терміни, ціна та обсяг ще не визначені. Зв'яжіться з нами, щоб зареєструвати інтерес.</p>
+<ul style="margin-top:.8rem;color:var(--muted);padding-left:1.1rem;font-size:.93rem;line-height:2;">
+<li>Службове використання — планове</li>
+<li>Ціни уточнюються</li>
+<li>Зв'яжіться з нами, щоб зареєструвати інтерес</li>
+</ul>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Часті запитання</h2>
+</div>
+<div class="faq">
+<div class="faq-item">
+<h4>Можна спробувати Chameleon?</h4>
+<p>Наразі продукт тестується і ще не доступний для загального випуску. Зв’яжіться з нами, щоб зареєструвати інтерес або подати запит на демонстрацію — ми зв’яжемося, коли вона буде готова.</p>
+</div>
+<div class="faq-item">
+<h4>Чи працює без підключення до Інтернету?</h4>
+<p>Більшість функцій працюють в автономному режимі: редактор, бухгалтерія, доповідач і портер водія працюють локально. Функції штучного інтелекту вимагають підключення до Інтернету для хмарних провайдерів (DeepSeek, OpenAI тощо), але працюють в автономному режимі з локальним екземпляром Ollama або LM Studio.</p>
+</div>
+<div class="faq-item">
+<h4>Які платформи підтримуються?</h4>
+<p>Linux є основною платформою розробки. Windows і macOS підтримуються через <code>platform_utils.py</code>. Супутня програма Android підключається через WebSocket до настільної програми.</p>
+</div>
+<div class="faq-item">
+<h4>Чи можете ви додати функцію або інтегруватися з нашою системою?</h4>
+<p>Планується індивідуальна інтеграція. Зв’яжіться з нами та повідомте свої вимоги — типові запити включають користувальницькі постачальники штучного інтелекту, індивідуальні облікові робочі процеси та автоматизацію Tailscale ACL. Умови підлягають уточненню.</p>
+</div>
+<div class="faq-item">
+<h4>Чи безпечні ключі API?</h4>
+<p>Ключі API зберігаються в <code>api_keys.env</code> на вашому локальному комп’ютері та ніколи не передається нікуди, крім обраного вами постачальника. Сервер API БД лише для читання (порт 8769) обмежено вашою мережею Tailscale.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Готовий поговорити?</h3>
+<p>Надішліть нам електронний лист, і ми зв’яжемося з вами протягом одного робочого дня.</p>
+<a class="btn btn-solid" href="mailto:stemsee@chameleon-ai-agent-ltd.net">stemsee@chameleon-ai-agent-ltd.net</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
+</div>
+<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

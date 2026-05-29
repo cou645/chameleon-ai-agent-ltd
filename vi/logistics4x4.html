@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hậu cần 4×4 — Truyền thông Hạm đội Xuyên Biên giới</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ ĐANG THỬ NGHIỆM — Trang web này đang được phát triển tích cực. Các tính năng, giá cả và giấy phép chưa được hoàn thiện.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a class="active" href="../logistics4x4.html">Hậu cần 4×4</a>
+<a href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Hậu cần 4×4</h1>
+<p class="sub">Thông tin liên lạc đội tàu xuyên biên giới cho các nhà khai thác nhỏ. Bốn người gọi SIM và bốn người gọi video P2P chia sẻ một không gian cuộc gọi duy nhất — tài xế ở biên giới, trụ sở chính, hải quan, khách hàng — tất cả đều có mặt trong phòng cùng một lúc. Bản đồ trực tiếp, tuyến đường GPX, bản kê khai hàng hóa, trò chuyện thoại được dịch và chương trình phát sóng khẩn cấp, tất cả đều có trên điện thoại Android tiêu chuẩn.</p>
+<div class="hero-badges">
+<span class="badge">📹 4 video ngang hàng</span>
+<span class="badge">📞 4 SIM gọi được</span>
+<span class="badge">🗺 Bản đồ trực tiếp + GPX</span>
+<span class="badge">📍 Lớp POI</span>
+<span class="badge">🧭 La bàn ngoại tuyến</span>
+<span class="badge">🌍 15 ngôn ngữ</span>
+<span class="badge">📋 Bản kê khai + bảng chạy</span>
+<span class="badge">🚨 Phát sóng khẩn cấp</span>
+<span class="badge">📟 Chế độ khẩn cấp - SMS và ngang hàng</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Hậu cần 4×4</span>
+<div class="phone-status">● Hạm đội trực tuyến</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Giao điểm 3 — đi tiếp B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: “Đã làm thủ tục hải quan, tiến tới cổng 7”</div>
+<div class="p-chat p-chat-out">Trên đường đi - ETA 14 phút</div>
+<div class="p-chat p-chat-in">Khách hàng sử dụng SIM — đang kết nối…</div>
+<div class="p-chat p-chat-out">📍 Vị trí được chia sẻ với đội xe</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Gửi hàng</span>
+<span class="p-peer p-peer-on">🎥 Tài xế B</span>
+<span class="p-peer p-peer-sim">📞 Hải quan</span>
+<span class="p-peer p-peer-sim">📞 Khách hàng</span>
+<span class="p-peer p-peer-map">🗺 Bản đồ</span>
+<span class="p-peer p-peer-map">🧭 La bàn</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Không gian cuộc gọi 4 × 4</h2>
+<p>Cuộc gọi điện thoại SIM và video P2P chia sẻ một không gian được kết nối</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">Một không gian cuộc gọi - tám người tham gia</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 SIM gọi được</h4>
+<ul>
+<li>Giọng nói di động tiêu chuẩn</li>
+<li>Không cần internet</li>
+<li>nhân viên hải quan</li>
+<li>Khách hàng ở nước ngoài</li>
+<li>Điện thoại cố định của trụ sở chính</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 video ngang hàng P2P</h4>
+<ul>
+<li>WebRTC — không có hóa đơn máy chủ</li>
+<li>Video + âm thanh toàn lưới</li>
+<li>Lái xe đến lái xe</li>
+<li>Bộ điều khiển điều phối</li>
+<li>Thành viên nhóm từ xa</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Âm thanh từ các cuộc gọi SIM được hợp nhất phần cứng vào cuộc gọi nhóm thông qua ngăn xếp viễn thông của Android hoặc Bluetooth SCO — chỉ có tai nghe, riêng tư.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistics 4x4 không nhằm mục đích thay thế một nền tảng logistics độc quyền chuyên nghiệp như những nền tảng được sử dụng bởi các mạng lưới chuyển phát nhanh lớn. Nó lấp đầy khoảng trống cho <strong>toán tử nhỏ</strong>, những người kinh doanh cá thể và những tình huống mà một công cụ của doanh nghiệp lớn không thể tiếp cận được — một tài xế ở cửa khẩu biên giới xa xôi cần kết nối ngay với trụ sở chính, tài xế thứ hai cách đó ba dặm, thanh tra hải quan trong quầy và khách hàng ở một quốc gia khác chỉ có thể gọi điện qua điện thoại.
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Nó dành cho ai</h2>
+<p>Được thiết kế cho truyền thông hiện trường có yêu cầu cao, cơ sở hạ tầng thấp</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Vượt biên</h4>
+<p>Tài xế kết nối nhân viên hải quan (cuộc gọi SIM), trụ sở chính (video), khách hàng nhận (cuộc gọi SIM) và tài xế thứ hai trong đoàn xe (video) — tất cả đồng thời, với tính năng trò chuyện được dịch trực tiếp hiển thị cho mọi người.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Đoàn xe đường dài</h4>
+<p>Xe tải trải rộng trên 50 dặm tham gia một cuộc gọi chung với tính năng bấm để nói, chia sẻ vị trí trên cùng một bản đồ trực tiếp và tuyến đường điều phối sẽ được đẩy đến dưới dạng tệp GPX được tải trực tiếp trên bản đồ.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Địa hình/đi bộ xuyên rừng</h4>
+<p>Không có tín hiệu dữ liệu? La bàn ngoại tuyến hiển thị mũi tên hướng tới mọi thành viên khác trong hạm đội. Các chân POI đánh dấu các điểm dừng đổ xăng, các mối nguy hiểm và điểm hẹn - được nhúng trong tệp GPX được đẩy hoặc bị bất kỳ người lái xe nào đánh rơi trên bản đồ. Các liên kết điểm nóng tầm xa giữa các xe tải với ăng-ten định hướng có thể đạt tới hơn 50 dặm.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Đội ngũ đa ngôn ngữ</h4>
+<p>Tính năng nhấn để nói phiên âm lời nói, phát hiện ngôn ngữ của người nói, dịch và truyền văn bản + âm thanh theo ngôn ngữ riêng của mỗi người nghe — 15 ngôn ngữ, được cung cấp bởi máy chủ Argos Translate cục bộ trên điện thoại.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Bằng chứng giao hàng</h4>
+<p>Tài xế quét mã QR kho để tải bảng kê khai, sau đó quét QR POD của khách hàng khi giao hàng. Từ chối giao hàng? Chụp ảnh và ghi chú ngoại lệ bằng văn bản. Chữ ký của khách hàng được chụp trên màn hình.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Văn phòng điều phối</h4>
+<p>Màn hình của người điều phối hiển thị tất cả các tài xế trên bản đồ trực tiếp, chạy bảng chạy, đẩy các bảng kê khai và lộ trình đến từng tài xế qua kênh ngang hàng và phát các cảnh báo khẩn cấp trên toàn đội.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Bản đồ trực tiếp, POI &amp; La bàn</h2>
+<p>Các lớp OSM, vệ tinh và kết hợp - vị trí ngang hàng, tuyến GPX, điểm ưa thích và bộ đệm ẩn ngoại tuyến</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Đường phố</span>
+<span class="map-tag mt-sat">Vệ tinh</span>
+<span class="map-tag mt-hybrid">lai</span>
+<span class="map-tag mt-gpx">Tuyến đường GPX</span>
+<span class="map-tag mt-poi">lớp POI</span>
+<span class="map-tag mt-offline">Bộ nhớ đệm ngoại tuyến</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Ô OpenStreetMap</span>
+<span class="tag">Hình ảnh thế giới Esri</span>
+<span class="tag">tòa nhà 2.5D</span>
+<span class="tag">Định tuyến OSRM</span>
+<span class="tag">Cụ thể là tìm kiếm địa điểm</span>
+<span class="tag">Bộ nhớ đệm ổ đĩa</span>
+<span class="tag">lớp POI</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Định tuyến điểm tham chiếu</span>
+<span class="poi-dot poi-push">📍 IDE được đẩy</span>
+<span class="poi-dot poi-manual">📍 Bị tài xế bỏ rơi</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Ba lớp bản đồ</h4>
+<p>Chu kỳ giữa <strong>Đường phố</strong> (OpenStreetMap), <strong>Vệ tinh</strong> (Hình ảnh thế giới Esri) và <strong>lai</strong> (cơ sở vệ tinh + lớp phủ đường OSM) chỉ bằng một cú chạm. Tất cả các ô đều được lưu vào bộ nhớ đệm trên đĩa — các khu vực đã xem trước đó sẽ tải ngoại tuyến mà không có dữ liệu.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Vị trí ngang hàng trên bản đồ</h4>
+<p>Mọi thành viên nhóm cho phép chia sẻ vị trí sẽ xuất hiện dưới dạng ghim trực tiếp. Nhấn vào ghim để xem tên và ETA của họ. Người điều phối có thể xem nhanh toàn bộ đội tàu mà không cần nền tảng theo dõi riêng.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>Đẩy tuyến đường GPX</h4>
+<p>Văn phòng đẩy một <code>.gpx</code> định tuyến tệp từ Chameleon PC trực tiếp tới điện thoại của trình điều khiển qua kênh ngang hàng. Tuyến đường tải ngay lập tức trên bản đồ dưới dạng lớp phủ màu. Các tuyến đường gần đây được lưu trữ cục bộ để sử dụng lại. Hỗ trợ hiệu chỉnh bù tọa độ GCJ-02 cho Trung Quốc.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Khóa la bàn hoặc hướng lên phía bắc</h4>
+<p>Bản đồ xoay trực tiếp bằng la bàn của thiết bị để định hướng lái xe hướng lên trên hoặc khóa hướng lên phía bắc để đọc bản đồ truyền thống — chuyển đổi trong cài đặt theo tùy chọn của người lái xe.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Màn hình la bàn - điều hướng ngang hàng ngoại tuyến</h4>
+<p>Không có dữ liệu? Hoa hồng la bàn toàn màn hình hiển thị một mũi tên hướng cho mỗi thiết bị ngang hàng trực tuyến sử dụng GPS được biết đến gần đây nhất. Cập nhật khoảng cách ngang hàng và hướng la bàn từ các vị trí được lưu trong bộ nhớ đệm — hữu ích cho người đi bộ, điều hướng đoàn xe địa hình và phối hợp cứu hộ trên núi.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Lớp Điểm ưa thích (POI)</h4>
+<p>Ba nguồn POI được hiển thị dưới dạng ghim được mã hóa màu trên bản đồ. <strong style="color:#f59e0b;">Hổ phách</strong> ghim đến từ <code>&lt;wpt&gt;</code> các điểm tham chiếu được nhúng trong tệp GPX - chúng tải tuyến đường và xóa nó. <strong style="color:#22c55e;">Màu xanh lá</strong> các chốt được đẩy trực tiếp từ Chameleon PC IDE (điểm dừng nhiên liệu, mối nguy hiểm, địa chỉ giao hàng) độc lập với bất kỳ tuyến đường nào. <strong style="color:#ef4444;">Màu đỏ</strong> người lái xe sẽ đánh rơi các chốt bằng cách nhấn và giữ trên bản đồ. Tất cả POI vẫn tồn tại qua các phiên; nhấn vào bất kỳ ghim nào để điều hướng, mở trong Maps hoặc xóa. Các biểu tượng thích ứng với loại: ⛽ nhiên liệu, 🚚 giao hàng, ⚠️ nguy hiểm, 🏥 bệnh viện, 🅿️ bãi đậu xe, ✈️ sân bay và hơn thế nữa.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Tất cả các tính năng</h2>
+<p>Mọi màn hình và dịch vụ trong ứng dụng</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">ngang hàng</span>
+<div class="fc-icon">📹</div>
+<h3>Video P2P nhóm</h3>
+<p>Video và âm thanh WebRTC toàn lưới cho tối đa hơn 4 thiết bị ngang hàng — không có máy chủ phương tiện trung tâm, không có hóa đơn cuộc gọi hàng tháng. Lưới thích ứng: 1 ngang hàng = toàn màn hình, 2 = cạnh nhau, 3 = 2+1, 4 = 2×2. Nguồn cấp dữ liệu địa phương nổi dưới dạng ảnh trong ảnh. Tỷ lệ bitrate trên mỗi thiết bị ngang hàng (1,5 Mbps → 350 Kbps) để duy trì chất lượng ngay cả ở mọi quy mô nhóm. Cuộc gọi đến đổ chuông và rung ngay cả khi ứng dụng ở chế độ nền.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Toàn bộ lưới WebRTC</span><span class="tag">Lưới thích ứng</span><span class="tag">PiP địa phương</span><span class="tag">Đổ chuông + rung</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">CẦU SIM</span>
+<div class="fc-icon">📞</div>
+<h3>Cầu gọi SIM</h3>
+<p>Trong một cuộc gọi di động và muốn kết nối với một thiết bị ngang hàng P2P? Vỗ nhẹ <strong>Thêm vào nhóm</strong> — Ngăn xếp viễn thông của Android đăng ký phiên WebRTC cùng với cuộc gọi SIM và đưa ra tùy chọn "Hợp nhất cuộc gọi" gốc. Sự trộn âm thanh xảy ra trong chip điện thoại — <strong>chỉ tai nghe</strong>, hoàn toàn riêng tư. Khi thiết bị hoặc nhà cung cấp dịch vụ không hỗ trợ hội nghị phần cứng, định tuyến tai nghe Bluetooth SCO được sử dụng làm phương án dự phòng.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Hội nghị phần cứng</span><span class="tag">Dự phòng BT SCO</span><span class="tag">Chỉ tai nghe</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">TIN NHẮN</span>
+<div class="fc-icon">🗣️</div>
+<h3>Nhấn để nói + Dịch trực tiếp</h3>
+<p>Giữ nút PTT để nói — Trình nhận dạng giọng nói của Android (16 kHz, 16-bit) sẽ chuyển thành văn bản theo thời gian thực. Ngôn ngữ được phát hiện sẽ được gửi đến thiết bị trên <strong>Argos Dịch</strong> máy chủ. Mỗi người nghe nhận được thông báo được dịch sang ngôn ngữ đã chọn của riêng họ và được TTS đọc to. Luồng phiên âm một phần dưới dạng chỉ báo nhập trực tiếp trong khi ghi. Hoạt động trên kênh P2P hoặc độc lập qua điểm phát sóng.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Tự động phát hiện ngôn ngữ</span><span class="tag">Argos Dịch</span><span class="tag">Đọc TTS trực tiếp</span><span class="tag">15 ngôn ngữ</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">PHÁT TIN</span>
+<div class="fc-icon">🚨</div>
+<h3>Báo giá &amp; Phát sóng khẩn cấp</h3>
+<p>Bộ điều phối phát một tin nhắn trên toàn nhóm — nó xuất hiện dưới dạng thanh đánh dấu có chiều rộng đầy đủ ở đầu mỗi màn hình. Bốn mức độ ưu tiên: <strong style="color:#dc2626;">Khẩn cấp</strong> (nhấp nháy màu đỏ, giới hạn tốc độ cho mỗi người gửi), <strong style="color:#dc2626;">Quan trọng</strong> (đỏ trên trắng), <strong style="color:#16a34a;">Hướng dẫn</strong> (đen trên xanh), <strong>Thông tin</strong> (màu vàng trên nền đen). Tin nhắn có thể kích hoạt tính năng đọc TTS trên điện thoại của người nhận. TTL có thể định cấu hình: 1 phút đến “cho đến khi bị loại bỏ”.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Phát sóng toàn đội</span><span class="tag">4 mức độ ưu tiên</span><span class="tag">đọc TTS</span><span class="tag">Tự động hết hạn</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">NGƯỜI ĐIỀU PHỐI</span>
+<div class="fc-icon">🗂</div>
+<h3>Bảng điều khiển của người điều phối</h3>
+<p>Chế độ xem điều phối ba tab: <strong>Trình điều khiển</strong> (vị trí trực tiếp, đẩy bảng kê khai, chỉ định tuyến đường), <strong>Chạy bảng</strong> (dừng nhiều lần thả kéo để sắp xếp lại, trạng thái nhấn theo chu kỳ, nhập/xuất CSV) và <strong>Bản kê khai hàng hóa</strong> (Quét QR tải tại kho, quét POD QR khi giao hàng). Người điều phối có thể đẩy các tuyến GPX và tệp hóa đơn trực tiếp đến các trình điều khiển riêng lẻ qua kênh ngang hàng.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Theo dõi tài xế</span><span class="tag">Đẩy rõ ràng</span><span class="tag">Đẩy tuyến đường</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">TỔNG HỢP</span>
+<div class="fc-icon">📦</div>
+<h3>Bản kê khai hàng hóa</h3>
+<p>Quét mã QR kho để tải các mặt hàng vào bảng kê khai. Khi giao hàng, hãy quét POD QR của khách hàng để đánh dấu đã giao hàng. Xử lý ngoại lệ: nhật ký giao hàng bị từ chối có ảnh và ghi chú bằng văn bản; nơi thả an toàn ghi lại ảnh vị trí thả; chữ ký của khách hàng được ghi lại trên màn hình cảm ứng. Tất cả các sự kiện đều được đánh dấu thời gian bằng tọa độ GPS.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Quét QR vào/ra</span><span class="tag">Ảnh POD</span><span class="tag">Chữ ký màn hình</span><span class="tag">Dấu thời gian GPS</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">BẢNG CHẠY</span>
+<div class="fc-icon">🛣</div>
+<h3>Chạy bảng</h3>
+<p>Danh sách phân phối nhiều lần thả với các điểm dừng kéo để sắp xếp lại. Nhấn vào biểu tượng trạng thái để xoay vòng từng điểm dừng: Đang chờ → Đã đến → Đã giao. Nhấn vào bất kỳ địa chỉ nào để mở địa chỉ đó trong ứng dụng bản đồ của điện thoại để điều hướng từng chặng. Nhập từ CSV — nhận biết tiêu đề, tương thích với Onfleet, Routific, Circuit và xuất tùy chỉnh. Xuất sang CSV và chia sẻ qua bảng chia sẻ hệ thống.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Kéo sắp xếp lại</span><span class="tag">Nhập CSV</span><span class="tag">Tương thích Onfleet/Routific</span><span class="tag">Chia sẻ xuất khẩu</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">HÓA ĐƠN</span>
+<div class="fc-icon">🧾</div>
+<h3>Hóa đơn</h3>
+<p>Tạo, in và chia sẻ hóa đơn trực tiếp từ điện thoại. Office có thể đẩy hóa đơn được chuẩn bị trước từ mô-đun kế toán Chameleon PC tới tài xế qua kênh ngang hàng — tài xế xem xét, ký và gửi ngay tại chỗ. Bảng điều khiển kế toán được phân chia theo vai trò: khách (chỉ tổng số), người điều hành (giao dịch đầy đủ + hóa đơn) và quản trị viên (gửi MTD + cấp quyền truy cập QR).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Đẩy từ PC</span><span class="tag">In / PDF</span><span class="tag">Kiểm soát vai trò</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">KHẨN CẤP</span>
+<div class="fc-icon">📟</div>
+<h3>Chế độ khẩn cấp - SMS &amp; ngang hàng</h3>
+<p>Không có dữ liệu? Ứng dụng quay trở lại giao thức được mã hóa nhỏ gọn. Tài xế (<strong>D</strong>), Người đi bộ đường dài (<strong>H</strong>) và Dịch vụ khẩn cấp (<strong>X</strong>) các hồ sơ chia sẻ thang đo cảnh báo chung. Tọa độ GPS được nhúng tự động. Tin nhắn được TTS giải mã và đọc to khi nhận được. A99+H99 là SOS phổ quát — phát tới tất cả các địa chỉ liên hệ và đồng nghiệp trong nhóm chỉ bằng một lần nhấn. Khi có sẵn dữ liệu, các khung sẽ di chuyển qua kênh ngang hàng thay vì SMS - có thể chọn mỗi lần gửi: <strong>chỉ gửi tin nhắn SMS</strong>, <strong>Chỉ ngang hàng</strong>, hoặc <strong>Cả hai</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 hồ sơ người dùng</span><span class="tag">GPS nhúng</span><span class="tag">giải mã TTS</span><span class="tag">METHane căn chỉnh</span>
+<span class="tag">SMS · Ngang hàng · Cả hai</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Mã tham khảo →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">LIÊN HỆ</span>
+<div class="fc-icon">👥</div>
+<h3>Danh bạ &amp; Nhóm</h3>
+<p>Sổ liên lạc thống nhất kết hợp số điện thoại SIM, ID ngang hàng Tailscale và các nhóm hỗn hợp. Tạo một <em>Đội biên phòng</em> nhóm chứa hai đồng nghiệp P2P và một số SIM - hãy chạm vào nhóm để bắt đầu cuộc gọi đến cả ba. Lịch sử cuộc gọi với dấu thời gian. Ảnh đại diện cho mỗi liên hệ. Mỗi thành viên nhóm đặt ảnh hồ sơ trong Cài đặt — ảnh này được chia sẻ tự động qua kênh tín hiệu khi họ kết nối, vì vậy mọi thành viên trong nhóm đều nhìn thấy ảnh thật thay vì chữ cái đầu.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + đồng nghiệp</span><span class="tag">Nhóm hỗn hợp</span><span class="tag">Lịch sử cuộc gọi</span><span class="tag">Chia sẻ hình đại diện</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">MẠNG</span>
+<div class="fc-icon">📶</div>
+<h3>Mạng linh hoạt</h3>
+<p>Kết nối qua <strong>vảy đuôi</strong> (từ xa, qua internet) hoặc trực tiếp <strong>Mạng LAN / điểm truy cập</strong> — hữu ích cho xe tải trong đoàn xe hoặc nơi lắp đặt ăng-ten định hướng tầm xa (hơn 50 dặm ở địa hình rộng mở). Tính năng tự động phát hiện mDNS sẽ tìm thấy các điện thoại khác trong nhóm trên cùng một mạng Wi-Fi mà không cần nhập địa chỉ IP theo cách thủ công.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">vảy đuôi</span><span class="tag">Mạng LAN / điểm truy cập</span><span class="tag">khám phá mDNS</span><span class="tag">Phạm vi điểm nóng hơn 50 dặm</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">TRÔI NỔI</span>
+<div class="fc-icon">🪟</div>
+<h3>Lớp phủ nổi</h3>
+<p>Ứng dụng có thể nổi dưới dạng lớp phủ liên tục phía trên tất cả các ứng dụng khác — hữu ích khi người lái xe cần kiểm tra điều hướng trong khi vẫn duy trì cuộc gọi ở một góc màn hình. Các cuộc gọi ngang hàng đến sẽ tự động đưa lớp phủ lên phía trước bằng tính năng chuông + rung, đảm bảo người lái xe không bao giờ bỏ lỡ cuộc gọi khẩn cấp từ người điều phối.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Lớp phủ luôn ở trên cùng</span><span class="tag">Tự động đưa lên phía trước</span><span class="tag">Đổ chuông + rung</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">TẮM CẮM</span>
+<div class="fc-icon">🖥️</div>
+<h3>Tích hợp PC Chameleon</h3>
+<p>Kết nối với Chameleon AI IDE trên máy tính để bàn hoặc PC văn phòng thông qua WebSocket. Văn phòng có thể đẩy các tuyến đường GPX (với các điểm tham chiếu nhúng được phân tích cú pháp tự động dưới dạng POI), bộ POI độc lập, tệp PDF hóa đơn và dữ liệu bảng kê khai tới các trình điều khiển tại hiện trường — trên toàn bộ kênh tín hiệu luôn bật, không cần thực hiện cuộc gọi video. Máy chủ tín hiệu Chameleon (<code>chameleon_signal.py</code>) chạy trên PC hoặc trong Termux trên bất kỳ điện thoại nào trong nhóm, do đó không cần chuyển tiếp đám mây.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Đẩy tuyến đường</span><span class="tag">SAU ĐÓ đẩy</span><span class="tag">Đẩy hóa đơn</span><span class="tag">Không có chuyển tiếp đám mây</span><span class="tag">Máy chủ tín hiệu Termux</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 ngôn ngữ</h2>
+<p>Bản dịch giao diện người dùng đầy đủ cộng với bản dịch giọng nói PTT trực tiếp được cung cấp bởi Argos Translate trên thiết bị</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 Tiếng Anh</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 tiếng Pháp</span>
+<span class="lang-chip">🇩🇪 Tiếng Đức</span>
+<span class="lang-chip">🇪🇸 Tiếng Tây Ban Nha</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴Ҡҧ۠ҺҥҥҠҠҧҺ Xứ Wales</span>
+<span class="lang-chip">🇧🇷 tiếng Bồ Đào Nha</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 tiếng Ba Lan</span>
+<span class="lang-chip">🇷🇴 Tiếng Rumani</span>
+<span class="lang-chip">🇻🇳 Tiếng Việt</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Tự động phát hiện ngôn ngữ</h4>
+<p>Dịch vụ PTT tự động phát hiện ngôn ngữ của người nói — người lái xe nói tiếng Đức và người điều phối nói tiếng Tây Ban Nha có thể nhấn để nói một cách thoải mái mà không cần chọn ngôn ngữ mỗi lần.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>Dịch trên thiết bị - không có đám mây</h4>
+<p>Các bản dịch được xử lý bởi máy chủ Argos Translate chạy cục bộ trên điện thoại bên trong Termux. Lời nói và văn bản không bao giờ rời khỏi thiết bị để dịch. Hoạt động ngoại tuyến sau khi cài đặt gói ngôn ngữ.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS trong ngôn ngữ của người nghe</h4>
+<p>Sau khi dịch, mỗi tin nhắn sẽ được đọc to bằng ngôn ngữ của người nhận bằng cách sử dụng Android TTS — người nghe sẽ nghe thấy tin nhắn đã dịch ngay cả khi không nhìn vào màn hình, lý tưởng cho người lái xe đang quan sát đường đi.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Chế độ khẩn cấp - SMS &amp; Kênh ngang hàng</h2>
+<p>Một giao thức mã nhỏ gọn hoạt động qua SMS khi hết dữ liệu hoặc qua kênh ngang hàng của nhóm khi không còn dữ liệu</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Vận chuyển kép - SMS hoặc kênh ngang hàng</h4>
+<p>Khi không có dữ liệu di động — ở sâu trong bụi rậm, tại cửa khẩu biên giới từ xa hoặc khi mạng ngừng hoạt động — Logistics 4×4 sẽ gửi các khung trạng thái được mã hóa qua SMS tiêu chuẩn. Khi dữ liệu <em>là</em> sẵn có, các khung hình tương tự sẽ truyền qua kênh ngang hàng của nhóm ở tốc độ tối đa. Bộ chọn mỗi lần gửi cho phép bạn chọn <strong>chỉ gửi tin nhắn SMS</strong>, <strong>Chỉ ngang hàng</strong>, hoặc <strong>Cả hai</strong>. SOS luôn kích hoạt đồng thời trên mọi kênh có sẵn bất kể cài đặt.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Ba hồ sơ - một ngôn ngữ chung</h4>
+<p>Các mã được tổ chức thành ba hồ sơ người dùng có chung từ vựng cảnh báo chung: <strong>D – Người lái xe</strong> (biên giới, hàng hóa, đoàn xe, nhiên liệu, điều kiện đường sá), <strong>H - Người đi bộ đường dài</strong> (các chỉ số quan trọng, đường đi, thiết bị, lịch trình đăng ký) và <strong>X - Dịch vụ khẩn cấp</strong> (phân loại, loại sự cố, nguồn lực tại hiện trường, tình trạng sơ tán). Một SOS từ bất kỳ hồ sơ nào đều được hiểu bởi tất cả.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Phù hợp với tiêu chuẩn khẩn cấp quốc tế</h4>
+<p>Hồ sơ Dịch vụ Khẩn cấp sử dụng thang phân loại P1–P4 quốc tế (Ngay lập tức / Trì hoãn / Nhỏ / Dự kiến) và các danh mục sự cố phù hợp với khuôn khổ sự cố lớn METHane được các dịch vụ khẩn cấp chung trên toàn thế giới sử dụng. Nhân viên y tế hoặc điều phối viên SAR tham gia hoạt động liên cơ quan sẽ nhận ra thuật ngữ này ngay lập tức.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Tự động đọc khi nhận</h4>
+<p>Các tin nhắn được mã hóa đến được giải mã và đọc to bằng tính năng chuyển văn bản thành giọng nói - người lái xe luôn để mắt đến đường hoặc người trả lời đang bận tay sẽ nghe thấy ý nghĩa hoàn toàn bằng tiếng Anh đơn giản của mỗi mã mà không cần chạm vào điện thoại. Tin nhắn bị hỏng kích hoạt yêu cầu gửi lại tự động.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Ví dụ về tin nhắn được mã hóa</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Tài xế - dừng đổ xăng, chậm trễ hải quan</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Lái xe dừng lại · Tiền xăng · Tại hàng chờ hải quan</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Hiker - chấn thương, yêu cầu giúp đỡ</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + “gãy mắt cá chân không đi lại được”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Vết thương nghiêm trọng đã dừng lại · Cần đội cứu hộ · Khẩn cấp</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Dịch vụ khẩn cấp - RTC, thương vong P1</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Va chạm giao thông đường bộ · P1 thương vong đe dọa tính mạng · 2–5 người · Xe cứu thương tại hiện trường · Cần có xe cứu thương trên không</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS - mọi hồ sơ</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS với vị trí GPS - được gửi đến tất cả các địa chỉ liên hệ đã đăng ký ngay lập tức</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Tham chiếu mã trường</div>
+<div style="color:var(--muted);font-size:.82rem;">Tất cả mã cho tất cả hồ sơ - in và mang theo</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">Bảng mã hoàn chỉnh cho hồ sơ Người lái xe, Người đi bộ đường dài và Dịch vụ Khẩn cấp. Tải xuống dưới dạng PDF và giữ một bản sao trên điện thoại, trong xe taxi hoặc trong ba lô của bạn.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 Xem và tải mã tham khảo
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Được thiết kế xung quanh khoảng cách</h2>
+<p>Không phải là sự thay thế cho phần mềm hậu cần doanh nghiệp - một giải pháp cho những nơi không có phần mềm doanh nghiệp</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>Không tính phí cho mỗi chỗ ngồi, mỗi tài xế</h4>
+<p>Cuộc gọi ngang hàng WebRTC là cuộc gọi trực tiếp từ điện thoại này sang điện thoại khác không có máy chủ chuyển tiếp phương tiện và không tính phí hàng tháng cho mỗi người dùng. Ứng dụng chạy trên điện thoại Android tiêu chuẩn mà nhóm đã cung cấp.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Hoạt động ở những nơi ứng dụng doanh nghiệp không hoạt động</h4>
+<p>Được thiết kế cho các cửa khẩu biên giới, địa hình xa xôi và các hoạt động quốc tế nơi các ứng dụng hậu cần tiêu chuẩn đảm nhận kết nối dữ liệu nhanh chóng, đáng tin cậy. Quay lại la bàn ngoại tuyến và bản đồ được lưu trong bộ nhớ đệm khi dữ liệu biến mất.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Điện thoại Android tiêu chuẩn</h4>
+<p>Không có phần cứng chuyên dụng. Không đăng ký MDM. Bất kỳ điện thoại Android 7.0+ nào (minSdk 24) chạy APK đều là nút nhóm đầy đủ. Một điểm phát sóng tầm xa được trang bị trên cabin xe tải có thể mở rộng phạm vi phủ sóng P2P lên hơn 50 dặm ở vùng nông thôn rộng mở.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Lộ trình tương lai</h4>
+<p>Các bổ sung theo kế hoạch bao gồm tuân thủ đầy đủ về máy đo tốc độ, giám sát giờ làm việc, tích hợp máy đo tốc độ kỹ thuật số DVSA và nhập KML/GeoJSON để tải lên hàng loạt POI. Nền móng đã được xây dựng sẵn.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Bạn quan tâm đến Logistics 4×4?</h3>
+<p>Hiện đang trong quá trình thử nghiệm — hãy liên hệ với chúng tôi để thảo luận về chương trình thí điểm, yêu cầu bản dựng hoặc hỏi về việc cấp phép cho đội xe của bạn.</p>
+<a class="btn btn-solid" href="../contact.html">Hãy liên lạc</a>
+<a class="btn" href="../companion.html">← Ứng dụng đồng hành</a>
+<a class="btn" href="../index.html">← Tổng quan</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../logistics4x4.html">Hậu cần 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../trading.html">Giao dịch</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Đang chờ cấp phép · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+</footer>
+</body>
+</html>

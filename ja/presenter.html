@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>カメレオン プレゼンター — カメレオン AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
+<div class="nav-links">
+<a href="../index.html">u30dbu30fcu30e0</a>
+<a href="../ide.html">あなたにはアイデアがあります</a>
+<a class="active" href="../presenter.html">プレゼンター</a>
+<a href="../companion.html">コンパニオンアプリ</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">ウェブサービス</a>
+<a href="../accounting.html">u7d4cu7406</a>
+<a href="../technician.html">パソコン技術者</a>
+<a href="../trading.html">トレーディング</a>
+<a href="../classroom.html">u6388u696d</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>カメレオンプレゼンター</h1>
+<p class="sub">劇場にインスピレーションを得たプレゼンテーション システム。スライドはステージ、コンテンツ ブロックはアクター、トランジションはキューであり、すべて携帯電話から制御できます。</p>
+<div class="hero-badges">
+<span class="badge">🎬 演劇のメタファー</span>
+<span class="badge">📱 モバイルコントロール</span>
+<span class="badge">✏️ 共同でお絵かき</span>
+<span class="badge">🖥️ Android ADB ミラー</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>劇場モデル</h2>
+<p>舞台作品のように構築されたプレゼンテーション — オブジェクトには入り口、出口、合図がある</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">ステージ上のカメレオンスタックオブジェクト</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 コンテンツスタック — 講義スライド</div>
+<div class="stage-obj obj-stage">🟡 Stage Stack — 学生の提出物</div>
+<div class="stage-obj obj-misc">🖼️ 画像ボックス</div>
+<div class="stage-obj obj-misc">📄 PDFボックス</div>
+<div class="stage-obj obj-misc">📱 ADB 電話ミラー</div>
+<div class="stage-obj obj-misc">🖥️PPTミラー</div>
+<div class="stage-obj obj-misc">✏️ 製図板</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      白い枠線 = アクティブ · オレンジ色のパルス = ピア送信保留中 · 緑色 = コンテンツ スタック · 黄色 = ステージ スタック
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>カメレオンスタック</h3>
+<p>ユニバーサルコンテンツコンテナ。各スタックには複数のスロット (画像、テキスト、PDF) が保持されます。 2 つのモード:</p>
+<ul>
+<li><strong style="color:#22c55e">コンテンツ</strong> — 教師が管理するスライド</li>
+<li><strong style="color:#eab308">ステージ</strong> — ピアプッシュの送信を受け入れます</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>アニメーションシステム</h3>
+<p>フリーハンド モーション パスを使用したオブジェクトごとの出入りアニメーション。パスは画面上に描画され、保存前に Douglas-Peucker 圧縮と Catmull-Rom スプライン補間によって平滑化されます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>ドレッサーパネル</h3>
+<p>オフステージ待機エリア — ドレッサーでオブジェクトを作成し、ダブルクリックしてステージ上でプレビューします。右クリック メニューから [ドレッサー] にドラッグして戻します。 [プロパティ] パネルには、アニメーションの開始/終了状態が表示されます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>番号付きキュー</h3>
+<p>トリガー ポイントは、劇場の照明の合図と同じように、プレゼンテーションを段階的に進めます。各キューは、オブジェクトの内外をアニメートしたり、スタック スロットを切り替えたり、時間指定されたシーケンスを実行したりできます。</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>.kpt プロジェクト バンドル</h3>
+<p>プロジェクトは ZIP アーカイブとして保存されます (<code>.kpt</code>) すべてのメディア アセット、レイアウト データ、アニメーション構成が含まれます。 Chameleon を実行している任意のマシンで開きます。</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>論理座標</h3>
+<p>ステージは、ディスプレイ解像度に関係なく、0 ～ 10,000 の論理座標空間を使用します。プレゼンテーションはラップトップの画面でも 4K プロジェクターでも同じように見えます。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>モバイルとピアコントロール</h2>
+<p>携帯電話からプレゼンターを実行します。生徒が自分のコンテンツからコンテンツをプッシュできるようにする</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Androidモバイルブリッジ</h4>
+<p>Chameleon モバイル ブリッジ (WebSocket) は、Android デバイスからの劇場コマンドを中継します。コントロール <strong>stack_next / prev / 再生 / 一時停止 / 停止</strong>、画像またはテキスト スロットをスタックにプッシュし、リアルタイムでスタック状態のブロードキャストを確認します。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>ピアの提出物</h4>
+<p>学生は携帯電話から画像またはテキストをステージモード スタックにプッシュします。提出物はサムネイル ストリップにオレンジ色の点滅する枠で表示されます。プレゼンターができることは、 <strong>承認、保留、拒否、または昇格</strong> 画面上でライブになる前に、それぞれを確認します。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>共有製図板</h4>
+<p>モバイルブリッジから制御可能な共同フリーハンドキャンバス — <strong>描画ストローク / クリア / 元に戻す</strong>。スライドへの注釈付け、ブレインストーミング、ライブクイズに最適です。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>ADB 電話ミラーと PPT キャプチャ</h4>
+<p><strong>ADBフォンボックス</strong> Android のライブ画面を ADB 経由でステージに直接ストリーミングします。 <strong>PPTミラーボックス</strong> PowerPoint ウィンドウをキャプチャします。変換せずに、Kameleon 内で既存のデッキを表示します。</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>プレゼンテーションに活気を与える</h3>
+<p>ライセンスについてご相談いただくか、Kameleon Presenter のライブ デモンストレーションを手配するには、お問い合わせください。</p>
+<a class="btn btn-solid" href="../contact.html">デモをリクエストする</a>
+<a class="btn" href="../index.html">← 概要に戻る</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
+<a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
+<a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
+</footer>
+</body>
+</html>

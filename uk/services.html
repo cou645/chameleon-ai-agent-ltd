@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Веб-сервіси — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ ТРИВАЄ ТЕСТУВАННЯ — Цей сайт знаходиться в стадії активної розробки. Функції, ціни та ліцензування ще не визначені.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a class="active" href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a>
+<a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a>
+<a href="../classroom.html">Класна кімната</a>
+<a href="../contact.html">контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>Веб-сервіси ШІ</h1>
+<p class="sub">Від нуля до реального професійного веб-сайту — створеного штучним інтелектом із файлів вашого проекту, розміщеного безкоштовно та постійного керування. Досвід веб-дизайну не потрібен.</p>
+<div class="hero-badges">
+<span class="badge">🤖 ШІ створено з ваших файлів</span>
+<span class="badge">🆓 Варіанти безкоштовного хостингу</span>
+<span class="badge">🌍 Спеціальний домен</span>
+<span class="badge">📧 Керована папка "Вхідні".</span>
+<span class="badge">🇬🇧 Сервіс Великобританії</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">СЕРВІС 1</div>
+<h2>🏗️ AI Конструктор веб-сайтів</h2>
+<p class="tier-sub">Штучний інтелект читає ваші файли проекту, документи та описи, а потім створює повний багатосторінковий веб-сайт з нуля. Ні шаблонів, ні перетягування. Справжній сайт, створений на основі того, що ви насправді робите.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">Що ми доставляємо</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Багатосторінковий сайт: головна сторінка, інформація, функції, контакти</li>
+<li>Вміст, отриманий із файлів і документів вашого проекту</li>
+<li>Ваш брендинг: кольори, логотип, стильові переваги</li>
+<li>Мобільний макет</li>
+<li>Скріншот і медіа-заповнювачі — замінені, коли готові</li>
+<li>Юридична відмова від відповідальності та тестовий банер у розробці</li>
+<li>Конфіденційність насамперед — жодних трекерів і сторонніх скриптів</li>
+<li class="planned">Розділ блогу / новин з оновленнями, написаними ШІ</li>
+<li class="planned">Багатомовні версії</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Як це працює</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Ви ділитеся папкою проекту або письмовим описом — ШІ читає все та задає уточнюючі запитання</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Ви обираєте кольори, стиль і які сторінки вам потрібні (5 хв розмови)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>AI створює повний сайт локально — ви одразу переглядаєте його</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>Один цикл відгуків → AI застосовує зміни → сайт готовий до публікації</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Передача: ви володієте файлами, сховищем і доменом — без блокування</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">СЕРВІС 2</div>
+<h2>🌍 Конфігурація доменного імені</h2>
+<p class="tier-sub">Конфігурація DNS — це частина, яку більшість людей вважає незрозумілою — логіни реєстратора, типи записів, очікування розповсюдження. AI обробляє це безпосередньо, де це можливо, і надає точні покрокові вказівки всюди.</p>
+<ul class="deliverable-list">
+<li>Визначте свого реєстратора автоматично або за допомогою короткої анкети</li>
+<li>Згенеруйте точні записи DNS, необхідні (A, AAAA, CNAME) у таблиці копіювання та вставлення</li>
+<li>Надайте інструкції для реєстратора — Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg тощо</li>
+<li>Просте пояснення кожного типу запису англійською мовою, перш ніж щось торкнутися</li>
+<li>Встановіть спеціальний домен через GitHub Pages API — без введення форми вручну</li>
+<li>Відстежуйте поширення DNS і підтверджуйте видачу сертифіката HTTPS</li>
+<li class="planned">Повна автоматизація для реєстраторів, які надають API (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>Чому це важливо:</strong> <span>Під час нашого власного тестування конфігурація домену викликала найбільше плутанини — домен мовчки перейшов із Google Domains у Squarespace без очевидного перенаправлення, а типи записів DNS (A, AAAA, CNAME) були абсолютно незнайомими. Штучний інтелект тепер заздалегідь запитує вашого реєстратора та дає інструкції, які не потребують попереднього знання DNS.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">СЕРВІС 3</div>
+<h2>🖥️ Налаштування та розгортання хостингу</h2>
+<p class="tier-sub">Запустіть свій сайт без місячних витрат або розмістіть його самостійно на своєму комп’ютері через Tailscale. AI керує налаштуванням, першим розгортанням і навчає вас єдиній команді, яка потрібна для кожного майбутнього оновлення.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>Сторінки GitHub</h4>
+<p>Статичний сайт, розміщений у сховищі GitHub. Спеціальний домен, HTTPS, глобальний CDN. Повністю керується сценарієм розгортання AI.</p>
+<div class="ho-cost">Вільний назавжди</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Сторінки Cloudflare</h4>
+<p>Швидкий глобальний CDN із щедрим безкоштовним рівнем. Штучний інтелект обробляє підключення репо та розгортає хуки. Хороша альтернатива, якщо ви вже використовуєте Cloudflare DNS.</p>
+<div class="ho-cost">Доступний безкоштовний рівень</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify / Vercel</h4>
+<p>Розгортання в один клік зі сховища git. Автоматичний HTTPS, попередній перегляд URL-адрес для кожної гілки. AI налаштовує параметри збірки.</p>
+<div class="ho-cost">Доступний безкоштовний рівень</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale Self-Hosted</h4>
+<p>Обслуговуйте свій сайт із власного комп’ютера через Tailscale Funnel — публічний доступ до Інтернету без залежності від хмари. Повний контроль.</p>
+<div class="ho-cost">Безкоштовно (ваше обладнання)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Постійне розгортання</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>Щоразу, коли ви оновлюєте сайт, одна команда активує його: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Або сказати <em>"розгорнути веб-сайт"</em> у чаті Chameleon AI — IDE робить це автоматично через <code>gh_deploy</code> командний міст дії</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">СЕРВІС 4</div>
+<h2>📬 Керування веб-присутністю AI</h2>
+<p class="tier-sub">Коли ваш сайт запущено, агент штучного інтелекту стежить за ним і керує ним — читає електронні листи із запитами, готує відповіді, збирає інформацію про клієнта, генерує звіти та позначає все, що потребує вашої уваги.</p>
+<ul class="deliverable-list">
+<li>Читайте та сортуйте вхідні контактні форми та електронні листи</li>
+<li>Створюйте чернетки персоналізованих відповідей для перегляду перед надсиланням</li>
+<li>Збирайте деталі клієнта — випадки використання, кількість робочих місць, ОС, вимоги — через структуроване спостереження</li>
+<li>Щотижневий звіт: відвідувачі, запити, конверсії, видатні відповіді</li>
+<li>Негайно позначайте термінові повідомлення (запити на демонстрацію, запити на комерційну ліцензію).</li>
+<li class="planned">Автоматично відповідайте на поширені запитання за допомогою бази знань, створеної на основі вмісту вашого сайту</li>
+<li class="planned">Журнал контактів у стилі CRM: кожен потенційний клієнт відстежується від першого електронного листа до підписаної ліцензії</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">СЕРВІС 5</div>
+<h2>📈 Видимість і зростання</h2>
+<p class="tier-sub">Як вас знайшли — пошукові системи, каталоги та професійні мережі. Штучний інтелект обробляє технічну основу SEO та допомагає створити надійну присутність в Інтернеті без платної реклами.</p>
+<ul class="deliverable-list">
+<li>Мета-теги SEO, розмітка Open Graph і Twitter Card на кожній сторінці</li>
+<li>файли sitemap.xml і robots.txt створені та постійно оновлюються</li>
+<li>Структуровані дані Schema.org (Організація, Продукт, Контактна точка)</li>
+<li>Надіслати в Google Search Console і Bing Webmaster Tools</li>
+<li>Аналітика з дотриманням конфіденційності — Plausible або Umami, що розміщуються самостійно (банер cookie не потрібен)</li>
+<li class="planned">Написані штучним інтелектом дописи в блогах і тематичні дослідження для збільшення трафіку звичайного пошуку</li>
+<li class="planned">Узгодження профілю LinkedIn / GitHub із вмістом веб-сайту</li>
+</ul>
+<div class="suggest-box">
+<h4>Чому це послуга 5</h4>
+<p>Сайт, який ніхто не може знайти, мало коштує. Служби 1–4 створюють і запускають сайт. Сервіс 5 робить його видимим. Пошукова оптимізація, структуровані дані та аналітика автоматизовані за допомогою штучного інтелекту — не потрібно постійного утримання агентства.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Шлях клієнта — від початку до кінця</h2>
+<p>Типова взаємодія: один сеанс для створення, той же день для запуску</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Розвідковий виклик (15 хв.)</h4>
+<p>Анкета штучного інтелекту: назва підприємства, опис, реєстратор, ім’я користувача GitHub, налаштування кольору, потрібні сторінки. Попередні знання Інтернету не потрібні — кожне запитання написано простою англійською мовою з прикладами.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Збірка (той же сеанс)</h4>
+<p>AI читає файли проекту та створює повний сайт. Ви переглядаєте його локально за допомогою посилання Tailscale Funnel — сервер не потрібен. Один цикл відгуків, і все готово.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Опублікувати (30 хв з інструкцією)</h4>
+<p>AI створює репо GitHub і просуває сайт. Надає точні покрокові інструкції щодо DNS вашого реєстратора. Відстежує поширення — підтверджує HTTPS у реальному часі. У більшості випадків в той же день.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Передача + постійне управління</h4>
+<p>Ви отримуєте шпаргалку на одній сторінці: як оновити сайт (одна команда), як додати контент, як читати тижневий звіт. Агент ШІ стежить з першого дня.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Вас цікавлять веб-сервіси AI?</h3>
+<p>Послуга знаходиться в розробці — зв’яжіться з нами, щоб зареєструвати інтерес або обговорити ваші вимоги.</p>
+<a class="btn btn-solid" href="../contact.html">Зв'яжіться</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a><a href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Ліцензування очікує на розгляд · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

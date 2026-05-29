@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Υπηρεσίες Ιστού — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ ΔΟΚΙΜΕΣ ΣΕ ΕΞΕΛΙΞΗ — Αυτός ο ιστότοπος βρίσκεται υπό ενεργό ανάπτυξη. Τα χαρακτηριστικά, η τιμολόγηση και η αδειοδότηση δεν έχουν οριστικοποιηθεί.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Companion App</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a class="active" href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../ko/services.html">🇰🇷 KO — 한국어</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>Υπηρεσίες Ιστού AI</h1>
+<p class="sub">Από το μηδέν σε έναν ζωντανό, επαγγελματικό ιστότοπο — κατασκευασμένο από AI από τα αρχεία του έργου σας, φιλοξενείται δωρεάν και διαχειρίζεται συνεχώς. Δεν απαιτείται εμπειρία σχεδιασμού ιστοσελίδων.</p>
+<div class="hero-badges">
+<span class="badge">🤖 AI-χτισμένο από τα αρχεία σας</span>
+<span class="badge">🆓 Δωρεάν επιλογές φιλοξενίας</span>
+<span class="badge">🌍 Προσαρμοσμένος τομέας</span>
+<span class="badge">📧 Διαχειριζόμενα εισερχόμενα</span>
+<span class="badge">🇬🇧 Υπηρεσία Ηνωμένου Βασιλείου</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">ΥΠΗΡΕΣΙΑ 1</div>
+<h2>🏗️ Δόμηση ιστότοπου AI</h2>
+<p class="tier-sub">Η τεχνητή νοημοσύνη διαβάζει τα αρχεία, τα έγγραφα και τις περιγραφές του έργου σας — στη συνέχεια δημιουργεί έναν πλήρη ιστότοπο πολλών σελίδων από την αρχή. Χωρίς πρότυπα, χωρίς μεταφορά και απόθεση. Ένας πραγματικός ιστότοπος που προέρχεται από αυτό που πραγματικά κάνετε.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">Αυτό που παραδίδουμε</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>Πολυσέλιδος ιστότοπος: Αρχική σελίδα, Πληροφορίες, Λειτουργίες, Επαφή</li>
+<li>Περιεχόμενο που προέρχεται από τα αρχεία και τα έγγραφά του έργου σας</li>
+<li>Η επωνυμία σας: χρώματα, λογότυπο, προτιμήσεις στυλ</li>
+<li>Διάταξη που ανταποκρίνεται σε κινητά</li>
+<li>Στιγμιότυπο οθόνης και σύμβολα κράτησης θέσης μέσων — αντικαταστάθηκαν όταν είναι έτοιμα</li>
+<li>Νομική δήλωση αποποίησης ευθύνης και δοκιμαστικό banner κατά την ανάπτυξη</li>
+<li>Privacy-first — χωρίς trackers, χωρίς σενάρια τρίτων</li>
+<li class="planned">Ενότητα ιστολογίου / ειδήσεων με ενημερώσεις γραπτές με AI</li>
+<li class="planned">Πολυγλωσσικές εκδόσεις</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>Πώς λειτουργεί</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>Μοιράζεστε το φάκελο του έργου σας ή μια γραπτή περιγραφή — το AI διαβάζει τα πάντα και κάνει διευκρινιστικές ερωτήσεις</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>Επιλέγετε χρώματα, στυλ και ποιες σελίδες χρειάζεστε (5 λεπτά συνομιλίας)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>Το AI δημιουργεί τον πλήρη ιστότοπο τοπικά — κάνετε προεπισκόπηση αμέσως</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>Ένας γύρος σχολίων → Η τεχνητή νοημοσύνη εφαρμόζει αλλαγές → ο ιστότοπος είναι έτοιμος για δημοσίευση</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>Παραχώρηση: είστε κάτοχος των αρχείων, του αποθετηρίου και του τομέα — χωρίς κλείδωμα</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">ΥΠΗΡΕΣΙΑ 2</div>
+<h2>🌍 Διαμόρφωση ονόματος τομέα</h2>
+<p class="tier-sub">Η διαμόρφωση DNS είναι το μέρος που οι περισσότεροι άνθρωποι βρίσκουν σύγχυση — συνδέσεις καταχωρητή, τύποι εγγραφών, αναμονή διάδοσης. Το AI το χειρίζεται άμεσα όπου είναι δυνατόν και παρέχει ακριβή καθοδήγηση βήμα προς βήμα παντού αλλού.</p>
+<ul class="deliverable-list">
+<li>Προσδιορίστε τον καταχωρητή σας αυτόματα ή μέσω ενός σύντομου ερωτηματολογίου</li>
+<li>Δημιουργήστε τις ακριβείς εγγραφές DNS που απαιτούνται (A, AAAA, CNAME) σε έναν πίνακα αντιγραφής-επικόλλησης</li>
+<li>Παρέχετε οδηγίες ειδικές για τον καταχωρητή — Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg και άλλα</li>
+<li>Απλή-αγγλική εξήγηση κάθε τύπου εγγραφής πριν αγγίξετε οτιδήποτε</li>
+<li>Ορισμός προσαρμοσμένου τομέα μέσω του GitHub Pages API — χωρίς μη αυτόματη καταχώριση φόρμας</li>
+<li>Παρακολουθήστε τη διάδοση DNS και επιβεβαιώστε την έκδοση πιστοποιητικού HTTPS</li>
+<li class="planned">Πλήρης αυτοματοποίηση για καταχωρητές που παρέχουν ένα API (Cloudflare, Namecheap)</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>Γιατί αυτό έχει σημασία:</strong> <span>Στη δική μας δοκιμή, η διαμόρφωση του τομέα προκάλεσε τη μεγαλύτερη σύγχυση — ένας τομέας είχε μεταφερθεί αθόρυβα από τους Τομείς Google στο Squarespace χωρίς προφανή ανακατεύθυνση και οι τύποι εγγραφής DNS (A, AAAA, CNAME) ήταν εντελώς άγνωστοι. Το AI ζητά τώρα από τον καταχωρητή σας εκ των προτέρων και δίνει οδηγίες που δεν απαιτούν προηγούμενη γνώση του DNS.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">ΥΠΗΡΕΣΙΑ 3</div>
+<h2>🖥️ Ρύθμιση &amp; ανάπτυξη φιλοξενίας</h2>
+<p class="tier-sub">Μεταφέρετε τον ιστότοπό σας ζωντανά με μηδενικό μηνιαίο κόστος — ή φιλοξενήστε τον στον δικό σας υπολογιστή μέσω του Tailscale. Η τεχνητή νοημοσύνη χειρίζεται τη ρύθμιση, την πρώτη ανάπτυξη και σας διδάσκει τη μοναδική εντολή που απαιτείται για κάθε μελλοντική ενημέρωση.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>Σελίδες GitHub</h4>
+<p>Στατικός ιστότοπος που φιλοξενείται από ένα αποθετήριο GitHub. Προσαρμοσμένος τομέας, HTTPS, παγκόσμιο CDN. Πλήρης διαχείριση από το σενάριο ανάπτυξης AI.</p>
+<div class="ho-cost">Δωρεάν για πάντα</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Σελίδες Cloudflare</h4>
+<p>Γρήγορο παγκόσμιο CDN με γενναιόδωρο δωρεάν επίπεδο. Η τεχνητή νοημοσύνη χειρίζεται τη σύνδεση repo και την ανάπτυξη αγκίστρων. Καλή εναλλακτική εάν χρησιμοποιείτε ήδη Cloudflare DNS.</p>
+<div class="ho-cost">Διατίθεται δωρεάν βαθμίδα</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>Netlify / Vercel</h4>
+<p>Ανάπτυξη με ένα κλικ από ένα git repo. Αυτόματο HTTPS, προεπισκόπηση διευθύνσεων URL ανά κλάδο. Το AI διαμορφώνει τις ρυθμίσεις κατασκευής.</p>
+<div class="ho-cost">Διατίθεται δωρεάν βαθμίδα</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale Self Hosted</h4>
+<p>Εξυπηρετήστε τον ιστότοπό σας από το δικό σας μηχάνημα μέσω του Tailscale Funnel — δημόσια πρόσβαση στο διαδίκτυο χωρίς εξάρτηση από το cloud. Πλήρης έλεγχος.</p>
+<div class="ho-cost">Δωρεάν (το υλικό σας)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>Σε εξέλιξη ανάπτυξη</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>Κάθε φορά που ενημερώνετε τον ιστότοπο, μια εντολή τον ωθεί ζωντανά: <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>Ή πες <em>"ανάπτυξη του ιστότοπου"</em> στη συνομιλία Chameleon AI — το IDE το κάνει αυτόματα μέσω του <code>gh_deploy</code> δράση γέφυρα εντολής</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">ΥΠΗΡΕΣΙΑ 4</div>
+<h2>📬 Διαχείριση παρουσίας ιστού AI</h2>
+<p class="tier-sub">Μόλις ο ιστότοπός σας είναι ζωντανός, ο πράκτορας τεχνητής νοημοσύνης τον παρακολουθεί και τον διαχειρίζεται — διαβάζει email ερωτήσεων, συντάσσει απαντήσεις, συλλέγει στοιχεία πελατών, δημιουργεί αναφορές και επισημαίνει οτιδήποτε χρειάζεται την προσοχή σας.</p>
+<ul class="deliverable-list">
+<li>Διαβάστε και αξιολογήστε τις εισερχόμενες υποβολές της φόρμας επικοινωνίας και τα email</li>
+<li>Σχεδιάστε εξατομικευμένες απαντήσεις για την κριτική σας πριν τις στείλετε</li>
+<li>Συγκεντρώστε στοιχεία πελάτη — περίπτωση χρήσης, αριθμός θέσεων, λειτουργικό σύστημα, απαιτήσεις — μέσω δομημένης παρακολούθησης</li>
+<li>Εβδομαδιαία αναφορά: επισκέπτες, ερωτήσεις, μετατροπές, εξαιρετικές απαντήσεις</li>
+<li>Επισήμανση επειγόντων μηνυμάτων (αιτήματα επίδειξης, ερωτήσεις εμπορικής άδειας) αμέσως</li>
+<li class="planned">Απαντήστε αυτόματα σε συνήθεις ερωτήσεις χρησιμοποιώντας μια βάση γνώσεων που έχει δημιουργηθεί από το περιεχόμενο του ιστότοπού σας</li>
+<li class="planned">Αρχείο καταγραφής επαφών τύπου CRM: κάθε υποψήφιος πελάτης που παρακολουθείται από το πρώτο email έως την υπογραφή της άδειας</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">ΥΠΗΡΕΣΙΑ 5</div>
+<h2>📈 Ορατότητα &amp; Ανάπτυξη</h2>
+<p class="tier-sub">Αναζήτηση — μηχανές αναζήτησης, κατάλογοι και επαγγελματικά δίκτυα. Η τεχνητή νοημοσύνη χειρίζεται την τεχνική βάση του SEO και σας βοηθά να δημιουργήσετε μια αξιόπιστη διαδικτυακή παρουσία χωρίς πληρωμένη διαφήμιση.</p>
+<ul class="deliverable-list">
+<li>Μετα-ετικέτες SEO, Open Graph και σήμανση κάρτας Twitter σε κάθε σελίδα</li>
+<li>Το sitemap.xml και το robots.txt δημιουργούνται και διατηρούνται ενημερωμένα</li>
+<li>Δομημένα δεδομένα Schema.org (Οργανισμός, Προϊόν, Σημείο Επαφής)</li>
+<li>Υποβολή στο Google Search Console και στο Bing Webmaster Tools</li>
+<li>Αναλυτικά στοιχεία που σέβονται το απόρρητο — αυτο-φιλοξενούμενο Plausible ή Umami (δεν απαιτείται banner cookie)</li>
+<li class="planned">Αναρτήσεις ιστολογίου γραμμένες με τεχνητή νοημοσύνη και μελέτες περιπτώσεων για την αύξηση της επισκεψιμότητας οργανικής αναζήτησης</li>
+<li class="planned">Ευθυγράμμιση προφίλ LinkedIn / GitHub με περιεχόμενο ιστότοπου</li>
+</ul>
+<div class="suggest-box">
+<h4>Γιατί αυτό είναι το Service 5</h4>
+<p>Ένας ιστότοπος που κανείς δεν μπορεί να βρει αξίζει ελάχιστα. Οι υπηρεσίες 1–4 δημιουργούν και εκτελούν τον ιστότοπο. Η υπηρεσία 5 το καθιστά ανιχνεύσιμο. Το SEO, τα δομημένα δεδομένα και τα αναλυτικά στοιχεία είναι όλα αυτοματοποιήσιμα από την τεχνητή νοημοσύνη — δεν απαιτείται συνεχής διατήρηση της εταιρείας.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ταξίδι πελάτη — από την αρχή μέχρι το τέλος</h2>
+<p>Τυπική δέσμευση: μία περίοδος σύνδεσης για δημιουργία, την ίδια μέρα για μετάδοση ζωντανά</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · Κλήση εντοπισμού (15 λεπτά)</h4>
+<p>Ερωτηματολόγιο AI: όνομα επιχείρησης, περιγραφή, καταχωρητής, όνομα χρήστη GitHub, προτιμήσεις χρωμάτων, σελίδες που απαιτούνται. Δεν απαιτείται προηγούμενη γνώση Ιστού — κάθε ερώτηση είναι απλά αγγλικά με παραδείγματα.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · Δημιουργία (ίδια συνεδρία)</h4>
+<p>Το AI διαβάζει τα αρχεία του έργου και δημιουργεί τον πλήρη ιστότοπο. Μπορείτε να το κάνετε προεπισκόπηση τοπικά μέσω ενός συνδέσμου Tailscale Funnel — δεν χρειάζεται διακομιστής. Ένας γύρος σχολίων, τότε είναι έτοιμο.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · Δημοσίευση (30 λεπτά με καθοδήγηση)</h4>
+<p>Το AI δημιουργεί το αποθετήριο GitHub και ωθεί τον ιστότοπο. Παρέχει τις ακριβείς οδηγίες DNS βήμα προς βήμα του καταχωρητή σας. Παρακολουθεί τη διάδοση — επιβεβαιώνει το HTTPS ζωντανά. Αυθημερόν στις περισσότερες περιπτώσεις.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Παράδοση + συνεχής διαχείριση</h4>
+<p>Λαμβάνετε ένα φύλλο εξαπάτησης μιας σελίδας: πώς να ενημερώσετε τον ιστότοπο (μία εντολή), πώς να προσθέσετε περιεχόμενο, πώς να διαβάσετε την εβδομαδιαία αναφορά. Ο πράκτορας AI παρακολουθεί από την πρώτη μέρα.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Ενδιαφέρεστε για Υπηρεσίες Ιστού AI;</h3>
+<p>Η υπηρεσία βρίσκεται σε εξέλιξη — επικοινωνήστε μαζί μας για να δηλώσετε ενδιαφέρον ή να συζητήσετε τις απαιτήσεις σας.</p>
+<a class="btn btn-solid" href="../contact.html">Ελάτε σε επαφή</a>
+<a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Companion App</a>
+<a href="../logistics4x4.html">Logistics 4×4</a><a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a><a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί άδεια χρήσης · ​​Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

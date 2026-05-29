@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>웹 서비스 — 카멜레온 AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .service-tier {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 2rem;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .service-tier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
+    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
+    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
+    .deliverable-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+    }
+    .deliverable-list li {
+      padding: .35rem 0; color: var(--text);
+      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
+    .workflow-steps {
+      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
+      margin-top: 1rem; border-left: 3px solid var(--brand-start);
+    }
+    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+    .wf-step {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .3rem 0; font-size: .88rem; color: var(--muted);
+    }
+    .wf-num {
+      background: var(--brand-start); color: white; border-radius: 50%;
+      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+    .pain-fix {
+      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
+      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .pain-fix strong { color: #92400e; }
+    .pain-fix span   { color: #78350f; }
+    .host-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .host-option {
+      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
+    .host-option p  { color: var(--muted); font-size: .82rem; }
+    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
+    .suggest-box {
+      background: linear-gradient(135deg, #667eea11, #764ba211);
+      border: 1px dashed var(--brand-start); border-radius: var(--radius);
+      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
+    }
+    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
+    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ 테스트 진행 중 — 이 사이트는 활발히 개발 중입니다. 기능, 가격, 라이선스가 확정되지 않았습니다.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ud648</a>
+<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a class="active" href="../services.html">웹 서비스</a>
+<a href="../accounting.html">ud68cuacc4</a>
+<a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a>
+<a href="../classroom.html">uc218uc5c5</a>
+<a href="../contact.html">연락하다</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../services.html">🌐 EN — English</a><a href="../ar/services.html">🇸🇦 AR — العربية</a><a href="../cy/services.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/services.html">🇩🇪 DE — Deutsch</a><a href="../es/services.html">🇪🇸 ES — Español</a><a href="../fr/services.html">🇫🇷 FR — Français</a><a href="../hi/services.html">🇮🇳 HI — हिन्दी</a><a href="../it/services.html">🇮🇹 IT — Italiano</a><a href="../ja/services.html">🇯🇵 JA — 日本語</a><a href="../pt/services.html">🇵🇹 PT — Português</a><a href="../ru/services.html">🇷🇺 RU — Русский</a><a href="../zh/services.html">🇨🇳 ZH — 中文</a><a href="../el/services.html">🇬🇷 EL — Ελληνικά</a><a href="../id/services.html">🇮🇩 ID — Indonesia</a><a href="../pl/services.html">🇵🇱 PL — Polski</a><a href="../ro/services.html">🇷🇴 RO — Română</a><a href="../sw/services.html">🇰🇪 SW — Kiswahili</a><a href="../uk/services.html">🇺🇦 UK — Українська</a><a href="../vi/services.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🌐</div>
+<h1>AI 웹 서비스</h1>
+<p class="sub">제로에서 라이브 전문 웹사이트까지 — 프로젝트 파일을 AI로 구축하고 무료로 호스팅하며 지속적으로 관리합니다. 웹 디자인 경험이 필요하지 않습니다.</p>
+<div class="hero-badges">
+<span class="badge">🤖 파일로 AI 구축</span>
+<span class="badge">🆓 무료 호스팅 옵션</span>
+<span class="badge">🌍 맞춤 도메인</span>
+<span class="badge">📧 관리되는 받은편지함</span>
+<span class="badge">🇬🇧 영국 서비스</span>
+</div>
+</div>
+<div class="page">
+<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
+<div class="service-tier tier-build">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">서비스 1</div>
+<h2>🏗️ AI 웹사이트 빌더</h2>
+<p class="tier-sub">AI는 프로젝트 파일, 문서 및 설명을 읽은 다음 처음부터 완전한 다중 페이지 웹 사이트를 구축합니다. 템플릿도 없고 드래그 앤 드롭도 없습니다. 실제로 수행하는 작업에서 파생된 실제 사이트입니다.</p>
+<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+<div>
+<strong style="color:var(--text);font-size:.9rem;">우리가 제공하는 것</strong>
+<ul class="deliverable-list" style="margin-top:.5rem;">
+<li>다중 페이지 사이트: 홈, 정보, 기능, 연락처</li>
+<li>프로젝트 파일 및 문서에서 파생된 콘텐츠</li>
+<li>귀하의 브랜딩: 색상, 로고, 선호하는 스타일</li>
+<li>모바일 반응형 레이아웃</li>
+<li>스크린샷 및 미디어 자리 표시자 - 준비되면 교체됨</li>
+<li>개발 중 법적 고지 사항 및 테스트 배너</li>
+<li>개인 정보 보호 우선 — 추적기 없음, 타사 스크립트 없음</li>
+<li class="planned">AI로 작성된 업데이트가 포함된 블로그/뉴스 섹션</li>
+<li class="planned">다중 언어 버전</li>
+</ul>
+</div>
+<div>
+<div class="workflow-steps">
+<h4>작동 원리</h4>
+<div class="wf-step"><div class="wf-num">1</div><div>프로젝트 폴더나 서면 설명을 공유하면 AI가 모든 내용을 읽고 명확한 질문을 합니다.</div></div>
+<div class="wf-step"><div class="wf-num">2</div><div>색상, 스타일, 필요한 페이지를 선택하세요(대화 5분)</div></div>
+<div class="wf-step"><div class="wf-num">3</div><div>AI가 전체 사이트를 로컬로 구축하므로 즉시 미리 볼 수 있습니다.</div></div>
+<div class="wf-step"><div class="wf-num">4</div><div>1회 피드백 → AI가 변경 사항 적용 → 사이트 게시 준비 완료</div></div>
+<div class="wf-step"><div class="wf-num">5</div><div>핸드오프: 파일, 리포지토리 및 도메인을 소유하고 있으며 종속되지 않습니다.</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
+<div class="service-tier tier-domain">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">서비스 2</div>
+<h2>🌍 도메인 이름 구성</h2>
+<p class="tier-sub">DNS 구성은 등록자 로그인, 레코드 유형, 전파 대기 등 대부분의 사람들이 혼란스러워하는 부분입니다. AI는 가능한 경우 직접 처리하고 다른 곳에서는 정확한 단계별 지침을 제공합니다.</p>
+<ul class="deliverable-list">
+<li>자동으로 또는 간단한 설문지를 통해 등록기관을 식별하세요.</li>
+<li>복사-붙여넣기 테이블에서 필요한 정확한 DNS 레코드(A, AAAA, CNAME)를 생성합니다.</li>
+<li>등록기관별 지침 제공 — Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg 등</li>
+<li>무엇이든 터치하기 전에 모든 레코드 유형에 대한 간단한 영어 설명</li>
+<li>GitHub Pages API를 통해 사용자 정의 도메인 설정 — 수동 양식 입력 없음</li>
+<li>DNS 전파 모니터링 및 HTTPS 인증서 발급 확인</li>
+<li class="planned">API(Cloudflare, Namecheap)를 제공하는 등록 기관을 위한 완전 자동화</li>
+</ul>
+<div class="pain-fix">
+<span>⚠️</span>
+<div><strong>이것이 중요한 이유:</strong> <span>자체 테스트에서는 도메인 구성이 가장 혼란을 야기했습니다. 도메인이 명확한 리디렉션 없이 Google Domains에서 Squarespace로 자동으로 마이그레이션되었으며 DNS 레코드 유형(A, AAAA, CNAME)이 전혀 익숙하지 않았습니다. 이제 AI는 등록 기관에 미리 요청하고 사전 DNS 지식이 필요하지 않은 지침을 제공합니다.</span></div>
+</div>
+</div>
+<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
+<div class="service-tier tier-host">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">서비스 3</div>
+<h2>🖥️ 호스팅 설정 및 배포</h2>
+<p class="tier-sub">월별 비용 없이 사이트를 라이브로 구축하거나 Tailscale을 통해 자신의 컴퓨터에서 자체 호스팅하세요. AI는 설정을 처리하고, 먼저 배포하고, 향후 모든 업데이트에 필요한 단일 명령을 알려줍니다.</p>
+<div class="host-grid">
+<div class="host-option">
+<div class="ho-icon">🐙</div>
+<h4>GitHub 페이지</h4>
+<p>GitHub 저장소에서 호스팅되는 정적 사이트입니다. 사용자 정의 도메인, HTTPS, 글로벌 CDN. AI 배포 스크립트로 완벽하게 관리됩니다.</p>
+<div class="ho-cost">영원히 무료</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🌐</div>
+<h4>Cloudflare 페이지</h4>
+<p>넉넉한 무료 등급을 갖춘 빠른 ​​글로벌 CDN입니다. AI는 저장소 연결을 처리하고 후크를 배포합니다. 이미 Cloudflare DNS를 사용하고 있다면 좋은 대안입니다.</p>
+<div class="ho-cost">무료 등급 이용 가능</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔺</div>
+<h4>넷리파이/베르셀</h4>
+<p>git repo에서 원클릭 배포. 자동 HTTPS, 지점당 미리보기 URL. AI가 빌드 설정을 구성합니다.</p>
+<div class="ho-cost">무료 등급 이용 가능</div>
+</div>
+<div class="host-option">
+<div class="ho-icon">🔒</div>
+<h4>Tailscale 자체 호스팅</h4>
+<p>클라우드에 의존하지 않는 공용 인터넷 액세스인 Tailscale Funnel을 통해 자신의 컴퓨터에서 사이트를 제공하세요. 모든 권한을 갖습니다.</p>
+<div class="ho-cost">무료(귀하의 하드웨어)</div>
+</div>
+</div>
+<div class="workflow-steps" style="margin-top:1.2rem;">
+<h4>지속적인 배포</h4>
+<div class="wf-step"><div class="wf-num">→</div><div>사이트를 업데이트할 때마다 다음 명령 하나가 사이트를 실시간으로 푸시합니다. <code>python3 github_pages.py deploy "what changed"</code></div></div>
+<div class="wf-step"><div class="wf-num">→</div><div>아니면 말하세요 <em>"웹사이트를 배포하세요"</em> Chameleon AI 채팅에서 — IDE는 다음을 통해 자동으로 수행합니다. <code>gh_deploy</code> 명령 브리지 작업</div></div>
+</div>
+</div>
+<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
+<div class="service-tier tier-manage">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">서비스 4</div>
+<h2>📬 AI 웹 존재 관리</h2>
+<p class="tier-sub">사이트가 활성화되면 AI 에이전트가 문의 이메일 읽기, 응답 초안 작성, 고객 세부 정보 수집, 보고서 생성, 주의가 필요한 사항에 플래그 지정 등 사이트를 모니터링하고 관리합니다.</p>
+<ul class="deliverable-list">
+<li>수신 문의 양식 제출 및 이메일을 읽고 분류합니다.</li>
+<li>보내기 전에 검토를 위한 맞춤형 답변 초안을 작성하세요.</li>
+<li>체계적인 후속 조치를 통해 고객 세부 정보(사용 사례, 시트 수, OS, 요구 사항)를 수집합니다.</li>
+<li>주간 보고서: 방문자, 문의, 전환, 우수한 응답</li>
+<li>긴급 메시지(데모 요청, 상용 라이선스 문의)에 즉시 플래그를 지정하세요.</li>
+<li class="planned">사이트 콘텐츠로 구축된 지식 기반을 사용하여 일반적인 질문에 자동 응답</li>
+<li class="planned">CRM 스타일 연락처 로그: 첫 번째 이메일부터 라이센스 서명까지 모든 리드를 추적합니다.</li>
+</ul>
+</div>
+<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
+<div class="service-tier tier-growth">
+<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">서비스 5</div>
+<h2>📈 가시성 및 성장</h2>
+<p class="tier-sub">검색 — 검색 엔진, 디렉토리 및 전문 네트워크. AI는 기술적인 SEO 기반 작업을 처리하고 유료 광고 없이 신뢰할 수 있는 온라인 입지를 구축하는 데 도움을 줍니다.</p>
+<ul class="deliverable-list">
+<li>모든 페이지의 SEO 메타 태그, 오픈 그래프 및 Twitter 카드 마크업</li>
+<li>sitemap.xml 및 robots.txt가 생성되어 최신 상태로 유지됨</li>
+<li>Schema.org 구조화된 데이터(조직, 제품, ContactPoint)</li>
+<li>Google Search Console 및 Bing 웹마스터 도구에 제출</li>
+<li>개인 정보 보호 분석 — 자체 호스팅된 Plausible 또는 Umami(쿠키 배너 필요 없음)</li>
+<li class="planned">자연 검색 트래픽을 유도하기 위한 AI 작성 블로그 게시물 및 사례 연구</li>
+<li class="planned">LinkedIn/GitHub 프로필과 웹사이트 콘텐츠의 정렬</li>
+</ul>
+<div class="suggest-box">
+<h4>이것이 서비스 5인 이유</h4>
+<p>아무도 찾을 수 없는 사이트는 가치가 거의 없습니다. 서비스 1~4는 사이트를 구축하고 실행합니다. 서비스 5에서는 검색 가능하게 만듭니다. SEO, 구조화된 데이터 및 분석은 모두 AI로 자동화 가능하므로 지속적인 대행사 보유자가 필요하지 않습니다.</p>
+</div>
+</div>
+<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>고객 여정 — 시작부터 끝까지</h2>
+<p>일반적인 참여: 한 세션을 구축하고 당일 라이브로 시작</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💬</div>
+<div class="strip-body">
+<h4>1 · 발견 통화(15분)</h4>
+<p>AI 설문지: 업체 이름, 설명, 등록 기관, GitHub 사용자 이름, 색상 기본 설정, 필요한 페이지. 사전 웹 지식이 필요하지 않습니다. 모든 질문은 예가 포함된 일반 영어로 구성됩니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏗️</div>
+<div class="strip-body">
+<h4>2 · 빌드(동일 세션)</h4>
+<p>AI는 프로젝트 파일을 읽고 전체 사이트를 구축합니다. Tailscale Funnel 링크를 통해 로컬에서 미리 볼 수 있습니다. 서버가 필요하지 않습니다. 한 차례의 피드백이 완료되면 준비가 완료됩니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>3 · 게시(30분 안내)</h4>
+<p>AI는 GitHub 저장소를 생성하고 사이트를 푸시합니다. 등록기관의 정확한 단계별 DNS 지침을 제공합니다. 전파 모니터링 — HTTPS를 실시간으로 확인합니다. 대부분의 경우 당일.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📬</div>
+<div class="strip-body">
+<h4>4 · Handover + 지속적인 관리</h4>
+<p>사이트 업데이트 방법(명령 하나), 콘텐츠 추가 방법, 주간 보고서 읽는 방법 등 한 페이지 분량의 치트 시트가 제공됩니다. AI 에이전트는 첫날부터 모니터링합니다.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>AI 웹 서비스에 관심이 있으십니까?</h3>
+<p>서비스는 개발 중입니다. 관심을 등록하거나 요구 사항에 대해 논의하려면 당사에 문의하세요.</p>
+<a class="btn btn-solid" href="../contact.html">연락하세요</a>
+<a class="btn" href="../index.html">← 개요로 돌아가기</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a href="../logistics4x4.html">물류 4×4</a><a href="../services.html">웹 서비스</a>
+<a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 라이센스 보류 중 · Marcos aka 줄기시 제작</p>
+</footer>
+</body>
+</html>

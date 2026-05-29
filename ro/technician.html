@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tehnician PC AI — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">AI IDE</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a class="active" href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>Tehnician AI PC</h1>
+<p class="sub">Diagnosticare și reparare a sistemului ghidată de inteligență artificială - plus un profiler de dispozitiv USB care face inginerie inversă a protocoalelor hardware și generează automat drivere de kernel Linux.</p>
+<div class="hero-badges">
+<span class="badge">🔬 Profilare hardware</span>
+<span class="badge">🐧 Generarea modulelor kernel</span>
+<span class="badge">🌐 Telecomanda prin Tailscale</span>
+<span class="badge">⚡ Compilare încrucișată ARM</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Repararea sistemului ghidat de AI</h2>
+<p>AI urmează un protocol chirurgical structurat - diagnosticați înainte de atingere, verificați la fiecare pas</p>
+</div>
+<div class="terminal-block">
+<span class="comment"># Secvență de diagnosticare Cameleon AI</span>
+<span class="cmd">$ lsusb -v | cap -80</span>
+<span class="out">Bus 002 Dispozitiv 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ dmesg | coada -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: redenumit din eth0</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152 94208 0</span>
+<span class="cmd">$ modinfo r8152 | versiunea grep</span>
+<span class="out">versiunea: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>Secvență de diagnostic structurată</h4>
+<p>Hardware → starea nucleului → starea driverului → rețea → stocare. AI rulează fiecare pas, citește rezultatul JSON, apoi decide următoarea acțiune. Nu omite niciodată pași și nu face presupuneri.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Protocol de reparație chirurgicală</h4>
+<p>Mai întâi nedistructiv (modul de reîncărcare, repornirea serviciului). Persista înainte de risc (config instantanee). Verificați la fiecare pas. Fiecare acțiune care necesită repornire declanșează un Dead Man's Switch care setează a <code>@reboot</code> reluați automat scriptul.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Reparație de la distanță peste Tailscale</h4>
+<p>Diagnosticați și reparați mașinile oriunde pe rețeaua dvs. Tailscale. AI emite comenzi pe mașina de la distanță prin puntea terminalului, citește rezultatele și continuă - chiar și după reporniri folosind sistemul punct de control/reluare.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Driver USB Porter</h2>
+<p>Profilați orice dispozitiv USB → analizați protocolul său → generați un driver Linux gata de instalat</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">Calea A</div>
+<h4>Protocoale standard</h4>
+<p>Nu s-au găsit pagini de furnizor. Generează reguli udev + config modprobe. <strong>Nu este necesară compilarea.</strong> Funcționează cu HID, CDC, stocare în masă și alte clase standard.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">Calea B</div>
+<h4>Protocol parțial al furnizorului</h4>
+<p>Pagini de furnizor detectate (≤2). Generează un daemon de spațiu utilizator hidraw/uhid sau un plugin ALSA. Se rulează în spațiul utilizatorului - nu este necesară compilarea nucleului.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">hidraw</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Plugin ALSA</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">Calea C</div>
+<h4>Protocol proprietar</h4>
+<p>Protocol complet personalizat. Generează un modul kernel complet cu ambalare DKMS și suport pentru compilarea încrucișată ARM pentru Raspberry Pi 3, 4 și 5.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Modul kernel</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">BRAŢ</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>Flux de lucru Profiler</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># Pasul 1 — profilați dispozitivul (captură de 30 de secunde)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Profilare USB 1234:5678 pentru 30 de secunde...
+A scris ~/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># Pasul 2 — generați driverul</span>
+<span class="cmd">$ python3 device_porter.py --latest</span>
+<span class="out">Calea selectată: C (proprietar, 3 pagini de furnizor)
+Generat: /tmp/driver_1234_5678/
+  ├── cameleon_1234_5678.c
+  ├── Makefile (cross-aarch64, cross-armv7)
+  ├── instal.sh
+  ├── dispozitiv_test.sh
+  └── analiză.json</span>
+<span class="comment"># Pasul 3 — instalați</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS — dispozitivul /dev/chameleon0 răspunde corect</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Backend-uri de capturare pe mai multe platforme</h3>
+<p>ETW pe Windows, IOKit pe macOS, usbmon pe Linux. Profil pe orice sistem de operare și generați un driver Linux din rezultatul <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Compilare încrucișată Raspberry Pi</h3>
+<p>Țintele Makefile <code>cross-aarch64</code> (Pi 4/5) și <code>cross-armv7</code> (Pi 3) sunt incluse automat în Calea C. Construiți pe x86 și implementați în ARM.</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>Ambalaj DKMS</h3>
+<p>Driverele Path C sunt împachetate pentru DKMS, astfel încât să supraviețuiască actualizărilor kernelului fără recompilare manuală. Recenziile AI <code>analysis.json</code> și solicită toate cioturile TODO rămase.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Remediați ceea ce nu poate fi reparat</h3>
+<p>Fie că este vorba despre o panică de kernel, un dispozitiv USB mort sau un periferic proprietar fără suport Linux - Chameleon AI PC Technician vă acoperă.</p>
+<a class="btn btn-solid" href="../contact.html">Luați legătura</a>
+<a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Prezentator</a>
+<a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a><a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Construit de Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

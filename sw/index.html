@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon AI - Jukwaa la Ujasusi la Adaptive</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .feature-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 2.5rem 0;
+    }
+    .feature-nav a {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: .5rem;
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-nav a .fn-icon { font-size: 2.4rem; }
+    .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
+    .feature-nav a span { color: var(--muted); font-size: .85rem; }
+    .intro-block {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2.5rem;
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+    }
+    .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
+    .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
+    .license-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
+    }
+    .license-pill {
+      background: #eeeeff; border: 1px solid var(--border);
+      border-radius: 50px; padding: .5rem 1.2rem;
+      font-size: .88rem; color: var(--brand-start); font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ MAJARIBIO INAENDELEA — Tovuti hii inaendelezwa amilifu. Vipengele, bei na leseni hazijakamilishwa. Usitegemee habari yoyote iliyotolewa hapa.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<div class="nav-links">
+<a class="active" href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../index.html">🌐 EN — English</a><a href="../ar/index.html">🇸🇦 AR — العربية</a><a href="../cy/index.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/index.html">🇩🇪 DE — Deutsch</a><a href="../es/index.html">🇪🇸 ES — Español</a><a href="../fr/index.html">🇫🇷 FR — Français</a><a href="../hi/index.html">🇮🇳 HI — हिन्दी</a><a href="../it/index.html">🇮🇹 IT — Italiano</a><a href="../ja/index.html">🇯🇵 JA — 日本語</a><a href="../ko/index.html">🇰🇷 KO — 한국어</a><a href="../pt/index.html">🇵🇹 PT — Português</a><a href="../ru/index.html">🇷🇺 RU — Русский</a><a href="../zh/index.html">🇨🇳 ZH — 中文</a><a href="../el/index.html">🇬🇷 EL — Ελληνικά</a><a href="../id/index.html">🇮🇩 ID — Indonesia</a><a href="../pl/index.html">🇵🇱 PL — Polski</a><a href="../ro/index.html">🇷🇴 RO — Română</a><a href="../uk/index.html">🇺🇦 UK — Українська</a><a href="../vi/index.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon"><img alt="Chameleon AI" src="../icon.png" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"/></div>
+<h1>Jukwaa la AI la Chameleon</h1>
+<p class="sub">Seti kamili ya eneo-kazi inayoendeshwa na AI - IDE, mtangazaji, uhasibu, biashara, darasa na zaidi. Imeundwa kwa wajasiriamali na wafanyabiashara wadogo.</p>
+<div class="hero-badges">
+<span class="badge"><span class="pulse"></span> Imeendelezwa kikamilifu</span>
+<span class="badge">🇬🇧 Biashara ya Uingereza</span>
+<span class="badge">🔒 Mitaa-kwanza / Faragha-kwanza</span>
+<span class="badge">🐧 Linux · Windows · macOS</span>
+</div>
+</div>
+<div class="page">
+<div class="intro-block">
+<h2>Jukwaa moja. Taaluma nane.</h2>
+<p>Chameleon AI ni programu ya mezani ya PyQt6 iliyojengwa na Marcos aka stemsee kwa Chameleon AI Technicians Ltd. Inajumuisha kihariri cha msimbo cha AI kitaalamu, mfumo wa uwasilishaji uliohamasishwa na ukumbi wa michezo, uhasibu kamili wa Uingereza wa kuingiza mara mbili, biashara ya Binance crypto, madarasa ya video ya kufundisha lugha, mtandao wa P2P na zaidi - yote yanaendeshwa ndani ya nchi bila utegemezi wa wingu. AI IDE inaunganisha Msimbo wa Claude unaoendesha kwenye terminal (pty) kwa uhariri wa moja kwa moja wa msimbo unaoendeshwa na AI.</p>
+<p>Watoa huduma wa AI wanaweza kubadilishana wakati wa utekelezaji: DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot na zaidi. Vifunguo kamwe haviondoki kwenye kifaa chako.</p>
+<div class="license-row">
+<span class="license-pill">Leseni - Inasubiri kukamilika</span>
+<span class="license-pill">Bado haipatikani kwa kutolewa</span>
+</div>
+</div>
+<div class="section-title">
+<h2>Chunguza Jukwaa</h2>
+<p>Bofya kipengele chochote ili kupata maelezo zaidi</p>
+</div>
+<nav class="feature-nav">
+<a href="../ide.html">
+<span class="fn-icon">🧠</span>
+<strong>UNA MAWAZO</strong>
+<span>Mhariri wa msimbo wa AI wa watoa huduma nyingi na sauti, mtazamo tofauti &amp; daraja la amri</span>
+</a>
+<a href="../presenter.html">
+<span class="fn-icon">🎭</span>
+<strong>Mtangazaji wa Kinyonga</strong>
+<span>Slaidi za sitiari ya ukumbi wa michezo zilizo na udhibiti wa moja kwa moja wa rununu na mchoro shirikishi</span>
+</a>
+<a href="../companion.html">
+<span class="fn-icon">📱</span>
+<strong>Programu Mwenza</strong>
+<span>Daraja la Android - Gumzo la AI, video ya P2P, kidhibiti cha mbali, faili, media na risiti</span>
+</a>
+<a href="../logistics4x4.html">
+<span class="fn-icon">🚛</span>
+<strong>Vifaa 4×4</strong>
+<span>Ujumbe wa meli za mpakani - wenzao 4 wa video + wapiga simu 4 wa SIM, ramani za moja kwa moja, maonyesho na lugha 15</span>
+</a>
+<a href="../services.html">
+<span class="fn-icon">🌐</span>
+<strong>Huduma za Wavuti</strong>
+<span>Mjenzi wa tovuti wa AI, mwenyeji bila malipo, usanidi wa kikoa, kikasha kinachodhibitiwa na SEO</span>
+</a>
+<a href="../accounting.html">
+<span class="fn-icon">📊</span>
+<strong>Uhasibu</strong>
+<span>Leja ya kuingiza mara mbili ya Uingereza, VAT, P&amp;L, Laha ya Mizani - Kutayarisha Dijitali ya Kodi</span>
+</a>
+<a href="../technician.html">
+<span class="fn-icon">🔧</span>
+<strong>AI PC Fundi</strong>
+<span>Urekebishaji wa mfumo unaoongozwa na AI, kiweka wasifu wa kiendeshi cha USB &amp; jenereta ya moduli ya Linux kernel</span>
+</a>
+<a href="../trading.html">
+<span class="fn-icon">📈</span>
+<strong>Biashara ya Crypto</strong>
+<span>Mahali pa Binance, mustakabali na ukingo na vituo vya kufuata vya AI na utambuzi wa serikali</span>
+</a>
+<a href="../classroom.html">
+<span class="fn-icon">🎓</span>
+<strong>Darasa la Lugha</strong>
+<span>Ufundishaji wa video wa WebRTC, mesh ya Tailscale, malipo ya Stripe/Alipay/PayPal</span>
+</a>
+<a href="../contact.html">
+<span class="fn-icon">✉️</span>
+<strong>Mawasiliano na Utoaji Leseni</strong>
+<span>Wasiliana, omba onyesho au ununue leseni ya kibiashara</span>
+</a>
+</nav>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Vivutio vya Jukwaa</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Faragha ya ndani-kwanza</h3>
+<p>Data zote - leja, historia ya gumzo, nafasi za biashara - huishi ndani <code>~/.chameleon/</code> kwenye mashine yako. Hakuna kitu kinachotumwa kwa seva ya watu wengine isipokuwa ukichagua kwa uwazi mtoaji wa AI wa wingu.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔄</div>
+<h3>Watoa huduma za AI zinazoweza kubadilishwa</h3>
+<p>Badili kati ya DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot na zaidi kwa mbofyo mmoja. Endesha miundo ya ndani kupitia Ollama au LM Studio bila gharama sifuri.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Mshirika wa rununu</h3>
+<p>Daraja la Android juu ya WebSocket husambaza gumzo la AI, picha za skrini na upakiaji wa faili kutoka kwa simu yako. Dhibiti mtangazaji, anzisha rekodi na uidhinishe mawasilisho ukiwa mbali.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Mesh ya mikia</h3>
+<p>Video na sauti kati-kwa-rika kupitia mtandao wako mwenyewe wa Tailscale. Dhibiti ACL, uidhinishaji wa kifaa na funguo moja kwa moja kutoka kwa IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Sauti ndani, sauti nje</h3>
+<p>Maneno-kwa-maandishi ya msingi wa kunong'ona kwa usimbaji bila kugusa. Piper TTS inasoma majibu ya AI kwa sauti. Agiza msimbo, hati au ujumbe kawaida.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐧</div>
+<h3>Msalaba-jukwaa</h3>
+<p>Inatumika kwenye Linux, Windows na macOS. Njia mahususi za jukwaa, vicheza sauti na jozi za TTS zimetolewa <em>platform_utils.py</em> - codebase moja kila mahali.</p>
+</div>
+</div>
+<!-- SCREENSHOTS: drop real images in here when ready
+       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ione kwa vitendo</h2>
+<p>Picha za skrini zinakuja hivi karibuni</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🧠</div>
+<strong>UNA MAWAZO</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">AI IDE - paneli ya mazungumzo, kihariri cha msimbo, mtazamo tofauti</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🎭</div>
+<strong>Mtangazaji wa Kinyonga</strong>
+<span>mtangazaji-hatua.png</span>
+</div>
+<div class="screenshot-caption">Kameleon Presenter — jukwaa lenye mawasilisho ya moja kwa moja ya wanafunzi</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>Programu ya Android</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">Mwenzi wa Android - Gumzo la AI na kionyeshi cha mbali</div>
+</div>
+</div>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ Notisi ya Kisheria na Kanusho</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Tovuti hii ni sehemu ya mchakato wa majaribio na maendeleo. Maudhui yametolewa kwa usaidizi wa AI (Msimbo wa Claude, Anthropic) na yanaweza kuwa na makosa, maelezo yasiyo kamili au maandishi ya kishikilia nafasi. Hakuna chochote kwenye tovuti hii kinachojumuisha toleo la mwisho la bidhaa, dhamana au ahadi ya kisheria.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Masharti ya leseni ni <strong>inasubiri kukamilika</strong>. Hakuna leseni ya programu - ya kibiashara, ya kibinafsi au vinginevyo - inayotolewa au kudokezwa na tovuti hii. Usifanye maamuzi ya biashara kulingana na maelezo yaliyoonyeshwa hapa.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 Chameleon AI Technicians Ltd. Haki zote zimehifadhiwa. Imesajiliwa Uingereza na Wales. Tovuti hii imetolewa kwa taarifa na madhumuni ya majaribio pekee.</p>
+</div>
+<div class="cta-band">
+<h3>Je, unavutiwa na Kinyonga?</h3>
+<p>Wasiliana - bidhaa iko katika majaribio na bado haipatikani kwa kutolewa.</p>
+<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<a class="btn" href="mailto:stemsee@chameleon-ai-agent-ltd.net">stemsee@chameleon-ai-agent-ltd.net</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Utoaji leseni unasubiri · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

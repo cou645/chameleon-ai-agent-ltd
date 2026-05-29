@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI PC Technician — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a>
+<a class="active" href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a>
+<a href="../classroom.html">Класна кімната</a>
+<a href="../contact.html">контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>Технік ПК зі штучним інтелектом</h1>
+<p class="sub">Діагностика та ремонт системи під керуванням штучного інтелекту, а також профайлер USB-пристроїв, який виконує зворотне проектування апаратних протоколів і автоматично створює драйвери ядра Linux.</p>
+<div class="hero-badges">
+<span class="badge">🔬 Профілювання обладнання</span>
+<span class="badge">🐧 Генерація модуля ядра</span>
+<span class="badge">🌐 Дистанційне керування через Tailscale</span>
+<span class="badge">⚡ Крос-компіляція ARM</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Ремонт системи під керуванням ШІ</h2>
+<p>ШІ дотримується структурованого хірургічного протоколу — діагностуйте перед дотиком, перевіряйте на кожному кроці</p>
+</div>
+<div class="terminal-block">
+<span class="comment"># Послідовність діагностики ШІ-хамелеона</span>
+<span class="cmd">$ lsusb -v | голова -80</span>
+<span class="out">Шина 002 Пристрій 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ dmesg | хвіст -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: перейменовано з eth0</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152 94208 0</span>
+<span class="cmd">$ modinfo r8152 | версія grep</span>
+<span class="out">версія: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>Структурована послідовність діагностики</h4>
+<p>Обладнання → стан ядра → стан драйвера → мережа → сховище. Штучний інтелект запускає кожен крок, зчитує результат JSON, а потім вирішує наступну дію. Він ніколи не пропускає кроки та не робить припущень.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Протокол хірургічного ремонту</h4>
+<p>Спочатку неруйнівний (перезавантажити модуль, перезапустити службу). Зберігати до ризику (конфігурація знімка). Перевіряйте на кожному кроці. Кожна дія, яка потребує перезавантаження, запускає перемикач мертвого людини, який встановлює a <code>@reboot</code> автоматично відновити сценарій.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Віддалений ремонт через Tailscale</h4>
+<p>Діагностуйте та ремонтуйте машини будь-де на сітці Tailscale. AI видає команди на віддаленій машині через термінальний міст, зчитує результати та продовжує — навіть після перезавантаження за допомогою системи контрольних точок/відновлення.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Портер драйвера USB</h2>
+<p>Профілюйте будь-який USB-пристрій → проаналізуйте його протокол → створіть готовий до встановлення драйвер Linux</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">Шлях А</div>
+<h4>Стандартні протоколи</h4>
+<p>Сторінок постачальників не знайдено. Генерує правила udev + конфігурацію modprobe. <strong>Компіляція не потрібна.</strong> Працює з HID, CDC, масовим накопичувачем та іншими стандартними класами.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">Шлях Б</div>
+<h4>Частковий протокол постачальника</h4>
+<p>Виявлено сторінки постачальників (≤2). Створює демон простору користувача hidraw/uhid або плагін ALSA. Працює в просторі користувача — компіляція ядра не потрібна.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">hidraw</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Плагін ALSA</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">Шлях C</div>
+<h4>Власний протокол</h4>
+<p>Повністю індивідуальний протокол. Створює повний модуль ядра з пакетом DKMS і підтримкою крос-компіляції ARM для Raspberry Pi 3, 4 і 5.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Модуль ядра</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">ARM</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>Робочий процес Profiler</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># Крок 1 — профіль пристрою (30-секундний знімок)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Профілювання USB 1234:5678 протягом 30 с...
+Написав ~/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># Крок 2 — створити драйвер</span>
+<span class="cmd">$ python3 device_porter.py --останній</span>
+<span class="out">Вибраний шлях: C (власний, 3 сторінки постачальника)
+Створено: /tmp/driver_1234_5678/
+  ├── chameleon_1234_5678.c
+  ├── Makefile (cross-aarch64, cross-armv7)
+  ├── install.sh
+  ├── test_device.sh
+  └── analysis.json</span>
+<span class="comment"># Крок 3 — встановити</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS — пристрій /dev/chameleon0 відповідає правильно</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Кроссплатформенний сервер захоплення</h3>
+<p>ETW у Windows, IOKit у macOS, usbmon у Linux. Профіль на будь-якій ОС і згенеруйте драйвер Linux із результату <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Перехресна компіляція Raspberry Pi</h3>
+<p>Цілі Makefile <code>cross-aarch64</code> (Пі 4/5) і <code>cross-armv7</code> (Pi 3) автоматично включаються в Path C. Створіть на основі x86 і розгорніть на ARM.</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>Упаковка DKMS</h3>
+<p>Драйвери Path C запаковані для DKMS, тому вони витримують оновлення ядра без повторної компіляції вручну. Огляди ШІ <code>analysis.json</code> і підказує будь-які залишкові заглушки TODO.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Виправити непоправне</h3>
+<p>Незалежно від того, чи то паніка ядра, чи не працює USB-пристрій, чи фірмовий периферійний пристрій без підтримки Linux — Chameleon AI PC Technician допоможе вам.</p>
+<a class="btn btn-solid" href="../contact.html">Зв'яжіться</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
+</div>
+<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

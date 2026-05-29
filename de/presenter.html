@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kameleon-Moderator – Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Start</a>
+<a href="../ide.html">SIE HABEN IDEEN</a>
+<a class="active" href="../presenter.html">Moderator</a>
+<a href="../companion.html">Begleit-App</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Webdienste</a>
+<a href="../accounting.html">Buchhaltung</a>
+<a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a>
+<a href="../classroom.html">Unterricht</a>
+<a href="../contact.html">Kontakt</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>Chamäleon-Moderator</h1>
+<p class="sub">Ein vom Theater inspiriertes Präsentationssystem, bei dem Ihre Folien eine Bühne, Ihre Inhaltsblöcke Schauspieler und Übergänge Hinweise sind – alles über ein Telefon steuerbar.</p>
+<div class="hero-badges">
+<span class="badge">🎬 Theatermetapher</span>
+<span class="badge">📱 Mobile Steuerung</span>
+<span class="badge">✏️ Gemeinsames Zeichnen</span>
+<span class="badge">🖥️ Android ADB-Spiegel</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Das Theatermodell</h2>
+<p>Präsentationen sind wie eine Bühneninszenierung aufgebaut – Objekte haben Eingänge, Ausgänge und Hinweise</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack-Objekte auf der Bühne</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 Content Stack – Vorlesungsfolien</div>
+<div class="stage-obj obj-stage">🟡 Stage Stack – Einreichungen von Studierenden</div>
+<div class="stage-obj obj-misc">🖼️ ImageBox</div>
+<div class="stage-obj obj-misc">📄 PDFBox</div>
+<div class="stage-obj obj-misc">📱 ADB-Telefonspiegel</div>
+<div class="stage-obj obj-misc">🖥️ PPT-Spiegel</div>
+<div class="stage-obj obj-misc">✏️ Zeichenbrett</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      Weißer Rand = aktiv · Orangefarbener Impuls = ausstehende Peer-Übermittlung · Grün = Inhaltsstapel · Gelb = Bühnenstapel
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>KameleonStack</h3>
+<p>Der universelle Inhaltscontainer. Jeder Stapel enthält mehrere Slots (Bilder, Text, PDFs). Zwei Modi:</p>
+<ul>
+<li><strong style="color:#22c55e">Inhalt</strong> — Vom Lehrer gesteuerte Folien</li>
+<li><strong style="color:#eab308">Bühne</strong> – akzeptiert Peer-Push-Einsendungen</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>Animationssystem</h3>
+<p>Animationen zum Ein- und Aussteigen pro Objekt mit freihändigen Bewegungspfaden. Pfade werden auf dem Bildschirm gezeichnet und vor der Speicherung durch Douglas-Peucker-Komprimierung und Catmull-Rom-Spline-Interpolation geglättet.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Kommode</h3>
+<p>Wartebereich außerhalb der Bühne – Erstellen Sie Objekte in der Kommode und zeigen Sie sie mit einem Doppelklick auf der Bühne an. Ziehen Sie aus dem Rechtsklick-Menü zurück zu Dresser. Das Eigenschaftenfenster zeigt den Ein-/Ausstiegsstatus der Animation an.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>Nummerierte Hinweise</h3>
+<p>Triggerpunkte treiben die Präsentation Schritt für Schritt voran, genau wie theatralische Lichtsignale. Jeder Cue kann Objekte ein- oder ausanimieren, Stapelplätze wechseln oder zeitgesteuerte Sequenzen ausführen.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>.kpt-Projektpakete</h3>
+<p>Projekte werden als ZIP-Archive gespeichert (<code>.kpt</code>) mit allen Medienressourcen, Layoutdaten und Animationskonfigurationen. Öffnen Sie es auf jedem Rechner, auf dem Chameleon läuft.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Logische Koordinaten</h3>
+<p>Die Bühne verwendet unabhängig von der Bildschirmauflösung einen logischen Koordinatenraum von 0–10.000. Präsentationen sehen auf einem Laptop-Bildschirm oder einem 4K-Projektor identisch aus.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Mobil- und Peer-Kontrolle</h2>
+<p>Führen Sie den Moderator von Ihrem Telefon aus aus. Lassen Sie die Schüler ihre Inhalte übernehmen</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Android-Mobile-Bridge</h4>
+<p>Die Chameleon Mobile Bridge (WebSocket) leitet Theaterbefehle von jedem Android-Gerät weiter. Kontrolle <strong>stack_next / prev / play / pause / stop</strong>, verschieben Sie Bild- oder Textfelder in einen Stapel und sehen Sie, wie der Stapelstatus in Echtzeit übertragen wird.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>Peer-Einreichungen</h4>
+<p>Die Schüler übertragen Bilder oder Text von ihren Telefonen auf einen Stapel im Bühnenmodus. Einsendungen werden im Miniaturbildstreifen mit einem orangefarbenen, pulsierenden Rand angezeigt. Der Moderator kann <strong>genehmigen, halten, ablehnen oder fördern</strong> jedes einzelne, bevor es live auf dem Bildschirm gezeigt wird.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>Gemeinsames Zeichenbrett</h4>
+<p>Kollaborative Freihand-Leinwand, steuerbar über die mobile Brücke – <strong>draw_streicheln / löschen / rückgängig machen</strong>. Ideal zum Kommentieren von Folien, Brainstorming oder Live-Quiz.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>ADB-Telefonspiegelung und PPT-Erfassung</h4>
+<p><strong>ADBPhoneBox</strong> Streamt einen Live-Android-Bildschirm über ADB direkt auf die Bühne. <strong>PPTMirrorBox</strong> erfasst ein PowerPoint-Fenster – präsentieren Sie Ihre vorhandenen Decks in Kameleon ohne Konvertierung.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Erwecken Sie Ihre Präsentationen zum Leben</h3>
+<p>Kontaktieren Sie uns, um eine Lizenz zu besprechen oder eine Live-Demonstration von Kameleon Presenter zu vereinbaren.</p>
+<a class="btn btn-solid" href="../contact.html">Fordern Sie eine Demo an</a>
+<a class="btn" href="../index.html">← Zurück zur Übersicht</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Start</a><a href="../ide.html">SIE HABEN IDEEN</a><a href="../presenter.html">Moderator</a>
+<a href="../accounting.html">Buchhaltung</a><a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a><a href="../classroom.html">Unterricht</a><a href="../contact.html">Kontakt</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Gebaut von Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

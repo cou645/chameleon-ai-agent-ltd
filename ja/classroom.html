@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ことばの教室 — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
+<div class="nav-links">
+<a href="../index.html">u30dbu30fcu30e0</a>
+<a href="../ide.html">あなたにはアイデアがあります</a>
+<a href="../presenter.html">プレゼンター</a>
+<a href="../companion.html">コンパニオンアプリ</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">ウェブサービス</a>
+<a href="../accounting.html">u7d4cu7406</a>
+<a href="../technician.html">パソコン技術者</a>
+<a href="../trading.html">トレーディング</a>
+<a class="active" href="../classroom.html">u6388u696d</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>語学教室</h1>
+<p class="sub">Tailscale で保護された P2P 接続、統合された支払い、Kameleon Presenter をすべて 1 つのアプリケーションで使用したライブ WebRTC ビデオ レッスン。</p>
+<div class="hero-badges">
+<span class="badge">📹 WebRTC ビデオ</span>
+<span class="badge">🌐 尾鱗メッシュ</span>
+<span class="badge">💳 ストライプ · Alipay · PayPal</span>
+<span class="badge">🔐 登録DB</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>教師</div>
+<div class="status">● ライブ</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>学生A</div>
+<div class="status">● 接続済み</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>生徒B</div>
+<div class="status">● 接続済み</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>生徒C</div>
+<div class="status">○参加中…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>生徒D</div>
+<div class="status">● 接続済み</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>生徒E</div>
+<div class="status">● 接続済み</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>学生F</div>
+<div class="status">○参加中…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>ライブビデオレッスン</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>WebRTC グループ ビデオ - 参加者 4 名以上</h4>
+<p>4 人以上のグループ向けの低遅延のフルメッシュ WebRTC ビデオとオーディオ。中央のメディア サーバーも月額料金もかかりません。 Chameleon シグナル サーバー (<code>chameleon_signal.py</code>) SDP および ICE リレー (ポート 8766) を処理し、Android 上の Termux 上でも実行されます。 Companion アプリには、生徒の参加に応じて自動的に拡大する適応グリッドが表示されます。1 = 全画面、2 = 並列、3 = 2+1、4 = 2×2、5+ = スクロール可能な自動調整グリッド — 教師のローカル フィードが常にピクチャ イン ピクチャ内に表示されます。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>テールスケールで保護された接続</h4>
+<p>すべてのピアは Tailscale メッシュ経由で接続します。パブリック IP やポート転送はありません。 IDE は、アプリを離れることなく、ACL、デバイス認証、認証キーの生成を管理します。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>統合カメレオンプレゼンター</h4>
+<p>レッスン中は完全なカメレオンステージで指導します。学生は、回答、描画、画像をステージモード スタックに直接プッシュでき、アプリを切り替えることなくリアルタイムで管理および表示できます。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>発音ウィジェット</h4>
+<p>内蔵の発音コーチング ウィジェット (<code>pronunciation_widget.py</code>) 音素レベルのフィードバック付き - 正確な明瞭さが重要な言語教育に最適です。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>LANビデオフォールバック</h4>
+<p>Tailscale が利用できない場合、 <code>lan_video.py</code> UDP (ポート 47732) 経由でビデオをストリーミングし、UDP (ポート 47733) で音声をストリーミングし、WebSocket (ポート 47731) で共同差分をストリーミングします。すべてローカル ネットワーク上で行われます。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>テレコム &amp; SIM コール ブリッジ</h2>
+<p>Companion アプリから直接、アプリ通話と実際の SIM 通話を単一の多方向会話に接続します</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>2 種類の通話 - 1 つの会話</h4>
+<p>Companion アプリは、2 つの並列通話チャネルをサポートしています。 <strong>アプリ呼び出し</strong> (WebRTC、Tailscale 経由のピアツーピア、無料) および <strong>SIM通話</strong> (標準のモバイル ネットワーク、任意の電話番号)。ピアと WebRTC 通話を行うことができます <em>そして</em> アプリを離れることなく、同時にサードパーティに SIM 通話を発信し、多方向の会話のために会議を行うことができます。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>テレコムステータスバー</h4>
+<p>Companion アプリの上部にある常設ステータス バーには、両方のチャネルのライブ状態 (アイドル、呼び出し中、通話中、またはミュート) が表示されます。どの通話がアクティブであるかが一目でわかります。各チャネルには独立したミュートと終了のコントロールがあります。SIM 通話を終了してもアプリ通話はドロップされず、その逆も同様です。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>マルチウェイレッスンの流れ</h4>
+<p>語学レッスンに役立ちます。生徒を WebRTC アプリの通話に参加させ、SIM 上のネイティブ スピーカーにダイヤルして、自然な現実世界での会話を行います。 3 者全員がお互いの声を聞くことができます。教師はアプリを介して司会を務めますが、Kameleon Presenter は IDE 上で実行を続けます。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>英国の通話録音法 - すべての当事者に通知する必要がある</h4>
+<p>RIPA 2000 および電気通信 (合法的な商慣行) 規制に基づき、通話を録音する当事者は、自らの合法的使用のために相手方の同意なしに通話を録音することができます。ただし、その録音は <strong>法廷で認められる</strong> 録音を開始する前に、すべての関係者に通知する必要があります。コンパニオン アプリには、目立つ <strong>🔴 録音</strong> 録画がアクティブなときは常に、接続されているすべての参加者にバナーを表示します。 SIM 発信者の場合、通話の開始時に口頭で通知する必要があります。音声データは GDPR に基づく個人データであるため、それに応じて処理する必要があります。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>u652fu6255u3044uff06u767bu9332</h2>
+<p>レッスンへのアクセスを許可する前に、世界中の生徒からの支払いを受け入れる</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳ストライプ <span style="color:var(--muted);font-weight:400">(ポンドプライマリー)</span></div>
+<div class="pay-pill">🟦アリペイ <span style="color:var(--muted);font-weight:400">（中国人学生）</span></div>
+<div class="pay-pill">🅿️ペイパル <span style="color:var(--muted);font-weight:400">（後退する）</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>コース＆受講DB</h3>
+<p>に保存されているコースと学生の登録 <code>~/.chameleon/courses.db</code>。 AI はコースの作成、登録者の一覧表示、支払いステータスの確認、アクセスの取り消しをすべて IDE コマンド経由で行うことができます。</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>複数通貨のサポート</h3>
+<p>Stripe は、英国および留学生からの GBP 支払いを処理します。アリペイは人民元で支払う中国人学生をターゲットにしている。 PayPal は、幅広い国をカバーするユニバーサル フォールバックを提供します。</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>WeChat スクリーンショット支払い</h3>
+<p>カードにアクセスできない学生の場合は、WeChat Pay の支払い証明のスクリーンショットを受け入れます。 AI は画像を読み取り、金額と参照を抽出し、登録に対する手動支払いを記録します。</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>支払いリンク</h3>
+<p>任意のコースに対して Stripe がホストする支払いリンクを生成します。リンクを共有します - 学生が支払います - 登録は自動的に作成されます。構築またはホストするためのチェックアウト ページはありません。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>支払いコマンドリファレンス</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>AIコマンド</th><th>説明</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>価格、タイトル、説明を含む新しいコースを作成します</td></tr>
+<tr><td><code>payment_links</code></td><td>コースの Stripe 支払いリンクを生成する</td></tr>
+<tr><td><code>payment_status</code></td><td>学生の支払いと登録状況を確認する</td></tr>
+<tr><td><code>payment_enrol</code></td><td>生徒を手動で登録する (例: 現金支払い後)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>学生の登録アクセス権を削除する</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>未払い残高のある生徒全員をリストアップする</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>支払いの証拠として WeChat Pay のスクリーンショットを記録します。</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>オンライン語学学校を立ち上げる</h3>
+<p>ビデオ、スライド、支払い、登録など、必要なものすべてが 1 つのデスクトップ アプリケーションで行えます。</p>
+<a class="btn btn-solid" href="../contact.html">連絡する</a>
+<a class="btn" href="../index.html">← 概要に戻る</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
+<a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
+<a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
+</footer>
+</body>
+</html>

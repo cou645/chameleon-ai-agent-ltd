@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>现场通信代码参考 — 物流 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a class="active" href="../logistics4x4.html">物流4×4</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 现场通信代码参考</h1>
+<div class="edition">物流 4×4 · 第 1 版 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>当数据连接不可用时使用的紧凑代码协议。专为跨境或偏远地区的卡车司机、徒步旅行者和紧急服务人员而设计。三个用户配置文件共享通用的警报和系统词汇，即使在严重退化的条件下也能实现跨机构通信。</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">鼓励分享此参考。互操作性取决于各方都了解代码。</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>使用浏览器的打印功能将此页面另存为 PDF — <strong>文件 → 打印 → 另存为 PDF</strong>。在手机上保留一份副本以供离线参考。</p>
+<button class="btn-print" onclick="window.print()">🖨 打印/另存为 PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← 返回物流 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>代码如何工作</h3>
+<p>每个代码都是一个 <strong>信</strong> （类别）后跟 <strong>两位数</strong> （严重性或子类型）。在每个类别中，较低的数字意味着 <em>正常或轻微</em>，数字越大意味着 <em>严重或危急</em>。 99代码永远是最严格的。</p>
+<div class="code-block">一个 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── 严重性 11 = 正常 → 99 = 紧急</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── 类别字母</span>
+</div>
+<p style="margin-top:.8rem;">多个代码可以组合在一条消息中。可以附加自由文本注释以获取更多详细信息。</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">D</div>
+<div>
+<strong>司机</strong>
+<span>卡车/跨境运营商</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">H</div>
+<div>
+<strong>徒步旅行者</strong>
+<span>户外/徒步团队成员</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">X</div>
+<div>
+<strong>紧急服务</strong>
+<span>SAR / 护理人员 / 护林员 / 消防</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>通用 SOS — 适用于所有配置文件</h4>
+<p>将这两个代码一起发送，可立即触发生命威胁紧急警报，并向所有注册联系人发送 GPS 位置信息。</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">通用代码 - 所有型材</div>
+<div class="ph-sub">A（警报）和 Z（系统）在司机、徒步旅行者和紧急服务中是相同的</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">一个</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">警报级别</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">A11</td><td>一切都清楚了。情况正常。</td></tr>
+<tr><td class="code-cell">A22</td><td>小事件。自行处理。</td></tr>
+<tr><td class="code-cell">A33</td><td>警告。可能出现问题。监控。</td></tr>
+<tr><td class="code-cell">A44</td><td>需要帮助。非紧急。</td></tr>
+<tr><td class="code-cell">A55</td><td>迫切需要援助。</td></tr>
+<tr><td class="code-cell">A66</td><td>严重事件正在进行中。</td></tr>
+<tr><td class="code-cell">A77</td><td>情况危急。多个问题。</td></tr>
+<tr><td class="code-cell">A88</td><td>极度危险。</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>求救。危及生命的紧急情况。立即发送帮助。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">Z</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">系统/协议</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>心跳。没有变化。</td></tr>
+<tr><td class="code-cell">Z01</td><td>轮班/加息/部署开始。</td></tr>
+<tr><td class="code-cell">Z02</td><td>轮班/加息结束。安全地站了下来。</td></tr>
+<tr><td class="code-cell">Z03</td><td>消息已确认。</td></tr>
+<tr><td class="code-cell">Z04</td><td>消息已损坏。请重新发送。</td></tr>
+<tr><td class="code-cell">Z05</td><td>转发此消息。</td></tr>
+<tr><td class="code-cell">Z06</td><td>将此消息转发回基地。</td></tr>
+<tr><td class="code-cell">Z07</td><td>基地或命令向所有人请求状态。</td></tr>
+<tr><td class="code-cell">Z08</td><td>请求此特定联系人的状态。</td></tr>
+<tr><td class="code-cell">Z09</td><td>团体或车队解散。</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">驱动程序代码 — 前缀 D</div>
+<div class="ph-sub">卡车运营商、跨境物流、车队司机</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">乙</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">边界</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">B11</td><td>接近边境。二十公里以内。</td></tr>
+<tr><td class="code-cell">B22</td><td>在边防哨所排队。正常等待。</td></tr>
+<tr><td class="code-cell">B33</td><td>边境延误。文书工作问题。</td></tr>
+<tr><td class="code-cell">B44</td><td>已下令检验货物。</td></tr>
+<tr><td class="code-cell">B55</td><td>要求非官方付款。</td></tr>
+<tr><td class="code-cell">B66</td><td>当局扣押的货物。</td></tr>
+<tr><td class="code-cell">B77</td><td>车辆被扣押。</td></tr>
+<tr><td class="code-cell">B88</td><td>司机被拘留。</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>拒绝入境。回头。</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">C</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">货物</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">C11</td><td>货物已装车。一切安全。普通的。</td></tr>
+<tr><td class="code-cell">C22</td><td>部分负载或轻微移位。</td></tr>
+<tr><td class="code-cell">C33</td><td>负载转移。停下来重新固定。</td></tr>
+<tr><td class="code-cell">C44</td><td>货物损坏。</td></tr>
+<tr><td class="code-cell">C55</td><td>溢出物或物品从车辆上掉落。</td></tr>
+<tr><td class="code-cell">C66</td><td>货物部分被盗。</td></tr>
+<tr><td class="code-cell">C77</td><td>所有货物被盗或被扣押。</td></tr>
+<tr><td class="code-cell">C88</td><td>危险品或冷链事件。</td></tr>
+<tr class="crit"><td class="code-cell">C99</td><td>货物总损失。</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">D</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">驾驶员状态</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">D11</td><td>司机值班。正常行驶。</td></tr>
+<tr><td class="code-cell">D22</td><td>司机停车。燃料、膳食或休息。</td></tr>
+<tr><td class="code-cell">D33</td><td>司机装卸货物。</td></tr>
+<tr><td class="code-cell">D44</td><td>司机在等候。海关、检查站或交通。</td></tr>
+<tr><td class="code-cell">D55</td><td>司机延误了。问题。还不能继续。</td></tr>
+<tr><td class="code-cell">D66</td><td>驾驶员感觉不适或疲劳。</td></tr>
+<tr><td class="code-cell">D77</td><td>司机被拘留或面临法律问题。</td></tr>
+<tr><td class="code-cell">D88</td><td>驱动故障。没有帮助就无法继续。</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>司机紧急。司机遇到危险。</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">乙</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">车辆故障</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>发动机警告灯。次要的。继续。</td></tr>
+<tr><td class="code-cell">E22</td><td>单胎漏气。现在改变。</td></tr>
+<tr><td class="code-cell">E33</td><td>多个轮胎漏气。无法改变。</td></tr>
+<tr><td class="code-cell">E44</td><td>发动机过热。拉过来了。</td></tr>
+<tr><td class="code-cell">E55</td><td>机械故障。非发动机。</td></tr>
+<tr><td class="code-cell">E66</td><td>发动机完全故障。</td></tr>
+<tr><td class="code-cell">E77</td><td>火。</td></tr>
+<tr><td class="code-cell">E88</td><td>事故损坏。车辆无法移动。</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>车辆注销。全部损失。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">F</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">燃料</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>油箱已满。</td></tr>
+<tr><td class="code-cell">F22</td><td>燃油四分之三。</td></tr>
+<tr><td class="code-cell">F33</td><td>燃油一半。</td></tr>
+<tr><td class="code-cell">F44</td><td>燃料季度。</td></tr>
+<tr><td class="code-cell">F55</td><td>燃油低。 50公里内需要加油。</td></tr>
+<tr><td class="code-cell">F66</td><td>燃料至关重要。现在需要加油。</td></tr>
+<tr><td class="code-cell">F77</td><td>在油桶或储备罐上运行。</td></tr>
+<tr><td class="code-cell">F88</td><td>燃油受到污染或使用了错误的燃油。</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>没有燃料。停了。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">G</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">护航</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>单人车。没有车队。</td></tr>
+<tr><td class="code-cell">G22</td><td>车队领头车辆。</td></tr>
+<tr><td class="code-cell">G33</td><td>车队中间位置。</td></tr>
+<tr><td class="code-cell">G44</td><td>车队尾车。</td></tr>
+<tr><td class="code-cell">G55</td><td>车队完好无损。所有卡车都在场。</td></tr>
+<tr><td class="code-cell">G66</td><td>车队中一辆车失踪。</td></tr>
+<tr><td class="code-cell">G77</td><td>多辆车失踪。</td></tr>
+<tr><td class="code-cell">G88</td><td>车队分开。在下一个航路点重新集结。</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>车队解散。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">H</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">需要帮助</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>需要将燃料运送到我的位置。</td></tr>
+<tr><td class="code-cell">H22</td><td>需要机械师或移动车间。</td></tr>
+<tr><td class="code-cell">H33</td><td>需要医疗救助或救护车。</td></tr>
+<tr><td class="code-cell">H44</td><td>需要警察或官方护送。</td></tr>
+<tr><td class="code-cell">H55</td><td>需要救援卡车或起重机。</td></tr>
+<tr><td class="code-cell">H66</td><td>需要食物、水或补给品。</td></tr>
+<tr><td class="code-cell">H77</td><td>需要报关代理或文件帮助。</td></tr>
+<tr><td class="code-cell">H88</td><td>需要武装护卫。</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>重大事件。迫切需要所有援助。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">J</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">旅程进度</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>旅程开始了。按计划出发。</td></tr>
+<tr><td class="code-cell">J22</td><td>路线已完成 25%。</td></tr>
+<tr><td class="code-cell">J33</td><td>半。已完成 50%。</td></tr>
+<tr><td class="code-cell">J44</td><td>完成 75%。</td></tr>
+<tr><td class="code-cell">J55</td><td>接近目的地。 10公里以下。</td></tr>
+<tr><td class="code-cell">J66</td><td>到达目的地。</td></tr>
+<tr><td class="code-cell">歼77</td><td>路线显着延长。主要绕路。</td></tr>
+<tr><td class="code-cell">J88</td><td>回头。折返路线。</td></tr>
+<tr class="crit"><td class="code-cell">歼99</td><td>丢失的。完全偏离路线。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">K</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">通讯</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>充分沟通。一切正常。</td></tr>
+<tr><td class="code-cell">K22</td><td>仅数据。没有语音通话。</td></tr>
+<tr><td class="code-cell">K33</td><td>仅限短信。没有数据或语音。</td></tr>
+<tr><td class="code-cell">K44</td><td>仅语音。没有数据或短信。</td></tr>
+<tr><td class="code-cell">K55</td><td>仅无线电联系。</td></tr>
+<tr><td class="code-cell">K66</td><td>卫星通讯活跃。</td></tr>
+<tr><td class="code-cell">K77</td><td>仅限网状 WiFi。没有蜂窝。</td></tr>
+<tr><td class="code-cell">K88</td><td>该消息通过另一台设备转发。</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>没有通讯。通过第三方发送。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">右</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">路况</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">R11</td><td>良好的柏油路。</td></tr>
+<tr><td class="code-cell">R22</td><td>柏油路面坑坑洼洼。</td></tr>
+<tr><td class="code-cell">R33</td><td>碎石路或土路。还过得去。</td></tr>
+<tr><td class="code-cell">R44</td><td>崎岖的轨道。泥土或较差的表面。</td></tr>
+<tr><td class="code-cell">R55</td><td>道路部分堵塞。</td></tr>
+<tr><td class="code-cell">R66</td><td>道路封闭或单车道阻塞。</td></tr>
+<tr><td class="code-cell">R77</td><td>桥掉了还是危险的。</td></tr>
+<tr><td class="code-cell">R88</td><td>道路无法通行。</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>没有路线。偏离道路或完全迷路。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">S</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">安全</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>情况正常。没有威胁。</td></tr>
+<tr><td class="code-cell">S22</td><td>该地区总体谨慎。</td></tr>
+<tr><td class="code-cell">S33</td><td>非官方检查站或车辆跟踪。</td></tr>
+<tr><td class="code-cell">S44</td><td>前方有犯罪路障报告。</td></tr>
+<tr><td class="code-cell">S55</td><td>索要贿赂。</td></tr>
+<tr><td class="code-cell">S66</td><td>抢劫企图。被击退了。</td></tr>
+<tr><td class="code-cell">S77</td><td>抢劫正在进行中。</td></tr>
+<tr><td class="code-cell">S88</td><td>武装袭击车队。</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>劫持或绑架。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">时间</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">日程</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>准时。如期。</td></tr>
+<tr><td class="code-cell">T22</td><td>稍微延迟了。不到一小时。</td></tr>
+<tr><td class="code-cell">T33</td><td>延误一到两个小时。</td></tr>
+<tr><td class="code-cell">T44</td><td>延误了两到四个小时。</td></tr>
+<tr><td class="code-cell">T55</td><td>延误了四到八个小时。</td></tr>
+<tr><td class="code-cell">T66</td><td>耽误了一天。</td></tr>
+<tr><td class="code-cell">T77</td><td>重大延误。预计到达时间未知。</td></tr>
+<tr><td class="code-cell">T88</td><td>时间表被放弃。</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>行程中止。回来了。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">车辆移动</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>车辆停放。安全停了下来。</td></tr>
+<tr><td class="code-cell">V22</td><td>车辆正常行驶。</td></tr>
+<tr><td class="code-cell">V33</td><td>车辆缓慢行驶。低于 20 公里/小时。</td></tr>
+<tr><td class="code-cell">V44</td><td>车辆卡住了。泥土、沙子或沟渠。</td></tr>
+<tr><td class="code-cell">V55</td><td>牵引另一辆车。</td></tr>
+<tr><td class="code-cell">V66</td><td>被拖走。</td></tr>
+<tr><td class="code-cell">V77</td><td>车辆翻倒。</td></tr>
+<tr><td class="code-cell">V88</td><td>事故。车辆无法移动。</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>注销。全部损失。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">瓦</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">天气</div>
+</div>
+<table class="code-table">
+<thead><tr><th>代码</th><th>意义</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>清澈干燥。能见度好。</td></tr>
+<tr><td class="code-cell">W22</td><td>小雨或薄雾。</td></tr>
+<tr><td class="code-cell">W33</td><td>大雨。</td></tr>
+<tr><td class="code-cell">W44</td><td>雷暴或大风。</td></tr>
+<tr><td class="code-cell">W55</td><td>有雾或能见度差。</td></tr>
+<tr><td class="code-cell">W66</td><td>洪水。道路湿滑但还过得去。</td></tr>
+<tr><td class="code-cell">W77</td><td>洪水。道路无法通行。</td></tr>
+<tr><td class="code-cell">W88</td><td>沙尘暴或哈马丹。能见度接近零。</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>极端的天气条件。停了。</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">徒步旅行者代码 — 前缀 H</div>
+<div class="ph-sub">徒步旅行者、户外团队、荒野探险</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">需要帮助</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>需要食物或水。</td></tr>
+<tr><td class="code-cell">H22</td><td>需要急救或医疗包。</td></tr>
+<tr><td class="code-cell">H33</td><td>需要医疗援助或疏散评估。</td></tr>
+<tr><td class="code-cell">H44</td><td>需要救援队。</td></tr>
+<tr><td class="code-cell">H55</td><td>需要直升机或空中疏散。</td></tr>
+<tr><td class="code-cell">H66</td><td>需要搜救。</td></tr>
+<tr><td class="code-cell">H77</td><td>需要庇护所或紧急露营地。</td></tr>
+<tr><td class="code-cell">H88</td><td>需要紧急疏散。无法行走。</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>重大紧急情况。立即需要所有援助。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">时间</div><div class="cat-icon">🏔</div><div class="cat-name">步道条件</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>好踪迹。标记清楚。随和。</td></tr>
+<tr><td class="code-cell">T22</td><td>踪迹断断续续或杂草丛生。</td></tr>
+<tr><td class="code-cell">T33</td><td>踪迹丢失。通过 GPS 或指南针导航。</td></tr>
+<tr><td class="code-cell">T44</td><td>偏离轨道。地形开阔。可通航。</td></tr>
+<tr><td class="code-cell">T55</td><td>陡峭的上升。脚步放慢。</td></tr>
+<tr><td class="code-cell">T66</td><td>陡峭的下降。照顾。</td></tr>
+<tr><td class="code-cell">T77</td><td>技术地形。攀爬、岩石或雪。</td></tr>
+<tr><td class="code-cell">T88</td><td>危险路段。小心穿越。</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>地形无法通行。被迫回头。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">U</div><div class="cat-icon">🎒</div><div class="cat-name">齿轮/设备</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>所有装备状况良好。</td></tr>
+<tr><td class="code-cell">U22</td><td>小齿轮问题。非关键。</td></tr>
+<tr><td class="code-cell">U33</td><td>齿轮损坏，但找到了解决方法。</td></tr>
+<tr><td class="code-cell">U44</td><td>关键项目失败。帐篷、炉子或过滤器。</td></tr>
+<tr><td class="code-cell">U55</td><td>导航设备丢失或故障。</td></tr>
+<tr><td class="code-cell">U66</td><td>使用中的急救箱。</td></tr>
+<tr><td class="code-cell">U77</td><td>需要紧急避难所。设立露营地。</td></tr>
+<tr><td class="code-cell">U88</td><td>多个严重齿轮故障。</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>所有重要装备都丢失了。灾难性的。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">生命体征/团体健康</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>所有小组成员都身体健康。</td></tr>
+<tr><td class="code-cell">V22</td><td>轻微疲劳或不适。继续。</td></tr>
+<tr><td class="code-cell">V33</td><td>水泡或轻伤。稍稍放慢。</td></tr>
+<tr><td class="code-cell">V44</td><td>受伤。速度明显变慢。</td></tr>
+<tr><td class="code-cell">V55</td><td>成员无法保持正常节奏。</td></tr>
+<tr><td class="code-cell">V66</td><td>严重受伤。停了。评估疏散。</td></tr>
+<tr><td class="code-cell">V77</td><td>成员昏倒或失去知觉。</td></tr>
+<tr><td class="code-cell">V88</td><td>医疗紧急情况。需要疏散。</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>有生命危险。立即需要紧急服务。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">是</div><div class="cat-icon">✅</div><div class="cat-name">预定入住</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>预定入住。一切都好。在途中。</td></tr>
+<tr><td class="code-cell">Y22</td><td>报到。略有延迟。还是安全的。</td></tr>
+<tr><td class="code-cell">Y33</td><td>报到。明显延迟。还是安全的。</td></tr>
+<tr><td class="code-cell">Y44</td><td>偏离路线但安全且导航。</td></tr>
+<tr><td class="code-cell">Y55</td><td>错过了之前的值机窗口。现在报告。</td></tr>
+<tr><td class="code-cell">Y66</td><td>请求基地确认。</td></tr>
+<tr><td class="code-cell">Y77</td><td>安全抵达营地或计划的航点。</td></tr>
+<tr><td class="code-cell">Y88</td><td>下降。到达步道起点的最后一段路程。</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>多次错过签到。紧急警报触发。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">S</div><div class="cat-icon">🛡</div><div class="cat-name">安全</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>情况正常。没有威胁。</td></tr>
+<tr><td class="code-cell">S22</td><td>一般谨慎。陌生的领域。</td></tr>
+<tr><td class="code-cell">S33</td><td>附近有可疑活动。</td></tr>
+<tr><td class="code-cell">S44</td><td>野生动物威胁。保持距离。</td></tr>
+<tr><td class="code-cell">S55</td><td>野生动物邂逅。后退。</td></tr>
+<tr><td class="code-cell">S66</td><td>具有攻击性的野生动物。撤退。</td></tr>
+<tr><td class="code-cell">S77</td><td>遇到敌对的人。</td></tr>
+<tr><td class="code-cell">S88</td><td>威胁或跟随。转移到安全地带。</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>来自人类或野生动物的直接危险。</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">紧急服务代码 — 前缀 X</div>
+<div class="ph-sub">搜寻与援救人员、护理人员、消防人员、护林员 — 通信能力下降</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>符合国际应急标准</strong>
+    P（分类）类别使用国际 P1–P4 优先等级（P1=立即、P2=延迟、P3=轻微、P4=期待）。 I（事件）和 N（计数）类别反映了联合应急服务部门使用的甲烷重大事件声明框架。
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">我</div><div class="cat-icon">🔥</div><div class="cat-name">事件类型</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">I11</td><td>医疗紧急情况。无现场危险。</td></tr>
+<tr><td class="code-cell">I22</td><td>道路交通碰撞。</td></tr>
+<tr><td class="code-cell">I33</td><td>搜救。失踪的人。</td></tr>
+<tr><td class="code-cell">I44</td><td>火灾或结构事故。</td></tr>
+<tr><td class="code-cell">I55</td><td>洪水或水灾救援。</td></tr>
+<tr><td class="code-cell">I66</td><td>危险物质或化学品释放。</td></tr>
+<tr><td class="code-cell">I77</td><td>结构性崩溃。</td></tr>
+<tr><td class="code-cell">I88</td><td>内乱、暴力或武装事件。</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>宣布重大事件。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">磷</div><div class="cat-icon">🏥</div><div class="cat-name">病人分诊</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">P11</td><td>现场无人员伤亡。</td></tr>
+<tr><td class="code-cell">P22</td><td>仅受伤行走。 P3——次要。</td></tr>
+<tr><td class="code-cell">P33</td><td>严肃但稳定。 P2——延迟。</td></tr>
+<tr><td class="code-cell">P44</td><td>人员伤亡危及生命。 P1——立即。</td></tr>
+<tr><td class="code-cell">P55</td><td>预计伤亡情况。 P4——姑息治疗。</td></tr>
+<tr><td class="code-cell">P66</td><td>混合分类。存在多个类别。</td></tr>
+<tr><td class="code-cell">P77</td><td>宣布发生大规模伤亡事件。</td></tr>
+<tr><td class="code-cell">P88</td><td>伤亡人数不完整。场景未清除。</td></tr>
+<tr class="crit"><td class="code-cell">P99</td><td>灾难性的。确认多人死亡。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">氮</div><div class="cat-icon">👥</div><div class="cat-name">伤亡人数</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>一名伤亡者。</td></tr>
+<tr><td class="code-cell">N22</td><td>造成两到五人伤亡。</td></tr>
+<tr><td class="code-cell">N33</td><td>六到十人伤亡。</td></tr>
+<tr><td class="code-cell">N44</td><td>伤亡十一至二十人。</td></tr>
+<tr><td class="code-cell">N55</td><td>伤亡二十到五十人。</td></tr>
+<tr><td class="code-cell">N66</td><td>伤亡五十到一百人。</td></tr>
+<tr><td class="code-cell">N77</td><td>伤亡一百多人。</td></tr>
+<tr><td class="code-cell">N88</td><td>未知数。场景评估正在进行中。</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>多处人员伤亡。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">患者生命体征</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>意识清醒、警觉。正常说话。</td></tr>
+<tr><td class="code-cell">V22</td><td>意识清醒但困惑或烦躁。</td></tr>
+<tr><td class="code-cell">V33</td><td>仅响应语音命令。</td></tr>
+<tr><td class="code-cell">V44</td><td>仅对疼痛做出反应。无意识。</td></tr>
+<tr><td class="code-cell">V55</td><td>没有反应。呼吸存在。</td></tr>
+<tr><td class="code-cell">V66</td><td>没有呼吸。心肺复苏正在进行中。</td></tr>
+<tr><td class="code-cell">V77</td><td>严重出血。应用止血带。</td></tr>
+<tr><td class="code-cell">V88</td><td>心脏停搏。</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>死者。确认的。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">右</div><div class="cat-icon">🚒</div><div class="cat-name">现场资源</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">R11</td><td>仅限急救人员。没有专业的回复者。</td></tr>
+<tr><td class="code-cell">R22</td><td>现场护理人员或高级急救人员。</td></tr>
+<tr><td class="code-cell">R33</td><td>救护人员在现场。</td></tr>
+<tr><td class="code-cell">R44</td><td>消防人员在现场。</td></tr>
+<tr><td class="code-cell">R55</td><td>警察在现场。</td></tr>
+<tr><td class="code-cell">R66</td><td>现场有多个紧急服务人员。</td></tr>
+<tr><td class="code-cell">R77</td><td>事件指挥官成立。</td></tr>
+<tr><td class="code-cell">R88</td><td>野战医院或伤员清理站已投入使用。</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>所有资源都被压垮了。需要紧急增援。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">H</div><div class="cat-icon">📞</div><div class="cat-name">所需资源</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>无需额外资源。</td></tr>
+<tr><td class="code-cell">H22</td><td>需要额外的地面救护车。</td></tr>
+<tr><td class="code-cell">H33</td><td>需要空中救护车或直升机。</td></tr>
+<tr><td class="code-cell">H44</td><td>需要消防和救援。</td></tr>
+<tr><td class="code-cell">H55</td><td>需要警察或武装应对。</td></tr>
+<tr><td class="code-cell">H66</td><td>需要 HAZMAT 或污染小组。</td></tr>
+<tr><td class="code-cell">H77</td><td>需要大量救援或城市搜索队。</td></tr>
+<tr><td class="code-cell">H88</td><td>需要军事或专家支持。</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>大规模伤亡响应。所需的所有资源。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">乙</div><div class="cat-icon">🚁</div><div class="cat-name">疏散状况</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>无需疏散。现场治疗。</td></tr>
+<tr><td class="code-cell">E22</td><td>可自行疏散。伤员步行前往运输处。</td></tr>
+<tr><td class="code-cell">E33</td><td>可以进行车辆疏散。道路畅达。</td></tr>
+<tr><td class="code-cell">E44</td><td>需要担架疏散。</td></tr>
+<tr><td class="code-cell">E55</td><td>需要抽气。需要着陆区。</td></tr>
+<tr><td class="code-cell">E66</td><td>需要水或船疏散。</td></tr>
+<tr><td class="code-cell">E77</td><td>需要技术救援。绳索或密闭空间。</td></tr>
+<tr><td class="code-cell">E88</td><td>疏散路线受损。寻求替代方案。</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>疏散是不可能的。伤员就地避难。</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">S</div><div class="cat-icon">⚠️</div><div class="cat-name">现场安全</div></div>
+<table class="code-table"><thead><tr><th>代码</th><th>意义</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>现场安全。无危险。</td></tr>
+<tr><td class="code-cell">S22</td><td>存在潜在危险。建议谨慎。</td></tr>
+<tr><td class="code-cell">S33</td><td>现场存在火灾、化学或结构危险。</td></tr>
+<tr><td class="code-cell">S44</td><td>主动威胁。现场尚未安全。</td></tr>
+<tr><td class="code-cell">S55</td><td>现场有敌对人员。需要执法。</td></tr>
+<tr><td class="code-cell">S66</td><td>污染危险。需要禁区。</td></tr>
+<tr><td class="code-cell">S77</td><td>场景部分清除。持续的风险。</td></tr>
+<tr><td class="code-cell">S88</td><td>场景不安全。回复者撤回。</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>对响应者造成直接危险。立即撤离现场。</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>快速参考——常见情况</h2>
+<p>三个配置文件中的相同含义的代码</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>情况</th>
+<th>司机（D）</th>
+<th>徒步旅行者 (H)</th>
+<th>紧急情况（X）</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>全部清除/正常</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>需要紧急帮助</td><td>A55+H44</td><td>A55+H44</td><td>A55+H33</td></tr>
+<tr><td>生命威胁——SOS</td><td>A99+H99</td><td>A99+H99</td><td>A99+H99</td></tr>
+<tr><td>仅短信通信</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>按计划/途中</td><td>T11/D11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>已抵达目的地</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>迷失/偏离路线</td><td>歼99</td><td>歼99</td><td>歼99</td></tr>
+<tr><td>恶劣天气</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>已确认</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>消息已损坏</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>物流4×4</h3>
+<p>小型运营商的跨境车队通信 - 实时地图、群组视频、SIM 桥接器和此紧急协议，全部在标准 Android 手机上实现。</p>
+<a class="btn btn-solid" href="../logistics4x4.html">了解更多</a>
+<a class="btn" href="../contact.html">联系我们</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · 物流 4×4 现场通信协议 · 第 1 版<br/>
+    鼓励共享此参考——互操作性需要它。
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 许可待定 · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

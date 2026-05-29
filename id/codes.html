@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Referensi Kode Komunikasi Lapangan - Logistik 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a class="active" href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 Referensi Kode Komunikasi Lapangan</h1>
+<div class="edition">Logistik 4×4 · Edisi 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>Protokol kode ringkas untuk digunakan saat konektivitas data tidak tersedia. Dirancang untuk pengemudi truk, pejalan kaki, dan layanan darurat yang beroperasi melintasi perbatasan atau di medan terpencil. Tiga profil pengguna berbagi peringatan dan kosa kata sistem yang sama — memungkinkan komunikasi lintas lembaga bahkan dalam kondisi yang sangat terdegradasi.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Berbagi referensi ini dianjurkan. Interoperabilitas bergantung pada semua pihak yang mengetahui kodenya.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>Simpan halaman ini sebagai PDF menggunakan fungsi Cetak di browser Anda — <strong>File → Cetak → Simpan sebagai PDF</strong>. Simpan salinannya di ponsel Anda untuk referensi offline.</p>
+<button class="btn-print" onclick="window.print()">🖨 Cetak / Simpan sebagai PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← Kembali ke Logistik 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>Cara kerja kodenya</h3>
+<p>Setiap kode adalah a <strong>surat</strong> (kategori) diikuti oleh <strong>dua digit</strong> (keparahan atau subtipe). Dalam setiap kategori, berarti angka yang lebih rendah <em>normal atau kecil</em>, berarti angka yang lebih tinggi <em>serius atau kritis</em>. Kode 99 selalu yang paling parah.</p>
+<div class="code-block">SEBUAH 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── Tingkat Keparahan  11 = nominal → 99 = darurat</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── Kategori surat</span>
+</div>
+<p style="margin-top:.8rem;">Beberapa kode dapat digabungkan dalam satu pesan. Catatan teks bebas dapat ditambahkan untuk detail tambahan.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">D</div>
+<div>
+<strong>Pengemudi</strong>
+<span>Operator truk / lintas batas</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">H</div>
+<div>
+<strong>Pejalan kaki</strong>
+<span>Anggota tim luar ruangan / trekking</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">X</div>
+<div>
+<strong>Layanan Darurat</strong>
+<span>SAR / paramedis / ranger / pemadam kebakaran</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>Universal SOS — berfungsi di semua profil</h4>
+<p>Kirimkan kedua kode ini bersama-sama untuk memicu peringatan darurat ancaman kehidupan dengan lokasi GPS ke semua kontak terdaftar.</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">Kode universal — semua profil</div>
+<div class="ph-sub">A (Peringatan) dan Z (Sistem) identik pada Pengemudi, Pejalan Kaki, dan Layanan Darurat</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">A</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">Tingkat kewaspadaan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">A11</td><td>Semuanya jelas. Situasi normal.</td></tr>
+<tr><td class="code-cell">A22</td><td>Insiden kecil. Penanganan diri.</td></tr>
+<tr><td class="code-cell">A33</td><td>Peringatan. Kemungkinan masalah berkembang. Pemantauan.</td></tr>
+<tr><td class="code-cell">A44</td><td>Bantuan diperlukan. Tidak mendesak.</td></tr>
+<tr><td class="code-cell">A55</td><td>Bantuan sangat dibutuhkan.</td></tr>
+<tr><td class="code-cell">A66</td><td>Insiden serius sedang berlangsung.</td></tr>
+<tr><td class="code-cell">A77</td><td>Situasi kritis. Banyak masalah.</td></tr>
+<tr><td class="code-cell">A88</td><td>Bahaya ekstrim.</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>SOS. keadaan darurat yang mengancam jiwa. Kirim bantuan segera.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">Z</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">Sistem/protokol</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>Denyut jantung. Tidak ada perubahan.</td></tr>
+<tr><td class="code-cell">Z01</td><td>Mulai shift/pendakian/penempatan.</td></tr>
+<tr><td class="code-cell">Z02</td><td>Akhir shift/pendakian. Berdiri dengan aman.</td></tr>
+<tr><td class="code-cell">Z03</td><td>Pesan diakui.</td></tr>
+<tr><td class="code-cell">Z04</td><td>Pesan rusak. Silakan kirim ulang.</td></tr>
+<tr><td class="code-cell">Z05</td><td>Sampaikan pesan ini ke depan.</td></tr>
+<tr><td class="code-cell">Z06</td><td>Sampaikan pesan ini kembali ke pangkalan.</td></tr>
+<tr><td class="code-cell">Z07</td><td>Basis atau perintah meminta status dari semua.</td></tr>
+<tr><td class="code-cell">Z08</td><td>Meminta status dari kontak khusus ini.</td></tr>
+<tr><td class="code-cell">Z09</td><td>Pembubaran kelompok atau konvoi.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">Kode pengemudi — awalan D</div>
+<div class="ph-sub">Operator truk, logistik lintas batas, pengemudi konvoi</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">B</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">Berbatasan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">B11</td><td>Mendekati perbatasan. Dalam jarak dua puluh kilometer.</td></tr>
+<tr><td class="code-cell">B22</td><td>Sedang mengantri di pos perbatasan. Menunggu biasa.</td></tr>
+<tr><td class="code-cell">B33</td><td>Tertunda di perbatasan. Masalah dokumen.</td></tr>
+<tr><td class="code-cell">B44</td><td>Pemeriksaan barang dipesan.</td></tr>
+<tr><td class="code-cell">B55</td><td>Pembayaran tidak resmi diminta.</td></tr>
+<tr><td class="code-cell">B66</td><td>Barang-barang yang disita oleh pihak berwenang.</td></tr>
+<tr><td class="code-cell">B77</td><td>Kendaraan disita.</td></tr>
+<tr><td class="code-cell">B88</td><td>Sopir ditahan.</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>Menolak masuk. Berbalik.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">C</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">Muatan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">C11</td><td>Kargo dimuat. Semua aman. Normal.</td></tr>
+<tr><td class="code-cell">C22</td><td>Beban sebagian atau pergeseran kecil.</td></tr>
+<tr><td class="code-cell">Bab 33</td><td>Beban bergeser. Berhenti untuk mengamankan kembali.</td></tr>
+<tr><td class="code-cell">Bab 44</td><td>Kargo rusak.</td></tr>
+<tr><td class="code-cell">Bab 55</td><td>Tumpahan atau barang jatuh dari kendaraan.</td></tr>
+<tr><td class="code-cell">Bab 66</td><td>Kargo sebagian dicuri.</td></tr>
+<tr><td class="code-cell">Bab 77</td><td>Semua kargo dicuri atau disita.</td></tr>
+<tr><td class="code-cell">Bab 88</td><td>Insiden Hazmat atau rantai dingin.</td></tr>
+<tr class="crit"><td class="code-cell">Bab 99</td><td>Kerugian total kargo.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">D</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">Status pengemudi</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">D11</td><td>Sopir sedang bertugas. Mengemudi dengan normal.</td></tr>
+<tr><td class="code-cell">D22</td><td>Pengemudi berhenti. Bahan bakar, makan, atau istirahat.</td></tr>
+<tr><td class="code-cell">D33</td><td>Pengemudi memuat atau membongkar muatan.</td></tr>
+<tr><td class="code-cell">D44</td><td>Sopir menunggu. Bea Cukai, pos pemeriksaan, atau lalu lintas.</td></tr>
+<tr><td class="code-cell">D55</td><td>Pengemudi tertunda. Masalah. Belum dapat melanjutkan.</td></tr>
+<tr><td class="code-cell">D66</td><td>Pengemudi merasa tidak enak badan atau lelah.</td></tr>
+<tr><td class="code-cell">D77</td><td>Pengemudi ditahan atau menghadapi masalah hukum.</td></tr>
+<tr><td class="code-cell">D88</td><td>Kerusakan pengemudi. Tidak dapat melanjutkan tanpa bantuan.</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>darurat pengemudi. Pengemudi dalam bahaya.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">E</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">Kesalahan kendaraan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">E11</td><td>Lampu peringatan mesin. Kecil. Melanjutkan.</td></tr>
+<tr><td class="code-cell">E22</td><td>Ban kempes tunggal. Berubah sekarang.</td></tr>
+<tr><td class="code-cell">E33</td><td>Beberapa ban kempes. Tidak bisa berubah.</td></tr>
+<tr><td class="code-cell">E44</td><td>Mesin terlalu panas. Menepi.</td></tr>
+<tr><td class="code-cell">E55</td><td>Kerusakan mekanis. Non-mesin.</td></tr>
+<tr><td class="code-cell">E66</td><td>Kegagalan mesin total.</td></tr>
+<tr><td class="code-cell">E77</td><td>Api.</td></tr>
+<tr><td class="code-cell">E88</td><td>Kerusakan akibat kecelakaan. Kendaraan tidak bisa bergerak.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Penghapusan kendaraan. Kerugian total.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">F</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">Bahan bakar</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>Tangki bahan bakar penuh.</td></tr>
+<tr><td class="code-cell">F22</td><td>Bahan bakar tiga perempat.</td></tr>
+<tr><td class="code-cell">F33</td><td>Bahan bakar setengah.</td></tr>
+<tr><td class="code-cell">F44</td><td>Seperempat bahan bakar.</td></tr>
+<tr><td class="code-cell">F55</td><td>Bahan bakar rendah. Perlu mengisi bahan bakar dalam jarak 50 km.</td></tr>
+<tr><td class="code-cell">F66</td><td>Bahan bakar kritis. Perlu mengisi bahan bakar sekarang.</td></tr>
+<tr><td class="code-cell">F77</td><td>Berjalan dengan menggunakan jerigen atau tangki cadangan.</td></tr>
+<tr><td class="code-cell">F88</td><td>Bahan bakar terkontaminasi atau bahan bakar yang digunakan salah.</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>Tidak ada bahan bakar. Berhenti.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">G</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">Konvoi</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>Kendaraan tunggal. Tidak ada konvoi.</td></tr>
+<tr><td class="code-cell">G22</td><td>Kendaraan utama konvoi.</td></tr>
+<tr><td class="code-cell">G33</td><td>Posisi tengah konvoi.</td></tr>
+<tr><td class="code-cell">G44</td><td>Kendaraan ekor konvoi.</td></tr>
+<tr><td class="code-cell">G55</td><td>Konvoi utuh. Semua truk hadir.</td></tr>
+<tr><td class="code-cell">G66</td><td>Satu kendaraan hilang dari konvoi.</td></tr>
+<tr><td class="code-cell">G77</td><td>Beberapa kendaraan hilang.</td></tr>
+<tr><td class="code-cell">G88</td><td>Konvoi terpisah. Berkelompok kembali di titik jalan berikutnya.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>Konvoi dibubarkan.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">H</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">Bantuan diperlukan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>Butuh bahan bakar dikirim ke lokasi saya.</td></tr>
+<tr><td class="code-cell">H22</td><td>Butuh mekanik atau bengkel keliling.</td></tr>
+<tr><td class="code-cell">H33</td><td>Butuh bantuan medis atau ambulans.</td></tr>
+<tr><td class="code-cell">H44</td><td>Butuh polisi atau pengawalan resmi.</td></tr>
+<tr><td class="code-cell">H55</td><td>Butuh truk atau derek pemulihan.</td></tr>
+<tr><td class="code-cell">H66</td><td>Membutuhkan makanan, air, atau perbekalan.</td></tr>
+<tr><td class="code-cell">H77</td><td>Butuh bantuan agen bea cukai atau dokumentasi.</td></tr>
+<tr><td class="code-cell">H88</td><td>Butuh pengawalan bersenjata.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Insiden besar. Semua bantuan dibutuhkan segera.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">J</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">Kemajuan perjalanan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>Perjalanan dimulai. Berangkat sesuai jadwal.</td></tr>
+<tr><td class="code-cell">J22</td><td>25% rute selesai.</td></tr>
+<tr><td class="code-cell">J33</td><td>Setengah jalan. 50% selesai.</td></tr>
+<tr><td class="code-cell">J44</td><td>75% selesai.</td></tr>
+<tr><td class="code-cell">J55</td><td>Mendekati tujuan. Di bawah 10 km.</td></tr>
+<tr><td class="code-cell">J66</td><td>Tiba di tempat tujuan.</td></tr>
+<tr><td class="code-cell">J77</td><td>Rute diperpanjang secara signifikan. Jalan memutar besar.</td></tr>
+<tr><td class="code-cell">J88</td><td>Berbalik. Menelusuri kembali rute.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>Hilang. Keluar dari rute sepenuhnya.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">K</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">Komunikasi</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">K11</td><td>Komunikasi penuh. Semuanya normal.</td></tr>
+<tr><td class="code-cell">K22</td><td>Hanya data. Tidak ada panggilan suara.</td></tr>
+<tr><td class="code-cell">K33</td><td>SMS saja. Tidak ada data atau suara.</td></tr>
+<tr><td class="code-cell">K44</td><td>Hanya suara. Tidak ada data atau SMS.</td></tr>
+<tr><td class="code-cell">K55</td><td>Hanya kontak radio.</td></tr>
+<tr><td class="code-cell">K66</td><td>Komunikasi satelit aktif.</td></tr>
+<tr><td class="code-cell">K77</td><td>Hanya WiFi jaring. Tidak ada seluler.</td></tr>
+<tr><td class="code-cell">K88</td><td>Pesan ini disampaikan melalui perangkat lain.</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>Tidak ada komunikasi. Dikirim melalui pihak ketiga.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">R</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">Kondisi jalan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">R11</td><td>Jalan aspal yang bagus.</td></tr>
+<tr><td class="code-cell">R22</td><td>Aspal berlubang.</td></tr>
+<tr><td class="code-cell">R33</td><td>Jalan berkerikil atau tanah. Mendingan.</td></tr>
+<tr><td class="code-cell">R44</td><td>Jalur yang kasar. Lumpur atau permukaan yang buruk.</td></tr>
+<tr><td class="code-cell">R55</td><td>Jalan diblokir sebagian.</td></tr>
+<tr><td class="code-cell">R66</td><td>Penutupan jalan atau hambatan satu jalur.</td></tr>
+<tr><td class="code-cell">R77</td><td>Jembatan keluar atau berbahaya.</td></tr>
+<tr><td class="code-cell">R88</td><td>Jalan tidak bisa dilalui.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Tidak ada rute. Off road atau hilang sama sekali.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">S</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">Keamanan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>Situasi normal. Tidak ada ancaman.</td></tr>
+<tr><td class="code-cell">S22</td><td>Kehati-hatian umum di area tersebut.</td></tr>
+<tr><td class="code-cell">S33</td><td>Pos pemeriksaan tidak resmi atau mengikuti kendaraan.</td></tr>
+<tr><td class="code-cell">S44</td><td>Penghalang jalan kriminal dilaporkan sebelumnya.</td></tr>
+<tr><td class="code-cell">S55</td><td>Tuntutan suap.</td></tr>
+<tr><td class="code-cell">S66</td><td>Upaya perampokan. ditolak.</td></tr>
+<tr><td class="code-cell">S77</td><td>Perampokan sedang berlangsung.</td></tr>
+<tr><td class="code-cell">S88</td><td>Serangan bersenjata terhadap konvoi.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Membajak atau menculik.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">T</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">Jadwal</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>Tepat waktu. Sesuai jadwal.</td></tr>
+<tr><td class="code-cell">T22</td><td>Sedikit tertunda. Kurang dari satu jam.</td></tr>
+<tr><td class="code-cell">T33</td><td>Tertunda satu hingga dua jam.</td></tr>
+<tr><td class="code-cell">T44</td><td>Tertunda dua hingga empat jam.</td></tr>
+<tr><td class="code-cell">T55</td><td>Tertunda empat hingga delapan jam.</td></tr>
+<tr><td class="code-cell">T66</td><td>Tertunda suatu hari.</td></tr>
+<tr><td class="code-cell">T77</td><td>Penundaan besar. Waktu tempuhnya tidak diketahui.</td></tr>
+<tr><td class="code-cell">T88</td><td>Jadwal ditinggalkan.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Perjalanan dibatalkan. Kembali.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">Pergerakan kendaraan</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>Kendaraan diparkir. Berhenti dengan aman.</td></tr>
+<tr><td class="code-cell">V22</td><td>Kendaraan bergerak normal.</td></tr>
+<tr><td class="code-cell">V33</td><td>Kendaraan bergerak lambat. Di bawah 20 km/jam.</td></tr>
+<tr><td class="code-cell">V44</td><td>Kendaraan terjebak. Lumpur, pasir, atau parit.</td></tr>
+<tr><td class="code-cell">V55</td><td>Menarik kendaraan lain.</td></tr>
+<tr><td class="code-cell">V66</td><td>Ditarik.</td></tr>
+<tr><td class="code-cell">V77</td><td>Kendaraan terbalik.</td></tr>
+<tr><td class="code-cell">V88</td><td>Kecelakaan. Kendaraan tidak bisa bergerak.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Penghapusan. Kerugian total.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">W</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">Cuaca</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Kode</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>Jelas dan kering. Visibilitas yang bagus.</td></tr>
+<tr><td class="code-cell">W22</td><td>Hujan ringan atau kabut.</td></tr>
+<tr><td class="code-cell">W33</td><td>Hujan lebat.</td></tr>
+<tr><td class="code-cell">W44</td><td>Badai petir atau angin kencang.</td></tr>
+<tr><td class="code-cell">W55</td><td>Kabut atau visibilitas buruk.</td></tr>
+<tr><td class="code-cell">W66</td><td>Banjir. Jalan basah tapi lumayan.</td></tr>
+<tr><td class="code-cell">W77</td><td>Banjir. Jalan tidak bisa dilalui.</td></tr>
+<tr><td class="code-cell">W88</td><td>Badai debu atauharmattan. Jarak pandang hampir nol.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>Kondisi cuaca ekstrem. Berhenti.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">Kode pejalan kaki — awalan H</div>
+<div class="ph-sub">Trekker, tim luar ruangan, ekspedisi hutan belantara</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">Bantuan diperlukan</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Butuh makanan atau air.</td></tr>
+<tr><td class="code-cell">H22</td><td>Butuh pertolongan pertama atau peralatan medis.</td></tr>
+<tr><td class="code-cell">H33</td><td>Membutuhkan bantuan medis atau penilaian evakuasi.</td></tr>
+<tr><td class="code-cell">H44</td><td>Butuh tim penyelamat.</td></tr>
+<tr><td class="code-cell">H55</td><td>Perlu helikopter atau evakuasi udara.</td></tr>
+<tr><td class="code-cell">H66</td><td>Butuh pencarian dan penyelamatan.</td></tr>
+<tr><td class="code-cell">H77</td><td>Butuh tempat berteduh atau bivak darurat.</td></tr>
+<tr><td class="code-cell">H88</td><td>Perlu evakuasi segera. Tidak bisa berjalan.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Keadaan darurat besar. Semua bantuan dibutuhkan segera.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">T</div><div class="cat-icon">🏔</div><div class="cat-name">Kondisi jalur</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>Jejak yang bagus. Ditandai dengan baik. Mudah bergaul.</td></tr>
+<tr><td class="code-cell">T22</td><td>Jalur terputus-putus atau ditumbuhi tanaman.</td></tr>
+<tr><td class="code-cell">T33</td><td>Jejak hilang. Menavigasi dengan GPS atau kompas.</td></tr>
+<tr><td class="code-cell">T44</td><td>Keluar dari jalur. Medan terbuka. Dapat dinavigasi.</td></tr>
+<tr><td class="code-cell">T55</td><td>Pendakian yang curam. Kecepatan melambat.</td></tr>
+<tr><td class="code-cell">T66</td><td>Turunan curam. Merawat.</td></tr>
+<tr><td class="code-cell">T77</td><td>Medan teknis. Perebutan, batu, atau salju.</td></tr>
+<tr><td class="code-cell">T88</td><td>Bagian berbahaya. Menyeberang dengan hati-hati.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Medan tidak bisa dilewati. Terpaksa untuk kembali.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">kamu</div><div class="cat-icon">🎒</div><div class="cat-name">Perlengkapan / perlengkapan</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>Semua perlengkapan dalam kondisi baik.</td></tr>
+<tr><td class="code-cell">U22</td><td>Masalah gigi kecil. Tidak kritis.</td></tr>
+<tr><td class="code-cell">U33</td><td>Gigi rusak tetapi solusi ditemukan.</td></tr>
+<tr><td class="code-cell">U44</td><td>Item penting gagal. Tenda, kompor, atau filter.</td></tr>
+<tr><td class="code-cell">U55</td><td>Peralatan navigasi hilang atau rusak.</td></tr>
+<tr><td class="code-cell">U66</td><td>Kotak P3K sedang digunakan.</td></tr>
+<tr><td class="code-cell">U77</td><td>Dibutuhkan tempat berlindung darurat. Menyiapkan bivak.</td></tr>
+<tr><td class="code-cell">U88</td><td>Beberapa kegagalan gigi kritis.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>Semua perlengkapan penting hilang. Bencana besar.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">Vital / kesehatan kelompok</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Semua anggota kelompok dalam keadaan sehat dan bugar.</td></tr>
+<tr><td class="code-cell">V22</td><td>Kelelahan atau ketidaknyamanan ringan. Melanjutkan.</td></tr>
+<tr><td class="code-cell">V33</td><td>Lepuh atau cedera ringan. Sedikit melambat.</td></tr>
+<tr><td class="code-cell">V44</td><td>Cedera. Kecepatannya jauh lebih lambat.</td></tr>
+<tr><td class="code-cell">V55</td><td>Anggota tidak dapat mempertahankan kecepatan normal.</td></tr>
+<tr><td class="code-cell">V66</td><td>Cedera serius. Berhenti. Menilai evakuasi.</td></tr>
+<tr><td class="code-cell">V77</td><td>Anggota pingsan atau tidak sadarkan diri.</td></tr>
+<tr><td class="code-cell">V88</td><td>Darurat medis. Diperlukan evakuasi.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Mengancam nyawa. Layanan darurat diperlukan segera.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Y</div><div class="cat-icon">✅</div><div class="cat-name">Check-in terjadwal</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>Check-in terjadwal. Semuanya baik-baik saja. Dalam perjalanan.</td></tr>
+<tr><td class="code-cell">Y22</td><td>Lapor masuk. Sedikit penundaan. Masih aman.</td></tr>
+<tr><td class="code-cell">Y33</td><td>Lapor masuk. Penundaan yang signifikan. Masih aman.</td></tr>
+<tr><td class="code-cell">Y44</td><td>Keluar dari rute tetapi aman dan navigasi.</td></tr>
+<tr><td class="code-cell">Y55</td><td>Jendela check-in sebelumnya terlewatkan. Sekarang melaporkan.</td></tr>
+<tr><td class="code-cell">Y66</td><td>Meminta pengakuan dari pangkalan.</td></tr>
+<tr><td class="code-cell">Y77</td><td>Tiba dengan selamat di kamp atau titik jalan yang direncanakan.</td></tr>
+<tr><td class="code-cell">Y88</td><td>Menurun. Bagian terakhir menuju ujung jalan setapak.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>Beberapa check-in terlewatkan. Peringatan darurat dipicu.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">S</div><div class="cat-icon">🛡</div><div class="cat-name">Keamanan</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Situasi normal. Tidak ada ancaman.</td></tr>
+<tr><td class="code-cell">S22</td><td>Perhatian umum. Daerah asing.</td></tr>
+<tr><td class="code-cell">S33</td><td>Aktivitas mencurigakan di sekitar.</td></tr>
+<tr><td class="code-cell">S44</td><td>Ancaman satwa liar. Menjaga jarak.</td></tr>
+<tr><td class="code-cell">S55</td><td>Pertemuan satwa liar. Mundur.</td></tr>
+<tr><td class="code-cell">S66</td><td>Satwa liar yang agresif. Mundur.</td></tr>
+<tr><td class="code-cell">S77</td><td>Orang-orang yang bermusuhan ditemui.</td></tr>
+<tr><td class="code-cell">S88</td><td>Diancam atau diikuti. Pindah ke tempat yang aman.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Bahaya langsung dari manusia atau satwa liar.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">Kode Layanan Darurat — awalan X</div>
+<div class="ph-sub">SAR, paramedis, petugas pemadam kebakaran, penjaga hutan — operasi komunikasi yang terdegradasi</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>Selaras dengan standar darurat internasional</strong>
+    Kategori P (triase) menggunakan skala prioritas internasional P1–P4 (P1=Segera, P2=Tertunda, P3=Minor, P4=Ekspektan). Kategori I (insiden) dan N (jumlah) mencerminkan kerangka deklarasi insiden besar METHANE yang digunakan oleh layanan darurat gabungan.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">SAYA</div><div class="cat-icon">🔥</div><div class="cat-name">Jenis insiden</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">Saya11</td><td>Darurat medis. Tidak ada bahaya pemandangan.</td></tr>
+<tr><td class="code-cell">Saya22</td><td>Tabrakan lalu lintas jalan.</td></tr>
+<tr><td class="code-cell">I33</td><td>Pencarian dan penyelamatan. Orang Hilang.</td></tr>
+<tr><td class="code-cell">Saya44</td><td>Kebakaran atau insiden struktural.</td></tr>
+<tr><td class="code-cell">Saya55</td><td>Penyelamatan banjir atau air.</td></tr>
+<tr><td class="code-cell">saya66</td><td>Bahan berbahaya atau pelepasan bahan kimia.</td></tr>
+<tr><td class="code-cell">Saya77</td><td>Keruntuhan struktural.</td></tr>
+<tr><td class="code-cell">Saya88</td><td>Kerusuhan sipil, kekerasan, atau insiden bersenjata.</td></tr>
+<tr class="crit"><td class="code-cell">saya99</td><td>Insiden besar diumumkan.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">P</div><div class="cat-icon">🏥</div><div class="cat-name">Triase pasien</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">hal11</td><td>Tidak ada korban jiwa di lokasi kejadian.</td></tr>
+<tr><td class="code-cell">Hlm.22</td><td>Berjalan hanya terluka. P3 — kecil.</td></tr>
+<tr><td class="code-cell">Hlm33</td><td>Serius tapi stabil. P2 — tertunda.</td></tr>
+<tr><td class="code-cell">Hlm44</td><td>Korban yang mengancam jiwa. P1 — segera.</td></tr>
+<tr><td class="code-cell">Hlm55</td><td>Korban yang diharapkan. P4 — paliatif.</td></tr>
+<tr><td class="code-cell">Hlm66</td><td>Triase campuran. Berbagai kategori hadir.</td></tr>
+<tr><td class="code-cell">Hlm77</td><td>Insiden korban massal diumumkan.</td></tr>
+<tr><td class="code-cell">Hlm88</td><td>Jumlah korban tidak lengkap. Adegan tidak dibersihkan.</td></tr>
+<tr class="crit"><td class="code-cell">Hlm99</td><td>Bencana besar. Banyak korban jiwa dikonfirmasi.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">Jumlah korban</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>Satu korban.</td></tr>
+<tr><td class="code-cell">N22</td><td>Dua hingga lima korban jiwa.</td></tr>
+<tr><td class="code-cell">N33</td><td>Enam sampai sepuluh korban.</td></tr>
+<tr><td class="code-cell">N44</td><td>Sebelas hingga dua puluh korban.</td></tr>
+<tr><td class="code-cell">N55</td><td>Dua puluh hingga lima puluh korban.</td></tr>
+<tr><td class="code-cell">N66</td><td>Lima puluh hingga seratus korban jiwa.</td></tr>
+<tr><td class="code-cell">N77</td><td>Lebih dari seratus korban.</td></tr>
+<tr><td class="code-cell">N88</td><td>Nomor tidak dikenal. Penilaian pemandangan sedang berlangsung.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>Korban di beberapa lokasi.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">Tanda vital pasien</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Sadar dan waspada. Berbicara normal.</td></tr>
+<tr><td class="code-cell">V22</td><td>Sadar tetapi bingung atau gelisah.</td></tr>
+<tr><td class="code-cell">V33</td><td>Hanya merespons perintah suara.</td></tr>
+<tr><td class="code-cell">V44</td><td>Hanya menanggapi rasa sakit. Tidak sadar.</td></tr>
+<tr><td class="code-cell">V55</td><td>Tidak responsif. Hadiah pernapasan.</td></tr>
+<tr><td class="code-cell">V66</td><td>Tidak bernapas. CPR sedang berlangsung.</td></tr>
+<tr><td class="code-cell">V77</td><td>Pendarahan parah. Tourniquet diterapkan.</td></tr>
+<tr><td class="code-cell">V88</td><td>Gagal jantung.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>Almarhum. Dikonfirmasi.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Sumber daya di tempat kejadian</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">R11</td><td>Hanya pertolongan pertama saja. Tidak ada responden profesional.</td></tr>
+<tr><td class="code-cell">R22</td><td>Paramedis atau pertolongan pertama tingkat lanjut di tempat kejadian.</td></tr>
+<tr><td class="code-cell">R33</td><td>Kru ambulans di lokasi kejadian.</td></tr>
+<tr><td class="code-cell">R44</td><td>Kru pemadam kebakaran di lokasi.</td></tr>
+<tr><td class="code-cell">R55</td><td>Polisi di tempat kejadian.</td></tr>
+<tr><td class="code-cell">R66</td><td>Beberapa layanan darurat di lokasi.</td></tr>
+<tr><td class="code-cell">R77</td><td>Komandan insiden ditetapkan.</td></tr>
+<tr><td class="code-cell">R88</td><td>Rumah sakit lapangan atau stasiun pembersihan korban aktif.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>Semua sumber daya kewalahan. Diperlukan penguatan segera.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">H</div><div class="cat-icon">📞</div><div class="cat-name">Sumber daya diperlukan</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Tidak diperlukan sumber daya tambahan.</td></tr>
+<tr><td class="code-cell">H22</td><td>Ambulans darat tambahan diperlukan.</td></tr>
+<tr><td class="code-cell">H33</td><td>Ambulans udara atau helikopter diperlukan.</td></tr>
+<tr><td class="code-cell">H44</td><td>Dibutuhkan kebakaran dan penyelamatan.</td></tr>
+<tr><td class="code-cell">H55</td><td>Diperlukan respons polisi atau bersenjata.</td></tr>
+<tr><td class="code-cell">H66</td><td>Diperlukan HAZMAT atau tim kontaminasi.</td></tr>
+<tr><td class="code-cell">H77</td><td>Diperlukan tim penyelamat berat atau tim pencarian perkotaan.</td></tr>
+<tr><td class="code-cell">H88</td><td>Diperlukan dukungan militer atau spesialis.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>Respon terhadap korban massal. Semua sumber daya diperlukan.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">E</div><div class="cat-icon">🚁</div><div class="cat-name">Status evakuasi</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">E11</td><td>Tidak diperlukan evakuasi. Mengobati di tempat kejadian.</td></tr>
+<tr><td class="code-cell">E22</td><td>Evakuasi mandiri dimungkinkan. Korban berjalan menuju transportasi.</td></tr>
+<tr><td class="code-cell">E33</td><td>Evakuasi kendaraan dimungkinkan. Jalan dapat diakses.</td></tr>
+<tr><td class="code-cell">E44</td><td>Evakuasi tandu diperlukan.</td></tr>
+<tr><td class="code-cell">E55</td><td>Diperlukan evakuasi udara. Dibutuhkan zona pendaratan.</td></tr>
+<tr><td class="code-cell">E66</td><td>Diperlukan evakuasi air atau perahu.</td></tr>
+<tr><td class="code-cell">E77</td><td>Diperlukan penyelamatan teknis. Tali atau ruang terbatas.</td></tr>
+<tr><td class="code-cell">E88</td><td>Jalur evakuasi terganggu. Mencari alternatif.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>Evakuasi tidak mungkin dilakukan. Korban berlindung di tempatnya.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">S</div><div class="cat-icon">⚠️</div><div class="cat-name">Keamanan adegan</div></div>
+<table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>Adegan aman. Tidak ada bahaya.</td></tr>
+<tr><td class="code-cell">S22</td><td>Potensi bahaya ada. Disarankan untuk berhati-hati.</td></tr>
+<tr><td class="code-cell">S33</td><td>Bahaya kebakaran, bahan kimia, atau struktur di tempat kejadian.</td></tr>
+<tr><td class="code-cell">S44</td><td>Ancaman aktif. Adegan belum aman.</td></tr>
+<tr><td class="code-cell">S55</td><td>Orang-orang yang bermusuhan di tempat kejadian. Penegakan hukum diperlukan.</td></tr>
+<tr><td class="code-cell">S66</td><td>Bahaya kontaminasi. Diperlukan zona pengecualian.</td></tr>
+<tr><td class="code-cell">S77</td><td>Adegan dibersihkan sebagian. Risiko yang berkelanjutan.</td></tr>
+<tr><td class="code-cell">S88</td><td>Adegan tidak aman. Responden ditarik.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Bahaya langsung bagi responden. Evakuasi tempat kejadian sekarang.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>Referensi cepat — situasi umum</h2>
+<p>Kode yang memiliki arti yang sama di ketiga profil</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>Situasi</th>
+<th>Pengemudi (D)</th>
+<th>pejalan kaki (H)</th>
+<th>Darurat (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Semua jelas/normal</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>Butuh bantuan mendesak</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
+<tr><td>Ancaman hidup — SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
+<tr><td>Komunikasi hanya SMS</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>Sesuai jadwal / dalam perjalanan</td><td>T11 / H11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>Tiba di tempat tujuan</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>Hilang/keluar jalur</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>Cuaca buruk</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>Diakui</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>Pesan rusak</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>Logistik 4×4</h3>
+<p>Komunikasi armada lintas batas untuk operator kecil — peta langsung, video grup, jembatan SIM, dan protokol darurat ini, semuanya di ponsel Android standar.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">Pelajari lebih lanjut</a>
+<a class="btn" href="../contact.html">Hubungi kami</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · Logistik 4×4 Protokol Komunikasi Lapangan · Edisi 1<br/>
+    Berbagi referensi ini dianjurkan — interoperabilitas memerlukannya.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../contact.html">Kontak</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Lisensi tertunda · Dibangun oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

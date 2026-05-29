@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>카멜레온 발표자 — 카멜레온 AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ud648</a>
+<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a class="active" href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a href="../services.html">웹 서비스</a>
+<a href="../accounting.html">ud68cuacc4</a>
+<a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a>
+<a href="../classroom.html">uc218uc5c5</a>
+<a href="../contact.html">연락하다</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>카멜레온 프리젠터</h1>
+<p class="sub">슬라이드가 무대이고, 콘텐츠 블록이 배우이고, 전환이 단서인 극장에서 영감을 받은 프레젠테이션 시스템입니다. 모두 휴대폰으로 제어할 수 있습니다.</p>
+<div class="hero-badges">
+<span class="badge">🎬 연극 은유</span>
+<span class="badge">📱 모바일 제어</span>
+<span class="badge">✏️ 공동 그림</span>
+<span class="badge">🖥️ 안드로이드 ADB 미러</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>극장 모델</h2>
+<p>무대 제작처럼 구성된 프레젠테이션 — 개체에는 입구, 출구 및 신호가 있습니다.</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">무대 위의 KameleonStack 객체</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 콘텐츠 스택 — 강의 슬라이드</div>
+<div class="stage-obj obj-stage">🟡 스테이지 스택 — 학생 제출물</div>
+<div class="stage-obj obj-misc">🖼️ 이미지박스</div>
+<div class="stage-obj obj-misc">📄 PDF박스</div>
+<div class="stage-obj obj-misc">📱 ADB 전화 거울</div>
+<div class="stage-obj obj-misc">🖥️ PPT 거울</div>
+<div class="stage-obj obj-misc">✏️ 드로잉 보드</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      흰색 테두리 = 활성 · 주황색 펄스 = 피어 제출 보류 · 녹색 = 콘텐츠 스택 · 노란색 = 단계 스택
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>카멜레온스택</h3>
+<p>범용 콘텐츠 컨테이너입니다. 각 스택에는 여러 슬롯(이미지, 텍스트, PDF)이 있습니다. 두 가지 모드:</p>
+<ul>
+<li><strong style="color:#22c55e">콘텐츠</strong> — 교사가 제어하는 ​​슬라이드</li>
+<li><strong style="color:#eab308">단계</strong> — 동료 푸시 제출을 허용합니다.</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>애니메이션 시스템</h3>
+<p>자유형 모션 경로가 있는 개체별 들어오기/나가기 애니메이션입니다. 경로는 저장 전에 Douglas-Peucker 압축과 Catmull-Rom 스플라인 보간을 통해 부드럽게 화면에 그려집니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>드레서 패널</h3>
+<p>무대 밖 대기 공간 - 옷장에서 개체를 만들고 더블 클릭으로 무대에서 미리 볼 수 있습니다. 마우스 오른쪽 버튼 클릭 메뉴에서 다시 Dresser로 드래그하세요. 속성 패널에는 애니메이션 시작/종료 상태가 표시됩니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>번호가 매겨진 신호</h3>
+<p>트리거 포인트는 연극 조명 신호처럼 프리젠테이션을 단계별로 진행시킵니다. 각 큐는 개체를 안팎으로 애니메이션화하거나 스택 슬롯을 전환하거나 시간 제한 시퀀스를 실행할 수 있습니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>.kpt 프로젝트 번들</h3>
+<p>프로젝트는 ZIP 아카이브(<code>.kpt</code>) 모든 미디어 자산, 레이아웃 데이터 및 애니메이션 구성이 포함되어 있습니다. Chameleon을 실행하는 모든 머신에서 엽니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>논리적 좌표</h3>
+<p>스테이지는 디스플레이 해상도와 관계없이 0~10,000의 논리적 좌표 공간을 사용합니다. 프레젠테이션은 노트북 화면이나 4K 프로젝터에서 동일하게 보입니다.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>모바일 및 피어 제어</h2>
+<p>휴대폰에서 발표자를 실행하세요. 학생들이 자신의 콘텐츠를 푸시하도록 허용</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>안드로이드 모바일 브릿지</h4>
+<p>Chameleon 모바일 브리지(WebSocket)는 모든 Android 기기의 극장 명령을 중계합니다. 제어 <strong>stack_next / 이전 / 재생 / 일시 중지 / 중지</strong>, 이미지 또는 텍스트 슬롯을 스택에 푸시하고 실시간으로 브로드캐스트되는 스택 상태를 확인하세요.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>동료 제출</h4>
+<p>학생들은 휴대폰에서 스테이지 모드 스택으로 이미지나 텍스트를 푸시합니다. 제출물은 깜박이는 주황색 테두리와 함께 썸네일 스트립에 표시됩니다. 발표자는 다음을 수행할 수 있습니다. <strong>승인, 보류, 거부 또는 승격</strong> 화면에 표시되기 전에 각각.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>공유 드로잉 보드</h4>
+<p>모바일 브릿지에서 제어 가능한 협업 프리핸드 캔버스 — <strong>draw_Stroke / 지우기 / 실행 취소</strong>. 슬라이드에 주석을 달거나 브레인스토밍 또는 라이브 퀴즈에 적합합니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>ADB 전화 미러 및 PPT 캡처</h4>
+<p><strong>ADB폰박스</strong> ADB를 통해 라이브 Android 화면을 무대에 직접 스트리밍합니다. <strong>PPT거울상자</strong> PowerPoint 창을 캡처합니다. 변환 없이 Kameleon 내부에 기존 데크를 표시합니다.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>프레젠테이션에 생기를 불어넣으세요</h3>
+<p>라이센스에 대해 논의하거나 Kameleon Presenter의 라이브 데모를 준비하려면 당사에 문의하십시오.</p>
+<a class="btn btn-solid" href="../contact.html">데모 요청</a>
+<a class="btn" href="../index.html">← 개요로 돌아가기</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
+<a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+</footer>
+</body>
+</html>

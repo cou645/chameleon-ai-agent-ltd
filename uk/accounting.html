@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Облік у Великобританії — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-супутник</a>
+<a href="../logistics4x4.html">Логістика 4×4</a>
+<a href="../services.html">Веб-сервіси</a>
+<a class="active" href="../accounting.html">Бухгалтерський облік</a>
+<a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a>
+<a href="../classroom.html">Класна кімната</a>
+<a href="../contact.html">контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>Облік Великобританії</h1>
+<p class="sub">Подвійна бухгалтерія, відстеження ПДВ, прибутки та збитки, баланс — усе це в локальній бухгалтерській книзі SQLite, націленій на HMRC Making Tax Digital.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 План рахунків Великобританії</span>
+<span class="badge">📋 Готовий до MTD</span>
+<span class="badge">🔒 Локальний SQLite</span>
+<span class="badge">🤖 Вихід JSON з можливістю синтаксичного аналізу</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Книга подвійного запису</h2>
+<p>Кожна транзакція збалансована до пенні — дебет завжди дорівнює кредиту</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">Дата │ Рахунок │ Дебет (£) │ Кредит (£) │ ПДВ</span>
+----------
+2026-04-01 │ 4000 Дохід від продажів │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01 │ 2200 Контроль ПДВ │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ 1100 Торгових боржників │ <span class="dr">1,440.00</span>  │ │
+----------
+2026-04-05 │ 6100 Офісні витрати │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200 Контроль ПДВ │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 1200 Банк поточний │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>План рахунків Великобританії</h3>
+<p>Стандартні коди рахунків Великобританії з коробки — активи, зобов’язання, капітал, доходи та витрати, зіставлені з категоріями HMRC. За потреби розширюйте власні облікові записи.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>Книга SQLite</h3>
+<p>Усі дані, що зберігаються в <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Працює повністю в автономному режимі. Підтримка кількох компаній — перемикайтеся між об’єктами за допомогою прапора команди.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Податковий рік Великобританії</h3>
+<p>Кінець року правильно встановлено на 5 квітня (фінансовий рік у Великобританії 6–5 квітня). Звіти про прибутки та збитки та ПДВ автоматично охоплюють правильний період без коригування дати вручну.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Судово-медичне сканування аномалій</h3>
+<p>бігти <code>--forensic</code> для виявлення незбалансованих записів, дублікатів довідок, невідповідностей ПДВ та інших порушень. Результати друкуються як структурований JSON для перевірки AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Вихід, який читається штучним інтелектом</h3>
+<p>Усі звіти виводять структурований JSON у stdout, щоб ШІ Chameleon міг аналізувати, узагальнювати та консультувати ваше фінансове становище природною мовою.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Міст WebSocket</h3>
+<p>Обліковий міст WebSocket (<code>acct_ws_bridge.py</code>) надає запити реєстру до мобільного компаньйона та зовнішніх інформаційних панелей у вашій мережі Tailscale.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Коди ПДВ підтримуються</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>Стандартна ставка 20%</p></div>
+<div class="vat-code"><div class="vc">R5</div><p>Знижена ставка 5%</p></div>
+<div class="vat-code"><div class="vc">З</div><p>Нульова оцінка</p></div>
+<div class="vat-code"><div class="vc">E</div><p>Звільнено</p></div>
+<div class="vat-code"><div class="vc">О</div><p>Поза рамками</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Звіти</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>Прибуток і збиток</h4>
+<p>Доходи проти витрат за період. Обсяг продажів, собівартість товарів, валовий прибуток, операційні витрати, чистий прибуток — усе з розбивкою за кодом рахунку. Бігати з <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>Баланс</h4>
+<p>Активи, зобов'язання та власний капітал на певний момент часу. Підтверджує цілісність подвійного запису — активи мають дорівнювати зобов’язанням плюс капітал. Бігати з <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Резюме декларації з ПДВ</h4>
+<p>Показники ПДВ у графі, що відповідає формату декларації з ПДВ HMRC MTD: графа 1 (вихідний податок), графа 4 (вхідний податок), графа 6 (чисті продажі), графа 7 (чисті покупки). Бігати з <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Виставлення рахунків</h2>
+<p>Рахунки-фактури, сумісні з HMRC Notice 700 — роздруковані, збережені у форматі PDF або надіслані на ваш телефон одним клацанням миші</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Поля рахунку-фактури, що відповідають стандартам Великобританії</h4>
+<p>Кожен рахунок-фактура містить усі поля, які вимагаються згідно з Повідомленням HMRC 700: унікальний порядковий номер рахунку-фактури, ім’я та адреса постачальника, реєстраційний номер платника ПДВ, дата рахунку-фактури, дата постачання (час постачання), ім’я та адреса клієнта, номер платника ПДВ клієнта, де застосовно, детальні описи рядків із кількістю та цінами за одиницю, ставка ПДВ на рядок, чисті та проміжні підсумки ПДВ, а також загальна сума до сплати. Нічого не втрачено, ні про що не вгадується.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>Налаштування компанії</h4>
+<p>ВІДЧИНЕНО <em>Файл → Рахунки → Налаштування компанії</em> щоб ввести зареєстровану назву компанії, адресу, номер компанії, номер ПДВ, електронну адресу, телефон і банківські реквізити. Налаштування зберігаються для кожної клієнтської бази даних <code>company.json</code> поряд з обліковою книгою та автоматично завантажується щоразу, коли генеруються рахунки-фактури для цього клієнта.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>База контактів клієнтів</h4>
+<p>Коли ви вперше виставляєте рахунок клієнту, його ім’я, адреса та номер платника ПДВ зберігаються в таблиці контактів у книзі. У наступних рахунках-фактурах введення імені клієнта автоматично заповнює його деталі — повторне введення не потрібне. Контакти можна редагувати в будь-який час.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>Роздрукуйте, PDF і надішліть на телефон</h4>
+<p>Від менеджера рахунків-фактур (<em>Файл → Рахунки-фактури…</em>) виберіть будь-який рахунок-фактуру та виберіть: <strong>Роздрукувати</strong> (відкриває діалогове вікно друку ОС — будь-який принтер або драйвер PDF), <strong>Зберегти PDF</strong> (безпосередньо на диск через вбудований PDF-експорт Qt), або <strong>Надіслати на телефон</strong> (надсилає HTML-код рахунку-фактури до програми Companion, де відкривається діалогове вікно друку Android — друкуйте бездротовим способом на будь-якому AirPrint або найближчому принтері).</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Дата поставки</h3>
+<p>Окреме поле «Дата поставки» (час поставки) — відмінне від дати накладної. Вимагається HMRC для цілей ПДВ. За замовчуванням на сьогоднішній день, але його можна редагувати окремо для кожного рахунку-фактури.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Мобільний друк рахунків</h3>
+<p>Додаток Companion може роздрукувати будь-який рахунок-фактуру без проводів. Торкніться піктограми друку в будь-якому рядку рахунка-фактури — програма отримає HTML із IDE та перетворить його на PDF на пристрої за допомогою <code>printing</code> пакет і відкриває діалогове вікно друку системи Android.</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>Відповідність HMRC Notice 700</h3>
+<p>Усі 12 обов’язкових полів для повного рахунку-фактури з ПДВ у Великобританії присутні та заповнені. Лінії зі зниженою та нульовою ставками чітко позначені. Послідовність номерів накладної строго монотонно зростаюча без пропусків.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Короткий довідник CLI</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Команда</th><th>опис</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Прибуток і збиток за поточний податковий рік</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Баланс на сьогодні</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Підсумок декларації з ПДВ (коробки MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Сканування аномалій і цілісності</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Повний довідник команд</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Оптимізуйте свою бухгалтерію у Великобританії</h3>
+<p>Спеціально створений для фрілансерів і малих підприємств, які працюють відповідно до податкових правил Великобританії.</p>
+<a class="btn btn-solid" href="../contact.html">Зв'яжіться</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
+</div>
+<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>المحاسبة في المملكة المتحدة – الحرباء الذكاء الاصطناعي</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
+<a href="../ide.html">لديك أفكار</a>
+<a href="../presenter.html">مقدم</a>
+<a href="../companion.html">تطبيق مصاحب</a>
+<a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
+<a href="../services.html">خدمات الويب</a>
+<a class="active" href="../accounting.html">u0645u062du0627u0633u0628u0629</a>
+<a href="../technician.html">فني كمبيوتر</a>
+<a href="../trading.html">تجارة</a>
+<a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a>
+<a href="../contact.html">اتصال</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>المحاسبة في المملكة المتحدة</h1>
+<p class="sub">مسك الدفاتر ذات القيد المزدوج، وتتبع ضريبة القيمة المضافة، والأرباح والخسائر، والميزانية العمومية - كل ذلك في دفتر أستاذ SQLite محلي يستهدف HMRC لجعل الضرائب رقمية.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 مخطط حسابات المملكة المتحدة</span>
+<span class="badge">📋 MTD جاهز</span>
+<span class="badge">🔒 SQLite المحلي</span>
+<span class="badge">🤖 إخراج JSON قابل للتحليل باستخدام الذكاء الاصطناعي</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>دفتر الأستاذ ذو القيد المزدوج</h2>
+<p>كل معاملة تتوازن مع قرش واحد - تُخصم دائمًا أرصدة متساوية</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">التاريخ │ الحساب │ الخصم (جنيه إسترليني) │ الائتمان (جنيه إسترليني) │ ضريبة القيمة المضافة</span>
+────────────┼──────────────── ─────┼─────────┼─────────┼────
+2026-04-01 │ 4000 إيرادات المبيعات │ │  <span class="cr">1,200.00</span>  │ س20
+01-04-2026 │ 2200 مراقبة ضريبة القيمة المضافة │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ 1100 المدينون التجاريون │ <span class="dr">1,440.00</span>  │ │
+────────────┼──────────────── ─────┼─────────┼─────────┼────
+2026-04-05 │ 6100 مصاريف مكتب │   <span class="dr">85.00</span>   │ │ S20
+05-04-2026 │ 2200 مراقبة ضريبة القيمة المضافة │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 1200 البنك الحالي │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>مخطط حسابات المملكة المتحدة</h3>
+<p>رموز الحساب القياسية في المملكة المتحدة جاهزة للاستخدام - الأصول والالتزامات وحقوق الملكية والدخل والنفقات المعينة لفئات إدارة الإيرادات والجمارك البريطانية. قم بالتوسيع باستخدام الحسابات المخصصة حسب الحاجة.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>دفتر الأستاذ سكليتي</h3>
+<p>جميع البيانات المخزنة في <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. يعمل دون اتصال بالإنترنت تمامًا. دعم الشركات المتعددة - التبديل بين الكيانات باستخدام علامة الأمر.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>السنة الضريبية في المملكة المتحدة</h3>
+<p>تم ضبط نهاية العام بشكل صحيح على 5 أبريل (السنة المالية في المملكة المتحدة من 6 أبريل إلى 5 أبريل). تمتد تقارير الأرباح والخسائر وضريبة القيمة المضافة تلقائيًا خلال الفترة الصحيحة دون تعديل التاريخ يدويًا.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>مسح شذوذ الطب الشرعي</h3>
+<p>يجري <code>--forensic</code> للكشف عن الإدخالات غير المتوازنة، والمراجع المكررة، وعدم تطابق ضريبة القيمة المضافة وغيرها من المخالفات. تمت طباعة النتائج بتنسيق JSON منظم لمراجعة الذكاء الاصطناعي.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>مخرجات قابلة للقراءة بالذكاء الاصطناعي</h3>
+<p>يتم إخراج جميع التقارير بتنسيق JSON إلى stdout حتى يتمكن Chameleon AI من تحليل وضعك المالي وتلخيصه وتقديم المشورة بشأنه باللغة الطبيعية.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>جسر WebSocket</h3>
+<p>جسر WebSocket المحاسبي (<code>acct_ws_bridge.py</code>) يعرض استعلامات دفتر الأستاذ إلى المرافق المحمول ولوحات المعلومات الخارجية عبر شبكة Tailscale الخاصة بك.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>رموز ضريبة القيمة المضافة المدعومة</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>المعدل القياسي 20%</p></div>
+<div class="vat-code"><div class="vc">ص5</div><p>معدل مخفض 5%</p></div>
+<div class="vat-code"><div class="vc">ز</div><p>تصنيف صفر</p></div>
+<div class="vat-code"><div class="vc">ه</div><p>معفى</p></div>
+<div class="vat-code"><div class="vc">يا</div><p>خارج النطاق</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>التقارير</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>الربح والخسارة</h4>
+<p>الدخل مقابل المصروفات للفترة. المبيعات، وتكلفة البضائع، وإجمالي الربح، ومصروفات التشغيل، وصافي الربح - كلها مقسمة حسب رمز الحساب. تشغيل مع <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>الميزانية العمومية</h4>
+<p>الأصول والخصوم وحقوق الملكية في وقت ما. يؤكد سلامة القيد المزدوج - يجب أن تساوي الأصول الالتزامات بالإضافة إلى حقوق الملكية. تشغيل مع <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>ملخص إقرار ضريبة القيمة المضافة</h4>
+<p>أرقام ضريبة القيمة المضافة لكل صندوق تطابق تنسيق إقرار ضريبة القيمة المضافة HMRC MTD: المربع 1 (ضريبة المخرجات)، المربع 4 (ضريبة المدخلات)، المربع 6 (صافي المبيعات)، المربع 7 (صافي المشتريات). تشغيل مع <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>الفواتير</h2>
+<p>إشعار إدارة الإيرادات والجمارك البريطانية (HMRC) بفواتير متوافقة مع 700 - مطبوعة أو محفوظة بصيغة PDF أو يتم دفعها إلى هاتفك بنقرة واحدة</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>حقول الفاتورة المتوافقة مع المملكة المتحدة</h4>
+<p>تشتمل كل فاتورة على جميع الحقول المطلوبة بواسطة إشعار HMRC رقم 700: رقم الفاتورة التسلسلي الفريد، واسم المورد وعنوانه، ورقم تسجيل ضريبة القيمة المضافة، وتاريخ الفاتورة، وتاريخ التوريد (وقت التوريد)، واسم العميل وعنوانه، ورقم ضريبة القيمة المضافة للعميل حيثما ينطبق ذلك، وأوصاف السطر المفصلة مع الكميات وأسعار الوحدات، ومعدل ضريبة القيمة المضافة لكل سطر، والصافي والإجماليات الفرعية لضريبة القيمة المضافة، وإجمالي المبلغ المستحق. لا شيء مفقود، لا شيء يمكن تخمينه.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>إعداد الشركة</h4>
+<p>يفتح <em>ملف → الفواتير → إعداد الشركة</em> لإدخال اسم شركتك المسجلة والعنوان ورقم مقر الشركة ورقم ضريبة القيمة المضافة والبريد الإلكتروني والهاتف والتفاصيل المصرفية. يتم حفظ الإعدادات لكل قاعدة بيانات العميل في <code>company.json</code> جنبًا إلى جنب مع دفتر الأستاذ ويتم تحميلها تلقائيًا عند إنشاء فواتير لهذا العميل.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>قاعدة بيانات اتصالات العملاء</h4>
+<p>في المرة الأولى التي تقوم فيها بإصدار فاتورة للعميل، يتم حفظ اسمه وعنوانه ورقم ضريبة القيمة المضافة في جدول جهات الاتصال داخل دفتر الأستاذ. في الفواتير اللاحقة، تؤدي كتابة اسم العميل إلى إكمال تفاصيله تلقائيًا - دون الحاجة إلى إعادة الإدخال. جهات الاتصال قابلة للتحرير في أي وقت.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>طباعة، PDF وإرسالها إلى الهاتف</h4>
+<p>من مدير الفواتير (<em>ملف → الفواتير…</em>) حدد أي فاتورة واختر: <strong>مطبعة</strong> (يفتح مربع حوار طباعة نظام التشغيل — أي طابعة أو برنامج تشغيل PDF)، <strong>حفظ قوات الدفاع الشعبي</strong> (مباشرة إلى القرص عبر تصدير PDF المدمج في Qt)، أو <strong>إرسال إلى الهاتف</strong> (يدفع HTML للفاتورة إلى التطبيق Companion حيث يفتح مربع حوار الطباعة على Android - اطبع لاسلكيًا إلى أي AirPrint أو طابعة قريبة).</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>تاريخ التوريد</h3>
+<p>حقل "تاريخ التوريد" (وقت التوريد) منفصل — يختلف عن تاريخ الفاتورة. مطلوب من قبل HMRC لأغراض ضريبة القيمة المضافة. الافتراضي هو اليوم ولكنه قابل للتحرير بشكل مستقل لكل فاتورة.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>طباعة فواتير الجوال</h3>
+<p>يمكن للتطبيق المصاحب طباعة أي فاتورة لاسلكيًا. اضغط على أيقونة الطباعة في أي صف فاتورة - يقوم التطبيق بإحضار HTML من IDE، ويحوله إلى PDF على الجهاز عبر <code>printing</code> الحزمة، ويفتح مربع حوار الطباعة لنظام Android.</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>إشعار HMRC الامتثال 700</h3>
+<p>جميع الحقول الـ 12 المطلوبة لفاتورة ضريبة القيمة المضافة الكاملة في المملكة المتحدة موجودة ومملوءة. يتم وضع علامات واضحة على الخطوط ذات السعر المخفض والسعر صفر. يكون تسلسل أرقام الفاتورة رتيبًا بشكل صارم دون وجود أي فجوات.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>مرجع سريع لـ CLI</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>يأمر</th><th>وصف</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>الربح والخسارة للسنة الضريبية الحالية</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>الميزانية العمومية اعتبارا من اليوم</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>ملخص إقرار ضريبة القيمة المضافة (صناديق MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>فحص الشذوذ والنزاهة</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>مرجع الأمر الكامل</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>تبسيط مسك الدفاتر الخاص بك في المملكة المتحدة</h3>
+<p>مصمم خصيصًا للعاملين لحسابهم الخاص والشركات الصغيرة التي تعمل بموجب قواعد الضرائب في المملكة المتحدة.</p>
+<a class="btn btn-solid" href="../contact.html">تواصل معنا</a>
+<a class="btn" href="../index.html">← العودة إلى النظرة العامة</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
+<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a><a href="../technician.html">فني كمبيوتر</a>
+<a href="../trading.html">تجارة</a><a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a><a href="../contact.html">اتصال</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · صممها ماركوس المعروف أيضًا باسم ستيمسي</p>
+</footer>
+</body>
+</html>

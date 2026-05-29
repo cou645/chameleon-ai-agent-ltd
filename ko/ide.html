@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI IDE — 카멜레온 AI</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ud648</a>
+<a class="active" href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a href="../services.html">웹 서비스</a>
+<a href="../accounting.html">ud68cuacc4</a>
+<a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a>
+<a href="../classroom.html">uc218uc5c5</a>
+<a href="../contact.html">연락하다</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🧠</div>
+<h1>AI 기반 IDE</h1>
+<p class="sub">AI가 단순히 제안하는 데 그치지 않고 구조화된 명령 브리지를 통해 사용자를 대신하여 코드를 읽고, 쓰고, 실행하고 확인하는 모든 기능을 갖춘 PyQt6 코드 편집기입니다.</p>
+<div class="hero-badges">
+<span class="badge">다중 제공자 AI</span>
+<span class="badge">🎙️ 음성 입력 및 TTS</span>
+<span class="badge">🔀 차이점 보기</span>
+<span class="badge">⚡ 스트리밍 응답</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>AI 명령 브리지</h2>
+<p>AI는 단순한 채팅이 아니라 구조화된 JSON 프로토콜을 통해 편집기를 작동합니다.</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📖</div>
+<div class="strip-body">
+<h4>한 번 읽고 자유롭게 편집하세요</h4>
+<p>AI는 다음을 사용하여 파일을 한 번 읽습니다. <strong>get_file_content</strong>, 컨텍스트에 맞게 콘텐츠를 보관한 다음 각 변경 사항을 다시 읽지 않고 여러 앵커 기반 편집을 실행합니다. 낭비되는 왕복 여행이 없습니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>앵커 기반 교체_텍스트</h4>
+<p>줄 번호가 아닌 찾을 정확한 참조 텍스트를 편집합니다. 코드가 추가되거나 제거되면 줄 번호가 이동합니다. 앵커는 그렇지 않습니다. 다수의 <code>replace_text</code> 호출은 단일 응답으로 일괄 처리될 수 있으며 모두 원자적으로 적용됩니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📝</div>
+<div class="strip-body">
+<h4>전체 재작성을 위한 write_file</h4>
+<p>새 모듈이나 전체 재작성의 경우 AI는 하나의 명령으로 전체 파일 내용을 보냅니다. 시스템이 자동으로 생성합니다. <code>.bak</code> 덮어쓰기 전에 백업하고 새 편집기 탭에서 결과를 엽니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">💻</div>
+<div class="strip-body">
+<h4>터미널 통합</h4>
+<p>AI는 계속하기 전에 셸 명령을 실행하고 JSON 결과를 받을 수 있습니다. 각 결과를 기다리고, 종료 코드를 처리하고, 진단, 구성, 파괴 및 세션 종료 명령을 자동으로 구별합니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🛡️</div>
+<div class="strip-body">
+<h4>주입 보호</h4>
+<p>파일, 터미널 및 웹 페이지에서 반환된 모든 콘텐츠는 <code>[UNTRUSTED_CONTENT]</code> 마커. AI는 내부의 모든 것을 지침이 아닌 데이터로 처리하여 악성 파일 콘텐츠의 프롬프트 주입 공격을 방지하도록 지시받습니다.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>편집기 기능</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>다중 탭 코드 편집기</h3>
+<p>여러 파일을 동시에 엽니다. 각 탭은 자체 실행 취소 기록, 구문 강조 및 AI 명령 컨텍스트를 추적합니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔀</div>
+<h3>내장된 차이점 보기</h3>
+<p>한 번 클릭하면 현재 편집기 상태를 마지막으로 저장된 버전과 비교할 수 있습니다. 추가/제거 강조 표시가 있는 색상으로 구분된 통합 차이점. 전체 편집으로 돌아가려면 diff 모드를 종료하세요.</p>
+</div>
+<div class="card">
+<div class="card-icon">💬</div>
+<h3>스트리밍 AI 채팅</h3>
+<p>응답은 토큰별로 채팅 패널로 스트리밍됩니다. IDE 명령은 백그라운드 스레드에서 추출 및 실행되므로 UI는 전체적으로 응답성을 유지합니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>모듈형 프롬프트 시스템</h3>
+<p>시스템 프롬프트는 일반 텍스트 모듈 파일입니다. <code>~/.chameleon/prompts/</code>. 어떤 조합이든 쌓을 수 있습니다: 기술 수리 + 학술 + 채팅. 공급자당 라이브 토큰 수 및 비용 추정.</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>명령어 이력 DB</h3>
+<p>모든 AI 명령은 다음에 기록됩니다. <code>history.db</code> 세션 ID, 타임스탬프 및 결과가 포함됩니다. AI가 수행한 모든 파일 변경에 대한 전체 감사 추적입니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌳</div>
+<h3>파일 브라우저</h3>
+<p>빠른 탐색을 위한 프로젝트 트리 패널. AI가 사용하는 <code>list_project_files</code> 그리고 <code>list_open_files</code> 실제 경로를 발견하기 위해 — 결코 파일 위치를 만들어내지 않습니다.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>음성 및 연설</h2>
+</div>
+<div class="split">
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>속삭임 음성을 텍스트로 변환</h3>
+<p>Local Whisper(whisper.cpp)는 사용자의 음성을 채팅 입력으로 변환합니다. 핸즈프리 코딩 — 키보드를 건드리지 않고도 질문, 명령 또는 전체 프롬프트를 받아쓰게 됩니다.</p>
+<div class="tags"><span class="tag">속삭임.cpp</span><span class="tag">국소 추론</span><span class="tag">클라우드 STT 없음</span></div>
+</div>
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>파이퍼 텍스트 음성 변환</h3>
+<p>AI 응답은 빠르고 로컬이며 자연스러운 음성인 Piper TTS를 사용하여 소리내어 읽어줍니다. 접근성이 높거나 손을 사용하여 작업하는 데 이상적입니다. 플랫폼 경로는 Linux, Windows 및 macOS에서 자동으로 확인됩니다.</p>
+<div class="tags"><span class="tag">파이퍼 TTS</span><span class="tag">국소 추론</span><span class="tag">구성 가능한 음성</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>지원되는 AI 제공업체</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>공급자</th><th>유형</th><th>비용(대략)</th><th>ucc38uace0</th></tr></thead>
+<tbody>
+<tr><td>DeepSeek</td><td>클라우드 API</td><td>$0.00014 / 1K 토큰</td><td>기본; 우수한 코드 품질</td></tr>
+<tr><td>오픈AI(GPT-4o)</td><td>클라우드 API</td><td>$0.0050 / 1K 토큰</td><td>최고의 일반 추론</td></tr>
+<tr><td>인류학(클로드)</td><td>클라우드 API</td><td>$0.0030 / 1K 토큰</td><td>긴 컨텍스트 편집에 강함</td></tr>
+<tr><td>클로드 코드(인류)</td><td>터미널/PTY</td><td>API 사용</td><td>IDE 터미널 내부에서 pty 프로세스로 실행 - 라이브 셸에서 전체 에이전트 코딩</td></tr>
+<tr><td>그록</td><td>클라우드 API</td><td>$0.00005 / 1K 토큰</td><td>초고속 추론</td></tr>
+<tr><td>미스트랄</td><td>클라우드 API</td><td>$0.00025 / 1K 토큰</td><td>좋은 유럽 호스팅 옵션</td></tr>
+<tr><td>문샷 / 키미</td><td>클라우드 API</td><td>$0.00012 / 1K 토큰</td><td>큰 컨텍스트 창</td></tr>
+<tr><td>장차 ~ 가 되는</td><td>현지의</td><td>무료</td><td>GGUF 모델을 로컬에서 실행</td></tr>
+<tr><td>LM스튜디오</td><td>현지의</td><td>무료</td><td>GUI 친화적인 로컬 추론</td></tr>
+</tbody>
+</table>
+<!-- ═══════════════════════════════════════════════════════════════════
+       SCREENSHOTS — replace placeholder divs with real <img> tags when ready
+       Suggested shots:
+         ide-main.png     — full IDE window with chat panel + code editor open
+         ide-diff.png     — diff view showing before/after a code change
+         ide-voice.png    — voice recording indicator active
+       ════════════════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>스크린샷</h2>
+<p>출시 예정 — IDE 작동 중</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🖥️</div>
+<strong>IDE — 메인 창</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">AI 채팅 패널 + 구문 강조 기능이 있는 코드 편집기</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🔀</div>
+<strong>차이점 보기</strong>
+<span>ide-diff.png</span>
+</div>
+<div class="screenshot-caption">AI 적용 코드 변경 전/후 비교</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>안드로이드 컴패니언</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">모바일 앱 — 채팅 릴레이 및 발표자 제어</div>
+</div>
+</div>
+<!-- ── Company Command Station ─────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>중대 지휘소(CCS)</h2>
+<p>Chameleon IDE를 Logistics 4×4 차량의 사무실 허브로 실행하세요. 별도의 파견 소프트웨어가 필요하지 않습니다.</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>운전자에게 경로 및 POI 푸시</h4>
+<p>보내기 <code>.gpx</code> 피어 채널을 통해 IDE에서 모든 운전자의 전화로 직접 파일을 보낼 수 있습니다. 경로는 운전자의 실시간 지도에 즉시 로드됩니다. 독립형 POI 세트(연료 정지, 위험, 배송 주소)는 모든 경로와 독립적으로 푸시될 수 있으며 색상으로 구분된 핀으로 표시됩니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📦</div>
+<div class="strip-body">
+<h4>매니페스트 및 송장 발송</h4>
+<p>IDE에서 화물 목록을 작성하거나 송장을 준비한 후 P2P 방식으로 운전자의 휴대폰으로 푸시합니다. 운전자는 미리 로드된 매니페스트를 볼 수 있으므로 스캔이나 수동 입력이 필요하지 않습니다. 송장은 화면에서 서명하고 동일한 채널을 통해 반환할 수 있습니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚨</div>
+<div class="strip-body">
+<h4>함대 전체 티커 방송</h4>
+<p>긴급 상황, 중요, 지침 또는 정보 등 우선순위 경고를 보내면 모든 운전자의 화면에 동시에 전체 너비의 티커 막대로 표시됩니다. 사무실은 각 차량에 전화를 걸지 않고도 차량의 주의를 완전히 통제합니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📡</div>
+<div class="strip-body">
+<h4>내장형 신호 서버 - 클라우드 릴레이 없음</h4>
+<p>카멜레온 시그널 서버(<code>chameleon_signal.py</code>)은 IDE와 함께 사무실 PC에서 직접 실행되거나 전체 Android 휴대폰의 Termux 내부에서 실행됩니다. 함대 전화는 Tailscale 또는 로컬 핫스팟을 통해 연결됩니다. 타사 릴레이도 없고 월간 서버 요금도 청구되지 않습니다.</p>
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+<span style="font-size:2rem;">🏢</span>
+<div>
+<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Chameleon IDE를 실행하는 Office PC</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · WebSocket 허브 · 함대 명령</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+<span style="color:#94a3b8;font-size:.83rem;">연결된 함대 →</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 운전자 A</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 드라이버 B</span>
+<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 현장팀</span>
+<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — 긴급 상황</span>
+</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Tailscale(원격) 또는 LAN 핫스팟(호송)을 통해 · 클라우드 릴레이 없음 · E2E 암호화</div>
+</div>
+<div class="cta-band">
+<h3>실제 AI IDE 보기</h3>
+<p>라이브 데모를 보거나 팀을 위한 라이선스에 대해 논의하려면 당사에 문의하세요.</p>
+<a class="btn btn-solid" href="../contact.html">데모 요청</a>
+<a class="btn" href="../logistics4x4.html">물류 4×4 →</a>
+<a class="btn" href="../index.html">← 개요로 돌아가기</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+</footer>
+</body>
+</html>

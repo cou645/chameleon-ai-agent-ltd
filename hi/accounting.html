@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>यूके अकाउंटिंग - गिरगिट एआई</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">सहयोगी ऐप</a>
+<a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../services.html">वेब सेवाएं</a>
+<a class="active" href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>यूके अकाउंटिंग</h1>
+<p class="sub">डबल-एंट्री बहीखाता, वैट ट्रैकिंग, लाभ और हानि, बैलेंस शीट - सभी एक स्थानीय SQLite बहीखाता में HMRC मेकिंग टैक्स डिजिटल को लक्षित करते हैं।</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 यूके चार्ट ऑफ अकाउंट्स</span>
+<span class="badge">📋 एमटीडी-तैयार</span>
+<span class="badge">🔒 स्थानीय SQLite</span>
+<span class="badge">🤖 AI-पार्सेबल JSON आउटपुट</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>डबल-एंट्री लेजर</h2>
+<p>प्रत्येक लेन-देन पैसे के हिसाब से संतुलित होता है - डेबिट हमेशा क्रेडिट के बराबर होता है</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">दिनांक │ खाता │ डेबिट (£) │ क्रेडिट (£) │ वैट</span>
+────────────┼──────────────────── ─────┼───────────┼────────────┼────
+2026-04-01 │ 4000 बिक्री राजस्व │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01 │ 2200 वैट नियंत्रण │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ 1100 व्यापार देनदार │ <span class="dr">1,440.00</span>  │ │
+────────────┼──────────────────── ─────┼───────────┼────────────┼────
+2026-04-05 │ 6100 कार्यालय व्यय │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 2200 वैट नियंत्रण │   <span class="dr">17.00</span>   │ │
+2026-04-05 1200 बैंक चालू │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>खातों का यूके चार्ट</h3>
+<p>मानक यूके खाता कोड बॉक्स से बाहर - संपत्ति, देनदारियां, इक्विटी, आय और व्यय एचएमआरसी श्रेणियों में मैप किए गए। आवश्यकतानुसार कस्टम खातों के साथ विस्तार करें।</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>SQLite खाता बही</h3>
+<p>सारा डेटा संग्रहीत है <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. पूर्णतः ऑफ़लाइन चलता है. एकाधिक कंपनी समर्थन - कमांड फ़्लैग वाली संस्थाओं के बीच स्विच करें।</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>यूके कर वर्ष</h3>
+<p>वर्ष का अंत सही ढंग से 5 अप्रैल (यूके वित्तीय वर्ष 6 अप्रैल - 5 अप्रैल) पर सेट किया गया है। पी एंड एल और वैट रिपोर्ट मैन्युअल तिथि समायोजन के बिना स्वचालित रूप से सही अवधि तक फैली हुई हैं।</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>फोरेंसिक विसंगति स्कैन</h3>
+<p>दौड़ना <code>--forensic</code> असंतुलित प्रविष्टियों, डुप्लिकेट संदर्भों, वैट बेमेल और अन्य अनियमितताओं का पता लगाने के लिए। AI समीक्षा के लिए परिणाम संरचित JSON के रूप में मुद्रित किए गए।</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>एआई-पठनीय आउटपुट</h3>
+<p>सभी रिपोर्ट आउटपुट ने JSON को स्टडआउट करने के लिए संरचित किया ताकि गिरगिट AI प्राकृतिक भाषा में आपकी वित्तीय स्थिति का विश्लेषण, सारांश और सलाह दे सके।</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>वेबसॉकेट ब्रिज</h3>
+<p>अकाउंटिंग वेबसॉकेट ब्रिज (<code>acct_ws_bridge.py</code>) आपके टेलस्केल नेटवर्क पर मोबाइल सहयोगी और बाहरी डैशबोर्ड पर लेज़र क्वेरीज़ को उजागर करता है।</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>वैट कोड समर्थित</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>मानक दर 20%</p></div>
+<div class="vat-code"><div class="vc">आर5</div><p>कम दर 5%</p></div>
+<div class="vat-code"><div class="vc">जेड</div><p>ज़ीरो-रेटेड</p></div>
+<div class="vat-code"><div class="vc">ई</div><p>मुक्त करें</p></div>
+<div class="vat-code"><div class="vc">हे</div><p>दायरे से बाहर</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>रिपोर्टों</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>लाभ और हानि</h4>
+<p>अवधि के लिए आय बनाम व्यय. बिक्री, माल की लागत, सकल लाभ, परिचालन व्यय, शुद्ध लाभ - सभी खाता कोड द्वारा विभाजित हैं। साथ चलाएं <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>तुलन पत्र</h4>
+<p>एक समय में संपत्ति, देनदारियां और इक्विटी। दोहरी-प्रविष्टि अखंडता की पुष्टि करता है - परिसंपत्तियों को देनदारियों और इक्विटी के बराबर होना चाहिए। साथ चलाएं <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>वैट रिटर्न सारांश</h4>
+<p>एचएमआरसी एमटीडी वैट रिटर्न प्रारूप से मेल खाने वाले बॉक्स-दर-बॉक्स वैट आंकड़े: बॉक्स 1 (आउटपुट टैक्स), बॉक्स 4 (इनपुट टैक्स), बॉक्स 6 (शुद्ध बिक्री), बॉक्स 7 (शुद्ध खरीद)। साथ चलाएं <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>चालान-प्रक्रिया</h2>
+<p>एचएमआरसी नोटिस 700-अनुरूप चालान - मुद्रित, पीडीएफ के रूप में सहेजा गया या एक क्लिक में आपके फोन पर भेजा गया</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>यूके-अनुपालक चालान फ़ील्ड</h4>
+<p>प्रत्येक चालान में एचएमआरसी नोटिस 700 द्वारा आवश्यक सभी फ़ील्ड शामिल हैं: अद्वितीय अनुक्रमिक चालान संख्या, आपूर्तिकर्ता का नाम और पता, वैट पंजीकरण संख्या, चालान तिथि, आपूर्ति की तारीख (आपूर्ति का समय), ग्राहक का नाम और पता, ग्राहक वैट नंबर जहां लागू हो, मात्रा और इकाई कीमतों के साथ आइटमयुक्त पंक्ति विवरण, प्रति पंक्ति वैट दर, शुद्ध और वैट उप-योग, और कुल देय राशि। कुछ भी गायब नहीं है, कुछ भी अंदाज़ा नहीं है.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>कंपनी सेटअप</h4>
+<p>खुला <em>फ़ाइल → चालान → कंपनी सेटअप</em> अपनी पंजीकृत कंपनी का नाम, पता, कंपनी हाउस नंबर, वैट नंबर, ईमेल, फोन और बैंक विवरण दर्ज करने के लिए। सेटिंग्स प्रति क्लाइंट डेटाबेस में सहेजी जाती हैं <code>company.json</code> जब भी उस ग्राहक के लिए चालान तैयार किए जाते हैं तो खाता-बही के साथ-साथ स्वचालित रूप से लोड किया जाता है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>ग्राहक संपर्क डेटाबेस</h4>
+<p>जब आप पहली बार किसी ग्राहक का चालान करते हैं तो उनका नाम, पता और वैट नंबर बही के अंदर एक संपर्क तालिका में सहेजा जाता है। बाद के चालानों पर, ग्राहक का नाम टाइप करने से उनका विवरण स्वतः पूर्ण हो जाता है - पुनः प्रविष्टि की आवश्यकता नहीं है। संपर्क किसी भी समय संपादन योग्य हैं.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>प्रिंट करें, पीडीएफ़ और फ़ोन पर भेजें</h4>
+<p>चालान प्रबंधक से (<em>फ़ाइल → चालान…</em>) कोई भी चालान चुनें और चुनें: <strong>छाप</strong> (ओएस प्रिंट संवाद खोलता है - कोई भी प्रिंटर या पीडीएफ ड्राइवर), <strong>पीडीएफ सहेजें</strong> (क्यूटी के अंतर्निर्मित पीडीएफ निर्यात के माध्यम से सीधे डिस्क पर), या <strong>फ़ोन पर भेजें</strong> (इनवॉइस HTML को कंपेनियन ऐप पर धकेलता है जहां यह एंड्रॉइड प्रिंट डायलॉग खोलता है - किसी भी एयरप्रिंट या नजदीकी प्रिंटर पर वायरलेस तरीके से प्रिंट करें)।</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>आपूर्ति की तिथि</h3>
+<p>अलग "आपूर्ति की तारीख" (आपूर्ति का समय) फ़ील्ड - चालान की तारीख से अलग। वैट प्रयोजनों के लिए एचएमआरसी द्वारा आवश्यक। आज तक डिफ़ॉल्ट है लेकिन प्रति चालान स्वतंत्र रूप से संपादन योग्य है।</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>मोबाइल चालान मुद्रण</h3>
+<p>कंपेनियन ऐप किसी भी चालान को वायरलेस तरीके से प्रिंट कर सकता है। किसी भी इनवॉइस पंक्ति पर प्रिंट आइकन टैप करें - ऐप आईडीई से HTML लाता है, इसे डिवाइस पर पीडीएफ में परिवर्तित करता है <code>printing</code> पैकेज, और एंड्रॉइड सिस्टम प्रिंट संवाद खोलता है।</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>एचएमआरसी नोटिस 700 अनुपालन</h3>
+<p>संपूर्ण यूके वैट इनवॉइस के लिए सभी 12 आवश्यक फ़ील्ड मौजूद हैं और भरी हुई हैं। कम-दर और शून्य-रेटेड लाइनें स्पष्ट रूप से लेबल की गई हैं। इनवॉइस नंबर अनुक्रम बिना किसी अंतराल के सख्ती से एकरस-बढ़ रहा है।</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>सीएलआई त्वरित संदर्भ</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>आज्ञा</th><th>विवरण</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>वर्तमान कर वर्ष के लिए लाभ और हानि</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>आज तक की बैलेंस शीट</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>वैट रिटर्न सारांश (एमटीडी बॉक्स)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>विसंगति और अखंडता स्कैन</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>पूर्ण आदेश संदर्भ</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>अपने यूके बहीखाता को सुव्यवस्थित करें</h3>
+<p>यूके कर नियमों के तहत काम करने वाले फ्रीलांसरों और छोटे व्यवसायों के लिए उद्देश्य-निर्मित।</p>
+<a class="btn btn-solid" href="../contact.html">संपर्क में रहो</a>
+<a class="btn" href="../index.html">← सिंहावलोकन पर वापस जाएँ</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0939u094bu092e</a><a href="../ide.html">आपके पास विचार हैं</a><a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a><a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a><a href="../classroom.html">u0915u0915u094du0937u093e</a><a href="../contact.html">संपर्क</a>
+</div>
+<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

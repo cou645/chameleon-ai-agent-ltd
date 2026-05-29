@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aula di lingue - Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>IA camaleonte</strong></a>
+<div class="nav-links">
+<a href="../index.html">Casa</a>
+<a href="../ide.html">HAI IDEE</a>
+<a href="../presenter.html">Presentatore</a>
+<a href="../companion.html">Applicazione complementare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../services.html">Servizi Web</a>
+<a href="../accounting.html">Contabilità</a>
+<a href="../technician.html">Tecnico informatico</a>
+<a href="../trading.html">Commercio</a>
+<a class="active" href="../classroom.html">Aula</a>
+<a href="../contact.html">Contatto</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇹 IT ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>Aula di lingua</h1>
+<p class="sub">Lezioni video WebRTC dal vivo con connessioni P2P protette da Tailscale, pagamenti integrati e Kameleon Presenter, tutto in un'unica applicazione.</p>
+<div class="hero-badges">
+<span class="badge">📹Video WebRTC</span>
+<span class="badge">🌐 Maglia a scala di coda</span>
+<span class="badge">💳 Stripe · Alipay · PayPal</span>
+<span class="badge">🔐 DB Iscrizioni</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>Insegnante</div>
+<div class="status">● Dal vivo</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>Studente A</div>
+<div class="status">● Connesso</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>Studente B</div>
+<div class="status">● Connesso</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>Studente C</div>
+<div class="status">○ Partecipazione...</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>Studente D</div>
+<div class="status">● Connesso</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>Studente E</div>
+<div class="status">● Connesso</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>Studente F</div>
+<div class="status">○ Partecipazione...</div>
+</div>
+</div>
+<div class="section-title">
+<h2>Lezioni video dal vivo</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>Video di gruppo WebRTC: 4+ partecipanti</h4>
+<p>Video e audio WebRTC full-mesh a bassa latenza per gruppi di 4 o più persone: nessun server multimediale centrale, nessun costo mensile. Il server di segnale Chameleon (<code>chameleon_signal.py</code>) gestisce il relè SDP e ICE (porta 8766) e funziona anche su Termux su Android. L'app Companion mostra una griglia adattiva che cresce automaticamente man mano che gli studenti si uniscono: 1 = schermo intero, 2 = affiancati, 3 = 2+1, 4 = 2×2, 5+ = griglia scorrevole con adattamento automatico, con il feed locale dell'insegnante sempre in un'immagine nell'immagine.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Connessioni protette da tailscale</h4>
+<p>Tutti i peer si connettono tramite la tua mesh Tailscale: nessun IP pubblico, nessun port forwarding. L'IDE gestisce ACL, autorizzazione del dispositivo e generazione di chiavi di autenticazione senza uscire dall'app.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>Presentatore Kameleon integrato</h4>
+<p>Insegna con l'intero palco Kameleon durante la lezione. Gli studenti possono inviare risposte, disegni e immagini direttamente a uno stack in modalità Stage: moderare e visualizzare in tempo reale senza cambiare app.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>Widget di pronuncia</h4>
+<p>Widget di coaching della pronuncia integrato (<code>pronunciation_widget.py</code>) con feedback a livello di fonema: ideale per l'insegnamento delle lingue in cui è importante un'articolazione precisa.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Fallback video LAN</h4>
+<p>Quando Tailscale non è disponibile, <code>lan_video.py</code> trasmette in streaming video su UDP (porta 47732), audio su UDP (porta 47733) e differenze collaborative su WebSocket (porta 47731), tutto sulla rete locale.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ponte di chiamata per telecomunicazioni e SIM</h2>
+<p>Connetti le chiamate dell'app e le telefonate tramite SIM reale in un'unica conversazione multidirezionale, direttamente dall'app complementare</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>Due tipi di chiamata: una conversazione</h4>
+<p>L'app Companion supporta due canali di chiamata paralleli: an <strong>Chiamata dell'app</strong> (WebRTC, peer-to-peer su Tailscale, gratuito) e a <strong>Chiamata SIM</strong> (rete mobile standard, qualsiasi numero di telefono). Puoi partecipare a una chiamata WebRTC con un peer <em>E</em> effettua contemporaneamente una chiamata SIM a terzi, quindi mettili in conferenza per una conversazione multidirezionale, senza uscire dall'app.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>Barra di stato delle telecomunicazioni</h4>
+<p>Una barra di stato persistente nella parte superiore dell'app Companion mostra lo stato live di entrambi i canali: inattivo, squillante, in chiamata o disattivato. Con un solo sguardo puoi sapere quali chiamate sono attive. Ogni canale dispone di controlli di disattivazione e di fine audio indipendenti: terminare la chiamata SIM non interrompe la chiamata dell'app e viceversa.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>Flusso della lezione a più vie</h4>
+<p>Utile per le lezioni di lingua: inserisci uno studente in una chiamata tramite l'app WebRTC, quindi chiama un madrelingua sulla SIM per una conversazione spontanea nel mondo reale. Tutte e tre le parti possono sentirsi a vicenda. L'insegnante modera tramite l'app mentre Kameleon Presenter continua a funzionare sull'IDE.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>Legge sulla registrazione delle chiamate nel Regno Unito: tutte le parti devono essere informate</h4>
+<p>Secondo il RIPA 2000 e le normative sulle telecomunicazioni (pratiche commerciali legali), una parte che registra una chiamata può farlo senza il consenso dell'altra parte per il proprio uso legittimo, ma affinché la registrazione sia <strong>ammissibile in tribunale</strong> tutte le parti devono essere informate prima dell'inizio della registrazione. L'app Companion mostra un messaggio prominente <strong>🔴 REGISTRAZIONE</strong> banner a tutti i partecipanti collegati ogni volta che la registrazione è attiva. Per i chiamanti SIM è richiesta la notifica verbale all'inizio della chiamata. I dati vocali sono dati personali ai sensi del GDPR e devono essere gestiti di conseguenza.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Pagamenti e iscrizione</h2>
+<p>Accetta pagamenti da studenti di tutto il mondo prima di concedere l'accesso alle lezioni</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 Strisce <span style="color:var(--muted);font-weight:400">(primario in GBP)</span></div>
+<div class="pay-pill">🟦Alipay <span style="color:var(--muted);font-weight:400">(Studenti cinesi)</span></div>
+<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(ricaderci)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>DB corso e iscrizione</h3>
+<p>Corsi e iscrizioni degli studenti archiviati in <code>~/.chameleon/courses.db</code>. L'intelligenza artificiale può creare corsi, elencare le iscrizioni, controllare lo stato dei pagamenti e revocare l'accesso, il tutto tramite comandi IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Supporto multivaluta</h3>
+<p>Stripe gestisce i pagamenti in GBP da studenti britannici e internazionali. Alipay si rivolge agli studenti cinesi che pagano in CNY. PayPal fornisce un fallback universale con un'ampia copertura nazionale.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>Pagamenti tramite screenshot di WeChat</h3>
+<p>Per gli studenti senza accesso alla carta, accettare gli screenshot della prova di pagamento di WeChat Pay. L'intelligenza artificiale legge l'immagine, estrae l'importo e il riferimento e registra il pagamento manuale a fronte dell'iscrizione.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>Collegamenti di pagamento</h3>
+<p>Genera collegamenti di pagamento ospitati da Stripe per qualsiasi corso. Condividi il collegamento: lo studente paga: l'iscrizione viene creata automaticamente. Nessuna pagina di pagamento da creare o ospitare.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Riferimento al comando di pagamento</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Comando dell'IA</th><th>Descrizione</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>Crea un nuovo corso con prezzo, titolo e descrizione</td></tr>
+<tr><td><code>payment_links</code></td><td>Genera un collegamento di pagamento Stripe per un corso</td></tr>
+<tr><td><code>payment_status</code></td><td>Controlla lo stato del pagamento e dell'iscrizione di uno studente</td></tr>
+<tr><td><code>payment_enrol</code></td><td>Iscrivere manualmente uno studente (ad esempio dopo il pagamento in contanti)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>Rimuovere l'accesso all'iscrizione di uno studente</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>Elenca tutti gli studenti con saldi in sospeso</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>Registra uno screenshot di WeChat Pay come prova del pagamento</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Avvia la tua scuola di lingue online</h3>
+<p>Tutto ciò di cui hai bisogno (video, diapositive, pagamenti e iscrizioni) in un'unica applicazione desktop.</p>
+<a class="btn btn-solid" href="../contact.html">Mettiti in contatto</a>
+<a class="btn" href="../index.html">← Torna alla panoramica</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Casa</a><a href="../ide.html">HAI IDEE</a><a href="../presenter.html">Presentatore</a>
+<a href="../accounting.html">Contabilità</a><a href="../technician.html">Tecnico informatico</a>
+<a href="../trading.html">Commercio</a><a href="../classroom.html">Aula</a><a href="../contact.html">Contatto</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Costruito da Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

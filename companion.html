@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chameleon Companion App — Android</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Companion App — Android</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
     .channel-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -80,245 +80,223 @@
   </style>
 </head>
 <body>
-
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
   ⚠️ TESTING IN PROGRESS — This site is under active development. Features, pricing and licensing are not finalised.
 </div>
-
 <nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html"><img src="icon.png" alt="Chameleon AI logo"><strong>Chameleon AI</strong></a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="ide.html">AI IDE</a>
-      <a href="presenter.html">Presenter</a>
-      <a href="companion.html" class="active">Companion App</a>
-      <a href="accounting.html">Accounting</a>
-      <a href="technician.html">PC Technician</a>
-      <a href="trading.html">Trading</a>
-      <a href="classroom.html">Classroom</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
+<div class="nav-inner">
+<a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="ide.html">AI IDE</a>
+<a href="presenter.html">Presenter</a>
+<a class="active" href="companion.html">Companion App</a>
+<a href="accounting.html">Accounting</a>
+<a href="technician.html">PC Technician</a>
+<a href="trading.html">Trading</a>
+<a href="classroom.html">Classroom</a>
+<a href="contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🌐 EN ▾</button><div class="lang-menu"><a href="ar/companion.html">🇸🇦 AR — العربية</a><a href="cy/companion.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/companion.html">🇩🇪 DE — Deutsch</a><a href="el/companion.html">🇬🇷 EL — Ελληνικά</a><a href="es/companion.html">🇪🇸 ES — Español</a><a href="fr/companion.html">🇫🇷 FR — Français</a><a href="hi/companion.html">🇮🇳 HI — हिन्दी</a><a href="id/companion.html">🇮🇩 ID — Indonesia</a><a href="it/companion.html">🇮🇹 IT — Italiano</a><a href="ja/companion.html">🇯🇵 JA — 日本語</a><a href="ko/companion.html">🇰🇷 KO — 한국어</a><a href="pl/companion.html">🇵🇱 PL — Polski</a><a href="pt/companion.html">🇵🇹 PT — Português</a><a href="ro/companion.html">🇷🇴 RO — Română</a><a href="ru/companion.html">🇷🇺 RU — Русский</a><a href="sw/companion.html">🇰🇪 SW — Kiswahili</a><a href="uk/companion.html">🇺🇦 UK — Українська</a><a href="vi/companion.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/companion.html">🇨🇳 ZH — 中文</a></div></div></div>
+</div>
 </nav>
-
 <div class="hero">
-  <div class="hero-icon">📱</div>
-  <h1>Chameleon Companion App</h1>
-  <p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
-  <div class="hero-badges">
-    <span class="badge">🤖 AI chat via STT/TTS</span>
-    <span class="badge">📹 Group P2P video (4+)</span>
-    <span class="badge">📞 SIM call bridge</span>
-    <span class="badge">🎭 Presenter remote</span>
-    <span class="badge">🌐 Tailscale-secured</span>
-    <span class="badge">🖥️ Screen / VNC</span>
-  </div>
+<div class="hero-icon">📱</div>
+<h1>Chameleon Companion App</h1>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
+<div class="hero-badges">
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
+<span class="badge">📞 SIM call bridge</span>
+<span class="badge">🎭 Presenter remote</span>
+<span class="badge">🌐 Tailscale-secured</span>
+<span class="badge">🖥️ Screen / VNC</span>
 </div>
-
+</div>
 <div class="page">
-
-  <!-- Phone mockup + channel diagram side by side -->
-  <div class="split" style="align-items:flex-start;">
-    <div>
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <div class="phone-header">
-            <div class="app-icon">🦎</div>
-            <span>Chameleon Companion</span>
-            <div class="phone-status">● Connected</div>
-          </div>
-          <div class="phone-msg msg-ai">How can I help? I can see your IDE, files and presenter.</div>
-          <div class="phone-msg msg-user">Show me the last error in the terminal.</div>
-          <div class="phone-msg msg-ai">Found it — line 47, NameError: 'config' not defined. Want me to fix it?</div>
-          <div class="phone-msg msg-user">Yes, apply the fix.</div>
-          <div class="phone-msg msg-ai">Done. File saved. Terminal shows exit 0.</div>
-          <div class="phone-channels">
-            <span class="pch pch-ide">IDE</span>
-            <span class="pch pch-video">P2P Video</span>
-            <span class="pch pch-file">Files</span>
-            <span class="pch pch-media">Media</span>
-            <span class="pch pch-stt">STT/TTS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="section-title" style="margin-top:0;">
-        <h2>Multi-channel architecture</h2>
-        <p>One WebSocket bridge, five independent communication lanes</p>
-      </div>
-      <div class="ws-diagram">
-        <div class="ws-row">
-          <div class="ws-node">📱 Android App</div>
-          <div class="ws-arrow">⟷</div>
-          <div class="ws-node">Tailscale mesh</div>
-          <div class="ws-arrow">⟷</div>
-          <div class="ws-node">🖥️ Desktop</div>
-        </div>
-        <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-          <div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">IDE channel</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
-          <div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
-          <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">File browser</div><div class="ws-label">Read · write · edit files on desktop</div></div>
-          <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Media stream</div><div class="ws-label">NAS / DLNA · cast to phone</div></div>
-          <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Screen share</div><div class="ws-label">VNC/RDP-style desktop mirror</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>Communication Channels</h2>
-    <p>Each channel is independent — use one or all simultaneously</p>
-  </div>
-
-  <div class="channel-grid">
-
-    <div class="channel-card ch-ide">
-      <span class="ch-badge">CHANNEL 1</span>
-      <div class="ch-icon">🧠</div>
-      <h3>IDE AI Channel</h3>
-      <p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">AI streaming</span><span class="tag">File upload</span><span class="tag">Screenshots</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-p2p">
-      <span class="ch-badge">CHANNEL 2</span>
-      <div class="ch-icon">📹</div>
-      <h3>Group P2P Video &amp; Voice</h3>
-      <p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Group video</strong> to call all online peers at once. The grid adapts automatically as participants join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid. Your local feed floats as a picture-in-picture. Bitrate scales down per peer to keep quality balanced at any group size.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">WebRTC full-mesh</span><span class="tag">Adaptive grid</span><span class="tag">PiP local feed</span><span class="tag">Termux signal server</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
-      <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">SIM BRIDGE</span>
-      <div class="ch-icon">📞</div>
-      <h3>SIM Call Bridge</h3>
-      <p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Add to call group</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>earpiece only</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Hardware conference</span><span class="tag">BT SCO fallback</span><span class="tag">Earpiece only</span><span class="tag">ConnectionService</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-ide" style="border-color:#764ba2;">
-      <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">CHANNEL 3</span>
-      <div class="ch-icon">🎭</div>
-      <h3>Kameleon Presenter Remote</h3>
-      <p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-vnc">
-      <span class="ch-badge">CHANNEL 4</span>
-      <div class="ch-icon">🖥️</div>
-      <h3>Screen Mirror (VNC/RDP-style)</h3>
-      <p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Screen capture</span><span class="tag">Tap-to-click</span><span class="tag">Tailscale only</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-file">
-      <span class="ch-badge">CHANNEL 5</span>
-      <div class="ch-icon">📂</div>
-      <h3>Remote File Browser &amp; Editor</h3>
-      <p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Browse</span><span class="tag">Edit</span><span class="tag">Upload from camera</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-media">
-      <span class="ch-badge">CHANNEL 6</span>
-      <div class="ch-icon">🎵</div>
-      <h3>Media Streaming (NAS / DLNA)</h3>
-      <p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Tailscale bridge</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-acct">
-      <span class="ch-badge">CHANNEL 7</span>
-      <div class="ch-icon">🧾</div>
-      <h3>Accounting — Receipt Capture</h3>
-      <p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">Receipt OCR</span><span class="tag">Draft journal</span><span class="tag">VAT extraction</span>
-      </div>
-    </div>
-
-    <div class="channel-card ch-p2p" style="border-color:#ec4899;">
-      <span class="ch-badge" style="background:#fce7f3;color:#be185d;">CHANNEL 8</span>
-      <div class="ch-icon">🗣️</div>
-      <h3>Voice AI — Phone STT &amp; TTS</h3>
-      <p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
-      <div class="tags" style="margin-top:.8rem;">
-        <span class="tag">On-device STT</span><span class="tag">TTS playback</span><span class="tag">Hands-free</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="section-title" style="margin-top:3rem;">
-    <h2>How it connects</h2>
-  </div>
-
-  <div class="strip">
-    <div class="strip-item">
-      <div class="strip-icon">🔐</div>
-      <div class="strip-body">
-        <h4>Tailscale-secured mesh</h4>
-        <p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">🔌</div>
-      <div class="strip-body">
-        <h4>Single WebSocket bridge</h4>
-        <p>The desktop runs <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">🤖</div>
-      <div class="strip-body">
-        <h4>Termux on Android</h4>
-        <p>The signal server (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
-      </div>
-    </div>
-    <div class="strip-item">
-      <div class="strip-icon">📶</div>
-      <div class="strip-body">
-        <h4>LAN fallback</h4>
-        <p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732) and audio over UDP (port 47733) directly on the local network — same channels, no VPN overhead.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cta-band">
-    <h3>Interested in the Companion App?</h3>
-    <p>Currently in testing — contact us to register interest or request a demo.</p>
-    <a href="contact.html" class="btn btn-solid">Get in touch</a>
-    <a href="index.html" class="btn">← Back to overview</a>
-  </div>
-
+<!-- Phone mockup + channel diagram side by side -->
+<div class="split" style="align-items:flex-start;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🦎</div>
+<span>Chameleon Companion</span>
+<div class="phone-status">● Connected</div>
 </div>
-
+<div class="phone-msg msg-ai">How can I help? I can see your IDE, files and presenter.</div>
+<div class="phone-msg msg-user">Show me the last error in the terminal.</div>
+<div class="phone-msg msg-ai">Found it — line 47, NameError: 'config' not defined. Want me to fix it?</div>
+<div class="phone-msg msg-user">Yes, apply the fix.</div>
+<div class="phone-msg msg-ai">Done. File saved. Terminal shows exit 0.</div>
+<div class="phone-channels">
+<span class="pch pch-ide">IDE</span>
+<span class="pch pch-video">P2P Video</span>
+<span class="pch pch-file">Files</span>
+<span class="pch pch-media">Media</span>
+<span class="pch pch-stt">STT/TTS</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Multi-channel architecture</h2>
+<p>One WebSocket bridge, five independent communication lanes</p>
+</div>
+<div class="ws-diagram">
+<div class="ws-row">
+<div class="ws-node">📱 Android App</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">Tailscale mesh</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">🖥️ Desktop</div>
+</div>
+<div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">IDE channel</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">File browser</div><div class="ws-label">Read · write · edit files on desktop</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Media stream</div><div class="ws-label">NAS / DLNA · cast to phone</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Screen share</div><div class="ws-label">VNC/RDP-style desktop mirror</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Communication Channels</h2>
+<p>Each channel is independent — use one or all simultaneously</p>
+</div>
+<div class="channel-grid">
+<div class="channel-card ch-ide">
+<span class="ch-badge">CHANNEL 1</span>
+<div class="ch-icon">🧠</div>
+<h3>IDE AI Channel</h3>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">AI streaming</span><span class="tag">File upload</span><span class="tag">Screenshots</span>
+</div>
+</div>
+<div class="channel-card ch-p2p">
+<span class="ch-badge">CHANNEL 2</span>
+<div class="ch-icon">📹</div>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Group video</strong> to call all online peers at once. The grid adapts automatically as participants join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid. Your local feed floats as a picture-in-picture. Bitrate scales down per peer to keep quality balanced at any group size.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC full-mesh</span><span class="tag">Adaptive grid</span><span class="tag">PiP local feed</span><span class="tag">Termux signal server</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
+<span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">SIM BRIDGE</span>
+<div class="ch-icon">📞</div>
+<h3>SIM Call Bridge</h3>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Add to call group</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>earpiece only</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Hardware conference</span><span class="tag">BT SCO fallback</span><span class="tag">Earpiece only</span><span class="tag">ConnectionService</span>
+</div>
+</div>
+<div class="channel-card ch-ide" style="border-color:#764ba2;">
+<span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">CHANNEL 3</span>
+<div class="ch-icon">🎭</div>
+<h3>Kameleon Presenter Remote</h3>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
+</div>
+</div>
+<div class="channel-card ch-vnc">
+<span class="ch-badge">CHANNEL 4</span>
+<div class="ch-icon">🖥️</div>
+<h3>Screen Mirror (VNC/RDP-style)</h3>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Screen capture</span><span class="tag">Tap-to-click</span><span class="tag">Tailscale only</span>
+</div>
+</div>
+<div class="channel-card ch-file">
+<span class="ch-badge">CHANNEL 5</span>
+<div class="ch-icon">📂</div>
+<h3>Remote File Browser &amp; Editor</h3>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Browse</span><span class="tag">Edit</span><span class="tag">Upload from camera</span>
+</div>
+</div>
+<div class="channel-card ch-media">
+<span class="ch-badge">CHANNEL 6</span>
+<div class="ch-icon">🎵</div>
+<h3>Media Streaming (NAS / DLNA)</h3>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Tailscale bridge</span>
+</div>
+</div>
+<div class="channel-card ch-acct">
+<span class="ch-badge">CHANNEL 7</span>
+<div class="ch-icon">🧾</div>
+<h3>Accounting — Receipt Capture</h3>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Receipt OCR</span><span class="tag">Draft journal</span><span class="tag">VAT extraction</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#ec4899;">
+<span class="ch-badge" style="background:#fce7f3;color:#be185d;">CHANNEL 8</span>
+<div class="ch-icon">🗣️</div>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">On-device STT</span><span class="tag">TTS playback</span><span class="tag">Hands-free</span>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>How it connects</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔌</div>
+<div class="strip-body">
+<h4>Single WebSocket bridge</h4>
+<p>The desktop runs <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Termux on Android</h4>
+<p>The signal server (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📶</div>
+<div class="strip-body">
+<h4>LAN fallback</h4>
+<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732) and audio over UDP (port 47733) directly on the local network — same channels, no VPN overhead.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Interested in the Companion App?</h3>
+<p>Currently in testing — contact us to register interest or request a demo.</p>
+<a class="btn btn-solid" href="contact.html">Get in touch</a>
+<a class="btn" href="index.html">← Back to overview</a>
+</div>
+</div>
 <footer>
-  <div class="foot-links">
-    <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
-    <a href="companion.html">Companion App</a><a href="logistics4x4.html">Logistics 4&times;4</a>
-    <a href="services.html">Web Services</a><a href="accounting.html">Accounting</a>
-    <a href="technician.html">PC Technician</a><a href="trading.html">Trading</a>
-    <a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
-  </div>
-  <p>&copy; 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
+<div class="foot-links">
+<a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+<a href="companion.html">Companion App</a><a href="logistics4x4.html">Logistics 4×4</a>
+<a href="services.html">Web Services</a><a href="accounting.html">Accounting</a>
+<a href="technician.html">PC Technician</a><a href="trading.html">Trading</a>
+<a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

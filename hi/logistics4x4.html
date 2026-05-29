@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>लॉजिस्टिक्स 4×4 - क्रॉस-बॉर्डर फ्लीट कम्युनिकेशंस</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ परीक्षण प्रगति पर है - यह साइट सक्रिय विकास के अधीन है। सुविधाएँ, मूल्य निर्धारण और लाइसेंसिंग को अंतिम रूप नहीं दिया गया है।
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">सहयोगी ऐप</a>
+<a class="active" href="../logistics4x4.html">रसद 4×4</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>रसद 4×4</h1>
+<p class="sub">छोटे ऑपरेटरों के लिए सीमा पार बेड़े संचार। चार सिम कॉल करने वाले और चार पी2पी वीडियो सहकर्मी एक ही कॉल स्पेस साझा करते हैं - सीमा पर ड्राइवर, मुख्य कार्यालय, सीमा शुल्क, ग्राहक - सभी एक साथ कमरे में। लाइव मानचित्र, जीपीएक्स मार्ग, कार्गो मैनिफ़ेस्ट, अनुवादित वॉयस चैट और आपातकालीन प्रसारण, सभी एक मानक एंड्रॉइड फोन पर।</p>
+<div class="hero-badges">
+<span class="badge">📹 4 वीडियो साथी</span>
+<span class="badge">📞 4 सिम कॉल करने वाले</span>
+<span class="badge">🗺 लाइव मानचित्र + जीपीएक्स</span>
+<span class="badge">📍POI परत</span>
+<span class="badge">🧭ऑफ़लाइन कम्पास</span>
+<span class="badge">🌍15 भाषाएँ</span>
+<span class="badge">📋 मेनिफेस्ट + रन शीट</span>
+<span class="badge">🚨आपातकालीन प्रसारण</span>
+<span class="badge">📟 आपातकालीन मोड - एसएमएस और सहकर्मी</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>रसद 4×4</span>
+<div class="phone-status">● फ्लीट ऑनलाइन</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 क्रॉस वेप्वाइंट 3 - बी4301 पर बने रहें</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: "सीमा शुल्क साफ़ हो गया, गेट 7 की ओर बढ़ रहा हूँ"</div>
+<div class="p-chat p-chat-out">रास्ते में - ईटीए 14 मिनट</div>
+<div class="p-chat p-chat-in">सिम पर ग्राहक - अभी कनेक्ट हो रहा है...</div>
+<div class="p-chat p-chat-out">📍 स्थान बेड़े के साथ साझा किया गया</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 प्रेषण</span>
+<span class="p-peer p-peer-on">🎥 ड्राइवर बी</span>
+<span class="p-peer p-peer-sim">📞 सीमा शुल्क</span>
+<span class="p-peer p-peer-sim">📞 ग्राहक</span>
+<span class="p-peer p-peer-map">🗺 नक्शा</span>
+<span class="p-peer p-peer-map">🧭 दिशा सूचक यंत्र</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>4×4 कॉल स्पेस</h2>
+<p>सिम फ़ोन कॉल और पी2पी वीडियो एक कनेक्टेड स्थान साझा करते हैं</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">एक कॉल स्पेस - आठ प्रतिभागी</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 सिम कॉल करने वाले</h4>
+<ul>
+<li>मानक सेलुलर आवाज</li>
+<li>इंटरनेट की आवश्यकता नहीं</li>
+<li>सीमा शुल्क अधिकारी</li>
+<li>विदेश में ग्राहक</li>
+<li>प्रधान कार्यालय लैंडलाइन</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 पी2पी वीडियो पीयर्स</h4>
+<ul>
+<li>WebRTC - कोई सर्वर बिल नहीं</li>
+<li>पूर्ण जाल वीडियो + ऑडियो</li>
+<li>ड्राइवर से ड्राइवर</li>
+<li>प्रेषण नियंत्रक</li>
+<li>दूरस्थ टीम के सदस्य</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">सिम कॉल से ऑडियो को एंड्रॉइड के टेलीकॉम स्टैक या ब्लूटूथ एससीओ - केवल ईयरपीस, निजी के माध्यम से समूह कॉल में हार्डवेयर-मर्ज किया जाता है।</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        लॉजिस्टिक्स 4×4 का लक्ष्य बड़े कूरियर नेटवर्क द्वारा उपयोग किए जाने वाले पेशेवर स्वामित्व वाले लॉजिस्टिक्स प्लेटफॉर्म को प्रतिस्थापित करना नहीं है। यह के लिए अंतर को भरता है <strong>छोटे ऑपरेटर</strong>, एकमात्र व्यापारी और स्थितियाँ जिन तक एक बड़ा उद्यम उपकरण नहीं पहुँच सकता है - एक दूरदराज के सीमा पार पर एक ड्राइवर जिसे प्रधान कार्यालय से तुरंत जुड़ने की आवश्यकता होती है, एक दूसरा ड्राइवर तीन मील पीछे, बूथ में सीमा शुल्क निरीक्षक, और दूसरे देश में ग्राहक जो केवल फोन द्वारा डायल कर सकता है।
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>यह किसके लिए है</h2>
+<p>उच्च-दांव, निम्न-बुनियादी ढांचे वाले क्षेत्र संचार के लिए डिज़ाइन किया गया</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>सीमा पार करना</h4>
+<p>ड्राइवर सीमा शुल्क अधिकारी (सिम कॉल), प्रधान कार्यालय (वीडियो), प्राप्तकर्ता ग्राहक (सिम कॉल) और काफिले में दूसरे ड्राइवर (वीडियो) को एक साथ जोड़ता है, लाइव अनुवादित चैट सभी के लिए दृश्यमान होती है।</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>लम्बी दूरी का काफिला</h4>
+<p>50 मील में फैले ट्रक पुश-टू-टॉक के साथ एक साझा कॉल में रहते हैं, एक ही लाइव मैप पर स्थान साझा करते हैं, और डिस्पैचर मार्ग सीधे मैप में लोड की गई जीपीएक्स फ़ाइलों के रूप में आते हैं।</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>ऑफ-रोड/ट्रेकिंग</h4>
+<p>कोई डेटा सिग्नल नहीं? ऑफ़लाइन कंपास बेड़े के हर दूसरे सदस्य को असर वाले तीर दिखाता है। POI पिन ईंधन रुकने, खतरों और मिलन स्थलों को चिह्नित करते हैं - एक पुश किए गए GPX फ़ाइल में एम्बेडेड या मानचित्र पर किसी भी ड्राइवर द्वारा गिराए गए। दिशात्मक एरियल वाले ट्रकों के बीच लंबी दूरी के हॉटस्पॉट लिंक 50+ मील तक पहुंच सकते हैं।</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>बहुभाषी टीमें</h4>
+<p>पुश-टू-टॉक भाषण को लिपिबद्ध करता है, वक्ता की भाषा का पता लगाता है, अनुवाद करता है, और प्रत्येक श्रोता के अपने स्थान में पाठ + ऑडियो वितरित करता है - 15 भाषाएँ, फोन पर स्थानीय आर्गोस अनुवाद सर्वर द्वारा संचालित।</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>डिलीवरी का सबूत</h4>
+<p>ड्राइवर मैनिफ़ेस्ट लोड करने के लिए डिपो क्यूआर कोड को स्कैन करता है, फिर डिलीवरी पर ग्राहक पीओडी क्यूआर को स्कैन करता है। डिलीवरी से इनकार कर दिया? एक फोटो और एक लिखित अपवाद नोट कैप्चर करें। ग्राहक के हस्ताक्षर स्क्रीन पर कैद हो गए।</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>प्रेषण कार्यालय</h4>
+<p>डिस्पैचर स्क्रीन सभी ड्राइवरों को लाइव मैप पर दिखाती है, रन शीट चलाती है, मैनिफ़ेस्ट और रूट को पीयर चैनल पर अलग-अलग ड्राइवरों तक पहुंचाती है, और पूरे बेड़े में आपातकालीन अलर्ट प्रसारित करती है।</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>लाइव मानचित्र, POI और कम्पास</h2>
+<p>ओएसएम, उपग्रह और हाइब्रिड परतें - सहकर्मी स्थान, जीपीएक्स मार्ग, रुचि के बिंदु और ऑफ़लाइन टाइल कैश</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">गली</span>
+<span class="map-tag mt-sat">उपग्रह</span>
+<span class="map-tag mt-hybrid">हाइब्रिड</span>
+<span class="map-tag mt-gpx">जीपीएक्स मार्ग</span>
+<span class="map-tag mt-poi">POI परतें</span>
+<span class="map-tag mt-offline">ऑफ़लाइन कैश</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">ओपनस्ट्रीटमैप टाइल्स</span>
+<span class="tag">ईएसआरआई वर्ल्ड इमेजरी</span>
+<span class="tag">2.5डी इमारतें</span>
+<span class="tag">ओएसआरएम रूटिंग</span>
+<span class="tag">अर्थात् स्थान खोज</span>
+<span class="tag">डिस्क टाइल कैश</span>
+<span class="tag">POI परतें</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 मार्ग मार्गबिंदु</span>
+<span class="poi-dot poi-push">📍 आईडीई-पुश</span>
+<span class="poi-dot poi-manual">📍 ड्राइवर-छोड़ दिया</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>तीन मानचित्र परतें</h4>
+<p>के बीच चक्र <strong>गली</strong> (ओपनस्ट्रीटमैप), <strong>उपग्रह</strong> (एस्री वर्ल्ड इमेजरी) और <strong>हाइब्रिड</strong> (सैटेलाइट बेस + ओएसएम रोड ओवरले) एक टैप से। सभी टाइलें डिस्क-कैश्ड हैं - पहले देखे गए क्षेत्र बिना डेटा के ऑफ़लाइन लोड होते हैं।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>मानचित्र पर समकक्ष स्थान</h4>
+<p>स्थान साझाकरण सक्षम करने वाला प्रत्येक फ़्लीट सदस्य एक लाइव पिन के रूप में दिखाई देता है। उनका नाम और ईटीए देखने के लिए एक पिन टैप करें। डिस्पैचर एक अलग ट्रैकिंग प्लेटफ़ॉर्म के बिना पूरे बेड़े को एक नज़र में देख सकता है।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>जीपीएक्स रूट पुश</h4>
+<p>कार्यालय एक धक्का देता है <code>.gpx</code> गिरगिट पीसी से पीयर चैनल पर सीधे ड्राइवर के फोन पर रूट फ़ाइल। मार्ग रंगीन ओवरले के रूप में मानचित्र में तुरंत लोड हो जाता है। हाल के मार्गों को पुन: उपयोग के लिए स्थानीय रूप से संग्रहीत किया जाता है। चीन के लिए GCJ-02 समन्वय ऑफसेट सुधार का समर्थन करता है।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>कम्पास-लॉक या उत्तर-ऊपर</h4>
+<p>मानचित्र हेड-अप ड्राइविंग ओरिएंटेशन के लिए डिवाइस कंपास के साथ लाइव घूमता है, या पारंपरिक मानचित्र पढ़ने के लिए उत्तर-ऊपर लॉक करता है - ड्राइवर की प्राथमिकता के अनुसार सेटिंग्स में टॉगल करें।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>कम्पास स्क्रीन - ऑफ़लाइन सहकर्मी नेविगेशन</h4>
+<p>कोई डेटा नहीं? फ़ुल-स्क्रीन कंपास गुलाब अंतिम-ज्ञात जीपीएस का उपयोग करके प्रत्येक ऑनलाइन सहकर्मी के लिए एक असर वाला तीर दिखाता है। कैश्ड स्थानों से सहकर्मी दूरी और कम्पास शीर्षक अपडेट होते हैं - ट्रेकर्स, ऑफ-रोड काफिले नेविगेशन और पर्वत बचाव समन्वय के लिए उपयोगी।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>रुचि के बिंदु (POI) परत</h4>
+<p>पीओआई के तीन स्रोतों को मानचित्र पर रंग-कोडित पिन के रूप में दिखाया गया है। <strong style="color:#f59e0b;">अंबर</strong> पिन आते हैं <code>&lt;wpt&gt;</code> जीपीएक्स फ़ाइल में एम्बेडेड वेपॉइंट - वे मार्ग के साथ लोड होते हैं और इसके साथ साफ़ होते हैं। <strong style="color:#22c55e;">हरा</strong> पिन को किसी भी मार्ग से स्वतंत्र रूप से गिरगिट पीसी आईडीई (ईंधन स्टॉप, खतरे, वितरण पते) से सीधे धकेल दिया जाता है। <strong style="color:#ef4444;">लाल</strong> मानचित्र पर देर तक दबाने पर ड्राइवर द्वारा पिन गिरा दिए जाते हैं। सभी POI सत्रों के दौरान बने रहते हैं; नेविगेट करने, मानचित्र में खोलने या हटाने के लिए किसी भी पिन को टैप करें। प्रतीक प्रकार के अनुसार अनुकूलित होते हैं: ⛽ ईंधन, 🚚 डिलीवरी, ⚠️ खतरा, 🏥 अस्पताल, 🅿️ पार्किंग, ✈️ हवाई अड्डा और बहुत कुछ।</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>सभी सुविधाएं</h2>
+<p>ऐप में प्रत्येक स्क्रीन और सेवा</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">समकक्ष लोग</span>
+<div class="fc-icon">📹</div>
+<h3>समूह पी2पी वीडियो</h3>
+<p>4+ साथियों तक के लिए फुल-मेश WebRTC वीडियो और ऑडियो - कोई केंद्रीय मीडिया सर्वर नहीं, कोई मासिक कॉल बिल नहीं। अनुकूली ग्रिड: 1 पीयर = पूर्ण स्क्रीन, 2 = अगल-बगल, 3 = 2+1, 4 = 2×2। स्थानीय फ़ीड चित्र-में-चित्र के रूप में तैरती है। प्रत्येक समूह आकार पर गुणवत्ता बनाए रखने के लिए प्रति सहकर्मी बिटरेट स्केल (1.5 एमबीपीएस → 350 केबीपीएस)। ऐप बैकग्राउंड में होने पर भी इनकमिंग कॉल बजती और कंपन होती है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC फुल-मेश</span><span class="tag">अनुकूली ग्रिड</span><span class="tag">पीआईपी स्थानीय</span><span class="tag">रिंग + कंपन</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">सिम ब्रिज</span>
+<div class="fc-icon">📞</div>
+<h3>सिम कॉल ब्रिज</h3>
+<p>एक सेल्यूलर कॉल में और एक पी2पी सहकर्मी को आकर्षित करना चाहते हैं? नल <strong>समूह में जोड़ें</strong> - एंड्रॉइड का टेलीकॉम स्टैक सिम कॉल के साथ-साथ WebRTC सत्र को पंजीकृत करता है और एक मूल "मर्ज कॉल" विकल्प प्रस्तुत करता है। टेलीफोनी चिप में ऑडियो मिक्सिंग होती है - <strong>केवल इयरपीस</strong>, पूरी तरह से निजी। जब डिवाइस या कैरियर हार्डवेयर कॉन्फ्रेंस का समर्थन नहीं करता है, तो ब्लूटूथ एससीओ हेडसेट रूटिंग का उपयोग फ़ॉलबैक के रूप में किया जाता है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">हार्डवेयर सम्मेलन</span><span class="tag">बीटी एससीओ फ़ॉलबैक</span><span class="tag">केवल इयरपीस</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">संचारों</span>
+<div class="fc-icon">🗣️</div>
+<h3>पुश-टू-टॉक + लाइव अनुवाद</h3>
+<p>बोलने के लिए पीटीटी बटन दबाए रखें - एंड्रॉइड का भाषण पहचानकर्ता (16 किलोहर्ट्ज़, 16-बिट) वास्तविक समय में पाठ को ट्रांसक्राइब करता है। पता लगाई गई भाषा ऑन-डिवाइस पर भेजी जाती है <strong>आर्गोस अनुवाद</strong> सर्वर. प्रत्येक श्रोता को अपने स्वयं के चयनित स्थान में अनुवादित संदेश प्राप्त होता है और टीटीएस द्वारा जोर से पढ़ा जाता है। रिकॉर्डिंग के दौरान आंशिक ट्रांसक्रिप्शन लाइव टाइपिंग संकेतक के रूप में स्ट्रीम होता है। पी2पी चैनल पर या हॉटस्पॉट पर स्टैंडअलोन काम करता है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">ऑटो भाषा का पता लगाएं</span><span class="tag">आर्गोस अनुवाद</span><span class="tag">लाइव टीटीएस रीडआउट</span><span class="tag">15 भाषाएँ</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">प्रसारण</span>
+<div class="fc-icon">🚨</div>
+<h3>टिकर और आपातकालीन प्रसारण</h3>
+<p>डिस्पैचर एक संदेश को पूरे देश में प्रसारित करता है - यह प्रत्येक स्क्रीन के शीर्ष पर एक पूर्ण-चौड़ाई वाले टिकर बार के रूप में दिखाई देता है। चार प्राथमिकता स्तर: <strong style="color:#dc2626;">आपातकाल</strong> (लाल चमकती, प्रति प्रेषक दर-सीमित), <strong style="color:#dc2626;">महत्वपूर्ण</strong> (सफेद पर लाल), <strong style="color:#16a34a;">निर्देश</strong> (हरे पर काला), <strong>जानकारी</strong> (काले पर पीला)। संदेश प्राप्तकर्ता फ़ोन पर टीटीएस रीडआउट ट्रिगर कर सकते हैं। कॉन्फ़िगर करने योग्य टीटीएल: 1 मिनट से "खारिज होने तक"।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">बेड़े-व्यापी प्रसारण</span><span class="tag">4 प्राथमिकता स्तर</span><span class="tag">टीटीएस रीडआउट</span><span class="tag">ऑटो की समय सीमा समाप्त</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">डिस्पैचर</span>
+<div class="fc-icon">🗂</div>
+<h3>डिस्पैचर डैशबोर्ड</h3>
+<p>तीन-टैब डिस्पैचर दृश्य: <strong>ड्राइवरों</strong> (लाइव स्थिति, पुश मेनिफ़ेस्ट, मार्ग निर्दिष्ट करें), <strong>रन शीट</strong> (ड्रैग-टू-रीऑर्डर मल्टी-ड्रॉप स्टॉप, टैप-टू-साइकिल स्थिति, सीएसवी आयात/निर्यात) और <strong>कार्गो प्रकट</strong> (डिपो पर क्यूआर स्कैन लोड हो रहा है, डिलीवरी पर पीओडी क्यूआर स्कैन)। डिस्पैचर जीपीएक्स रूट और इनवॉइस फ़ाइलों को सीधे पीयर चैनल पर अलग-अलग ड्राइवरों तक पहुंचा सकता है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">ड्राइवर ट्रैकिंग</span><span class="tag">प्रकट धक्का</span><span class="tag">मार्ग धक्का</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">घोषणापत्र</span>
+<div class="fc-icon">📦</div>
+<h3>कार्गो प्रकट</h3>
+<p>मैनिफ़ेस्ट पर आइटम लोड करने के लिए डिपो क्यूआर कोड को स्कैन करें। डिलीवरी के समय, डिलीवरी चिह्नित करने के लिए ग्राहक के POD QR को स्कैन करें। अपवाद प्रबंधन: अस्वीकृत डिलीवरी एक फोटो और लिखित नोट लॉग करती है; सेफ-ड्रॉप ड्रॉप स्थान की तस्वीर रिकॉर्ड करता है; ग्राहक के हस्ताक्षर टचस्क्रीन पर कैद हो जाते हैं। सभी घटनाओं पर जीपीएस निर्देशांक के साथ टाइमस्टैम्प लगाया गया है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">क्यूआर स्कैन अंदर/बाहर</span><span class="tag">फोटो पीओडी</span><span class="tag">स्क्रीन हस्ताक्षर</span><span class="tag">जीपीएस टाइमस्टैम्प</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">रन शीट</span>
+<div class="fc-icon">🛣</div>
+<h3>रन शीट</h3>
+<p>ड्रैग-टू-रीऑर्डर स्टॉप के साथ मल्टी-ड्रॉप डिलीवरी सूची। प्रत्येक स्टॉप को चक्रित करने के लिए स्थिति आइकन पर टैप करें: लंबित → आगमन → वितरित। बारी-बारी नेविगेशन के लिए फ़ोन के मानचित्र ऐप में इसे खोलने के लिए किसी भी पते पर टैप करें। सीएसवी से आयात - हेडर-अवेयर, ऑनफ्लीट, रूटिफ़िक, सर्किट और कस्टम निर्यात के साथ संगत। सीएसवी पर निर्यात करें और सिस्टम शेयर शीट के माध्यम से साझा करें।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">पुनः क्रम खींचें</span><span class="tag">सीएसवी आयात</span><span class="tag">ऑनफ़्लीट / रूटिफ़िक संगत</span><span class="tag">शेयर निर्यात</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">चालान</span>
+<div class="fc-icon">🧾</div>
+<h3>चालान</h3>
+<p>फ़ोन से सीधे चालान बनाएं, प्रिंट करें और साझा करें। कार्यालय गिरगिट पीसी अकाउंटिंग मॉड्यूल से पूर्व-तैयार चालान को पीयर चैनल पर ड्राइवर को भेज सकता है - ड्राइवर इसकी समीक्षा करता है, हस्ताक्षर करता है और इसे मौके पर भेजता है। रोल-गेटेड अकाउंटिंग डैशबोर्ड: अतिथि (केवल कुल), ऑपरेटर (पूर्ण लेनदेन + चालान) और व्यवस्थापक (एमटीडी सबमिट + क्यूआर एक्सेस अनुदान)।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">पीसी से धक्का</span><span class="tag">प्रिंट/पीडीएफ</span><span class="tag">भूमिका-युक्त</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">आपातकाल</span>
+<div class="fc-icon">📟</div>
+<h3>आपातकालीन मोड - एसएमएस और पीयर</h3>
+<p>कोई डेटा नहीं? ऐप एक कॉम्पैक्ट कोडित प्रोटोकॉल पर वापस आ जाता है। ड्राइवर (<strong>डी</strong>), हाइकर (<strong>एच</strong>), और आपातकालीन सेवाएं (<strong>एक्स</strong>) प्रोफ़ाइल एक सार्वभौमिक चेतावनी पैमाना साझा करती हैं। जीपीएस निर्देशांक स्वचालित रूप से एम्बेड होते हैं। संदेशों को डिकोड किया जाता है और प्राप्ति पर टीटीएस द्वारा जोर से पढ़ा जाता है। A99+H99 सार्वभौमिक एसओएस है - जो एक टैप में सभी संपर्कों और फ्लीट साथियों के लिए प्रसारित होता है। जब डेटा उपलब्ध होता है, तो फ़्रेम एसएमएस के बजाय पीयर चैनल पर यात्रा करते हैं - प्रति सेंड चयन योग्य: <strong>केवल एसएमएस</strong>, <strong>केवल सहकर्मी</strong>, या <strong>दोनों</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 उपयोगकर्ता प्रोफ़ाइल</span><span class="tag">जीपीएस एम्बेडेड</span><span class="tag">टीटीएस डिकोड</span><span class="tag">मीथेन संरेखित</span>
+<span class="tag">एसएमएस · सहकर्मी · दोनों</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 कोड संदर्भ →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">संपर्क</span>
+<div class="fc-icon">👥</div>
+<h3>संपर्क एवं समूह</h3>
+<p>सिम फोन नंबर, टेलस्केल पीयर आईडी और मिश्रित समूहों को मिलाकर एकीकृत संपर्क पुस्तक। एक बनाने के <em>सीमा टीम</em> समूह जिसमें दो पी2पी सहकर्मी और एक सिम नंबर है - तीनों को कॉल शुरू करने के लिए समूह पर टैप करें। टाइमस्टैम्प के साथ कॉल इतिहास. प्रति-संपर्क अवतार तस्वीरें. प्रत्येक फ़्लीट सदस्य सेटिंग्स में एक प्रोफ़ाइल फ़ोटो सेट करता है - जब वे कनेक्ट होते हैं तो यह सिग्नल चैनल पर स्वचालित रूप से साझा किया जाता है, इसलिए प्रत्येक साथी को प्रारंभिक अक्षर के बजाय एक वास्तविक फ़ोटो दिखाई देती है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">सिम + पीयर्स</span><span class="tag">मिश्रित समूह</span><span class="tag">कॉल इतिहास</span><span class="tag">Avatar sharing</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">नेटवर्क</span>
+<div class="fc-icon">📶</div>
+<h3>लचीली नेटवर्किंग</h3>
+<p>के माध्यम से कनेक्ट करें <strong>टेलस्केल</strong> (दूरस्थ, इंटरनेट पर) या प्रत्यक्ष <strong>लैन/हॉटस्पॉट</strong> - काफिले में ट्रकों के लिए उपयोगी या जहां लंबी दूरी की दिशात्मक हवाई पट्टी लगी हो (खुले इलाके में 50+ मील)। एमडीएनएस ऑटो-डिस्कवरी आईपी पते को मैन्युअल रूप से दर्ज किए बिना उसी वाई-फाई पर अन्य फ्लीट फोन ढूंढता है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">टेलस्केल</span><span class="tag">लैन/हॉटस्पॉट</span><span class="tag">एमडीएनएस खोज</span><span class="tag">50+ मील हॉटस्पॉट रेंज</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">तैरना</span>
+<div class="fc-icon">🪟</div>
+<h3>फ़्लोटिंग ओवरले</h3>
+<p>ऐप अन्य सभी ऐप्स के ऊपर एक सतत ओवरले के रूप में तैर सकता है - यह तब उपयोगी होता है जब ड्राइवर को स्क्रीन के एक कोने में कॉल को सक्रिय रखते हुए नेविगेशन की जांच करने की आवश्यकता होती है। इनकमिंग पीयर कॉल रिंग + वाइब्रेशन के साथ ओवरले को स्वचालित रूप से सामने लाती है, जिससे यह सुनिश्चित होता है कि ड्राइवर डिस्पैच से कोई भी जरूरी कॉल मिस न करे।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">हमेशा शीर्ष पर ओवरले</span><span class="tag">स्वतः-सामने लाएँ</span><span class="tag">रिंग + कंपन</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">गिरगिट</span>
+<div class="fc-icon">🖥️</div>
+<h3>गिरगिट पीसी एकीकरण</h3>
+<p>वेबसॉकेट के माध्यम से डेस्कटॉप या ऑफिस पीसी पर गिरगिट एआई आईडीई से कनेक्ट होता है। कार्यालय जीपीएक्स मार्गों (स्वचालित रूप से पीओआई के रूप में पार्स किए गए एम्बेडेड वेप्वाइंट के साथ), स्टैंडअलोन पीओआई सेट, चालान पीडीएफ और क्षेत्र में ड्राइवरों के लिए मैनिफ़ेस्ट डेटा को पुश कर सकता है - हमेशा चालू सिग्नल चैनल पर, कोई सक्रिय वीडियो कॉल की आवश्यकता नहीं है। गिरगिट सिग्नल सर्वर (<code>chameleon_signal.py</code>) बेड़े में किसी भी फोन पर पीसी या टर्मक्स पर चलता है, इसलिए किसी क्लाउड रिले की आवश्यकता नहीं है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">मार्ग धक्का</span><span class="tag">फिर धक्का</span><span class="tag">चालान धक्का</span><span class="tag">कोई क्लाउड रिले नहीं</span><span class="tag">टर्मक्स सिग्नल सर्वर</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 भाषाएँ</h2>
+<p>पूर्ण यूआई अनुवाद और ऑन-डिवाइस आर्गोस ट्रांसलेशन द्वारा संचालित लाइव पीटीटी भाषण अनुवाद</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧अंग्रेजी</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷फ्रेंच</span>
+<span class="lang-chip">🇩🇪 जर्मन</span>
+<span class="lang-chip">🇪🇸स्पेनॉल</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">वेल्श</span>
+<span class="lang-chip">🇧🇷पुर्तगाली</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱पोलिश</span>
+<span class="lang-chip">🇷🇴 रोमानियाई</span>
+<span class="lang-chip">🇻🇳वियतनामी</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>ऑटो भाषा का पता लगाना</h4>
+<p>पीटीटी सेवा स्वचालित रूप से वक्ता की भाषा का पता लगाती है - एक जर्मन-भाषी ड्राइवर और एक स्पेनिश-भाषी डिस्पैचर हर बार भाषा का चयन किए बिना स्वतंत्र रूप से बात कर सकते हैं।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>ऑन-डिवाइस अनुवाद - कोई क्लाउड नहीं</h4>
+<p>अनुवादों को टर्मक्स के अंदर फोन पर स्थानीय रूप से चलने वाले एक आर्गोस ट्रांसलेट सर्वर द्वारा नियंत्रित किया जाता है। वाणी और पाठ अनुवाद के लिए उपकरण को कभी नहीं छोड़ते। भाषा पैक स्थापित होने के बाद ऑफ़लाइन काम करता है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>श्रोता की भाषा में टी.टी.एस</h4>
+<p>अनुवाद के बाद प्रत्येक संदेश को एंड्रॉइड टीटीएस का उपयोग करके रिसीवर के लोकेल में जोर से पढ़ा जाता है - श्रोता स्क्रीन को देखे बिना भी अनुवादित संदेश सुनता है, जो सड़क पर नजर रखने वाले ड्राइवर के लिए आदर्श है।</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>आपातकालीन मोड - एसएमएस और पीयर चैनल</h2>
+<p>एक कॉम्पैक्ट कोड प्रोटोकॉल जो डेटा खत्म होने पर एसएमएस पर काम करता है, या जब डेटा खत्म नहीं होता है तो फ्लीट पीयर चैनल पर काम करता है</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>दोहरा परिवहन - एसएमएस या पीयर चैनल</h4>
+<p>जब कोई मोबाइल डेटा नहीं होता है - झाड़ियों में, सुदूर सीमा पार करते समय, या नेटवर्क आउटेज के दौरान - लॉजिस्टिक्स 4×4 मानक एसएमएस पर कोडित स्थिति फ़्रेम भेजता है। जब डेटा <em>है</em> उपलब्ध, वही फ़्रेम फ़्लीट पीयर चैनल पर पूरी गति से यात्रा करते हैं। प्रति-भेजें चयनकर्ता आपको चुनने देता है <strong>केवल एसएमएस</strong>, <strong>केवल सहकर्मी</strong>, या <strong>दोनों</strong>. सेटिंग की परवाह किए बिना एसओएस हमेशा प्रत्येक उपलब्ध चैनल पर एक साथ सक्रिय होता है।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>तीन प्रोफ़ाइल - एक साझा भाषा</h4>
+<p>कोड तीन उपयोगकर्ता प्रोफ़ाइलों में व्यवस्थित होते हैं जो एक सामान्य चेतावनी शब्दावली साझा करते हैं: <strong>डी - ड्राइवर</strong> (सीमा, माल, काफिला, ईंधन, सड़क की स्थिति), <strong>एच - हाइकर</strong> (महत्वपूर्ण, ट्रेल, गियर, चेक-इन शेड्यूल), और <strong>एक्स - आपातकालीन सेवाएँ</strong> (ट्राएज, घटना का प्रकार, घटनास्थल पर संसाधन, निकासी की स्थिति)। किसी भी प्रोफ़ाइल से प्राप्त SOS को सभी लोग समझते हैं।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>अंतरराष्ट्रीय आपातकालीन मानकों के अनुरूप</h4>
+<p>आपातकालीन सेवा प्रोफ़ाइल अंतरराष्ट्रीय P1-P4 ट्राइएज स्केल (तत्काल / विलंबित / मामूली / प्रत्याशित) और दुनिया भर में संयुक्त आपातकालीन सेवाओं द्वारा उपयोग किए जाने वाले मीथेन प्रमुख-घटना ढांचे के साथ संरेखित घटना श्रेणियों का उपयोग करती है। क्रॉस-एजेंसी ऑपरेशन में शामिल होने वाला एक पैरामेडिक या एसएआर समन्वयक शब्दावली को तुरंत पहचान लेगा।</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>रसीद पर स्वत: पढ़ें</h4>
+<p>आने वाले कोडित संदेशों को डिकोड किया जाता है और टेक्स्ट-टू-स्पीच द्वारा जोर से पढ़ा जाता है - सड़क पर नजर रखने वाला ड्राइवर या हाथों पर कब्जा करने वाला उत्तरदाता फोन को छुए बिना हर कोड का पूरा सादा-अंग्रेजी अर्थ सुनता है। दूषित संदेश स्वचालित पुनः भेजने के अनुरोध को ट्रिगर करते हैं।</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">उदाहरण कोडित संदेश</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">ड्राइवर - ईंधन रोकना, सीमा शुल्क में देरी</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">ड्राइवर स्टॉप पर · ईंधन क्वार्टर · सीमा शुल्क कतार में</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">पैदल यात्री - चोट, मदद का अनुरोध</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + "टखने का फ्रैक्चर चल नहीं सकता"</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">गंभीर चोट रुकी · बचाव दल की आवश्यकता · तत्काल</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">आपातकालीन सेवाएँ - आरटीसी, पी1 हताहत</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">सड़क यातायात टकराव · पी1 की जान को ख़तरा हताहत · 2-5 व्यक्ति · घटनास्थल पर एम्बुलेंस · एयर एम्बुलेंस की आवश्यकता</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">यूनिवर्सल एसओएस - कोई भी प्रोफ़ाइल</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">ए99 + एच99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">जीपीएस स्थान के साथ एसओएस - सभी पंजीकृत संपर्कों को तुरंत भेजा गया</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">फ़ील्ड कोड संदर्भ</div>
+<div style="color:var(--muted);font-size:.82rem;">सभी प्रोफ़ाइलों के लिए सभी कोड - प्रिंट करें और ले जाएं</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">ड्राइवर, हाइकर और आपातकालीन सेवा प्रोफ़ाइल के लिए संपूर्ण कोड तालिका। पीडीएफ के रूप में डाउनलोड करें और एक प्रति अपने फोन, कैब या अपने पैक में रखें।</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 कोड संदर्भ देखें और डाउनलोड करें
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>गैप के चारों ओर डिज़ाइन किया गया</h2>
+<p>एंटरप्राइज़ लॉजिस्टिक्स सॉफ़्टवेयर का प्रतिस्थापन नहीं - जहाँ एंटरप्राइज़ सॉफ़्टवेयर नहीं है, उसके लिए एक समाधान</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>प्रति सीट, प्रति ड्राइवर बिल नहीं</h4>
+<p>WebRTC सहकर्मी कॉल सीधे फ़ोन-टू-फ़ोन हैं, जिसमें कोई मीडिया रिले सर्वर नहीं है और कोई मासिक प्रति-उपयोगकर्ता शुल्क नहीं है। ऐप मानक एंड्रॉइड फोन पर चलता है जो टीम के पास पहले से मौजूद है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>वहां काम करता है जहां एंटरप्राइज़ ऐप्स नहीं करते</h4>
+<p>सीमा पार करने, दूरदराज के इलाकों और अंतरराष्ट्रीय संचालन के लिए डिज़ाइन किया गया है जहां मानक लॉजिस्टिक्स ऐप्स तेज़, विश्वसनीय डेटा कनेक्शन मानते हैं। डेटा गायब होने पर ऑफ़लाइन कंपास और कैश्ड मानचित्रों पर वापस आ जाता है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>मानक एंड्रॉइड फोन</h4>
+<p>कोई विशेषज्ञ हार्डवेयर नहीं. एमडीएम नामांकन नहीं. एपीके चलाने वाला कोई भी एंड्रॉइड 7.0+ फोन (मिनएसडीके 24) एक पूर्ण फ्लीट नोड है। ट्रक कैब में फिट किया गया लंबी दूरी का हॉटस्पॉट एरियल खुले ग्रामीण इलाकों में पी2पी कवरेज को 50+ मील तक बढ़ा सकता है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>भविष्य का रोडमैप</h4>
+<p>नियोजित परिवर्धन में पूर्ण टैकोग्राफ अनुपालन, ड्यूटी-घंटे की निगरानी, ​​​​डीवीएसए डिजिटल टैकोग्राफ एकीकरण और POI थोक अपलोड के लिए KML/GeoJSON आयात शामिल हैं। नींव पहले ही बन चुकी है.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>लॉजिस्टिक्स 4×4 में रुचि है?</h3>
+<p>वर्तमान में परीक्षण में - पायलट पर चर्चा करने, निर्माण का अनुरोध करने या अपने बेड़े के लिए लाइसेंसिंग के बारे में पूछने के लिए हमसे संपर्क करें।</p>
+<a class="btn btn-solid" href="../contact.html">संपर्क में रहो</a>
+<a class="btn" href="../companion.html">← सहयोगी ऐप</a>
+<a class="btn" href="../index.html">← सिंहावलोकन</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">सहयोगी ऐप</a>
+<a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../services.html">वेब सेवाएं</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+</div>
+<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · लाइसेंसिंग लंबित · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

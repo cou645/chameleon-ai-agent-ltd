@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Britische Buchhaltung – Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Start</a>
+<a href="../ide.html">SIE HABEN IDEEN</a>
+<a href="../presenter.html">Moderator</a>
+<a href="../companion.html">Begleit-App</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Webdienste</a>
+<a class="active" href="../accounting.html">Buchhaltung</a>
+<a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a>
+<a href="../classroom.html">Unterricht</a>
+<a href="../contact.html">Kontakt</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>Britische Buchhaltung</h1>
+<p class="sub">Doppelte Buchführung, Mehrwertsteuerverfolgung, Gewinn und Verlust, Bilanz – alles in einem lokalen SQLite-Hauptbuch für HMRC Making Tax Digital.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 UK-Kontenplan</span>
+<span class="badge">📋 MTD-bereit</span>
+<span class="badge">🔒 Lokales SQLite</span>
+<span class="badge">🤖 KI-analysierbare JSON-Ausgabe</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Doppeltes Hauptbuch</h2>
+<p>Jede Transaktion ist auf den Cent genau abgeglichen – Belastungen sind immer gleich Gutschriften</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">Datum │ Konto │ Soll (£) │ Haben (£) │ MwSt</span>
+────────────┼───────────────────── ─────┼───────────┼────────────┼────
+01.04.2026 │ 4000 Umsatzerlöse │ │  <span class="cr">1,200.00</span>  │ S20
+01.04.2026 │ 2200 Mehrwertsteuerkontrolle │ │    <span class="cr">240.00</span>  │
+01.04.2026 │ 1100 Handelsschuldner │ <span class="dr">1,440.00</span>  │ │
+────────────┼───────────────────── ─────┼───────────┼────────────┼────
+05.04.2026 │ 6100 Bürokosten │   <span class="dr">85.00</span>   │ │ S20
+05.04.2026 │ 2200 Mehrwertsteuerkontrolle │   <span class="dr">17.00</span>   │ │
+05.04.2026 │ 1200 Bankstrom │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Britischer Kontenplan</h3>
+<p>Standardmäßige britische Kontocodes – Vermögenswerte, Verbindlichkeiten, Eigenkapital, Einnahmen und Ausgaben, zugeordnet zu HMRC-Kategorien. Erweitern Sie es nach Bedarf mit benutzerdefinierten Konten.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>SQLite-Ledger</h3>
+<p>Alle Daten gespeichert in <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Läuft komplett offline. Unterstützung mehrerer Unternehmen – Wechseln Sie zwischen Entitäten mit einer Befehlsflagge.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Britisches Steuerjahr</h3>
+<p>Das Jahresende wurde korrekt auf den 5. April festgelegt (britisches Geschäftsjahr 6. April – 5. April). GuV- und Mehrwertsteuerberichte umfassen automatisch den richtigen Zeitraum, ohne dass eine manuelle Datumsanpassung erforderlich ist.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Forensischer Anomalie-Scan</h3>
+<p>Laufen <code>--forensic</code> um unausgeglichene Buchungen, doppelte Referenzen, Mehrwertsteuerinkongruenzen und andere Unregelmäßigkeiten zu erkennen. Die Ergebnisse werden als strukturiertes JSON zur KI-Überprüfung gedruckt.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>AI-lesbare Ausgabe</h3>
+<p>Alle Berichte werden in strukturiertem JSON auf Standard ausgegeben, sodass die Chameleon-KI Ihre Finanzlage in natürlicher Sprache analysieren, zusammenfassen und darüber beraten kann.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>WebSocket-Brücke</h3>
+<p>Die Buchhaltungs-WebSocket-Brücke (<code>acct_ws_bridge.py</code>) stellt Ledger-Abfragen dem mobilen Begleiter und externen Dashboards über Ihr Tailscale-Netzwerk zur Verfügung.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Unterstützte Mehrwertsteuercodes</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>Standardsatz 20 %</p></div>
+<div class="vat-code"><div class="vc">R5</div><p>Ermäßigter Satz 5 %</p></div>
+<div class="vat-code"><div class="vc">Z</div><p>Null bewertet</p></div>
+<div class="vat-code"><div class="vc">E</div><p>Befreit</p></div>
+<div class="vat-code"><div class="vc">O</div><p>Außerhalb des Gültigkeitsbereichs</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Berichte</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>Gewinn und Verlust</h4>
+<p>Einnahmen vs. Ausgaben für den Zeitraum. Umsatz, Warenkosten, Bruttogewinn, Betriebskosten, Nettogewinn – alles aufgeschlüsselt nach Kontocode. Lauf mit <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>Bilanz</h4>
+<p>Vermögenswerte, Schulden und Eigenkapital zu einem bestimmten Zeitpunkt. Bestätigt die Integrität der doppelten Eingabe – Vermögenswerte müssen den Verbindlichkeiten plus Eigenkapital entsprechen. Lauf mit <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Zusammenfassung der Mehrwertsteuererklärung</h4>
+<p>Box-für-Box-Mehrwertsteuerzahlen entsprechend dem HMRC-MTD-Mehrwertsteuererklärungsformat: Box 1 (Ausgangssteuer), Box 4 (Eingangssteuer), Box 6 (Nettoverkäufe), Box 7 (Nettoeinkäufe). Lauf mit <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Fakturierung</h2>
+<p>HMRC Notice 700-konforme Rechnungen – gedruckt, als PDF gespeichert oder mit einem Klick auf Ihr Telefon übertragen</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>UK-konforme Rechnungsfelder</h4>
+<p>Jede Rechnung enthält alle in der HMRC-Mitteilung 700 erforderlichen Felder: eindeutige fortlaufende Rechnungsnummer, Name und Adresse des Lieferanten, Umsatzsteuer-Registrierungsnummer, Rechnungsdatum, Lieferdatum (Zeitpunkt der Lieferung), Name und Adresse des Kunden, Umsatzsteuer-Identifikationsnummer des Kunden, sofern zutreffend, detaillierte Zeilenbeschreibungen mit Mengen und Einheitspreisen, Umsatzsteuersatz pro Zeile, Netto- und Umsatzsteuer-Zwischensummen und fälliger Gesamtbetrag. Nichts fehlt, nichts wird erraten.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>Firmengründung</h4>
+<p>Offen <em>Datei → Rechnungen → Firmeneinrichtung</em> um Ihren registrierten Firmennamen, Ihre Adresse, Ihre Firmenhausnummer, Ihre Umsatzsteuer-Identifikationsnummer, Ihre E-Mail-Adresse, Ihre Telefonnummer und Ihre Bankdaten einzugeben. Die Einstellungen werden pro Client-Datenbank in gespeichert <code>company.json</code> neben dem Hauptbuch und wird automatisch geladen, wenn Rechnungen für diesen Kunden erstellt werden.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Kundenkontaktdatenbank</h4>
+<p>Wenn Sie einem Kunden zum ersten Mal eine Rechnung stellen, werden dessen Name, Adresse und Umsatzsteuer-Identifikationsnummer in einer Kontakttabelle im Hauptbuch gespeichert. Bei nachfolgenden Rechnungen werden die Daten durch Eingabe des Kundennamens automatisch vervollständigt – eine erneute Eingabe ist nicht erforderlich. Kontakte können jederzeit bearbeitet werden.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>Drucken, als PDF herunterladen und ans Telefon senden</h4>
+<p>Aus dem Rechnungsmanager (<em>Datei → Rechnungen…</em>) Wählen Sie eine beliebige Rechnung aus und wählen Sie: <strong>Drucken</strong> (öffnet den Druckdialog des Betriebssystems – jeder Drucker oder PDF-Treiber), <strong>PDF speichern</strong> (direkt auf die Festplatte über den integrierten PDF-Export von Qt), oder <strong>An Telefon senden</strong> (überträgt den Rechnungs-HTML-Code an die Companion-App, wo der Android-Druckdialog geöffnet wird – drahtlos auf jedem AirPrint oder einem Drucker in der Nähe drucken).</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Lieferdatum</h3>
+<p>Separates Feld „Lieferdatum“ (Lieferzeit) – getrennt vom Rechnungsdatum. Von der HMRC für Mehrwertsteuerzwecke erforderlich. Der Standardwert ist „heute“, kann aber unabhängig pro Rechnung bearbeitet werden.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Mobiler Rechnungsdruck</h3>
+<p>Die Companion-App kann jede Rechnung drahtlos ausdrucken. Tippen Sie auf das Drucksymbol in einer beliebigen Rechnungszeile – die App ruft den HTML-Code aus der IDE ab und konvertiert ihn über das Gerät auf dem Gerät in PDF <code>printing</code> Paket und öffnet den Druckdialog des Android-Systems.</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>Einhaltung der HMRC-Mitteilung 700</h3>
+<p>Alle 12 erforderlichen Felder für eine vollständige Rechnung mit britischer Mehrwertsteuer sind vorhanden und ausgefüllt. Linien mit ermäßigtem Steuersatz und ohne Steuersatz sind deutlich gekennzeichnet. Die Reihenfolge der Rechnungsnummern ist streng monoton steigend und lückenlos.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>CLI-Kurzreferenz</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Befehl</th><th>Beschreibung</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Gewinn und Verlust für das laufende Steuerjahr</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Bilanzstand heute</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Zusammenfassung der Umsatzsteuererklärung (MTD-Felder)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Anomalie- und Integritätsscan</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Vollständige Befehlsreferenz</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Optimieren Sie Ihre Buchhaltung im Vereinigten Königreich</h3>
+<p>Speziell für Freiberufler und kleine Unternehmen entwickelt, die den britischen Steuervorschriften unterliegen.</p>
+<a class="btn btn-solid" href="../contact.html">Nehmen Sie Kontakt auf</a>
+<a class="btn" href="../index.html">← Zurück zur Übersicht</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Start</a><a href="../ide.html">SIE HABEN IDEEN</a><a href="../presenter.html">Moderator</a>
+<a href="../accounting.html">Buchhaltung</a><a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a><a href="../classroom.html">Unterricht</a><a href="../contact.html">Kontakt</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Gebaut von Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logistik 4×4 — Komunikasi Armada Lintas Batas</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ PENGUJIAN DALAM PROGRES — Situs ini sedang dalam pengembangan aktif. Fitur, harga, dan lisensi belum diselesaikan.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a class="active" href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../accounting.html">Akuntansi</a>
+<a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a>
+<a href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Logistik 4×4</h1>
+<p class="sub">Komunikasi armada lintas batas untuk operator kecil. Empat penelepon SIM dan empat rekan video P2P berbagi satu ruang panggilan — pengemudi di perbatasan, kantor pusat, bea cukai, pelanggan — semuanya ada di dalam ruangan sekaligus. Peta langsung, rute GPX, manifes kargo, terjemahan obrolan suara, dan siaran darurat, semuanya di ponsel Android standar.</p>
+<div class="hero-badges">
+<span class="badge">📹 4 rekan video</span>
+<span class="badge">📞 4 penelepon SIM</span>
+<span class="badge">🗺 Peta langsung + GPX</span>
+<span class="badge">📍 Lapisan POI</span>
+<span class="badge">🧭 Kompas offline</span>
+<span class="badge">🌍 15 bahasa</span>
+<span class="badge">📋 Manifes + run sheet</span>
+<span class="badge">🚨 Siaran darurat</span>
+<span class="badge">📟 Mode Darurat — SMS &amp; rekan</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Logistik 4×4</span>
+<div class="phone-status">● Armada online</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Cross Waypoint 3 — tetap di B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇮🇧: “Bea cukai sudah selesai, lanjutkan ke gerbang 7”</div>
+<div class="p-chat p-chat-out">Dalam perjalanan — ETA 14 menit</div>
+<div class="p-chat p-chat-in">Pelanggan di SIM — terhubung sekarang…</div>
+<div class="p-chat p-chat-out">📍 Lokasi dibagikan dengan armada</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Pengiriman</span>
+<span class="p-peer p-peer-on">🎥 Pengemudi B</span>
+<span class="p-peer p-peer-sim">📞 Bea Cukai</span>
+<span class="p-peer p-peer-sim">📞 Pelanggan</span>
+<span class="p-peer p-peer-map">🗺 Peta</span>
+<span class="p-peer p-peer-map">🧭 Kompas</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Ruang panggilan 4×4</h2>
+<p>Panggilan telepon SIM dan video P2P berbagi satu ruang yang terhubung</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">Satu ruang panggilan — delapan peserta</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 penelepon SIM</h4>
+<ul>
+<li>Suara seluler standar</li>
+<li>Tidak diperlukan internet</li>
+<li>Petugas bea cukai</li>
+<li>Pelanggan di luar negeri</li>
+<li>Telepon rumah kantor pusat</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 rekan video P2P</h4>
+<ul>
+<li>WebRTC — tanpa tagihan server</li>
+<li>Video + audio jala penuh</li>
+<li>Pengemudi ke pengemudi</li>
+<li>Pengontrol pengiriman</li>
+<li>Anggota tim jarak jauh</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Audio dari panggilan SIM digabungkan secara perangkat keras ke dalam panggilan grup melalui tumpukan telekomunikasi Android atau Bluetooth SCO — hanya lubang suara, pribadi.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistik 4×4 tidak bertujuan untuk menggantikan platform logistik profesional seperti yang digunakan oleh jaringan kurir besar. Ini mengisi kesenjangan <strong>operator kecil</strong>, pedagang tunggal dan situasi yang tidak dapat dijangkau oleh alat perusahaan besar — ​​​​pengemudi di perbatasan terpencil yang perlu terhubung langsung dengan kantor pusat, pengemudi kedua yang berjarak tiga mil dari belakang, petugas bea cukai di loket, dan pelanggan di negara lain yang hanya dapat menelepon melalui telepon.
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Untuk siapa ini</h2>
+<p>Dirancang untuk komunikasi lapangan dengan risiko tinggi dan infrastruktur rendah</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Melintasi perbatasan</h4>
+<p>Pengemudi menghubungkan petugas bea cukai (panggilan SIM), kantor pusat (video), pelanggan penerima (panggilan SIM) dan pengemudi kedua dalam konvoi (video) — semuanya secara bersamaan, dengan obrolan terjemahan langsung yang dapat dilihat oleh semua orang.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Konvoi jarak jauh</h4>
+<p>Truk yang tersebar lebih dari 50 mil tetap berada dalam panggilan bersama dengan push-to-talk, berbagi lokasi di peta langsung yang sama, dan pengiriman rute operator tiba saat file GPX dimuat langsung di peta.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Off-road/trekking</h4>
+<p>Tidak ada sinyal data? Kompas offline menunjukkan arah panah ke setiap anggota armada lainnya. Pin POI menandai pemberhentian bahan bakar, bahaya, dan titik pertemuan — tertanam dalam file GPX yang didorong atau dijatuhkan oleh pengemudi mana pun di peta. Tautan hotspot jarak jauh antar truk dengan antena terarah dapat mencapai 50+ mil.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Tim multibahasa</h4>
+<p>Push-to-talk mentranskripsikan ucapan, mendeteksi bahasa pembicara, menerjemahkan, dan mengirimkan teks + audio di lokasi masing-masing pendengar — 15 bahasa, didukung oleh server Argos Translate lokal di telepon.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Bukti pengiriman</h4>
+<p>Pengemudi memindai kode QR depot untuk memuat manifes, kemudian memindai QR POD pelanggan pada saat pengiriman. Menolak pengiriman? Ambil foto dan catatan pengecualian tertulis. Tanda tangan pelanggan ditangkap di layar.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Kantor pengiriman</h4>
+<p>Layar operator menampilkan semua pengemudi di peta langsung, menjalankan run sheet, mengirimkan manifes dan rute ke masing-masing pengemudi melalui saluran rekan, dan menyiarkan peringatan darurat ke seluruh armada.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Peta Langsung, POI &amp; Kompas</h2>
+<p>OSM, lapisan satelit dan hibrid — lokasi rekan, rute GPX, tempat menarik, dan cache ubin offline</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Jalan</span>
+<span class="map-tag mt-sat">Satelit</span>
+<span class="map-tag mt-hybrid">Hibrida</span>
+<span class="map-tag mt-gpx">Rute GPX</span>
+<span class="map-tag mt-poi">lapisan POI</span>
+<span class="map-tag mt-offline">Tembolok luring</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Ubin OpenStreetMap</span>
+<span class="tag">Citra Dunia Esri</span>
+<span class="tag">bangunan 2.5D</span>
+<span class="tag">Perutean OSRM</span>
+<span class="tag">Yaitu pencarian tempat</span>
+<span class="tag">Cache ubin disk</span>
+<span class="tag">lapisan POI</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Rutekan titik arah</span>
+<span class="poi-dot poi-push">📍 didorong oleh IDE</span>
+<span class="poi-dot poi-manual">📍 Pengemudi dijatuhkan</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Tiga lapisan peta</h4>
+<p>Siklus antara <strong>Jalan</strong> (OpenStreetMap), <strong>Satelit</strong> (Citra Dunia Esri) dan <strong>Hibrida</strong> (basis satelit + hamparan jalan OSM) dengan satu ketukan. Semua ubin di-cache dalam disk — area yang dilihat sebelumnya dimuat secara offline tanpa data.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Lokasi rekan di peta</h4>
+<p>Setiap anggota armada yang mengaktifkan berbagi lokasi muncul sebagai pin aktif. Ketuk pin untuk melihat nama dan perkiraan waktu kedatangannya. Dispatcher dapat melihat seluruh armada secara sekilas tanpa platform pelacakan terpisah.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>Dorongan rute GPX</h4>
+<p>Kantor mendorong a <code>.gpx</code> merutekan file dari Chameleon PC langsung ke telepon pengemudi melalui saluran rekan. Rute langsung dimuat di peta sebagai hamparan berwarna. Rute terkini disimpan secara lokal untuk digunakan kembali. Mendukung koreksi offset koordinat GCJ-02 untuk Tiongkok.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Kunci kompas atau utara-atas</h4>
+<p>Peta berputar secara langsung dengan kompas perangkat untuk orientasi mengemudi ke atas, atau mengunci arah utara untuk pembacaan peta tradisional — beralih dalam pengaturan sesuai preferensi pengemudi.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Layar kompas — navigasi rekan offline</h4>
+<p>Tidak ada datanya? Mawar kompas layar penuh menunjukkan arah panah untuk setiap rekan daring yang menggunakan GPS terakhir yang diketahui. Jarak rekan dan arah kompas diperbarui dari lokasi cache — berguna untuk trekker, navigasi konvoi off-road, dan koordinasi penyelamatan gunung.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Lapisan Tempat Menarik (POI).</h4>
+<p>Tiga sumber POI ditampilkan sebagai pin berkode warna pada peta. <strong style="color:#f59e0b;">Amber</strong> pin berasal <code>&lt;wpt&gt;</code> titik arah yang tertanam dalam file GPX — titik arah tersebut dimuat dengan rute dan dihapus dengan itu. <strong style="color:#22c55e;">Hijau</strong> pin didorong langsung dari Chameleon PC IDE (penghentian bahan bakar, bahaya, alamat pengiriman) secara independen dari rute mana pun. <strong style="color:#ef4444;">Merah</strong> pin dijatuhkan oleh pengemudi dengan menekan lama pada peta. Semua POI tetap ada di seluruh sesi; ketuk pin mana pun untuk bernavigasi, membuka di Maps, atau menghapus. Ikon beradaptasi dengan jenis: ⛽ bahan bakar, 🚚 pengiriman, ⚠️ bahaya, 🏥 rumah sakit, 🅿️ parkir, ✈️ bandara, dan banyak lagi.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Semua fitur</h2>
+<p>Setiap layar dan layanan di aplikasi</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">rekan-rekan</span>
+<div class="fc-icon">📹</div>
+<h3>Video P2P Grup</h3>
+<p>Video dan audio WebRTC full-mesh untuk hingga 4+ rekan — tanpa server media pusat, tanpa tagihan panggilan bulanan. Kisi adaptif: 1 rekan = layar penuh, 2 = berdampingan, 3 = 2+1, 4 = 2×2. Umpan lokal ditampilkan sebagai gambar-dalam-gambar. Skala bitrate per peer (1,5 Mbps → 350 Kbps) untuk menjaga kualitas bahkan pada setiap ukuran grup. Panggilan masuk berdering dan bergetar bahkan saat aplikasi berada di latar belakang.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC jaring penuh</span><span class="tag">Jaringan adaptif</span><span class="tag">PiP lokal</span><span class="tag">Dering + getar</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">JEMBATAN SIM</span>
+<div class="fc-icon">📞</div>
+<h3>Jembatan Panggilan SIM</h3>
+<p>Sedang melakukan panggilan seluler dan ingin menggunakan rekan P2P? Mengetuk <strong>Tambahkan ke grup</strong> — Tumpukan telekomunikasi Android mendaftarkan sesi WebRTC bersama dengan panggilan SIM dan menghadirkan opsi asli "Gabungkan panggilan". Pencampuran audio terjadi di chip telepon — <strong>lubang suara saja</strong>, sepenuhnya pribadi. Jika perangkat atau operator tidak mendukung konferensi perangkat keras, perutean headset Bluetooth SCO digunakan sebagai cadangan.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Konferensi perangkat keras</span><span class="tag">Penggantian BT SCO</span><span class="tag">Hanya lubang suara</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">KOMUNIKASI</span>
+<div class="fc-icon">🗣️</div>
+<h3>Push-to-Talk + Terjemahan Langsung</h3>
+<p>Tahan tombol PTT untuk berbicara — Pengenal ucapan Android (16 kHz, 16-bit) mentranskripsikan ke teks secara real-time. Bahasa yang terdeteksi dikirim ke perangkat <strong>Terjemahan Argos</strong> server. Setiap pendengar menerima pesan yang diterjemahkan ke dalam lokal pilihan mereka dan dibacakan oleh TTS. Aliran transkripsi sebagian sebagai indikator pengetikan langsung saat merekam. Bekerja melalui saluran P2P atau mandiri melalui hotspot.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Deteksi bahasa otomatis</span><span class="tag">Terjemahan Argos</span><span class="tag">Pembacaan TTS langsung</span><span class="tag">15 bahasa</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">SIARAN</span>
+<div class="fc-icon">🚨</div>
+<h3>Ticker &amp; Siaran Darurat</h3>
+<p>Dispatcher menyiarkan pesan ke seluruh armada — pesan tersebut muncul sebagai bilah ticker lebar penuh di bagian atas setiap layar. Empat tingkat prioritas: <strong style="color:#dc2626;">Keadaan darurat</strong> (berkedip merah, tarif dibatasi per pengirim), <strong style="color:#dc2626;">Penting</strong> (merah di atas putih), <strong style="color:#16a34a;">instruksi</strong> (hitam di atas hijau), <strong>Informasi</strong> (kuning di atas hitam). Pesan dapat memicu pembacaan TTS di ponsel penerima. TTL yang dapat dikonfigurasi: 1 menit hingga “sampai ditutup”.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Siaran seluruh armada</span><span class="tag">4 tingkat prioritas</span><span class="tag">Pembacaan TTS</span><span class="tag">Kedaluwarsa otomatis</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">PENGIRIMAN</span>
+<div class="fc-icon">🗂</div>
+<h3>Dasbor Pengirim</h3>
+<p>Tampilan operator tiga tab: <strong>Pengemudi</strong> (posisi langsung, manifes push, menetapkan rute), <strong>Jalankan Lembar</strong> (seret untuk menyusun ulang perhentian multi-jatuhkan, status ketuk untuk bersepeda, impor/ekspor CSV) dan <strong>Manifes Kargo</strong> (Pemindaian QR dimuat di depot, pemindaian POD QR saat pengiriman). Dispatcher dapat mengirimkan rute GPX dan file faktur langsung ke masing-masing driver melalui saluran rekan.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Pelacakan pengemudi</span><span class="tag">Dorongan nyata</span><span class="tag">Dorongan rute</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">TAMPAK</span>
+<div class="fc-icon">📦</div>
+<h3>Manifes Kargo</h3>
+<p>Pindai kode QR depot untuk memuat item ke manifes. Saat pengiriman, pindai POD QR pelanggan untuk menandai terkirim. Penanganan pengecualian: pengiriman yang ditolak mencatat foto dan catatan tertulis; safe-drop mencatat foto lokasi drop; tanda tangan pelanggan ditangkap di layar sentuh. Semua acara diberi stempel waktu dengan koordinat GPS.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Pemindaian QR masuk/keluar</span><span class="tag">POD Foto</span><span class="tag">Tanda tangan layar</span><span class="tag">Stempel waktu GPS</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">LEMBAR JALAN</span>
+<div class="fc-icon">🛣</div>
+<h3>Jalankan Lembar</h3>
+<p>Daftar pengiriman multi-jatuhkan dengan perhentian seret untuk menyusun ulang. Ketuk ikon status untuk memutar setiap perhentian: Tertunda → Tiba → Terkirim. Ketuk alamat mana pun untuk membukanya di aplikasi peta ponsel untuk navigasi belokan demi belokan. Impor dari CSV — sadar header, kompatibel dengan Onfleet, Routific, Circuit, dan ekspor khusus. Ekspor ke CSV dan bagikan melalui lembar berbagi sistem.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Tarik penyusunan ulang</span><span class="tag">Impor CSV</span><span class="tag">Kompatibel dengan Onfleet / Routific</span><span class="tag">Bagikan ekspor</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">FAKTUR</span>
+<div class="fc-icon">🧾</div>
+<h3>Faktur</h3>
+<p>Buat, cetak, dan bagikan faktur langsung dari ponsel. Office dapat mengirimkan faktur yang telah disiapkan sebelumnya dari modul akuntansi Chameleon PC ke pengemudi melalui saluran rekan — pengemudi meninjau, menandatangani, dan mengirimkannya saat itu juga. Dasbor akuntansi dengan gerbang peran: tamu (hanya total), operator (transaksi lengkap + faktur) dan admin (pengiriman MTD + pemberian akses QR).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Dorong dari PC</span><span class="tag">Cetak / PDF</span><span class="tag">Gerbang peran</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">KEADAAN DARURAT</span>
+<div class="fc-icon">📟</div>
+<h3>Mode Darurat — SMS &amp; Rekan</h3>
+<p>Tidak ada datanya? Aplikasi ini kembali ke protokol berkode ringkas. Pengemudi (<strong>D</strong>), pejalan kaki (<strong>H</strong>), dan Layanan Darurat (<strong>X</strong>) profil berbagi skala peringatan universal. Koordinat GPS tertanam secara otomatis. Pesan diterjemahkan dan dibacakan oleh TTS pada saat diterima. A99+H99 adalah SOS universal — disiarkan ke semua kontak dan rekan armada dalam satu ketukan. Ketika data tersedia, frame bergerak melalui saluran rekan, bukan SMS — dapat dipilih per pengiriman: <strong>SMS saja</strong>, <strong>Hanya rekan-rekan</strong>, atau <strong>Keduanya</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 profil pengguna</span><span class="tag">GPS tertanam</span><span class="tag">Dekode TTS</span><span class="tag">METANA selaras</span>
+<span class="tag">SMS · Rekan · Keduanya</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Referensi kode →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">KONTAK</span>
+<div class="fc-icon">👥</div>
+<h3>Kontak &amp; Grup</h3>
+<p>Buku kontak terpadu yang menggabungkan nomor telepon SIM, ID rekan Tailscale, dan grup campuran. Buat sebuah <em>Tim Perbatasan</em> grup yang berisi dua rekan P2P dan satu nomor SIM — ketuk grup tersebut untuk memulai panggilan ke ketiganya. Riwayat panggilan dengan stempel waktu. Foto avatar per kontak. Setiap anggota armada menetapkan foto profil di Pengaturan — foto tersebut dibagikan secara otomatis melalui saluran sinyal saat mereka terhubung, sehingga setiap rekan melihat foto asli, bukan huruf awal.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + rekan-rekan</span><span class="tag">Kelompok campuran</span><span class="tag">Riwayat panggilan</span><span class="tag">Berbagi avatar</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">JARINGAN</span>
+<div class="fc-icon">📶</div>
+<h3>Jaringan Fleksibel</h3>
+<p>Terhubung melalui <strong>skala ekor</strong> (jarak jauh, melalui internet) atau langsung <strong>LAN/hotspot</strong> — berguna untuk truk yang sedang konvoi atau yang dilengkapi antena pengarah jarak jauh (50+ mil di medan terbuka). penemuan otomatis mDNS menemukan ponsel armada lain di Wi-Fi yang sama tanpa memasukkan alamat IP secara manual.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">skala ekor</span><span class="tag">LAN/hotspot</span><span class="tag">penemuan mDNS</span><span class="tag">Jangkauan hotspot 50+ mil</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">MENGAMBANG</span>
+<div class="fc-icon">🪟</div>
+<h3>Hamparan Mengambang</h3>
+<p>Aplikasi ini dapat muncul sebagai overlay yang persisten di atas semua aplikasi lainnya — berguna ketika pengemudi perlu memeriksa navigasi sambil menjaga panggilan tetap aktif di sudut layar. Panggilan rekan yang masuk membawa overlay ke depan secara otomatis dengan dering + getaran, memastikan pengemudi tidak pernah melewatkan panggilan mendesak dari pengiriman.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Hamparan selalu di atas</span><span class="tag">Bawa otomatis ke depan</span><span class="tag">Dering + getar</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">BUNGLON</span>
+<div class="fc-icon">🖥️</div>
+<h3>Integrasi PC Bunglon</h3>
+<p>Terhubung ke Chameleon AI IDE di desktop atau PC kantor melalui WebSocket. Kantor dapat mengirimkan rute GPX (dengan titik jalan tertanam yang diuraikan sebagai POI secara otomatis), kumpulan POI mandiri, PDF faktur, dan data manifes ke pengemudi di lapangan — di seluruh saluran sinyal yang selalu aktif, tidak diperlukan panggilan video aktif. Server sinyal Bunglon (<code>chameleon_signal.py</code>) berjalan di PC atau di Termux di ponsel mana pun di armada, jadi tidak diperlukan cloud relay.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Dorongan rute</span><span class="tag">LALU dorong</span><span class="tag">Dorongan faktur</span><span class="tag">Tidak ada relai cloud</span><span class="tag">Termux signal server</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 bahasa</h2>
+<p>Terjemahan UI lengkap ditambah terjemahan ucapan PTT langsung yang didukung oleh Argos Translate di perangkat</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇮🇧 Bahasa Inggris</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 Perancis</span>
+<span class="lang-chip">🇩🇪 Jerman</span>
+<span class="lang-chip">🇪🇪 Bahasa Spanyol</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🇲🇾××××××××××××××××××OUTTORE UP, Welsh</span>
+<span class="lang-chip">🇧🇷 Portugis</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇱 Polandia</span>
+<span class="lang-chip">🇷🇴 Rumania</span>
+<span class="lang-chip">🇻€ Vietnam</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Deteksi bahasa otomatis</h4>
+<p>Layanan PTT mendeteksi bahasa pembicara secara otomatis — pengemudi berbahasa Jerman dan petugas operator berbahasa Spanyol dapat melakukan push-to-talk dengan bebas tanpa harus memilih bahasa setiap saat.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>Terjemahan di perangkat — tanpa cloud</h4>
+<p>Terjemahan ditangani oleh server Argos Translate yang berjalan secara lokal di telepon di dalam Termux. Ucapan dan teks tidak pernah meninggalkan perangkat untuk diterjemahkan. Bekerja offline setelah paket bahasa diinstal.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS dalam bahasa pendengar</h4>
+<p>Setelah diterjemahkan, setiap pesan dibacakan di lokal penerima menggunakan Android TTS — pendengar mendengar pesan yang diterjemahkan bahkan tanpa melihat layar, ideal bagi pengemudi yang mengawasi jalan.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Mode Darurat — SMS &amp; Saluran Rekan</h2>
+<p>Protokol kode ringkas yang berfungsi melalui SMS saat data hilang, atau melalui saluran rekan armada saat data tidak ada</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Transportasi ganda — SMS atau saluran rekan</h4>
+<p>Ketika tidak ada data seluler — jauh di tengah hutan, di perbatasan yang terpencil, atau selama pemadaman jaringan — Logistics 4×4 mengirimkan bingkai status berkode melalui SMS standar. Ketika data <em>adalah</em> tersedia, frame yang sama berjalan melalui saluran rekan armada dengan kecepatan penuh. Pemilih per pengiriman memungkinkan Anda memilih <strong>SMS saja</strong>, <strong>Hanya rekan-rekan</strong>, atau <strong>Keduanya</strong>. SOS selalu aktif di setiap saluran yang tersedia secara bersamaan, apa pun pengaturannya.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Tiga profil — satu bahasa bersama</h4>
+<p>Kode disusun menjadi tiga profil pengguna yang memiliki kosakata peringatan yang sama: <strong>D - Sopir</strong> (perbatasan, kargo, konvoi, bahan bakar, kondisi jalan), <strong>H - Pendaki</strong> (tanda-tanda vital, jejak, perlengkapan, jadwal check-in), dan <strong>X — Layanan Darurat</strong> (triase, jenis insiden, sumber daya di lokasi kejadian, status evakuasi). SOS dari profil mana pun dapat dipahami oleh semua orang.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Selaras dengan standar darurat internasional</h4>
+<p>Profil Layanan Darurat menggunakan skala triase internasional P1–P4 (Segera / Tertunda / Kecil / Diharapkan) dan kategori insiden yang selaras dengan kerangka insiden besar METHANE yang digunakan oleh layanan darurat gabungan di seluruh dunia. Seorang paramedis atau koordinator SAR yang bergabung dalam operasi lintas lembaga akan segera mengenali terminologi tersebut.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Baca otomatis pada tanda terima</h4>
+<p>Pesan berkode yang masuk akan didekodekan dan dibacakan dengan suara keras melalui text-to-speech — pengemudi yang mengawasi jalan atau responden dengan tangan sibuk akan mendengar arti bahasa Inggris lengkap dari setiap kode tanpa menyentuh telepon. Pesan yang rusak memicu permintaan pengiriman ulang otomatis.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Contoh pesan berkode</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Pengemudi — penghentian bahan bakar, penundaan bea cukai</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Pengemudi berhenti · Tempat bahan bakar · Di antrian bea cukai</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Pejalan kaki — cedera, meminta bantuan</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + “patah tulang pergelangan kaki tidak bisa berjalan”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Cedera serius terhenti · Butuh tim penyelamat · Mendesak</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Layanan darurat - RTC, korban P1</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Tabrakan lalu lintas jalan raya · P1 korban yang mengancam nyawa · 2–5 orang · Ambulans di lokasi kejadian · Diperlukan ambulans udara</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">SOS Universal — profil apa pun</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS dengan lokasi GPS — segera dikirim ke semua kontak terdaftar</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Referensi Kode Bidang</div>
+<div style="color:var(--muted);font-size:.82rem;">Semua kode untuk semua profil — cetak dan bawa</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">Tabel kode lengkap untuk profil Pengemudi, Pendaki, dan Layanan Darurat. Unduh sebagai PDF dan simpan salinannya di ponsel Anda, di kabin, atau di ransel Anda.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 Lihat &amp; unduh referensi kode
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Dirancang di sekitar celah</h2>
+<p>Bukan pengganti perangkat lunak logistik perusahaan — solusi yang tidak dapat digantikan oleh perangkat lunak perusahaan</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>Tidak ada tagihan per kursi, per pengemudi</h4>
+<p>Panggilan rekan WebRTC adalah telepon-ke-telepon langsung tanpa server relai media dan tanpa biaya bulanan per pengguna. Aplikasi ini berjalan pada ponsel Android standar yang sudah dimiliki tim.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Berfungsi di tempat yang tidak dapat dilakukan oleh aplikasi perusahaan</h4>
+<p>Dirancang untuk penyeberangan perbatasan, medan terpencil, dan operasi internasional di mana aplikasi logistik standar memerlukan koneksi data yang cepat dan andal. Kembali ke kompas offline dan peta dalam cache ketika data hilang.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Ponsel Android standar</h4>
+<p>Tidak ada perangkat keras khusus. Tidak ada pendaftaran MDM. Ponsel Android 7.0+ apa pun (minSdk 24) yang menjalankan APK adalah node armada penuh. Antena hotspot jarak jauh yang dipasang pada kabin truk dapat memperluas jangkauan P2P hingga 50+ mil di pedesaan terbuka.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Peta jalan masa depan</h4>
+<p>Penambahan yang direncanakan mencakup kepatuhan takograf penuh, pemantauan jam kerja, integrasi takograf digital DVSA, dan impor KML/GeoJSON untuk pengunggahan massal POI. Fondasinya sudah dibangun.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Tertarik dengan Logistik 4×4?</h3>
+<p>Saat ini sedang dalam tahap pengujian — hubungi kami untuk mendiskusikan uji coba, meminta pembuatan, atau bertanya tentang lisensi untuk armada Anda.</p>
+<a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
+<a class="btn" href="../companion.html">← Aplikasi Pendamping</a>
+<a class="btn" href="../index.html">← Ikhtisar</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a>
+<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Layanan Web</a>
+<a href="../accounting.html">Akuntansi</a>
+<a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a>
+<a href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Lisensi tertunda · Dibangun oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

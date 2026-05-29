@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>物流4×4——跨境车队通讯</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ 测试正在进行中 — 该网站正在积极开发中。功能、定价和许可尚未最终确定。
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a class="active" href="../logistics4x4.html">物流4×4</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>物流4×4</h1>
+<p class="sub">小型运营商的跨境车队通信。四个 SIM 卡呼叫者和四个 P2P 视频对等方共享一个呼叫空间——边境司机、总部、海关、客户——所有这些同时在房间里。实时地图、GPX 路线、货物清单、翻译的语音聊天和紧急广播，全部都在标准 Android 手机上。</p>
+<div class="hero-badges">
+<span class="badge">📹 4 个视频同行</span>
+<span class="badge">📞 4 个 SIM 卡来电者</span>
+<span class="badge">🗺 实时地图 + GPX</span>
+<span class="badge">📍 POI 图层</span>
+<span class="badge">🧭 离线指南针</span>
+<span class="badge">🌍 15 种语言</span>
+<span class="badge">📋 清单 + 运行表</span>
+<span class="badge">🚨 紧急广播</span>
+<span class="badge">📟 紧急模式 - 短信和对等</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>物流4×4</span>
+<div class="phone-status">● 车队在线</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 穿过航点 3 — 沿 B4301 行驶</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧：“海关清关，前往 7 号门”</div>
+<div class="p-chat p-chat-out">途中 — 预计到达时间 14 分钟</div>
+<div class="p-chat p-chat-in">SIM 卡上的客户 — 正在连接...</div>
+<div class="p-chat p-chat-out">📍 与车队共享位置</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 发货</span>
+<span class="p-peer p-peer-on">🎥 司机B</span>
+<span class="p-peer p-peer-sim">📞 海关</span>
+<span class="p-peer p-peer-sim">📞 顾客</span>
+<span class="p-peer p-peer-map">🗺 地图</span>
+<span class="p-peer p-peer-map">🧭 指南针</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>4×4 调用空间</h2>
+<p>SIM 卡通话和 P2P 视频共享一个互联空间</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">一个通话空间 — 八位参与者</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 个 SIM 卡来电者</h4>
+<ul>
+<li>标准蜂窝语音</li>
+<li>无需互联网</li>
+<li>海关官员</li>
+<li>国外客户</li>
+<li>总公司固定电话</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 个 P2P 视频点</h4>
+<ul>
+<li>WebRTC — 无服务器费用</li>
+<li>全网状视频+音频</li>
+<li>司机对司机</li>
+<li>调度控制器</li>
+<li>远程团队成员</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">SIM 通话中的音频通过 Android 的电信堆栈或蓝牙 SCO 以硬件方式合并到群组通话中 — 仅耳机，私密。</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistics 4×4并不旨在取代大型快递网络所使用的专业自营物流平台。它填补了空白 <strong>小经营者</strong>、个体工商户和大企业工具无法触及的情况——偏远边境口岸的司机需要立即与总部联系，三英里外的第二个司机，海关检查员，以及另一个国家的客户只能通过电话拨入。
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>它是为谁而设</h2>
+<p>专为高风险、低基础设施现场通信而设计</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>过境</h4>
+<p>司机连接海关官员（SIM 呼叫）、总部（视频）、接收客户（SIM 呼叫）和车队中的第二名司机（视频），所有这些都是同时进行的，每个人都可以看到实时翻译的聊天内容。</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>长途车队</h4>
+<p>分布超过 50 英里的卡车通过一键通保持共享通话，在同一实时地图上共享位置，调度员路线推送以直接加载到地图中的 GPX 文件形式到达。</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>越野/徒步</h4>
+<p>无数据信号？离线罗盘向所有其他舰队成员显示方位箭头。 POI 标记标记加油站、危险点和集合点 - 嵌入推送的 GPX 文件中或由任何驾驶员在地图上放置。使用定向天线的卡车之间的远程热点链接可达 50 英里以上。</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>多语言团队</h4>
+<p>一键通可转录语音、检测说话者的语言、翻译并以每个听众自己的语言环境（15 种语言）提供文本 + 音频，由手机上的本地 Argos 翻译服务器提供支持。</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>交货证明</h4>
+<p>司机扫描仓库二维码以加载清单，然后在交货时扫描客户 POD 二维码。拒绝送货？拍摄照片和书面异常说明。屏幕上捕获的客户签名。</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>调度处</h4>
+<p>调度员屏幕在实时地图上显示所有驾驶员，运行运行表，通过对等通道向各个驾驶员推送清单和路线，并在整个车队范围内广播紧急警报。</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>实时地图、兴趣点和指南针</h2>
+<p>OSM、卫星和混合层 - 对等位置、GPX 路线、兴趣点和离线切片缓存</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">街道</span>
+<span class="map-tag mt-sat">卫星</span>
+<span class="map-tag mt-hybrid">杂交种</span>
+<span class="map-tag mt-gpx">GPX路线</span>
+<span class="map-tag mt-poi">POI 图层</span>
+<span class="map-tag mt-offline">离线缓存</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">OpenStreetMap 瓷砖</span>
+<span class="tag">Esri 世界影像</span>
+<span class="tag">2.5D建筑物</span>
+<span class="tag">OSRM路由</span>
+<span class="tag">即地点搜索</span>
+<span class="tag">磁盘切片缓存</span>
+<span class="tag">POI 图层</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 路线航点</span>
+<span class="poi-dot poi-push">📍 IDE 推动</span>
+<span class="poi-dot poi-manual">📍 司机摔倒</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>三个地图层</h4>
+<p>循环之间 <strong>街道</strong> （开放街道地图）， <strong>卫星</strong> （Esri 世界影像）和 <strong>杂交种</strong> （卫星基地 + OSM 道路覆盖）只需轻轻一按。所有图块均进行磁盘缓存 - 以前查看的区域会离线加载，无需数据。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>地图上的对等位置</h4>
+<p>每个启用位置共享的车队成员都会显示为实时图钉。点击图钉即可查看他们的姓名和预计到达时间。调度员无需单独的跟踪平台即可一目了然地看到整个车队。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>GPX路由推送</h4>
+<p>办公室推一 <code>.gpx</code> 通过对等通道将文件从 Chameleon PC 直接路由到驾驶员的手机。该路线会立即作为彩色叠加层加载到地图中。最近的路线存储在本地以供重复使用。支持GCJ-02中国坐标偏移校正。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>罗盘锁定或北向上</h4>
+<p>地图随设备罗盘实时旋转，以实现平视驾驶方向，或锁定北向上以实现传统地图阅读 - 根据驾驶员偏好切换设置。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>指南针屏幕 — 离线同行导航</h4>
+<p>没有数据？全屏罗盘显示每个使用最后已知 GPS 的在线同伴的方位箭头。同行距离和指南针方向从缓存位置更新 - 对于徒步旅行者、越野车队导航和山地救援协调非常有用。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>兴趣点 (POI) 层</h4>
+<p>三个 POI 来源在地图上以颜色编码的图钉形式显示。 <strong style="color:#f59e0b;">琥珀色</strong> 引脚来自 <code>&lt;wpt&gt;</code> 嵌入 GPX 文件中的航路点 — 它们会加载路线并清除路线。 <strong style="color:#22c55e;">绿色的</strong> 引脚直接从 Chameleon PC IDE（加油站、危险、送货地址）推送，与任何路线无关。 <strong style="color:#ef4444;">红色的</strong> 驾驶员长按地图即可放下图钉。所有 POI 跨会话持续存在；点击任意图钉即可导航、在地图中打开或删除。图标适应类型：⛽燃料、🚚送货、⚠️危险、🏥医院、🅿️停车场、✈️机场等。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>所有功能</h2>
+<p>应用程序中的每个屏幕和服务</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">同行</span>
+<div class="fc-icon">📹</div>
+<h3>群组P2P视频</h3>
+<p>全网状 WebRTC 视频和音频最多可支持 4 个以上对等点 — 无需中央媒体服务器，无需每月通话费用。自适应网格：1 个对等 = 全屏，2 = 并排，3 = 2+1，4 = 2×2。本地饲料像画中画一样漂浮。每个对等点的比特率缩放（1.5 Mbps → 350 Kbps），即使在每个组大小下也能保持质量。即使应用程序处于后台，来电也会响起并振动。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC 全网状</span><span class="tag">自适应网格</span><span class="tag">画中画本地</span><span class="tag">响铃+振动</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">SIM桥</span>
+<div class="fc-icon">📞</div>
+<h3>SIM 呼叫桥</h3>
+<p>在蜂窝呼叫中想要拉入 P2P 对等点？轻敲 <strong>添加到群组</strong> — Android 的电信堆栈将 WebRTC 会话与 SIM 呼叫一起注册，并提供本机“合并呼叫”选项。音频混合发生在电话芯片中 - <strong>仅听筒</strong>，完全私有。当设备或运营商不支持硬件会议时，蓝牙 SCO 耳机路由将用作后备。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">硬件发布会</span><span class="tag">BT SCO 后备</span><span class="tag">仅听筒</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">通讯系统</span>
+<div class="fc-icon">🗣️</div>
+<h3>一键通 + 实时翻译</h3>
+<p>按住 PTT 按钮说话 — Android 的语音识别器（16 kHz，16 位）实时转录为文本。检测到的语言被发送到设备上 <strong>阿尔戈斯 翻译</strong> 服务器。每个听众都会收到翻译成自己选择的语言环境的消息，并通过 TTS 大声朗读。录音时，部分转录会作为实时打字指示器进行流式传输。通过 P2P 通道工作或通过热点独立工作。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">自动语言检测</span><span class="tag">阿尔戈斯 翻译</span><span class="tag">实时 TTS 读出</span><span class="tag">15种语言</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">播送</span>
+<div class="fc-icon">🚨</div>
+<h3>股票行情及紧急广播</h3>
+<p>调度程序在整个车队范围内广播一条消息 - 它在每个屏幕顶部显示为全角股票栏。四个优先级： <strong style="color:#dc2626;">紧急情况</strong> （闪烁红色，每个发件人的速率受到限制）， <strong style="color:#dc2626;">重要的</strong> （白底红字）， <strong style="color:#16a34a;">指示</strong> （绿底黑字）， <strong>信息</strong> （黑底黄字）。消息可以触发收件人手机上的 TTS 读出。可配置的 TTL：1 分钟到“直到解散”。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">全舰队广播</span><span class="tag">4个优先级</span><span class="tag">TTS 读出</span><span class="tag">自动过期</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">调度员</span>
+<div class="fc-icon">🗂</div>
+<h3>调度员仪表板</h3>
+<p>三选项卡调度程序视图： <strong>司机</strong> （实时位置、推送清单、分配路线）， <strong>运行表</strong> （拖动重新排序多点停止、点击循环状态、CSV 导入/导出）和 <strong>货物舱单</strong> （仓库二维码装载，POD 交货时二维码扫描）。调度员可以通过对等通道将 GPX 路线和发票文件直接推送给各个司机。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">驾驶员追踪</span><span class="tag">清单推送</span><span class="tag">路由推送</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">显现</span>
+<div class="fc-icon">📦</div>
+<h3>货物舱单</h3>
+<p>扫描仓库二维码将物品装载到清单上。交货时，扫描客户的 POD 二维码以标记已交货。异常处理：拒收记录照片和书面说明； safe-drop 记录投放位置的照片；触摸屏上捕获客户签名。所有事件均带有 GPS 坐标时间戳。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">二维码扫描输入/输出</span><span class="tag">照片POD</span><span class="tag">屏幕签名</span><span class="tag">GPS 时间戳</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">运行表</span>
+<div class="fc-icon">🛣</div>
+<h3>运行表</h3>
+<p>具有拖动重新排序停靠点的多点递送列表。点击状态图标可循环每个站点：待处理 → 已到达 → 已送达。点击任何地址即可在手机的地图应用程序中将其打开，以进行路线导航。从 CSV 导入 — 标头感知，与 Onfleet、Routific、Circuit 和自定义导出兼容。导出为 CSV 并通过系统共享表共享。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">拖动重新排序</span><span class="tag">CSV 导入</span><span class="tag">Onfleet/Routific 兼容</span><span class="tag">共享导出</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">发票</span>
+<div class="fc-icon">🧾</div>
+<h3>发票</h3>
+<p>直接通过手机创建、打印和共享发票。 Office 可以通过对等通道将预先准备好的发票从 Chameleon PC 会计模块推送给司机——司机当场审查、签名并发送。角色门控会计仪表板：访客（仅总计）、操作员（完整交易 + 发票）和管理员（MTD 提交 + QR 访问授权）。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">从PC端推送</span><span class="tag">打印/PDF</span><span class="tag">角色门控</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">紧急情况</span>
+<div class="fc-icon">📟</div>
+<h3>紧急模式 - 短信和对等</h3>
+<p>没有数据？该应用程序退回到紧凑的编码协议。司机 （<strong>D</strong>), 徒步旅行者 (<strong>H</strong>）和紧急服务（<strong>X</strong>）配置文件共享通用警报等级。 GPS 坐标自动嵌入。收到消息后，TTS 会对消息进行解码并大声朗读。 A99+H99 是通用 SOS——一键向所有联系人和车队同行广播。当数据可用时，帧通过对等通道而不是 SMS 传输 - 每次发送时可选择： <strong>仅限短信</strong>, <strong>仅限同行</strong>， 或者 <strong>两个都</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 个用户个人资料</span><span class="tag">GPS嵌入式</span><span class="tag">TTS 解码</span><span class="tag">甲烷对齐</span>
+<span class="tag">短信 · 同行 · 双方</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 代码参考 →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">联系方式</span>
+<div class="fc-icon">👥</div>
+<h3>联系人和群组</h3>
+<p>统一通讯录，结合了 SIM 电话号码、Tailscale 对等 ID 和混合组。创建一个 <em>边境队</em> 包含两个 P2P 对等点和一个 SIM 号码的组 — 点击该组即可开始对所有三个点进行呼叫。带有时间戳的通话记录。每个联系人的头像照片。每个车队成员都在“设置”中设置个人资料照片 - 当他们连接时，它会通过信号通道自动共享，因此每个同伴都会看到真实的照片而不是首字母。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + 对等设备</span><span class="tag">混合组</span><span class="tag">通话记录</span><span class="tag">头像分享</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">网络</span>
+<div class="fc-icon">📶</div>
+<h3>灵活组网</h3>
+<p>通过连接 <strong>尾鳞</strong> （远程，通过互联网）或直接 <strong>局域网/热点</strong> — 对于车队中的卡车或安装了远程定向天线的卡车（在开阔地形中 50 英里以上）非常有用。 mDNS 自动发现功能可在同一 Wi-Fi 上查找其他车队电话，无需手动输入 IP 地址。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">尾鳞</span><span class="tag">局域网/热点</span><span class="tag">mDNS 发现</span><span class="tag">50+ 英里热点范围</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">漂浮</span>
+<div class="fc-icon">🪟</div>
+<h3>浮动叠加</h3>
+<p>该应用程序可以作为所有其他应用程序的持久覆盖层浮动——当驾驶员需要检查导航同时在屏幕的一角保持通话活动时非常有用。传入的对等呼叫会通过铃声和振动自动将叠加层带到前面，确保驾驶员不会错过调度的紧急呼叫。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">始终位于顶部的叠加层</span><span class="tag">自动置于最前面</span><span class="tag">响铃+振动</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">变色龙</span>
+<div class="fc-icon">🖥️</div>
+<h3>变色龙 PC 集成</h3>
+<p>通过 WebSocket 连接到台式机或办公室 PC 上的 Chameleon AI IDE。办公室可以将 GPX 路线（带有自动解析为 POI 的嵌入式航点）、独立 POI 集、发票 PDF 和舱单数据推送给现场的驾驶员 - 所有这些都通过始终在线的信号通道，无需进行视频通话。 Chameleon 信号服务器（<code>chameleon_signal.py</code>）在 PC 上或在机群中任何手机上的 Termux 中运行，因此不需要云中继。</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">路由推送</span><span class="tag">然后推</span><span class="tag">发票推送</span><span class="tag">无云中继</span><span class="tag">Termux 信号服务器</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15种语言</h2>
+<p>完整的 UI 翻译以及由设备上的 Argos Translate 提供支持的实时 PTT 语音翻译</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 英语</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷法语</span>
+<span class="lang-chip">🇩🇪 德语</span>
+<span class="lang-chip">🇪🇸 西班牙语</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">威尔士语</span>
+<span class="lang-chip">🇧🇷葡萄牙语</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 波兰语</span>
+<span class="lang-chip">🇷🇴罗马尼亚语</span>
+<span class="lang-chip">🇻🇳 越南语</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>自动语言检测</h4>
+<p>PTT 服务会自动检测说话者的语言 - 讲德语的司机和讲西班牙语的调度员可以自由地进行一键通话，而无需每次选择语言。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>设备端翻译 — 无云</h4>
+<p>翻译由 Termux 内手机本地运行的 Argos Translate 服务器处理。语音和文本永远不会离开设备进行翻译。安装语言包后即可离线工作。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>使用听者语言的 TTS</h4>
+<p>翻译后，每条消息都会使用 Android TTS 在接收者所在的区域大声朗读 - 听者即使不看屏幕也能听到翻译后的消息，这对于驾驶员密切关注路面的情况来说是理想的选择。</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>紧急模式 - 短信和对等通道</h2>
+<p>一种紧凑的代码协议，当数据消失时通过 SMS 工作，或者当数据消失时通过队列对等通道工作</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>双重传输——短信或对等通道</h4>
+<p>当没有移动数据时（在丛林深处、在偏远的边境口岸或在网络中断期间），Logistics 4×4 通过标准 SMS 发送编码状态帧。当数据 <em>是</em> 可用时，相同的帧在队列对等通道上全速传输。每次发送选择器可让您选择 <strong>仅限短信</strong>, <strong>仅限同行</strong>， 或者 <strong>两个都</strong>。无论设置如何，SOS 始终同时在每个可用频道上触发。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>三种配置文件 — 一种共享语言</h4>
+<p>代码被组织成三个用户配置文件，它们共享通用的警报词汇： <strong>D——司机</strong> （边境、货物、车队、燃料、路况）、 <strong>H——徒步旅行者</strong> （生命体征、轨迹、装备、登记时间表），以及 <strong>X——紧急服务</strong> （分类、事件类型、现场资源、疏散状态）。任何个人资料中的求救信号都是所有人都能理解的。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>符合国际应急标准</h4>
+<p>紧急服务配置文件使用国际 P1-P4 分类等级（立即/延迟/轻微/预期）和与全球联合紧急服务使用的甲烷重大事件框架一致的事件类别。参加跨机构行动的护理人员或搜寻与援救协调员将立即识别该术语。</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>自动读取收据</h4>
+<p>传入的编码消息被解码并通过文本转语音的方式大声朗读——司机注视着路面或双手忙着的响应者无需触摸手机即可听到每个代码的完整简单英语含义。损坏的消息会触发自动重发请求。</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">编码消息示例</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">司机 — 加油、海关延误</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">司机停车·加油站·在海关排队</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">徒步旅行者——受伤，请求帮助</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55+“脚踝骨折无法行走”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">重伤停止 · 需要救援队 · 紧急</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">紧急服务 — RTC、P1 伤亡</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">道路交通碰撞 · P1 生命威胁伤亡 · 2-5 人 · 现场有救护车 · 需要空中救护车</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">通用 SOS — 任何配置文件</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99+H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">带 GPS 位置的 SOS — 立即发送给所有注册的联系人</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">字段代码参考</div>
+<div style="color:var(--muted);font-size:.82rem;">所有配置文件的所有代码 — 打印并携带</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">驾驶员、徒步旅行者和紧急服务配置文件的完整代码表。下载 PDF 格式，并在您的手机、出租车或背包中保存一份副本。</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 查看和下载代码参考
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>围绕间隙设计</h2>
+<p>不是企业物流软件的替代品——是企业软件无法替代的解决方案</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>无需按座位、按司机计费</h4>
+<p>WebRTC 对等通话是直接电话对电话的通话，无需媒体中继服务器，也无需按用户支付月费。该应用程序可以在团队已经携带的标准 Android 手机上运行。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>适用于企业应用程序不适用的地方</h4>
+<p>专为边境口岸、偏远地区和国际运营而设计，其中标准物流应用程序采用快速、可靠的数据连接。当数据消失时，回退到离线指南针和缓存的地图。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>标准安卓手机</h4>
+<p>没有专门的硬件。没有 MDM 注册。任何运行 APK 的 Android 7.0+ 手机 (minSdk 24) 都是完整的舰队节点。安装在卡车驾驶室上的远程热点天线可以将 P2P 覆盖范围扩展到开放乡村的 50 英里以上。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>未来路线图</h4>
+<p>计划添加的内容包括完全行车记录仪合规性、值班监控、DVSA 数字行车记录仪集成以及用于 POI 批量上传的 KML/GeoJSON 导入。基础已经打好了。</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>对物流 4×4 感兴趣？</h3>
+<p>目前正在测试中 - 请联系我们讨论试点、请求构建或询问您的车队的许可。</p>
+<a class="btn btn-solid" href="../contact.html">联系我们</a>
+<a class="btn" href="../companion.html">← 配套应用程序</a>
+<a class="btn" href="../index.html">← 概述</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 许可待定 · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

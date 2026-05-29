@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logistică 4×4 — Comunicații transfrontaliere ale flotei</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TESTARE ÎN CARE — Acest site este în curs de dezvoltare activă. Caracteristicile, prețurile și licențele nu sunt finalizate.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">AI IDE</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a class="active" href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Logistica 4×4</h1>
+<p class="sub">Comunicații transfrontaliere ale flotei pentru micii operatori. Patru apelanți SIM și patru colegi video P2P împart un singur spațiu de apel - șofer la graniță, sediul central, vamă, client - toate în cameră simultan. Hărți live, rute GPX, manifeste de marfă, chat vocal tradus și transmisii de urgență, toate pe un telefon Android standard.</p>
+<div class="hero-badges">
+<span class="badge">📹 4 colegi video</span>
+<span class="badge">📞 4 apelanți SIM</span>
+<span class="badge">🗺 Hărți live + GPX</span>
+<span class="badge">📍 Stratul POI</span>
+<span class="badge">🧭 Busolă offline</span>
+<span class="badge">🌍 15 limbi</span>
+<span class="badge">📋 Manifest + foaie de rulare</span>
+<span class="badge">🚨 Emisiune de urgență</span>
+<span class="badge">📟 Modul de urgență - SMS și peer</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Logistica 4×4</span>
+<div class="phone-status">● Flota online</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Traversați punctul 3 – rămâneți pe B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: „Vamă a fost făcută, mergând către poarta 7”</div>
+<div class="p-chat p-chat-out">Pe drum — ETA 14 min</div>
+<div class="p-chat p-chat-in">Client pe SIM — se conectează acum...</div>
+<div class="p-chat p-chat-out">📍 Locație partajată cu flota</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Expediere</span>
+<span class="p-peer p-peer-on">🎥 Șoferul B</span>
+<span class="p-peer p-peer-sim">📞 Vama</span>
+<span class="p-peer p-peer-sim">📞 Client</span>
+<span class="p-peer p-peer-map">🗺 Harta</span>
+<span class="p-peer p-peer-map">🧭 Busolă</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Spațiul de apeluri 4×4</h2>
+<p>Apelurile telefonice SIM și video P2P partajează un spațiu conectat</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">Un spațiu de apel - opt participanți</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 apelanți SIM</h4>
+<ul>
+<li>Voce mobilă standard</li>
+<li>Nu este nevoie de internet</li>
+<li>Funcționar vamal</li>
+<li>Client în străinătate</li>
+<li>Telefon fix la sediul central</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 colegi video P2P</h4>
+<ul>
+<li>WebRTC — fără factură de server</li>
+<li>Mesh complet video + audio</li>
+<li>Sofer la sofer</li>
+<li>Controlor de expediere</li>
+<li>Membru al echipei de la distanță</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Audio de la apelurile SIM este îmbinat hardware în apelul de grup prin stack-ul de telecomunicații Android sau Bluetooth SCO - numai căști, privat.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistics 4×4 nu își propune să înlocuiască o platformă logistică proprietară profesională precum cele utilizate de marile rețele de curierat. Umple golul pentru <strong>micii operatori</strong>, comercianți individuali și situații pe care un instrument de mare întreprindere nu le poate ajunge — un șofer de la o trecere a frontierei de la distanță care trebuie să se conecteze instantaneu cu sediul central, un al doilea șofer la trei mile în spate, inspectorul vamal în cabină și clientul din altă țară care poate apela doar prin telefon.
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Pentru cine este</h2>
+<p>Proiectat pentru comunicații de teren cu mize mari și infrastructură redusă</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Trecerea frontierei</h4>
+<p>Șoferul conectează ofițerul vamal (apel SIM), sediul central (video), clientul care primește (apel SIM) și un al doilea șofer în convoi (video) - toate simultan, cu chat tradus live vizibil pentru toată lumea.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Convoi pe distanțe lungi</h4>
+<p>Camioanele întinse pe o lungime de 50 de mile rămân într-un apel partajat cu apăsare pentru a vorbi, partajare a locației pe aceeași hartă live și trasee ale dispecerului care sosesc ca fișiere GPX încărcate direct pe hartă.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Off-road / trekking</h4>
+<p>Fără semnal de date? Busola offline afișează săgeți de semnalizare pentru fiecare membru al flotei. Punctele de interes marchează opriri de combustibil, pericole și puncte de întâlnire - încorporate într-un fișier GPX împins sau aruncate de orice șofer pe hartă. Legăturile hotspot cu rază lungă de acțiune între camioane cu antene direcționale pot atinge peste 50 de mile.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Echipe multilingve</h4>
+<p>Push-to-talk transcrie vorbirea, detectează limba vorbitorului, traduce și oferă text + audio în locația fiecărui ascultător - 15 limbi, alimentate de un server local Argos Translate pe telefon.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Dovada livrării</h4>
+<p>Șoferul scanează codul QR de depozit pentru a încărca manifestul, apoi scanează QR-ul POD al clientului la livrare. Livrare refuzată? Faceți o fotografie și o notă de excepție scrisă. Semnătura clientului capturată pe ecran.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Birou de dispecerat</h4>
+<p>Ecranul dispecerului afișează toți șoferii pe harta live, rulează foaia de rulare, trimite manifeste și rute către șoferi individuali prin canalul similar și difuzează alerte de urgență la nivelul întregii flote.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Hartă live, puncte de interes și busolă</h2>
+<p>Straturi OSM, satelit și hibride — locații peer, rute GPX, puncte de interes și memorie cache offline</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Stradă</span>
+<span class="map-tag mt-sat">Satelit</span>
+<span class="map-tag mt-hybrid">Hibrid</span>
+<span class="map-tag mt-gpx">Ruta GPX</span>
+<span class="map-tag mt-poi">Straturi POI</span>
+<span class="map-tag mt-offline">Cache offline</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Dale OpenStreetMap</span>
+<span class="tag">Imaginile lumii Esri</span>
+<span class="tag">Clădiri 2.5D</span>
+<span class="tag">rutare OSRM</span>
+<span class="tag">Și anume căutarea locului</span>
+<span class="tag">Cache-ul discului</span>
+<span class="tag">Straturi POI</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Puncte de traseu</span>
+<span class="poi-dot poi-push">📍 Impins de IDE</span>
+<span class="poi-dot poi-manual">📍 Scăpat de șofer</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Trei straturi de hartă</h4>
+<p>Ciclul între <strong>Stradă</strong> (OpenStreetMap), <strong>Satelit</strong> (Esri World Imagery) și <strong>Hibrid</strong> (bază satelit + suprapunere de drum OSM) cu o singură atingere. Toate plăcile sunt stocate în cache pe disc — zonele vizualizate anterior se încarcă offline fără date.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Locațiile egale pe hartă</h4>
+<p>Fiecare membru al flotei care permite partajarea locației apare ca un indicator activ. Atingeți un indicator pentru a vedea numele și ETA. Dispeceratul poate vedea întreaga flotă dintr-o privire fără o platformă de urmărire separată.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>Împingeți traseul GPX</h4>
+<p>Biroul împinge a <code>.gpx</code> rutați fișierul de la Chameleon PC direct la telefonul șoferului prin canalul de peer. Traseul se încarcă instantaneu pe hartă ca o suprapunere colorată. Rutele recente sunt stocate local pentru reutilizare. Suportă corecția decalajului de coordonate GCJ-02 pentru China.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Blocare busola sau nord în sus</h4>
+<p>Harta se rotește în direct cu busola dispozitivului pentru o orientare cu capul în sus sau se blochează spre nord pentru citirea tradițională a hărții — comutați setările în funcție de preferința șoferului.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Ecran busolă — navigare peer offline</h4>
+<p>Fără date? Trandafirul de busole pe ecran complet arată o săgeată de orientare pentru fiecare utilizator online folosind ultimul GPS cunoscut. Se actualizează distanțele egale și direcțiile busolei din locații memorate în cache - utile pentru drumeții, navigarea în convoai în afara drumului și coordonarea salvarilor montane.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Stratul Puncte de interes (POI).</h4>
+<p>Trei surse de puncte de interes afișate pe hartă sub formă de coduri de culoare. <strong style="color:#f59e0b;">Chihlimbar</strong> ace provin din <code>&lt;wpt&gt;</code> puncte de referință încorporate într-un fișier GPX - se încarcă cu ruta și se eliberează cu aceasta. <strong style="color:#22c55e;">Verde</strong> pinii sunt împinși direct din Chameleon PC IDE (opriri de combustibil, pericole, adrese de livrare) independent de orice rută. <strong style="color:#ef4444;">Roşu</strong> pinii sunt aruncați de șofer cu o apăsare lungă pe hartă. Toate punctele de interes persistă pe parcursul sesiunilor; atingeți orice indicator pentru a naviga, deschide în Maps sau șterge. Pictogramele se adaptează tipului: ⛽ combustibil, 🚚 livrare, ⚠️ pericol, 🏥 spital, 🅿️ parcare, ✈️ aeroport și multe altele.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Toate caracteristicile</h2>
+<p>Fiecare ecran și serviciu din aplicație</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">SEMENII</span>
+<div class="fc-icon">📹</div>
+<h3>Video P2P de grup</h3>
+<p>Video și audio WebRTC cu rețea completă pentru până la 4+ colegi — fără server media central, fără factură lunară de apel. Grilă adaptivă: 1 peer = ecran complet, 2 = unul lângă altul, 3 = 2+1, 4 = 2×2. Fluxul local plutește ca imagine în imagine. Rata de biți crește per peer (1,5 Mbps → 350 Kbps) pentru a păstra calitatea chiar și la fiecare dimensiune de grup. Apelurile primite sună și vibrează chiar și atunci când aplicația este în fundal.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC full-mesh</span><span class="tag">Grilă adaptivă</span><span class="tag">PiP local</span><span class="tag">Sună + vibra</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">SIM BRIDGE</span>
+<div class="fc-icon">📞</div>
+<h3>SIM Call Bridge</h3>
+<p>Într-un apel mobil și vrei să atragi un peer P2P? Robinet <strong>Adăugați la grup</strong> — Stack-ul de telecomunicații Android înregistrează sesiunea WebRTC alături de apelul SIM și prezintă o opțiune nativă „Merge calls”. Mixarea audio are loc în cipul de telefonie — <strong>numai cască</strong>, complet privat. Când dispozitivul sau operatorul nu acceptă conferința hardware, rutarea căștilor Bluetooth SCO este utilizată ca alternativă.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Conferință de hardware</span><span class="tag">BT SCO alternativă</span><span class="tag">Doar cască</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">COMUNICARE</span>
+<div class="fc-icon">🗣️</div>
+<h3>Push-to-Talk + traducere live</h3>
+<p>Țineți apăsat butonul PTT pentru a vorbi — dispozitivul de recunoaștere a vorbirii Android (16 kHz, 16 biți) transcrie text în timp real. Limba detectată este trimisă pe un dispozitiv <strong>Argos Traducere</strong> server. Fiecare ascultător primește mesajul tradus în propria localitate selectată și citit cu voce tare de către TTS. Transcrierile parțiale sunt transmise în flux ca indicator de tastare live în timpul înregistrării. Funcționează pe canalul P2P sau independent pe un hotspot.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Detectare automată a limbii</span><span class="tag">Argos Traducere</span><span class="tag">Citire live TTS</span><span class="tag">15 limbi</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">EMISIUNE</span>
+<div class="fc-icon">🚨</div>
+<h3>Ticker și difuzare de urgență</h3>
+<p>Dispatcher difuzează un mesaj la nivelul întregii flote – acesta apare ca o bară de ticker cu lățime completă în partea de sus a fiecărui ecran. Patru niveluri de prioritate: <strong style="color:#dc2626;">Urgență</strong> (roșu intermitent, rată limitată pe expeditor), <strong style="color:#dc2626;">Important</strong> (rosu pe alb), <strong style="color:#16a34a;">Instrucţiuni</strong> (negru pe verde), <strong>Info</strong> (galben pe negru). Mesajele pot declanșa citirea TTS pe telefoanele destinatare. TTL configurabil: 1 minut până la „până la respingere”.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Difuzare la nivelul întregii flote</span><span class="tag">4 niveluri de prioritate</span><span class="tag">Citirea TTS</span><span class="tag">Expira automat</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">EXPEDITOR</span>
+<div class="fc-icon">🗂</div>
+<h3>Tabloul de bord al dispecerului</h3>
+<p>Vizualizarea dispecerului cu trei file: <strong>Șoferii</strong> (poziții live, împingere manifeste, atribuire rute), <strong>Run Sheet</strong> (glisare pentru a reordona opririle multi-drop, starea atingere pentru ciclu, import/export CSV) și <strong>Manifestul de marfă</strong> (Scanare QR se încarcă la depozit, scanare QR POD la livrare). Dispatcherul poate împinge rutele GPX și fișierele de factură direct către șoferii individuali prin canalul peer.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Urmărirea șoferului</span><span class="tag">Împingere manifestă</span><span class="tag">Impingerea traseului</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">MANIFESTA</span>
+<div class="fc-icon">📦</div>
+<h3>Manifestul de marfă</h3>
+<p>Scanați codul QR de depozit pentru a încărca articole în manifest. La livrare, scanați POD QR al clientului pentru a marca livrarea. Gestionarea excepțiilor: livrarea refuzată înregistrează o fotografie și o notă scrisă; safe-drop înregistrează o fotografie a locației de drop; semnătura clientului este capturată pe ecranul tactil. Toate evenimentele sunt marcate cu coordonatele GPS.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Scanare QR de intrare/ieșire</span><span class="tag">Photo POD</span><span class="tag">Semnătura ecranului</span><span class="tag">Marcaje de timp GPS</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">RUN FOAIA</span>
+<div class="fc-icon">🛣</div>
+<h3>Run Sheet</h3>
+<p>Lista de livrare multi-drop cu opriri de glisare pentru reordonare. Atingeți pictograma de stare pentru a parcurge fiecare oprire: În așteptare → Ajuns → Livrat. Atingeți orice adresă pentru a o deschide în aplicația de hartă a telefonului pentru navigare pas cu pas. Import din CSV - compatibil cu antet, compatibil cu Onfleet, Routific, Circuit și exporturi personalizate. Exportați în CSV și partajați prin foaia de partajare a sistemului.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Trageți reordonarea</span><span class="tag">import CSV</span><span class="tag">Compatibil Onfleet / Routific</span><span class="tag">Partajați exportul</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">FACTURI</span>
+<div class="fc-icon">🧾</div>
+<h3>Facturi</h3>
+<p>Creați, imprimați și partajați facturi direct de pe telefon. Office poate împinge o factură pregătită în prealabil din modulul de contabilitate Chameleon PC către șofer prin canalul peer — șoferul o revizuiește, o semnează și o trimite pe loc. Tabloul de bord contabil în funcție de rol: invitat (numai totaluri), operator (tranzacții complete + facturi) și administrator (trimitere MTD + acordări de acces QR).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Push de pe PC</span><span class="tag">Imprimare / PDF</span><span class="tag">În funcție de rol</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">URGENȚĂ</span>
+<div class="fc-icon">📟</div>
+<h3>Mod de urgență — SMS și Peer</h3>
+<p>Fără date? Aplicația revine la un protocol codificat compact. Șofer (<strong>D</strong>), Excursionist (<strong>H</strong>), și Servicii de urgență (<strong>X</strong>) profilurile au o scară de alertă universală. Coordonatele GPS se încorporează automat. Mesajele sunt decodificate și citite cu voce tare de către TTS la primire. A99+H99 este SOS universal - difuzat către toate persoanele de contact și colegii flotei dintr-o singură atingere. Când datele sunt disponibile, cadrele călătoresc pe canalul egal în loc de SMS - selectabil pentru fiecare trimitere: <strong>Numai SMS-uri</strong>, <strong>Numai colegii</strong>, sau <strong>ambele</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 profiluri de utilizator</span><span class="tag">GPS încorporat</span><span class="tag">Decodare TTS</span><span class="tag">METHAN aliniat</span>
+<span class="tag">SMS · Peers · Ambele</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Cod de referință →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">CONTACTE</span>
+<div class="fc-icon">👥</div>
+<h3>Contacte și grupuri</h3>
+<p>Agenda unificată de contacte care combină numerele de telefon SIM, ID-urile de peer Tailscale și grupuri mixte. Creați o <em>Echipa de frontieră</em> grup care conține doi colegi P2P și un număr SIM — atingeți grupul pentru a iniția un apel către toți trei. Istoricul apelurilor cu marcaje de timp. Fotografii cu avatar la fiecare contact. Fiecare membru al flotei setează o fotografie de profil în Setări — aceasta este partajată automat prin canalul de semnal atunci când se conectează, astfel încât fiecare partener vede o fotografie reală în loc de o literă inițială.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + colegi</span><span class="tag">Grupuri mixte</span><span class="tag">Istoricul apelurilor</span><span class="tag">Partajarea avatarului</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">REŢEA</span>
+<div class="fc-icon">📶</div>
+<h3>Rețea flexibilă</h3>
+<p>Conectați prin <strong>Scala de coadă</strong> (la distanță, prin internet) sau direct <strong>LAN / hotspot</strong> — utilă pentru camioanele din convoi sau unde este prevăzută o antenă direcțională cu rază lungă de acțiune (50+ mile pe teren deschis). Descoperirea automată mDNS găsește alte telefoane ale flotei pe același Wi-Fi fără a introduce manual adresele IP.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Scala de coadă</span><span class="tag">LAN / hotspot</span><span class="tag">Descoperirea mDNS</span><span class="tag">Raza de acțiune hotspot de peste 50 de mile</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">FLOTĂ</span>
+<div class="fc-icon">🪟</div>
+<h3>Suprapunere plutitoare</h3>
+<p>Aplicația poate pluti ca o suprapunere persistentă deasupra tuturor celorlalte aplicații - utilă atunci când un șofer trebuie să verifice navigarea în timp ce menține apelul activ într-un colț al ecranului. Apelurile primite de la colegi aduc automat suprapunerea în față cu sonerie + vibrație, asigurându-se că șoferul nu pierde niciodată un apel urgent de la expediere.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Suprapunere mereu deasupra</span><span class="tag">Aducere automată în față</span><span class="tag">Sună + vibra</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">CAMELEON</span>
+<div class="fc-icon">🖥️</div>
+<h3>Integrare Chameleon PC</h3>
+<p>Se conectează la Chameleon AI IDE de pe un computer desktop sau de birou prin WebSocket. Biroul poate împinge rute GPX (cu puncte de referință încorporate analizate automat ca POI), seturi de POI autonome, documente PDF de factură și date manifest către șoferii de pe teren - pe tot canalul de semnal permanent, fără apel video activ. Serverul de semnal Cameleon (<code>chameleon_signal.py</code>) rulează pe PC sau în Termux pe orice telefon din flotă, deci nu este nevoie de cloud relay.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Impingerea traseului</span><span class="tag">APOI împingeți</span><span class="tag">Factura push</span><span class="tag">Fără releu de nor</span><span class="tag">Server de semnal Termux</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 limbi</h2>
+<p>Traducere completă cu interfață de utilizare plus traducere vocală PTT live, alimentată de Argos Translate pe dispozitiv</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 engleză</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 Franceză</span>
+<span class="lang-chip">🇩🇪 Deutsch</span>
+<span class="lang-chip">🇪🇸 Español</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</span>
+<span class="lang-chip">🇧🇷 portugheză</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 poloneză</span>
+<span class="lang-chip">🇷🇴 Română</span>
+<span class="lang-chip">🇻🇳 vietnameză</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Detectare automată a limbii</h4>
+<p>Serviciul PTT detectează automat limba vorbitorului — un șofer vorbitor de limba germană și un dispecer vorbitor de spaniolă pot apăsa și vorbesc liber, fără a selecta o limbă de fiecare dată.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>Traducere pe dispozitiv – fără cloud</h4>
+<p>Traducerile sunt gestionate de un server Argos Translate care rulează local pe telefonul din Termux. Vorbirea și textul nu părăsesc niciodată dispozitivul pentru traducere. Funcționează offline odată ce pachetele lingvistice sunt instalate.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS în limba ascultătorului</h4>
+<p>După traducere, fiecare mesaj este citit cu voce tare în locația receptorului folosind Android TTS — ascultătorul aude mesajul tradus chiar și fără să se uite la ecran, ideal pentru un șofer care ține ochii pe drum.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Modul de urgență — SMS și canal peer</h2>
+<p>Un protocol de cod compact care funcționează prin SMS atunci când datele dispar sau prin canalul peer al flotei când nu este</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Transport dublu — SMS sau canal peer</h4>
+<p>Atunci când nu există date mobile - în adâncul tufișului, la o trecere a frontierei de la distanță sau în timpul unei întreruperi de rețea - Logistics 4×4 trimite cadre de stare codificate prin SMS standard. Când datele <em>este</em> disponibile, aceleași cadre călătoresc peste canalul peer al flotei la viteză maximă. Un selector per trimitere vă permite să alegeți <strong>Numai SMS-uri</strong>, <strong>Numai colegii</strong>, sau <strong>ambele</strong>. SOS se declanșează întotdeauna pe fiecare canal disponibil simultan, indiferent de setare.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Trei profiluri — o limbă comună</h4>
+<p>Codurile sunt organizate în trei profiluri de utilizator care au un vocabular comun de alertă: <strong>D — Șofer</strong> (frontieră, marfă, convoi, combustibil, condiții de drum), <strong>H — Drumător</strong> (vitale, traseu, echipament, program de check-in) și <strong>X — Servicii de urgență</strong> (triaj, tip de incident, resurse la fața locului, starea evacuării). Un SOS de la orice profil este înțeles de toți.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Aliniat la standardele internaționale de urgență</h4>
+<p>Profilul Servicii de urgență utilizează scara internațională de triaj P1-P4 (Imediat / Întârziat / Minor / Așteptător) și categorii de incident aliniate cu cadrul de incident major METHANE utilizat de serviciile comune de urgență din întreaga lume. Un paramedic sau un coordonator SAR care se alătură unei operațiuni între agenții va recunoaște terminologia imediat.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Citire automată la primire</h4>
+<p>Mesajele codificate primite sunt decodificate și citite cu voce tare prin text-to-speech - un șofer care ține ochii pe drum sau un respondent cu mâinile ocupate aude semnificația completă în limba engleză a fiecărui cod, fără a atinge telefonul. Mesajele corupte declanșează o solicitare automată de retrimitere.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Exemple de mesaje codificate</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Șofer — oprire combustibil, întârziere vamă</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Șofer în oprire · Carburant · La coada vamală</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Excursionist - rănire, solicitând ajutor</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + „fractura gleznei nu poate merge”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Rănirea gravă oprită · Nevoie echipa de salvare · Urgent</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Servicii de urgență — RTC, victime P1</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Coliziune rutieră · P1 victime în pericol de viață · 2–5 persoane · Ambulanță la fața locului · Este necesară ambulanță aeriană</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">SOS universal — orice profil</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS cu locație GPS — trimis imediat tuturor persoanelor de contact înregistrate</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Codul câmpului de referință</div>
+<div style="color:var(--muted);font-size:.82rem;">Toate codurile pentru toate profilurile — imprimați și transportați</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">Tabelul complet de coduri pentru profilurile de șofer, drumeți și servicii de urgență. Descărcați ca PDF și păstrați o copie pe telefon, în cabină sau în pachet.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 Vizualizați și descărcați referința codului
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Proiectat în jurul golului</h2>
+<p>Nu este un înlocuitor pentru software-ul de logistică pentru întreprinderi - o soluție pentru unde software-ul pentru întreprinderi nu este</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>Fără factură pentru fiecare loc, pentru fiecare șofer</h4>
+<p>Apelurile peer WebRTC sunt directe de la telefon la telefon, fără server media relee și fără taxă lunară per utilizator. Aplicația rulează pe telefoanele Android standard pe care echipa le deține deja.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Funcționează acolo unde aplicațiile de întreprindere nu</h4>
+<p>Proiectat pentru punctele de trecere a frontierei, terenuri îndepărtate și operațiuni internaționale în care aplicațiile standard de logistică presupun o conexiune de date rapidă și fiabilă. Revine la busola offline și la hărțile stocate în cache atunci când datele dispar.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Telefon Android standard</h4>
+<p>Fără hardware specializat. Fără înscriere MDM. Orice telefon Android 7.0+ (minSdk 24) care rulează APK este un nod complet al flotei. O antenă de hotspot cu rază lungă de acțiune montată pe o cabină a unui camion poate extinde acoperirea P2P la peste 50 de mile în mediul rural deschis.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Foaia de parcurs viitoare</h4>
+<p>Adăugările planificate includ conformitatea completă a tahografului, monitorizarea orelor de serviciu, integrarea tahografului digital DVSA și importul KML/GeoJSON pentru încărcarea în bloc a POI. Fundația este deja construită.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Vă interesează Logistica 4×4?</h3>
+<p>Momentan în testare — contactați-ne pentru a discuta despre un pilot, pentru a solicita o construcție sau pentru a întreba despre acordarea de licențe pentru flota dvs.</p>
+<a class="btn btn-solid" href="../contact.html">Luați legătura</a>
+<a class="btn" href="../companion.html">← Aplicația însoțitoare</a>
+<a class="btn" href="../index.html">← Prezentare generală</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">AI IDE</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../trading.html">Comercial</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Licențiere în așteptare · Construit de Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

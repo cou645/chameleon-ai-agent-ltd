@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>गिरगिट साथी ऐप - एंड्रॉइड</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .channel-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .channel-card .ch-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .ch-p2p  { border-color: #667eea; } .ch-p2p  .ch-badge { background:#ede9fe; color:#4f46e5; }
+    .ch-ide  { border-color: #22c55e; } .ch-ide  .ch-badge { background:#dcfce7; color:#15803d; }
+    .ch-media{ border-color: #f59e0b; } .ch-media .ch-badge { background:#fef3c7; color:#b45309; }
+    .ch-file { border-color: #06b6d4; } .ch-file .ch-badge { background:#cffafe; color:#0e7490; }
+    .ch-acct { border-color: #ec4899; } .ch-acct .ch-badge { background:#fce7f3; color:#be185d; }
+    .ch-vnc  { border-color: #8b5cf6; } .ch-vnc  .ch-badge { background:#ede9fe; color:#6d28d9; }
+    .channel-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .channel-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .channel-card .ch-icon { font-size: 2rem; }
+    .phone-mockup {
+      background: #1a1a2e; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+      border: 3px solid #333;
+    }
+    .phone-screen {
+      background: #0f0f23; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #c8c8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #22c55e; margin-left: auto; }
+    .phone-msg { border-radius: 10px; padding: .5rem .8rem; margin-bottom: .5rem; font-size: .78rem; max-width: 85%; }
+    .msg-ai   { background: rgba(102,126,234,.25); color: #c8c8f0; }
+    .msg-user { background: rgba(34,197,94,.2); color: #d1fae5; margin-left: auto; }
+    .phone-channels {
+      display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .8rem;
+      padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .pch {
+      font-size: .65rem; padding: .2rem .5rem; border-radius: 50px;
+      font-weight: 600; letter-spacing: .04em;
+    }
+    .pch-ide   { background:rgba(34,197,94,.2);  color:#22c55e; }
+    .pch-video { background:rgba(102,126,234,.2); color:#818cf8; }
+    .pch-file  { background:rgba(6,182,212,.2);   color:#06b6d4; }
+    .pch-media { background:rgba(245,158,11,.2);  color:#f59e0b; }
+    .pch-stt   { background:rgba(236,72,153,.2);  color:#ec4899; }
+    .ws-diagram {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg);
+    }
+    .ws-row { display: flex; align-items: center; gap: 1rem; margin-bottom: .8rem; flex-wrap: wrap; }
+    .ws-node {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 8px; padding: .4rem .9rem; font-size: .82rem; color: #c8c8f0;
+      white-space: nowrap;
+    }
+    .ws-arrow { color: #667eea; font-size: 1.1rem; }
+    .ws-label { font-size: .72rem; color: #8888aa; margin-top: -.4rem; padding-left: .2rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ परीक्षण प्रगति पर है - यह साइट सक्रिय विकास के अधीन है। सुविधाएँ, मूल्य निर्धारण और लाइसेंसिंग को अंतिम रूप नहीं दिया गया है।
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0939u094bu092e</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a class="active" href="../companion.html">सहयोगी ऐप</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../companion.html">🌐 EN — English</a><a href="../ar/companion.html">🇸🇦 AR — العربية</a><a href="../cy/companion.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/companion.html">🇩🇪 DE — Deutsch</a><a href="../es/companion.html">🇪🇸 ES — Español</a><a href="../fr/companion.html">🇫🇷 FR — Français</a><a href="../it/companion.html">🇮🇹 IT — Italiano</a><a href="../ja/companion.html">🇯🇵 JA — 日本語</a><a href="../ko/companion.html">🇰🇷 KO — 한국어</a><a href="../pt/companion.html">🇵🇹 PT — Português</a><a href="../ru/companion.html">🇷🇺 RU — Русский</a><a href="../zh/companion.html">🇨🇳 ZH — 中文</a><a href="../el/companion.html">🇬🇷 EL — Ελληνικά</a><a href="../id/companion.html">🇮🇩 ID — Indonesia</a><a href="../pl/companion.html">🇵🇱 PL — Polski</a><a href="../ro/companion.html">🇷🇴 RO — Română</a><a href="../sw/companion.html">🇰🇪 SW — Kiswahili</a><a href="../uk/companion.html">🇺🇦 UK — Українська</a><a href="../vi/companion.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📱</div>
+<h1>गिरगिट साथी ऐप</h1>
+<p class="sub">आपका एंड्रॉइड फोन डेस्कटॉप के लिए एक मल्टी-चैनल ब्रिज बन जाता है - एआई चैट रिले, 4+ प्रतिभागियों के लिए ग्रुप पी2पी वीडियो, सिम कॉल ब्रिजिंग, रिमोट कंट्रोल, फ़ाइल एक्सेस, मीडिया स्ट्रीमिंग और अकाउंटिंग - आपके सभी निजी टेलस्केल जाल पर।</p>
+<div class="hero-badges">
+<span class="badge">🤖 एसटीटी/टीटीएस के माध्यम से एआई चैट</span>
+<span class="badge">📹 ग्रुप पी2पी वीडियो (4+)</span>
+<span class="badge">📞 सिम कॉल ब्रिज</span>
+<span class="badge">🎭 प्रस्तुतकर्ता रिमोट</span>
+<span class="badge">🌐 टेलस्केल-सुरक्षित</span>
+<span class="badge">🖥️ स्क्रीन/वीएनसी</span>
+</div>
+</div>
+<div class="page">
+<!-- Phone mockup + channel diagram side by side -->
+<div class="split" style="align-items:flex-start;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🦎</div>
+<span>Chameleon u0938u0939u093eu092fu0915</span>
+<div class="phone-status">● जुड़ा हुआ</div>
+</div>
+<div class="phone-msg msg-ai">मैं आपकी कैसे मदद कर सकता हूँ? मैं आपकी आईडीई, फ़ाइलें और प्रस्तुतकर्ता देख सकता हूँ।</div>
+<div class="phone-msg msg-user">मुझे टर्मिनल में अंतिम त्रुटि दिखाएँ।</div>
+<div class="phone-msg msg-ai">यह मिला - पंक्ति 47, NameError: 'config' परिभाषित नहीं है। क्या आप चाहते हैं कि मैं इसे ठीक कर दूं?</div>
+<div class="phone-msg msg-user">हां, सुधार लागू करें.</div>
+<div class="phone-msg msg-ai">हो गया। फ़ाइल सहेजी गई. टर्मिनल निकास 0 दिखाता है।</div>
+<div class="phone-channels">
+<span class="pch pch-ide">आईडीई</span>
+<span class="pch pch-video">पी2पी वीडियो</span>
+<span class="pch pch-file">u092bu093cu093eu0907u0932u0947u0902</span>
+<span class="pch pch-media">u092eu0940u0921u093fu092fu093e</span>
+<span class="pch pch-stt">एसटीटी/टीटीएस</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>मल्टी-चैनल वास्तुकला</h2>
+<p>एक वेबसॉकेट ब्रिज, पांच स्वतंत्र संचार लेन</p>
+</div>
+<div class="ws-diagram">
+<div class="ws-row">
+<div class="ws-node">📱एंड्रॉइड ऐप</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">टेलस्केल जाल</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">🖥️ डेस्कटॉप</div>
+</div>
+<div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">आईडीई चैनल</div><div class="ws-label">एआई चैट · कमांड · स्क्रीनशॉट · फ़ाइल अपलोड</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">पी2पी वीडियो</div><div class="ws-label">वेबआरटीसी एसडीपी/आईसीई रिले · कम विलंबता ए/वी</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">फ़ाइल ब्राउज़र</div><div class="ws-label">डेस्कटॉप पर फ़ाइलें पढ़ें · लिखें · संपादित करें</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">मीडिया धारा</div><div class="ws-label">NAS / DLNA · फ़ोन पर कास्ट करें</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">स्क्रीन शेयर</div><div class="ws-label">वीएनसी/आरडीपी-शैली डेस्कटॉप दर्पण</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>संचार चैनल</h2>
+<p>प्रत्येक चैनल स्वतंत्र है - एक या सभी का एक साथ उपयोग करें</p>
+</div>
+<div class="channel-grid">
+<div class="channel-card ch-ide">
+<span class="ch-badge">चैनल 1</span>
+<div class="ch-icon">🧠</div>
+<h3>आईडीई एआई चैनल</h3>
+<p>डेस्कटॉप एआई के लिए पूर्ण दो-तरफा ब्रिज। अपने फ़ोन से संकेत भेजें, स्ट्रीम की गई प्रतिक्रियाएँ प्राप्त करें। एआई फाइलें पढ़ सकता है, टर्मिनल कमांड चला सकता है और कोड संपादन लागू कर सकता है - यह सब आपकी जेब से शुरू होता है। संदर्भ के रूप में सीधे अपने कैमरा रोल से स्क्रीनशॉट या फ़ोटो संलग्न करें।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">एआई स्ट्रीमिंग</span><span class="tag">फ़ाइल अपलोड करें</span><span class="tag">स्क्रीनशॉट</span>
+</div>
+</div>
+<div class="channel-card ch-p2p">
+<span class="ch-badge">चैनल 2</span>
+<div class="ch-icon">📹</div>
+<h3>समूह पी2पी वीडियो और आवाज</h3>
+<p>4 या अधिक के समूहों के लिए फुल-मेश वेबआरटीसी वीडियो और ऑडियो - कोई केंद्रीय मीडिया सर्वर नहीं, कोई मासिक बिल नहीं। नल <strong>समूह वीडियो</strong> सभी ऑनलाइन साथियों को एक साथ कॉल करने के लिए। प्रतिभागियों के शामिल होने पर ग्रिड स्वचालित रूप से अनुकूलित हो जाता है: 1 = पूर्ण स्क्रीन, 2 = अगल-बगल, 3 = 2+1, 4 = 2×2, 5+ = स्क्रॉल करने योग्य ऑटो-फिट ग्रिड। आपका स्थानीय फ़ीड चित्र-में-चित्र के रूप में तैरता है। किसी भी समूह के आकार में गुणवत्ता को संतुलित रखने के लिए प्रति सहकर्मी बिटरेट को कम किया जाता है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC फुल-मेश</span><span class="tag">अनुकूली ग्रिड</span><span class="tag">पीआईपी स्थानीय फ़ीड</span><span class="tag">टर्मक्स सिग्नल सर्वर</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
+<span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">सिम ब्रिज</span>
+<div class="ch-icon">📞</div>
+<h3>सिम कॉल ब्रिज</h3>
+<p>क्या आप पहले से ही सेल्युलर कॉल पर हैं और एक पी2पी सहकर्मी लाना चाहते हैं? नल <strong>कॉल समूह में जोड़ें</strong> - ऐप सिम कॉल के साथ-साथ एंड्रॉइड के टेलीकॉम स्टैक के साथ WebRTC कॉल को पंजीकृत करता है। एंड्रॉइड एक मूल "मर्ज कॉल" विकल्प प्रस्तुत करता है; इसे स्वीकार करते हुए ऑडियो मिक्सिंग को टेलीफोनी हार्डवेयर में सौंप दिया जाता है। मर्ज की गई कॉल इसमें चलती है <strong>केवल इयरपीस</strong> - पूरी तरह से निजी, कोई स्पीकरफ़ोन नहीं, कमरे में कोई भी नहीं सुनता। जब हार्डवेयर कॉन्फ़्रेंस वाहक द्वारा समर्थित नहीं है, तो ब्लूटूथ हेडसेट ब्रिज इसके बजाय बीटी एससीओ लिंक के माध्यम से सभी ऑडियो को रूट करता है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">हार्डवेयर सम्मेलन</span><span class="tag">बीटी एससीओ फ़ॉलबैक</span><span class="tag">केवल इयरपीस</span><span class="tag">कनेक्शन सेवा</span>
+</div>
+</div>
+<div class="channel-card ch-ide" style="border-color:#764ba2;">
+<span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">चैनल 3</span>
+<div class="ch-icon">🎭</div>
+<h3>कैमेलियन प्रस्तुतकर्ता रिमोट</h3>
+<p>अपने फ़ोन से संपूर्ण कैमेलियन चरण को नियंत्रित करें। स्लाइड को आगे बढ़ाएं, संकेतों को ट्रिगर करें, छवियों या टेक्स्ट को सीधे स्टेज स्टैक में पुश करें, साथियों के सबमिशन को स्वीकृत या अस्वीकार करें और सहयोगी ड्राइंग बोर्ड को नियंत्रित करें - यह सब डेस्कटॉप कीबोर्ड को छुए बिना।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">स्टैक_नेक्स्ट/पिछला</span><span class="tag">पुश_स्लॉट</span><span class="tag">स्टैक_अप्रूव</span><span class="tag">ड्रा_स्ट्रोक</span>
+</div>
+</div>
+<div class="channel-card ch-vnc">
+<span class="ch-badge">चैनल 4</span>
+<div class="ch-icon">🖥️</div>
+<h3>स्क्रीन मिरर (वीएनसी/आरडीपी-शैली)</h3>
+<p>फ़ोन से अपनी डेस्कटॉप स्क्रीन देखें और इंटरैक्ट करें। टेलस्केल जाल पर हल्के स्क्रीन-कैप्चर स्ट्रीम के रूप में कार्यान्वित किया गया - किसी तीसरे पक्ष के वीएनसी सर्वर की आवश्यकता नहीं है। क्लिक करने के लिए टैप करें, स्क्रॉल करने के लिए स्वाइप करें। चल रही प्रक्रियाओं की निगरानी करने या दूर से एआई कार्यों को मंजूरी देने के लिए उपयोगी।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">स्क्रीन कैप्चर</span><span class="tag">क्लिक करने के लिए दबाएं</span><span class="tag">केवल टेलस्केल</span>
+</div>
+</div>
+<div class="channel-card ch-file">
+<span class="ch-badge">चैनल 5</span>
+<div class="ch-icon">📂</div>
+<h3>रिमोट फ़ाइल ब्राउज़र और संपादक</h3>
+<p>फ़ोन से अपना डेस्कटॉप फ़ाइल सिस्टम ब्राउज़ करें। टेक्स्ट फ़ाइलें खोलें, पढ़ें और संपादित करें। फ़ोन कैमरे या स्टोरेज से सीधे प्रोजेक्ट फ़ोल्डर में फ़ाइलें अपलोड करें। स्थानांतरण के तुरंत बाद अपलोड की गई फ़ाइल को संसाधित करने के लिए आईडीई एआई से पूछें - उदाहरण के लिए "इस छवि को प्रस्तुतकर्ता चरण में जोड़ें"।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">ब्राउज़</span><span class="tag">संपादन करना</span><span class="tag">कैमरे से अपलोड करें</span>
+</div>
+</div>
+<div class="channel-card ch-media">
+<span class="ch-badge">चैनल 6</span>
+<div class="ch-icon">🎵</div>
+<h3>मीडिया स्ट्रीमिंग (एनएएस/डीएलएनए)</h3>
+<p>अपने होम नेटवर्क पर NAS या DLNA सर्वर से टेलस्केल पर फ़ोन पर संगीत और वीडियो स्ट्रीम करें। मीडिया लाइब्रेरी ब्राउज़ करें, ट्रैक कतारबद्ध करें और प्लेबैक नियंत्रित करें - डेस्कटॉप आपके स्थानीय मीडिया सर्वर और फोन के बीच एक पुल के रूप में कार्य करता है, जहां भी आप टेलनेट पर हैं।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">डीएलएनए</span><span class="tag">नैस</span><span class="tag">टेलस्केल ब्रिज</span>
+</div>
+</div>
+<div class="channel-card ch-acct">
+<span class="ch-badge">चैनल 7</span>
+<div class="ch-icon">🧾</div>
+<h3>लेखांकन - रसीद कैप्चर</h3>
+<p>अपने फोन पर रसीद की तस्वीर लें और इसे सीधे अकाउंटिंग मॉड्यूल पर भेजें। आईडीई एआई छवि को पढ़ता है, राशि, तिथि, आपूर्तिकर्ता और वैट निकालता है, और डबल-एंट्री लेजर में एक ड्राफ्ट जर्नल प्रविष्टि लॉग करता है - जो आपके डेस्कटॉप पर समीक्षा और पोस्ट करने के लिए तैयार है।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">रसीद ओसीआर</span><span class="tag">मसौदा पत्रिका</span><span class="tag">वैट निकासी</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#ec4899;">
+<span class="ch-badge" style="background:#fce7f3;color:#be185d;">चैनल 8</span>
+<div class="ch-icon">🗣️</div>
+<h3>वॉयस एआई - फोन एसटीटी और टीटीएस</h3>
+<p>ऑन-डिवाइस स्पीच-टू-टेक्स्ट का उपयोग करके अपने फोन से आईडीई एआई से बात करें। एआई प्रतिक्रिया को वापस स्ट्रीम किया जाता है और टेक्स्ट-टू-स्पीच के माध्यम से जोर से पढ़ा जाता है। जब आपका डेस्कटॉप बिना निगरानी के चल रहा हो तो हैंड्स-फ़्री कोडिंग सहायता - समाधान बताएं, परिणाम सुनें, फ़ोन से पुष्टि करें।</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">ऑन-डिवाइस एसटीटी</span><span class="tag">टीटीएस प्लेबैक</span><span class="tag">हस्तमुक्त</span>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>यह कैसे जुड़ता है</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>टेलस्केल-सुरक्षित जाल</h4>
+<p>सभी चैनल आपके निजी टेलस्केल नेटवर्क पर चलते हैं। सार्वजनिक इंटरनेट के लिए कोई पोर्ट नहीं खोला गया है। फ़ोन आपके टेलनेट पर अधिकृत होना चाहिए - बाकी सब कुछ वायरगार्ड के साथ एंड-टू-एंड एन्क्रिप्टेड है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔌</div>
+<div class="strip-body">
+<h4>सिंगल वेबसॉकेट ब्रिज</h4>
+<p>डेस्कटॉप चलता है <code>chameleon_mobile_bridge.py</code> Qt प्रक्रिया के अंदर एक डेमॉन थ्रेड के रूप में। फ़ोन ऐप टेलस्केल आईपी पर पोर्ट 8770 से कनेक्ट होता है। एक सतत कनेक्शन सभी चैनलों को टाइप किए गए JSON संदेशों के रूप में ले जाता है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>एंड्रॉइड पर टर्मक्स</h4>
+<p>सिग्नल सर्वर (<code>chameleon_signal.py</code>) टर्मक्स के माध्यम से सीधे एंड्रॉइड फोन पर चल सकता है - जिससे फोन क्लाइंट और सिग्नलिंग नोड दोनों बन जाता है। आपके टेलनेट के भीतर WebRTC पीयर कनेक्शन के लिए किसी क्लाउड रिले की आवश्यकता नहीं है।</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📶</div>
+<div class="strip-body">
+<h4>लैन फ़ॉलबैक</h4>
+<p>जब टेलस्केल अनुपलब्ध हो, <code>lan_video.py</code> यूडीपी (पोर्ट 47732) पर वीडियो और यूडीपी (पोर्ट 47733) पर ऑडियो सीधे स्थानीय नेटवर्क पर स्ट्रीम करता है - समान चैनल, कोई वीपीएन ओवरहेड नहीं।</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>कंपेनियन ऐप में रुचि है?</h3>
+<p>वर्तमान में परीक्षण में - रुचि दर्ज करने या डेमो का अनुरोध करने के लिए हमसे संपर्क करें।</p>
+<a class="btn btn-solid" href="../contact.html">संपर्क में रहो</a>
+<a class="btn" href="../index.html">← सिंहावलोकन पर वापस जाएँ</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0939u094bu092e</a><a href="../ide.html">आपके पास विचार हैं</a><a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">सहयोगी ऐप</a><a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../services.html">वेब सेवाएं</a><a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a><a href="../trading.html">व्यापार</a>
+<a href="../classroom.html">u0915u0915u094du0937u093e</a><a href="../contact.html">संपर्क</a>
+</div>
+<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · लाइसेंसिंग लंबित · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

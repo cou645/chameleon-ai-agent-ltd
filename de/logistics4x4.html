@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logistik 4×4 – Grenzüberschreitende Flottenkommunikation</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ TESTEN LÄUFT – Diese Website befindet sich in der aktiven Entwicklung. Funktionen, Preise und Lizenzierung stehen noch nicht fest.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Start</a>
+<a href="../ide.html">SIE HABEN IDEEN</a>
+<a href="../presenter.html">Moderator</a>
+<a href="../companion.html">Begleit-App</a>
+<a class="active" href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../accounting.html">Buchhaltung</a>
+<a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a>
+<a href="../classroom.html">Unterricht</a>
+<a href="../contact.html">Kontakt</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Logistik 4×4</h1>
+<p class="sub">Grenzüberschreitende Flottenkommunikation für kleine Betreiber. Vier SIM-Anrufer und vier P2P-Video-Peers teilen sich einen einzigen Anrufbereich – Fahrer an der Grenze, Zentrale, Zoll, Kunde – alle gleichzeitig im Raum. Live-Karten, GPX-Routen, Frachtmanifeste, übersetzter Voice-Chat und Notfallmeldungen, alles auf einem Standard-Android-Telefon.</p>
+<div class="hero-badges">
+<span class="badge">📹 4 Videokollegen</span>
+<span class="badge">📞 4 SIM-Anrufer</span>
+<span class="badge">🗺 Live-Karten + GPX</span>
+<span class="badge">📍 POI-Ebene</span>
+<span class="badge">🧭 Offline-Kompass</span>
+<span class="badge">🌍 15 Sprachen</span>
+<span class="badge">📋 Manifest + Laufblatt</span>
+<span class="badge">🚨 Notfallübertragung</span>
+<span class="badge">📟 Notfallmodus – SMS und Peer</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Logistik 4×4</span>
+<div class="phone-status">● Flotte online</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Überqueren Sie Wegpunkt 3 – bleiben Sie auf der B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: „Zoll abgefertigt, weiter zu Gate 7“</div>
+<div class="p-chat p-chat-out">Unterwegs – voraussichtliche Ankunftszeit 14 Min</div>
+<div class="p-chat p-chat-in">Kunde auf SIM – jetzt verbinden…</div>
+<div class="p-chat p-chat-out">📍Standort mit der Flotte geteilt</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Versand</span>
+<span class="p-peer p-peer-on">🎥 Fahrer B</span>
+<span class="p-peer p-peer-sim">📞 Zoll</span>
+<span class="p-peer p-peer-sim">📞 Kunde</span>
+<span class="p-peer p-peer-map">🗺 Karte</span>
+<span class="p-peer p-peer-map">🧭 Kompass</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Der 4×4-Anrufraum</h2>
+<p>SIM-Telefonanrufe und P2P-Video teilen sich einen verbundenen Raum</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">Ein Anrufbereich – acht Teilnehmer</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 4 SIM-Anrufer</h4>
+<ul>
+<li>Standard-Mobilfunkstimme</li>
+<li>Kein Internet erforderlich</li>
+<li>Zollbeamte</li>
+<li>Kunde im Ausland</li>
+<li>Festnetzanschluss der Zentrale</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4 P2P-Video-Peers</h4>
+<ul>
+<li>WebRTC – keine Serverrechnung</li>
+<li>Vollständiges Mesh-Video + Audio</li>
+<li>Fahrer zu Fahrer</li>
+<li>Versandkontrolleur</li>
+<li>Remote-Teammitglied</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Audio von SIM-Anrufen wird über den Telekommunikations-Stack von Android oder Bluetooth SCO hardwaremäßig in den Gruppenanruf eingebunden – nur Ohrhörer, privat.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistics 4×4 zielt nicht darauf ab, eine professionelle proprietäre Logistikplattform zu ersetzen, wie sie von großen Kuriernetzwerken verwendet wird. Es füllt die Lücke für <strong>kleine Betreiber</strong>, Einzelunternehmer und Situationen, die ein Tool für Großunternehmen nicht erreichen kann – ein Fahrer an einem abgelegenen Grenzübergang, der sofort mit der Zentrale verbunden werden muss, ein zweiter Fahrer drei Meilen zurück, der Zollinspektor in der Kabine und der Kunde in einem anderen Land, der sich nur per Telefon einwählen kann.
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Für wen es ist</h2>
+<p>Entwickelt für anspruchsvolle Feldkommunikation mit geringer Infrastruktur</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Grenzübergang</h4>
+<p>Der Fahrer verbindet den Zollbeamten (SIM-Anruf), die Zentrale (Video), den empfangenden Kunden (SIM-Anruf) und einen zweiten Fahrer im Konvoi (Video) – alles gleichzeitig, mit live übersetztem Chat, der für alle sichtbar ist.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Langstreckenkonvoi</h4>
+<p>LKWs, die über 50 Meilen verteilt sind, bleiben in einem gemeinsamen Anruf mit Push-to-Talk, Standortfreigabe auf derselben Live-Karte und Dispatcher-Routen-Pushs, die als direkt in die Karte geladene GPX-Dateien eintreffen.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Offroad / Trekking</h4>
+<p>Kein Datensignal? Der Offline-Kompass zeigt jedem anderen Flottenmitglied Peilpfeile an. POI-Pins markieren Tankstopps, Gefahrenstellen und Treffpunkte – eingebettet in eine gepushte GPX-Datei oder von jedem Fahrer auf der Karte abgelegt. Langstrecken-Hotspot-Verbindungen zwischen LKWs mit Richtantennen können eine Reichweite von über 50 Meilen erreichen.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Mehrsprachige Teams</h4>
+<p>Push-to-Talk transkribiert Gesprochenes, erkennt die Sprache des Sprechers, übersetzt und liefert Text und Audio im jeweiligen Gebietsschema jedes Zuhörers – 15 Sprachen, unterstützt von einem lokalen Argos Translate-Server auf dem Telefon.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Zustellnachweis</h4>
+<p>Der Fahrer scannt den QR-Code des Depots, um das Manifest zu laden, und scannt dann den POD-QR des Kunden bei der Lieferung. Lieferung verweigert? Machen Sie ein Foto und eine schriftliche Ausnahmenotiz. Auf dem Bildschirm erfasste Kundenunterschrift.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Abfertigungsstelle</h4>
+<p>Der Dispatcher-Bildschirm zeigt alle Fahrer auf der Live-Karte an, führt das Laufblatt aus, sendet Manifeste und Routen über den Peer-Kanal an einzelne Fahrer und sendet flottenweite Notfallwarnungen.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Live-Karte, POIs und Kompass</h2>
+<p>OSM-, Satelliten- und Hybridebenen – Peer-Standorte, GPX-Routen, Points of Interest und Offline-Kachel-Cache</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Straße</span>
+<span class="map-tag mt-sat">Satellit</span>
+<span class="map-tag mt-hybrid">Hybrid</span>
+<span class="map-tag mt-gpx">GPX-Route</span>
+<span class="map-tag mt-poi">POI-Ebenen</span>
+<span class="map-tag mt-offline">Offline-Cache</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">OpenStreetMap-Kacheln</span>
+<span class="tag">Esri-Weltbilder</span>
+<span class="tag">2,5D-Gebäude</span>
+<span class="tag">OSRM-Routing</span>
+<span class="tag">Nämlich Ortssuche</span>
+<span class="tag">Festplattenkachel-Cache</span>
+<span class="tag">POI-Ebenen</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Routenwegpunkte</span>
+<span class="poi-dot poi-push">📍 IDE-gepusht</span>
+<span class="poi-dot poi-manual">📍 Vom Fahrer abgesetzt</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Drei Kartenebenen</h4>
+<p>Wechseln Sie zwischen <strong>Straße</strong> (OpenStreetMap), <strong>Satellit</strong> (Esri World Imagery) und <strong>Hybrid</strong> (Satellitenbasis + OSM-Straßen-Overlay) mit einem einzigen Tastendruck. Alle Kacheln werden auf der Festplatte zwischengespeichert – zuvor angezeigte Bereiche werden offline ohne Daten geladen.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Peer-Standorte auf der Karte</h4>
+<p>Jedes Flottenmitglied, das die Standortfreigabe aktiviert, wird als Live-Pin angezeigt. Tippen Sie auf eine Stecknadel, um ihren Namen und ihre voraussichtliche Ankunftszeit anzuzeigen. Der Disponent kann die gesamte Flotte auf einen Blick sehen, ohne dass eine separate Tracking-Plattform erforderlich ist.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>GPX-Routen-Push</h4>
+<p>Büro drängt a <code>.gpx</code> Leiten Sie die Datei vom Chameleon-PC über den Peer-Kanal direkt an das Telefon eines Fahrers weiter. Die Route wird sofort als farbiges Overlay in die Karte geladen. Aktuelle Routen werden zur Wiederverwendung lokal gespeichert. Unterstützt die Koordinatenversatzkorrektur GCJ-02 für China.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Kompassfestlegung oder Nordausrichtung</h4>
+<p>Die Karte dreht sich live mit dem Gerätekompass für eine vorausschauende Fahrorientierung oder wird für die herkömmliche Kartenlesung nach Norden ausgerichtet – schalten Sie die Einstellungen je nach Fahrerpräferenz ein.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Kompassbildschirm – Offline-Peer-Navigation</h4>
+<p>Keine Daten? Die Kompassrose im Vollbildmodus zeigt einen Peilungspfeil für jeden Online-Peer, der das zuletzt bekannte GPS verwendet. Peer-Entfernungen und Kompasskurse werden von zwischengespeicherten Standorten aktualisiert – nützlich für Wanderer, die Navigation in Konvois im Gelände und die Koordinierung der Bergrettung.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>POI-Ebene (Points of Interest).</h4>
+<p>Drei POI-Quellen werden als farbcodierte Pins auf der Karte angezeigt. <strong style="color:#f59e0b;">Bernstein</strong> Stifte kommen von <code>&lt;wpt&gt;</code> Wegpunkte, die in eine GPX-Datei eingebettet sind – sie werden mit der Route geladen und mit ihr gelöscht. <strong style="color:#22c55e;">Grün</strong> Pins werden unabhängig von der Route direkt aus der Chameleon PC IDE (Tankstopps, Gefahren, Lieferadressen) geschoben. <strong style="color:#ef4444;">Rot</strong> Pins werden vom Fahrer durch langes Drücken auf die Karte abgelegt. Alle POIs bleiben sitzungsübergreifend bestehen; Tippen Sie auf eine beliebige Stecknadel, um zu navigieren, sie in Karten zu öffnen oder zu löschen. Symbole passen sich dem Typ an: ⛽ Kraftstoff, 🚚 Lieferung, ⚠️ Gefahr, 🏥 Krankenhaus, 🅿️ Parken, ✈️ Flughafen und mehr.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Alle Funktionen</h2>
+<p>Jeder Bildschirm und Dienst in der App</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">GLEICHALTRIGE</span>
+<div class="fc-icon">📹</div>
+<h3>Gruppen-P2P-Video</h3>
+<p>Full-Mesh-WebRTC-Video und -Audio für bis zu 4+ Peers – kein zentraler Medienserver, keine monatliche Anrufrechnung. Adaptives Raster: 1 Peer = Vollbild, 2 = nebeneinander, 3 = 2+1, 4 = 2×2. Lokaler Feed wird als Bild-im-Bild angezeigt. Die Bitrate skaliert pro Peer (1,5 Mbit/s → 350 Kbit/s), um die Qualität auch bei jeder Gruppengröße aufrechtzuerhalten. Eingehende Anrufe klingeln und vibrieren, auch wenn die App im Hintergrund läuft.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC-Full-Mesh</span><span class="tag">Adaptives Gitter</span><span class="tag">PiP lokal</span><span class="tag">Klingeln + vibrieren</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">SIM-BRÜCKE</span>
+<div class="fc-icon">📞</div>
+<h3>SIM-Anrufbrücke</h3>
+<p>Sie führen einen Mobilfunkanruf und möchten einen P2P-Partner hinzuziehen? Klopfen <strong>Zur Gruppe hinzufügen</strong> – Der Telekommunikations-Stack von Android registriert die WebRTC-Sitzung neben dem SIM-Anruf und bietet eine native Option „Anrufe zusammenführen“. Die Audiomischung erfolgt im Telefonchip – <strong>Nur Ohrhörer</strong>, völlig privat. Wenn das Gerät oder der Mobilfunkanbieter keine Hardwarekonferenz unterstützt, wird das Bluetooth SCO-Headset-Routing als Fallback verwendet.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Hardware-Konferenz</span><span class="tag">BT SCO-Fallback</span><span class="tag">Nur Ohrhörer</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">KOMM</span>
+<div class="fc-icon">🗣️</div>
+<h3>Push-to-Talk + Live-Übersetzung</h3>
+<p>Halten Sie die PTT-Taste gedrückt, um zu sprechen – die Spracherkennung von Android (16 kHz, 16 Bit) transkribiert Text in Echtzeit. Die erkannte Sprache wird an ein Gerät gesendet <strong>Argos Translate</strong> Server. Jeder Zuhörer erhält die Nachricht, übersetzt in sein eigenes ausgewähltes Gebietsschema und vorgelesen von TTS. Teiltranskriptionen werden während der Aufnahme als Live-Tippindikator gestreamt. Funktioniert über den P2P-Kanal oder eigenständig über einen Hotspot.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Automatische Spracherkennung</span><span class="tag">Argos Translate</span><span class="tag">Live-TTS-Auslesung</span><span class="tag">15 Sprachen</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">ÜBERTRAGEN</span>
+<div class="fc-icon">🚨</div>
+<h3>Ticker und Notfallübertragung</h3>
+<p>Der Dispatcher sendet eine Nachricht flottenweit – sie erscheint als Tickerleiste in voller Breite oben auf jedem Bildschirm. Vier Prioritätsstufen: <strong style="color:#dc2626;">Notfall</strong> (rot blinkend, Rate pro Absender begrenzt), <strong style="color:#dc2626;">Wichtig</strong> (rot auf weiß), <strong style="color:#16a34a;">Anweisungen</strong> (schwarz auf grün), <strong>Info</strong> (Gelb auf Schwarz). Nachrichten können die TTS-Auslesung auf den Telefonen der Empfänger auslösen. Konfigurierbare TTL: 1 Minute bis „bis zur Entlassung“.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Flottenweite Übertragung</span><span class="tag">4 Prioritätsstufen</span><span class="tag">TTS-Anzeige</span><span class="tag">Automatisches Ablaufen</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">DISPATCHER</span>
+<div class="fc-icon">🗂</div>
+<h3>Disponenten-Dashboard</h3>
+<p>Dispatcher-Ansicht mit drei Registerkarten: <strong>Treiber</strong> (Live-Positionen, Push-Manifeste, Routen zuweisen), <strong>Laufblatt</strong> (Drag-to-Reorder-Multi-Drop-Stopps, Tap-to-Cycle-Status, CSV-Import/Export) und <strong>Frachtmanifest</strong> (QR-Scan beim Laden im Depot, POD-QR-Scan bei der Lieferung). Der Disponent kann GPX-Routen und Rechnungsdateien über den Peer-Kanal direkt an einzelne Fahrer weiterleiten.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Fahrerverfolgung</span><span class="tag">Manifester Push</span><span class="tag">Routenschub</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">MANIFEST</span>
+<div class="fc-icon">📦</div>
+<h3>Frachtmanifest</h3>
+<p>Scannen Sie den Depot-QR-Code, um Artikel in das Manifest zu laden. Scannen Sie bei der Lieferung den POD-QR des Kunden, um ihn als geliefert zu markieren. Ausnahmebehandlung: Verweigerte Lieferung protokolliert ein Foto und eine schriftliche Notiz; Safe-Drop zeichnet ein Foto des Abwurforts auf; Die Unterschrift des Kunden wird auf dem Touchscreen erfasst. Alle Ereignisse sind mit einem Zeitstempel mit GPS-Koordinaten versehen.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">QR-Scan ein-/ausscannen</span><span class="tag">Foto-POD</span><span class="tag">Bildschirmsignatur</span><span class="tag">GPS-Zeitstempel</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">LAUFBLATT</span>
+<div class="fc-icon">🛣</div>
+<h3>Laufblatt</h3>
+<p>Multi-Drop-Lieferliste mit Drag-to-Reorder-Stopps. Tippen Sie auf das Statussymbol, um die einzelnen Stopps zu durchlaufen: Ausstehend → Angekommen → Geliefert. Tippen Sie auf eine beliebige Adresse, um sie in der Karten-App des Telefons für die Turn-by-Turn-Navigation zu öffnen. Import aus CSV – Header-fähig, kompatibel mit Onfleet, Routific, Circuit und benutzerdefinierten Exporten. Als CSV exportieren und über das Systemfreigabeblatt teilen.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Neu anordnen per Drag-and-Drop</span><span class="tag">CSV-Import</span><span class="tag">Onfleet/Routific-kompatibel</span><span class="tag">Export teilen</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">RECHNUNGEN</span>
+<div class="fc-icon">🧾</div>
+<h3>Rechnungen</h3>
+<p>Erstellen, drucken und teilen Sie Rechnungen direkt vom Telefon aus. Office kann eine vorgefertigte Rechnung vom Chameleon PC-Buchhaltungsmodul über den Peer-Kanal an den Fahrer weiterleiten – der Fahrer überprüft, unterschreibt und sendet sie sofort. Rollengesteuertes Buchhaltungs-Dashboard: Gast (nur Gesamtsummen), Operator (vollständige Transaktionen + Rechnungen) und Administrator (MTD-Einreichung + QR-Zugriffsgewährung).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Push vom PC</span><span class="tag">Drucken / PDF</span><span class="tag">Rollenbegrenzt</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">NOTFALL</span>
+<div class="fc-icon">📟</div>
+<h3>Notfallmodus – SMS und Peer</h3>
+<p>Keine Daten? Die App greift auf ein kompaktes codiertes Protokoll zurück. Fahrer (<strong>D</strong>), Wanderer (<strong>H</strong>) und Notdienste (<strong>X</strong>)-Profile haben eine universelle Alarmskala gemeinsam. GPS-Koordinaten werden automatisch eingebettet. Nachrichten werden beim Empfang von TTS dekodiert und vorgelesen. A99+H99 ist das universelle SOS – es wird mit einem Tastendruck an alle Kontakte und Flottenkollegen gesendet. Wenn Daten verfügbar sind, werden Frames über den Peer-Kanal statt über SMS übertragen – wählbar pro Versand: <strong>Nur SMS</strong>, <strong>Nur Gleichgesinnte</strong>, oder <strong>Beide</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 Benutzerprofile</span><span class="tag">GPS eingebettet</span><span class="tag">TTS-Dekodierung</span><span class="tag">METHAN ausgerichtet</span>
+<span class="tag">SMS · Kollegen · Beide</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Code-Referenz →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">KONTAKTE</span>
+<div class="fc-icon">👥</div>
+<h3>Kontakte und Gruppen</h3>
+<p>Einheitliches Kontaktbuch, das SIM-Telefonnummern, Tailscale-Peer-IDs und gemischte Gruppen kombiniert. Erstellen Sie eine <em>Grenzteam</em> Gruppe mit zwei P2P-Peers und einer SIM-Nummer – tippen Sie auf die Gruppe, um einen Anruf an alle drei zu starten. Anrufverlauf mit Zeitstempeln. Avatar-Fotos pro Kontakt. Jedes Flottenmitglied legt in den Einstellungen ein Profilfoto fest – es wird automatisch über den Signalkanal geteilt, wenn es eine Verbindung herstellt, sodass jeder Peer ein echtes Foto anstelle eines Anfangsbuchstabens sieht.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + Peers</span><span class="tag">Gemischte Gruppen</span><span class="tag">Anrufverlauf</span><span class="tag">Teilen von Avataren</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">NETZWERK</span>
+<div class="fc-icon">📶</div>
+<h3>Flexible Vernetzung</h3>
+<p>Verbinden Sie sich über <strong>Tailscale</strong> (remote, über das Internet) oder direkt <strong>LAN / Hotspot</strong> – nützlich für LKWs im Konvoi oder wenn eine Richtantenne mit großer Reichweite eingebaut ist (50+ Meilen in offenem Gelände). Die automatische mDNS-Erkennung findet andere Flottentelefone im selben WLAN, ohne dass IP-Adressen manuell eingegeben werden müssen.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Tailscale</span><span class="tag">LAN / Hotspot</span><span class="tag">mDNS-Erkennung</span><span class="tag">Hotspot-Reichweite von über 50 Meilen</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">SCHWEBEN</span>
+<div class="fc-icon">🪟</div>
+<h3>Schwebendes Overlay</h3>
+<p>Die App kann als dauerhafte Überlagerung über allen anderen Apps schweben – nützlich, wenn ein Fahrer die Navigation überprüfen muss, während der Anruf in einer Ecke des Bildschirms aktiv bleibt. Bei eingehenden Peer-Anrufen wird das Overlay automatisch durch Klingeln und Vibration in den Vordergrund geholt, sodass der Fahrer keinen dringenden Anruf von der Leitstelle verpasst.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Always-on-Top-Overlay</span><span class="tag">Automatisch nach vorne bringen</span><span class="tag">Klingeln + vibrieren</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">CHAMÄLEON</span>
+<div class="fc-icon">🖥️</div>
+<h3>Chameleon PC-Integration</h3>
+<p>Verbindet sich über WebSocket mit der Chameleon AI IDE auf einem Desktop- oder Büro-PC. Das Büro kann GPX-Routen (mit eingebetteten Wegpunkten, die automatisch als POIs analysiert werden), eigenständige POI-Sets, Rechnungs-PDFs und Manifestdaten an Fahrer vor Ort übertragen – über den ständig aktiven Signalkanal, kein aktiver Videoanruf erforderlich. Der Chameleon-Signalserver (<code>chameleon_signal.py</code>) läuft auf dem PC oder in Termux auf jedem Telefon in der Flotte, sodass kein Cloud-Relay erforderlich ist.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Routenschub</span><span class="tag">DANN drücken</span><span class="tag">Rechnungs-Push</span><span class="tag">Kein Cloud-Relay</span><span class="tag">Termux-Signalserver</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15 Sprachen</h2>
+<p>Vollständige UI-Übersetzung plus Live-PTT-Sprachübersetzung mit Argos Translate auf dem Gerät</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 Englisch</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 Französisch</span>
+<span class="lang-chip">🇩🇪 Deutsch</span>
+<span class="lang-chip">🇪🇸 Spanisch</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴xnxxxnxxxnxxxnxxxnxxxnxx.Walisisch</span>
+<span class="lang-chip">🇧🇷 Portugiesisch</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 Polnisch</span>
+<span class="lang-chip">🇷🇴 Rumänisch</span>
+<span class="lang-chip">🇻🇳 Vietnamesisch</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Automatische Spracherkennung</h4>
+<p>Der PTT-Dienst erkennt die Sprache des Sprechers automatisch – ein deutschsprachiger Fahrer und ein spanischsprachiger Disponent können frei Push-to-Talk nutzen, ohne jedes Mal eine Sprache auswählen zu müssen.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>Übersetzung auf dem Gerät – keine Cloud</h4>
+<p>Übersetzungen werden von einem Argos Translate-Server verwaltet, der lokal auf dem Telefon in Termux ausgeführt wird. Sprache und Text verlassen zur Übersetzung nie das Gerät. Funktioniert offline, sobald Sprachpakete installiert sind.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS in der Sprache des Hörers</h4>
+<p>Nach der Übersetzung wird jede Nachricht mithilfe von Android TTS im Gebietsschema des Empfängers vorgelesen – der Zuhörer hört die übersetzte Nachricht, auch ohne auf den Bildschirm zu schauen, ideal für einen Fahrer, der die Straße im Auge behält.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Notfallmodus – SMS und Peer-Kanal</h2>
+<p>Ein kompaktes Codeprotokoll, das über SMS funktioniert, wenn Daten verloren gehen, oder über den Flotten-Peer-Kanal, wenn dies nicht der Fall ist</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Dualer Transport – SMS oder Peer-Kanal</h4>
+<p>Wenn keine mobilen Daten verfügbar sind – tief im Busch, an einem abgelegenen Grenzübergang oder während eines Netzwerkausfalls – sendet Logistics 4×4 codierte Statusrahmen über Standard-SMS. Wenn Daten <em>Ist</em> Wenn verfügbar, werden dieselben Frames mit voller Geschwindigkeit über den Flotten-Peer-Kanal übertragen. Mit einem Selektor pro Versand können Sie auswählen <strong>Nur SMS</strong>, <strong>Nur Gleichgesinnte</strong>, oder <strong>Beide</strong>. SOS wird unabhängig von der Einstellung immer auf allen verfügbaren Kanälen gleichzeitig ausgelöst.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Drei Profile – eine gemeinsame Sprache</h4>
+<p>Die Codes sind in drei Benutzerprofile unterteilt, die ein gemeinsames Warnvokabular haben: <strong>D – Fahrer</strong> (Grenze, Ladung, Konvoi, Treibstoff, Straßenverhältnisse), <strong>H – Wanderer</strong> (Vitalwerte, Weg, Ausrüstung, Check-in-Zeitplan) und <strong>X – Notdienste</strong> (Triage, Art des Vorfalls, Ressourcen vor Ort, Evakuierungsstatus). Ein SOS aus jedem Profil wird von allen verstanden.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Abgestimmt auf internationale Notfallstandards</h4>
+<p>Das Notfalldienstprofil verwendet die internationale Triage-Skala P1–P4 (unmittelbar/verzögert/geringfügig/erwartend) und Vorfallkategorien, die an dem METHANE-Rahmen für schwere Vorfälle ausgerichtet sind, der von gemeinsamen Notfalldiensten weltweit verwendet wird. Ein Sanitäter oder SAR-Koordinator, der an einem behördenübergreifenden Einsatz teilnimmt, wird die Terminologie sofort erkennen.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Automatisches Lesen bei Erhalt</h4>
+<p>Eingehende verschlüsselte Nachrichten werden dekodiert und per Text-to-Speech vorgelesen – ein Fahrer, der die Straße im Auge behält, oder ein Helfer mit beschäftigten Händen hört die vollständige Klartextbedeutung jedes Codes, ohne das Telefon zu berühren. Beschädigte Nachrichten lösen eine automatische Anforderung zum erneuten Senden aus.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Beispiel für codierte Nachrichten</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Fahrer – Tankstopp, Verzögerung beim Zoll</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Fahrer angehalten · Tankstelle · An der Zollschlange</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Wanderer – verletzt, bittet um Hilfe</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + „Knöchelfraktur kann nicht gehen“</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Schwere Verletzung gestoppt · Rettungsteam erforderlich · Dringend</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Rettungsdienste – RTC, P1-Verletzte</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Verkehrsunfall · P1 lebensgefährliche Verletzte · 2–5 Personen · Krankenwagen vor Ort · Rettungsflugzeug erforderlich</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universelles SOS – jedes Profil</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS mit GPS-Standort – wird sofort an alle registrierten Kontakte gesendet</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Feldcode-Referenz</div>
+<div style="color:var(--muted);font-size:.82rem;">Alle Codes für alle Profile – ausdrucken und mitnehmen</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">Die vollständige Codetabelle für Fahrer-, Wanderer- und Notfalldiensteprofile. Laden Sie es als PDF herunter und bewahren Sie eine Kopie auf Ihrem Telefon, im Taxi oder in Ihrem Rucksack auf.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 Code-Referenz ansehen und herunterladen
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Um die Lücke herum entworfen</h2>
+<p>Kein Ersatz für Unternehmenslogistiksoftware – eine Lösung dort, wo Unternehmenssoftware nicht verfügbar ist</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>Keine Abrechnung pro Sitzplatz und Fahrer</h4>
+<p>WebRTC-Peer-Anrufe erfolgen direkt von Telefon zu Telefon ohne Media-Relay-Server und ohne monatliche Gebühr pro Benutzer. Die App läuft auf Standard-Android-Telefonen, die das Team bereits besitzt.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Funktioniert dort, wo Unternehmens-Apps nicht funktionieren</h4>
+<p>Konzipiert für Grenzübergänge, abgelegenes Gelände und internationale Einsätze, bei denen Standard-Logistik-Apps eine schnelle, zuverlässige Datenverbindung voraussetzen. Greift auf den Offline-Kompass und zwischengespeicherte Karten zurück, wenn Daten verschwinden.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Standard-Android-Telefon</h4>
+<p>Keine spezielle Hardware. Keine MDM-Registrierung. Jedes Android 7.0+-Telefon (minSdk 24), auf dem die APK ausgeführt wird, ist ein vollständiger Flottenknoten. Eine an einem LKW-Fahrerhaus angebrachte Hotspot-Antenne mit großer Reichweite kann die P2P-Abdeckung im offenen Gelände auf über 50 Meilen erweitern.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Zukünftige Roadmap</h4>
+<p>Zu den geplanten Ergänzungen gehören die vollständige Tachographen-Compliance, die Überwachung der Dienststunden, die DVSA-Integration digitaler Tachographen und der KML/GeoJSON-Import für POI-Massen-Upload. Das Fundament ist bereits errichtet.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Interessiert an Logistik 4×4?</h3>
+<p>Derzeit in der Testphase – kontaktieren Sie uns, um einen Piloten zu besprechen, einen Bau anzufordern oder nach der Lizenzierung für Ihre Flotte zu fragen.</p>
+<a class="btn btn-solid" href="../contact.html">Nehmen Sie Kontakt auf</a>
+<a class="btn" href="../companion.html">← Begleit-App</a>
+<a class="btn" href="../index.html">← Übersicht</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Start</a>
+<a href="../ide.html">SIE HABEN IDEEN</a>
+<a href="../presenter.html">Moderator</a>
+<a href="../companion.html">Begleit-App</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Webdienste</a>
+<a href="../accounting.html">Buchhaltung</a>
+<a href="../technician.html">PC-Techniker</a>
+<a href="../trading.html">Handel</a>
+<a href="../classroom.html">Unterricht</a>
+<a href="../contact.html">Kontakt</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Lizenzierung ausstehend · Gebaut von Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

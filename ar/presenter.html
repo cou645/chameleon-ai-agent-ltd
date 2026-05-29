@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مقدم Kameleon - Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
+<a href="../ide.html">لديك أفكار</a>
+<a class="active" href="../presenter.html">مقدم</a>
+<a href="../companion.html">تطبيق مصاحب</a>
+<a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
+<a href="../services.html">خدمات الويب</a>
+<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a>
+<a href="../technician.html">فني كمبيوتر</a>
+<a href="../trading.html">تجارة</a>
+<a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a>
+<a href="../contact.html">اتصال</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>مقدم الحرباء</h1>
+<p class="sub">نظام عرض تقديمي مستوحى من المسرح حيث تكون الشرائح الخاصة بك عبارة عن مسرح، وكتل المحتوى الخاصة بك عبارة عن ممثلين والانتقالات عبارة عن إشارات - وكل ذلك يمكن التحكم فيه من الهاتف.</p>
+<div class="hero-badges">
+<span class="badge">🎬 استعارة مسرحية</span>
+<span class="badge">📱 التحكم بالموبايل</span>
+<span class="badge">✏️ الرسم التعاوني</span>
+<span class="badge">🖥️مرآة Android ADB</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>نموذج المسرح</h2>
+<p>تم إنشاء العروض التقديمية كإنتاج مسرحي - فالأشياء لها مداخل ومخارج وإشارات</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">كائنات KameleonStack على خشبة المسرح</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 مكدس المحتوى — شرائح المحاضرة</div>
+<div class="stage-obj obj-stage">🟡 Stage Stack - تقديمات الطلاب</div>
+<div class="stage-obj obj-misc">🖼️ صندوق الصور</div>
+<div class="stage-obj obj-misc">📄 صندوق PDF</div>
+<div class="stage-obj obj-misc">📱 مرآة الهاتف ADB</div>
+<div class="stage-obj obj-misc">🖥️ مرآة PPT</div>
+<div class="stage-obj obj-misc">✏️ لوحة الرسم</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      الحد الأبيض = نشط · النبض البرتقالي = إرسال النظير المعلق · الأخضر = حزمة المحتوى · الأصفر = حزمة المرحلة
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>KameleonStack</h3>
+<p>حاوية المحتوى العالمية. تحتوي كل حزمة على فتحات متعددة (الصور والنصوص وملفات PDF). وضعين:</p>
+<ul>
+<li><strong style="color:#22c55e">محتوى</strong> - الشرائح التي يسيطر عليها المعلم</li>
+<li><strong style="color:#eab308">منصة</strong> - يقبل التقديمات المدفوعة من قبل الأقران</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>نظام الرسوم المتحركة</h3>
+<p>الرسوم المتحركة للدخول والخروج لكل كائن مع مسارات الحركة اليدوية. يتم رسم المسارات على الشاشة، ويتم تنعيمها عبر ضغط دوجلاس-بيكر واستيفاء شريحة كاتمول-روم قبل التخزين.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>لوحة تسريحة</h3>
+<p>منطقة الاحتفاظ خارج المسرح - قم بإنشاء كائنات في خزانة الملابس، وقم بمعاينتها على المسرح بنقرة مزدوجة. اسحب مرة أخرى إلى Dresser من قائمة النقر بزر الماوس الأيمن. تعرض لوحة الخصائص حالة الدخول/الخروج للرسوم المتحركة.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>إشارات مرقمة</h3>
+<p>تقدم نقاط التشغيل العرض التقديمي خطوة بخطوة، تمامًا مثل إشارات الإضاءة المسرحية. يمكن لكل إشارة تحريك الكائنات للداخل أو للخارج، أو تبديل فتحات المكدس أو تنفيذ تسلسلات محددة بوقت.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>حزم المشروع .kpt</h3>
+<p>يتم حفظ المشاريع كمحفوظات ZIP (<code>.kpt</code>) تحتوي على جميع أصول الوسائط وبيانات التخطيط وتكوينات الرسوم المتحركة. فتح على أي جهاز يعمل بنظام الحرباء.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>الإحداثيات المنطقية</h3>
+<p>تستخدم المرحلة مساحة إحداثيات منطقية تتراوح من 0 إلى 10000 بشكل مستقل عن دقة العرض. تبدو العروض التقديمية متطابقة على شاشة الكمبيوتر المحمول أو جهاز عرض 4K.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>مراقبة الأجهزة المحمولة والأقران</h2>
+<p>قم بتشغيل المقدم من هاتفك؛ السماح للطلاب بدفع المحتوى من محتواهم</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>جسر الروبوت المحمول</h4>
+<p>ينقل جسر Chameleon المحمول (WebSocket) أوامر المسرح من أي جهاز يعمل بنظام Android. يتحكم <strong>Stack_next / السابق / تشغيل / إيقاف مؤقت / إيقاف</strong>، ادفع فتحات الصورة أو النص إلى المكدس، وشاهد بث حالة المكدس في الوقت الفعلي.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>تقديمات الأقران</h4>
+<p>يقوم الطلاب بدفع الصور أو النصوص إلى حزمة وضع المسرح من هواتفهم. تظهر المشاركات في شريط الصور المصغرة بحد برتقالي نابض. يستطيع المقدم <strong>الموافقة أو التعليق أو الرفض أو الترويج</strong> كل واحد قبل أن يتم بثه مباشرة على الشاشة.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>لوحة رسم مشتركة</h4>
+<p>لوحة قماشية تعاونية يدوية يمكن التحكم فيها من الجسر المتحرك — <strong>draw_stroke / مسح / تراجع</strong>. مثالية للتعليق على الشرائح أو العصف الذهني أو الاختبارات المباشرة.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>مرآة هاتف ADB والتقاط PPT</h4>
+<p><strong>ADBPhoneBox</strong> يبث شاشة Android مباشرة على المسرح عبر ADB. <strong>PPTMirrorBox</strong> يلتقط نافذة PowerPoint - اعرض تشكيلاتك الحالية داخل Kameleon دون تحويل.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>اجعل عروضك التقديمية تنبض بالحياة</h3>
+<p>اتصل بنا لمناقشة الترخيص أو الترتيب لعرض حي لبرنامج Kameleon Presenter.</p>
+<a class="btn btn-solid" href="../contact.html">طلب العرض التوضيحي</a>
+<a class="btn" href="../index.html">← العودة إلى النظرة العامة</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
+<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a><a href="../technician.html">فني كمبيوتر</a>
+<a href="../trading.html">تجارة</a><a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a><a href="../contact.html">اتصال</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · صممها ماركوس المعروف أيضًا باسم ستيمسي</p>
+</footer>
+</body>
+</html>

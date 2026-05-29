@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>فصل اللغة – الحرباء الذكاء الاصطناعي</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
+<a href="../ide.html">لديك أفكار</a>
+<a href="../presenter.html">مقدم</a>
+<a href="../companion.html">تطبيق مصاحب</a>
+<a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
+<a href="../services.html">خدمات الويب</a>
+<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a>
+<a href="../technician.html">فني كمبيوتر</a>
+<a href="../trading.html">تجارة</a>
+<a class="active" href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a>
+<a href="../contact.html">اتصال</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>قاعة اللغة</h1>
+<p class="sub">دروس فيديو WebRTC مباشرة مع اتصالات P2P المؤمنة من Tailscale والمدفوعات المتكاملة ومقدم Kameleon - كل ذلك في تطبيق واحد.</p>
+<div class="hero-badges">
+<span class="badge">📹 فيديو ويب آر تي سي</span>
+<span class="badge">🌐 شبكة ذيلية</span>
+<span class="badge">💳 شريط · Alipay · PayPal</span>
+<span class="badge">🔐 قاعدة بيانات التسجيل</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>مدرس</div>
+<div class="status">● لايف</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>الطالب أ</div>
+<div class="status">● متصل</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>الطالب ب</div>
+<div class="status">● متصل</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>الطالب ج</div>
+<div class="status">○ الانضمام…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>الطالب د</div>
+<div class="status">● متصل</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>الطالب ه</div>
+<div class="status">● متصل</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>الطالب ف</div>
+<div class="status">○ الانضمام…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>دروس فيديو حية</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>فيديو جماعي عبر WebRTC – أكثر من 4 مشاركين</h4>
+<p>فيديو وصوت WebRTC كامل الشبكة بزمن وصول منخفض لمجموعات مكونة من 4 أشخاص أو أكثر - بدون خادم وسائط مركزي، وبدون تكلفة شهرية. خادم إشارة الحرباء (<code>chameleon_signal.py</code>) يتعامل مع SDP وICE Relay (المنفذ 8766) ويعمل على Termux على Android أيضًا. يعرض تطبيق Companion شبكة تكيفية تنمو تلقائيًا عند انضمام الطلاب: 1 = ملء الشاشة، 2 = جنبًا إلى جنب، 3 = 2+1، 4 = 2×2، 5+ = شبكة ملائمة تلقائيًا قابلة للتمرير — مع وجود موجز المعلم المحلي دائمًا في صورة داخل صورة.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>اتصالات Tailscale المضمونة</h4>
+<p>يتصل جميع النظراء من خلال شبكة Tailscale الخاصة بك - لا يوجد عنوان IP عام ولا إعادة توجيه المنفذ. يدير IDE قوائم ACL وترخيص الجهاز وإنشاء مفتاح المصادقة دون مغادرة التطبيق.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>مقدم Kameleon المتكامل</h4>
+<p>قم بالتدريس باستخدام مرحلة Kameleon الكاملة أثناء الدرس. يمكن للطلاب دفع الإجابات والرسومات والصور مباشرةً إلى حزمة وضع المسرح - حيث يتم عرضها وعرضها في الوقت الفعلي دون تبديل التطبيقات.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>القطعة النطق</h4>
+<p>أداة التدريب على النطق المضمنة (<code>pronunciation_widget.py</code>) مع تعليقات على مستوى الصوت — مثالية لتدريس اللغة حيث يكون النطق الدقيق مهمًا.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>احتياطي الفيديو LAN</h4>
+<p>عندما يكون Tailscale غير متاح، <code>lan_video.py</code> دفق الفيديو عبر UDP (المنفذ 47732)، والصوت عبر UDP (المنفذ 47733)، والفرق التعاونية عبر WebSocket (المنفذ 47731) - كل ذلك على الشبكة المحلية.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>الاتصالات وSIM الاتصال الجسر</h2>
+<p>قم بتوصيل مكالمات التطبيق والمكالمات الهاتفية الحقيقية عبر بطاقة SIM في محادثة واحدة متعددة الاتجاهات - مباشرة من التطبيق المرافق</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>نوعان من المكالمات - محادثة واحدة</h4>
+<p>يدعم التطبيق Companion قناتي اتصال متوازيتين: قناة <strong>نداء التطبيق</strong> (WebRTC، نظير إلى نظير عبر Tailscale، مجانًا) وa <strong>مكالمة SIM</strong> (شبكة الهاتف المحمول القياسية، أي رقم هاتف). يمكنك إجراء مكالمة WebRTC مع أحد الأقران <em>و</em> قم بإجراء مكالمة SIM في نفس الوقت مع طرف ثالث، ثم قم بإجراء مكالمة جماعية معهم لإجراء محادثة متعددة الأطراف - دون مغادرة التطبيق.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>شريط حالة الاتصالات</h4>
+<p>يعرض شريط الحالة الثابت الموجود أعلى تطبيق Companion الحالة المباشرة لكلتا القناتين: خاملاً أو رنينًا أو قيد المكالمة أو كتم الصوت. تخبرك نظرة واحدة بالمكالمات النشطة. تحتوي كل قناة على عناصر تحكم مستقلة في كتم الصوت والإنهاء - لا يؤدي إنهاء مكالمة SIM إلى إسقاط مكالمة التطبيق، والعكس صحيح.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>تدفق الدرس متعدد الاتجاهات</h4>
+<p>مفيد لدروس اللغة: ضع الطالب في مكالمة عبر تطبيق WebRTC، ثم اتصل بمتحدث أصلي على بطاقة SIM لإجراء محادثة عفوية في العالم الحقيقي. يمكن للأطراف الثلاثة سماع بعضهم البعض. يقوم المعلم بالإشراف عبر التطبيق بينما يستمر Kameleon Presenter في العمل على IDE.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>قانون تسجيل المكالمات في المملكة المتحدة – يجب إخطار جميع الأطراف</h4>
+<p>بموجب RIPA 2000 ولوائح الاتصالات (الممارسات التجارية المشروعة)، يجوز للطرف الذي يسجل مكالمة أن يفعل ذلك دون موافقة الطرف الآخر على الاستخدام القانوني الخاص به - ولكن ليتم التسجيل <strong>مقبول في المحكمة</strong> يجب إبلاغ جميع الأطراف قبل بدء التسجيل. يعرض التطبيق المصاحب صورة بارزة <strong>🔴 التسجيل</strong> لافتة لجميع المشاركين المتصلين عندما يكون التسجيل نشطًا. بالنسبة للمتصلين عبر بطاقة SIM، يلزم إرسال إشعار شفهي في بداية المكالمة. البيانات الصوتية هي بيانات شخصية بموجب اللائحة العامة لحماية البيانات ويجب التعامل معها وفقًا لذلك.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>u0627u0644u0645u062fu0641u0648u0639u0627u062a u0648u0627u0644u062au0633u062cu064au0644</h2>
+<p>اقبل الدفع من الطلاب في جميع أنحاء العالم قبل منح حق الوصول إلى الدرس</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 شريط <span style="color:var(--muted);font-weight:400">(الجنيه الاسترليني الأساسي)</span></div>
+<div class="pay-pill">🟦 عليباي <span style="color:var(--muted);font-weight:400">(طلاب الصين)</span></div>
+<div class="pay-pill">🅿️ باي بال <span style="color:var(--muted);font-weight:400">(احتياطي)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>دورة والتسجيل DB</h3>
+<p>الدورات وتسجيلات الطلاب المخزنة في <code>~/.chameleon/courses.db</code>. يمكن للذكاء الاصطناعي إنشاء دورات تدريبية وقائمة التسجيلات والتحقق من حالة الدفع وإلغاء الوصول - كل ذلك عبر أوامر IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>دعم متعدد العملات</h3>
+<p>يتعامل Stripe مع مدفوعات الجنيه الإسترليني من طلاب المملكة المتحدة والدوليين. يستهدف Alipay الطلاب الصينيين الذين يدفعون باليوان الصيني. يوفر PayPal احتياطيًا عالميًا مع تغطية واسعة النطاق للبلاد.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>مدفوعات لقطات شاشة WeChat</h3>
+<p>بالنسبة للطلاب الذين ليس لديهم إمكانية الوصول إلى البطاقة، اقبل لقطات شاشة إثبات الدفع من WeChat Pay. يقرأ الذكاء الاصطناعي الصورة، ويستخرج المبلغ والمرجع، ويسجل الدفع اليدوي مقابل التسجيل.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>روابط الدفع</h3>
+<p>قم بإنشاء روابط دفع مستضافة على Stripe لأي دورة تدريبية. مشاركة الرابط - يدفع الطالب - يتم إنشاء التسجيل تلقائيًا. لا توجد صفحة الخروج لبناء أو استضافة.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>مرجع أمر الدفع</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>أمر الذكاء الاصطناعي</th><th>وصف</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>أنشئ دورة تدريبية جديدة بالسعر والعنوان والوصف</td></tr>
+<tr><td><code>payment_links</code></td><td>إنشاء رابط دفع Stripe للدورة التدريبية</td></tr>
+<tr><td><code>payment_status</code></td><td>التحقق من حالة الدفع والتسجيل للطالب</td></tr>
+<tr><td><code>payment_enrol</code></td><td>تسجيل الطالب يدويًا (على سبيل المثال، بعد الدفع نقدًا)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>إزالة حق الوصول لتسجيل الطالب</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>قم بإدراج جميع الطلاب ذوي الأرصدة المتميزة</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>قم بتسجيل لقطة شاشة WeChat Pay كدليل على الدفع</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>أطلق مدرسة اللغات الخاصة بك على الإنترنت</h3>
+<p>كل ما تحتاجه - الفيديو والشرائح والمدفوعات والتسجيل - في تطبيق سطح مكتب واحد.</p>
+<a class="btn btn-solid" href="../contact.html">تواصل معنا</a>
+<a class="btn" href="../index.html">← العودة إلى النظرة العامة</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
+<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a><a href="../technician.html">فني كمبيوتر</a>
+<a href="../trading.html">تجارة</a><a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a><a href="../contact.html">اتصال</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · صممها ماركوس المعروف أيضًا باسم ستيمسي</p>
+</footer>
+</body>
+</html>

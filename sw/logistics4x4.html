@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lojistiki 4×4 - Mawasiliano ya Meli ya Mpakani</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ MAJARIBIO INAENDELEA — Tovuti hii inaendelezwa amilifu. Vipengele, bei na leseni hazijakamilishwa.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a class="active" href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>Vifaa 4×4</h1>
+<p class="sub">Mawasiliano ya meli za mpakani kwa waendeshaji wadogo. Wapigaji simu wanne wa SIM na wenzao wanne wa video wa P2P hushiriki nafasi moja ya simu - dereva kwenye mpaka, ofisi kuu, forodha, mteja - wote kwenye chumba mara moja. Ramani za moja kwa moja, njia za GPX, maonyesho ya mizigo, gumzo la sauti lililotafsiriwa na matangazo ya dharura, yote kwenye simu ya kawaida ya Android.</p>
+<div class="hero-badges">
+<span class="badge">📹 Video zingine 4</span>
+<span class="badge">📞 Wapiga simu 4 wa SIM</span>
+<span class="badge">🗺 Ramani za moja kwa moja + GPX</span>
+<span class="badge">📍 safu ya POI</span>
+<span class="badge">🧭 dira ya nje ya mtandao</span>
+<span class="badge">🌍 Lugha 15</span>
+<span class="badge">📋 Onyesha + laha ya kukimbia</span>
+<span class="badge">🚨 Matangazo ya dharura</span>
+<span class="badge">📟 Hali ya Dharura — SMS na programu zingine</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>Vifaa 4×4</span>
+<div class="phone-status">● Meli mtandaoni</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 Cross Waypoint 3 — baki kwenye B4301</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: "Forodha imeondolewa, kuelekea lango la 7"</div>
+<div class="p-chat p-chat-out">Njiani - ETA 14 dakika</div>
+<div class="p-chat p-chat-in">Mteja kwenye SIM — inaunganisha sasa...</div>
+<div class="p-chat p-chat-out">📍 Mahali paliposhirikiwa na meli</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 Usafirishaji</span>
+<span class="p-peer p-peer-on">🎥 Dereva B</span>
+<span class="p-peer p-peer-sim">📞 Desturi</span>
+<span class="p-peer p-peer-sim">📞 Mteja</span>
+<span class="p-peer p-peer-map">🗺 Ramani</span>
+<span class="p-peer p-peer-map">🧭 dira</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Nafasi ya kupiga simu 4 × 4</h2>
+<p>Simu za SIM na video ya P2P hushiriki nafasi moja iliyounganishwa</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">Nafasi moja ya simu - washiriki wanane</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 Wapiga simu 4 wa SIM</h4>
+<ul>
+<li>Sauti ya kawaida ya rununu</li>
+<li>Hakuna intaneti inayohitajika</li>
+<li>Afisa wa forodha</li>
+<li>Mteja nje ya nchi</li>
+<li>Ofisi kuu ya simu ya mezani</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 Video zingine 4 za P2P</h4>
+<ul>
+<li>WebRTC - hakuna bili ya seva</li>
+<li>Video ya wavu kamili + sauti</li>
+<li>Dereva kwa dereva</li>
+<li>Kidhibiti cha usambazaji</li>
+<li>Mwanachama wa timu ya mbali</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">Sauti kutoka kwa simu za SIM huunganishwa kwenye simu ya kikundi kupitia rundiko la mawasiliano ya simu la Android au Bluetooth SCO - kifaa cha masikioni pekee, cha faragha.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Lojistiki 4×4 hailengi kuchukua nafasi ya jukwaa la umiliki la kitaalamu kama lile linalotumiwa na mitandao mikubwa ya wasafirishaji. Inajaza pengo kwa <strong>waendeshaji wadogo</strong>, wafanyabiashara pekee na hali ambazo chombo cha biashara kubwa hakiwezi kufikia - dereva kwenye kivuko cha mpaka cha mbali ambaye anahitaji kuunganisha papo hapo na ofisi kuu, dereva wa pili maili tatu nyuma, mkaguzi wa forodha katika kibanda, na mteja katika nchi nyingine ambaye anaweza tu kupiga simu kwa simu.
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ni kwa ajili ya nani</h2>
+<p>Imeundwa kwa ajili ya mawasiliano ya uga wa hali ya juu, yenye miundombinu ya chini</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>Kuvuka mpaka</h4>
+<p>Dereva huunganisha afisa wa forodha (simu ya SIM), ofisi kuu (video), mteja anayepokea (simu ya SIM) na dereva wa pili kwenye msafara (video) - yote kwa wakati mmoja, na gumzo lililotafsiriwa la moja kwa moja linaonekana kwa kila mtu.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>Msafara wa masafa marefu</h4>
+<p>Malori yanaenea zaidi ya maili 50 hukaa katika simu iliyoshirikiwa kwa kutumia push-to-talk, kushiriki eneo kwenye ramani ile ile ya moja kwa moja, na misukumo ya njia ya msafirishaji inayofika huku faili za GPX zikipakiwa moja kwa moja kwenye ramani.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>Nje ya barabara / kusafiri</h4>
+<p>Hakuna mawimbi ya data? dira ya nje ya mtandao inaonyesha mishale yenye kila mwanachama mwingine wa meli. Pini za POI huashiria vituo vya mafuta, hatari na maeneo ya mikutano - iliyopachikwa kwenye faili iliyosukumwa ya GPX au kudondoshwa na dereva yeyote kwenye ramani. Viungo vya eneo-hotspot vya masafa marefu kati ya lori zilizo na angani za mwelekeo vinaweza kufikia maili 50+.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>Timu za lugha nyingi</h4>
+<p>Push-to-talk hunukuu usemi, hutambua lugha ya mzungumzaji, hutafsiri, na kutoa maandishi + sauti katika lugha ya kila msikilizaji - lugha 15, zinazoendeshwa na seva ya ndani ya Argos Translate kwenye simu.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>Uthibitisho wa utoaji</h4>
+<p>Dereva huchanganua msimbo wa QR wa bohari ili kupakia faili ya maelezo, kisha huchanganua mteja POD QR anapoletewa. Umekataa kujifungua? Piga picha na dokezo la kighairi lililoandikwa. Sahihi ya mteja imenaswa kwenye skrini.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>Ofisi ya usambazaji</h4>
+<p>Skrini ya dispatcher huonyesha viendeshi vyote kwenye ramani ya moja kwa moja, huendesha laha, husukuma maonyesho na njia kwa viendeshaji mahususi kupitia chaneli ya programu rika, na hutangaza arifa za dharura kote kote.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ramani ya Moja kwa Moja, POIs na Dira</h2>
+<p>OSM, tabaka za setilaiti na mseto - maeneo ya rika, njia za GPX, maeneo ya kuvutia na akiba ya vigae nje ya mtandao</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">Mtaa</span>
+<span class="map-tag mt-sat">Satellite</span>
+<span class="map-tag mt-hybrid">Mseto</span>
+<span class="map-tag mt-gpx">Njia ya GPX</span>
+<span class="map-tag mt-poi">Tabaka za POI</span>
+<span class="map-tag mt-offline">Akiba ya nje ya mtandao</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Vigae vya OpenStreetMap</span>
+<span class="tag">Picha za Ulimwengu wa Esri</span>
+<span class="tag">2.5D majengo</span>
+<span class="tag">Uelekezaji wa OSRM</span>
+<span class="tag">Yaani kutafuta mahali</span>
+<span class="tag">Cache ya tile ya diski</span>
+<span class="tag">Tabaka za POI</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 Viunga vya njia</span>
+<span class="poi-dot poi-push">📍 IDE-iliyosukuma</span>
+<span class="poi-dot poi-manual">📍 Dereva ameshuka</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>Tabaka tatu za ramani</h4>
+<p>Mzunguko kati ya <strong>Mtaa</strong> (OpenStreetMap), <strong>Satellite</strong> (Picha ya Ulimwengu ya Esri) na <strong>Mseto</strong> (msingi wa satelaiti + uwekaji wa barabara wa OSM) kwa bomba moja. Vigae vyote vimehifadhiwa kwenye diski - maeneo yaliyotazamwa awali hupakia nje ya mtandao bila data.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Maeneo rika kwenye ramani</h4>
+<p>Kila mwanachama wa meli anayewezesha kushiriki eneo anaonekana kama pini ya moja kwa moja. Gusa kipini ili kuona jina lao na ETA. Dispatcher inaweza kuona kundi zima kwa haraka bila jukwaa tofauti la kufuatilia.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>Kusukuma kwa njia ya GPX</h4>
+<p>Ofisi inasukuma a <code>.gpx</code> faili ya njia kutoka kwa Kompyuta ya Chameleon moja kwa moja hadi kwa simu ya dereva kupitia chaneli ya rika. Njia hupakia papo hapo kwenye ramani kama wekeleo la rangi. Njia za hivi majuzi zimehifadhiwa ndani kwa matumizi tena. Inaauni GCJ-02 kuratibu masahihisho ya kukabiliana na Uchina.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>Compass-lock au kaskazini-up</h4>
+<p>Ramani huzungushwa moja kwa moja na dira ya kifaa kwa uelekeo wa kuendesha gari-juu-juu, au hufunga kuelekea kaskazini kwa usomaji wa ramani wa kawaida - geuza katika mipangilio kwa mapendeleo ya kiendeshi.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>Skrini ya dira — urambazaji wa programu zingine nje ya mtandao</h4>
+<p>Hakuna data? Dira ya skrini nzima rose inaonyesha mshale mhimili kwa kila rika mtandaoni kwa kutumia GPS inayojulikana mwisho. Umbali wa marafiki na vichwa vya dira vinasasishwa kutoka maeneo yaliyohifadhiwa - muhimu kwa wasafiri, urambazaji wa msafara wa nje ya barabara na uratibu wa uokoaji milimani.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>Safu ya Pointi za Kuvutia (POI).</h4>
+<p>Vyanzo vitatu vya POI vimeonyeshwa kama pini zenye msimbo wa rangi kwenye ramani. <strong style="color:#f59e0b;">Amber</strong> pini zinatoka <code>&lt;wpt&gt;</code> waypoints zilizopachikwa kwenye faili ya GPX - hupakia na njia na kusafisha nayo. <strong style="color:#22c55e;">Kijani</strong> pini zinasukuma moja kwa moja kutoka kwa IDE ya Chameleon PC (vituo vya mafuta, hatari, anwani za utoaji) bila kujitegemea kwa njia yoyote. <strong style="color:#ef4444;">Nyekundu</strong> pini hudondoshwa na dereva kwa kubonyeza kwa muda mrefu kwenye ramani. POI zote zinaendelea katika vipindi; gusa pini yoyote ili kusogeza, kufungua katika Ramani za Google au kufuta. Aikoni hubadilika kulingana na aina: ⛽ mafuta, 🚚 kujifungua, ⚠️ hatari, 🏥 hospitali, 🅿️ maegesho, ✈️ uwanja wa ndege na zaidi.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Vipengele vyote</h2>
+<p>Kila skrini na huduma kwenye programu</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">RIKA</span>
+<div class="fc-icon">📹</div>
+<h3>Video ya Kikundi cha P2P</h3>
+<p>Video na sauti za WebRTC zenye wavu kamili kwa hadi watu 4+ — hakuna seva kuu ya media, hakuna bili ya simu ya kila mwezi. Gridi ya kubadilika: rika 1 = skrini nzima, 2 = ubavu kwa upande, 3 = 2+1, 4 = 2×2. Mipasho ya ndani huelea kama picha-ndani-picha. Mizani ya biti kwa kila rika (1.5 Mbps → 350 Kbps) ili kuweka ubora hata katika kila saizi ya kikundi. Simu zinazoingia hulia na kutetema hata wakati programu iko chinichini.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC full-mesh</span><span class="tag">Gridi ya kubadilika</span><span class="tag">PiP ya ndani</span><span class="tag">Mlio + mtetemo</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">DARAJA LA SIM</span>
+<div class="fc-icon">📞</div>
+<h3>Daraja la Simu la SIM</h3>
+<p>Katika simu ya rununu na unataka kuvuta rika la P2P? Gonga <strong>Ongeza kwenye kikundi</strong> — Rafu ya rununu ya Android husajili kipindi cha WebRTC kando ya simu ya SIM na inatoa chaguo asili la "Unganisha simu". Mchanganyiko wa sauti hufanyika kwenye chip ya simu - <strong>sikio pekee</strong>, faragha kabisa. Wakati kifaa au mtoa huduma haauni mkutano wa maunzi, uelekezaji wa vifaa vya sauti vya Bluetooth SCO hutumiwa kama njia mbadala.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Mkutano wa vifaa</span><span class="tag">Njia mbadala ya BT SCO</span><span class="tag">Vifaa vya masikioni pekee</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">COMMS</span>
+<div class="fc-icon">🗣️</div>
+<h3>Push-to-Ongea + Tafsiri ya Moja kwa Moja</h3>
+<p>Shikilia kitufe cha PTT ili kuzungumza — Kitambua matamshi cha Android (16 kHz, 16-bit) hunukuu hadi maandishi katika muda halisi. Lugha iliyotambuliwa inatumwa kwenye kifaa <strong>Tafsiri ya Argos</strong> seva. Kila msikilizaji hupokea ujumbe uliotafsiriwa katika eneo alilochagua na kusomwa kwa sauti na TTS. Unukuzi kiasi hutiririka kama kiashirio cha kuandika moja kwa moja wakati wa kurekodi. Inafanya kazi kupitia chaneli ya P2P au pekee kwenye mtandao-hewa.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Tambua lugha otomatiki</span><span class="tag">Tafsiri ya Argos</span><span class="tag">Usomaji wa moja kwa moja wa TTS</span><span class="tag">Lugha 15</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">UTANGAZAJI</span>
+<div class="fc-icon">🚨</div>
+<h3>Ticker &amp; Tangazo la Dharura</h3>
+<p>Dispatcher hutangaza ujumbe kwa wingi - inaonekana kama upau wa tiki wa upana kamili juu ya kila skrini. Viwango vinne vya kipaumbele: <strong style="color:#dc2626;">Dharura</strong> (inameta nyekundu, isiyo na bei kwa kila mtumaji), <strong style="color:#dc2626;">Muhimu</strong> (nyekundu juu ya nyeupe), <strong style="color:#16a34a;">Maagizo</strong> (nyeusi juu ya kijani), <strong>Habari</strong> (njano kwenye nyeusi). Ujumbe unaweza kuanzisha usomaji wa TTS kwenye simu za mpokeaji. TTL inayoweza kusanidiwa: Dakika 1 hadi "hadi kuondolewa".</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Matangazo ya meli</span><span class="tag">4 viwango vya kipaumbele</span><span class="tag">Usomaji wa TTS</span><span class="tag">Muda wa matumizi otomatiki</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">DISPATCER</span>
+<div class="fc-icon">🗂</div>
+<h3>Dashibodi ya Dispatcher</h3>
+<p>Mwonekano wa kisambaza vichupo vitatu: <strong>Madereva</strong> (nafasi za moja kwa moja, maonyesho ya kushinikiza, gawa njia), <strong>Karatasi ya Kuendesha</strong> (buruta ili kupanga upya vituo vya kudondosha vingi, hali ya kugonga-kwa-mzunguko, uingizaji/uhamishaji wa CSV) na <strong>Dhihirisho la Mizigo</strong> (Upakiaji wa QR kwenye bohari, uchanganuzi wa POD QR wakati wa kujifungua). Dispatcher inaweza kusukuma njia za GPX na faili za ankara moja kwa moja kwa viendeshaji mahususi kupitia chaneli rika.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Ufuatiliaji wa madereva</span><span class="tag">Dhihirisha msukumo</span><span class="tag">Kusukuma kwa njia</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">DHIHIRISHA</span>
+<div class="fc-icon">📦</div>
+<h3>Dhihirisho la Mizigo</h3>
+<p>Changanua msimbo wa QR wa bohari ili kupakia vipengee kwenye faili ya maelezo. Wakati wa kujifungua, changanua POD QR ya mteja ili utie alama kuwa imewasilishwa. Utunzaji wa ubaguzi: kumbukumbu za utoaji zilizokataliwa za picha na maandishi yaliyoandikwa; salama-tone rekodi picha ya eneo la kuacha; sahihi ya mteja inanaswa kwenye skrini ya kugusa. Matukio yote yamewekwa muhuri wa nyakati na viwianishi vya GPS.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Changanua QR ndani/nje</span><span class="tag">Picha POD</span><span class="tag">Sahihi ya skrini</span><span class="tag">Muhuri wa muda wa GPS</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">KARATASI YA KUENDESHA</span>
+<div class="fc-icon">🛣</div>
+<h3>Karatasi ya Kuendesha</h3>
+<p>Orodha ya matone mengi yenye vituo vya kuburuta ili kupanga upya. Gonga aikoni ya hali ili kuzungusha kila kituo: Inasubiri → Imewasili → Imewasilishwa. Gusa anwani yoyote ili kuifungua katika programu ya ramani ya simu kwa urambazaji wa hatua kwa hatua. Ingiza kutoka kwa CSV - unafahamu kichwa, kinachooana na Onfleet, Routific, Circuit na uhamishaji maalum. Hamisha hadi CSV na ushiriki kupitia laha ya kushiriki ya mfumo.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Buruta kupanga upya</span><span class="tag">Uingizaji wa CSV</span><span class="tag">Onfleet / Routific patanifu</span><span class="tag">Shiriki usafirishaji</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">ankara</span>
+<div class="fc-icon">🧾</div>
+<h3>ankara</h3>
+<p>Unda, chapisha na ushiriki ankara moja kwa moja kutoka kwa simu. Ofisi inaweza kusukuma ankara iliyotayarishwa awali kutoka kwa moduli ya uhasibu ya Kompyuta ya Chameleon hadi kwa kiendeshi kupitia chaneli ya programu rika - kiendeshi hukagua, kusaini na kuituma papo hapo. Dashibodi ya uhasibu iliyo na nafasi: mgeni (jumla pekee), opereta (shughuli kamili + na ankara) na msimamizi (MTD wasilisha + ruzuku za ufikiaji wa QR).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Bonyeza kutoka kwa PC</span><span class="tag">Chapisha / PDF</span><span class="tag">Mwenye jukumu</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">DHARURA</span>
+<div class="fc-icon">📟</div>
+<h3>Hali ya Dharura — SMS &amp; Rika</h3>
+<p>Hakuna data? Programu inarudi kwa itifaki iliyounganishwa ya msimbo. Dereva (<strong>D</strong>), Mtembezi (<strong>H</strong>), na Huduma za Dharura (<strong>X</strong>) wasifu hushiriki kiwango cha tahadhari kwa wote. Viwianishi vya GPS hupachikwa kiotomatiki. Ujumbe hutambulishwa na kusomwa kwa sauti na TTS baada ya kupokelewa. A99+H99 ni SOS ya ulimwengu wote - inatangazwa kwa anwani zote na mashirika ya meli kwa kugonga mara moja. Data inapopatikana, fremu husafiri kwenye chaneli rika badala ya SMS — inaweza kuchaguliwa kwa kila utumaji: <strong>SMS pekee</strong>, <strong>Wenzake pekee</strong>, au <strong>Zote mbili</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">3 wasifu wa mtumiaji</span><span class="tag">GPS iliyopachikwa</span><span class="tag">TTS kusimbua</span><span class="tag">METHANE imejipanga</span>
+<span class="tag">SMS · Wenzake · Zote mbili</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 Rejeleo la msimbo →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">MAWASILIANO</span>
+<div class="fc-icon">👥</div>
+<h3>Anwani na Vikundi</h3>
+<p>Kitabu cha mawasiliano kilichounganishwa kinachochanganya nambari za simu za SIM, Vitambulisho vya rika vya Tailscale na vikundi mchanganyiko. Unda a <em>Timu ya Mpaka</em> kikundi kilicho na wenzao wawili wa P2P na nambari ya SIM — gusa kikundi ili uanzishe simu kwa wote watatu. Historia ya simu iliyo na mihuri ya muda. Picha za avatar za kila mtu unayewasiliana naye. Kila mwanachama wa kundi huweka picha ya wasifu katika Mipangilio - inashirikiwa kiotomatiki kupitia kituo cha mawimbi wanapounganishwa, kwa hivyo kila rika anaona picha halisi badala ya herufi ya kwanza.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + rika</span><span class="tag">Vikundi vilivyochanganywa</span><span class="tag">Historia ya simu</span><span class="tag">Kushiriki avatar</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">MTANDAO</span>
+<div class="fc-icon">📶</div>
+<h3>Mitandao Inayobadilika</h3>
+<p>Unganisha kupitia <strong>Mkia wa mkia</strong> (mbali, juu ya mtandao) au moja kwa moja <strong>LAN / hotspot</strong> - muhimu kwa lori kwenye msafara au ambapo angani ya masafa marefu ya mwelekeo imewekwa (maili 50+ katika ardhi ya wazi). Ugunduzi wa kiotomatiki wa mDNS hupata simu zingine nyingi kwenye Wi-Fi sawa bila kuweka anwani za IP mwenyewe.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Mkia wa mkia</span><span class="tag">LAN / hotspot</span><span class="tag">ugunduzi wa mDNS</span><span class="tag">Masafa ya mtandao-hewa ya maili 50+</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">KUELEA</span>
+<div class="fc-icon">🪟</div>
+<h3>Uwekeleaji Unaoelea</h3>
+<p>Programu inaweza kuelea kama safu inayoendelea juu ya programu zingine zote - ni muhimu wakati dereva anahitaji kuangalia urambazaji huku akifanya simu ikifanya kazi kwenye kona ya skrini. Simu za wenzako zinazoingia huleta mwekeleo mbele kiotomatiki kwa mlio wa simu + mtetemo, kuhakikisha kwamba dereva hakosi simu ya dharura kutoka kwa utumaji.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Uwekeleaji wa juu kila wakati</span><span class="tag">Leta-mbele-otomatiki</span><span class="tag">Mlio + mtetemo</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">CHAMELEON</span>
+<div class="fc-icon">🖥️</div>
+<h3>Ushirikiano wa PC ya Chameleon</h3>
+<p>Huunganisha kwa Chameleon AI IDE kwenye kompyuta ya mezani au ofisini kupitia WebSocket. Ofisi inaweza kusukuma njia za GPX (kwa njia zilizopachikwa zikiwa zimechanganuliwa kiotomatiki kama POI), seti za POI zinazojitegemea, ankara za PDF na data ya maelezo kwa viendeshaji kwenye uga - kote kwenye kituo cha mawimbi kinachowashwa kila mara, hakuna simu ya video inayoendelea inayohitajika. Seva ya ishara ya Chameleon (<code>chameleon_signal.py</code>) huendesha kwenye Kompyuta au Termux kwenye simu yoyote kwenye meli, kwa hivyo hakuna upeanaji wa wingu unaohitajika.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Kusukuma kwa njia</span><span class="tag">KISHA sukuma</span><span class="tag">Kushinikiza ankara</span><span class="tag">Hakuna relay ya wingu</span><span class="tag">Seva ya ishara ya terminal</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Lugha 15</h2>
+<p>Tafsiri kamili ya UI pamoja na tafsiri ya moja kwa moja ya hotuba ya PTT inayoendeshwa na Argos Translate kwenye kifaa</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 Kiingereza</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 Kifaransa</span>
+<span class="lang-chip">🇩🇪 Kijerumani</span>
+<span class="lang-chip">🇪🇸 Kihispania</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</span>
+<span class="lang-chip">🇧🇷 Kireno</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 Kipolandi</span>
+<span class="lang-chip">🇷🇴 Kiromania</span>
+<span class="lang-chip">🇻🇳 Kivietinamu</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>Utambuzi wa lugha otomatiki</h4>
+<p>Huduma ya PTT hutambua lugha ya mzungumzaji kiotomatiki - dereva anayezungumza Kijerumani na mtoaji anayezungumza Kihispania anaweza kusukuma-kuzungumza kwa uhuru bila kuchagua lugha kila wakati.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>Tafsiri kwenye kifaa - hakuna wingu</h4>
+<p>Tafsiri hushughulikiwa na seva ya Argos Translate inayoendesha ndani ya simu kwenye Termux. Hotuba na maandishi hayatoki kwenye kifaa kwa tafsiri. Hufanya kazi nje ya mtandao mara vifurushi vya lugha vinaposakinishwa.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>TTS katika lugha ya msikilizaji</h4>
+<p>Baada ya tafsiri kila ujumbe husomwa kwa sauti katika lugha ya mpokeaji kwa kutumia Android TTS — msikilizaji husikia ujumbe uliotafsiriwa hata bila kuangalia skrini, bora kwa dereva anayetazama barabarani.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Hali ya Dharura — SMS &amp; Idhaa ya Rika</h2>
+<p>Itifaki ya msimbo wa kompakt ambayo hufanya kazi kupitia SMS wakati data imepotea, au kupitia mkondo wa programu zingine wakati sivyo.</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>Usafiri wa pande mbili - SMS au chaneli ya rika</h4>
+<p>Wakati hakuna data ya simu ya mkononi - ndani kabisa ya kichaka, kwenye kivuko cha mbali cha mpaka, au wakati mtandao umekatika - Logistics 4×4 hutuma fremu za hali zenye msimbo kupitia SMS ya kawaida. Wakati data <em>ni</em> inapatikana, fremu zile zile husafiri kwenye mkondo wa rika wa meli kwa kasi kamili. Kiteuzi kwa kila kutuma hukuruhusu kuchagua <strong>SMS pekee</strong>, <strong>Wenzake pekee</strong>, au <strong>Zote mbili</strong>. SOS huwashwa kila mara kwenye kila chaneli inayopatikana kwa wakati mmoja bila kujali mpangilio.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Profaili tatu — lugha moja iliyoshirikiwa</h4>
+<p>Misimbo imepangwa katika wasifu tatu za watumiaji ambao hushiriki msamiati wa kawaida wa tahadhari: <strong>D - Dereva</strong> (mpaka, mizigo, msafara, mafuta, hali ya barabara), <strong>H - Mtembezi</strong> (vitu muhimu, njia, gia, ratiba ya kuingia), na <strong>X - Huduma za Dharura</strong> (triage, aina ya tukio, rasilimali kwenye eneo la tukio, hali ya uokoaji). SOS kutoka kwa wasifu wowote inaeleweka na wote.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Inalingana na viwango vya dharura vya kimataifa</h4>
+<p>Wasifu wa Huduma za Dharura hutumia kiwango cha utatuzi cha kimataifa cha P1-P4 (Papo hapo / Imechelewa / Kidogo / Inatarajiwa) na kategoria za matukio zinazoambatanishwa na mfumo wa matukio makuu ya METHANE unaotumiwa na huduma za pamoja za dharura duniani kote. Mratibu wa huduma ya dharura au SAR anayejiunga na operesheni ya wakala mtambuka atatambua istilahi mara moja.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>Soma kiotomatiki kwenye risiti</h4>
+<p>Barua pepe zenye msimbo zinazoingia hutambulishwa na kusomwa kwa sauti kutoka kwa maandishi-kwa-hotuba - dereva anayetazama barabarani au anayejibu kwa kutumia mikono husikia maana kamili ya kila msimbo kwa Kiingereza rahisi bila kugusa simu. Ujumbe uliopotoshwa huanzisha ombi la kutuma upya kiotomatiki.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">Mfano wa jumbe zenye msimbo</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Dereva - kuacha mafuta, kuchelewa kwa desturi</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Dereva akiwa amesimama · Robo ya mafuta · Katika foleni ya forodha</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Hiker - kuumia, kuomba msaada</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + "kuvunjika kwa kifundo cha mguu hawezi kutembea"</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Jeraha mbaya limesimamishwa · Haja ya timu ya uokoaji · Haraka</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Huduma za dharura - RTC, majeruhi wa P1</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Mgongano wa trafiki barabarani · Majeruhi wa P1 wa hatari kwa maisha · watu 2–5 · Ambulansi kwenye eneo la tukio · Ambulansi ya ndege inahitajika</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS - wasifu wowote</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">SOS yenye eneo la GPS - inatumwa kwa anwani zote zilizosajiliwa mara moja</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">Rejea ya Msimbo wa Sehemu</div>
+<div style="color:var(--muted);font-size:.82rem;">Misimbo yote ya wasifu wote - chapisha na ubebe</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">Jedwali kamili la msimbo la wasifu wa Dereva, Mtembezi, na Huduma za Dharura. Pakua kama PDF na uhifadhi nakala kwenye simu yako, ndani ya gari, au kwenye pakiti yako.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 Tazama na upakue rejeleo la msimbo
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Iliyoundwa karibu na pengo</h2>
+<p>Sio mbadala wa programu ya vifaa vya biashara - suluhisho la mahali ambapo programu ya biashara haipo</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>Hakuna kwa kila kiti, bili kwa kila dereva</h4>
+<p>Simu za rika za WebRTC ni simu hadi simu moja kwa moja bila seva ya upeanaji wa maudhui na hakuna ada ya kila mwezi kwa kila mtumiaji. Programu hutumika kwenye simu za kawaida za Android ambazo timu tayari inabeba.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Inafanya kazi ambapo programu za biashara hazifanyi kazi</h4>
+<p>Imeundwa kwa ajili ya kuvuka mipaka, ardhi ya mbali na shughuli za kimataifa ambapo programu za kawaida za uratibu huchukua muunganisho wa data wa haraka na wa kutegemewa. Hurudi kwenye dira ya nje ya mtandao na ramani zilizoakibishwa wakati data inapotea.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Simu ya kawaida ya Android</h4>
+<p>Hakuna maunzi maalum. Hakuna uandikishaji wa MDM. Simu yoyote ya Android 7.0+ (minSdk 24) inayoendesha APK ni nodi kamili ya meli. Angani ya mtandao-hewa ya masafa marefu iliyowekwa kwenye teksi ya lori inaweza kupanua ufikiaji wa P2P hadi maili 50+ katika maeneo ya mashambani yaliyo wazi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>Ramani ya barabara ya baadaye</h4>
+<p>Nyongeza zilizopangwa ni pamoja na utiifu kamili wa tachograph, ufuatiliaji wa saa ya kazi, muunganisho wa tachograph dijitali ya DVSA na uagizaji wa KML/GeoJSON kwa upakiaji mwingi wa POI. Msingi tayari umejengwa.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Je, ungependa kupata Lojistiki 4×4?</h3>
+<p>Kwa sasa katika majaribio — wasiliana nasi ili kujadili majaribio, ombi la kujenga au uulize kuhusu utoaji leseni kwa meli yako.</p>
+<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<a class="btn" href="../companion.html">← Programu Mwenza</a>
+<a class="btn" href="../index.html">← Muhtasari</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Utoaji leseni unasubiri · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

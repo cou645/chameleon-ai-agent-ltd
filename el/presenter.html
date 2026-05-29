@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kameleon Presenter — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .stage-demo {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .stage-demo::before {
+      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
+      font-size: .7rem; letter-spacing: .15em; opacity: .35;
+    }
+    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .stage-obj {
+      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
+    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
+    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
+    .thumbnail-strip {
+      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
+    }
+    .thumb {
+      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .thumb-active { border: 2px solid white; }
+    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
+    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
+    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a class="active" href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Companion App</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎭</div>
+<h1>Παρουσιαστής Chameleon</h1>
+<p class="sub">Ένα σύστημα παρουσιάσεων εμπνευσμένο από το θέατρο, όπου οι διαφάνειές σας είναι Σκηνή, τα μπλοκ περιεχομένου είναι Ηθοποιοί και οι μεταβάσεις είναι Cues — όλα ελέγχονται από ένα τηλέφωνο.</p>
+<div class="hero-badges">
+<span class="badge">🎬 Θεατρική μεταφορά</span>
+<span class="badge">📱 Έλεγχος κινητού</span>
+<span class="badge">✏️ Συνεργατικό σχέδιο</span>
+<span class="badge">🖥️ Android ADB mirror</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Το μοντέλο του θεάτρου</h2>
+<p>Παρουσιάσεις χτισμένες σαν σκηνική παραγωγή — τα αντικείμενα έχουν εισόδους, εξόδους και συνθήματα</p>
+</div>
+<!-- Live stage mockup -->
+<div class="stage-demo">
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Kameleon Stack αντικείμενα στη σκηνή</div>
+<div class="stage-objects">
+<div class="stage-obj obj-content">🟢 Στοίβα περιεχομένου — διαφάνειες διάλεξης</div>
+<div class="stage-obj obj-stage">🟡 Stack Stack — υποβολές μαθητών</div>
+<div class="stage-obj obj-misc">🖼️ ImageBox</div>
+<div class="stage-obj obj-misc">📄 PDFBox</div>
+<div class="stage-obj obj-misc">📱 ADB Phone Mirror</div>
+<div class="stage-obj obj-misc">🖥️ Καθρέφτης PPT</div>
+<div class="stage-obj obj-misc">✏️ Πίνακας ζωγραφικής</div>
+</div>
+<div class="thumbnail-strip">
+<div class="thumb thumb-active thumb-content">🖼️</div>
+<div class="thumb thumb-content">📊</div>
+<div class="thumb thumb-pending">⏳</div>
+<div class="thumb thumb-stage">✍️</div>
+<div class="thumb thumb-content">📋</div>
+</div>
+<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
+      Λευκό περίγραμμα = ενεργό · Πορτοκαλί παλμός = σε εκκρεμότητα υποβολής ομοτίμων · Πράσινο = στοίβα περιεχομένου · Κίτρινο = στοίβα σκηνής
+    </div>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>KameleonStack</h3>
+<p>Το δοχείο περιεχομένου γενικής χρήσης. Κάθε στοίβα περιέχει πολλές υποδοχές (εικόνες, κείμενο, PDF). Δύο τρόποι λειτουργίας:</p>
+<ul>
+<li><strong style="color:#22c55e">Περιεχόμενο</strong> — διαφάνειες ελεγχόμενες από τον δάσκαλο</li>
+<li><strong style="color:#eab308">Στάδιο</strong> — δέχεται υποβολές από ομοτίμους</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>Σύστημα κινούμενων σχεδίων</h3>
+<p>Είσοδος/έξοδος κινούμενων εικόνων ανά αντικείμενο με μονοπάτια κίνησης ελεύθερα. Οι διαδρομές σχεδιάζονται στην οθόνη, εξομαλύνονται μέσω συμπίεσης Douglas-Peucker και παρεμβολής spline Catmull-Rom πριν από την αποθήκευση.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>Πάνελ κομοδίνου</h3>
+<p>Χώρος κράτησης εκτός σκηνής — δημιουργήστε αντικείμενα στο συρτάρι, κάντε προεπισκόπηση στη σκηνή με διπλό κλικ. Σύρετε πίσω στο Dresser από το μενού με το δεξί κλικ. Ο πίνακας ιδιοτήτων εμφανίζει την κατάσταση εισόδου/εξόδου της κίνησης.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔢</div>
+<h3>Αριθμημένες ενδείξεις</h3>
+<p>Τα σημεία ενεργοποίησης προωθούν την παρουσίαση βήμα-βήμα, όπως και τα θεατρικά φωτιστικά. Κάθε σύνθημα μπορεί να κινεί αντικείμενα μέσα ή έξω, να αλλάζει υποδοχές στοίβας ή να εκτελεί χρονομετρημένες ακολουθίες.</p>
+</div>
+<div class="card">
+<div class="card-icon">💾</div>
+<h3>Πακέτα έργων .kpt</h3>
+<p>Τα έργα αποθηκεύονται ως αρχεία ZIP (<code>.kpt</code>) που περιέχει όλα τα στοιχεία πολυμέσων, δεδομένα διάταξης και διαμορφώσεις κινούμενων εικόνων. Ανοίξτε σε οποιοδήποτε μηχάνημα που λειτουργεί Chameleon.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Λογικές συντεταγμένες</h3>
+<p>Η σκηνή χρησιμοποιεί έναν χώρο λογικών συντεταγμένων 0–10.000 ανεξάρτητο από την ανάλυση της οθόνης. Οι παρουσιάσεις φαίνονται πανομοιότυπες σε οθόνη φορητού υπολογιστή ή προβολέα 4K.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Mobile &amp; Peer Control</h2>
+<p>Εκτελέστε τον παρουσιαστή από το τηλέφωνό σας. αφήστε τους μαθητές να προωθήσουν περιεχόμενο από το δικό τους</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>Android mobile bridge</h4>
+<p>Η κινητή γέφυρα Chameleon (WebSocket) αναμεταδίδει εντολές θεάτρου από οποιαδήποτε συσκευή Android. Ελεγχος <strong>stack_next / prev / play / pause / stop</strong>, ωθήστε τις υποδοχές εικόνας ή κειμένου σε μια στοίβα και δείτε την κατάσταση μετάδοσης της στοίβας σε πραγματικό χρόνο.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🙋</div>
+<div class="strip-body">
+<h4>Υποβολές ομοτίμων</h4>
+<p>Οι μαθητές σπρώχνουν εικόνες ή κείμενο σε μια στοίβα λειτουργίας Stage από τα τηλέφωνά τους. Οι υποβολές εμφανίζονται στη λωρίδα μικρογραφιών με ένα πορτοκαλί παλλόμενο περίγραμμα. Ο παρουσιαστής μπορεί <strong>εγκρίνει, κρατά, απορρίπτει ή προωθεί</strong> κάθε ένα πριν βγει ζωντανά στην οθόνη.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">✏️</div>
+<div class="strip-body">
+<h4>Κοινόχρηστος πίνακας σχεδίασης</h4>
+<p>Συνεργατικός ελεύθερος καμβάς ελεγχόμενος από την κινητή γέφυρα — <strong>draw_stroke / διαγραφή / αναίρεση</strong>. Ιδανικό για σχολιασμό διαφανειών, καταιγισμό ιδεών ή ζωντανά κουίζ.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Καθρέφτης τηλεφώνου ADB &amp; λήψη PPT</h4>
+<p><strong>ADBPhoneBox</strong> μεταδίδει μια ζωντανή οθόνη Android απευθείας στη σκηνή μέσω ADB. <strong>PPTMirrorBox</strong> καταγράφει ένα παράθυρο PowerPoint — παρουσιάστε τα υπάρχοντα decks σας μέσα στο Kameleon χωρίς μετατροπή.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Δώστε ζωή στις παρουσιάσεις σας</h3>
+<p>Επικοινωνήστε μαζί μας για να συζητήσουμε μια άδεια ή να κανονίσουμε μια ζωντανή επίδειξη του Kameleon Presenter.</p>
+<a class="btn btn-solid" href="../contact.html">Ζητήστε μια επίδειξη</a>
+<a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a><a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

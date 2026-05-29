@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teknisi AI PC — AI Bunglon</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../logistics4x4.html">Logistik 4×4</a>
+<a href="../services.html">Layanan Web</a>
+<a href="../accounting.html">Akuntansi</a>
+<a class="active" href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a>
+<a href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>Teknisi AI PC</h1>
+<p class="sub">Diagnosis dan perbaikan sistem yang dipandu AI — ditambah profiler perangkat USB yang merekayasa balik protokol perangkat keras dan menghasilkan driver kernel Linux secara otomatis.</p>
+<div class="hero-badges">
+<span class="badge">🔬 Pembuatan profil perangkat keras</span>
+<span class="badge">🐧 Pembuatan modul kernel</span>
+<span class="badge">🌐 Jarak jauh melalui Tailscale</span>
+<span class="badge">⚡ Kompilasi silang ARM</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Perbaikan Sistem yang Dipandu AI</h2>
+<p>AI mengikuti protokol bedah terstruktur — diagnosis sebelum menyentuh, verifikasi di setiap langkah</p>
+</div>
+<div class="terminal-block">
+<span class="comment"># Urutan diagnosis Bunglon AI</span>
+<span class="cmd">$ lsusb -v | kepala -80</span>
+<span class="out">Perangkat Bus 002 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$ pesan | ekor -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: diganti namanya dari eth0</span>
+<span class="cmd">$ lsmod | grep r8152</span>
+<span class="out">r8152 94208 0</span>
+<span class="cmd">$modinfo r8152 | versi grep</span>
+<span class="out">versi: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>Urutan diagnosis terstruktur</h4>
+<p>Perangkat keras → status kernel → status driver → jaringan → penyimpanan. AI menjalankan setiap langkah, membaca hasil JSON, lalu memutuskan tindakan selanjutnya. Ia tidak pernah melewatkan langkah atau membuat asumsi.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Protokol perbaikan bedah</h4>
+<p>Non-destruktif terlebih dahulu (muat ulang modul, mulai ulang layanan). Bertahan sebelum mengambil risiko (konfigurasi snapshot). Verifikasi di setiap langkah. Setiap tindakan yang memerlukan reboot akan memicu Dead Man's Switch yang menyetel a <code>@reboot</code> melanjutkan skrip secara otomatis.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Perbaikan jarak jauh melalui Tailscale</h4>
+<p>Diagnosis dan perbaiki mesin di mana pun di jaring Tailscale Anda. AI mengeluarkan perintah pada mesin jarak jauh melalui jembatan terminal, membaca hasil dan melanjutkan — bahkan saat reboot menggunakan sistem pos pemeriksaan/resume.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Porter Pengandar USB</h2>
+<p>Profil perangkat USB apa pun → analisis protokolnya → buat driver Linux yang siap diinstal</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">Jalur A</div>
+<h4>Protokol standar</h4>
+<p>Tidak ada halaman vendor yang ditemukan. Menghasilkan aturan udev + konfigurasi modprobe. <strong>Tidak diperlukan kompilasi.</strong> Bekerja dengan HID, CDC, penyimpanan massal, dan kelas standar lainnya.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">Jalur B</div>
+<h4>Protokol vendor parsial</h4>
+<p>Halaman vendor terdeteksi (≤2). Menghasilkan daemon hidraw/uhid userspace atau plugin ALSA. Berjalan di ruang pengguna — tidak diperlukan kompilasi kernel.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">menyembunyikan</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">plugin ALSA</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">Jalur C</div>
+<h4>Protokol berpemilik</h4>
+<p>Protokol yang sepenuhnya khusus. Menghasilkan modul kernel lengkap dengan kemasan DKMS dan dukungan kompilasi silang ARM untuk Raspberry Pi 3, 4 dan 5.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Modul kernel</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">LENGAN</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>Alur Kerja Profiler</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># Langkah 1 — membuat profil perangkat (pengambilan gambar 30 detik)</span>
+<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Membuat profil USB 1234:5678 selama 30 detik...
+Menulis ~/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># Langkah 2 — buat drivernya</span>
+<span class="cmd">$ python3 device_porter.py --terbaru</span>
+<span class="out">Jalur yang dipilih: C (eksklusif, 3 halaman vendor)
+Dihasilkan: /tmp/driver_1234_5678/
+  ├── bunglon_1234_5678.c
+  ├── Makefile (lintas-aarch64, lintas-lenganv7)
+  ├── instal.sh
+  ├── test_device.sh
+  └── analisis.json</span>
+<span class="comment"># Langkah 3 — instal</span>
+<span class="cmd">$ sudo pesta /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ pesta /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">LULUS — perangkat /dev/chameleon0 merespons dengan benar</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Backend pengambilan lintas platform</h3>
+<p>ETW di Windows, IOKit di macOS, usbmon di Linux. Profil pada OS apa pun dan hasilkan driver Linux dari hasilnya <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Kompilasi silang Raspberry Pi</h3>
+<p>Target Makefile <code>cross-aarch64</code> (Pi 4/5) dan <code>cross-armv7</code> (Pi 3) disertakan secara otomatis di Jalur C. Bangun di x86 dan terapkan ke ARM.</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>kemasan DKMS</h3>
+<p>Driver jalur C dikemas untuk DKMS sehingga dapat bertahan dalam pemutakhiran kernel tanpa kompilasi ulang manual. Ulasan AI <code>analysis.json</code> dan meminta rintisan TODO yang tersisa.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Perbaiki yang tidak dapat diperbaiki</h3>
+<p>Entah itu karena kepanikan kernel, perangkat USB yang mati, atau periferal berpemilik yang tidak mendukung Linux — Teknisi PC Chameleon AI siap membantu Anda.</p>
+<a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
+<a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a>
+<a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
+<a href="../trading.html">Jual beli</a><a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

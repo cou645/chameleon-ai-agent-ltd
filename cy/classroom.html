@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dosbarth Iaith — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .pay-pill {
+      border-radius: 50px; padding: .5rem 1.2rem;
+      border: 1px solid var(--border); background: white;
+      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .classroom-grid {
+      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
+    }
+    .student-tile {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
+      font-size: .82rem;
+    }
+    .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
+    .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
+    .teacher-tile {
+      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
+      border: 2px solid #764ba2;
+    }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a href="../logistics4x4.html">Logisteg 4×4</a>
+<a href="../services.html">Gwasanaethau Gwe</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a>
+<a class="active" href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../zh/classroom.html">🇨🇳 ZH — 中文</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎓</div>
+<h1>Dosbarth Iaith</h1>
+<p class="sub">Gwersi fideo WebRTC byw gyda chysylltiadau P2P wedi'u diogelu gan Tailscale, taliadau integredig a Chyflwynydd Kameleon - i gyd mewn un cais.</p>
+<div class="hero-badges">
+<span class="badge">📹 Fideo WebRTC</span>
+<span class="badge">🌐 Rhwyll cynffon</span>
+<span class="badge">💳 Stripe · Alipay · PayPal</span>
+<span class="badge">🔐 Ymrestriad DB</span>
+</div>
+</div>
+<div class="page">
+<!-- Classroom mockup -->
+<div class="classroom-grid">
+<div class="student-tile teacher-tile">
+<div class="av">👩‍🏫</div>
+<div>Athrawes</div>
+<div class="status">● Byw</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑</div>
+<div>Myfyriwr A</div>
+<div class="status">● Wedi'i gysylltu</div>
+</div>
+<div class="student-tile">
+<div class="av">👩</div>
+<div>Myfyriwr B</div>
+<div class="status">● Wedi'i gysylltu</div>
+</div>
+<div class="student-tile">
+<div class="av">🧒</div>
+<div>Myfyriwr C</div>
+<div class="status">○ Ymuno…</div>
+</div>
+<div class="student-tile">
+<div class="av">👦</div>
+<div>Myfyriwr D</div>
+<div class="status">● Wedi'i gysylltu</div>
+</div>
+<div class="student-tile">
+<div class="av">👩‍💼</div>
+<div>Myfyriwr E</div>
+<div class="status">● Wedi'i gysylltu</div>
+</div>
+<div class="student-tile">
+<div class="av">🧑‍🎓</div>
+<div>Myfyriwr F</div>
+<div class="status">○ Ymuno…</div>
+</div>
+</div>
+<div class="section-title">
+<h2>Gwersi Fideo Byw</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📹</div>
+<div class="strip-body">
+<h4>Fideo grŵp WebRTC - 4+ o gyfranogwyr</h4>
+<p>Fideo a sain WebRTC rhwyll llawn latency isel ar gyfer grwpiau o 4 neu fwy - dim gweinydd cyfryngau canolog, dim cost fisol. Gweinydd signal Chameleon (<code>chameleon_signal.py</code>) yn trin SDP a ras gyfnewid ICE (porthladd 8766) ac yn rhedeg ar Termux ar Android hefyd. Mae ap Companion yn dangos grid addasol sy'n tyfu'n awtomatig wrth i fyfyrwyr ymuno: 1 = sgrin lawn, 2 = ochr yn ochr, 3 = 2+1, 4 = 2×2, 5+ = grid awto-ffitio sgroladwy - gyda phorthiant lleol yr athro bob amser mewn llun-mewn-llun.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Cysylltiadau wedi'u diogelu wrth raddfa gynffon</h4>
+<p>Mae pob cyfoedion yn cysylltu trwy eich rhwyll Tailscale - dim IP cyhoeddus, dim anfon ymlaen porthladd. Mae'r DRhA yn rheoli ACLs, awdurdodi dyfeisiau a chynhyrchu allwedd awdurdod heb adael yr ap.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎭</div>
+<div class="strip-body">
+<h4>Cyflwynydd Kameleon integredig</h4>
+<p>Dysgwch gyda'r cam Kameleon llawn yn ystod eich gwers. Gall myfyrwyr wthio atebion, lluniadau a delweddau yn uniongyrchol i stac modd Llwyfan — cymedroli ac arddangos mewn amser real heb newid apiau.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🗣️</div>
+<div class="strip-body">
+<h4>Teclyn ynganu</h4>
+<p>Teclyn hyfforddi ynganiad adeiledig (<code>pronunciation_widget.py</code>) gydag adborth ar lefel ffonem — yn ddelfrydol ar gyfer addysgu iaith lle mae'n bwysig ynganu'n fanwl gywir.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Fideo wrth gefn LAN</h4>
+<p>Pan nad yw Tailscale ar gael, <code>lan_video.py</code> yn ffrydio fideo dros y CDU (porthladd 47732), sain dros y CDU (porthladd 47733) a diffs cydweithredol dros WebSocket (porthladd 47731) - i gyd ar y rhwydwaith lleol.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Pont Alwadau Telecom a SIM</h2>
+<p>Cysylltwch galwadau ap a galwadau ffôn SIM go iawn i mewn i un sgwrs aml-ffordd - yn uniongyrchol o'r app Companion</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📞</div>
+<div class="strip-body">
+<h4>Dau fath o alwad - un sgwrs</h4>
+<p>Mae ap Companion yn cefnogi dwy sianel alwadau gyfochrog: a <strong>Galwad Ap</strong> (WebRTC, cymar-i-gymar dros Tailscale, am ddim) ac a <strong>Galwad SIM</strong> (rhwydwaith symudol safonol, unrhyw rif ffôn). Gallwch fod ar alwad WebRTC gyda chyfoedion <em>a</em> ar yr un pryd gwnewch alwad SIM i drydydd parti, yna cynadledda nhw gyda'i gilydd am sgwrs aml-ffordd - heb adael yr app.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📊</div>
+<div class="strip-body">
+<h4>Bar statws telathrebu</h4>
+<p>Mae bar statws parhaus ar frig yr ap Companion yn dangos cyflwr byw y ddwy sianel: segur, canu, mewn-alwad, neu dawel. Mae un cipolwg yn dweud wrthych pa alwadau sy'n weithredol. Mae gan bob sianel reolaethau mud a diwedd annibynnol - nid yw dod â'r alwad SIM i ben yn gollwng galwad yr ap, ac i'r gwrthwyneb.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔀</div>
+<div class="strip-body">
+<h4>Llif gwersi aml-ffordd</h4>
+<p>Yn ddefnyddiol ar gyfer gwersi iaith: rhowch fyfyriwr ar alwad ap WebRTC, yna deialwch siaradwr brodorol ar SIM am sgwrs byd go iawn digymell. Gall y tair plaid glywed ei gilydd. Mae'r athro yn cymedroli trwy'r ap tra bod Cyflwynydd Kameleon yn parhau i redeg ar y DRhA.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔴</div>
+<div class="strip-body">
+<h4>Cyfraith cofnodi galwadau’r DU—rhaid hysbysu pob parti</h4>
+<p>O dan RIPA 2000 a’r Rheoliadau Telathrebu (Arfer Busnes Cyfreithlon), gall parti sy’n recordio galwad wneud hynny heb ganiatâd y parti arall at eu defnydd cyfreithlon eu hunain — ond i’r recordiad fod <strong>yn dderbyniol yn y llys</strong> rhaid hysbysu pob parti cyn i'r recordiad ddechrau. Mae app Companion yn arddangos amlwg <strong>🔴 COFNODI</strong> baner i'r holl gyfranogwyr cysylltiedig pryd bynnag y bydd y recordiad yn weithredol. Ar gyfer galwyr SIM, mae angen hysbysiad llafar ar ddechrau'r alwad. Mae data llais yn ddata personol o dan GDPR a rhaid ei drin yn unol â hynny.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Taliadau a Chofrestru</h2>
+<p>Derbyn taliad gan fyfyrwyr ledled y byd cyn caniatáu mynediad i wersi</p>
+</div>
+<div class="payment-logos">
+<div class="pay-pill">💳 Streip <span style="color:var(--muted);font-weight:400">(GBP cynradd)</span></div>
+<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(myfyrwyr Tsieineaidd)</span></div>
+<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(wrth gefn)</span></div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Cwrs a chofrestru DB</h3>
+<p>Cyrsiau a chofrestriadau myfyrwyr wedi'u storio yn <code>~/.chameleon/courses.db</code>. Gall yr AI greu cyrsiau, rhestru ymrestriadau, gwirio statws talu a dirymu mynediad - i gyd trwy orchmynion IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Cefnogaeth aml-arian</h3>
+<p>Mae Stripe yn delio â thaliadau GBP gan fyfyrwyr y DU a myfyrwyr rhyngwladol. Mae Alipay yn targedu myfyrwyr Tsieineaidd sy'n talu yn CNY. Mae PayPal yn darparu wrth gefn cyffredinol gyda sylw gwlad eang.</p>
+</div>
+<div class="card">
+<div class="card-icon">📸</div>
+<h3>Taliadau sgrin WeChat</h3>
+<p>Ar gyfer myfyrwyr heb fynediad at gerdyn, derbyniwch sgrinluniau prawf-daliad WeChat Pay. Mae'r AI yn darllen y ddelwedd, yn tynnu'r swm a'r cyfeirnod, ac yn cofnodi'r taliad â llaw yn erbyn y cofrestriad.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>Dolenni talu</h3>
+<p>Cynhyrchu dolenni talu a gynhelir gan Stripe ar gyfer unrhyw gwrs. Rhannwch y ddolen - myfyriwr yn talu - caiff cofrestriad ei greu'n awtomatig. Dim tudalen ddesg dalu i'w hadeiladu na'i chynnal.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Cyfeirnod Gorchymyn Talu</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>AI Gorchymyn</th><th>Disgrifiad</th></tr></thead>
+<tbody>
+<tr><td><code>payment_create_course</code></td><td>Creu cwrs newydd gyda phris, teitl a disgrifiad</td></tr>
+<tr><td><code>payment_links</code></td><td>Cynhyrchu dolen talu Stripe ar gyfer cwrs</td></tr>
+<tr><td><code>payment_status</code></td><td>Gwiriwch statws talu a chofrestru myfyriwr</td></tr>
+<tr><td><code>payment_enrol</code></td><td>Cofrestru myfyriwr â llaw (e.e. ar ôl talu arian parod)</td></tr>
+<tr><td><code>payment_revoke</code></td><td>Dileu mynediad cofrestru myfyriwr</td></tr>
+<tr><td><code>payment_unpaid</code></td><td>Rhestrwch yr holl fyfyrwyr sydd â balansau rhagorol</td></tr>
+<tr><td><code>payment_screenshot</code></td><td>Logio sgrinlun WeChat Pay fel prawf o daliad</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Lansio eich ysgol iaith ar-lein</h3>
+<p>Popeth sydd ei angen arnoch chi - fideo, sleidiau, taliadau a chofrestru - mewn un rhaglen bwrdd gwaith.</p>
+<a class="btn btn-solid" href="../contact.html">Cysylltwch</a>
+<a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
+<a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
+<a href="../trading.html">Masnachu</a><a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Adeiladwyd gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

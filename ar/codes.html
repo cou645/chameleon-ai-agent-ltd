@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مرجع رمز الاتصالات الميدانية - الخدمات اللوجستية 4 × 4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
+<a class="active" href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
+<a href="../contact.html">اتصال</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 مرجع رمز الاتصالات الميدانية</h1>
+<div class="edition">الخدمات اللوجستية 4 × 4 · الإصدار 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>بروتوكول تعليمات برمجية مضغوط للاستخدام عندما لا يتوفر اتصال البيانات. مصمم لسائقي الشاحنات والمتنزهين وخدمات الطوارئ العاملة عبر الحدود أو في المناطق النائية. تشترك ثلاثة ملفات تعريف للمستخدمين في تنبيه مشترك ومفردات النظام - مما يتيح الاتصال بين الوكالات حتى في ظل الظروف شديدة التدهور.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">يتم تشجيع مشاركة هذا المرجع. تعتمد إمكانية التشغيل البيني على معرفة جميع الأطراف بالرموز.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>احفظ هذه الصفحة كملف PDF باستخدام وظيفة الطباعة في متصفحك — <strong>ملف → طباعة → حفظ بصيغة PDF</strong>. احتفظ بنسخة على هاتفك للرجوع إليها دون الاتصال بالإنترنت.</p>
+<button class="btn-print" onclick="window.print()">🖨 طباعة / حفظ بصيغة PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← العودة إلى الخدمات اللوجستية 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>كيف تعمل الرموز</h3>
+<p>كل رمز هو <strong>خطاب</strong> (الفئة) تليها <strong>رقمين</strong> (الشدة أو النوع الفرعي). ضمن كل فئة، تعني الأرقام الأقل <em>عادي أو طفيف</em>، الأرقام الأعلى تعني <em>خطيرة أو حرجة</em>. الرمز 99 هو دائمًا الأشد خطورة.</p>
+<div class="code-block">أ11</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── الخطورة  11 = الاسمية → 99 = الطوارئ</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── حرف الفئة</span>
+</div>
+<p style="margin-top:.8rem;">يمكن دمج رموز متعددة في رسالة واحدة. يمكن إلحاق ملاحظة نصية مجانية لمزيد من التفاصيل.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">د</div>
+<div>
+<strong>سائق</strong>
+<span>مشغل شاحنة / عبر الحدود</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">ح</div>
+<div>
+<strong>مسافر</strong>
+<span>عضو في فريق الرحلات الخارجية/الرحلات</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">X</div>
+<div>
+<strong>خدمات الطوارئ</strong>
+<span>SAR / مسعف / حارس / إطفاء</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>Universal SOS — يعمل على جميع الملفات الشخصية</h4>
+<p>أرسل هذين الرمزين معًا لإطلاق تنبيه طوارئ فوري يهدد الحياة باستخدام موقع GPS لجميع جهات الاتصال المسجلة.</p>
+<div class="sos-codes">
+<span class="sos-chip">A99</span>
+<span class="sos-chip">H99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">الرموز العالمية - جميع الملفات الشخصية</div>
+<div class="ph-sub">A (التنبيه) وZ (النظام) متطابقان عبر السائق والمسافر وخدمات الطوارئ</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">أ</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">مستوى التنبيه</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">أ11</td><td>كل شيء واضح. الوضع طبيعي .</td></tr>
+<tr><td class="code-cell">A22</td><td>حادثة بسيطة. التعامل مع الذات.</td></tr>
+<tr><td class="code-cell">A33</td><td>حذر. مشكلة محتملة في التطور. يراقب.</td></tr>
+<tr><td class="code-cell">أ44</td><td>المساعدة اللازمة. غير عاجلة.</td></tr>
+<tr><td class="code-cell">A55</td><td>المساعدة مطلوبة بشكل عاجل.</td></tr>
+<tr><td class="code-cell">أ66</td><td>حادث خطير في التقدم.</td></tr>
+<tr><td class="code-cell">A77</td><td>الوضع حرج. مشاكل متعددة.</td></tr>
+<tr><td class="code-cell">أ88</td><td>خطر شديد.</td></tr>
+<tr class="crit"><td class="code-cell">A99</td><td>SOS. حالة طوارئ تهدد الحياة. أرسل المساعدة على الفور.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">ز</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">النظام/البروتوكول</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>نبض القلب. لا تغيير.</td></tr>
+<tr><td class="code-cell">Z01</td><td>بداية التحول / الارتفاع / النشر.</td></tr>
+<tr><td class="code-cell">Z02</td><td>نهاية التحول / الارتفاع. وقفت بأمان.</td></tr>
+<tr><td class="code-cell">Z03</td><td>تم قبول الرسالة.</td></tr>
+<tr><td class="code-cell">Z04</td><td>الرسالة تالفة. يرجى إعادة الإرسال.</td></tr>
+<tr><td class="code-cell">Z05</td><td>ترحيل هذه الرسالة إلى الأمام.</td></tr>
+<tr><td class="code-cell">Z06</td><td>ترحيل هذه الرسالة مرة أخرى إلى القاعدة.</td></tr>
+<tr><td class="code-cell">Z07</td><td>قاعدة أو أمر يطلب الحالة من الجميع.</td></tr>
+<tr><td class="code-cell">Z08</td><td>طلب الحالة من جهة الاتصال المحددة هذه.</td></tr>
+<tr><td class="code-cell">Z09</td><td>حل المجموعة أو القافلة.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">رموز السائق - البادئة D</div>
+<div class="ph-sub">مشغلو الشاحنات، والخدمات اللوجستية عبر الحدود، وسائقو القوافل</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ب</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">حدود</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ب11</td><td>تقترب من الحدود. في حدود عشرين كيلومترا.</td></tr>
+<tr><td class="code-cell">ب22</td><td>في طابور عند المركز الحدودي. الانتظار العادي.</td></tr>
+<tr><td class="code-cell">B33</td><td>تأخر على الحدود. قضية الأعمال الورقية.</td></tr>
+<tr><td class="code-cell">ب44</td><td>أمر فحص البضائع.</td></tr>
+<tr><td class="code-cell">ب55</td><td>طلب الدفع غير الرسمي.</td></tr>
+<tr><td class="code-cell">ب66</td><td>البضائع التي ضبطتها السلطات.</td></tr>
+<tr><td class="code-cell">B77</td><td>تم حجز المركبة.</td></tr>
+<tr><td class="code-cell">ب88</td><td>تم احتجاز السائق.</td></tr>
+<tr class="crit"><td class="code-cell">B99</td><td>رفض الدخول. عاد إلى الوراء.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ج</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">البضائع</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ج11</td><td>تم تحميل البضائع. كل شيء آمن. طبيعي.</td></tr>
+<tr><td class="code-cell">C22</td><td>تحميل جزئي أو تحول طفيف.</td></tr>
+<tr><td class="code-cell">C33</td><td>تحول الحمل. التوقف لإعادة التأمين.</td></tr>
+<tr><td class="code-cell">C44</td><td>البضائع التالفة.</td></tr>
+<tr><td class="code-cell">C55</td><td>الانسكاب أو العناصر المتساقطة من السيارة.</td></tr>
+<tr><td class="code-cell">ج66</td><td>البضائع مسروقة جزئيا.</td></tr>
+<tr><td class="code-cell">C77</td><td>جميع البضائع مسروقة أو مصادرة.</td></tr>
+<tr><td class="code-cell">ج88</td><td>المواد الخطرة أو حادث سلسلة التبريد.</td></tr>
+<tr class="crit"><td class="code-cell">C99</td><td>إجمالي خسارة البضائع.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">د</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">حالة السائق</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">د11</td><td>سائق في الخدمة. القيادة بشكل طبيعي.</td></tr>
+<tr><td class="code-cell">د22</td><td>سائق على التوقف. وقود أو وجبة أو استراحة.</td></tr>
+<tr><td class="code-cell">D33</td><td>يقوم السائق بتحميل أو تفريغ البضائع.</td></tr>
+<tr><td class="code-cell">د44</td><td>انتظار السائق. الجمارك أو نقطة التفتيش أو المرور.</td></tr>
+<tr><td class="code-cell">د55</td><td>تأخر السائق. مشكلة. لا يمكن المتابعة بعد.</td></tr>
+<tr><td class="code-cell">د66</td><td>شعور السائق بالإعياء أو التعب.</td></tr>
+<tr><td class="code-cell">D77</td><td>السائق محتجز أو يواجه مشكلة قانونية.</td></tr>
+<tr><td class="code-cell">د88</td><td>انهيار السائق. لا يمكن الاستمرار دون مساعدة.</td></tr>
+<tr class="crit"><td class="code-cell">D99</td><td>طوارئ السائق. سائق في خطر.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ه</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">خطأ في المركبة</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ه11</td><td>ضوء تحذير المحرك. صغير. مستمر.</td></tr>
+<tr><td class="code-cell">إي 22</td><td>إطار واحد مسطح. التغيير الآن.</td></tr>
+<tr><td class="code-cell">E33</td><td>إطارات مسطحة متعددة. لا يمكن التغيير.</td></tr>
+<tr><td class="code-cell">إي 44</td><td>ارتفاع درجة حرارة المحرك. انسحبت.</td></tr>
+<tr><td class="code-cell">E55</td><td>انهيار ميكانيكي. غير المحرك.</td></tr>
+<tr><td class="code-cell">ه66</td><td>عطل كامل في المحرك.</td></tr>
+<tr><td class="code-cell">E77</td><td>نار.</td></tr>
+<tr><td class="code-cell">إي88</td><td>أضرار حادث. لا يمكن للمركبة أن تتحرك.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>شطب المركبة. خسارة كاملة.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ف</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">وقود</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>خزان الوقود ممتلئ.</td></tr>
+<tr><td class="code-cell">F22</td><td>الوقود ثلاثة أرباع.</td></tr>
+<tr><td class="code-cell">F33</td><td>نصف الوقود.</td></tr>
+<tr><td class="code-cell">F44</td><td>ربع الوقود.</td></tr>
+<tr><td class="code-cell">F55</td><td>الوقود منخفض. تحتاج إلى التزود بالوقود في حدود 50 كم.</td></tr>
+<tr><td class="code-cell">F66</td><td>الوقود حاسم. بحاجة للتزود بالوقود الآن.</td></tr>
+<tr><td class="code-cell">F77</td><td>الجري على صفائح أو خزان احتياطي.</td></tr>
+<tr><td class="code-cell">F88</td><td>الوقود ملوث أو الوقود المستخدم بشكل خاطئ.</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>لا وقود. توقف.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ز</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">قافلة</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>مركبة منفردة. لا قافلة.</td></tr>
+<tr><td class="code-cell">G22</td><td>مركبة تقود القافلة.</td></tr>
+<tr><td class="code-cell">G33</td><td>موقف منتصف القافلة.</td></tr>
+<tr><td class="code-cell">G44</td><td>مركبة ذيل القافلة.</td></tr>
+<tr><td class="code-cell">G55</td><td>القافلة سليمة. جميع الشاحنات موجودة.</td></tr>
+<tr><td class="code-cell">G66</td><td>مركبة واحدة مفقودة من القافلة.</td></tr>
+<tr><td class="code-cell">G77</td><td>مركبات متعددة في عداد المفقودين.</td></tr>
+<tr><td class="code-cell">G88</td><td>انفصلت القافلة. أعد تجميع صفوفك في نقطة الطريق التالية.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>تم حل القافلة.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ح</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">المساعدة مطلوبة</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ح11</td><td>بحاجة إلى تسليم الوقود إلى موقعي.</td></tr>
+<tr><td class="code-cell">ح22</td><td>بحاجة إلى ورشة ميكانيكية أو متنقلة.</td></tr>
+<tr><td class="code-cell">H33</td><td>بحاجة إلى مساعدة طبية أو سيارة إسعاف.</td></tr>
+<tr><td class="code-cell">ح44</td><td>بحاجة إلى الشرطة أو مرافقة رسمية.</td></tr>
+<tr><td class="code-cell">H55</td><td>بحاجة إلى شاحنة الاسترداد أو الرافعة.</td></tr>
+<tr><td class="code-cell">ح66</td><td>بحاجة إلى طعام أو ماء أو إمدادات.</td></tr>
+<tr><td class="code-cell">H77</td><td>بحاجة إلى وكيل جمركي أو مساعدة في التوثيق.</td></tr>
+<tr><td class="code-cell">ح88</td><td>بحاجة لمرافقة مسلحة.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>حادثة كبرى. كل المساعدات مطلوبة بشكل عاجل.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ج</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">تقدم الرحلة</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>بدأت الرحلة. غادر في الموعد المحدد.</td></tr>
+<tr><td class="code-cell">J22</td><td>اكتمل 25% من المسار.</td></tr>
+<tr><td class="code-cell">J33</td><td>في منتصف الطريق. 50% كاملة.</td></tr>
+<tr><td class="code-cell">J44</td><td>75% كاملة.</td></tr>
+<tr><td class="code-cell">J55</td><td>تقترب من الوجهة. أقل من 10 كم.</td></tr>
+<tr><td class="code-cell">ج66</td><td>وصلت إلى الوجهة.</td></tr>
+<tr><td class="code-cell">J77</td><td>الطريق ممتد بشكل ملحوظ. انعطاف كبير.</td></tr>
+<tr><td class="code-cell">J88</td><td>عاد إلى الوراء. إعادة تتبع المسار.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>ضائع. خارج الطريق تماما.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ك</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">الاتصالات</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ك11</td><td>اتصالات كاملة. كل شيء طبيعي.</td></tr>
+<tr><td class="code-cell">K22</td><td>البيانات فقط. لا توجد مكالمات صوتية.</td></tr>
+<tr><td class="code-cell">K33</td><td>الرسائل القصيرة فقط. لا توجد بيانات أو صوت.</td></tr>
+<tr><td class="code-cell">ك 44</td><td>صوت فقط. لا توجد بيانات أو الرسائل القصيرة.</td></tr>
+<tr><td class="code-cell">K55</td><td>الاتصال بالراديو فقط.</td></tr>
+<tr><td class="code-cell">ك66</td><td>الاتصالات عبر الأقمار الصناعية نشطة.</td></tr>
+<tr><td class="code-cell">K77</td><td>شبكة واي فاي فقط. لا الخلوية.</td></tr>
+<tr><td class="code-cell">ك 88</td><td>تم ترحيل هذه الرسالة عبر جهاز آخر.</td></tr>
+<tr class="crit"><td class="code-cell">K99</td><td>لا الاتصالات. تم الإرسال عبر طرف ثالث.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ر</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">ظروف الطريق</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">ص11</td><td>طريق معبدة جيدة.</td></tr>
+<tr><td class="code-cell">R22</td><td>مدرج المطار مع الحفر.</td></tr>
+<tr><td class="code-cell">R33</td><td>طريق مرصوف بالحصى أو ترابي. مقبول.</td></tr>
+<tr><td class="code-cell">ر44</td><td>المسار الخام. الطين أو السطح السيئ.</td></tr>
+<tr><td class="code-cell">55 ريال</td><td>الطريق مسدود جزئيا</td></tr>
+<tr><td class="code-cell">ص66</td><td>الطريق مغلق أو هناك انسداد في حارة واحدة.</td></tr>
+<tr><td class="code-cell">R77</td><td>جسر خارج أو خطير.</td></tr>
+<tr><td class="code-cell">ص 88</td><td>الطريق غير سالك.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>لا يوجد طريق. خارج الطريق أو فقدت تماما.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">س</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">حماية</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">S11</td><td>الوضع طبيعي . لا توجد تهديدات.</td></tr>
+<tr><td class="code-cell">S22</td><td>الحذر العام في المنطقة.</td></tr>
+<tr><td class="code-cell">S33</td><td>نقطة تفتيش غير رسمية أو مركبة تتبع.</td></tr>
+<tr><td class="code-cell">S44</td><td>تم الإبلاغ عن حاجز طريق إجرامي في المستقبل.</td></tr>
+<tr><td class="code-cell">S55</td><td>وطالبت بالرشوة.</td></tr>
+<tr><td class="code-cell">S66</td><td>محاولة سرقة. صد.</td></tr>
+<tr><td class="code-cell">S77</td><td>السرقة جارية.</td></tr>
+<tr><td class="code-cell">S88</td><td>هجوم مسلح على القافلة.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>اختطاف أو اختطاف.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ت</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">جدول</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">T11</td><td>في الوقت المحدد. في الموعد المحدد.</td></tr>
+<tr><td class="code-cell">T22</td><td>تأخر قليلا. أقل من ساعة واحدة.</td></tr>
+<tr><td class="code-cell">T33</td><td>تأخرت من ساعة إلى ساعتين.</td></tr>
+<tr><td class="code-cell">T44</td><td>تأخر ساعتين إلى أربع ساعات.</td></tr>
+<tr><td class="code-cell">T55</td><td>تأخر من أربع إلى ثماني ساعات.</td></tr>
+<tr><td class="code-cell">T66</td><td>تأخر يوم واحد.</td></tr>
+<tr><td class="code-cell">T77</td><td>تأخير كبير. الوقت المتوقع للوصول غير معروف.</td></tr>
+<tr><td class="code-cell">T88</td><td>تم التخلي عن الجدول الزمني.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>تم إحباط الرحلة. العودة.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">حركة المركبة</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>مركبة متوقفة. توقفت بأمان.</td></tr>
+<tr><td class="code-cell">V22</td><td>المركبة تتحرك بشكل طبيعي.</td></tr>
+<tr><td class="code-cell">V33</td><td>السيارة تتحرك ببطء. أقل من 20 كم/ساعة.</td></tr>
+<tr><td class="code-cell">V44</td><td>السيارة عالقة. الطين أو الرمل أو الخندق.</td></tr>
+<tr><td class="code-cell">V55</td><td>سحب مركبة أخرى.</td></tr>
+<tr><td class="code-cell">V66</td><td>يجري سحبها.</td></tr>
+<tr><td class="code-cell">V77</td><td>انقلبت المركبة.</td></tr>
+<tr><td class="code-cell">V88</td><td>حادثة. لا يمكن للمركبة أن تتحرك.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>لا تصلح. خسارة كاملة.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">دبليو</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">طقس</div>
+</div>
+<table class="code-table">
+<thead><tr><th>شفرة</th><th>معنى</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>واضح وجاف. رؤية جيدة.</td></tr>
+<tr><td class="code-cell">W22</td><td>مطر خفيف أو ضباب.</td></tr>
+<tr><td class="code-cell">W33</td><td>أمطار غزيرة.</td></tr>
+<tr><td class="code-cell">W44</td><td>عاصفة رعدية أو رياح شديدة.</td></tr>
+<tr><td class="code-cell">W55</td><td>ضباب أو ضعف الرؤية.</td></tr>
+<tr><td class="code-cell">W66</td><td>فيضان. الطريق رطب ولكن مقبول.</td></tr>
+<tr><td class="code-cell">W77</td><td>فيضان. الطريق غير سالك.</td></tr>
+<tr><td class="code-cell">W88</td><td>عاصفة ترابية أو هارماتان. رؤية قريبة من الصفر.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>الظروف الجوية القاسية. توقف.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">رموز المتجول - البادئة H</div>
+<div class="ph-sub">المتنزهون، والفرق الخارجية، والبعثات البرية</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">ح</div><div class="cat-icon">🆘</div><div class="cat-name">المساعدة مطلوبة</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">ح11</td><td>بحاجة إلى طعام أو ماء.</td></tr>
+<tr><td class="code-cell">ح22</td><td>بحاجة إلى الإسعافات الأولية أو مجموعة طبية.</td></tr>
+<tr><td class="code-cell">H33</td><td>بحاجة إلى مساعدة طبية أو تقييم الإخلاء.</td></tr>
+<tr><td class="code-cell">ح44</td><td>بحاجة إلى فريق الإنقاذ.</td></tr>
+<tr><td class="code-cell">H55</td><td>تحتاج إلى طائرة هليكوبتر أو الإخلاء الجوي.</td></tr>
+<tr><td class="code-cell">ح66</td><td>بحاجة إلى البحث والإنقاذ.</td></tr>
+<tr><td class="code-cell">H77</td><td>بحاجة إلى مأوى أو إقامة مؤقتة في حالات الطوارئ.</td></tr>
+<tr><td class="code-cell">ح88</td><td>بحاجة إلى الإخلاء العاجل. لا يستطيع المشي.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>حالة طوارئ كبرى. كل المساعدة مطلوبة على الفور.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">ت</div><div class="cat-icon">🏔</div><div class="cat-name">ظروف المسار</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">T11</td><td>درب جيد. ملحوظ بشكل جيد. عيشة رغيدة.</td></tr>
+<tr><td class="code-cell">T22</td><td>درب متقطع أو متضخم.</td></tr>
+<tr><td class="code-cell">T33</td><td>ضاع الدرب. التنقل عن طريق GPS أو البوصلة.</td></tr>
+<tr><td class="code-cell">T44</td><td>خارج المسار. التضاريس المفتوحة. صالحة للملاحة.</td></tr>
+<tr><td class="code-cell">T55</td><td>صعود حاد. تباطؤ وتيرة.</td></tr>
+<tr><td class="code-cell">T66</td><td>نزول حاد. رعاية.</td></tr>
+<tr><td class="code-cell">T77</td><td>التضاريس الفنية. التدافع أو الصخور أو الثلج.</td></tr>
+<tr><td class="code-cell">T88</td><td>قسم خطير العبور بعناية.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>التضاريس غير سالكة. اضطر للعودة إلى الوراء.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">ش</div><div class="cat-icon">🎒</div><div class="cat-name">العتاد / المعدات</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">تحت 11</td><td>جميع العتاد في حالة جيدة.</td></tr>
+<tr><td class="code-cell">تحت 22</td><td>مشكلة بسيطة في العتاد. غير حرجة.</td></tr>
+<tr><td class="code-cell">U33</td><td>العتاد تالف ولكن تم العثور على الحل البديل.</td></tr>
+<tr><td class="code-cell">U44</td><td>فشل العنصر الحرج. خيمة أو موقد أو مرشح.</td></tr>
+<tr><td class="code-cell">U55</td><td>معدات الملاحة مفقودة أو معطلة.</td></tr>
+<tr><td class="code-cell">U66</td><td>مجموعة الإسعافات الأولية قيد الاستخدام.</td></tr>
+<tr><td class="code-cell">U77</td><td>هناك حاجة إلى مأوى الطوارئ. إعداد المعسكر المؤقت.</td></tr>
+<tr><td class="code-cell">U88</td><td>عدة أعطال خطيرة في العتاد.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>فقدت جميع المعدات الأساسية. كارثية.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">الحيوية / صحة المجموعة</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>جميع أعضاء المجموعة لائقون وبصحة جيدة.</td></tr>
+<tr><td class="code-cell">V22</td><td>التعب البسيط أو عدم الراحة. مستمر.</td></tr>
+<tr><td class="code-cell">V33</td><td>بثور أو إصابة طفيفة. تباطؤ قليلا.</td></tr>
+<tr><td class="code-cell">V44</td><td>إصابة. وتيرة أبطأ بشكل ملحوظ.</td></tr>
+<tr><td class="code-cell">V55</td><td>لا يمكن للعضو الحفاظ على وتيرة طبيعية.</td></tr>
+<tr><td class="code-cell">V66</td><td>إصابة خطيرة. توقف. تقييم الإخلاء.</td></tr>
+<tr><td class="code-cell">V77</td><td>انهار العضو أو فاقد الوعي.</td></tr>
+<tr><td class="code-cell">V88</td><td>الطوارئ الطبية. الإخلاء مطلوب.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>تهدد الحياة. هناك حاجة لخدمات الطوارئ على الفور.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">ي</div><div class="cat-icon">✅</div><div class="cat-name">تسجيل الوصول المقرر</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>تسجيل الوصول المقرر. كل شيء على ما يرام. على الطريق.</td></tr>
+<tr><td class="code-cell">Y22</td><td>تحقق في. تأخير طفيف. لا تزال آمنة.</td></tr>
+<tr><td class="code-cell">Y33</td><td>تحقق في. تأخير كبير. لا تزال آمنة.</td></tr>
+<tr><td class="code-cell">Y44</td><td>خارج الطريق ولكن آمنة والملاحة.</td></tr>
+<tr><td class="code-cell">Y55</td><td>غاب عن نافذة تسجيل الوصول السابقة. الآن الإبلاغ.</td></tr>
+<tr><td class="code-cell">Y66</td><td>طلب الاعتراف من القاعدة.</td></tr>
+<tr><td class="code-cell">ص77</td><td>الوصول الآمن إلى المخيم أو نقطة الطريق المخطط لها.</td></tr>
+<tr><td class="code-cell">ص88</td><td>تنازلي. المحطة الأخيرة إلى الطريق.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>تم تفويت تسجيلات الوصول المتعددة. تم تشغيل تنبيه الطوارئ.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">س</div><div class="cat-icon">🛡</div><div class="cat-name">حماية</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>الوضع طبيعي . لا توجد تهديدات.</td></tr>
+<tr><td class="code-cell">S22</td><td>الحذر العام. منطقة غير مألوفة.</td></tr>
+<tr><td class="code-cell">S33</td><td>نشاط مشبوه في مكان قريب.</td></tr>
+<tr><td class="code-cell">S44</td><td>تهديد الحياة البرية. الحفاظ على المسافة.</td></tr>
+<tr><td class="code-cell">S55</td><td>لقاء الحياة البرية. التراجع بعيدا.</td></tr>
+<tr><td class="code-cell">S66</td><td>الحياة البرية العدوانية. التراجع.</td></tr>
+<tr><td class="code-cell">S77</td><td>واجه الناس المعادية.</td></tr>
+<tr><td class="code-cell">S88</td><td>هدد أو اتبع. الانتقال إلى بر الأمان.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>خطر فوري من الناس أو الحياة البرية.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">رموز خدمات الطوارئ — البادئة X</div>
+<div class="ph-sub">SAR، المسعفون الطبيون، أطقم الإطفاء، الحراس - عمليات الاتصالات المتدهورة</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>تتماشى مع معايير الطوارئ الدولية</strong>
+    تستخدم فئة P (الفرز) مقياس الأولوية الدولي P1 – P4 (P1 = فوري، P2 = متأخر، P3 = ثانوي، P4 = متوقع). تعكس فئتا I (الحادث) وN (العدد) إطار إعلان الحوادث الكبرى لـ METHANE الذي تستخدمه خدمات الطوارئ المشتركة.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">أنا</div><div class="cat-icon">🔥</div><div class="cat-name">نوع الحادث</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">أنا11</td><td>الطوارئ الطبية. لا يوجد خطر المشهد.</td></tr>
+<tr><td class="code-cell">I22</td><td>اصطدام حركة المرور على الطرق.</td></tr>
+<tr><td class="code-cell">I33</td><td>البحث والإنقاذ. شخص مفقود.</td></tr>
+<tr><td class="code-cell">I44</td><td>حريق أو حادث هيكلي.</td></tr>
+<tr><td class="code-cell">I55</td><td>الإنقاذ من الفيضانات أو المياه.</td></tr>
+<tr><td class="code-cell">أنا66</td><td>المواد الخطرة أو إطلاق المواد الكيميائية.</td></tr>
+<tr><td class="code-cell">I77</td><td>الانهيار الهيكلي.</td></tr>
+<tr><td class="code-cell">أنا88</td><td>الاضطرابات المدنية أو العنف أو الحوادث المسلحة.</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>تم الإعلان عن حادث كبير.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ص</div><div class="cat-icon">🏥</div><div class="cat-name">فرز المرضى</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">ص11</td><td>ولا يوجد ضحايا في مكان الحادث.</td></tr>
+<tr><td class="code-cell">ص22</td><td>جرحى المشي فقط. P3 - قاصر.</td></tr>
+<tr><td class="code-cell">P33</td><td>خطيرة ولكنها مستقرة. P2 - متأخر.</td></tr>
+<tr><td class="code-cell">ص44</td><td>إصابات تهدد الحياة. P1 - فوري.</td></tr>
+<tr><td class="code-cell">P55</td><td>الضحايا المنتظرين. P4 - مسكنة.</td></tr>
+<tr><td class="code-cell">ص66</td><td>الفرز المختلط. فئات متعددة موجودة.</td></tr>
+<tr><td class="code-cell">P77</td><td>تم الإعلان عن حادثة الإصابات الجماعية.</td></tr>
+<tr><td class="code-cell">ص88</td><td>إحصاء الضحايا غير مكتمل لم يتم مسح المشهد.</td></tr>
+<tr class="crit"><td class="code-cell">P99</td><td>كارثية. تم تأكيد وفيات متعددة.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ن</div><div class="cat-icon">👥</div><div class="cat-name">عدد الضحايا</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">رقم 11</td><td>ضحية واحدة.</td></tr>
+<tr><td class="code-cell">N22</td><td>اثنان إلى خمسة ضحايا.</td></tr>
+<tr><td class="code-cell">N33</td><td>ستة إلى عشرة ضحايا.</td></tr>
+<tr><td class="code-cell">رقم 44</td><td>من أحد عشر إلى عشرين ضحية.</td></tr>
+<tr><td class="code-cell">ن55</td><td>من عشرين إلى خمسين ضحية.</td></tr>
+<tr><td class="code-cell">N66</td><td>من خمسين إلى مائة ضحية.</td></tr>
+<tr><td class="code-cell">N77</td><td>أكثر من مائة ضحية.</td></tr>
+<tr><td class="code-cell">ن88</td><td>رقم غير معروف. تقييم المشهد مستمر.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>إصابات في مواقع متعددة.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">الحيوية للمريض</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>واعية ومتيقظة. التحدث بشكل طبيعي.</td></tr>
+<tr><td class="code-cell">V22</td><td>واعي ولكن مرتبك أو مضطرب.</td></tr>
+<tr><td class="code-cell">V33</td><td>- الرد على الأوامر الصوتية فقط.</td></tr>
+<tr><td class="code-cell">V44</td><td>الاستجابة للألم فقط. غير واعي.</td></tr>
+<tr><td class="code-cell">V55</td><td>غير مستجيب. التنفس حاضر.</td></tr>
+<tr><td class="code-cell">V66</td><td>لا يتنفس. الإنعاش القلبي الرئوي قيد التقدم.</td></tr>
+<tr><td class="code-cell">V77</td><td>نزيف حاد. عاصبة تطبيقها.</td></tr>
+<tr><td class="code-cell">V88</td><td>توقف القلب.</td></tr>
+<tr class="crit"><td class="code-cell">V99</td><td>فقيد. مؤكد.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ر</div><div class="cat-icon">🚒</div><div class="cat-name">الموارد في مكان الحادث</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">ص11</td><td>مسعف أولي فقط. لا يوجد مستجيب محترف.</td></tr>
+<tr><td class="code-cell">R22</td><td>المسعف أو المسعف الأول المتقدم في مكان الحادث.</td></tr>
+<tr><td class="code-cell">R33</td><td>طاقم الإسعاف في مكان الحادث.</td></tr>
+<tr><td class="code-cell">ر44</td><td>طاقم الإطفاء في مكان الحادث.</td></tr>
+<tr><td class="code-cell">55 ريال</td><td>الشرطة في مكان الحادث.</td></tr>
+<tr><td class="code-cell">ص66</td><td>خدمات الطوارئ المتعددة في مكان الحادث.</td></tr>
+<tr><td class="code-cell">R77</td><td>أنشأ قائد الحادث.</td></tr>
+<tr><td class="code-cell">ص 88</td><td>المستشفى الميداني أو محطة تطهير المصابين نشطة.</td></tr>
+<tr class="crit"><td class="code-cell">R99</td><td>جميع الموارد طغت. مطلوب تعزيز عاجل.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ح</div><div class="cat-icon">📞</div><div class="cat-name">الموارد المطلوبة</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">ح11</td><td>لا توجد موارد إضافية مطلوبة.</td></tr>
+<tr><td class="code-cell">ح22</td><td>مطلوب سيارة إسعاف أرضية إضافية.</td></tr>
+<tr><td class="code-cell">H33</td><td>مطلوب سيارة إسعاف جوية أو طائرة هليكوبتر.</td></tr>
+<tr><td class="code-cell">ح44</td><td>مطلوب إطفاء وإنقاذ.</td></tr>
+<tr><td class="code-cell">H55</td><td>الشرطة أو الرد المسلح مطلوب.</td></tr>
+<tr><td class="code-cell">ح66</td><td>مطلوب فريق HAZMAT أو التلوث.</td></tr>
+<tr><td class="code-cell">H77</td><td>مطلوب فريق إنقاذ ثقيل أو فريق بحث حضري.</td></tr>
+<tr><td class="code-cell">ح88</td><td>مطلوب دعم عسكري أو متخصص.</td></tr>
+<tr class="crit"><td class="code-cell">H99</td><td>الاستجابة للإصابات الجماعية. جميع الموارد المطلوبة.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ه</div><div class="cat-icon">🚁</div><div class="cat-name">حالة الإخلاء</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">ه11</td><td>لا حاجة للإخلاء. المعالجة في مكان الحادث.</td></tr>
+<tr><td class="code-cell">إي 22</td><td>الإخلاء الذاتي ممكن. الضحايا يسيرون للنقل.</td></tr>
+<tr><td class="code-cell">E33</td><td>إمكانية إخلاء السيارة. الطريق يمكن الوصول إليه.</td></tr>
+<tr><td class="code-cell">إي 44</td><td>مطلوب إخلاء نقالة.</td></tr>
+<tr><td class="code-cell">E55</td><td>الإخلاء الجوي مطلوب. منطقة الهبوط اللازمة.</td></tr>
+<tr><td class="code-cell">ه66</td><td>مطلوب إخلاء المياه أو القارب.</td></tr>
+<tr><td class="code-cell">E77</td><td>مطلوب الإنقاذ الفني. حبل أو مساحة محدودة.</td></tr>
+<tr><td class="code-cell">إي88</td><td>تم اختراق طريق الإخلاء. البحث عن بديل.</td></tr>
+<tr class="crit"><td class="code-cell">E99</td><td>الإخلاء مستحيل. الضحايا يحتمون في مكانهم.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">س</div><div class="cat-icon">⚠️</div><div class="cat-name">سلامة المشهد</div></div>
+<table class="code-table"><thead><tr><th>شفرة</th><th>معنى</th></tr></thead><tbody>
+<tr><td class="code-cell">S11</td><td>المشهد آمن. لا توجد مخاطر.</td></tr>
+<tr><td class="code-cell">S22</td><td>المخاطر المحتملة موجودة. ينصح الحذر.</td></tr>
+<tr><td class="code-cell">S33</td><td>خطر الحريق أو المواد الكيميائية أو الهيكلية في مكان الحادث.</td></tr>
+<tr><td class="code-cell">S44</td><td>التهديد النشط. المشهد ليس آمنا بعد.</td></tr>
+<tr><td class="code-cell">S55</td><td>الأشخاص المعادين في مكان الحادث. مطلوب إنفاذ القانون.</td></tr>
+<tr><td class="code-cell">S66</td><td>خطر التلوث. منطقة الاستبعاد مطلوبة.</td></tr>
+<tr><td class="code-cell">S77</td><td>تم مسح المشهد جزئيًا. خطر مستمر.</td></tr>
+<tr><td class="code-cell">S88</td><td>المشهد غير آمن تم سحب المستجيبين.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>خطر فوري على المستجيبين. إخلاء المكان الآن.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>مرجع سريع - المواقف الشائعة</h2>
+<p>رموز ذات معنى واحد عبر الملفات الشخصية الثلاثة</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>الموقف</th>
+<th>سائق (د)</th>
+<th>مسافر (ح)</th>
+<th>الطوارئ (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>كل شيء واضح / عادي</td><td>أ11</td><td>أ11</td><td>أ11</td></tr>
+<tr><td>بحاجة الى مساعدة عاجلة</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
+<tr><td>تهديد الحياة - SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
+<tr><td>اتصالات الرسائل القصيرة فقط</td><td>K33</td><td>K33</td><td>K33</td></tr>
+<tr><td>في الموعد المحدد / في الطريق</td><td>T11 / D11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>وصلت إلى الوجهة</td><td>ج66</td><td>ج66</td><td>ج66</td></tr>
+<tr><td>ضائع / خارج الطريق</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>الطقس القاسي</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>معترف به</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>رسالة تالفة</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>الخدمات اللوجستية 4×4</h3>
+<p>اتصالات الأسطول عبر الحدود للمشغلين الصغار - خرائط حية، وفيديو جماعي، وجسر SIM، وبروتوكول الطوارئ هذا، كل ذلك على هاتف Android قياسي.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">يتعلم أكثر</a>
+<a class="btn" href="../contact.html">تواصل معنا</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · الخدمات اللوجستية 4×4 بروتوكول الاتصالات الميدانية · الإصدار 1<br/>
+    يتم تشجيع مشاركة هذا المرجع، حيث تتطلب قابلية التشغيل البيني ذلك.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
+<a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
+<a href="../contact.html">اتصال</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · الترخيص معلق · تم إنشاؤه بواسطة Marcos المعروف أيضًا باسم Stemsee</p>
+</footer>
+</body>
+</html>

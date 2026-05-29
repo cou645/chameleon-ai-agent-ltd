@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Εφαρμογή Chameleon Companion — Android</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .channel-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .channel-card .ch-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .ch-p2p  { border-color: #667eea; } .ch-p2p  .ch-badge { background:#ede9fe; color:#4f46e5; }
+    .ch-ide  { border-color: #22c55e; } .ch-ide  .ch-badge { background:#dcfce7; color:#15803d; }
+    .ch-media{ border-color: #f59e0b; } .ch-media .ch-badge { background:#fef3c7; color:#b45309; }
+    .ch-file { border-color: #06b6d4; } .ch-file .ch-badge { background:#cffafe; color:#0e7490; }
+    .ch-acct { border-color: #ec4899; } .ch-acct .ch-badge { background:#fce7f3; color:#be185d; }
+    .ch-vnc  { border-color: #8b5cf6; } .ch-vnc  .ch-badge { background:#ede9fe; color:#6d28d9; }
+    .channel-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .channel-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .channel-card .ch-icon { font-size: 2rem; }
+    .phone-mockup {
+      background: #1a1a2e; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+      border: 3px solid #333;
+    }
+    .phone-screen {
+      background: #0f0f23; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #c8c8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #22c55e; margin-left: auto; }
+    .phone-msg { border-radius: 10px; padding: .5rem .8rem; margin-bottom: .5rem; font-size: .78rem; max-width: 85%; }
+    .msg-ai   { background: rgba(102,126,234,.25); color: #c8c8f0; }
+    .msg-user { background: rgba(34,197,94,.2); color: #d1fae5; margin-left: auto; }
+    .phone-channels {
+      display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .8rem;
+      padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .pch {
+      font-size: .65rem; padding: .2rem .5rem; border-radius: 50px;
+      font-weight: 600; letter-spacing: .04em;
+    }
+    .pch-ide   { background:rgba(34,197,94,.2);  color:#22c55e; }
+    .pch-video { background:rgba(102,126,234,.2); color:#818cf8; }
+    .pch-file  { background:rgba(6,182,212,.2);   color:#06b6d4; }
+    .pch-media { background:rgba(245,158,11,.2);  color:#f59e0b; }
+    .pch-stt   { background:rgba(236,72,153,.2);  color:#ec4899; }
+    .ws-diagram {
+      background: #1a1a2e; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e0e0ff;
+      box-shadow: var(--shadow-lg);
+    }
+    .ws-row { display: flex; align-items: center; gap: 1rem; margin-bottom: .8rem; flex-wrap: wrap; }
+    .ws-node {
+      background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 8px; padding: .4rem .9rem; font-size: .82rem; color: #c8c8f0;
+      white-space: nowrap;
+    }
+    .ws-arrow { color: #667eea; font-size: 1.1rem; }
+    .ws-label { font-size: .72rem; color: #8888aa; margin-top: -.4rem; padding-left: .2rem; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ ΔΟΚΙΜΕΣ ΣΕ ΕΞΕΛΙΞΗ — Αυτός ο ιστότοπος βρίσκεται υπό ενεργό ανάπτυξη. Τα χαρακτηριστικά, η τιμολόγηση και η αδειοδότηση δεν έχουν οριστικοποιηθεί.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a class="active" href="../companion.html">Companion App</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../companion.html">🌐 EN — English</a><a href="../ar/companion.html">🇸🇦 AR — العربية</a><a href="../cy/companion.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/companion.html">🇩🇪 DE — Deutsch</a><a href="../es/companion.html">🇪🇸 ES — Español</a><a href="../fr/companion.html">🇫🇷 FR — Français</a><a href="../hi/companion.html">🇮🇳 HI — हिन्दी</a><a href="../it/companion.html">🇮🇹 IT — Italiano</a><a href="../ja/companion.html">🇯🇵 JA — 日本語</a><a href="../ko/companion.html">🇰🇷 KO — 한국어</a><a href="../pt/companion.html">🇵🇹 PT — Português</a><a href="../ru/companion.html">🇷🇺 RU — Русский</a><a href="../zh/companion.html">🇨🇳 ZH — 中文</a><a href="../id/companion.html">🇮🇩 ID — Indonesia</a><a href="../pl/companion.html">🇵🇱 PL — Polski</a><a href="../ro/companion.html">🇷🇴 RO — Română</a><a href="../sw/companion.html">🇰🇪 SW — Kiswahili</a><a href="../uk/companion.html">🇺🇦 UK — Українська</a><a href="../vi/companion.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📱</div>
+<h1>App Chameleon Companion</h1>
+<p class="sub">Το τηλέφωνό σας Android γίνεται μια γέφυρα πολλαπλών καναλιών στον επιτραπέζιο υπολογιστή — ρελέ συνομιλίας AI, ομαδικό βίντεο P2P για 4+ συμμετέχοντες, γεφύρωση κλήσεων SIM, τηλεχειριστήριο, πρόσβαση σε αρχεία, ροή πολυμέσων και λογιστική — σε όλο το ιδιωτικό σας πλέγμα Tailscale.</p>
+<div class="hero-badges">
+<span class="badge">🤖 Συνομιλία AI μέσω STT/TTS</span>
+<span class="badge">📹 Ομαδικό βίντεο P2P (4+)</span>
+<span class="badge">📞 Γέφυρα κλήσης SIM</span>
+<span class="badge">🎭 Τηλεχειριστήριο παρουσιαστή</span>
+<span class="badge">🌐 Ασφαλισμένο με κλίμακα ουράς</span>
+<span class="badge">🖥️ Οθόνη / VNC</span>
+</div>
+</div>
+<div class="page">
+<!-- Phone mockup + channel diagram side by side -->
+<div class="split" style="align-items:flex-start;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🦎</div>
+<span>Chameleon Companion</span>
+<div class="phone-status">● Συνδεδεμένο</div>
+</div>
+<div class="phone-msg msg-ai">Πώς μπορώ να βοηθήσω; Μπορώ να δω το IDE, τα αρχεία και τον παρουσιαστή σας.</div>
+<div class="phone-msg msg-user">Δείξτε μου το τελευταίο σφάλμα στο τερματικό.</div>
+<div class="phone-msg msg-ai">Το βρήκα — γραμμή 47, NameError: «config» δεν έχει οριστεί. Θέλετε να το φτιάξω;</div>
+<div class="phone-msg msg-user">Ναι, εφαρμόστε την επιδιόρθωση.</div>
+<div class="phone-msg msg-ai">Γινώμενος. Το αρχείο αποθηκεύτηκε. Το τερματικό δείχνει την έξοδο 0.</div>
+<div class="phone-channels">
+<span class="pch pch-ide">IDE</span>
+<span class="pch pch-video">Βίντεο P2P</span>
+<span class="pch pch-file">Αρχεία</span>
+<span class="pch pch-media">Μέσα ενημέρωσης</span>
+<span class="pch pch-stt">STT/TTS</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>Πολυκαναλική αρχιτεκτονική</h2>
+<p>Μία γέφυρα WebSocket, πέντε ανεξάρτητες λωρίδες επικοινωνίας</p>
+</div>
+<div class="ws-diagram">
+<div class="ws-row">
+<div class="ws-node">📱 Εφαρμογή Android</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">Πλέγμα ουράς</div>
+<div class="ws-arrow">⟷</div>
+<div class="ws-node">🖥️ Επιτραπέζιος υπολογιστής</div>
+</div>
+<div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Κανάλι IDE</div><div class="ws-label">Συνομιλία AI · εντολές · στιγμιότυπα οθόνης · μεταφόρτωση αρχείων</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P βίντεο</div><div class="ws-label">Ρελέ WebRTC SDP/ICE · A/V χαμηλής καθυστέρησης</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Πρόγραμμα περιήγησης αρχείων</div><div class="ws-label">Ανάγνωση · εγγραφή · επεξεργασία αρχείων στην επιφάνεια εργασίας</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Ροή πολυμέσων</div><div class="ws-label">NAS / DLNA · μετάδοση στο τηλέφωνο</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Κοινή χρήση οθόνης</div><div class="ws-label">Επιτραπέζιο καθρέφτη τύπου VNC/RDP</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Κανάλια Επικοινωνίας</h2>
+<p>Κάθε κανάλι είναι ανεξάρτητο — χρησιμοποιήστε ένα ή όλα ταυτόχρονα</p>
+</div>
+<div class="channel-grid">
+<div class="channel-card ch-ide">
+<span class="ch-badge">ΚΑΝΑΛΙ 1</span>
+<div class="ch-icon">🧠</div>
+<h3>Κανάλι IDE AI</h3>
+<p>Πλήρης αμφίδρομη γέφυρα προς την επιφάνεια εργασίας AI. Στείλτε μηνύματα προτροπής από το τηλέφωνό σας, λάβετε απαντήσεις σε ροή. Το AI μπορεί να διαβάζει αρχεία, να εκτελεί εντολές τερματικού και να εφαρμόζει τροποποιήσεις κώδικα — όλα ενεργοποιούνται από την τσέπη σας. Επισυνάψτε στιγμιότυπα οθόνης ή φωτογραφίες απευθείας από το ρολό της φωτογραφικής μηχανής σας ως πλαίσιο.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">AI ροή</span><span class="tag">Μεταφόρτωση αρχείου</span><span class="tag">Στιγμιότυπα οθόνης</span>
+</div>
+</div>
+<div class="channel-card ch-p2p">
+<span class="ch-badge">ΚΑΝΑΛΙ 2</span>
+<div class="ch-icon">📹</div>
+<h3>Ομάδα P2P Video &amp; Voice</h3>
+<p>Βίντεο και ήχος WebRTC πλήρους πλέγματος για ομάδες 4 ή περισσότερων — χωρίς κεντρικό διακομιστή πολυμέσων, χωρίς μηνιαίο λογαριασμό. Παρακέντηση <strong>Ομαδικό βίντεο</strong> για να καλέσετε όλους τους διαδικτυακούς συνεργάτες ταυτόχρονα. Το πλέγμα προσαρμόζεται αυτόματα καθώς συμμετέχουν οι συμμετέχοντες: 1 = πλήρης οθόνη, 2 = δίπλα-δίπλα, 3 = 2+1, 4 = 2×2, 5+ = πλέγμα αυτόματης προσαρμογής με δυνατότητα κύλισης. Η τοπική σας ροή κυκλοφορεί ως εικόνα σε εικόνα. Ο ρυθμός bit μειώνεται ανά ομότιμο για να διατηρείται η ποιότητα ισορροπημένη σε οποιοδήποτε μέγεθος ομάδας.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC πλήρες πλέγμα</span><span class="tag">Προσαρμοστικό πλέγμα</span><span class="tag">Τοπική ροή PiP</span><span class="tag">Διακομιστής σήματος Termux</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
+<span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">SIM BRIDGE</span>
+<div class="ch-icon">📞</div>
+<h3>SIM Call Bridge</h3>
+<p>Είστε ήδη σε μια κλήση κινητής τηλεφωνίας και θέλετε να φέρετε έναν P2P peer; Παρακέντηση <strong>Προσθήκη στην ομάδα κλήσεων</strong> — η εφαρμογή καταγράφει την κλήση WebRTC με τη στοίβα τηλεπικοινωνιών του Android παράλληλα με την κλήση SIM. Το Android παρουσιάζει μια εγγενή επιλογή "Συγχώνευση κλήσεων". αποδεχόμενος το χέρι μίξη ήχου στο υλικό της τηλεφωνίας. Η συγχωνευμένη κλήση παίζει στο <strong>μόνο ακουστικό</strong> — πλήρως ιδιωτικό, χωρίς μεγάφωνο, κανείς στο δωμάτιο δεν ακούει. Όταν η διάσκεψη υλικού δεν υποστηρίζεται από τον πάροχο, μια γέφυρα ακουστικών Bluetooth δρομολογεί όλο τον ήχο μέσω της σύνδεσης BT SCO.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Συνέδριο υλικού</span><span class="tag">Εναλλακτικός BT SCO</span><span class="tag">Μόνο ακουστικό</span><span class="tag">ConnectionService</span>
+</div>
+</div>
+<div class="channel-card ch-ide" style="border-color:#764ba2;">
+<span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">ΚΑΝΑΛΙ 3</span>
+<div class="ch-icon">🎭</div>
+<h3>Kameleon Presenter Remote</h3>
+<p>Ελέγξτε ολόκληρη τη σκηνή Kameleon από το τηλέφωνό σας. Προχωρήστε τις διαφάνειες, ενεργοποιήστε συνθήματα, σπρώξτε εικόνες ή κείμενο απευθείας σε μια στοίβα σκηνής, εγκρίνετε ή απορρίπτετε υποβολές από ομοτίμους και ελέγξτε τον πίνακα συλλογικής σχεδίασης — όλα αυτά χωρίς να αγγίζετε το πληκτρολόγιο της επιφάνειας εργασίας.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
+</div>
+</div>
+<div class="channel-card ch-vnc">
+<span class="ch-badge">ΚΑΝΑΛΙ 4</span>
+<div class="ch-icon">🖥️</div>
+<h3>Καθρέφτης οθόνης (στυλ VNC/RDP)</h3>
+<p>Δείτε και αλληλεπιδράστε με την οθόνη της επιφάνειας εργασίας σας από το τηλέφωνο. Υλοποιήθηκε ως μια ελαφριά ροή λήψης οθόνης μέσω του πλέγματος Tailscale — δεν απαιτείται διακομιστής VNC τρίτου κατασκευαστή. Πατήστε για κλικ, σύρετε για κύλιση. Χρήσιμο για την παρακολούθηση διεργασιών που εκτελούνται ή για την απομακρυσμένη έγκριση ενεργειών AI.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Λήψη οθόνης</span><span class="tag">Πατήστε για κλικ</span><span class="tag">Μόνο ουρά</span>
+</div>
+</div>
+<div class="channel-card ch-file">
+<span class="ch-badge">ΚΑΝΑΛΙ 5</span>
+<div class="ch-icon">📂</div>
+<h3>Απομακρυσμένο πρόγραμμα περιήγησης και επεξεργασίας αρχείων</h3>
+<p>Περιηγηθείτε στο σύστημα αρχείων της επιφάνειας εργασίας σας από το τηλέφωνο. Άνοιγμα, ανάγνωση και επεξεργασία αρχείων κειμένου. Μεταφορτώστε αρχεία από την κάμερα του τηλεφώνου ή τον χώρο αποθήκευσης απευθείας σε έναν φάκελο έργου. Ζητήστε από το IDE AI να επεξεργαστεί το μεταφορτωμένο αρχείο αμέσως μετά τη μεταφορά — π.χ. "προσθέστε αυτήν την εικόνα στο στάδιο του παρουσιαστή".</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">Ξεφυλλίζω</span><span class="tag">Εκδίδω</span><span class="tag">Μεταφόρτωση από κάμερα</span>
+</div>
+</div>
+<div class="channel-card ch-media">
+<span class="ch-badge">ΚΑΝΑΛΙ 6</span>
+<div class="ch-icon">🎵</div>
+<h3>Ροή πολυμέσων (NAS / DLNA)</h3>
+<p>Μεταδώστε μουσική και βίντεο από έναν διακομιστή NAS ή DLNA στο οικιακό σας δίκτυο στο τηλέφωνο μέσω του Tailscale. Περιηγηθείτε στη βιβλιοθήκη πολυμέσων, σε ουρά κομματιών και ελέγξτε την αναπαραγωγή — η επιφάνεια εργασίας λειτουργεί ως γέφυρα μεταξύ του τοπικού διακομιστή πολυμέσων και του τηλεφώνου όπου κι αν βρίσκεστε στο tailnet.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Γέφυρα ουράς</span>
+</div>
+</div>
+<div class="channel-card ch-acct">
+<span class="ch-badge">ΚΑΝΑΛΙ 7</span>
+<div class="ch-icon">🧾</div>
+<h3>Λογιστική — Λήψη απόδειξης</h3>
+<p>Φωτογραφίστε μια απόδειξη στο τηλέφωνό σας και στείλτε την κατευθείαν στη μονάδα λογιστικής. Το IDE AI διαβάζει την εικόνα, εξάγει το ποσό, την ημερομηνία, τον προμηθευτή και τον ΦΠΑ και καταγράφει μια πρόχειρη καταχώριση ημερολογίου στο διπλογραφικό καθολικό — έτοιμο να το ελέγξετε και να το δημοσιεύσετε στην επιφάνεια εργασίας.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">OCR απόδειξης</span><span class="tag">Σχέδιο περιοδικού</span><span class="tag">Εξαγωγή ΦΠΑ</span>
+</div>
+</div>
+<div class="channel-card ch-p2p" style="border-color:#ec4899;">
+<span class="ch-badge" style="background:#fce7f3;color:#be185d;">ΚΑΝΑΛΙ 8</span>
+<div class="ch-icon">🗣️</div>
+<h3>Voice AI — Τηλέφωνο STT &amp; TTS</h3>
+<p>Μιλήστε στο IDE AI από το τηλέφωνό σας χρησιμοποιώντας ομιλία σε κείμενο στη συσκευή. Η απόκριση AI μεταδίδεται πίσω και διαβάζεται δυνατά μέσω μετατροπής κειμένου σε ομιλία. Βοήθεια κωδικοποίησης hands-free ενώ η επιφάνεια εργασίας σας λειτουργεί χωρίς επίβλεψη — υπαγορεύστε μια διόρθωση, ακούστε το αποτέλεσμα, επιβεβαιώστε από το τηλέφωνο.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">STT στη συσκευή</span><span class="tag">Αναπαραγωγή TTS</span><span class="tag">Hands-free</span>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Πώς συνδέεται</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔐</div>
+<div class="strip-body">
+<h4>Διχτυωτό πλέγμα που ασφαλίζεται με σκαλοπάτια</h4>
+<p>Όλα τα κανάλια εκτελούνται μέσω του ιδιωτικού σας δικτύου Tailscale. Καμία θύρα δεν ανοίγει στο δημόσιο διαδίκτυο. Το τηλέφωνο πρέπει να είναι εξουσιοδοτημένο στο tailnet σας — οτιδήποτε άλλο είναι κρυπτογραφημένο από άκρο σε άκρο με το WireGuard.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔌</div>
+<div class="strip-body">
+<h4>Ενιαία γέφυρα WebSocket</h4>
+<p>Η επιφάνεια εργασίας εκτελείται <code>chameleon_mobile_bridge.py</code> ως νήμα δαίμονα μέσα στη διαδικασία Qt. Η εφαρμογή τηλεφώνου συνδέεται στη θύρα 8770 στο Tailscale IP. Μία μόνιμη σύνδεση μεταφέρει όλα τα κανάλια ως πληκτρολογημένα μηνύματα JSON.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🤖</div>
+<div class="strip-body">
+<h4>Termux στο Android</h4>
+<p>Ο διακομιστής σήματος (<code>chameleon_signal.py</code>) μπορεί να εκτελεστεί απευθείας στο τηλέφωνο Android μέσω Termux — κάνοντας το τηλέφωνο ταυτόχρονα πελάτη και κόμβο σηματοδότησης. Δεν απαιτείται ρελέ cloud για συνδέσεις ομότιμων WebRTC στο tailnet σας.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📶</div>
+<div class="strip-body">
+<h4>εναλλακτικό LAN</h4>
+<p>Όταν το Tailscale δεν είναι διαθέσιμο, <code>lan_video.py</code> κάνει ροή βίντεο μέσω UDP (θύρα 47732) και ήχου μέσω UDP (θύρα 47733) απευθείας στο τοπικό δίκτυο — ίδια κανάλια, χωρίς επιβάρυνση VPN.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>Ενδιαφέρεστε για την εφαρμογή Companion;</h3>
+<p>Επί του παρόντος σε δοκιμή — επικοινωνήστε μαζί μας για να δηλώσετε ενδιαφέρον ή να ζητήσετε μια επίδειξη.</p>
+<a class="btn btn-solid" href="../contact.html">Ελάτε σε επαφή</a>
+<a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Companion App</a><a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a><a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a><a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί άδεια χρήσης · ​​Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Справочник по кодам полевой связи — Логистика 4×4</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Print / PDF optimisation ──────────────────────────────── */
+    @media print {
+      nav, .no-print, .cta-band, footer { display: none !important; }
+      body { background: white; color: #111; }
+      .page { padding: 0; max-width: 100%; }
+      .code-table { page-break-inside: avoid; }
+      .section-block { page-break-inside: avoid; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .doc-header {
+      background: linear-gradient(135deg, #0b0f1a, #1a2a1a);
+      color: white; padding: 2.5rem 2rem 2rem;
+      border-radius: var(--radius); margin-bottom: 2rem;
+    }
+    .doc-header h1 { font-size: 1.8rem; margin-bottom: .4rem; color: #e2e8f0; }
+    .doc-header .edition { color: #94a3b8; font-size: .88rem; margin-bottom: 1rem; }
+    .doc-header p { color: #cbd5e1; font-size: .93rem; line-height: 1.7; max-width: 680px; }
+
+    .how-it-works {
+      background: #f8f7ff; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
+    }
+    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+
+    .code-block {
+      background: #1e1e2e; color: #cdd6f4;
+      border-radius: 8px; padding: .9rem 1.2rem;
+      font-family: 'Courier New', monospace; font-size: 1.05rem;
+      letter-spacing: .05em; margin: .6rem 0 1rem;
+    }
+    .code-annotation {
+      display: flex; gap: .4rem; font-size: .82rem; color: var(--muted);
+      margin-top: -.4rem; margin-bottom: .6rem; font-family: monospace;
+    }
+
+    .user-types {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+    }
+    .ut {
+      display: flex; align-items: center; gap: .6rem;
+      background: white; border-radius: 8px; padding: .7rem 1rem;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+    .ut-letter {
+      font-family: monospace; font-size: 1.3rem; font-weight: 900;
+      width: 2rem; height: 2rem; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ut-d { background: #fef3c7; color: #b45309; }
+    .ut-h { background: #dcfce7; color: #15803d; }
+    .ut-x { background: #fee2e2; color: #b91c1c; }
+    .ut strong { display: block; font-size: .82rem; }
+    .ut span { color: var(--muted); font-size: .78rem; }
+
+    .sos-band {
+      background: #dc2626; color: white; border-radius: var(--radius);
+      padding: 1rem 1.5rem; margin: 1.5rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .sos-band .sos-icon { font-size: 2rem; }
+    .sos-band h4 { font-size: 1rem; margin-bottom: .15rem; }
+    .sos-band p { font-size: .88rem; opacity: .92; margin: 0; }
+    .sos-codes { display: flex; gap: .5rem; margin-top: .5rem; }
+    .sos-chip {
+      background: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px; padding: .3rem .8rem;
+      font-family: monospace; font-weight: 900; font-size: 1rem; letter-spacing: .05em;
+    }
+
+    /* ── Profile section headings ──────────────────────────────── */
+    .profile-header {
+      border-radius: var(--radius); padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .ph-driver  { background: linear-gradient(135deg, #fef3c7, #fff7e0); border: 2px solid #f59e0b; }
+    .ph-hiker   { background: linear-gradient(135deg, #dcfce7, #f0fff4); border: 2px solid #22c55e; }
+    .ph-emerg   { background: linear-gradient(135deg, #fee2e2, #fff5f5); border: 2px solid #dc2626; }
+    .ph-universal { background: linear-gradient(135deg, #ede9fe, #f5f3ff); border: 2px solid #7c3aed; }
+    .ph-icon { font-size: 2rem; }
+    .ph-title { font-size: 1.3rem; font-weight: 700; margin-bottom: .15rem; }
+    .ph-sub { font-size: .88rem; color: var(--muted); }
+
+    /* ── Code tables ────────────────────────────────────────────── */
+    .section-block { margin-bottom: 1.5rem; }
+    .cat-label {
+      display: flex; align-items: center; gap: .6rem;
+      margin: 1.2rem 0 .5rem; padding-bottom: .3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .cat-letter {
+      font-family: monospace; font-size: 1rem; font-weight: 900;
+      width: 1.8rem; height: 1.8rem; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-start); color: white; flex-shrink: 0;
+    }
+    .cat-name { font-weight: 600; color: var(--text); font-size: .95rem; }
+    .cat-icon { font-size: 1.2rem; }
+
+    .code-table {
+      width: 100%; border-collapse: collapse; font-size: .88rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07); margin-bottom: .5rem;
+    }
+    .code-table th {
+      background: #f4f4f8; color: var(--muted);
+      text-align: left; padding: .45rem .9rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .code-table td { padding: .4rem .9rem; border-bottom: 1px solid #f0eff8; }
+    .code-table tr:last-child td { border-bottom: none; }
+    .code-table tr:hover td { background: #fafaff; }
+    .code-cell {
+      font-family: monospace; font-weight: 900; font-size: .95rem;
+      color: var(--brand-start); white-space: nowrap;
+    }
+    .code-table td:last-child { color: var(--muted); }
+    /* Critical codes */
+    .code-table tr.crit td { background: #fff5f5; }
+    .code-table tr.crit .code-cell { color: #b91c1c; }
+    .code-table tr.crit td:last-child { color: #b91c1c; font-weight: 600; }
+
+    /* ── Quick reference table ──────────────────────────────────── */
+    .qref-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem;
+      background: white; border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin: 1rem 0;
+    }
+    .qref-table th {
+      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+      color: white; padding: .6rem 1rem; text-align: left; font-size: .83rem;
+    }
+    .qref-table td { padding: .5rem 1rem; border-bottom: 1px solid var(--border); }
+    .qref-table tr:last-child td { border-bottom: none; }
+    .qref-table tr:hover td { background: #fafaff; }
+    .qref-table td:first-child { font-weight: 600; color: var(--text); }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+
+    /* ── METHANE note ────────────────────────────────────────────── */
+    .protocol-note {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 1rem 1.2rem; font-size: .88rem; color: #0369a1; margin: 1rem 0 .5rem;
+    }
+    .protocol-note strong { display: block; margin-bottom: .3rem; }
+
+    /* ── Download / print strip ─────────────────────────────────── */
+    .action-strip {
+      display: flex; gap: .8rem; flex-wrap: wrap;
+      background: #f8f7ff; border-radius: var(--radius);
+      padding: 1rem 1.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); align-items: center;
+    }
+    .action-strip p { color: var(--muted); font-size: .88rem; flex: 1; min-width: 200px; }
+    .btn-print {
+      background: var(--brand-start); color: white; border: none;
+      padding: .6rem 1.4rem; border-radius: 50px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
+<div class="nav-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a class="active" href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../contact.html">Контакт</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pt/codes.html">🇵🇹 PT — Português</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="page">
+<!-- ── Document header ─────────────────────────────────────── -->
+<div class="doc-header">
+<h1>🛡 Справочник по кодексу полевой связи</h1>
+<div class="edition">Логистика 4×4 · Издание 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>Компактный протокол кода для использования, когда соединение для передачи данных недоступно. Предназначен для водителей грузовиков, туристов и сотрудников служб экстренной помощи, работающих через границы или в отдаленной местности. Три профиля пользователя имеют общий словарь предупреждений и системы, что позволяет осуществлять межведомственную связь даже в крайне ухудшенных условиях.</p>
+<p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Распространение этой ссылки приветствуется. Функциональная совместимость зависит от знания кодов всеми сторонами.</p>
+</div>
+<!-- ── Download / print strip ──────────────────────────────── -->
+<div class="action-strip no-print">
+<p>Сохраните эту страницу в формате PDF, используя функцию печати вашего браузера — <strong>Файл → Печать → Сохранить как PDF.</strong>. Сохраните копию на своем телефоне для использования в автономном режиме.</p>
+<button class="btn-print" onclick="window.print()">🖨 Распечатать/сохранить в формате PDF</button>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← Назад к Логистика 4×4</a>
+</div>
+<!-- ── How codes work ──────────────────────────────────────── -->
+<div class="how-it-works">
+<h3>Как работают коды</h3>
+<p>Каждый код представляет собой <strong>письмо</strong> (категория), за которым следует <strong>две цифры</strong> (тяжесть или подтип). В каждой категории более низкие цифры означают <em>нормальный или незначительный</em>, более высокие цифры означают <em>серьезный или критический</em>. Код 99 всегда самый суровый.</p>
+<div class="code-block">А 1 1</div>
+<div class="code-annotation">
+<span style="margin-right:1.5rem;">│ </span>
+<span>└─┴── Уровень серьезности  11 = номинальный → 99 = экстренный</span>
+</div>
+<div class="code-annotation" style="margin-top:-.8rem;">
+<span>└────── Буква категории</span>
+</div>
+<p style="margin-top:.8rem;">В одном сообщении можно объединить несколько кодов. Для получения дополнительной информации можно добавить примечание в произвольном тексте.</p>
+<div class="user-types">
+<div class="ut">
+<div class="ut-letter ut-d">Д</div>
+<div>
+<strong>Водитель</strong>
+<span>Грузовик / трансграничный оператор</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-h">ЧАС</div>
+<div>
+<strong>путешественник</strong>
+<span>Член команды по туризму и треккингу</span>
+</div>
+</div>
+<div class="ut">
+<div class="ut-letter ut-x">Х</div>
+<div>
+<strong>Аварийные службы</strong>
+<span>САР / фельдшер / рейнджер / пожарный</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ── SOS ─────────────────────────────────────────────────── -->
+<div class="sos-band no-print">
+<div class="sos-icon">🆘</div>
+<div>
+<h4>Универсальный SOS — работает на всех профилях</h4>
+<p>Отправьте эти два кода вместе, чтобы немедленно вызвать экстренное оповещение об угрозе жизни с указанием местоположения по GPS для всех зарегистрированных контактов.</p>
+<div class="sos-codes">
+<span class="sos-chip">А99</span>
+<span class="sos-chip">Н99</span>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- UNIVERSAL CODES                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-universal">
+<div class="ph-icon">⭐</div>
+<div>
+<div class="ph-title">Универсальные коды — все профили</div>
+<div class="ph-sub">A (предупреждение) и Z (система) одинаковы для водителей, туристов и служб экстренной помощи.</div>
+</div>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">А</div>
+<div class="cat-icon">⚠️</div>
+<div class="cat-name">Уровень оповещения</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">А11</td><td>Все ясно. Ситуация нормальная.</td></tr>
+<tr><td class="code-cell">А22</td><td>Незначительный инцидент. Самостоятельное обращение.</td></tr>
+<tr><td class="code-cell">А33</td><td>Осторожность. Возможна проблема в развитии. Мониторинг.</td></tr>
+<tr><td class="code-cell">А44</td><td>Требуется помощь. Несрочное.</td></tr>
+<tr><td class="code-cell">А55</td><td>Помощь нужна срочно.</td></tr>
+<tr><td class="code-cell">А66</td><td>Серьезный инцидент в разгаре.</td></tr>
+<tr><td class="code-cell">А77</td><td>Критическая ситуация. Множественные проблемы.</td></tr>
+<tr><td class="code-cell">А88</td><td>Крайняя опасность.</td></tr>
+<tr class="crit"><td class="code-cell">А99</td><td>СОС. Опасная для жизни чрезвычайная ситуация. Немедленно пошлите помощь.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#7c3aed;">З</div>
+<div class="cat-icon">⚙️</div>
+<div class="cat-name">Система/протокол</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Z00</td><td>Сердцебиение. Никаких изменений.</td></tr>
+<tr><td class="code-cell">Z01</td><td>Начало смены/похода/развертывания.</td></tr>
+<tr><td class="code-cell">Z02</td><td>Конец смены/похода. Благополучно встал.</td></tr>
+<tr><td class="code-cell">Z03</td><td>Сообщение подтверждено.</td></tr>
+<tr><td class="code-cell">Z04</td><td>Сообщение повреждено. Пожалуйста, отправьте повторно.</td></tr>
+<tr><td class="code-cell">Z05</td><td>Передайте это сообщение вперед.</td></tr>
+<tr><td class="code-cell">Z06</td><td>Передайте это сообщение обратно на базу.</td></tr>
+<tr><td class="code-cell">Z07</td><td>База или команда запрашивают статус у всех.</td></tr>
+<tr><td class="code-cell">Z08</td><td>Запрос статуса у этого конкретного контакта.</td></tr>
+<tr><td class="code-cell">Z09</td><td>Расформирование группы или колонны.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DRIVER CODES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-driver">
+<div class="ph-icon">🚛</div>
+<div>
+<div class="ph-title">Коды драйверов — префикс D</div>
+<div class="ph-sub">Операторы грузовиков, трансграничная логистика, водители конвоев</div>
+</div>
+</div>
+<!-- B Border -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Б</div>
+<div class="cat-icon">🛃</div>
+<div class="cat-name">Граница</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Б11</td><td>Приближаемся к границе. В радиусе двадцати километров.</td></tr>
+<tr><td class="code-cell">Б22</td><td>В очереди на пограничном посту. Нормальное ожидание.</td></tr>
+<tr><td class="code-cell">Б33</td><td>Задержка на границе. Вопрос с документами.</td></tr>
+<tr><td class="code-cell">Б44</td><td>Заказан осмотр товара.</td></tr>
+<tr><td class="code-cell">Б55</td><td>Требовали неофициальную оплату.</td></tr>
+<tr><td class="code-cell">Б66</td><td>Товары, изъятые властями.</td></tr>
+<tr><td class="code-cell">Б77</td><td>Транспортное средство арестовано.</td></tr>
+<tr><td class="code-cell">Б88</td><td>Водитель задержан.</td></tr>
+<tr class="crit"><td class="code-cell">Б99</td><td>Отказ во въезде. Повернулся назад.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- C Cargo -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">С</div>
+<div class="cat-icon">📦</div>
+<div class="cat-name">Груз</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">С11</td><td>Груз загружен. Все безопасно. Нормальный.</td></tr>
+<tr><td class="code-cell">С22</td><td>Частичная загрузка или незначительное смещение.</td></tr>
+<tr><td class="code-cell">С33</td><td>Нагрузка сместилась. Остановка для повторного закрепления.</td></tr>
+<tr><td class="code-cell">С44</td><td>Груз поврежден.</td></tr>
+<tr><td class="code-cell">С55</td><td>Утечка или предметы, выпавшие из автомобиля.</td></tr>
+<tr><td class="code-cell">С66</td><td>Груз частично украден.</td></tr>
+<tr><td class="code-cell">С77</td><td>Весь груз украден или конфискован.</td></tr>
+<tr><td class="code-cell">С88</td><td>Инцидент с опасными веществами или холодовой цепью.</td></tr>
+<tr class="crit"><td class="code-cell">С99</td><td>Полная потеря груза.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- D Driver -->
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Д</div>
+<div class="cat-icon">👤</div>
+<div class="cat-name">Статус водителя</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Д11</td><td>Водитель на дежурстве. Ездил нормально.</td></tr>
+<tr><td class="code-cell">Д22</td><td>Водитель на остановке. Топливо, еда или перерыв.</td></tr>
+<tr><td class="code-cell">Д33</td><td>Водитель осуществляет погрузку или разгрузку груза.</td></tr>
+<tr><td class="code-cell">Д44</td><td>Водитель ждет. Таможня, КПП или дорожное движение.</td></tr>
+<tr><td class="code-cell">Д55</td><td>Водитель задержался. Проблема. Пока невозможно продолжить.</td></tr>
+<tr><td class="code-cell">Д66</td><td>Водитель чувствует себя плохо или устал.</td></tr>
+<tr><td class="code-cell">Д77</td><td>Водитель задержан или столкнулся с юридическим вопросом.</td></tr>
+<tr><td class="code-cell">Д88</td><td>Поломка драйвера. Невозможно продолжить без помощи.</td></tr>
+<tr class="crit"><td class="code-cell">Д99</td><td>Экстренная ситуация с водителем. Водитель в опасности.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- E Fault | F Fuel | G Convoy — two-col grid for compactness -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Э</div>
+<div class="cat-icon">🔧</div>
+<div class="cat-name">Неисправность автомобиля</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Е11</td><td>Сигнальная лампа двигателя. Незначительный. Продолжаем.</td></tr>
+<tr><td class="code-cell">Е22</td><td>Одинарная спущенная шина. Меняюсь сейчас.</td></tr>
+<tr><td class="code-cell">Е33</td><td>Несколько спущенных шин. Невозможно изменить.</td></tr>
+<tr><td class="code-cell">Е44</td><td>Перегрев двигателя. Остановился.</td></tr>
+<tr><td class="code-cell">Е55</td><td>Механическая поломка. Без двигателя.</td></tr>
+<tr><td class="code-cell">Е66</td><td>Полный отказ двигателя.</td></tr>
+<tr><td class="code-cell">Е77</td><td>Огонь.</td></tr>
+<tr><td class="code-cell">Е88</td><td>Ущерб от аварии. Транспортное средство не может двигаться.</td></tr>
+<tr class="crit"><td class="code-cell">Е99</td><td>Списание автомобиля. Полная потеря.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Ф</div>
+<div class="cat-icon">⛽</div>
+<div class="cat-name">Топливо</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">F11</td><td>Топливный бак полный.</td></tr>
+<tr><td class="code-cell">F22</td><td>Топлива три четверти.</td></tr>
+<tr><td class="code-cell">Ф33</td><td>Половина топлива.</td></tr>
+<tr><td class="code-cell">Ф44</td><td>Топливный квартал.</td></tr>
+<tr><td class="code-cell">F55</td><td>Низкий уровень топлива. Нужна дозаправка в радиусе 50 км.</td></tr>
+<tr><td class="code-cell">F66</td><td>Топливо критично. Нужна дозаправка сейчас.</td></tr>
+<tr><td class="code-cell">F77</td><td>Езда на канистрах или резервном баке.</td></tr>
+<tr><td class="code-cell">F88</td><td>Топливо загрязнено или используется неправильное топливо.</td></tr>
+<tr class="crit"><td class="code-cell">F99</td><td>Нет топлива. Остановился.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Г</div>
+<div class="cat-icon">🚚</div>
+<div class="cat-name">Конвой</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">G11</td><td>Самодельный автомобиль. Никакого конвоя.</td></tr>
+<tr><td class="code-cell">G22</td><td>Головная машина конвоя.</td></tr>
+<tr><td class="code-cell">G33</td><td>Конвой в средней позиции.</td></tr>
+<tr><td class="code-cell">G44</td><td>Хвостовая машина конвоя.</td></tr>
+<tr><td class="code-cell">G55</td><td>Конвой цел. Все грузовики присутствуют.</td></tr>
+<tr><td class="code-cell">G66</td><td>Из колонны пропал один автомобиль.</td></tr>
+<tr><td class="code-cell">G77</td><td>Пропало несколько транспортных средств.</td></tr>
+<tr><td class="code-cell">G88</td><td>Конвой отделился. Перегруппируйтесь на следующей путевой точке.</td></tr>
+<tr class="crit"><td class="code-cell">G99</td><td>Конвой расформирован.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">ЧАС</div>
+<div class="cat-icon">🆘</div>
+<div class="cat-name">Нужна помощь</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">H11</td><td>Нужна доставка топлива ко мне.</td></tr>
+<tr><td class="code-cell">H22</td><td>Требуется механик или мобильная мастерская.</td></tr>
+<tr><td class="code-cell">Н33</td><td>Нужна медицинская помощь или скорая помощь.</td></tr>
+<tr><td class="code-cell">Н44</td><td>Требуется полиция или официальное сопровождение.</td></tr>
+<tr><td class="code-cell">Н55</td><td>Нужна эвакуаторная машина или кран.</td></tr>
+<tr><td class="code-cell">H66</td><td>Нужна еда, вода или припасы.</td></tr>
+<tr><td class="code-cell">H77</td><td>Нужен таможенный агент или помощь с документацией.</td></tr>
+<tr><td class="code-cell">H88</td><td>Нужен вооруженный эскорт.</td></tr>
+<tr class="crit"><td class="code-cell">Н99</td><td>Крупный инцидент. Вся помощь требовалась срочно.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Дж</div>
+<div class="cat-icon">🗺</div>
+<div class="cat-name">Прогресс путешествия</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">J11</td><td>Путешествие началось. Вылетел по расписанию.</td></tr>
+<tr><td class="code-cell">J22</td><td>Пройдено 25% маршрута.</td></tr>
+<tr><td class="code-cell">J33</td><td>Наполовину. Готово на 50%.</td></tr>
+<tr><td class="code-cell">J44</td><td>Готово на 75%.</td></tr>
+<tr><td class="code-cell">J55</td><td>Приближаемся к месту назначения. Менее 10 км.</td></tr>
+<tr><td class="code-cell">J66</td><td>Прибыл в пункт назначения.</td></tr>
+<tr><td class="code-cell">J77</td><td>Маршрут значительно расширен. Главный обход.</td></tr>
+<tr><td class="code-cell">J88</td><td>Повернулся назад. Восстановительный маршрут.</td></tr>
+<tr class="crit"><td class="code-cell">J99</td><td>Потерянный. Совершенно вне маршрута.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">К</div>
+<div class="cat-icon">📡</div>
+<div class="cat-name">Связь</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">К11</td><td>Полные коммуникации. Все нормально.</td></tr>
+<tr><td class="code-cell">К22</td><td>Только данные. Никаких голосовых вызовов.</td></tr>
+<tr><td class="code-cell">К33</td><td>Только СМС. Ни данных, ни голоса.</td></tr>
+<tr><td class="code-cell">К44</td><td>Только голос. Ни данных, ни СМС.</td></tr>
+<tr><td class="code-cell">К55</td><td>Только радиосвязь.</td></tr>
+<tr><td class="code-cell">К66</td><td>Спутниковая связь активна.</td></tr>
+<tr><td class="code-cell">К77</td><td>Только Mesh Wi-Fi. Никакой сотовой связи.</td></tr>
+<tr><td class="code-cell">К88</td><td>Это сообщение передано через другое устройство.</td></tr>
+<tr class="crit"><td class="code-cell">К99</td><td>Никаких коммуникаций. Отправлено через третье лицо.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Р</div>
+<div class="cat-icon">🛣</div>
+<div class="cat-name">Дорожные условия</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Р11</td><td>Хорошая асфальтированная дорога.</td></tr>
+<tr><td class="code-cell">Р22</td><td>Асфальт с выбоинами.</td></tr>
+<tr><td class="code-cell">Р33</td><td>Гравийная или грунтовая дорога. Сносно.</td></tr>
+<tr><td class="code-cell">Р44</td><td>Грубая трасса. Грязь или плохая поверхность.</td></tr>
+<tr><td class="code-cell">55 рэндов</td><td>Дорога частично перекрыта.</td></tr>
+<tr><td class="code-cell">Р66</td><td>Дорога закрыта или однополосное препятствие.</td></tr>
+<tr><td class="code-cell">Р77</td><td>Мост, или опасно.</td></tr>
+<tr><td class="code-cell">Р88</td><td>Дорога непроходимая.</td></tr>
+<tr class="crit"><td class="code-cell">99 рэндов</td><td>Нет маршрута. Бездорожье или полная потеря.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">С</div>
+<div class="cat-icon">🛡</div>
+<div class="cat-name">Безопасность</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">С11</td><td>Ситуация нормальная. Никаких угроз.</td></tr>
+<tr><td class="code-cell">С22</td><td>Общая осторожность в этом районе.</td></tr>
+<tr><td class="code-cell">С33</td><td>Неофициальный контрольно-пропускной пункт или транспортное средство, следующее за ним.</td></tr>
+<tr><td class="code-cell">С44</td><td>Впереди сообщается о криминальном блокпосте.</td></tr>
+<tr><td class="code-cell">С55</td><td>Взятку требовали.</td></tr>
+<tr><td class="code-cell">С66</td><td>Попытка ограбления. Отражён.</td></tr>
+<tr><td class="code-cell">S77</td><td>Ограбление в разгаре.</td></tr>
+<tr><td class="code-cell">S88</td><td>Вооруженное нападение на конвой.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Угнать или похитить.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Т</div>
+<div class="cat-icon">⏱</div>
+<div class="cat-name">Расписание</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">Т11</td><td>Вовремя. По расписанию.</td></tr>
+<tr><td class="code-cell">Т22</td><td>Немного с задержкой. Меньше часа.</td></tr>
+<tr><td class="code-cell">Т33</td><td>Задержка на час-два.</td></tr>
+<tr><td class="code-cell">Т44</td><td>Задержка на два-четыре часа.</td></tr>
+<tr><td class="code-cell">Т55</td><td>Задержка четыре-восемь часов.</td></tr>
+<tr><td class="code-cell">Т66</td><td>Задержка на один день.</td></tr>
+<tr><td class="code-cell">Т77</td><td>Серьезная задержка. Расчетное время прибытия неизвестно.</td></tr>
+<tr><td class="code-cell">Т88</td><td>Расписание заброшено.</td></tr>
+<tr class="crit"><td class="code-cell">Т99</td><td>Поездка прервана. Возвращаюсь.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">В</div>
+<div class="cat-icon">🚛</div>
+<div class="cat-name">Движение автомобиля</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">V11</td><td>Автомобиль припаркован. Остановился благополучно.</td></tr>
+<tr><td class="code-cell">В22</td><td>Автомобиль движется нормально.</td></tr>
+<tr><td class="code-cell">В33</td><td>Транспортное средство движется медленно. Меньше 20 км/ч.</td></tr>
+<tr><td class="code-cell">В44</td><td>Транспортное средство застряло. Грязь, песок или канава.</td></tr>
+<tr><td class="code-cell">В55</td><td>Буксировка другого автомобиля.</td></tr>
+<tr><td class="code-cell">В66</td><td>Его буксируют.</td></tr>
+<tr><td class="code-cell">В77</td><td>Транспортное средство перевернулось.</td></tr>
+<tr><td class="code-cell">В88</td><td>Несчастный случай. Транспортное средство не может двигаться.</td></tr>
+<tr class="crit"><td class="code-cell">В99</td><td>Списывать. Полная потеря.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-block">
+<div class="cat-label">
+<div class="cat-letter" style="background:#f59e0b;">Вт</div>
+<div class="cat-icon">🌦</div>
+<div class="cat-name">Погода</div>
+</div>
+<table class="code-table">
+<thead><tr><th>Код</th><th>Значение</th></tr></thead>
+<tbody>
+<tr><td class="code-cell">W11</td><td>Чистый и сухой. Хорошая видимость.</td></tr>
+<tr><td class="code-cell">W22</td><td>Небольшой дождь или дымка.</td></tr>
+<tr><td class="code-cell">W33</td><td>Сильный дождь.</td></tr>
+<tr><td class="code-cell">W44</td><td>Гроза или сильный ветер.</td></tr>
+<tr><td class="code-cell">W55</td><td>Туман или плохая видимость.</td></tr>
+<tr><td class="code-cell">W66</td><td>Наводнение. Дорога мокрая, но проходимая.</td></tr>
+<tr><td class="code-cell">W77</td><td>Наводнение. Дорога непроходимая.</td></tr>
+<tr><td class="code-cell">W88</td><td>Пыльная буря или Харматтан. Видимость почти нулевая.</td></tr>
+<tr class="crit"><td class="code-cell">W99</td><td>Экстремальные погодные условия. Остановился.</td></tr>
+</tbody>
+</table>
+</div>
+</div><!-- end driver grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HIKER CODES                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-hiker">
+<div class="ph-icon">🏕</div>
+<div>
+<div class="ph-title">Коды Hiker — префикс H</div>
+<div class="ph-sub">Треккеры, команды на открытом воздухе, экспедиции по дикой природе</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">ЧАС</div><div class="cat-icon">🆘</div><div class="cat-name">Нужна помощь</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Нужна еда или вода.</td></tr>
+<tr><td class="code-cell">H22</td><td>Нужна первая помощь или аптечка.</td></tr>
+<tr><td class="code-cell">Н33</td><td>Нужна медицинская помощь или оценка эвакуации.</td></tr>
+<tr><td class="code-cell">Н44</td><td>Нужна спасательная команда.</td></tr>
+<tr><td class="code-cell">Н55</td><td>Нужна вертолетная или воздушная эвакуация.</td></tr>
+<tr><td class="code-cell">H66</td><td>Нужен поиск и спасение.</td></tr>
+<tr><td class="code-cell">H77</td><td>Нужен приют или аварийный бивуак.</td></tr>
+<tr><td class="code-cell">H88</td><td>Нужна срочная эвакуация. Не могу ходить.</td></tr>
+<tr class="crit"><td class="code-cell">Н99</td><td>Крупная чрезвычайная ситуация. Вся помощь нужна немедленно.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Т</div><div class="cat-icon">🏔</div><div class="cat-name">Условия трассы</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">Т11</td><td>Хорошая тропа. Хорошо отмечено. С легким характером.</td></tr>
+<tr><td class="code-cell">Т22</td><td>Тропа прерывистая или заросшая.</td></tr>
+<tr><td class="code-cell">Т33</td><td>След потерян. Навигация по GPS или компасу.</td></tr>
+<tr><td class="code-cell">Т44</td><td>Вне тропы. Открытая местность. Судоходный.</td></tr>
+<tr><td class="code-cell">Т55</td><td>Крутой подъем. Замедление темпа.</td></tr>
+<tr><td class="code-cell">Т66</td><td>Крутой спуск. Забота.</td></tr>
+<tr><td class="code-cell">Т77</td><td>Технический рельеф. Схватка, камень или снег.</td></tr>
+<tr><td class="code-cell">Т88</td><td>Опасный раздел. Пересекаемся осторожно.</td></tr>
+<tr class="crit"><td class="code-cell">Т99</td><td>Местность непроходимая. Вынужден повернуть назад.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">ты</div><div class="cat-icon">🎒</div><div class="cat-name">Снаряжение/оборудование</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">U11</td><td>Вся техника в хорошем состоянии.</td></tr>
+<tr><td class="code-cell">U22</td><td>Небольшая проблема с шестерней. Некритичный.</td></tr>
+<tr><td class="code-cell">U33</td><td>Шестерня повреждена, но решение найдено.</td></tr>
+<tr><td class="code-cell">U44</td><td>Критический элемент вышел из строя. Палатка, печь или фильтр.</td></tr>
+<tr><td class="code-cell">U55</td><td>Навигационное оборудование утеряно или вышло из строя.</td></tr>
+<tr><td class="code-cell">U66</td><td>В пользовании аптечка первой помощи.</td></tr>
+<tr><td class="code-cell">U77</td><td>Необходимо срочное убежище. Установка бивака.</td></tr>
+<tr><td class="code-cell">U88</td><td>Множественные критические отказы передач.</td></tr>
+<tr class="crit"><td class="code-cell">U99</td><td>Все необходимое снаряжение потеряно. Катастрофическое.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">В</div><div class="cat-icon">❤️</div><div class="cat-name">Жизненно важные показатели/групповое здоровье</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Все члены группы здоровы и здоровы.</td></tr>
+<tr><td class="code-cell">В22</td><td>Незначительная усталость или дискомфорт. Продолжаем.</td></tr>
+<tr><td class="code-cell">В33</td><td>Волдыри или легкие травмы. Немного замедляемся.</td></tr>
+<tr><td class="code-cell">В44</td><td>Рана. Значительно медленный темп.</td></tr>
+<tr><td class="code-cell">В55</td><td>Участник не может поддерживать нормальный темп.</td></tr>
+<tr><td class="code-cell">В66</td><td>Серьезная травма. Остановился. Оценка эвакуации.</td></tr>
+<tr><td class="code-cell">В77</td><td>Участник потерял сознание или потерял сознание.</td></tr>
+<tr><td class="code-cell">В88</td><td>Неотложная медицинская помощь. Требуется эвакуация.</td></tr>
+<tr class="crit"><td class="code-cell">В99</td><td>Угрожающий жизни. Срочно потребовались экстренные службы.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Да</div><div class="cat-icon">✅</div><div class="cat-name">Запланированный заезд</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">Y11</td><td>Плановый заезд. Все хорошо. По маршруту.</td></tr>
+<tr><td class="code-cell">Y22</td><td>Регистрироваться. Небольшая задержка. Все еще безопасно.</td></tr>
+<tr><td class="code-cell">Y33</td><td>Регистрироваться. Значительная задержка. Все еще безопасно.</td></tr>
+<tr><td class="code-cell">Y44</td><td>Вне маршрута, но безопасно и навигационно.</td></tr>
+<tr><td class="code-cell">Y55</td><td>Пропущено предыдущее окно регистрации. Сейчас отчитываюсь.</td></tr>
+<tr><td class="code-cell">Y66</td><td>Запрос подтверждения от базы.</td></tr>
+<tr><td class="code-cell">Y77</td><td>Безопасное прибытие в лагерь или запланированную точку маршрута.</td></tr>
+<tr><td class="code-cell">Y88</td><td>По убыванию. Последний этап до начала тропы.</td></tr>
+<tr class="crit"><td class="code-cell">Y99</td><td>Пропущено несколько проверок. Сработало аварийное оповещение.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">С</div><div class="cat-icon">🛡</div><div class="cat-name">Безопасность</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">С11</td><td>Ситуация нормальная. Никаких угроз.</td></tr>
+<tr><td class="code-cell">С22</td><td>Общая осторожность. Незнакомая местность.</td></tr>
+<tr><td class="code-cell">С33</td><td>Подозрительная активность поблизости.</td></tr>
+<tr><td class="code-cell">С44</td><td>Угроза дикой природе. Соблюдение дистанции.</td></tr>
+<tr><td class="code-cell">С55</td><td>Встреча с дикой природой. Отступая.</td></tr>
+<tr><td class="code-cell">С66</td><td>Агрессивная дикая природа. Отступление.</td></tr>
+<tr><td class="code-cell">S77</td><td>Встречаются враждебно настроенные люди.</td></tr>
+<tr><td class="code-cell">S88</td><td>Угрожали или преследовали. Переезд в безопасное место.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Непосредственная опасность со стороны людей или диких животных.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end hiker grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EMERGENCY SERVICES CODES                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="profile-header ph-emerg">
+<div class="ph-icon">🚑</div>
+<div>
+<div class="ph-title">Коды экстренных служб — префикс X</div>
+<div class="ph-sub">SAR, парамедики, пожарные расчеты, рейнджеры — операции с ухудшенной связью</div>
+</div>
+</div>
+<div class="protocol-note">
+<strong>Соответствует международным стандартам по чрезвычайным ситуациям</strong>
+    В категории P (сортировка) используется международная шкала приоритетов P1–P4 (P1 = немедленная, P2 = отсроченная, P3 = незначительная, P4 = ожидаемая). Категории I (инцидент) и N (подсчет) отражают структуру объявления крупных происшествий с МЕТАНОМ, используемую совместными службами экстренной помощи.
+  </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">я</div><div class="cat-icon">🔥</div><div class="cat-name">Тип инцидента</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">I11</td><td>Неотложная медицинская помощь. Никакой опасности на месте происшествия.</td></tr>
+<tr><td class="code-cell">I22</td><td>Дорожно-транспортное столкновение.</td></tr>
+<tr><td class="code-cell">I33</td><td>Поиск и спасение. Пропавший человек.</td></tr>
+<tr><td class="code-cell">I44</td><td>Пожар или структурное происшествие.</td></tr>
+<tr><td class="code-cell">I55</td><td>Спасение от наводнения или воды.</td></tr>
+<tr><td class="code-cell">I66</td><td>Опасные материалы или химические выбросы.</td></tr>
+<tr><td class="code-cell">I77</td><td>Структурный коллапс.</td></tr>
+<tr><td class="code-cell">I88</td><td>Гражданские беспорядки, насилие или вооруженный инцидент.</td></tr>
+<tr class="crit"><td class="code-cell">I99</td><td>Объявлен крупный инцидент.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">П</div><div class="cat-icon">🏥</div><div class="cat-name">Сортировка пациентов</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">P11</td><td>Пострадавших на месте нет.</td></tr>
+<tr><td class="code-cell">P22</td><td>Ходят только раненые. П3 — незначительный.</td></tr>
+<tr><td class="code-cell">P33</td><td>Серьезный, но стабильный. П2 — с задержкой.</td></tr>
+<tr><td class="code-cell">P44</td><td>Жертвы, опасные для жизни. P1 — немедленный.</td></tr>
+<tr><td class="code-cell">Р55</td><td>Ожидаемые жертвы. Р4 — паллиативный.</td></tr>
+<tr><td class="code-cell">P66</td><td>Смешанная сортировка. Присутствует несколько категорий.</td></tr>
+<tr><td class="code-cell">P77</td><td>Объявлено о происшествии с массовыми жертвами.</td></tr>
+<tr><td class="code-cell">Р88</td><td>Подсчет потерь неполный. Сцена не очищена.</td></tr>
+<tr class="crit"><td class="code-cell">P99</td><td>Катастрофическое. Подтверждено несколько смертельных случаев.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Н</div><div class="cat-icon">👥</div><div class="cat-name">Количество жертв</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">N11</td><td>Одна жертва.</td></tr>
+<tr><td class="code-cell">N22</td><td>От двух до пяти жертв.</td></tr>
+<tr><td class="code-cell">N33</td><td>От шести до десяти жертв.</td></tr>
+<tr><td class="code-cell">N44</td><td>От одиннадцати до двадцати жертв.</td></tr>
+<tr><td class="code-cell">N55</td><td>От двадцати до пятидесяти жертв.</td></tr>
+<tr><td class="code-cell">N66</td><td>От пятидесяти до ста жертв.</td></tr>
+<tr><td class="code-cell">N77</td><td>Более ста жертв.</td></tr>
+<tr><td class="code-cell">N88</td><td>Неизвестный номер. Оценка места происшествия продолжается.</td></tr>
+<tr class="crit"><td class="code-cell">N99</td><td>Пострадавшие в нескольких местах.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">В</div><div class="cat-icon">💓</div><div class="cat-name">Жизненные показатели пациента</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">V11</td><td>Сознательный и бдительный. Разговариваем нормально.</td></tr>
+<tr><td class="code-cell">В22</td><td>В сознании, но спутан или возбужден.</td></tr>
+<tr><td class="code-cell">В33</td><td>Реагирует только на голосовые команды.</td></tr>
+<tr><td class="code-cell">В44</td><td>Реагировать только на боль. Бессознательный.</td></tr>
+<tr><td class="code-cell">В55</td><td>Не отвечает. Дыхание присутствует.</td></tr>
+<tr><td class="code-cell">В66</td><td>Не дышит. СЛР в процессе.</td></tr>
+<tr><td class="code-cell">В77</td><td>Сильное кровотечение. Наложен жгут.</td></tr>
+<tr><td class="code-cell">В88</td><td>Остановка сердца.</td></tr>
+<tr class="crit"><td class="code-cell">В99</td><td>Покойный. Подтвержденный.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Р</div><div class="cat-icon">🚒</div><div class="cat-name">Ресурсы на месте</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">Р11</td><td>Только первая помощь. Нет профессионального ответчика.</td></tr>
+<tr><td class="code-cell">Р22</td><td>Фельдшер или квалифицированный специалист по оказанию первой помощи на месте происшествия.</td></tr>
+<tr><td class="code-cell">Р33</td><td>На месте происшествия работает бригада скорой помощи.</td></tr>
+<tr><td class="code-cell">Р44</td><td>На месте происшествия работает пожарный расчет.</td></tr>
+<tr><td class="code-cell">55 рэндов</td><td>Полиция на месте.</td></tr>
+<tr><td class="code-cell">Р66</td><td>На месте происшествия работают несколько экстренных служб.</td></tr>
+<tr><td class="code-cell">Р77</td><td>Командир инцидента установлен.</td></tr>
+<tr><td class="code-cell">Р88</td><td>Полевой госпиталь или пункт оказания медицинской помощи активен.</td></tr>
+<tr class="crit"><td class="code-cell">99 рэндов</td><td>Все ресурсы перегружены. Требуется срочное усиление.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">ЧАС</div><div class="cat-icon">📞</div><div class="cat-name">Требуемые ресурсы</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">H11</td><td>Никаких дополнительных ресурсов не требуется.</td></tr>
+<tr><td class="code-cell">H22</td><td>Требуется дополнительная наземная машина скорой помощи.</td></tr>
+<tr><td class="code-cell">Н33</td><td>Требуется санитарная авиация или вертолет.</td></tr>
+<tr><td class="code-cell">Н44</td><td>Требуется пожарно-спасательная служба.</td></tr>
+<tr><td class="code-cell">Н55</td><td>Требуется полиция или вооруженное реагирование.</td></tr>
+<tr><td class="code-cell">H66</td><td>Требуется HAZMAT или группа по загрязнению.</td></tr>
+<tr><td class="code-cell">H77</td><td>Требуется тяжелая спасательная или городская поисковая группа.</td></tr>
+<tr><td class="code-cell">H88</td><td>Требуется военная или специальная поддержка.</td></tr>
+<tr class="crit"><td class="code-cell">Н99</td><td>Реакция на массовые жертвы. Все необходимые ресурсы.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Э</div><div class="cat-icon">🚁</div><div class="cat-name">Статус эвакуации</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">Е11</td><td>Эвакуация не требуется. Лечение на месте.</td></tr>
+<tr><td class="code-cell">Е22</td><td>Возможна самоэвакуация. Пострадавшие идут к транспорту.</td></tr>
+<tr><td class="code-cell">Е33</td><td>Возможна эвакуация автотранспорта. Дорога доступна.</td></tr>
+<tr><td class="code-cell">Е44</td><td>Требуется эвакуация на носилках.</td></tr>
+<tr><td class="code-cell">Е55</td><td>Требуется воздушная эвакуация. Нужна посадочная зона.</td></tr>
+<tr><td class="code-cell">Е66</td><td>Требуется эвакуация на воде или на лодке.</td></tr>
+<tr><td class="code-cell">Е77</td><td>Требуется техническая помощь. Веревка или замкнутое пространство.</td></tr>
+<tr><td class="code-cell">Е88</td><td>Маршрут эвакуации нарушен. Ищем альтернативу.</td></tr>
+<tr class="crit"><td class="code-cell">Е99</td><td>Эвакуация невозможна. Пострадавшие укрываются на месте.</td></tr>
+</tbody></table>
+</div>
+<div class="section-block">
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">С</div><div class="cat-icon">⚠️</div><div class="cat-name">Безопасность сцены</div></div>
+<table class="code-table"><thead><tr><th>Код</th><th>Значение</th></tr></thead><tbody>
+<tr><td class="code-cell">С11</td><td>Сцена безопасна. Никаких опасностей.</td></tr>
+<tr><td class="code-cell">С22</td><td>Потенциальные опасности присутствуют. Советуем соблюдать осторожность.</td></tr>
+<tr><td class="code-cell">С33</td><td>Пожарная, химическая или структурная опасность на месте происшествия.</td></tr>
+<tr><td class="code-cell">С44</td><td>Активная угроза. Сцена еще не безопасна.</td></tr>
+<tr><td class="code-cell">С55</td><td>На месте происшествия враждебно настроенные лица. Требуются правоохранительные органы.</td></tr>
+<tr><td class="code-cell">С66</td><td>Опасность загрязнения. Требуется зона отчуждения.</td></tr>
+<tr><td class="code-cell">S77</td><td>Сцена частично очищена. Постоянный риск.</td></tr>
+<tr><td class="code-cell">S88</td><td>Сцена небезопасна. Ответчики отозваны.</td></tr>
+<tr class="crit"><td class="code-cell">S99</td><td>Непосредственная опасность для лиц, принимающих ответные меры. Эвакуируйте место происшествия немедленно.</td></tr>
+</tbody></table>
+</div>
+</div><!-- end emergency grid -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>Краткая справка — распространенные ситуации</h2>
+<p>Коды с одинаковым значением для всех трех профилей</p>
+</div>
+<table class="qref-table">
+<thead>
+<tr>
+<th>Ситуация</th>
+<th>Водитель (Д)</th>
+<th>Путешественник (H)</th>
+<th>Чрезвычайная ситуация (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Все ясно/нормально</td><td>А11</td><td>А11</td><td>А11</td></tr>
+<tr><td>Нужна срочная помощь</td><td>А55 + Н44</td><td>А55 + Н44</td><td>А55 + Н33</td></tr>
+<tr><td>Угроза жизни — SOS</td><td>А99 + Н99</td><td>А99 + Н99</td><td>А99 + Н99</td></tr>
+<tr><td>общение только по смс</td><td>К33</td><td>К33</td><td>К33</td></tr>
+<tr><td>По расписанию/в пути</td><td>Т11/Д11</td><td>Y11</td><td>J11</td></tr>
+<tr><td>Прибыл в пункт назначения</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>Потерян/сошёл с маршрута</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>Суровая погода</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
+<tr><td>Признано</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
+<tr><td>Поврежденное сообщение</td><td>Z04</td><td>Z04</td><td>Z04</td></tr>
+</tbody>
+</table>
+<div class="cta-band no-print" style="margin-top:2.5rem;">
+<h3>Логистика 4х4</h3>
+<p>Трансграничная связь для небольших операторов — живые карты, групповое видео, SIM-мост и экстренный протокол — и все это на стандартном телефоне Android.</p>
+<a class="btn btn-solid" href="../logistics4x4.html">Узнать больше</a>
+<a class="btn" href="../contact.html">Свяжитесь с нами</a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
+    © 2026 Chameleon AI Technicians Ltd · Протокол полевых коммуникаций логистики 4×4 · Издание 1<br/>
+    Распространение этой ссылки приветствуется — этого требует совместимость.
+  </p>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../contact.html">Контакт</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Ожидается лицензирование · Создано Маркосом, также известным как Stemsee</p>
+</footer>
+</body>
+</html>

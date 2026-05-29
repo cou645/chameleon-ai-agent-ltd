@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>물류 4×4 - 국경 간 함대 통신</title>
+<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem; margin: 1.5rem 0;
+    }
+    .feat-card {
+      background: white; border-radius: var(--radius);
+      border: 2px solid var(--border); padding: 1.6rem;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .feat-card .fc-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      padding: .2rem .6rem; border-radius: 50px;
+    }
+    .fc-map    { border-color: #22c55e; } .fc-map   .fc-badge { background:#dcfce7; color:#15803d; }
+    .fc-video  { border-color: #667eea; } .fc-video .fc-badge { background:#ede9fe; color:#4f46e5; }
+    .fc-sim    { border-color: #0ea5e9; } .fc-sim   .fc-badge { background:#e0f2fe; color:#0369a1; }
+    .fc-disp   { border-color: #f59e0b; } .fc-disp  .fc-badge { background:#fef3c7; color:#b45309; }
+    .fc-chat   { border-color: #ec4899; } .fc-chat  .fc-badge { background:#fce7f3; color:#be185d; }
+    .fc-inv    { border-color: #8b5cf6; } .fc-inv   .fc-badge { background:#ede9fe; color:#6d28d9; }
+    .fc-ticker { border-color: #ef4444; } .fc-ticker .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .fc-misc   { border-color: #06b6d4; } .fc-misc  .fc-badge { background:#cffafe; color:#0e7490; }
+    .fc-sms    { border-color: #dc2626; } .fc-sms   .fc-badge { background:#fee2e2; color:#b91c1c; }
+    .feat-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
+    .feat-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .feat-card .fc-icon { font-size: 2rem; }
+
+    /* ── Phone mockup ─────────────────────────────────────────────── */
+    .phone-mockup {
+      background: #0b0f1a; border-radius: 28px; padding: 1.5rem 1rem;
+      max-width: 280px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      border: 3px solid #1f2937;
+    }
+    .phone-screen {
+      background: #111827; border-radius: 16px; padding: 1rem;
+      min-height: 380px;
+    }
+    .phone-header {
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding-bottom: .7rem; margin-bottom: .8rem;
+    }
+    .phone-header .app-icon { font-size: 1.4rem; }
+    .phone-header span { color: #e2e8f0; font-size: .85rem; font-weight: 600; }
+    .phone-status { font-size: .65rem; color: #f59e0b; margin-left: auto; }
+
+    /* Ticker bar inside mockup */
+    .p-ticker {
+      border-radius: 6px; padding: .35rem .7rem; margin-bottom: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .p-ticker-emergency { background:#dc2626; color:white; }
+    .p-ticker-info      { background:#000; color:#fde047; }
+    .p-ticker-instr     { background:#16a34a; color:#000; }
+    .p-ticker-important { background:white; color:#dc2626; }
+
+    /* Chat row inside mockup */
+    .p-chat { border-radius: 8px; padding: .4rem .7rem; margin-bottom: .4rem; font-size: .75rem; }
+    .p-chat-in  { background:rgba(102,126,234,.25); color:#c8c8f0; }
+    .p-chat-out { background:rgba(245,158,11,.2); color:#fde68a; margin-left:auto; max-width:80%; }
+
+    /* Peer bar */
+    .p-peers {
+      display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.8rem;
+      padding-top:.7rem; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .p-peer {
+      font-size:.63rem; padding:.15rem .45rem; border-radius:50px; font-weight:600;
+    }
+    .p-peer-on  { background:rgba(34,197,94,.2); color:#22c55e; }
+    .p-peer-sim { background:rgba(14,165,233,.2); color:#38bdf8; }
+    .p-peer-map { background:rgba(245,158,11,.2); color:#f59e0b; }
+    .p-peer-off { background:rgba(255,255,255,.07); color:#6b7280; }
+
+    /* ── 4×4 diagram ──────────────────────────────────────────────── */
+    .fourbyfour {
+      background: #0b0f1a; border-radius: var(--radius);
+      padding: 2rem; margin: 1.5rem 0; color: #e2e8f0;
+      box-shadow: var(--shadow-lg);
+    }
+    .fbf-title {
+      text-align:center; font-size:.85rem; color:#94a3b8; margin-bottom:1.2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+    }
+    .fbf-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:.8rem; margin-bottom:1rem;
+    }
+    .fbf-half {
+      border-radius:10px; padding:1rem; font-size:.83rem;
+    }
+    .fbf-sim   { background:rgba(14,165,233,.12); border:1px solid #0ea5e9; }
+    .fbf-p2p   { background:rgba(102,126,234,.12); border:1px solid #667eea; }
+    .fbf-half h4 { margin:0 0 .5rem; font-size:.87rem; }
+    .fbf-half ul { margin:0; padding-left:1.1rem; color:#94a3b8; line-height:1.8; font-size:.8rem; }
+    .fbf-note  { text-align:center; font-size:.77rem; color:#64748b; margin-top:.4rem; }
+
+    /* ── Map preview ──────────────────────────────────────────────── */
+    .map-preview {
+      background: linear-gradient(135deg, #0f3460 0%, #1a472a 40%, #0b3d0b 100%);
+      border-radius: 12px; padding: 1.5rem; min-height: 140px; position:relative;
+      display:flex; align-items:flex-end;
+      box-shadow: inset 0 0 30px rgba(0,0,0,.4);
+      margin-bottom:.8rem; overflow:hidden;
+    }
+    .map-roads {
+      position:absolute; inset:0; opacity:.25;
+      background:
+        repeating-linear-gradient(30deg,  transparent, transparent 28px, #888 28px, #888 29px),
+        repeating-linear-gradient(-30deg, transparent, transparent 40px, #888 40px, #888 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 55px, #666 55px, #666 56px);
+    }
+    .map-pin { position:absolute; font-size:1.4rem; }
+    .map-pin-a { top:28%; left:25%; }
+    .map-pin-b { top:45%; left:55%; }
+    .map-pin-c { top:60%; left:38%; }
+    .map-pin-d { top:20%; left:68%; }
+    .map-route {
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.1) 0%, transparent 60%);
+    }
+    .map-overlay-tags {
+      display:flex; gap:.4rem; flex-wrap:wrap; z-index:1;
+    }
+    .map-tag {
+      font-size:.68rem; font-weight:700; padding:.2rem .55rem; border-radius:50px;
+      backdrop-filter:blur(4px);
+    }
+    .mt-street  { background:rgba(34,197,94,.25);  color:#22c55e; border:1px solid #22c55e44; }
+    .mt-sat     { background:rgba(6,182,212,.25);   color:#06b6d4; border:1px solid #06b6d444; }
+    .mt-hybrid  { background:rgba(245,158,11,.25);  color:#f59e0b; border:1px solid #f59e0b44; }
+    .mt-gpx     { background:rgba(139,92,246,.25);  color:#8b5cf6; border:1px solid #8b5cf644; }
+    .mt-poi     { background:rgba(245,158,11,.3);   color:#f59e0b; border:1px solid #f59e0b55; }
+    .mt-offline { background:rgba(255,255,255,.12); color:#e2e8f0; border:1px solid #ffffff22; }
+
+    /* ── POI colour legend ───────────────────────────────────────────── */
+    .poi-legend { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0; }
+    .poi-dot {
+      font-size:.78rem; padding:.2rem .65rem; border-radius:50px;
+      font-weight:700; white-space:nowrap;
+    }
+    .poi-gpx    { background:rgba(245,158,11,.18); color:#f59e0b; border:1px solid #f59e0b44; }
+    .poi-push   { background:rgba(34,197,94,.18);  color:#22c55e; border:1px solid #22c55e44; }
+    .poi-manual { background:rgba(239,68,68,.18);  color:#ef4444; border:1px solid #ef444444; }
+
+    /* ── Language strip ───────────────────────────────────────────── */
+    .lang-strip {
+      display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0;
+    }
+    .lang-chip {
+      background: rgba(102,126,234,.1); border:1px solid rgba(102,126,234,.3);
+      border-radius:50px; padding:.25rem .75rem; font-size:.8rem; color:#6366f1;
+      white-space:nowrap;
+    }
+
+    /* ── Use-case cards ───────────────────────────────────────────── */
+    .scenario-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem; margin:1.5rem 0;
+    }
+    .scenario-card {
+      background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+      border-radius:var(--radius); padding:1.4rem;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
+    .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
+    .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ 테스트 진행 중 — 이 사이트는 활발히 개발 중입니다. 기능, 가격, 라이선스가 확정되지 않았습니다.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ud648</a>
+<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a class="active" href="../logistics4x4.html">물류 4×4</a>
+<a href="../accounting.html">ud68cuacc4</a>
+<a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a>
+<a href="../classroom.html">uc218uc5c5</a>
+<a href="../contact.html">연락하다</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🚛</div>
+<h1>물류 4×4</h1>
+<p class="sub">소규모 사업자를 위한 국경 간 차량 통신. 4명의 SIM 발신자와 4개의 P2P 비디오 피어가 국경 운전사, 본사, 세관, 고객 등 단일 통화 공간을 동시에 공유합니다. 실시간 지도, GPX 경로, 화물 적하목록, 번역된 음성 채팅, 긴급 방송 등이 모두 표준 Android 휴대전화에서 제공됩니다.</p>
+<div class="hero-badges">
+<span class="badge">📹 4명의 비디오 피어</span>
+<span class="badge">📞 SIM 발신자 4명</span>
+<span class="badge">🗺 실시간 지도 + GPX</span>
+<span class="badge">📍 POI 레이어</span>
+<span class="badge">🧭 오프라인 나침반</span>
+<span class="badge">🌍 15개 언어</span>
+<span class="badge">📋 매니페스트 + 실행 시트</span>
+<span class="badge">🚨 긴급 방송</span>
+<span class="badge">📟 긴급 모드 — SMS 및 피어</span>
+</div>
+</div>
+<div class="page">
+<!-- ── Intro split ───────────────────────────────────────────────── -->
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div>
+<div class="phone-mockup">
+<div class="phone-screen">
+<div class="phone-header">
+<div class="app-icon">🚛</div>
+<span>물류 4×4</span>
+<div class="phone-status">● 함대 온라인</div>
+</div>
+<div class="p-ticker p-ticker-instr">📋 교차점 3 — B4301을 유지하세요</div>
+<div class="p-chat p-chat-in">🇩🇪 → 🇬🇧: "세관 통과, 7번 게이트로 이동 중"</div>
+<div class="p-chat p-chat-out">이동 중 — 도착 예정 시간 14분</div>
+<div class="p-chat p-chat-in">SIM을 사용하는 고객 — 지금 연결 중…</div>
+<div class="p-chat p-chat-out">📍 함대와 위치 공유</div>
+<div class="p-peers">
+<span class="p-peer p-peer-on">🎥 파견</span>
+<span class="p-peer p-peer-on">🎥 드라이버 B</span>
+<span class="p-peer p-peer-sim">📞 세관</span>
+<span class="p-peer p-peer-sim">📞 고객</span>
+<span class="p-peer p-peer-map">🗺 지도</span>
+<span class="p-peer p-peer-map">🧭 나침반</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="section-title" style="margin-top:0;">
+<h2>4×4 통화 공간</h2>
+<p>SIM 전화 통화와 P2P 비디오는 하나의 연결된 공간을 공유합니다.</p>
+</div>
+<div class="fourbyfour">
+<div class="fbf-title">1개의 통화 공간 — 8명의 참가자</div>
+<div class="fbf-grid">
+<div class="fbf-half fbf-sim">
+<h4>📞 SIM 발신자 4명</h4>
+<ul>
+<li>표준 셀룰러 음성</li>
+<li>인터넷이 필요하지 않습니다</li>
+<li>세관원</li>
+<li>해외 고객</li>
+<li>본사 유선전화</li>
+</ul>
+</div>
+<div class="fbf-half fbf-p2p">
+<h4>📹 4개의 P2P 비디오 피어</h4>
+<ul>
+<li>WebRTC — 서버 비용 없음</li>
+<li>풀 메시 비디오 + 오디오</li>
+<li>운전자 대 운전자</li>
+<li>파견 컨트롤러</li>
+<li>원격 팀원</li>
+</ul>
+</div>
+</div>
+<div class="fbf-note">SIM 통화의 오디오는 Android의 통신 스택 또는 Bluetooth SCO(이어피스 전용, 비공개)를 통해 그룹 통화에 하드웨어로 병합됩니다.</div>
+</div>
+<p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
+        Logistics 4×4는 대규모 택배 네트워크에서 사용하는 것과 같은 전문적인 독점 물류 플랫폼을 대체하는 것을 목표로 하지 않습니다. 그것은 공백을 메운다. <strong>소규모 사업자</strong>, 개인 사업자 및 대기업 도구로는 도달할 수 없는 상황(원격 국경을 건너 본사와 즉시 연결해야 하는 운전자, 3마일 떨어진 두 번째 운전자, 부스에 있는 세관 검사관, 전화로만 접속할 수 있는 다른 나라의 고객).
+      </p>
+</div>
+</div>
+<!-- ── Use-case scenarios ─────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>누구를 위한 것인가</h2>
+<p>고부담, 저인프라 현장 통신용으로 설계됨</p>
+</div>
+<div class="scenario-grid">
+<div class="scenario-card">
+<div class="sc-icon">🛃</div>
+<h4>국경 통과</h4>
+<p>운전자는 세관원(SIM 통화), 본사(영상), 수령 고객(SIM 통화) 및 호송대의 두 번째 운전자(영상)를 동시에 연결하며 실시간 번역 채팅을 모든 사람이 볼 수 있습니다.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🚚</div>
+<h4>장거리 호송</h4>
+<p>50마일 이상 퍼져 있는 트럭은 PTT(Push-to-Talk), 동일한 실시간 지도에서의 위치 공유 및 지도에 직접 로드된 GPX 파일로 도착하는 배차 경로 푸시를 통해 공유 통화를 유지합니다.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏕</div>
+<h4>오프로드/트레킹</h4>
+<p>데이터 신호가 없나요? 오프라인 나침반은 다른 모든 함대 구성원에게 방향 화살표를 표시합니다. POI 핀은 주유소, 위험 요소, 집합 장소를 표시하며 푸시된 GPX 파일에 포함되거나 지도에 운전자가 떨어뜨립니다. 지향성 안테나를 갖춘 트럭 간의 장거리 핫스팟 링크는 50마일 이상에 도달할 수 있습니다.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🌐</div>
+<h4>다국어 팀</h4>
+<p>푸시 투 토크(Push-to-talk)는 음성을 기록하고, 화자의 언어를 감지하고, 번역하고, 텍스트 + 오디오를 각 청취자의 고유한 로케일로 전달합니다. 15개 언어는 전화기의 로컬 Argos Translate 서버에서 제공됩니다.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">📦</div>
+<h4>배달 증명</h4>
+<p>운전자는 창고 QR 코드를 스캔하여 매니페스트를 로드한 다음 배송 시 고객 POD QR을 스캔합니다. 배송을 거부하셨나요? 사진을 찍고 예외 메모를 작성하세요. 화면에 캡처된 고객 서명.</p>
+</div>
+<div class="scenario-card">
+<div class="sc-icon">🏢</div>
+<h4>파견 사무소</h4>
+<p>Dispatcher 화면은 실시간 지도에 모든 운전자를 표시하고, 실행 시트를 실행하고, 피어 채널을 통해 개별 운전자에게 목록과 경로를 푸시하고, 차량 전체에 비상 경고를 방송합니다.</p>
+</div>
+</div>
+<!-- ── Map section ────────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>실시간 지도, POI 및 나침반</h2>
+<p>OSM, 위성 및 하이브리드 레이어 - 피어 위치, GPX 경로, 관심 지점 및 오프라인 타일 캐시</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1;">
+<div class="map-preview">
+<div class="map-roads"></div>
+<div class="map-route"></div>
+<div class="map-pin map-pin-a">📍</div>
+<div class="map-pin map-pin-b">🚛</div>
+<div class="map-pin map-pin-c">🚚</div>
+<div class="map-pin map-pin-d">🏢</div>
+<div class="map-pin" style="top:72%;left:50%;font-size:1rem;">⛽</div>
+<div class="map-pin" style="top:38%;left:42%;font-size:1rem;">⚠️</div>
+<div class="map-overlay-tags">
+<span class="map-tag mt-street">거리</span>
+<span class="map-tag mt-sat">위성</span>
+<span class="map-tag mt-hybrid">잡종</span>
+<span class="map-tag mt-gpx">GPX 노선</span>
+<span class="map-tag mt-poi">POI 레이어</span>
+<span class="map-tag mt-offline">오프라인 캐시</span>
+</div>
+</div>
+<div class="tags">
+<span class="tag">OpenStreetMap 타일</span>
+<span class="tag">Esri 세계 이미지</span>
+<span class="tag">2.5D 건물</span>
+<span class="tag">OSRM 라우팅</span>
+<span class="tag">즉 장소 검색</span>
+<span class="tag">디스크 타일 캐시</span>
+<span class="tag">POI 레이어</span>
+</div>
+<div class="poi-legend">
+<span class="poi-dot poi-gpx">📍 경로 경유지</span>
+<span class="poi-dot poi-push">📍 IDE 푸시</span>
+<span class="poi-dot poi-manual">📍 운전자가 떨어뜨린</span>
+</div>
+</div>
+<div style="flex:1.2;">
+<div class="strip" style="flex-direction:column; gap:.8rem;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>3개의 지도 레이어</h4>
+<p>사이의 순환 <strong>거리</strong> (오픈스트리트맵), <strong>위성</strong> (Esri World Imagery) 및 <strong>잡종</strong> (위성 기지 + OSM 도로 오버레이)를 탭 한 번으로. 모든 타일은 디스크 캐시됩니다. 이전에 본 영역은 데이터 없이 오프라인으로 로드됩니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>지도상의 동료 위치</h4>
+<p>위치 공유를 활성화한 모든 차량 구성원은 실시간 핀으로 표시됩니다. 핀을 탭하면 이름과 예상 시간을 볼 수 있습니다. Dispatcher는 별도의 추적 플랫폼 없이 전체 차량을 한 눈에 볼 수 있습니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📁</div>
+<div class="strip-body">
+<h4>GPX 경로 푸시</h4>
+<p>사무실은 <code>.gpx</code> 피어 채널을 통해 Chameleon PC의 파일을 운전자의 전화기로 직접 라우팅합니다. 경로는 지도에 컬러 오버레이로 즉시 로드됩니다. 최근 경로는 재사용을 위해 로컬에 저장됩니다. 중국에 대한 GCJ-02 좌표 오프셋 수정을 지원합니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔄</div>
+<div class="strip-body">
+<h4>나침반 잠금 또는 북쪽 방향</h4>
+<p>지도는 전방 운전 방향을 위해 장치 나침반을 사용하여 실시간으로 회전하거나 전통적인 지도 읽기를 위해 북쪽을 잠그고 운전자 기본 설정에 따라 설정을 전환합니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🧭</div>
+<div class="strip-body">
+<h4>나침반 화면 - 오프라인 피어 탐색</h4>
+<p>데이터가 없나요? 전체 화면 나침반 장미에는 마지막으로 알려진 GPS를 사용하는 각 온라인 피어의 방향 화살표가 표시됩니다. 피어 거리와 나침반 방향은 캐시된 위치에서 업데이트됩니다. 이는 트레커, 오프로드 호송 탐색 및 산악 구조 조정에 유용합니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📍</div>
+<div class="strip-body">
+<h4>관심 지점(POI) 레이어</h4>
+<p>지도에 색상으로 구분된 핀으로 표시되는 세 가지 POI 소스입니다. <strong style="color:#f59e0b;">호박색</strong> 핀은 다음에서 나옴 <code>&lt;wpt&gt;</code> GPX 파일에 포함된 웨이포인트 - 경로와 함께 로드되고 지워집니다. <strong style="color:#22c55e;">녹색</strong> 핀은 경로와 관계없이 Chameleon PC IDE(연료 정지, 위험, 배송 주소)에서 직접 푸시됩니다. <strong style="color:#ef4444;">빨간색</strong> 운전자가 지도를 길게 누르면 핀이 떨어집니다. 모든 POI는 세션 전반에 걸쳐 지속됩니다. 핀을 탭하여 탐색하거나 지도에서 열거나 삭제할 수 있습니다. 아이콘은 유형에 따라 조정됩니다: ⛽ 연료, 🚚 배달, ⚠️ 위험, 🏥 병원, 🅿️ 주차, ✈️ 공항 등.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ── Features grid ─────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>모든 기능</h2>
+<p>앱 내 모든 화면과 서비스</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card fc-video">
+<span class="fc-badge">동료</span>
+<div class="fc-icon">📹</div>
+<h3>그룹 P2P 비디오</h3>
+<p>최대 4명 이상의 피어를 위한 풀 메시 WebRTC 비디오 및 오디오 - 중앙 미디어 서버가 없고 월별 통화 요금이 청구되지 않습니다. 적응형 그리드: 1 피어 = 전체 화면, 2 = 병렬, 3 = 2+1, 4 = 2×2. 로컬 피드는 PIP(Picture-in-Picture)로 떠다닙니다. 모든 그룹 규모에서도 품질을 유지하기 위해 피어당 비트 전송률이 조정됩니다(1.5Mbps → 350Kbps). 앱이 백그라운드에 있는 경우에도 수신 전화가 울리고 진동합니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">WebRTC 풀 메시</span><span class="tag">적응형 그리드</span><span class="tag">PiP 로컬</span><span class="tag">벨소리 + 진동</span>
+</div>
+</div>
+<div class="feat-card fc-sim">
+<span class="fc-badge">심 브릿지</span>
+<div class="fc-icon">📞</div>
+<h3>SIM 통화 브리지</h3>
+<p>셀룰러 통화 중에 P2P 피어를 연결하고 싶으십니까? 수도꼭지 <strong>그룹에 추가</strong> — Android의 통신 스택은 SIM 호출과 함께 WebRTC 세션을 등록하고 기본 "통화 병합" 옵션을 제공합니다. 오디오 믹싱은 전화 칩에서 발생합니다. <strong>이어폰만</strong>, 완전 비공개입니다. 장치 또는 이동통신사가 하드웨어 회의를 지원하지 않는 경우 Bluetooth SCO 헤드셋 라우팅이 대체 방법으로 사용됩니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">하드웨어 컨퍼런스</span><span class="tag">BT SCO 대체</span><span class="tag">이어피스만</span>
+</div>
+</div>
+<div class="feat-card fc-chat">
+<span class="fc-badge">통신</span>
+<div class="fc-icon">🗣️</div>
+<h3>푸쉬투톡 + 실시간 번역</h3>
+<p>PTT 버튼을 길게 눌러 말하세요. Android의 음성 인식기(16kHz, 16비트)가 실시간으로 텍스트를 텍스트로 변환합니다. 감지된 언어는 기기 내로 전송됩니다. <strong>아르고스 번역</strong> 섬기는 사람. 각 청취자는 자신이 선택한 로케일로 번역된 메시지를 수신하고 TTS로 큰 소리로 읽습니다. 부분 전사는 녹음하는 동안 라이브 타이핑 표시로 스트리밍됩니다. P2P 채널을 통해 작동하거나 핫스팟을 통해 독립형으로 작동합니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">자동 언어 감지</span><span class="tag">아르고스 번역</span><span class="tag">실시간 TTS 판독</span><span class="tag">15개 언어</span>
+</div>
+</div>
+<div class="feat-card fc-ticker">
+<span class="fc-badge">방송</span>
+<div class="fc-icon">🚨</div>
+<h3>티커 및 긴급 방송</h3>
+<p>Dispatcher는 메시지를 전체 화면에 브로드캐스팅합니다. 이는 모든 화면 상단에 전체 너비 티커 바로 표시됩니다. 4가지 우선순위 수준: <strong style="color:#dc2626;">비상</strong> (빨간색으로 깜박임, 발신자당 속도 제한), <strong style="color:#dc2626;">중요한</strong> (흰색 바탕에 빨간색), <strong style="color:#16a34a;">지침</strong> (녹색 바탕에 검정색), <strong>정보</strong> (검은색 바탕에 노란색). 메시지는 수신자 전화에서 TTS 판독을 트리거할 수 있습니다. 구성 가능한 TTL: '해제될 때까지' 1분.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">함대 전체에 방송</span><span class="tag">4가지 우선순위 수준</span><span class="tag">TTS 판독</span><span class="tag">자동 만료</span>
+</div>
+</div>
+<div class="feat-card fc-disp">
+<span class="fc-badge">디스패처</span>
+<div class="fc-icon">🗂</div>
+<h3>발송자 대시보드</h3>
+<p>3개 탭으로 구성된 발송자 보기: <strong>드라이버</strong> (실시간 위치, 매니페스트 푸시, 경로 할당), <strong>시트 실행</strong> (끌어서 다시 주문하기 멀티 드롭 중지, 탭하여 주기 상태, CSV 가져오기/내보내기) 및 <strong>화물 적하목록</strong> (창고에서 QR 스캔 로딩, 배송 시 POD QR 스캔). Dispatcher는 피어 채널을 통해 GPX 경로 및 송장 파일을 개별 운전자에게 직접 푸시할 수 있습니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">운전자 추적</span><span class="tag">매니페스트 푸시</span><span class="tag">경로 푸시</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#ea580c;">
+<span class="fc-badge" style="background:#ffedd5;color:#c2410c;">명백한</span>
+<div class="fc-icon">📦</div>
+<h3>화물 적하목록</h3>
+<p>매니페스트에 항목을 로드하려면 디포 QR 코드를 스캔하세요. 배송 시 고객의 POD QR을 스캔하여 배송 완료로 표시합니다. 예외 처리: 배송 거부 시 사진과 메모를 기록합니다. safe-drop은 낙하 위치의 사진을 기록합니다. 고객 서명이 터치스크린에 캡처됩니다. 모든 이벤트에는 GPS 좌표가 포함된 타임스탬프가 표시됩니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">QR 스캔 인/아웃</span><span class="tag">포토팟</span><span class="tag">스크린 서명</span><span class="tag">GPS 타임스탬프</span>
+</div>
+</div>
+<div class="feat-card fc-disp" style="border-color:#65a30d;">
+<span class="fc-badge" style="background:#ecfccb;color:#365314;">실행 시트</span>
+<div class="fc-icon">🛣</div>
+<h3>시트 실행</h3>
+<p>드래그하여 다시 주문할 수 있는 멀티 드롭 배송 목록이 중지됩니다. 각 정류장을 순환하려면 상태 아이콘을 탭하세요. 대기 중 → 도착 → 배송 완료. 단계별 내비게이션을 위해 아무 주소나 탭하여 휴대폰의 지도 앱에서 엽니다. CSV에서 가져오기 - 헤더 인식, Onfleet, Routific, Circuit 및 사용자 정의 내보내기와 호환됩니다. CSV로 내보내고 시스템 공유 시트를 통해 공유하세요.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">드래그 재정렬</span><span class="tag">CSV 가져오기</span><span class="tag">Onfleet/Routific 호환 가능</span><span class="tag">내보내기 공유</span>
+</div>
+</div>
+<div class="feat-card fc-inv">
+<span class="fc-badge">송장</span>
+<div class="fc-icon">🧾</div>
+<h3>송장</h3>
+<p>전화에서 직접 송장을 생성, 인쇄 및 공유할 수 있습니다. Office는 미리 준비된 송장을 Chameleon PC 회계 모듈에서 피어 채널을 통해 운전자에게 푸시할 수 있습니다. 그러면 운전자는 그 자리에서 이를 검토하고 서명한 후 보냅니다. 역할 기반 회계 대시보드: 게스트(총계만), 운영자(전체 거래 + 송장) 및 관리자(MTD 제출 + QR 액세스 권한 부여).</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">PC에서 푸시</span><span class="tag">인쇄 / PDF</span><span class="tag">역할 제한</span>
+</div>
+</div>
+<div class="feat-card fc-sms">
+<span class="fc-badge">비상</span>
+<div class="fc-icon">📟</div>
+<h3>긴급 모드 - SMS 및 피어</h3>
+<p>데이터가 없나요? 앱은 컴팩트 코딩 프로토콜로 대체됩니다. 드라이버(<strong>디</strong>), 등산객(<strong>시간</strong>) 및 응급 서비스(<strong>엑스</strong>) 프로필은 범용 경고 규모를 공유합니다. GPS 좌표가 자동으로 포함됩니다. 메시지는 수신 시 TTS에서 디코딩되어 큰 소리로 읽혀집니다. A99+H99는 범용 SOS입니다. 탭 한 번으로 모든 연락처와 차량 동료에게 방송됩니다. 데이터를 사용할 수 있는 경우 프레임은 SMS 대신 피어 채널을 통해 이동하며 전송별로 선택 가능합니다. <strong>SMS만</strong>, <strong>피어만</strong>, 또는 <strong>둘 다</strong>.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">사용자 프로필 3개</span><span class="tag">GPS 내장</span><span class="tag">TTS 디코드</span><span class="tag">메탄 정렬</span>
+<span class="tag">SMS · 동료 · 둘 다</span>
+<span class="tag"><a href="../codes.html" style="color:inherit;text-decoration:none;" target="_blank">📋 코드 참조 →</a></span>
+</div>
+</div>
+<div class="feat-card fc-misc">
+<span class="fc-badge">콘택트 렌즈</span>
+<div class="fc-icon">👥</div>
+<h3>연락처 및 그룹</h3>
+<p>SIM 전화번호, Tailscale 피어 ID 및 혼합 그룹을 결합한 통합 연락처입니다. 만들기 <em>국경팀</em> 두 개의 P2P 피어와 하나의 SIM 번호가 포함된 그룹 — 세 개 모두와 통화를 시작하려면 그룹을 탭하세요. 타임스탬프가 포함된 통화 기록. 연락처별 아바타 사진. 각 차량 구성원은 설정에서 프로필 사진을 설정합니다. 프로필 사진은 연결 시 신호 채널을 통해 자동으로 공유되므로 모든 피어는 첫 글자 대신 실제 사진을 볼 수 있습니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">SIM + 동료</span><span class="tag">혼합 그룹</span><span class="tag">통화 기록</span><span class="tag">아바타 공유</span>
+</div>
+</div>
+<div class="feat-card fc-misc" style="border-color:#8b5cf6;">
+<span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">회로망</span>
+<div class="fc-icon">📶</div>
+<h3>유연한 네트워킹</h3>
+<p>다음을 통해 연결 <strong>테일스케일</strong> (원격, 인터넷을 통해) 또는 직접 <strong>LAN/핫스팟</strong> — 호송 중인 트럭이나 장거리 지향성 안테나가 장착된 곳(개방 지형에서 50마일 이상)에 유용합니다. mDNS 자동 검색은 IP 주소를 수동으로 입력하지 않고도 동일한 Wi-Fi에 있는 다른 휴대폰을 찾습니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">테일스케일</span><span class="tag">LAN/핫스팟</span><span class="tag">mDNS 검색</span><span class="tag">50마일 이상의 핫스팟 범위</span>
+</div>
+</div>
+<div class="feat-card fc-map" style="border-color:#0ea5e9;">
+<span class="fc-badge" style="background:#e0f2fe;color:#0369a1;">뜨다</span>
+<div class="fc-icon">🪟</div>
+<h3>플로팅 오버레이</h3>
+<p>앱은 다른 모든 앱 위에 영구 오버레이로 떠 있을 수 있습니다. 이는 운전자가 화면 모서리에서 통화를 활성 상태로 유지하면서 내비게이션을 확인해야 할 때 유용합니다. 수신되는 피어 호출은 벨소리 + 진동을 통해 자동으로 오버레이를 전면으로 가져오므로 운전자가 긴급 호출을 놓치지 않도록 보장합니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">항상 위에 위치하는 오버레이</span><span class="tag">자동으로 앞으로 가져오기</span><span class="tag">벨소리 + 진동</span>
+</div>
+</div>
+<div class="feat-card fc-map">
+<span class="fc-badge">카멜레온</span>
+<div class="fc-icon">🖥️</div>
+<h3>카멜레온 PC 통합</h3>
+<p>WebSocket을 통해 데스크톱이나 사무실 PC의 Chameleon AI IDE에 연결합니다. 사무실에서는 활성 화상 통화가 필요 없이 상시 신호 채널을 통해 GPX 경로(POI로 자동 분석된 내장형 경유지 포함), 독립형 POI 세트, 송장 PDF 및 적하목록 데이터를 현장 운전자에게 푸시할 수 있습니다. 카멜레온 시그널 서버(<code>chameleon_signal.py</code>)는 PC 또는 전체 전화기의 Termux에서 실행되므로 클라우드 릴레이가 필요하지 않습니다.</p>
+<div class="tags" style="margin-top:.8rem;">
+<span class="tag">경로 푸시</span><span class="tag">그런 다음 푸시</span><span class="tag">송장 푸시</span><span class="tag">클라우드 릴레이 없음</span><span class="tag">Termux 신호 서버</span>
+</div>
+</div>
+</div>
+<!-- ── Language section ───────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>15개 언어</h2>
+<p>전체 UI 번역과 온디바이스 Argos Translate가 제공하는 실시간 PTT 음성 번역</p>
+</div>
+<div class="lang-strip">
+<span class="lang-chip">🇬🇧 영어</span>
+<span class="lang-chip">🇨🇳 中文（简体）</span>
+<span class="lang-chip">🇫🇷 프랑스어</span>
+<span class="lang-chip">🇩🇪 독일어</span>
+<span class="lang-chip">🇪🇸 스페인어</span>
+<span class="lang-chip">🇯🇵 日本語</span>
+<span class="lang-chip">🇷🇺 Русский</span>
+<span class="lang-chip">🇰🇷 한국어</span>
+<span class="lang-chip">🏴······ 웨일스어</span>
+<span class="lang-chip">🇧🇷 포르투갈어</span>
+<span class="lang-chip">🇸🇦 العربية</span>
+<span class="lang-chip">🇮🇳 हिन्दी</span>
+<span class="lang-chip">🇵🇱 폴란드어</span>
+<span class="lang-chip">🇷🇴 루마니아어</span>
+<span class="lang-chip">🇻🇳 베트남어</span>
+</div>
+<div class="strip" style="margin-top:1.5rem;">
+<div class="strip-item">
+<div class="strip-icon">🎤</div>
+<div class="strip-body">
+<h4>자동 언어 감지</h4>
+<p>PTT 서비스는 화자의 언어를 자동으로 감지합니다. 독일어를 구사하는 운전자와 스페인어를 구사하는 파견자가 매번 언어를 선택하지 않고도 자유롭게 푸시투톡을 할 수 있습니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔒</div>
+<div class="strip-body">
+<h4>온디바이스 번역 — 클라우드 없음</h4>
+<p>번역은 Termux 내부의 전화기에서 로컬로 실행되는 Argos Translate 서버에 의해 처리됩니다. 음성과 텍스트는 번역을 위해 장치를 떠나지 않습니다. 언어 팩이 설치되면 오프라인으로 작동합니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>청취자의 언어로 된 TTS</h4>
+<p>번역 후 각 메시지는 Android TTS를 사용하여 수신자의 로케일에서 소리내어 읽혀집니다. 청취자는 화면을 보지 않고도 번역된 메시지를 들을 수 있으므로 운전자가 도로를 주시하는 데 이상적입니다.</p>
+</div>
+</div>
+</div>
+<!-- ── SMS Emergency Mode ────────────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>비상 모드 - SMS 및 피어 채널</h2>
+<p>데이터가 없어진 경우 SMS를 통해 작동하거나 그렇지 않은 경우 플릿 피어 채널을 통해 작동하는 컴팩트 코드 프로토콜</p>
+</div>
+<div class="split" style="align-items:flex-start; gap:2rem;">
+<div style="flex:1.2;">
+<div class="strip" style="margin-top:0;">
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">📟</div>
+<div class="strip-body">
+<h4>이중 전송 - SMS 또는 피어 채널</h4>
+<p>수풀 속 깊은 곳, 원격 국경 통과 또는 네트워크 중단 중 모바일 데이터가 없는 경우 Logistics 4×4는 표준 SMS를 통해 코딩된 상태 프레임을 보냅니다. 데이터가 <em>~이다</em> 사용 가능한 경우 동일한 프레임이 플릿 피어 채널을 통해 최고 속도로 이동합니다. 전송당 선택기를 사용하면 다음을 선택할 수 있습니다. <strong>SMS만</strong>, <strong>피어만</strong>, 또는 <strong>둘 다</strong>. SOS는 설정에 관계없이 항상 사용 가능한 모든 채널에서 동시에 실행됩니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>세 개의 프로필 — 하나의 공유 언어</h4>
+<p>코드는 공통 경고 용어를 공유하는 세 가지 사용자 프로필로 구성됩니다. <strong>D — 드라이버</strong> (국경, 화물, 호송, 연료, 도로 상황), <strong>H — 등산객</strong> (중요사항, 트레일, 장비, 체크인 일정) 및 <strong>X — 응급 서비스</strong> (분류, 사건 유형, 현장 자원, 대피 상태). 모든 프로필의 SOS는 모두가 이해합니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>국제 비상 표준에 맞춰</h4>
+<p>응급 서비스 프로필은 국제 P1-P4 분류 척도(즉시/지연/경미/예상) 및 전 세계 합동 응급 서비스에서 사용하는 METHANE 주요 사고 프레임워크에 맞춰 정렬된 사고 카테고리를 사용합니다. 기관 간 작업에 참여하는 구급대원이나 SAR 코디네이터는 용어를 즉시 인식할 것입니다.</p>
+</div>
+</div>
+<div class="strip-item" style="margin:0;">
+<div class="strip-icon">🔊</div>
+<div class="strip-body">
+<h4>수령 시 자동 읽기</h4>
+<p>수신되는 암호화된 메시지는 텍스트 음성 변환을 통해 디코딩되고 큰 소리로 읽혀집니다. 운전자는 도로를 주시하고 있거나 응답자는 손을 사용하지 않고 전화를 건드리지 않고도 모든 코드의 완전한 영어 의미를 듣습니다. 손상된 메시지는 자동 재전송 요청을 트리거합니다.</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;">
+<!-- Code samples -->
+<div style="background:#0b0f1a;border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-lg);">
+<div style="color:#94a3b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;">코딩된 메시지 예시</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">운전자 - 주유 중단, 통관 지연</div>
+<div style="font-family:monospace;font-size:.82rem;color:#a3e635;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">D22 F44 B22</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">운전자가 정지 중 · 연료 구역 · 세관 대기열에서</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">등산객 — 부상, 도움 요청</div>
+<div style="font-family:monospace;font-size:.82rem;color:#fbbf24;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">V66 H44 A55 + “발목 골절로 걸을 수 없음”</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">심각한 부상이 중지됨 · 구조대가 필요함 · 긴급</div>
+</div>
+<div style="margin-bottom:1rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">응급 서비스 - RTC, P1 사상자</div>
+<div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">도로 교통 충돌 · P1 생명 위협 사상자 · 2~5명 · 현장 구급차 · 항공 구급차 필요</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
+<div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Universal SOS — 모든 프로필</div>
+<div style="font-family:monospace;font-size:.9rem;color:#ff4444;background:#1a0505;border-radius:6px;padding:.5rem .8rem;letter-spacing:.04em;font-weight:bold;">A99 + H99</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">GPS 위치가 포함된 SOS - 등록된 모든 연락처로 즉시 전송됩니다.</div>
+</div>
+</div>
+<!-- Download reference -->
+<div style="background:white;border:2px solid #dc2626;border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1.2rem;box-shadow:var(--shadow);">
+<div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;">
+<span style="font-size:1.8rem;">📋</span>
+<div>
+<div style="font-weight:700;color:#b91c1c;font-size:.95rem;">필드 코드 참조</div>
+<div style="color:var(--muted);font-size:.82rem;">모든 프로필에 대한 모든 코드 — 인쇄 및 휴대</div>
+</div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin-bottom:.9rem;">운전자, 등산객 및 응급 서비스 프로필에 대한 전체 코드 표입니다. PDF로 다운로드하여 휴대폰, 운전실 또는 배낭에 사본을 보관하세요.</p>
+<a href="../codes.html" style="display:inline-flex;align-items:center;gap:.5rem;background:#dc2626;color:white;text-decoration:none;padding:.6rem 1.3rem;border-radius:50px;font-size:.88rem;font-weight:600;" target="_blank">
+          📥 코드 참조 보기 및 다운로드
+        </a>
+</div>
+</div>
+</div>
+<!-- ── How it differs strip ───────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>간격을 중심으로 설계됨</h2>
+<p>엔터프라이즈 물류 소프트웨어를 대체하지 않음 — 엔터프라이즈 소프트웨어가 아닌 곳을 위한 솔루션</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">💰</div>
+<div class="strip-body">
+<h4>좌석당, 운전자당 청구서 없음</h4>
+<p>WebRTC 피어 통화는 미디어 릴레이 서버가 없고 사용자당 월별 요금이 없는 직접 전화 대 전화입니다. 앱은 팀이 이미 휴대하고 있는 표준 Android 휴대폰에서 실행됩니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>엔터프라이즈 앱이 지원되지 않는 곳에서도 작동</h4>
+<p>표준 물류 앱이 빠르고 안정적인 데이터 연결을 가정하는 국경 횡단, 원격 지형 및 국제 운영을 위해 설계되었습니다. 데이터가 사라지면 오프라인 나침반과 캐시된 지도로 돌아갑니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📱</div>
+<div class="strip-body">
+<h4>표준 안드로이드 폰</h4>
+<p>전문 하드웨어가 없습니다. MDM 등록이 없습니다. APK를 실행하는 모든 Android 7.0+ 휴대폰(minSdk 24)은 전체 플릿 노드입니다. 트럭 운전실에 장착된 장거리 핫스팟 안테나는 P2P 범위를 탁 트인 시골 지역에서 50마일 이상으로 확장할 수 있습니다.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚀</div>
+<div class="strip-body">
+<h4>미래 로드맵</h4>
+<p>계획된 추가 기능에는 전체 타코그래프 규정 준수, 근무 시간 모니터링, DVSA 디지털 타코그래프 통합 및 POI 대량 업로드를 위한 KML/GeoJSON 가져오기가 포함됩니다. 기초는 이미 구축되어 있습니다.</p>
+</div>
+</div>
+</div>
+<div class="cta-band">
+<h3>물류 4×4에 관심이 있으십니까?</h3>
+<p>현재 테스트 중입니다. 파일럿에 대해 논의하거나 구축을 요청하거나 차량 라이센스에 대해 문의하려면 당사에 문의하십시오.</p>
+<a class="btn btn-solid" href="../contact.html">연락하세요</a>
+<a class="btn" href="../companion.html">← 컴패니언 앱</a>
+<a class="btn" href="../index.html">← 개요</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ud648</a>
+<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../presenter.html">증여자</a>
+<a href="../companion.html">컴패니언 앱</a>
+<a href="../logistics4x4.html">물류 4×4</a>
+<a href="../services.html">웹 서비스</a>
+<a href="../accounting.html">ud68cuacc4</a>
+<a href="../technician.html">PC 기술자</a>
+<a href="../trading.html">거래</a>
+<a href="../classroom.html">uc218uc5c5</a>
+<a href="../contact.html">연락하다</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 라이센스 보류 중 · Marcos aka 줄기시 제작</p>
+</footer>
+</body>
+</html>

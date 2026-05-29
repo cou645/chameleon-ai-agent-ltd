@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Uhasibu wa Uingereza - Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Mwenza</a>
+<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a>
+<a class="active" href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>Uhasibu wa Uingereza</h1>
+<p class="sub">Uwekaji hesabu mara mbili, ufuatiliaji wa VAT, Faida na Hasara, Laha ya Mizani - yote katika leja ya ndani ya SQLite inayolenga HMRC Kutengeneza Kodi Dijitali.</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 Chati ya Akaunti ya Uingereza</span>
+<span class="badge">📋 Tayari kwa MTD</span>
+<span class="badge">🔒 SQLite ya ndani</span>
+<span class="badge">🤖 Pato la JSON linaloweza kuchanganuliwa la AI</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Leja ya Kuingiza Mara Mbili</h2>
+<p>Kila shughuli iliyosawazishwa hadi senti - inatozwa mikopo inayolingana kila wakati</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">Tarehe │ Akaunti │ Debit (£) │ Mkopo (£) │ VAT</span>
+───────────┼──────────────────────────── ─────┼──────────┼────────────────────────
+2026-04-01 │ 4000 Mapato ya Mauzo │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01 │ 2200 Udhibiti wa VAT │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ Wadaiwa 1100 wa Biashara │ <span class="dr">1,440.00</span>  │ │
+───────────┼──────────────────────────── ─────┼──────────┼────────────────────────
+2026-04-05 │ Gharama za Ofisi 6100 │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200 Udhibiti wa VAT │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 1200 Benki ya Sasa │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Chati ya Hesabu ya Uingereza</h3>
+<p>Misimbo ya kawaida ya akaunti ya Uingereza nje ya kisanduku - mali, dhima, usawa, mapato na gharama zilizopangwa kwa kategoria za HMRC. Panua na akaunti maalum kama inahitajika.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>Leja ya SQLite</h3>
+<p>Data zote zimehifadhiwa ndani <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Huendesha nje ya mtandao kabisa. Usaidizi wa kampuni nyingi - badilisha kati ya mashirika na bendera ya amri.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>mwaka wa ushuru wa Uingereza</h3>
+<p>Mwisho wa mwaka uliwekwa kwa usahihi kuwa tarehe 5 Aprili (mwaka wa fedha wa Uingereza 6 Apr - 5 Apr). Ripoti za P&amp;L na VAT huchukua kipindi sahihi kiotomatiki bila marekebisho ya kibinafsi ya tarehe.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Uchanganuzi wa makosa ya kiuchunguzi</h3>
+<p>Kimbia <code>--forensic</code> ili kugundua maingizo yasiyo na usawa, marejeleo yanayorudiwa, kutolingana kwa VAT na makosa mengine. Matokeo yamechapishwa kama muundo wa JSON kwa ukaguzi wa AI.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Pato linaloweza kusomeka kwa AI</h3>
+<p>Ripoti zote hutoa muundo wa JSON kuwa stdout ili Chameleon AI iweze kuchanganua, kufupisha na kukushauri kuhusu hali yako ya kifedha katika lugha asilia.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Daraja la WebSocket</h3>
+<p>Daraja la uhasibu la WebSocket (<code>acct_ws_bridge.py</code>) hufichua maswali ya leja kwa mwandamani wa simu na dashibodi za nje kupitia mtandao wako wa Tailscale.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Nambari za VAT Zinatumika</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>Kiwango cha kawaida 20%</p></div>
+<div class="vat-code"><div class="vc">R5</div><p>Kiwango kilichopunguzwa 5%</p></div>
+<div class="vat-code"><div class="vc">Z</div><p>Imekadiriwa sifuri</p></div>
+<div class="vat-code"><div class="vc">E</div><p>Kutolewa</p></div>
+<div class="vat-code"><div class="vc">O</div><p>Nje ya upeo</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ripoti</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>Faida na Hasara</h4>
+<p>Mapato dhidi ya gharama za kipindi hicho. Mauzo, gharama ya bidhaa, faida ya jumla, gharama za uendeshaji, faida halisi - yote yamegawanywa kwa msimbo wa akaunti. Kukimbia na <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>Karatasi ya Mizani</h4>
+<p>Mali, dhima na usawa kwa wakati mmoja. Inathibitisha uadilifu wa kuingiza mara mbili - mali lazima ziwe sawa na dhima pamoja na usawa. Kukimbia na <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Muhtasari wa Kurejesha VAT</h4>
+<p>Takwimu za VAT za sanduku kwa sanduku zinazolingana na umbizo la kurejesha VAT ya HMRC MTD: Sanduku la 1 (kodi ya pato), Sanduku la 4 (kodi ya kuingiza), Sanduku la 6 (mauzo halisi), Sanduku la 7 (manunuzi halisi). Kukimbia na <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Uwekaji ankara</h2>
+<p>Ankara zinazotii Notisi 700 za HMRC - zimechapishwa, zimehifadhiwa kama PDF au kusukumwa kwenye simu yako kwa mbofyo mmoja.</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>Sehemu za ankara zinazotii Uingereza</h4>
+<p>Kila ankara inajumuisha sehemu zote zinazohitajika na HMRC Notice 700: nambari ya kipekee ya ankara ya mfuatano, jina na anwani ya mtoa huduma, nambari ya usajili wa VAT, tarehe ya ankara, tarehe ya usambazaji (wakati wa usambazaji), jina la mteja na anwani, nambari ya VAT ya mteja inapohitajika, maelezo ya laini yaliyowekwa pamoja na kiasi na bei za kitengo, kiwango cha VAT kwa kila laini, jumla, na jumla ndogo ya VAT. Hakuna kinachokosekana, hakuna kinachokisiwa.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>Mpangilio wa Kampuni</h4>
+<p>Fungua <em>Faili → ankara → Mipangilio ya Kampuni</em> ili kuweka jina la kampuni yako iliyosajiliwa, anwani, nambari ya Nyumba ya Makampuni, nambari ya VAT, barua pepe, simu na maelezo ya benki. Mipangilio huhifadhiwa kwa kila hifadhidata ya mteja ndani <code>company.json</code> kando ya leja na kupakiwa kiotomatiki wakati ankara zinapotolewa kwa mteja huyo.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>Database ya mawasiliano ya Wateja</h4>
+<p>Mara ya kwanza unapotuma ankara kwa mteja jina lake, anwani na nambari ya VAT huhifadhiwa kwenye jedwali la anwani ndani ya leja. Kwenye ankara zinazofuata, kuandika jina la mteja hukamilisha maelezo yake kiotomatiki - haihitajiki kuweka tena. Anwani zinaweza kuhaririwa wakati wowote.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>Chapisha, PDF na utume kwa simu</h4>
+<p>Kutoka kwa Meneja wa ankara (<em>Faili → ankara...</em>) chagua ankara yoyote na uchague: <strong>Chapisha</strong> (hufungua kidirisha cha kuchapisha cha OS - kichapishi chochote au kiendeshi cha PDF), <strong>Hifadhi PDF</strong> (moja kwa moja kwa diski kupitia usafirishaji wa PDF uliojengwa ndani ya Qt), au <strong>Tuma kwa Simu</strong> (husukuma ankara ya HTML kwenye programu ya Companion ambapo hufungua kidirisha cha kuchapisha cha Android - chapisha bila waya kwa AirPrint au printa iliyo karibu).</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Tarehe ya usambazaji</h3>
+<p>Tenganisha sehemu ya "Tarehe ya ugavi" (wakati wa usambazaji) - tofauti na tarehe ya ankara. Inahitajika na HMRC kwa madhumuni ya VAT. Chaguomsingi hadi leo lakini inaweza kuhaririwa kivyake kwa kila ankara.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Uchapishaji wa ankara ya rununu</h3>
+<p>Programu ya Companion inaweza kuchapisha ankara yoyote bila waya. Gonga aikoni ya kuchapisha kwenye safu mlalo yoyote ya ankara - programu huchota HTML kutoka kwa IDE, na kuibadilisha kuwa PDF kwenye kifaa kupitia <code>printing</code> kifurushi, na kufungua kidirisha cha kuchapisha cha mfumo wa Android.</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>HMRC Notice 700 kufuata</h3>
+<p>Sehemu zote 12 zinazohitajika kwa ankara kamili ya VAT ya Uingereza zipo na zimejaa. Viwango vya kupunguzwa na mistari iliyokadiriwa sifuri ina lebo wazi. Mlolongo wa nambari ya ankara unaongezeka kwa sauti moja bila mapengo.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Marejeleo ya Haraka ya CLI</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>Amri</th><th>Maelezo</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Faida na Hasara kwa mwaka wa sasa wa ushuru</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Mizania kuanzia leo</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Muhtasari wa marejesho ya VAT (sanduku za MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Uchanganuzi usio wa kawaida na uadilifu</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Rejea kamili ya amri</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>Rahisisha uwekaji hesabu wako wa Uingereza</h3>
+<p>Madhumuni yameundwa kwa ajili ya wafanyakazi huru na biashara ndogo ndogo zinazofanya kazi chini ya sheria za ushuru za Uingereza.</p>
+<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../trading.html">Biashara</a><a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tecnico PC AI: Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card {
+      border-radius: var(--radius); padding: 1.5rem;
+      border: 2px solid; box-shadow: var(--shadow);
+      background: white;
+    }
+    .path-a { border-color: #22c55e; }
+    .path-b { border-color: #3b82f6; }
+    .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #22c55e; }
+    .path-b .path-label { color: #3b82f6; }
+    .path-c .path-label { color: #f59e0b; }
+    .path-card h4 { margin-bottom: .4rem; color: var(--text); }
+    .path-card p { color: var(--muted); font-size: .9rem; }
+    .terminal-block {
+      background: #0f0f1a; border-radius: var(--radius);
+      padding: 1.5rem; font-family: 'Courier New', monospace;
+      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg); overflow-x: auto;
+    }
+    .terminal-block .cmd { color: #67e8f9; }
+    .terminal-block .out { color: #86efac; }
+    .terminal-block .comment { color: #6b7280; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>IA camaleonte</strong></a>
+<div class="nav-links">
+<a href="../index.html">Casa</a>
+<a href="../ide.html">HAI IDEE</a>
+<a href="../presenter.html">Presentatore</a>
+<a href="../companion.html">Applicazione complementare</a>
+<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../services.html">Servizi Web</a>
+<a href="../accounting.html">Contabilità</a>
+<a class="active" href="../technician.html">Tecnico informatico</a>
+<a href="../trading.html">Commercio</a>
+<a href="../classroom.html">Aula</a>
+<a href="../contact.html">Contatto</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇹 IT ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../sw/technician.html">🇰🇪 SW — Kiswahili</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔧</div>
+<h1>Tecnico PC AI</h1>
+<p class="sub">Diagnosi e riparazione del sistema guidate dall'intelligenza artificiale, oltre a un profiler del dispositivo USB che esegue il reverse engineering dei protocolli hardware e genera automaticamente i driver del kernel Linux.</p>
+<div class="hero-badges">
+<span class="badge">🔬 Profilazione hardware</span>
+<span class="badge">🐧 Generazione del modulo kernel</span>
+<span class="badge">🌐 Remoto tramite Tailscale</span>
+<span class="badge">⚡ Compilazione incrociata ARM</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>Riparazione del sistema guidata dall'intelligenza artificiale</h2>
+<p>L'intelligenza artificiale segue un protocollo chirurgico strutturato: diagnosticare prima di toccare, verificare ad ogni passaggio</p>
+</div>
+<div class="terminal-block">
+<span class="comment"># Sequenza di diagnosi Chameleon AI</span>
+<span class="cmd">$ lsusb -v | testa -80</span>
+<span class="out">Bus 002 Dispositivo 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
+<span class="cmd">$dmesg | coda -30</span>
+<span class="out">[12.445] r8152 2-1:1.0 eth1: rinominato da eth0</span>
+<span class="cmd">$ lsmod | grepr8152</span>
+<span class="out">r8152942080</span>
+<span class="cmd">$modinfo r8152 | versione grep</span>
+<span class="out">versione: v1.12.13</span>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔍</div>
+<div class="strip-body">
+<h4>Sequenza diagnostica strutturata</h4>
+<p>Hardware → stato del kernel → stato del driver → rete → archiviazione. L'IA esegue ogni passaggio, legge il risultato JSON, quindi decide l'azione successiva. Non salta mai passaggi né fa supposizioni.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏥</div>
+<div class="strip-body">
+<h4>Protocollo di riparazione chirurgica</h4>
+<p>Innanzitutto non distruttivo (ricarica il modulo, riavvia il servizio). Persistenza prima del rischio (configurazione istantanea). Verificare ad ogni passaggio. Ogni azione che richiede il riavvio attiva un Dead Man's Switch che imposta a <code>@reboot</code> riprendere lo script automaticamente.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🌐</div>
+<div class="strip-body">
+<h4>Riparazione remota tramite Tailscale</h4>
+<p>Diagnostica e ripara le macchine ovunque sulla rete Tailscale. L'intelligenza artificiale invia comandi alla macchina remota tramite il terminal bridge, legge i risultati e continua, anche dopo i riavvii utilizzando il sistema checkpoint/resume.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Porta driver USB</h2>
+<p>Profila qualsiasi dispositivo USB → analizza il suo protocollo → genera un driver Linux pronto per l'installazione</p>
+</div>
+<div class="path-cards">
+<div class="path-card path-a">
+<div class="path-label">Sentiero A</div>
+<h4>Protocolli standard</h4>
+<p>Nessuna pagina del venditore trovata. Genera regole udev + configurazione modprobe. <strong>Nessuna compilazione richiesta.</strong> Funziona con HID, CDC, archiviazione di massa e altre classi standard.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+</div>
+<div class="path-card path-b">
+<div class="path-label">Sentiero B</div>
+<h4>Protocollo fornitore parziale</h4>
+<p>Pagine del fornitore rilevate (≤2). Genera un demone dello spazio utente hidraw/uhid o un plugin ALSA. Funziona nello spazio utente: non è necessaria la compilazione del kernel.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">nascondi</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Plug-in ALSA</span></div>
+</div>
+<div class="path-card path-c">
+<div class="path-label">Sentiero C</div>
+<h4>Protocollo proprietario</h4>
+<p>Protocollo completamente personalizzato. Genera un modulo kernel completo con packaging DKMS e supporto di compilazione incrociata ARM per Raspberry Pi 3, 4 e 5.</p>
+<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Modulo del kernel</span><span class="tag" style="background:#fef3c7;color:#b45309">DKM</span><span class="tag" style="background:#fef3c7;color:#b45309">BRACCIO</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:2rem;">
+<h2>Flusso di lavoro del profilatore</h2>
+</div>
+<div class="terminal-block">
+<span class="comment"># Passaggio 1: profila il dispositivo (acquisizione di 30 secondi)</span>
+<span class="cmd">$ python3 dispositivo_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
+<span class="out">Profilatura USB 1234:5678 per 30s...
+Ho scritto ~/.chameleon/drivers/1234_5678/profile.json</span>
+<span class="comment"># Passaggio 2: genera il driver</span>
+<span class="cmd">$ python3 dispositivo_porter.py --latest</span>
+<span class="out">Percorso selezionato: C (proprietario, 3 pagine del fornitore)
+Generato: /tmp/driver_1234_5678/
+  ├── camaleonte_1234_5678.c
+  ├── Makefile (cross-aarch64, cross-armv7)
+  ├── install.sh
+  ├── test_device.sh
+  └── analisi.json</span>
+<span class="comment"># Passaggio 3: installazione</span>
+<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
+<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
+<span class="out">PASS: il dispositivo /dev/chameleon0 risponde correttamente</span>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Backend di acquisizione multipiattaforma</h3>
+<p>ETW su Windows, IOKit su macOS, usbmon su Linux. Profila il profilo su qualsiasi sistema operativo e genera un driver Linux dal risultato <code>profile.json</code>.</p>
+</div>
+<div class="card">
+<div class="card-icon">🍓</div>
+<h3>Compilazione incrociata di Raspberry Pi</h3>
+<p>Obiettivi del makefile <code>cross-aarch64</code> (Tav. 4/5) e <code>cross-armv7</code> (Pi 3) sono inclusi automaticamente nel percorso C. Compila su x86 e distribuisci su ARM.</p>
+</div>
+<div class="card">
+<div class="card-icon">📦</div>
+<h3>Confezione DKMS</h3>
+<p>I driver del percorso C sono pacchettizzati per DKMS in modo che sopravvivano agli aggiornamenti del kernel senza ricompilazione manuale. Le revisioni dell'IA <code>analysis.json</code> e richiede eventuali stub TODO rimanenti.</p>
+</div>
+</div>
+<div class="cta-band">
+<h3>Risolvi l'irrisolvibile</h3>
+<p>Che si tratti di un kernel panico, di un dispositivo USB guasto o di una periferica proprietaria senza supporto Linux, Chameleon AI PC Technician è al tuo fianco.</p>
+<a class="btn btn-solid" href="../contact.html">Mettiti in contatto</a>
+<a class="btn" href="../index.html">← Torna alla panoramica</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Casa</a><a href="../ide.html">HAI IDEE</a><a href="../presenter.html">Presentatore</a>
+<a href="../accounting.html">Contabilità</a><a href="../technician.html">Tecnico informatico</a>
+<a href="../trading.html">Commercio</a><a href="../classroom.html">Aula</a><a href="../contact.html">Contatto</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Costruito da Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

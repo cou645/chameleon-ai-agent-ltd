@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>英国会计 — C​​hameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .vat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
+    }
+    .vat-code {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow);
+    }
+    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .ledger-sample {
+      background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+    }
+    .ledger-sample .dr { color: #f87171; }
+    .ledger-sample .cr { color: #4ade80; }
+    .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">网络服务</a>
+<a class="active" href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../uk/accounting.html">🇺🇦 UK — Українська</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📊</div>
+<h1>英国会计</h1>
+<p class="sub">复式记账、增值税跟踪、损益表、资产负债表——所有这些都在本地 SQLite 分类账中，目标是 HMRC 使税务数字化。</p>
+<div class="hero-badges">
+<span class="badge">🇬🇧 英国会计科目表</span>
+<span class="badge">📋 MTD 就绪</span>
+<span class="badge">🔒 本地 SQLite</span>
+<span class="badge">🤖 AI 可解析的 JSON 输出</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>复式记账本</h2>
+<p>每笔交易都平衡到一分钱——借方始终等于贷方</p>
+</div>
+<div class="ledger-sample">
+<span class="hd">日期 │ 帐户 │ 借方 (£) │ 贷方 (£) │ 增值税</span>
+────────────┼────────────────────────┼────────────┼────────────┼────
+2026-04-01 │ 4000销售收入 │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01 │ 2200增值税管制 │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ 1100个贸易债务人 │ <span class="dr">1,440.00</span>  │ │
+────────────┼────────────────────────┼────────────┼────────────┼────
+2026-04-05 │ 6100 办公费用 │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200增值税管制 │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 1200 银行往来 │ │    <span class="cr">102.00</span>  │
+  </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>英国会计科目表</h3>
+<p>开箱即用的标准英国账户代码 — 映射到 HMRC 类别的资产、负债、股权、收入和支出。根据需要使用自定义帐户进行扩展。</p>
+</div>
+<div class="card">
+<div class="card-icon">🗄️</div>
+<h3>SQLite 账本</h3>
+<p>所有数据存储在 <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>。完全离线运行。多公司支持 - 使用命令标志在实体之间切换。</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>英国纳税年度</h3>
+<p>年终正确设置为 4 月 5 日（英国财政年度为 4 月 6 日至 4 月 5 日）。损益和增值税报告自动跨越正确的期间，无需手动调整日期。</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>法医异常扫描</h3>
+<p>跑步 <code>--forensic</code> 检测不平衡条目、重复引用、增值税不匹配和其他违规行为。结果以结构化 JSON 形式打印以供 AI 审核。</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>AI可读输出</h3>
+<p>所有报告都将结构化 JSON 输出到标准输出，以便 Chameleon AI 可以用自然语言解析、总结和建议您的财务状况。</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>WebSocket桥接器</h3>
+<p>会计 WebSocket 桥（<code>acct_ws_bridge.py</code>）通过 Tailscale 网络向移动配套设备和外部仪表板公开账本查询。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>支持的增值税代码</h2>
+</div>
+<div class="vat-grid">
+<div class="vat-code"><div class="vc">S20</div><p>标准税率20%</p></div>
+<div class="vat-code"><div class="vc">R5</div><p>折扣率5%</p></div>
+<div class="vat-code"><div class="vc">Z</div><p>零税率</p></div>
+<div class="vat-code"><div class="vc">乙</div><p>豁免</p></div>
+<div class="vat-code"><div class="vc">氧</div><p>超出范围</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>报告</h2>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📈</div>
+<div class="strip-body">
+<h4>损益</h4>
+<p>该期间的收入与支出。销售额、商品成本、毛利润、运营费用、净利润——全部按账户代码细分。运行与 <code>--report pl</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚖️</div>
+<div class="strip-body">
+<h4>资产负债表</h4>
+<p>某个时间点的资产、负债和权益。确认复式记账完整性——资产必须等于负债加权益。运行与 <code>--report bs</code>.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>增值税申报表摘要</h4>
+<p>与 HMRC MTD 增值税申报表格式相符的逐栏增值税数字：框 1（销项税）、框 4（进项税）、框 6（净销售）、框 7（净采购）。运行与 <code>--report vat</code>.</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>开具发票</h2>
+<p>符合 HMRC 通知 700 标准的发票 — 打印、保存为 PDF 或一键推送到您的手机</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🧾</div>
+<div class="strip-body">
+<h4>符合英国标准的发票字段</h4>
+<p>每张发票均包含 HMRC 通知 700 要求的所有字段：唯一的连续发票号、供应商名称和地址、增值税登记号、发票日期、供应日期（供应时间）、客户名称和地址、客户增值税号（如适用）、包含数量和单价的逐项行说明、每行增值税率、净额和增值税小计以及应付总额。什么都没有丢失，什么也没有被猜测。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🏢</div>
+<div class="strip-body">
+<h4>公司设立</h4>
+<p>打开 <em>文件 → 发票 → 公司设置</em> 输入您的注册公司名称、地址、公司门牌号码、增值税号码、电子邮件、电话和银行详细信息。设置保存在每个客户端数据库中 <code>company.json</code> 与分类账一起并在为该客户生成发票时自动加载。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">👥</div>
+<div class="strip-body">
+<h4>客户联系数据库</h4>
+<p>第一次向客户开具发票时，他们的姓名、地址和增值税号将保存到分类账内的联系人表中。在后续发票上，输入客户名称会自动填写其详细信息 - 无需重新输入。联系人可以随时编辑。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🖨️</div>
+<div class="strip-body">
+<h4>打印、PDF 并发送到手机</h4>
+<p>来自发票管理器（<em>文件 → 发票...</em>) 选择任何发票并选择： <strong>打印</strong> （打开操作系统打印对话框 - 任何打印机或 PDF 驱动程序）， <strong>保存PDF</strong> （通过 Qt 的内置 PDF 导出直接到磁盘），或者 <strong>发送至电话</strong> （将发票 HTML 推送到配套应用程序，在其中打开 Android 打印对话框 — 无线打印到任何 AirPrint 或附近的打印机）。</p>
+</div>
+</div>
+</div>
+<div class="cards" style="margin-top:1.5rem;">
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>供货日期</h3>
+<p>单独的“供应日期”（供应时间）字段 — 与发票日期不同。 HMRC 出于增值税目的要求。默认为今天，但可以根据发票独立编辑。</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>移动发票打印</h3>
+<p>配套应用程序可以无线打印任何发票。点击任何发票行上的打印图标 — 应用程序从 IDE 获取 HTML，通过 <code>printing</code> 打包，并打开 Android 系统打印对话框。</p>
+</div>
+<div class="card">
+<div class="card-icon">✅</div>
+<h3>HMRC 通知 700 合规性</h3>
+<p>完整的英国增值税发票的所有 12 个必填字段均已显示并已填充。低费率和零费率线路都有明确的标签。发票编号序列严格单调递增，没有间隙。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>CLI 快速参考</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>命令</th><th>描述</th></tr></thead>
+<tbody>
+<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>当前纳税年度的损益</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>截至今日的资产负债表</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>增值税申报表摘要（MTD 框）</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>异常和完整性扫描</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>完整命令参考</td></tr>
+</tbody>
+</table>
+<div class="cta-band">
+<h3>简化您的英国簿记</h3>
+<p>专为在英国税务规则下运营的自由职业者和小型企业而设计。</p>
+<a class="btn btn-solid" href="../contact.html">联系我们</a>
+<a class="btn" href="../index.html">← 返回概述</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

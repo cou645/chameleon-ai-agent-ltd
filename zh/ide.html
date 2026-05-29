@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI IDE — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a class="active" href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">配套应用程序</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🧠</div>
+<h1>AI 驱动的 IDE</h1>
+<p class="sub">功能齐全的 PyQt6 代码编辑器，其中 AI 不仅仅提供建议，它还通过结构化命令桥代表您读取、写入、运行和验证代码。</p>
+<div class="hero-badges">
+<span class="badge">多提供商人工智能</span>
+<span class="badge">🎙️ 语音输入和 TTS</span>
+<span class="badge">🔀 差异视图</span>
+<span class="badge">⚡ 流媒体回应</span>
+</div>
+</div>
+<div class="page">
+<div class="section-title">
+<h2>人工智能命令桥</h2>
+<p>AI 不只是聊天——它通过结构化 JSON 协议操作编辑器</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">📖</div>
+<div class="strip-body">
+<h4>阅读一次，自由编辑</h4>
+<p>AI 读取文件一次 <strong>获取文件内容</strong>，将内容保留在上下文中，然后发出多个基于锚点的编辑，而无需在每次更改之间重新读取。没有浪费的往返行程。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>基于锚点的replace_text</h4>
+<p>编辑引用的确切文本以查找，而不是行号。行号会随着代码的添加或删除而变化，而锚点却不会。多种的 <code>replace_text</code> 调用可以在单个响应中进行批处理，所有调用都以原子方式应用。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📝</div>
+<div class="strip-body">
+<h4>write_file 用于完全重写</h4>
+<p>对于新模块或完全重写，AI 通过一条命令发送整个文件内容。系统自动创建一个 <code>.bak</code> 在覆盖之前备份并在新的编辑器选项卡中打开结果。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">💻</div>
+<div class="strip-body">
+<h4>终端集成</h4>
+<p>AI 可以运行 shell 命令并接收 JSON 结果，然后再继续。它等待每个结果，处理退出代码，并自动区分诊断、配置、破坏性和会话结束命令。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🛡️</div>
+<div class="strip-body">
+<h4>注入保护</h4>
+<p>从文件、终端和网页返回的所有内容都包含在 <code>[UNTRUSTED_CONTENT]</code> 标记。人工智能被指示将内部的所有内容视为数据，而不是指令，以防止来自恶意文件内容的提示注入攻击。</p>
+</div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>编辑器功能</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>多选项卡代码编辑器</h3>
+<p>同时打开多个文件。每个选项卡都会跟踪自己的撤消历史记录、语法突出显示和 AI 命令上下文。</p>
+</div>
+<div class="card">
+<div class="card-icon">🔀</div>
+<h3>内置差异视图</h3>
+<p>单击即可将当前编辑器状态与上次保存的版本进行比较。带有添加/删除突出显示的颜色编码统一差异。退出 diff 模式以返回完整编辑。</p>
+</div>
+<div class="card">
+<div class="card-icon">💬</div>
+<h3>流媒体人工智能聊天</h3>
+<p>响应逐个令牌流式传输到聊天面板中。 IDE 命令在后台线程中提取和执行，因此 UI 始终保持响应。</p>
+</div>
+<div class="card">
+<div class="card-icon">🗃️</div>
+<h3>模块化提示系统</h3>
+<p>系统提示符是纯文本模块文件 <code>~/.chameleon/prompts/</code>。堆叠任意组合：技术维修+学术+聊天。每个提供商的实时代币计数和成本估算。</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>命令历史数据库</h3>
+<p>每个 AI 命令都会记录到 <code>history.db</code> 包含会话 ID、时间戳和结果。对人工智能所做的每个文件更改进行完整的审计跟踪。</p>
+</div>
+<div class="card">
+<div class="card-icon">🌳</div>
+<h3>文件浏览器</h3>
+<p>用于快速导航的项目树面板。人工智能使用 <code>list_project_files</code> 和 <code>list_open_files</code> 发现真实路径 - 它从不发明文件位置。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>语音与语音</h2>
+</div>
+<div class="split">
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>耳语语音转文本</h3>
+<p>本地 Whisper (whisper.cpp) 将您的声音转录到聊天输入中。免提编码——无需触摸键盘即可听写问题、命令或整个提示。</p>
+<div class="tags"><span class="tag">耳语.cpp</span><span class="tag">局部推理</span><span class="tag">无云STT</span></div>
+</div>
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Piper 文本转语音</h3>
+<p>人工智能的回答是使用 Piper TTS 大声朗读的——快速、本地、自然的声音。非常适合无障碍使用或双手工作。在 Linux、Windows 和 macOS 上自动解析平台路径。</p>
+<div class="tags"><span class="tag">派珀 TTS</span><span class="tag">局部推理</span><span class="tag">可配置的语音</span></div>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>支持的人工智能提供商</h2>
+</div>
+<table class="spec-table">
+<thead><tr><th>提供者</th><th>类型</th><th>成本（大约）</th><th>笔记</th></tr></thead>
+<tbody>
+<tr><td>深度搜索</td><td>云API</td><td>$0.00014 / 1K 代币</td><td>默认;优秀的代码质量</td></tr>
+<tr><td>OpenAI (GPT-4o)</td><td>云API</td><td>$0.0050 / 1K 代币</td><td>最佳一般推理</td></tr>
+<tr><td>人类（克劳德）</td><td>云API</td><td>$0.0030 / 1K 代币</td><td>擅长长上下文编辑</td></tr>
+<tr><td>克劳德·代码（人类）</td><td>终端/pty</td><td>API使用</td><td>在 IDE 终端内作为 pty 进程运行 — 在实时 shell 中进行完整的代理编码</td></tr>
+<tr><td>格罗克</td><td>云API</td><td>$0.00005 / 1K 代币</td><td>超快速推理</td></tr>
+<tr><td>米斯特拉尔</td><td>云API</td><td>$0.00025 / 1K 代币</td><td>欧洲托管的好选择</td></tr>
+<tr><td>登月/基米</td><td>云API</td><td>$0.00012 / 1K 代币</td><td>大上下文窗口</td></tr>
+<tr><td>成为</td><td>当地的</td><td>自由的</td><td>在本地运行任何 GGUF 模型</td></tr>
+<tr><td>LM工作室</td><td>当地的</td><td>自由的</td><td>GUI 友好的本地推理</td></tr>
+</tbody>
+</table>
+<!-- ═══════════════════════════════════════════════════════════════════
+       SCREENSHOTS — replace placeholder divs with real <img> tags when ready
+       Suggested shots:
+         ide-main.png     — full IDE window with chat panel + code editor open
+         ide-diff.png     — diff view showing before/after a code change
+         ide-voice.png    — voice recording indicator active
+       ════════════════════════════════════════════════════════════════════ -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>截图</h2>
+<p>即将推出 — IDE 运行</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🖥️</div>
+<strong>IDE——主窗口</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">AI聊天面板+带语法高亮的代码编辑器</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🔀</div>
+<strong>差异视图</strong>
+<span>ide-diff.png</span>
+</div>
+<div class="screenshot-caption">应用 AI 的代码更改之前/之后的比较</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>安卓伴侣</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">移动应用程序 — 聊天中继和演示者控制</div>
+</div>
+</div>
+<!-- ── Company Command Station ─────────────────────────────────────── -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>连指挥站 (CCS)</h2>
+<p>运行 Chameleon IDE 作为您的后勤 4×4 车队的办公中心 — 无需单独的调度软件</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🗺</div>
+<div class="strip-body">
+<h4>向司机推送路线和 POI</h4>
+<p>发送一个 <code>.gpx</code> 通过对等通道将文件从 IDE 直接发送到任何驾驶员的手机。路线会立即加载到驾驶员的实时地图上。独立 POI 集（加油站、危险、送货地址）可以独立于任何路线推送，并显示为颜色编码的图钉。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📦</div>
+<div class="strip-body">
+<h4>舱单和发票发送</h4>
+<p>在 IDE 中构建货物清单或准备发票，然后将其点对点推送到司机的手机。司机会看到预加载的清单——无需扫描，无需手动输入。发票可以在屏幕上签名并通过同一渠道返回。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🚨</div>
+<div class="strip-body">
+<h4>舰队范围内的股票广播</h4>
+<p>发送优先警报（紧急、重要、说明或信息），它会同时在每个驾驶员的屏幕上显示为全角滚动条。该办公室可以完全掌控车队的注意力，而无需给每辆车打电话。</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📡</div>
+<div class="strip-body">
+<h4>内置信号服务器——无云中继</h4>
+<p>Chameleon 信号服务器（<code>chameleon_signal.py</code>）直接在办公室 PC 上与 IDE 一起运行，或者在任何 Android 手机上的 Termux 内运行。车队电话通过 Tailscale 或本地热点连接到它 - 没有第三方中继，没有每月的服务器费用。</p>
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
+<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+<span style="font-size:2rem;">🏢</span>
+<div>
+<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">运行 Chameleon IDE 的办公室 PC</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · WebSocket 集线器 · 舰队命令</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+<span style="color:#94a3b8;font-size:.83rem;">联网车队 →</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 司机A</span>
+<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 司机B</span>
+<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 现场团队</span>
+<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — 紧急情况</span>
+</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">通过 Tailscale（远程）或 LAN 热点（车队） · 无云中继 · E2E 加密</div>
+</div>
+<div class="cta-band">
+<h3>查看正在运行的 AI IDE</h3>
+<p>请联系我们进行现场演示或讨论您团队的许可证。</p>
+<a class="btn btn-solid" href="../contact.html">请求演示</a>
+<a class="btn" href="../logistics4x4.html">物流 4×4 →</a>
+<a class="btn" href="../index.html">← 返回概述</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
+<a href="../logistics4x4.html">物流4×4</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon AI — Adaptive Intelligence Platform</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .feature-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 2.5rem 0;
+    }
+    .feature-nav a {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: .5rem;
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-nav a .fn-icon { font-size: 2.4rem; }
+    .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
+    .feature-nav a span { color: var(--muted); font-size: .85rem; }
+    .intro-block {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 2.5rem;
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+    }
+    .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
+    .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
+    .license-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
+    }
+    .license-pill {
+      background: #eeeeff; border: 1px solid var(--border);
+      border-radius: 50px; padding: .5rem 1.2rem;
+      font-size: .88rem; color: var(--brand-start); font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
+  ⚠️ ΔΟΚΙΜΕΣ ΣΕ ΕΞΕΛΙΞΗ — Αυτός ο ιστότοπος βρίσκεται υπό ενεργό ανάπτυξη. Τα χαρακτηριστικά, η τιμολόγηση και η αδειοδότηση δεν έχουν οριστικοποιηθεί. Μην βασίζεστε σε καμία πληροφορία που παρουσιάζεται εδώ.
+</div>
+<nav>
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a class="active" href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Companion App</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../index.html">🌐 EN — English</a><a href="../ar/index.html">🇸🇦 AR — العربية</a><a href="../cy/index.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/index.html">🇩🇪 DE — Deutsch</a><a href="../es/index.html">🇪🇸 ES — Español</a><a href="../fr/index.html">🇫🇷 FR — Français</a><a href="../hi/index.html">🇮🇳 HI — हिन्दी</a><a href="../it/index.html">🇮🇹 IT — Italiano</a><a href="../ja/index.html">🇯🇵 JA — 日本語</a><a href="../ko/index.html">🇰🇷 KO — 한국어</a><a href="../pt/index.html">🇵🇹 PT — Português</a><a href="../ru/index.html">🇷🇺 RU — Русский</a><a href="../zh/index.html">🇨🇳 ZH — 中文</a><a href="../id/index.html">🇮🇩 ID — Indonesia</a><a href="../pl/index.html">🇵🇱 PL — Polski</a><a href="../ro/index.html">🇷🇴 RO — Română</a><a href="../sw/index.html">🇰🇪 SW — Kiswahili</a><a href="../uk/index.html">🇺🇦 UK — Українська</a><a href="../vi/index.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon"><img alt="Chameleon AI" src="../icon.png" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"/></div>
+<h1>Πλατφόρμα Chameleon AI</h1>
+<p class="sub">Μια πλήρης σουίτα επιτραπέζιων υπολογιστών με τεχνητή νοημοσύνη — IDE, παρουσιαστής, λογιστική, συναλλαγές, τάξη και πολλά άλλα. Κατασκευασμένο για ελεύθερους επαγγελματίες και μικρές επιχειρήσεις.</p>
+<div class="hero-badges">
+<span class="badge"><span class="pulse"></span> Αναπτύχθηκε ενεργά</span>
+<span class="badge">🇬🇧 Επιχειρήσεις στο Ηνωμένο Βασίλειο</span>
+<span class="badge">🔒 Τοπικά πρώτα / Προστασία απορρήτου</span>
+<span class="badge">🐧 Linux · Windows · macOS</span>
+</div>
+</div>
+<div class="page">
+<div class="intro-block">
+<h2>Μία πλατφόρμα. Οκτώ κλάδους.</h2>
+<p>Το Chameleon AI είναι μια εφαρμογή επιτραπέζιου υπολογιστή PyQt6 που δημιουργήθηκε από τον Marcos aka stemsee για την Chameleon AI Technicians Ltd. Συνδυάζει έναν επαγγελματικό επεξεργαστή κώδικα AI, ένα σύστημα παρουσίασης εμπνευσμένο από το θέατρο, πλήρη λογιστική διπλής εισόδου στο Ηνωμένο Βασίλειο, συναλλαγές κρυπτογράφησης Binance, αίθουσες διδασκαλίας γλωσσών βίντεο, P2P χωρίς να εξαρτώνται από την τοπική δικτύωση και περισσότερο το μηχάνημα. Το AI IDE ενσωματώνει τον Κώδικα Claude που εκτελείται σε ένα τερματικό (pty) για άμεση επεξεργασία κώδικα βάσει AI.</p>
+<p>Οι πάροχοι τεχνητής νοημοσύνης μπορούν να ανταλλάσσονται κατά το χρόνο εκτέλεσης: DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot και άλλα. Τα κλειδιά δεν φεύγουν ποτέ από τη συσκευή σας.</p>
+<div class="license-row">
+<span class="license-pill">Αδειοδότηση — Εκκρεμεί η οριστικοποίηση</span>
+<span class="license-pill">Δεν είναι ακόμη διαθέσιμο για κυκλοφορία</span>
+</div>
+</div>
+<div class="section-title">
+<h2>Εξερευνήστε την πλατφόρμα</h2>
+<p>Κάντε κλικ σε οποιαδήποτε λειτουργία για να μάθετε περισσότερα</p>
+</div>
+<nav class="feature-nav">
+<a href="../ide.html">
+<span class="fn-icon">🧠</span>
+<strong>ΕΧΕΙΣ ΙΔΕΕΣ</strong>
+<span>Επεξεργαστής κώδικα AI πολλών παρόχων με φωνή, προβολή διαφορών και γέφυρα εντολών</span>
+</a>
+<a href="../presenter.html">
+<span class="fn-icon">🎭</span>
+<strong>Παρουσιαστής Chameleon</strong>
+<span>Διαφάνειες θεάτρου-μεταφοράς με ζωντανό έλεγχο από κινητό και συλλογικό σχέδιο</span>
+</a>
+<a href="../companion.html">
+<span class="fn-icon">📱</span>
+<strong>Companion App</strong>
+<span>Android bridge — συνομιλία AI, βίντεο P2P, τηλεχειριστήριο παρουσιαστή, αρχεία, πολυμέσα και αποδείξεις</span>
+</a>
+<a href="../logistics4x4.html">
+<span class="fn-icon">🚛</span>
+<strong>Logistics 4×4</strong>
+<span>Επικοινωνίες διασυνοριακού στόλου — 4 ομότιμοι βίντεο + 4 καλούντες SIM, ζωντανοί χάρτες, εκδηλώσεις και 15 γλώσσες</span>
+</a>
+<a href="../services.html">
+<span class="fn-icon">🌐</span>
+<strong>Υπηρεσίες Ιστού</strong>
+<span>Εργαλείο δημιουργίας ιστοτόπων AI, δωρεάν φιλοξενία, ρύθμιση τομέα, διαχειριζόμενα εισερχόμενα και SEO</span>
+</a>
+<a href="../accounting.html">
+<span class="fn-icon">📊</span>
+<strong>Λογιστική</strong>
+<span>Καθολικό διπλής εγγραφής του Ηνωμένου Βασιλείου, ΦΠΑ, P&amp;L, Ισολογισμός — Κάνοντας τη φορολογική ψηφιακή ετοιμότητα</span>
+</a>
+<a href="../technician.html">
+<span class="fn-icon">🔧</span>
+<strong>Τεχνικός Η/Υ AI</strong>
+<span>Επισκευή συστήματος καθοδηγούμενη από AI, Προφίλ προγράμματος οδήγησης USB και γεννήτρια μονάδας πυρήνα Linux</span>
+</a>
+<a href="../trading.html">
+<span class="fn-icon">📈</span>
+<strong>Crypto Trading</strong>
+<span>Binance spot, συμβόλαια μελλοντικής εκπλήρωσης και περιθώριο κέρδους με τελικές στάσεις AI και εντοπισμό καθεστώτος</span>
+</a>
+<a href="../classroom.html">
+<span class="fn-icon">🎓</span>
+<strong>Τάξη Γλωσσών</strong>
+<span>Διδασκαλία βίντεο WebRTC, πλέγμα Tailscale, Πληρωμές Stripe/Alipay/PayPal</span>
+</a>
+<a href="../contact.html">
+<span class="fn-icon">✉️</span>
+<strong>Επικοινωνία &amp; Αδειοδότηση</strong>
+<span>Επικοινωνήστε, ζητήστε μια επίδειξη ή αγοράστε μια εμπορική άδεια</span>
+</a>
+</nav>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Τα κυριότερα σημεία της πλατφόρμας</h2>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Τοπικό απόρρητο</h3>
+<p>Όλα τα δεδομένα — λογιστικά βιβλία, ιστορικό συνομιλιών, θέσεις συναλλαγών — ζουν <code>~/.chameleon/</code> στο μηχάνημά σας. Τίποτα δεν αποστέλλεται σε διακομιστή τρίτου μέρους, εκτός εάν επιλέξετε ρητά έναν πάροχο τεχνητής νοημοσύνης στο cloud.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔄</div>
+<h3>Παρόχους τεχνητής νοημοσύνης με δυνατότητα ανταλλαγής</h3>
+<p>Εναλλαγή μεταξύ DeepSeek, OpenAI, Anthropic, Groq, Olama, Mistral, Moonshot και άλλων με ένα κλικ. Εκτελέστε τοπικά μοντέλα μέσω Olama ή LM Studio με μηδενικό κόστος.</p>
+</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Κινητός σύντροφος</h3>
+<p>Η γέφυρα Android μέσω WebSocket αναμεταδίδει συνομιλίες AI, στιγμιότυπα οθόνης και μεταφορτώσεις αρχείων από το τηλέφωνό σας. Ελέγξτε τον παρουσιαστή, ενεργοποιήστε εγγραφές και εγκρίνετε τις υποβολές εξ αποστάσεως.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Πλέγμα ουράς</h3>
+<p>Βίντεο και φωνή peer-to-peer μέσω του δικού σας δικτύου Tailscale. Διαχειριστείτε τα ACL, την εξουσιοδότηση συσκευής και τα κλειδιά απευθείας από το IDE.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎙️</div>
+<h3>Φωνή μέσα, φωνή έξω</h3>
+<p>Ομιλία σε κείμενο που βασίζεται σε ψιθύρους για κωδικοποίηση hands-free. Το Piper TTS διαβάζει δυνατά τις απαντήσεις AI. Υπαγόρευση κώδικα, τεκμηρίωση ή μηνύματα φυσικά.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐧</div>
+<h3>Cross-platform</h3>
+<p>Λειτουργεί σε Linux, Windows και macOS. Διαδρομές για συγκεκριμένη πλατφόρμα, προγράμματα αναπαραγωγής ήχου και δυαδικά αρχεία TTS είναι αφηρημένα <em>platform_utils.py</em> — μία βάση κωδικών παντού.</p>
+</div>
+</div>
+<!-- SCREENSHOTS: drop real images in here when ready
+       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
+<div class="section-title" style="margin-top:3rem;">
+<h2>Δείτε το στην πράξη</h2>
+<p>Στιγμιότυπα οθόνης σύντομα</p>
+</div>
+<div class="screenshots">
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🧠</div>
+<strong>ΕΧΕΙΣ ΙΔΕΕΣ</strong>
+<span>ide-main.png</span>
+</div>
+<div class="screenshot-caption">AI IDE — πίνακας συνομιλίας, πρόγραμμα επεξεργασίας κώδικα, προβολή διαφορών</div>
+</div>
+<div class="screenshot-frame">
+<div class="screenshot-placeholder">
+<div class="ph-icon">🎭</div>
+<strong>Παρουσιαστής Chameleon</strong>
+<span>presenter-stage.png</span>
+</div>
+<div class="screenshot-caption">Kameleon Presenter — σκηνή με ζωντανές υποβολές μαθητών</div>
+</div>
+<div class="screenshot-frame phone">
+<div class="screenshot-placeholder phone-ratio">
+<div class="ph-icon">📱</div>
+<strong>Εφαρμογή Android</strong>
+<span>android-companion.png</span>
+</div>
+<div class="screenshot-caption">Android Companion — Τηλεχειριστήριο συνομιλίας και παρουσιαστή AI</div>
+</div>
+</div>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ Νομική ειδοποίηση και αποποίηση ευθύνης</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Αυτός ο ιστότοπος αποτελεί μέρος μιας ενεργούς διαδικασίας δοκιμών και ανάπτυξης. Το περιεχόμενο έχει δημιουργηθεί με τη βοήθεια AI (Claude Code, Anthropic) και μπορεί να περιέχει ανακρίβειες, ελλιπείς πληροφορίες ή κείμενο κράτησης θέσης. Τίποτα σε αυτόν τον ιστότοπο δεν αποτελεί προσφορά τελικού προϊόντος, εγγύηση ή νομική δέσμευση.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Οι όροι αδειοδότησης είναι <strong>εκκρεμεί οριστικοποίηση</strong>. Καμία άδεια λογισμικού — εμπορική, προσωπική ή άλλη — δεν χορηγείται ή υπονοείται από αυτόν τον ιστότοπο. Μην λαμβάνετε επιχειρηματικές αποφάσεις με βάση τις πληροφορίες που εμφανίζονται εδώ.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 Chameleon AI Technicians Ltd. Με την επιφύλαξη παντός δικαιώματος. Εγγεγραμμένος στην Αγγλία &amp; Ουαλία. Αυτός ο ιστότοπος παρέχεται μόνο για σκοπούς ενημέρωσης και δοκιμής.</p>
+</div>
+<div class="cta-band">
+<h3>Ενδιαφέρεστε για Chameleon;</h3>
+<p>Επικοινωνήστε — το προϊόν βρίσκεται σε δοκιμή και δεν είναι ακόμη διαθέσιμο για κυκλοφορία.</p>
+<a class="btn btn-solid" href="../contact.html">Ελάτε σε επαφή</a>
+<a class="btn" href="mailto:stemsee@chameleon-ai-agent-ltd.net">stemsee@chameleon-ai-agent-ltd.net</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../trading.html">Εμπορία</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+</div>
+<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί άδεια χρήσης · ​​Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>
