@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Darasa la Lugha — Kinyonga AI</title>
+<title>Language Classroom — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
@@ -34,10 +34,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Nyumbani</a>
-<a href="../ide.html">UNA MAWAZO</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Mtoa mada</a>
 <a href="../companion.html">Programu Mwenza</a>
 <a href="../logistics4x4.html">Vifaa 4×4</a>
@@ -53,11 +53,11 @@
 <div class="hero">
 <div class="hero-icon">🎓</div>
 <h1>Darasa la Lugha</h1>
-<p class="sub">Masomo ya video ya moja kwa moja ya WebRTC yenye miunganisho ya P2P inayolindwa na Tailsscale, malipo jumuishi na Mtangazaji wa Kameleon - yote katika programu moja.</p>
+<p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
 <div class="hero-badges">
-<span class="badge">📹 Video ya WebRTC</span>
-<span class="badge">🌐 Matundu ya mikia</span>
-<span class="badge">💳 Mstari · Alipay · PayPal</span>
+<span class="badge">📹 WebRTC video</span>
+<span class="badge">🌐 Tailscale mesh</span>
+<span class="badge">💳 Stripe · Alipay · PayPal</span>
 <span class="badge">🔐 Uandikishaji DB</span>
 </div>
 </div>
@@ -107,22 +107,22 @@
 <div class="strip-item">
 <div class="strip-icon">📹</div>
 <div class="strip-body">
-<h4>Video ya kikundi cha WebRTC - washiriki 4+</h4>
-<p>Video na sauti ya WebRTC ya hali ya chini ya wavu kamili kwa vikundi vya watu 4 au zaidi - hakuna seva kuu ya media, hakuna gharama ya kila mwezi. Seva ya ishara ya Chameleon (<code>chameleon_signal.py</code>) hushughulikia upeanaji wa SDP na ICE (bandari 8766) na hutumika kwenye Termux kwenye Android pia. Programu ya Companion huonyesha gridi ya kubadilika ambayo hukua kiotomatiki wanafunzi wanapojiunga: 1 = skrini nzima, 2 = kando-kando, 3 = 2+1, 4 = 2×2, 5+ = gridi ya kutoshea kiotomatiki inayoweza kusogezwa — huku mpasho wa ndani wa mwalimu kila wakati ukiwa kwenye picha-ndani.</p>
+<h4>WebRTC group video — 4+ participants</h4>
+<p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Viunganishi vilivyolindwa kwa kiwango cha mkia</h4>
-<p>Wenzake wote huunganishwa kupitia wavu wako wa Tailscale - hakuna IP ya umma, hakuna usambazaji wa mlango. IDE inadhibiti ACL, uidhinishaji wa kifaa na utengenezaji wa ufunguo wa auth bila kuondoka kwenye programu.</p>
+<h4>Tailscale-secured connections</h4>
+<p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🎭</div>
 <div class="strip-body">
-<h4>Mtangazaji wa Kameleon aliyejumuishwa</h4>
-<p>Fundisha kwa hatua kamili ya Kameleon wakati wa somo lako. Wanafunzi wanaweza kusukuma majibu, michoro na picha moja kwa moja kwenye rafu ya Hali ya Jukwaa - wastani na kuonyesha katika wakati halisi bila kubadili programu.</p>
+<h4>Integrated Kameleon Presenter</h4>
+<p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -136,7 +136,7 @@
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>Njia mbadala ya video ya LAN</h4>
-<p>Wakati Tailscale haipatikani, <code>lan_video.py</code> hutiririsha video kupitia UDP (bandari 47732), sauti kupitia UDP (bandari 47733) na hutofautiana shirikishi kwenye WebSocket (bandari 47731) - zote kwenye mtandao wa ndani.</p>
+<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <div class="strip-icon">📞</div>
 <div class="strip-body">
 <h4>Aina mbili za simu - mazungumzo moja</h4>
-<p>Programu ya Companion inasaidia njia mbili za simu zinazofanana: an <strong>Simu ya Programu</strong> (WebRTC, peer-to-peer over Tailscale, bila malipo) na a <strong>Simu ya SIM</strong> (mtandao wa kawaida wa rununu, nambari yoyote ya simu). Unaweza kuwa kwenye simu ya WebRTC na mwenzako <em>na</em> wakati huo huo piga simu ya SIM kwa wahusika wengine, kisha wakutane pamoja kwa mazungumzo ya njia nyingi - bila kuacha programu.</p>
+<p>Programu ya Companion inasaidia njia mbili za simu zinazofanana: an <strong>Simu ya Programu</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>Simu ya SIM</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>na</em> wakati huo huo piga simu ya SIM kwa wahusika wengine, kisha wakutane pamoja kwa mazungumzo ya njia nyingi - bila kuacha programu.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -163,7 +163,7 @@
 <div class="strip-icon">🔀</div>
 <div class="strip-body">
 <h4>Mtiririko wa somo la njia nyingi</h4>
-<p>Inafaa kwa masomo ya lugha: mweke mwanafunzi kwenye simu ya programu ya WebRTC, kisha piga spika asili kwenye SIM kwa mazungumzo ya moja kwa moja ya ulimwengu halisi. Pande zote tatu zinaweza kusikia kila mmoja. Mwalimu hudhibiti kupitia programu huku Kameleon Presenter akiendelea kutumia IDE.</p>
+<p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -179,7 +179,7 @@
 <p>Kubali malipo kutoka kwa wanafunzi duniani kote kabla ya kutoa ufikiaji wa somo</p>
 </div>
 <div class="payment-logos">
-<div class="pay-pill">💳 Mchirizi <span style="color:var(--muted);font-weight:400">(GBP msingi)</span></div>
+<div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">(GBP msingi)</span></div>
 <div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Wanafunzi wa China)</span></div>
 <div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(rudi nyuma)</span></div>
 </div>
@@ -187,32 +187,32 @@
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Kozi na uandikishaji DB</h3>
-<p>Kozi na uandikishaji wa wanafunzi uliohifadhiwa ndani <code>~/.chameleon/courses.db</code>. AI inaweza kuunda kozi, kuorodhesha waliojiandikisha, kuangalia hali ya malipo na kubatilisha ufikiaji - yote kupitia amri za IDE.</p>
+<p>Kozi na uandikishaji wa wanafunzi uliohifadhiwa ndani <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
 </div>
 <div class="card">
 <div class="card-icon">💰</div>
 <h3>Msaada wa sarafu nyingi</h3>
-<p>Stripe hushughulikia malipo ya GBP kutoka Uingereza na wanafunzi wa kimataifa. Alipay inalenga wanafunzi wa China wanaolipa katika CNY. PayPal hutoa mrejesho wa jumla na ufikiaji mpana wa nchi.</p>
+<p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
 </div>
 <div class="card">
 <div class="card-icon">📸</div>
 <h3>Malipo ya picha ya skrini ya WeChat</h3>
-<p>Kwa wanafunzi wasio na idhini ya kufikia kadi, kubali picha za skrini za uthibitisho wa malipo ya WeChat Pay. AI husoma picha, kutoa kiasi na marejeleo, na kuweka kumbukumbu za malipo ya kibinafsi dhidi ya uandikishaji.</p>
+<p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔗</div>
 <h3>Viungo vya malipo</h3>
-<p>Tengeneza viungo vya malipo vinavyopangishwa na Stripe kwa kozi yoyote. Shiriki kiungo - mwanafunzi hulipa - uandikishaji unaundwa kiotomatiki. Hakuna ukurasa wa kulipa wa kuunda au mwenyeji.</p>
+<p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Rejea ya Amri ya Malipo</h2>
 </div>
 <table class="spec-table">
-<thead><tr><th>Amri ya AI</th><th>Maelezo</th></tr></thead>
+<thead><tr><th>AI Command</th><th>Maelezo</th></tr></thead>
 <tbody>
 <tr><td><code>payment_create_course</code></td><td>Unda kozi mpya yenye bei, kichwa na maelezo</td></tr>
-<tr><td><code>payment_links</code></td><td>Tengeneza kiungo cha malipo cha Stripe kwa kozi</td></tr>
+<tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
 <tr><td><code>payment_status</code></td><td>Angalia malipo ya mwanafunzi na hali ya kujiandikisha</td></tr>
 <tr><td><code>payment_enrol</code></td><td>Jiandikishe mwanafunzi mwenyewe (k.m. baada ya malipo ya pesa taslimu)</td></tr>
 <tr><td><code>payment_revoke</code></td><td>Ondoa ufikiaji wa uandikishaji wa mwanafunzi</td></tr>
@@ -229,7 +229,7 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../index.html">Nyumbani</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Mtoa mada</a>
 <a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
 <a href="../trading.html">Biashara</a><a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
 </div>

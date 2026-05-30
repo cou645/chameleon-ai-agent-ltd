@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>英国の会計 — Chameleon AI</title>
+<title>UK Accounting — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">u30dbu30fcu30e0</a>
-<a href="../ide.html">あなたにはアイデアがあります</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">プレゼンター</a>
 <a href="../companion.html">コンパニオンアプリ</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>英国の会計</h1>
-<p class="sub">複式簿記、VAT追跡、損益計算書、貸借対照表 - すべてはHMRC Making Tax DigitalをターゲットとしたローカルSQLite台帳にあります。</p>
+<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 英国勘定科目表</span>
-<span class="badge">📋 MTD 対応</span>
-<span class="badge">🔒 ローカル SQLite</span>
-<span class="badge">🤖 AI 解析可能な JSON 出力</span>
+<span class="badge">📋 MTD-ready</span>
+<span class="badge">🔒 Local SQLite</span>
+<span class="badge">🤖 AI-parseable JSON output</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>すべての取引は 1 ペニー単位でバランスがとれており、借方は常に貸方と等しくなります。</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">日付 │ 口座 │ デビット (£) │ クレジット (£) │ VAT</span>
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
 ───────┼─────────┼─────┼───────┼───
-2026-04-01 │ 4000 売上収益 │ │  <span class="cr">1,200.00</span>  │S20
-2026-04-01 │ 2200 VAT 規制 │ │    <span class="cr">240.00</span>  │
+2026-04-01 │ 4000 売上収益 │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
 2026-04-01 │ 貿易債務者1100人 │ <span class="dr">1,440.00</span>  │ │
 ───────┼─────────┼─────┼───────┼───
-2026-04-05 │ 6100 事務費 │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 VAT 規制 │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 事務費 │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 銀行流動 │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>英国勘定科目表</h3>
-<p>すぐに使用できる英国の標準口座コード - 資産、負債、資本、収益、費用が HMRC カテゴリにマッピングされています。必要に応じてカスタム アカウントを使用して拡張します。</p>
+<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite台帳</h3>
+<h3>SQLite ledger</h3>
 <p>に保存されているすべてのデータ <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>。完全にオフラインで実行されます。複数の企業のサポート - コマンド フラグを使用してエンティティを切り替えます。</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>英国の課税年度</h3>
-<p>年末は正しく 4 月 5 日に設定されました (英国の会計年度は 4 月 6 日から 4 月 5 日)。損益および VAT レポートは、手動で日付を調整しなくても、自動的に正しい期間を対象とします。</p>
+<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>フォレンジック異常スキャン</h3>
-<p>走る <code>--forensic</code> 不均衡なエントリ、重複した参照、VAT の不一致、その他の不規則性を検出します。結果は AI レビュー用に構造化された JSON として出力されます。</p>
+<p>走る <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AIで読み取り可能な出力</h3>
-<p>すべてのレポートは構造化された JSON を標準出力に出力するため、Chameleon AI は自然言語で財務状況を解析、要約し、アドバイスすることができます。</p>
+<h3>AI-readable output</h3>
+<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocketブリッジ</h3>
-<p>アカウンティング WebSocket ブリッジ (<code>acct_ws_bridge.py</code>) 台帳クエリを Tailscale ネットワーク経由でモバイル コンパニオンおよび外部ダッシュボードに公開します。</p>
+<h3>WebSocket bridge</h3>
+<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>サポートされている VAT コード</h2>
+<h2>VAT Codes Supported</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>標準料金 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT 申告の概要</h4>
-<p>HMRC MTD VAT 申告書形式に一致するボックスごとの VAT 数値: ボックス 1 (出力税)、ボックス 4 (入力税)、ボックス 6 (純売上高)、ボックス 7 (純購入)。一緒に走る <code>--report vat</code>.</p>
+<h4>VAT Return Summary</h4>
+<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>請求書発行</h2>
-<p>HMRC Notice 700 準拠の請求書 — ワンクリックで印刷、PDF として保存、または携帯電話にプッシュ</p>
+<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>英国準拠の請求書フィールド</h4>
-<p>すべての請求書には、HMRC Notice 700 によって要求されるすべてのフィールドが含まれます。つまり、一意の連続請求書番号、サプライヤーの名前と住所、VAT 登録番号、請求書日付、供給日 (供給時間)、クライアントの名前と住所、該当する場合はクライアントの VAT 番号、数量と単価を含む明細行の説明、行ごとの VAT 率、正味および VAT の小計、未払いの合計金額です。何も欠けていない、何も推測されていない。</p>
+<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>会社設立</h4>
-<p>開ける <em>ファイル → 請求書 → 会社設定</em> 登録した会社名、住所、社屋番号、VAT 番号、電子メール、電話番号、銀行口座の詳細を入力します。設定はクライアント データベースごとに保存されます。 <code>company.json</code> 元帳と一緒に保存され、そのクライアントの請求書が生成されるたびに自動的にロードされます。</p>
+<p>開ける <em>ファイル → 請求書 → 会社設定</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> 元帳と一緒に保存され、そのクライアントの請求書が生成されるたびに自動的にロードされます。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>顧客連絡先データベース</h4>
-<p>初めてクライアントに請求書を発行すると、クライアントの名前、住所、VAT 番号が台帳内の連絡先テーブルに保存されます。以降の請求書では、クライアント名を入力すると詳細が自動補完され、再入力する必要はありません。連絡先はいつでも編集できます。</p>
+<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>印刷、PDF、電話に送信</h4>
-<p>請求書マネージャーから (<em>ファイル → 請求書…</em>) 任意の請求書を選択し、以下を選択します。 <strong>印刷する</strong> (OS の印刷ダイアログが開きます - 任意のプリンターまたは PDF ドライバー)、 <strong>PDFを保存</strong> (Qt の組み込み PDF エクスポート経由でディスクに直接)、または <strong>電話に送信</strong> (請求書の HTML を Companion アプリにプッシュし、Android の印刷ダイアログを開きます。AirPrint または近くのプリンターにワイヤレスで印刷します)。</p>
+<p>請求書マネージャーから (<em>ファイル → 請求書…</em>) 任意の請求書を選択し、以下を選択します。 <strong>印刷する</strong> (OS の印刷ダイアログが開きます - 任意のプリンターまたは PDF ドライバー)、 <strong>PDFを保存</strong> (Qt の組み込み PDF エクスポート経由でディスクに直接)、または <strong>電話に送信</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>供給日</h3>
-<p>個別の「供給日」（供給時刻）フィールド - 請求書の日付とは異なります。 VAT 目的で HMRC によって要求されます。デフォルトは今日ですが、請求書ごとに個別に編集できます。</p>
+<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>モバイル請求書印刷</h3>
-<p>Companion アプリでは、あらゆる請求書をワイヤレスで印刷できます。請求書の行の印刷アイコンをタップします。アプリは IDE から HTML を取得し、デバイス上の PDF に変換します。 <code>printing</code> パッケージを選択し、Android システムの印刷ダイアログを開きます。</p>
+<p>Companion アプリでは、あらゆる請求書をワイヤレスで印刷できます。請求書の行の印刷アイコンをタップします。アプリは IDE から HTML を取得し、デバイス上の PDF に変換します。 <code>printing</code> package, and opens the Android system print dialog.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC Notice 700 準拠</h3>
-<p>完全な英国 VAT 請求書の 12 個の必須フィールドがすべて存在し、入力されています。割引レートおよびゼロレートの回線には明確にラベルが付けられています。請求書番号のシーケンスは厳密に単調増加であり、ギャップはありません。</p>
+<h3>HMRC Notice 700 compliance</h3>
+<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>当課税年度の損益</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>本日現在の貸借対照表</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT 申告の概要 (MTD ボックス)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>異常および整合性スキャン</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>完全なコマンドリファレンス</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">プレゼンター</a>
 <a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
 <a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

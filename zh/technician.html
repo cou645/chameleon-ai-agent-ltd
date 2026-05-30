@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI PC 技术员 — Chameleon AI</title>
+<title>AI PC Technician — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
@@ -35,10 +35,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">家</a>
-<a href="../ide.html">你有想法</a>
+<a href="../ide.html">AI集成开发环境</a>
 <a href="../presenter.html">主持人</a>
 <a href="../companion.html">配套应用程序</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -53,25 +53,25 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>人工智能电脑技术员</h1>
-<p class="sub">AI 引导的系统诊断和修复 - 加上 USB 设备分析器，可对硬件协议进行逆向工程并自动生成 Linux 内核驱动程序。</p>
+<h1>AI电脑技术员</h1>
+<p class="sub">AI-guided system diagnosis and repair — plus a USB device profiler that reverse-engineers hardware protocols and generates Linux kernel drivers automatically.</p>
 <div class="hero-badges">
 <span class="badge">🔬 硬件分析</span>
 <span class="badge">🐧 内核模块生成</span>
-<span class="badge">🌐 通过 Tailscale 远程</span>
+<span class="badge">🌐 Remote via Tailscale</span>
 <span class="badge">⚡ ARM交叉编译</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>人工智能引导系统修复</h2>
-<p>人工智能遵循结构化手术方案——触摸前诊断，每一步验证</p>
+<h2>AI-Guided System Repair</h2>
+<p>The AI follows a structured surgical protocol — diagnose before touching, verify at every step</p>
 </div>
 <div class="terminal-block">
-<span class="comment">#变色龙AI诊断序列</span>
+<span class="comment"># Chameleon AI diagnosis sequence</span>
 <span class="cmd">$ lsusb -v | lsusb头-80</span>
 <span class="out">总线 002 设备 003：ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$ dmesg |尾-30</span>
+<span class="cmd">$ dmesg | tail -30</span>
 <span class="out">[12.445] r8152 2-1:1.0 eth1：从 eth0 重命名</span>
 <span class="cmd">$ lsmod | grep r8152</span>
 <span class="out">r8152 94208 0</span>
@@ -83,27 +83,27 @@
 <div class="strip-icon">🔍</div>
 <div class="strip-body">
 <h4>结构化诊断序列</h4>
-<p>硬件→内核状态→驱动程序状态→网络→存储。 AI 运行每个步骤，读取 JSON 结果，然后决定下一步操作。它从不跳过步骤或做出假设。</p>
+<p>Hardware → kernel state → driver status → network → storage. The AI runs each step, reads the JSON result, then decides the next action. It never skips steps or makes assumptions.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏥</div>
 <div class="strip-body">
-<h4>手术修复方案</h4>
+<h4>Surgical repair protocol</h4>
 <p>首先是非破坏性的（重新加载模块，重新启动服务）。在风险之前保留（快照配置）。每一步都进行验证。每个需要重新启动的操作都会触发一个“死亡开关”，该开关设置 <code>@reboot</code> 自动恢复脚本。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
-<h4>通过 Tailscale 进行远程修复</h4>
-<p>诊断和修复 Tailscale 网格上任何位置的机器。人工智能通过终端桥在远程机器上发出命令，读取结果并继续——甚至使用检查点/恢复系统重新启动。</p>
+<h4>Remote repair over Tailscale</h4>
+<p>Diagnose and repair machines anywhere on your Tailscale mesh. The AI issues commands on the remote machine via the terminal bridge, reads results and continues — even across reboots using the checkpoint/resume system.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>USB驱动搬运工</h2>
-<p>分析任何 USB 设备 → 分析其协议 → 生成可立即安装的 Linux 驱动程序</p>
+<p>Profile any USB device → analyse its protocol → generate a ready-to-install Linux driver</p>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
@@ -134,7 +134,7 @@
 <span class="out">分析 USB 1234:5678 30 秒...
 写入〜/.chameleon/drivers/1234_5678/profile.json</span>
 <span class="comment"># 第 2 步 — 生成驱动程序</span>
-<span class="cmd">$ python3 device_porter.py --最新</span>
+<span class="cmd">$ python3 device_porter.py --latest</span>
 <span class="out">选择的路径：C（专有，3 个供应商页面）
 生成：/tmp/driver_1234_5678/
   ├── chameleon_1234_5678.c
@@ -151,7 +151,7 @@
 <div class="card">
 <div class="card-icon">🖥️</div>
 <h3>跨平台捕获后端</h3>
-<p>Windows 上的 ETW、macOS 上的 IOKit、Linux 上的 usbmon。在任何操作系统上进行分析并根据结果生成 Linux 驱动程序 <code>profile.json</code>.</p>
+<p>ETW on Windows, IOKit on macOS, usbmon on Linux. Profile on any OS and generate a Linux driver from the resulting <code>profile.json</code>.</p>
 </div>
 <div class="card">
 <div class="card-icon">🍓</div>
@@ -161,23 +161,23 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>DKMS包装</h3>
-<p>路径 C 驱动程序是为 DKMS 打包的，因此它们可以在内核升级后继续存在，而无需手动重新编译。人工智能评论 <code>analysis.json</code> 并提示输入任何剩余的 TODO 存根。</p>
+<p>Path C drivers are packaged for DKMS so they survive kernel upgrades without manual recompilation. The AI reviews <code>analysis.json</code> and prompts for any remaining TODO stubs.</p>
 </div>
 </div>
 <div class="cta-band">
 <h3>修复无法修复的地方</h3>
-<p>无论是内核崩溃、USB 设备失效还是不支持 Linux 的专有外设 — Chameleon AI PC 技术人员都能满足您的需求。</p>
+<p>Whether it's a kernel panic, a dead USB device or a proprietary peripheral with no Linux support — Chameleon AI PC Technician has you covered.</p>
 <a class="btn btn-solid" href="../contact.html">联系我们</a>
 <a class="btn" href="../index.html">← 返回概述</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
+<a href="../index.html">家</a><a href="../ide.html">AI集成开发环境</a><a href="../presenter.html">主持人</a>
 <a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
 <a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 stemsee 构建</p>
 </footer>
 </body>
 </html>

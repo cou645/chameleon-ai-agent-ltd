@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Programu ya Mwenzi wa Chameleon - Android</title>
+<title>Chameleon Companion App — Android</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .channel-grid {
@@ -85,10 +85,10 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Nyumbani</a>
-<a href="../ide.html">UNA MAWAZO</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Mtoa mada</a>
 <a class="active" href="../companion.html">Programu Mwenza</a>
 <a href="../accounting.html">Uhasibu</a>
@@ -102,13 +102,13 @@
 <div class="hero">
 <div class="hero-icon">📱</div>
 <h1>Programu ya Mwenzi wa Chameleon</h1>
-<p class="sub">Simu yako ya Android inakuwa daraja la idhaa nyingi kwenye eneo-kazi - upeanaji wa gumzo wa AI, video ya kikundi cha P2P kwa washiriki 4+, kuunganisha simu za SIM, udhibiti wa mbali, ufikiaji wa faili, utiririshaji wa media na uhasibu - kote kwenye wavu wako wa kibinafsi wa Tailscale.</p>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Gumzo la AI kupitia STT/TTS</span>
-<span class="badge">📹 Video ya kikundi cha P2P (4+)</span>
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
 <span class="badge">📞 Daraja la simu za SIM</span>
 <span class="badge">🎭 kidhibiti cha mbali cha mtangazaji</span>
-<span class="badge">🌐 Imelindwa kwa kipimo cha mkia</span>
+<span class="badge">🌐 Tailscale-secured</span>
 <span class="badge">🖥️ Skrini / VNC</span>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <div class="phone-msg msg-ai">Imekamilika. Faili imehifadhiwa. Kituo kinaonyesha kutoka 0.</div>
 <div class="phone-channels">
 <span class="pch pch-ide">IDE</span>
-<span class="pch pch-video">Video ya P2P</span>
+<span class="pch pch-video">P2P Video</span>
 <span class="pch pch-file">Faili</span>
 <span class="pch pch-media">Vyombo vya habari</span>
 <span class="pch pch-stt">STT/TTS</span>
@@ -141,19 +141,19 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Usanifu wa vituo vingi</h2>
-<p>Daraja moja la WebSocket, njia tano huru za mawasiliano</p>
+<p>One WebSocket bridge, five independent communication lanes</p>
 </div>
 <div class="ws-diagram">
 <div class="ws-row">
-<div class="ws-node">📱 Programu ya Android</div>
+<div class="ws-node">📱 Android App</div>
 <div class="ws-arrow">⟷</div>
-<div class="ws-node">Mesh ya mikia</div>
+<div class="ws-node">Tailscale mesh</div>
 <div class="ws-arrow">⟷</div>
 <div class="ws-node">🖥️ Kompyuta ya mezani</div>
 </div>
 <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Kituo cha IDE</div><div class="ws-label">Gumzo la AI · amri · picha za skrini · upakiaji wa faili</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Video ya P2P</div><div class="ws-label">WebRTC SDP/ICE relay · latency ya chini A/V</div></div>
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Kituo cha IDE</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Kivinjari cha faili</div><div class="ws-label">Soma · andika · hariri faili kwenye eneo-kazi</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Mtiririko wa media</div><div class="ws-label">NAS / DLNA · kutupwa kwa simu</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Kushiriki skrini</div><div class="ws-label">Kioo cha eneo-kazi cha mtindo wa VNC/RDP</div></div>
@@ -170,16 +170,16 @@
 <span class="ch-badge">KITUO 1</span>
 <div class="ch-icon">🧠</div>
 <h3>IDE AI Channel</h3>
-<p>Daraja kamili la njia mbili kwa AI ya eneo-kazi. Tuma vidokezo kutoka kwa simu yako, pokea majibu yanayotiririshwa. AI inaweza kusoma faili, kutekeleza amri za wastaafu na kutumia uhariri wa msimbo - yote yakichochewa kutoka mfukoni mwako. Ambatisha picha za skrini au picha moja kwa moja kutoka kwa kamera yako kama muktadha.</p>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Utiririshaji wa AI</span><span class="tag">Upakiaji wa faili</span><span class="tag">Picha za skrini</span>
+<span class="tag">AI streaming</span><span class="tag">Upakiaji wa faili</span><span class="tag">Picha za skrini</span>
 </div>
 </div>
 <div class="channel-card ch-p2p">
 <span class="ch-badge">KITUO 2</span>
 <div class="ch-icon">📹</div>
-<h3>Video na Sauti ya Kikundi cha P2P</h3>
-<p>Video na sauti za WebRTC zenye wavu kamili kwa vikundi vya watu 4 au zaidi - hakuna seva kuu ya media, hakuna bili ya kila mwezi. Gonga <strong>Video ya kikundi</strong> kuwapigia simu wenzao wote mtandaoni mara moja. Gridi hujirekebisha kiotomatiki washiriki wanapojiunga: 1 = skrini nzima, 2 = ubavu kwa upande, 3 = 2+1, 4 = 2×2, 5+ = gridi ya kutoshea kiotomatiki inayoweza kusongeka. Mipasho ya eneo lako inaelea kama picha-ndani-picha. Mizani ya biti chini kwa kila rika ili kuweka ubora katika saizi yoyote ya kikundi.</p>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Video ya kikundi</strong> kuwapigia simu wenzao wote mtandaoni mara moja. Gridi hujirekebisha kiotomatiki washiriki wanapojiunga: 1 = skrini nzima, 2 = ubavu kwa upande, 3 = 2+1, 4 = 2×2, 5+ = gridi ya kutoshea kiotomatiki inayoweza kusongeka. Mipasho ya eneo lako inaelea kama picha-ndani-picha. Mizani ya biti chini kwa kila rika ili kuweka ubora katika saizi yoyote ya kikundi.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">WebRTC full-mesh</span><span class="tag">Gridi ya kubadilika</span><span class="tag">Mlisho wa ndani wa PiP</span><span class="tag">Seva ya ishara ya terminal</span>
 </div>
@@ -188,7 +188,7 @@
 <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">DARAJA LA SIM</span>
 <div class="ch-icon">📞</div>
 <h3>Daraja la Simu la SIM</h3>
-<p>Je, tayari uko kwenye simu ya rununu na ungependa kuleta rika la P2P? Gonga <strong>Ongeza kwenye kikundi cha simu</strong> - programu husajili simu ya WebRTC na rundo la mawasiliano ya simu la Android pamoja na simu ya SIM. Android inatoa chaguo asili la "Unganisha simu"; kuikubali huleta uchanganyaji wa sauti kwa maunzi ya simu. Simu iliyounganishwa inacheza kwenye <strong>sikio pekee</strong> — kwa faragha kabisa, hakuna spika, hakuna mtu chumbani anayesikia. Wakati mkutano wa maunzi hautumiki na mtoa huduma, daraja la vifaa vya sauti vya Bluetooth hupitisha sauti zote kupitia kiungo cha BT SCO badala yake.</p>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Ongeza kwenye kikundi cha simu</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>sikio pekee</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Mkutano wa vifaa</span><span class="tag">Njia mbadala ya BT SCO</span><span class="tag">Vifaa vya masikioni pekee</span><span class="tag">ConnectionService</span>
 </div>
@@ -197,7 +197,7 @@
 <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">KITUO 3</span>
 <div class="ch-icon">🎭</div>
 <h3>Kameleon Presenter Remote</h3>
-<p>Dhibiti hatua nzima ya Kameleon kutoka kwa simu yako. Slaidi za mapema, viashiria vya kuamsha, sukuma picha au maandishi moja kwa moja kwenye mkusanyiko wa jukwaa, idhinisha au ukatae mawasilisho ya marafiki na udhibiti ubao shirikishi wa kuchora - yote bila kugusa kibodi ya eneo-kazi.</p>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">rundo_idhinisha</span><span class="tag">draw_stroke</span>
 </div>
@@ -206,16 +206,16 @@
 <span class="ch-badge">KITUO 4</span>
 <div class="ch-icon">🖥️</div>
 <h3>Kioo cha Skrini (mtindo wa VNC/RDP)</h3>
-<p>Tazama na uwasiliane na skrini ya eneo-kazi lako kutoka kwa simu. Inatekelezwa kama mkondo mwepesi wa kunasa skrini juu ya wavu wa Tailscale - seva ya VNC ya wahusika wengine haihitajiki. Gonga ili kubofya, telezesha kidole ili kusogeza. Inafaa kwa ufuatiliaji wa michakato inayoendesha au kuidhinisha vitendo vya AI ukiwa mbali.</p>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Kukamata skrini</span><span class="tag">Gonga-ili-kubofya</span><span class="tag">Tailscale tu</span>
+<span class="tag">Kukamata skrini</span><span class="tag">Gonga-ili-kubofya</span><span class="tag">Tailscale only</span>
 </div>
 </div>
 <div class="channel-card ch-file">
 <span class="ch-badge">KITUO 5</span>
 <div class="ch-icon">📂</div>
 <h3>Kivinjari na Kihariri cha Faili ya Mbali</h3>
-<p>Vinjari mfumo wako wa faili wa eneo-kazi kutoka kwa simu. Fungua, soma na uhariri faili za maandishi. Pakia faili kutoka kwa kamera ya simu au hifadhi moja kwa moja kwenye folda ya mradi. Uliza IDE AI kuchakata faili iliyopakiwa mara tu baada ya kuhamisha - k.m. "ongeza picha hii kwenye hatua ya mtangazaji".</p>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Vinjari</span><span class="tag">Hariri</span><span class="tag">Pakia kutoka kwa kamera</span>
 </div>
@@ -224,25 +224,25 @@
 <span class="ch-badge">KITUO 6</span>
 <div class="ch-icon">🎵</div>
 <h3>Utiririshaji wa Vyombo vya Habari (NAS / DLNA)</h3>
-<p>Tiririsha muziki na video kutoka kwa seva ya NAS au DLNA kwenye mtandao wako wa nyumbani hadi kwa simu kupitia Tailscale. Vinjari maktaba ya midia, nyimbo za foleni na udhibiti uchezaji - eneo-kazi hufanya kama daraja kati ya seva yako ya media ya karibu na simu popote ulipo kwenye mtandao wa nyuma.</p>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Daraja la mkia</span>
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Tailscale daraja</span>
 </div>
 </div>
 <div class="channel-card ch-acct">
 <span class="ch-badge">KITUO CHA 7</span>
 <div class="ch-icon">🧾</div>
 <h3>Uhasibu - Receipt Capture</h3>
-<p>Piga picha ya risiti kwenye simu yako na uitume moja kwa moja kwa moduli ya uhasibu. IDE AI husoma picha, kutoa kiasi, tarehe, mtoa huduma na VAT, na kuweka rasimu ya ingizo la jarida kwenye leja yenye ingizo mbili - tayari kwako kukagua na kuchapisha kwenye eneo-kazi.</p>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">OCR ya kupokea</span><span class="tag">Jarida la rasimu</span><span class="tag">Uchimbaji wa VAT</span>
+<span class="tag">OCR ya kupokea</span><span class="tag">Jarida la rasimu</span><span class="tag">VAT extraction</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#ec4899;">
 <span class="ch-badge" style="background:#fce7f3;color:#be185d;">KITUO 8</span>
 <div class="ch-icon">🗣️</div>
-<h3>Sauti AI - Simu STT &amp; TTS</h3>
-<p>Zungumza na IDE AI kutoka kwa simu yako ukitumia hotuba-kwa-maandishi kwenye kifaa. Majibu ya AI yanarudishwa nyuma na kusomwa kwa sauti kupitia maandishi-hadi-hotuba. Usaidizi wa kuandika bila kugusa wakati eneo-kazi lako linafanya kazi bila kushughulikiwa - amuru kurekebisha, sikia matokeo, thibitisha kutoka kwa simu.</p>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">STT kwenye kifaa</span><span class="tag">Uchezaji wa TTS</span><span class="tag">Bila mikono</span>
 </div>
@@ -255,29 +255,29 @@
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Mesh iliyolindwa kwa mikia</h4>
-<p>Vituo vyote hupitia mtandao wako wa faragha wa Tailscale. Hakuna bandari zinazofunguliwa kwa mtandao wa umma. Ni lazima simu iidhinishwe kwenye mtandao wako wa simu - kila kitu kingine kimesimbwa kwa njia fiche kutoka mwanzo hadi mwisho kwa WireGuard.</p>
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔌</div>
 <div class="strip-body">
-<h4>Daraja moja la WebSocket</h4>
-<p>Desktop inaendesha <code>chameleon_mobile_bridge.py</code> kama nyuzi ya daemon ndani ya mchakato wa Qt. Programu ya simu inaunganishwa na bandari 8770 kwenye IP ya Tailscale. Muunganisho mmoja unaoendelea hubeba chaneli zote kama jumbe za JSON zilizoandikwa.</p>
+<h4>Single WebSocket bridge</h4>
+<p>Desktop inaendesha <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Termux kwenye Android</h4>
-<p>Seva ya ishara (<code>chameleon_signal.py</code>) inaweza kufanya kazi moja kwa moja kwenye simu ya Android kupitia Termux — kuifanya simu kuwa mteja na nodi ya kuashiria. Hakuna upeanaji wa wingu unaohitajika kwa miunganisho ya programu rika kwenye WebRTC kwenye mtandao wako.</p>
+<h4>Termux on Android</h4>
+<p>Seva ya ishara (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📶</div>
 <div class="strip-body">
 <h4>Njia mbadala ya LAN</h4>
-<p>Wakati Tailscale haipatikani, <code>lan_video.py</code> hutiririsha video kupitia UDP (bandari 47732) na sauti kupitia UDP (bandari 47733) moja kwa moja kwenye mtandao wa ndani - vituo sawa, hakuna VPN ya juu.</p>
+<p>Wakati Tailscale haitumikiai, <code>lan_video.py</code> hutiririsha video kupitia UDP (bandari 47732) na sauti kupitia UDP (bandari 47733) moja kwa moja kwenye mtandao wa ndani - vituo sawa, hakuna VPN ya juu.</p>
 </div>
 </div>
 </div>
@@ -290,13 +290,13 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../index.html">Nyumbani</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Mtoa mada</a>
 <a href="../companion.html">Programu Mwenza</a><a href="../logistics4x4.html">Vifaa 4×4</a>
 <a href="../services.html">Huduma za Wavuti</a><a href="../accounting.html">Uhasibu</a>
 <a href="../technician.html">Mtaalamu wa Kompyuta</a><a href="../trading.html">Biashara</a>
 <a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Utoaji leseni unasubiri · Imejengwa na Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

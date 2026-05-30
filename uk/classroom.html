@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Мовний клас — Chameleon AI</title>
+<title>Language Classroom — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
@@ -34,10 +34,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">додому</a>
-<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Ведучий</a>
 <a href="../companion.html">Додаток-супутник</a>
 <a href="../logistics4x4.html">Логістика 4×4</a>
@@ -53,10 +53,10 @@
 <div class="hero">
 <div class="hero-icon">🎓</div>
 <h1>Мовний кабінет</h1>
-<p class="sub">Живі відеоуроки WebRTC із захищеними P2P-з’єднаннями Tailscale, інтегрованими платежами та Kameleon Presenter — усе в одній програмі.</p>
+<p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
 <div class="hero-badges">
-<span class="badge">📹 Відео WebRTC</span>
-<span class="badge">🌐 Сітка з лускою</span>
+<span class="badge">📹 WebRTC video</span>
+<span class="badge">🌐 Tailscale mesh</span>
 <span class="badge">💳 Stripe · Alipay · PayPal</span>
 <span class="badge">🔐 БД реєстрації</span>
 </div>
@@ -107,22 +107,22 @@
 <div class="strip-item">
 <div class="strip-icon">📹</div>
 <div class="strip-body">
-<h4>Групове відео WebRTC — 4+ учасників</h4>
-<p>Відео й аудіо WebRTC із повною сіткою з низькою затримкою для груп із 4 і більше — без центрального медіа-сервера й без щомісячних витрат. Сигнальний сервер Chameleon (<code>chameleon_signal.py</code>) обробляє реле SDP і ICE (порт 8766) і також працює на Termux на Android. Додаток Companion показує адаптивну сітку, яка автоматично збільшується, коли учні приєднуються: 1 = повний екран, 2 = пліч-о-пліч, 3 = 2+1, 4 = 2×2, 5+ = сітка з автоматичним розміром, що прокручується — із локальною стрічкою вчителя, яка завжди відображається у форматі «картинка в картинці».</p>
+<h4>WebRTC group video — 4+ participants</h4>
+<p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>З’єднання, захищені хвостовою шкалою</h4>
-<p>Усі вузли з’єднуються через сітку Tailscale — без публічної IP-адреси та переадресації портів. IDE керує списками ACL, авторизацією пристрою та генерацією ключів автентифікації, не виходячи з програми.</p>
+<h4>Tailscale-secured connections</h4>
+<p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🎭</div>
 <div class="strip-body">
-<h4>Вбудований Kameleon Presenter</h4>
-<p>Навчайте на повному етапі Kameleon під час уроку. Учні можуть надсилати відповіді, малюнки та зображення безпосередньо в стек у режимі Stage — модерувати та відображати в реальному часі, не перемикаючи програми.</p>
+<h4>Integrated Kameleon Presenter</h4>
+<p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -136,7 +136,7 @@
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>Запасне відео LAN</h4>
-<p>Коли Tailscale недоступний, <code>lan_video.py</code> передає відео через UDP (порт 47732), аудіо через UDP (порт 47733) і спільні відмінності через WebSocket (порт 47731) — усе в локальній мережі.</p>
+<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <div class="strip-icon">📞</div>
 <div class="strip-body">
 <h4>Два види дзвінків — одна розмова</h4>
-<p>Програма Companion підтримує два паралельні канали виклику: an <strong>Виклик програми</strong> (WebRTC, одноранговий через Tailscale, безкоштовно) і a <strong>SIM-дзвінок</strong> (стандартна мобільна мережа, будь-який номер телефону). Ви можете розмовляти через WebRTC з партнером <em>і</em> одночасно здійсніть дзвінок із SIM-карти третій стороні, а потім зв’яжіться з ними для багатосторонньої розмови — не виходячи з програми.</p>
+<p>Програма Companion підтримує два паралельні канали виклику: an <strong>Виклик програми</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>SIM-дзвінок</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>і</em> одночасно здійсніть дзвінок із SIM-карти третій стороні, а потім зв’яжіться з ними для багатосторонньої розмови — не виходячи з програми.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -163,7 +163,7 @@
 <div class="strip-icon">🔀</div>
 <div class="strip-body">
 <h4>Багатосторонній хід уроку</h4>
-<p>Корисно для уроків мови: запропонуйте учневі дзвінок через додаток WebRTC, а потім наберіть носія мови на SIM-картці для спонтанної розмови в реальному світі. Усі три сторони чують одна одну. Учитель модерує через додаток, а Kameleon Presenter продовжує працювати в IDE.</p>
+<p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -179,7 +179,7 @@
 <p>Прийміть оплату від студентів з усього світу, перш ніж надати доступ до уроків</p>
 </div>
 <div class="payment-logos">
-<div class="pay-pill">💳 Смужка <span style="color:var(--muted);font-weight:400">(GBP первинний)</span></div>
+<div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">(GBP первинний)</span></div>
 <div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(китайські студенти)</span></div>
 <div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(запасний)</span></div>
 </div>
@@ -187,32 +187,32 @@
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>База даних курсу та реєстрації</h3>
-<p>Курси та записи студентів зберігаються в <code>~/.chameleon/courses.db</code>. Штучний інтелект може створювати курси, створювати списки записів, перевіряти статус платежів і скасовувати доступ — і все це за допомогою команд IDE.</p>
+<p>Курси та записи студентів зберігаються в <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
 </div>
 <div class="card">
 <div class="card-icon">💰</div>
 <h3>Підтримка мультивалютності</h3>
-<p>Stripe обробляє платежі у фунтах стерлінгів від британських та іноземних студентів. Alipay націлений на китайських студентів, які платять у юанях. PayPal забезпечує універсальний запасний варіант із широким покриттям країни.</p>
+<p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
 </div>
 <div class="card">
 <div class="card-icon">📸</div>
 <h3>Платежі зі скріншотів WeChat</h3>
-<p>Для студентів, які не мають доступу до картки, приймайте скріншоти WeChat Pay для підтвердження платежу. Штучний інтелект зчитує зображення, витягує суму та посилання та реєструє платіж, здійснений вручну, проти реєстрації.</p>
+<p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔗</div>
 <h3>Платіжні посилання</h3>
-<p>Створення платіжних посилань на Stripe для будь-якого курсу. Поділіться посиланням — платить студент — зарахування створюється автоматично. Немає сторінки оформлення замовлення для створення чи розміщення.</p>
+<p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Довідка про платіжні команди</h2>
 </div>
 <table class="spec-table">
-<thead><tr><th>Команда ШІ</th><th>опис</th></tr></thead>
+<thead><tr><th>AI Command</th><th>опис</th></tr></thead>
 <tbody>
 <tr><td><code>payment_create_course</code></td><td>Створіть новий курс із ціною, назвою та описом</td></tr>
-<tr><td><code>payment_links</code></td><td>Згенеруйте платіжне посилання Stripe для курсу</td></tr>
+<tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
 <tr><td><code>payment_status</code></td><td>Перевірте статус оплати та зарахування студента</td></tr>
 <tr><td><code>payment_enrol</code></td><td>Зарахувати студента вручну (наприклад, після оплати готівкою)</td></tr>
 <tr><td><code>payment_revoke</code></td><td>Скасувати доступ студента до реєстрації</td></tr>
@@ -229,11 +229,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../index.html">додому</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Ведучий</a>
 <a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
 <a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
 </div>
-<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Створено Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

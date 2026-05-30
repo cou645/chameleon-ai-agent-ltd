@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contabilidade do Reino Unido - Chameleon AI</title>
+<title>UK Accounting — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleão AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Inu00edcio</a>
-<a href="../ide.html">VOCÊ TEM IDEIAS</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Apresentador</a>
 <a href="../companion.html">Aplicativo complementar</a>
 <a href="../logistics4x4.html">Logística 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Contabilidade do Reino Unido</h1>
-<p class="sub">Escrituração de partidas dobradas, rastreamento de IVA, lucros e perdas, balanço patrimonial - tudo em um livro-razão SQLite local direcionado ao HMRC Making Tax Digital.</p>
+<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 Plano de contas do Reino Unido</span>
-<span class="badge">📋 Pronto para MTD</span>
-<span class="badge">🔒 SQLite local</span>
-<span class="badge">🤖 Saída JSON analisável por IA</span>
+<span class="badge">📋 MTD-ready</span>
+<span class="badge">🔒 Local SQLite</span>
+<span class="badge">🤖 AI-parseable JSON output</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Cada transação equilibrada até o último centavo – os débitos são sempre iguais aos créditos</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Data │ Conta │ Débito (£) │ Crédito (£) │ IVA</span>
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
 ────────────┼───────────────────── ─────┼───────────┼────────────┼────
 01/04/2026 │ 4.000 Receita de vendas │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 Controle de IVA │ │    <span class="cr">240.00</span>  │
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
 01/04/2026 │ 1100 Devedores comerciais │ <span class="dr">1,440.00</span>  │ │
 ────────────┼───────────────────── ─────┼───────────┼────────────┼────
-05/04/2026 │ 6100 Despesas de escritório │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 Controle de IVA │   <span class="dr">17.00</span>   │ │
+05/04/2026 │ 6100 Despesas de escritório │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
 05-04-2026 │ 1200 Corrente Bancária │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Plano de contas do Reino Unido</h3>
-<p>Códigos de conta padrão do Reino Unido prontos para uso - ativos, passivos, patrimônio líquido, receitas e despesas mapeados para categorias HMRC. Estenda com contas personalizadas conforme necessário.</p>
+<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>Livro razão SQLite</h3>
+<h3>SQLite ledger</h3>
 <p>Todos os dados armazenados em <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Funciona completamente offline. Suporte a várias empresas – alterne entre entidades com um sinalizador de comando.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Ano fiscal do Reino Unido</h3>
-<p>Fim do ano corretamente definido para 5 de abril (ano fiscal do Reino Unido de 6 de abril a 5 de abril). Os relatórios de lucros e perdas e IVA abrangem automaticamente o período correto sem ajuste manual de data.</p>
+<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Varredura de anomalia forense</h3>
-<p>Correr <code>--forensic</code> detectar lançamentos desequilibrados, referências duplicadas, incompatibilidades de IVA e outras irregularidades. Resultados impressos como JSON estruturado para revisão de IA.</p>
+<p>Correr <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Saída legível por IA</h3>
-<p>Todos os relatórios geram JSON estruturado para stdout para que o Chameleon AI possa analisar, resumir e aconselhar sobre sua posição financeira em linguagem natural.</p>
+<h3>AI-readable output</h3>
+<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>Ponte WebSocket</h3>
-<p>A ponte WebSocket de contabilidade (<code>acct_ws_bridge.py</code>) expõe consultas contábeis ao complemento móvel e painéis externos em sua rede Tailscale.</p>
+<h3>WebSocket bridge</h3>
+<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Códigos de IVA suportados</h2>
+<h2>VAT Codes Supported</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Taxa padrão 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Resumo da declaração de IVA</h4>
-<p>Valores de IVA caixa por caixa correspondentes ao formato de declaração de IVA HMRC MTD: Caixa 1 (imposto a jusante), Caixa 4 (imposto pago a montante), Caixa 6 (vendas líquidas), Caixa 7 (compras líquidas). Corra com <code>--report vat</code>.</p>
+<h4>VAT Return Summary</h4>
+<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Faturamento</h2>
-<p>Faturas compatíveis com o HMRC Notice 700 - impressas, salvas como PDF ou enviadas para o seu telefone com um clique</p>
+<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Campos de fatura em conformidade com o Reino Unido</h4>
-<p>Cada fatura inclui todos os campos exigidos pelo Aviso 700 do HMRC: número sequencial exclusivo da fatura, nome e endereço do fornecedor, número de registro de IVA, data da fatura, data de fornecimento (hora do fornecimento), nome e endereço do cliente, número de IVA do cliente quando aplicável, descrições de linha discriminadas com quantidades e preços unitários, taxa de IVA por linha, subtotais líquidos e de IVA e valor total devido. Não falta nada, nada se adivinha.</p>
+<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Configuração da empresa</h4>
-<p>Abrir <em>Arquivo → Faturas → Configuração da Empresa</em> para inserir o nome da sua empresa registrada, endereço, número da sede da empresa, número de contribuinte, e-mail, telefone e dados bancários. As configurações são salvas por banco de dados do cliente em <code>company.json</code> junto com o razão e carregado automaticamente sempre que faturas são geradas para esse cliente.</p>
+<p>Abrir <em>Arquivo → Faturas → Configuração da Empresa</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> junto com o razão e carregado automaticamente sempre que faturas são geradas para esse cliente.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>Banco de dados de contatos de clientes</h4>
-<p>Na primeira vez que você fatura um cliente, seu nome, endereço e número de IVA são salvos em uma tabela de contatos dentro do livro razão. Nas faturas subsequentes, digitar o nome do cliente preenche automaticamente seus detalhes – não é necessária nova digitação. Os contatos podem ser editados a qualquer momento.</p>
+<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Imprima, PDF e envie para o telefone</h4>
-<p>Do Gerenciador de faturas (<em>Arquivo → Faturas…</em>) selecione qualquer fatura e escolha: <strong>Imprimir</strong> (abre a caixa de diálogo de impressão do sistema operacional — qualquer impressora ou driver PDF), <strong>Salvar PDF</strong> (diretamente para o disco através da exportação de PDF integrada do Qt), ou <strong>Enviar para telefone</strong> (envia o HTML da fatura para o aplicativo Companion, onde abre a caixa de diálogo de impressão do Android – imprima sem fio em qualquer AirPrint ou impressora próxima).</p>
+<p>Do Gerenciador de faturas (<em>Arquivo → Faturas…</em>) selecione qualquer fatura e escolha: <strong>Imprimir</strong> (abre a caixa de diálogo de impressão do sistema operacional — qualquer impressora ou driver PDF), <strong>Salvar PDF</strong> (diretamente para o disco através da exportação de PDF integrada do Qt), ou <strong>Enviar para telefone</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Data de fornecimento</h3>
-<p>Campo separado "Data de fornecimento" (hora do fornecimento) — distinto da data da fatura. Exigido pelo HMRC para fins de IVA. O padrão é hoje, mas pode ser editado de forma independente por fatura.</p>
+<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Impressão de fatura móvel</h3>
-<p>O aplicativo Companion pode imprimir qualquer fatura sem fio. Toque no ícone de impressão em qualquer linha da fatura – o aplicativo busca o HTML do IDE e o converte em PDF no dispositivo por meio do <code>printing</code> pacote e abre a caixa de diálogo de impressão do sistema Android.</p>
+<p>O aplicativo Companion pode imprimir qualquer fatura sem fio. Toque no ícone de impressão em qualquer linha da fatura – o aplicativo busca o HTML do IDE e o converte em PDF no dispositivo por meio do <code>printing</code> package, and opens the Android system print dialog.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>Conformidade com o Aviso 700 do HMRC</h3>
-<p>Todos os 12 campos obrigatórios para uma fatura completa de IVA do Reino Unido estão presentes e preenchidos. As linhas com taxa reduzida e com taxa zero são claramente identificadas. A sequência numérica da fatura é estritamente monótona e sem lacunas.</p>
+<h3>HMRC Notice 700 compliance</h3>
+<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Lucros e perdas do ano fiscal atual</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Balanço patrimonial de hoje</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Resumo da declaração de IVA (caixas MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Verificação de anomalia e integridade</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Referência completa do comando</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Inu00edcio</a><a href="../ide.html">VOCÊ TEM IDEIAS</a><a href="../presenter.html">Apresentador</a>
+<a href="../index.html">Inu00edcio</a><a href="../ide.html">AI Ambiente de desenvolvimento integrado</a><a href="../presenter.html">Apresentador</a>
 <a href="../accounting.html">Contabilidade</a><a href="../technician.html">Técnico de informática</a>
 <a href="../trading.html">Negociação</a><a href="../classroom.html">Aula</a><a href="../contact.html">Contato</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construído por Marcos, também conhecido como stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

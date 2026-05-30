@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mtangazaji wa Kameleon - Chameleon AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Nyumbani</a>
-<a href="../ide.html">UNA MAWAZO</a>
+<a href="../ide.html">AI IDE</a>
 <a class="active" href="../presenter.html">Mtoa mada</a>
 <a href="../companion.html">Programu Mwenza</a>
 <a href="../logistics4x4.html">Vifaa 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Mtangazaji wa Kinyonga</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">Mfumo wa uwasilishaji unaoongozwa na ukumbi wa michezo ambapo slaidi zako ni Jukwaa, vizuizi vya maudhui yako ni Waigizaji na mabadiliko ni Vidokezo - vyote vinaweza kudhibitiwa kutoka kwa simu.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Sitiari ya ukumbi wa michezo</span>
 <span class="badge">📱 Udhibiti wa rununu</span>
 <span class="badge">✏️ Mchoro shirikishi</span>
-<span class="badge">🖥️ Kioo cha Android ADB</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Vitu vya KameleonStack kwenye jukwaa</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Rafu ya Maudhui - slaidi za mihadhara</div>
 <div class="stage-obj obj-stage">🟡 Stack ya Hatua - mawasilisho ya wanafunzi</div>
@@ -98,7 +98,7 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>KameleonStack</h3>
-<p>Chombo cha maudhui ya ulimwengu wote. Kila mrundikano una nafasi nyingi (picha, maandishi, PDF). Njia mbili:</p>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">Maudhui</strong> - slaidi zinazodhibitiwa na mwalimu</li>
 <li><strong style="color:#eab308">Jukwaa</strong> - inakubali mawasilisho yanayosukumwa na rika</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>.kpt vifurushi vya mradi</h3>
-<p>Miradi huhifadhiwa kama kumbukumbu za ZIP (<code>.kpt</code>) iliyo na vipengee vyote vya media, data ya mpangilio na usanidi wa uhuishaji. Fungua kwenye mashine yoyote inayoendesha Kinyonga.</p>
+<p>Miradi huhifadhiwa kama kumbukumbu za ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,42 +138,42 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Android simu daraja</h4>
-<p>Daraja la simu la Chameleon (WebSocket) hutuma amri za uigizaji kutoka kwa kifaa chochote cha Android. Udhibiti <strong>stack_next / prev / cheza / sitisha / simamisha</strong>, sukuma picha au nafasi za maandishi kwenye rafu, na uone matangazo ya hali ya rafu katika muda halisi.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / prev / cheza / sitisha / simamisha</strong>, sukuma picha au nafasi za maandishi kwenye rafu, na uone matangazo ya hali ya rafu katika muda halisi.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Mawasilisho ya rika</h4>
-<p>Wanafunzi husukuma picha au maandishi kwenye mrundikano wa Hali ya Hatua kutoka kwa simu zao. Mawasilisho yanaonekana katika ukanda wa kijipicha wenye mpaka wa rangi ya chungwa. Mtoa mada anaweza <strong>kupitisha, kushikilia, kukataa au kukuza</strong> kila moja kabla haijaonyeshwa moja kwa moja kwenye skrini.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>kupitisha, kushikilia, kukataa au kukuza</strong> kila moja kabla haijaonyeshwa moja kwa moja kwenye skrini.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Ubao wa kuchora ulioshirikiwa</h4>
-<p>Turubai shirikishi za mkono wa bure zinazoweza kudhibitiwa kutoka kwa daraja la rununu - <strong>draw_stroke / wazi / tengua</strong>. Inafaa kwa kufafanua slaidi, kuchangia mawazo au maswali ya moja kwa moja.</p>
+<p>Turubai shirikishi za mkono wa bure zinazoweza kudhibitiwa kutoka kwa daraja la rununu - <strong>draw_stroke / wazi / tengua</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Kioo cha simu cha ADB &amp; kunasa PPT</h4>
-<p><strong>ADBPhoneBox</strong> hutiririsha moja kwa moja skrini ya Android moja kwa moja kwenye jukwaa kupitia ADB. <strong>PPTMirrorBox</strong> kunasa kidirisha cha PowerPoint - wasilisha safu zako zilizopo ndani ya Kameleon bila ubadilishaji.</p>
+<p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirrorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Ifanye mawasilisho yako yawe hai</h3>
-<p>Wasiliana nasi ili kujadili leseni au kupanga onyesho la moja kwa moja la Kameleon Presenter.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Omba onyesho</a>
 <a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
+<a href="../index.html">Nyumbani</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Mtoa mada</a>
 <a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
 <a href="../trading.html">Biashara</a><a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
 </div>

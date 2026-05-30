@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Εφαρμογή Chameleon Companion — Android</title>
+<title>Chameleon Companion App — Android</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .channel-grid {
@@ -85,10 +85,10 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
-<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Δωρητής</a>
 <a class="active" href="../companion.html">Companion App</a>
 <a href="../accounting.html">Λογιστική</a>
@@ -102,13 +102,13 @@
 <div class="hero">
 <div class="hero-icon">📱</div>
 <h1>App Chameleon Companion</h1>
-<p class="sub">Το τηλέφωνό σας Android γίνεται μια γέφυρα πολλαπλών καναλιών στον επιτραπέζιο υπολογιστή — ρελέ συνομιλίας AI, ομαδικό βίντεο P2P για 4+ συμμετέχοντες, γεφύρωση κλήσεων SIM, τηλεχειριστήριο, πρόσβαση σε αρχεία, ροή πολυμέσων και λογιστική — σε όλο το ιδιωτικό σας πλέγμα Tailscale.</p>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Συνομιλία AI μέσω STT/TTS</span>
-<span class="badge">📹 Ομαδικό βίντεο P2P (4+)</span>
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
 <span class="badge">📞 Γέφυρα κλήσης SIM</span>
 <span class="badge">🎭 Τηλεχειριστήριο παρουσιαστή</span>
-<span class="badge">🌐 Ασφαλισμένο με κλίμακα ουράς</span>
+<span class="badge">🌐 Tailscale-secured</span>
 <span class="badge">🖥️ Οθόνη / VNC</span>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <div class="phone-msg msg-ai">Γινώμενος. Το αρχείο αποθηκεύτηκε. Το τερματικό δείχνει την έξοδο 0.</div>
 <div class="phone-channels">
 <span class="pch pch-ide">IDE</span>
-<span class="pch pch-video">Βίντεο P2P</span>
+<span class="pch pch-video">P2P Video</span>
 <span class="pch pch-file">Αρχεία</span>
 <span class="pch pch-media">Μέσα ενημέρωσης</span>
 <span class="pch pch-stt">STT/TTS</span>
@@ -141,19 +141,19 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Πολυκαναλική αρχιτεκτονική</h2>
-<p>Μία γέφυρα WebSocket, πέντε ανεξάρτητες λωρίδες επικοινωνίας</p>
+<p>One WebSocket bridge, five independent communication lanes</p>
 </div>
 <div class="ws-diagram">
 <div class="ws-row">
-<div class="ws-node">📱 Εφαρμογή Android</div>
+<div class="ws-node">📱 Android App</div>
 <div class="ws-arrow">⟷</div>
-<div class="ws-node">Πλέγμα ουράς</div>
+<div class="ws-node">Tailscale mesh</div>
 <div class="ws-arrow">⟷</div>
 <div class="ws-node">🖥️ Επιτραπέζιος υπολογιστής</div>
 </div>
 <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Κανάλι IDE</div><div class="ws-label">Συνομιλία AI · εντολές · στιγμιότυπα οθόνης · μεταφόρτωση αρχείων</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P βίντεο</div><div class="ws-label">Ρελέ WebRTC SDP/ICE · A/V χαμηλής καθυστέρησης</div></div>
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Κανάλι IDE</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Πρόγραμμα περιήγησης αρχείων</div><div class="ws-label">Ανάγνωση · εγγραφή · επεξεργασία αρχείων στην επιφάνεια εργασίας</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Ροή πολυμέσων</div><div class="ws-label">NAS / DLNA · μετάδοση στο τηλέφωνο</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Κοινή χρήση οθόνης</div><div class="ws-label">Επιτραπέζιο καθρέφτη τύπου VNC/RDP</div></div>
@@ -169,26 +169,26 @@
 <div class="channel-card ch-ide">
 <span class="ch-badge">ΚΑΝΑΛΙ 1</span>
 <div class="ch-icon">🧠</div>
-<h3>Κανάλι IDE AI</h3>
-<p>Πλήρης αμφίδρομη γέφυρα προς την επιφάνεια εργασίας AI. Στείλτε μηνύματα προτροπής από το τηλέφωνό σας, λάβετε απαντήσεις σε ροή. Το AI μπορεί να διαβάζει αρχεία, να εκτελεί εντολές τερματικού και να εφαρμόζει τροποποιήσεις κώδικα — όλα ενεργοποιούνται από την τσέπη σας. Επισυνάψτε στιγμιότυπα οθόνης ή φωτογραφίες απευθείας από το ρολό της φωτογραφικής μηχανής σας ως πλαίσιο.</p>
+<h3>IDE AI Channel</h3>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">AI ροή</span><span class="tag">Μεταφόρτωση αρχείου</span><span class="tag">Στιγμιότυπα οθόνης</span>
+<span class="tag">AI streaming</span><span class="tag">Μεταφόρτωση αρχείου</span><span class="tag">Στιγμιότυπα οθόνης</span>
 </div>
 </div>
 <div class="channel-card ch-p2p">
 <span class="ch-badge">ΚΑΝΑΛΙ 2</span>
 <div class="ch-icon">📹</div>
-<h3>Ομάδα P2P Video &amp; Voice</h3>
-<p>Βίντεο και ήχος WebRTC πλήρους πλέγματος για ομάδες 4 ή περισσότερων — χωρίς κεντρικό διακομιστή πολυμέσων, χωρίς μηνιαίο λογαριασμό. Παρακέντηση <strong>Ομαδικό βίντεο</strong> για να καλέσετε όλους τους διαδικτυακούς συνεργάτες ταυτόχρονα. Το πλέγμα προσαρμόζεται αυτόματα καθώς συμμετέχουν οι συμμετέχοντες: 1 = πλήρης οθόνη, 2 = δίπλα-δίπλα, 3 = 2+1, 4 = 2×2, 5+ = πλέγμα αυτόματης προσαρμογής με δυνατότητα κύλισης. Η τοπική σας ροή κυκλοφορεί ως εικόνα σε εικόνα. Ο ρυθμός bit μειώνεται ανά ομότιμο για να διατηρείται η ποιότητα ισορροπημένη σε οποιοδήποτε μέγεθος ομάδας.</p>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Ομαδικό βίντεο</strong> για να καλέσετε όλους τους διαδικτυακούς συνεργάτες ταυτόχρονα. Το πλέγμα προσαρμόζεται αυτόματα καθώς συμμετέχουν οι συμμετέχοντες: 1 = πλήρης οθόνη, 2 = δίπλα-δίπλα, 3 = 2+1, 4 = 2×2, 5+ = πλέγμα αυτόματης προσαρμογής με δυνατότητα κύλισης. Η τοπική σας ροή κυκλοφορεί ως εικόνα σε εικόνα. Ο ρυθμός bit μειώνεται ανά ομότιμο για να διατηρείται η ποιότητα ισορροπημένη σε οποιοδήποτε μέγεθος ομάδας.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">WebRTC πλήρες πλέγμα</span><span class="tag">Προσαρμοστικό πλέγμα</span><span class="tag">Τοπική ροή PiP</span><span class="tag">Διακομιστής σήματος Termux</span>
+<span class="tag">WebRTC full-mesh</span><span class="tag">Προσαρμοστικό πλέγμα</span><span class="tag">Τοπική ροή PiP</span><span class="tag">Διακομιστής σήματος Termux</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
 <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">SIM BRIDGE</span>
 <div class="ch-icon">📞</div>
 <h3>SIM Call Bridge</h3>
-<p>Είστε ήδη σε μια κλήση κινητής τηλεφωνίας και θέλετε να φέρετε έναν P2P peer; Παρακέντηση <strong>Προσθήκη στην ομάδα κλήσεων</strong> — η εφαρμογή καταγράφει την κλήση WebRTC με τη στοίβα τηλεπικοινωνιών του Android παράλληλα με την κλήση SIM. Το Android παρουσιάζει μια εγγενή επιλογή "Συγχώνευση κλήσεων". αποδεχόμενος το χέρι μίξη ήχου στο υλικό της τηλεφωνίας. Η συγχωνευμένη κλήση παίζει στο <strong>μόνο ακουστικό</strong> — πλήρως ιδιωτικό, χωρίς μεγάφωνο, κανείς στο δωμάτιο δεν ακούει. Όταν η διάσκεψη υλικού δεν υποστηρίζεται από τον πάροχο, μια γέφυρα ακουστικών Bluetooth δρομολογεί όλο τον ήχο μέσω της σύνδεσης BT SCO.</p>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Προσθήκη στην ομάδα κλήσεων</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>μόνο ακουστικό</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Συνέδριο υλικού</span><span class="tag">Εναλλακτικός BT SCO</span><span class="tag">Μόνο ακουστικό</span><span class="tag">ConnectionService</span>
 </div>
@@ -197,7 +197,7 @@
 <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">ΚΑΝΑΛΙ 3</span>
 <div class="ch-icon">🎭</div>
 <h3>Kameleon Presenter Remote</h3>
-<p>Ελέγξτε ολόκληρη τη σκηνή Kameleon από το τηλέφωνό σας. Προχωρήστε τις διαφάνειες, ενεργοποιήστε συνθήματα, σπρώξτε εικόνες ή κείμενο απευθείας σε μια στοίβα σκηνής, εγκρίνετε ή απορρίπτετε υποβολές από ομοτίμους και ελέγξτε τον πίνακα συλλογικής σχεδίασης — όλα αυτά χωρίς να αγγίζετε το πληκτρολόγιο της επιφάνειας εργασίας.</p>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
 </div>
@@ -206,16 +206,16 @@
 <span class="ch-badge">ΚΑΝΑΛΙ 4</span>
 <div class="ch-icon">🖥️</div>
 <h3>Καθρέφτης οθόνης (στυλ VNC/RDP)</h3>
-<p>Δείτε και αλληλεπιδράστε με την οθόνη της επιφάνειας εργασίας σας από το τηλέφωνο. Υλοποιήθηκε ως μια ελαφριά ροή λήψης οθόνης μέσω του πλέγματος Tailscale — δεν απαιτείται διακομιστής VNC τρίτου κατασκευαστή. Πατήστε για κλικ, σύρετε για κύλιση. Χρήσιμο για την παρακολούθηση διεργασιών που εκτελούνται ή για την απομακρυσμένη έγκριση ενεργειών AI.</p>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Λήψη οθόνης</span><span class="tag">Πατήστε για κλικ</span><span class="tag">Μόνο ουρά</span>
+<span class="tag">Λήψη οθόνης</span><span class="tag">Πατήστε για κλικ</span><span class="tag">Tailscale only</span>
 </div>
 </div>
 <div class="channel-card ch-file">
 <span class="ch-badge">ΚΑΝΑΛΙ 5</span>
 <div class="ch-icon">📂</div>
 <h3>Απομακρυσμένο πρόγραμμα περιήγησης και επεξεργασίας αρχείων</h3>
-<p>Περιηγηθείτε στο σύστημα αρχείων της επιφάνειας εργασίας σας από το τηλέφωνο. Άνοιγμα, ανάγνωση και επεξεργασία αρχείων κειμένου. Μεταφορτώστε αρχεία από την κάμερα του τηλεφώνου ή τον χώρο αποθήκευσης απευθείας σε έναν φάκελο έργου. Ζητήστε από το IDE AI να επεξεργαστεί το μεταφορτωμένο αρχείο αμέσως μετά τη μεταφορά — π.χ. "προσθέστε αυτήν την εικόνα στο στάδιο του παρουσιαστή".</p>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Ξεφυλλίζω</span><span class="tag">Εκδίδω</span><span class="tag">Μεταφόρτωση από κάμερα</span>
 </div>
@@ -224,25 +224,25 @@
 <span class="ch-badge">ΚΑΝΑΛΙ 6</span>
 <div class="ch-icon">🎵</div>
 <h3>Ροή πολυμέσων (NAS / DLNA)</h3>
-<p>Μεταδώστε μουσική και βίντεο από έναν διακομιστή NAS ή DLNA στο οικιακό σας δίκτυο στο τηλέφωνο μέσω του Tailscale. Περιηγηθείτε στη βιβλιοθήκη πολυμέσων, σε ουρά κομματιών και ελέγξτε την αναπαραγωγή — η επιφάνεια εργασίας λειτουργεί ως γέφυρα μεταξύ του τοπικού διακομιστή πολυμέσων και του τηλεφώνου όπου κι αν βρίσκεστε στο tailnet.</p>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Γέφυρα ουράς</span>
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">γέφυρα Tailscale</span>
 </div>
 </div>
 <div class="channel-card ch-acct">
 <span class="ch-badge">ΚΑΝΑΛΙ 7</span>
 <div class="ch-icon">🧾</div>
 <h3>Λογιστική — Λήψη απόδειξης</h3>
-<p>Φωτογραφίστε μια απόδειξη στο τηλέφωνό σας και στείλτε την κατευθείαν στη μονάδα λογιστικής. Το IDE AI διαβάζει την εικόνα, εξάγει το ποσό, την ημερομηνία, τον προμηθευτή και τον ΦΠΑ και καταγράφει μια πρόχειρη καταχώριση ημερολογίου στο διπλογραφικό καθολικό — έτοιμο να το ελέγξετε και να το δημοσιεύσετε στην επιφάνεια εργασίας.</p>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">OCR απόδειξης</span><span class="tag">Σχέδιο περιοδικού</span><span class="tag">Εξαγωγή ΦΠΑ</span>
+<span class="tag">OCR απόδειξης</span><span class="tag">Σχέδιο περιοδικού</span><span class="tag">VAT extraction</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#ec4899;">
 <span class="ch-badge" style="background:#fce7f3;color:#be185d;">ΚΑΝΑΛΙ 8</span>
 <div class="ch-icon">🗣️</div>
-<h3>Voice AI — Τηλέφωνο STT &amp; TTS</h3>
-<p>Μιλήστε στο IDE AI από το τηλέφωνό σας χρησιμοποιώντας ομιλία σε κείμενο στη συσκευή. Η απόκριση AI μεταδίδεται πίσω και διαβάζεται δυνατά μέσω μετατροπής κειμένου σε ομιλία. Βοήθεια κωδικοποίησης hands-free ενώ η επιφάνεια εργασίας σας λειτουργεί χωρίς επίβλεψη — υπαγορεύστε μια διόρθωση, ακούστε το αποτέλεσμα, επιβεβαιώστε από το τηλέφωνο.</p>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">STT στη συσκευή</span><span class="tag">Αναπαραγωγή TTS</span><span class="tag">Hands-free</span>
 </div>
@@ -255,29 +255,29 @@
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Διχτυωτό πλέγμα που ασφαλίζεται με σκαλοπάτια</h4>
-<p>Όλα τα κανάλια εκτελούνται μέσω του ιδιωτικού σας δικτύου Tailscale. Καμία θύρα δεν ανοίγει στο δημόσιο διαδίκτυο. Το τηλέφωνο πρέπει να είναι εξουσιοδοτημένο στο tailnet σας — οτιδήποτε άλλο είναι κρυπτογραφημένο από άκρο σε άκρο με το WireGuard.</p>
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔌</div>
 <div class="strip-body">
-<h4>Ενιαία γέφυρα WebSocket</h4>
-<p>Η επιφάνεια εργασίας εκτελείται <code>chameleon_mobile_bridge.py</code> ως νήμα δαίμονα μέσα στη διαδικασία Qt. Η εφαρμογή τηλεφώνου συνδέεται στη θύρα 8770 στο Tailscale IP. Μία μόνιμη σύνδεση μεταφέρει όλα τα κανάλια ως πληκτρολογημένα μηνύματα JSON.</p>
+<h4>Single WebSocket bridge</h4>
+<p>Η επιφάνεια εργασίας εκτελείται <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Termux στο Android</h4>
-<p>Ο διακομιστής σήματος (<code>chameleon_signal.py</code>) μπορεί να εκτελεστεί απευθείας στο τηλέφωνο Android μέσω Termux — κάνοντας το τηλέφωνο ταυτόχρονα πελάτη και κόμβο σηματοδότησης. Δεν απαιτείται ρελέ cloud για συνδέσεις ομότιμων WebRTC στο tailnet σας.</p>
+<h4>Termux on Android</h4>
+<p>Ο διακομιστής σήματος (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📶</div>
 <div class="strip-body">
 <h4>εναλλακτικό LAN</h4>
-<p>Όταν το Tailscale δεν είναι διαθέσιμο, <code>lan_video.py</code> κάνει ροή βίντεο μέσω UDP (θύρα 47732) και ήχου μέσω UDP (θύρα 47733) απευθείας στο τοπικό δίκτυο — ίδια κανάλια, χωρίς επιβάρυνση VPN.</p>
+<p>Όταν το Tailscale είναι unnavailable, <code>lan_video.py</code> κάνει ροή βίντεο μέσω UDP (θύρα 47732) και ήχου μέσω UDP (θύρα 47733) απευθείας στο τοπικό δίκτυο — ίδια κανάλια, χωρίς επιβάρυνση VPN.</p>
 </div>
 </div>
 </div>
@@ -290,13 +290,13 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../index.html">Σπίτι</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Δωρητής</a>
 <a href="../companion.html">Companion App</a><a href="../logistics4x4.html">Logistics 4×4</a>
 <a href="../services.html">Υπηρεσίες Ιστού</a><a href="../accounting.html">Λογιστική</a>
 <a href="../technician.html">Τεχνικός Η/Υ</a><a href="../trading.html">Εμπορία</a>
 <a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί άδεια χρήσης · ​​Κατασκευάστηκε από τον Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί αδειοδότηση · Κατασκευάστηκε από τον χρήστη Marcos γνωστός και ως stemsee</p>
 </footer>
 </body>
 </html>

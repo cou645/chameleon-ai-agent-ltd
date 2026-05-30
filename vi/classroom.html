@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lớp Học Ngôn Ngữ — Chameleon AI</title>
+<title>Language Classroom — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
@@ -34,10 +34,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Trang chủ</a>
-<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Người trình bày</a>
 <a href="../companion.html">Ứng dụng đồng hành</a>
 <a href="../logistics4x4.html">Hậu cần 4×4</a>
@@ -53,11 +53,11 @@
 <div class="hero">
 <div class="hero-icon">🎓</div>
 <h1>Lớp học ngôn ngữ</h1>
-<p class="sub">Các bài học video trực tiếp về WebRTC với kết nối P2P được bảo mật bằng Tailscale, thanh toán tích hợp và Kameleon Presenter — tất cả trong một ứng dụng.</p>
+<p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
 <div class="hero-badges">
-<span class="badge">📹 Video WebRTC</span>
-<span class="badge">🌐 Lưới vảy đuôi</span>
-<span class="badge">💳 Sọc · Alipay · PayPal</span>
+<span class="badge">📹 WebRTC video</span>
+<span class="badge">🌐 Tailscale mesh</span>
+<span class="badge">💳 Stripe · Alipay · PayPal</span>
 <span class="badge">🔐 Cơ sở tuyển sinh</span>
 </div>
 </div>
@@ -107,22 +107,22 @@
 <div class="strip-item">
 <div class="strip-icon">📹</div>
 <div class="strip-body">
-<h4>Video nhóm WebRTC — hơn 4 người tham gia</h4>
-<p>Video và âm thanh WebRTC toàn lưới có độ trễ thấp dành cho nhóm từ 4 người trở lên — không cần máy chủ phương tiện trung tâm, không mất phí hàng tháng. Máy chủ tín hiệu Chameleon (<code>chameleon_signal.py</code>) xử lý chuyển tiếp SDP và ICE (cổng 8766) và cũng chạy trên Termux trên Android. Ứng dụng Đồng hành hiển thị một lưới thích ứng tự động phát triển khi học sinh tham gia: 1 = toàn màn hình, 2 = cạnh nhau, 3 = 2+1, 4 = 2×2, 5+ = lưới tự động điều chỉnh có thể cuộn — với nguồn cấp dữ liệu địa phương của giáo viên luôn ở dạng hình trong ảnh.</p>
+<h4>WebRTC group video — 4+ participants</h4>
+<p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Kết nối được bảo mật bằng quy mô đuôi</h4>
-<p>Tất cả các đồng nghiệp kết nối thông qua lưới Tailscale của bạn - không có IP công cộng, không chuyển tiếp cổng. IDE quản lý ACL, ủy quyền thiết bị và tạo khóa xác thực mà không cần rời khỏi ứng dụng.</p>
+<h4>Tailscale-secured connections</h4>
+<p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🎭</div>
 <div class="strip-body">
-<h4>Trình dẫn chương trình Kameleon tích hợp</h4>
-<p>Dạy với giai đoạn Kameleon đầy đủ trong bài học của bạn. Học sinh có thể đẩy câu trả lời, bản vẽ và hình ảnh trực tiếp vào ngăn xếp ở chế độ Giai đoạn - kiểm duyệt và hiển thị trong thời gian thực mà không cần chuyển đổi ứng dụng.</p>
+<h4>Integrated Kameleon Presenter</h4>
+<p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -136,7 +136,7 @@
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>Dự phòng video LAN</h4>
-<p>Khi Tailscale không có sẵn, <code>lan_video.py</code> truyền phát video qua UDP (cổng 47732), âm thanh qua UDP (cổng 47733) và các khác biệt cộng tác qua WebSocket (cổng 47731) — tất cả đều trên mạng cục bộ.</p>
+<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <div class="strip-icon">📞</div>
 <div class="strip-body">
 <h4>Hai loại cuộc gọi - một cuộc trò chuyện</h4>
-<p>Ứng dụng Đồng hành hỗ trợ hai kênh cuộc gọi song song: một <strong>Cuộc gọi ứng dụng</strong> (WebRTC, ngang hàng trên Tailscale, miễn phí) và <strong>Cuộc gọi SIM</strong> (mạng di động tiêu chuẩn, bất kỳ số điện thoại nào). Bạn có thể tham gia cuộc gọi WebRTC với một người ngang hàng <em>Và</em> đồng thời thực hiện cuộc gọi SIM tới bên thứ ba, sau đó hội thảo họ lại với nhau để trò chuyện nhiều chiều — mà không cần rời khỏi ứng dụng.</p>
+<p>Ứng dụng Đồng hành hỗ trợ hai kênh cuộc gọi song song: một <strong>Cuộc gọi ứng dụng</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>Cuộc gọi SIM</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>Và</em> đồng thời thực hiện cuộc gọi SIM tới bên thứ ba, sau đó hội thảo họ lại với nhau để trò chuyện nhiều chiều — mà không cần rời khỏi ứng dụng.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -163,7 +163,7 @@
 <div class="strip-icon">🔀</div>
 <div class="strip-body">
 <h4>Luồng bài học đa chiều</h4>
-<p>Hữu ích cho các bài học ngôn ngữ: yêu cầu học sinh thực hiện cuộc gọi trong ứng dụng WebRTC, sau đó gọi cho người bản ngữ trên SIM để trò chuyện tự phát trong thế giới thực. Cả ba bên đều có thể nghe thấy nhau. Giáo viên kiểm duyệt thông qua ứng dụng trong khi Kameleon Presenter tiếp tục chạy trên IDE.</p>
+<p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -179,7 +179,7 @@
 <p>Chấp nhận thanh toán từ sinh viên trên toàn thế giới trước khi cấp quyền truy cập bài học</p>
 </div>
 <div class="payment-logos">
-<div class="pay-pill">💳 Sọc <span style="color:var(--muted);font-weight:400">(GBP chính)</span></div>
+<div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">(GBP chính)</span></div>
 <div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Sinh viên Trung Quốc)</span></div>
 <div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(dự phòng)</span></div>
 </div>
@@ -187,32 +187,32 @@
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Khóa học &amp; tuyển sinh DB</h3>
-<p>Các khóa học và tuyển sinh sinh viên được lưu trữ trong <code>~/.chameleon/courses.db</code>. AI có thể tạo các khóa học, đăng ký danh sách, kiểm tra trạng thái thanh toán và thu hồi quyền truy cập - tất cả đều thông qua các lệnh IDE.</p>
+<p>Các khóa học và tuyển sinh sinh viên được lưu trữ trong <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
 </div>
 <div class="card">
 <div class="card-icon">💰</div>
 <h3>Hỗ trợ đa tiền tệ</h3>
-<p>Stripe xử lý các khoản thanh toán GBP từ sinh viên Vương quốc Anh và quốc tế. Alipay nhắm đến sinh viên Trung Quốc thanh toán bằng CNY. PayPal cung cấp một giải pháp dự phòng phổ quát với phạm vi phủ sóng rộng khắp trên toàn quốc.</p>
+<p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
 </div>
 <div class="card">
 <div class="card-icon">📸</div>
 <h3>Thanh toán ảnh chụp màn hình WeChat</h3>
-<p>Đối với sinh viên không có quyền truy cập thẻ, hãy chấp nhận ảnh chụp màn hình bằng chứng thanh toán của WeChat Pay. AI đọc hình ảnh, trích xuất số tiền và thông tin tham khảo, đồng thời ghi lại khoản thanh toán thủ công đối với việc đăng ký.</p>
+<p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔗</div>
 <h3>Liên kết thanh toán</h3>
-<p>Tạo liên kết thanh toán được lưu trữ trên máy chủ Stripe cho bất kỳ khóa học nào. Chia sẻ liên kết - sinh viên trả tiền - việc đăng ký được tạo tự động. Không có trang thanh toán để xây dựng hoặc lưu trữ.</p>
+<p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Tham chiếu lệnh thanh toán</h2>
 </div>
 <table class="spec-table">
-<thead><tr><th>Lệnh AI</th><th>Sự miêu tả</th></tr></thead>
+<thead><tr><th>AI Command</th><th>Sự miêu tả</th></tr></thead>
 <tbody>
 <tr><td><code>payment_create_course</code></td><td>Tạo một khóa học mới với giá, tiêu đề và mô tả</td></tr>
-<tr><td><code>payment_links</code></td><td>Tạo liên kết thanh toán Stripe cho khóa học</td></tr>
+<tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
 <tr><td><code>payment_status</code></td><td>Kiểm tra trạng thái thanh toán và đăng ký của sinh viên</td></tr>
 <tr><td><code>payment_enrol</code></td><td>Đăng ký học sinh theo cách thủ công (ví dụ: sau khi thanh toán bằng tiền mặt)</td></tr>
 <tr><td><code>payment_revoke</code></td><td>Xóa quyền truy cập ghi danh của sinh viên</td></tr>
@@ -229,11 +229,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../index.html">Trang chủ</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Người trình bày</a>
 <a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
 <a href="../trading.html">Giao dịch</a><a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stemsee</p>
 </footer>
 </body>
 </html>

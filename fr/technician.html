@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Technicien PC IA — Chameleon AI</title>
+<title>AI PC Technician — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
@@ -35,10 +35,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Caméléon IA</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Accueil</a>
-<a href="../ide.html">VOUS AVEZ DES IDÉES</a>
+<a href="../ide.html">AI EDI</a>
 <a href="../presenter.html">Présentateur</a>
 <a href="../companion.html">Application compagnon</a>
 <a href="../logistics4x4.html">Logistique 4×4</a>
@@ -53,25 +53,25 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>Technicien PC IA</h1>
-<p class="sub">Diagnostic et réparation du système guidés par l'IA, ainsi qu'un profileur de périphérique USB qui effectue une rétro-ingénierie des protocoles matériels et génère automatiquement les pilotes du noyau Linux.</p>
+<h1>AI Technicien informatique</h1>
+<p class="sub">AI-guided system diagnosis and repair — plus a USB device profiler that reverse-engineers hardware protocols and generates Linux kernel drivers automatically.</p>
 <div class="hero-badges">
 <span class="badge">🔬 Profilage matériel</span>
 <span class="badge">🐧 Génération de modules noyau</span>
-<span class="badge">🌐 À distance via Tailscale</span>
+<span class="badge">🌐 Remote via Tailscale</span>
 <span class="badge">⚡ Compilation croisée ARM</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Réparation du système guidée par l'IA</h2>
-<p>L'IA suit un protocole chirurgical structuré : diagnostiquer avant de toucher, vérifier à chaque étape</p>
+<h2>AI-Guided System Repair</h2>
+<p>The AI follows a structured surgical protocol — diagnose before touching, verify at every step</p>
 </div>
 <div class="terminal-block">
-<span class="comment"># Séquence de diagnostic Chameleon AI</span>
+<span class="comment"># Chameleon AI diagnosis sequence</span>
 <span class="cmd">$ lsusb -v | tête -80</span>
 <span class="out">Bus 002 Périphérique 003 : ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$ dmesg | queue -30</span>
+<span class="cmd">$ dmesg | tail -30</span>
 <span class="out">[12.445] r8152 2-1:1.0 eth1 : renommé de eth0</span>
 <span class="cmd">$lsmod | grep r8152</span>
 <span class="out">r8152 94208 0</span>
@@ -83,27 +83,27 @@
 <div class="strip-icon">🔍</div>
 <div class="strip-body">
 <h4>Séquence de diagnostic structurée</h4>
-<p>Matériel → état du noyau → état du pilote → réseau → stockage. L'IA exécute chaque étape, lit le résultat JSON, puis décide de l'action suivante. Il ne saute jamais d’étapes et ne fait jamais d’hypothèses.</p>
+<p>Hardware → kernel state → driver status → network → storage. The AI runs each step, reads the JSON result, then decides the next action. It never skips steps or makes assumptions.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏥</div>
 <div class="strip-body">
-<h4>Protocole de réparation chirurgicale</h4>
+<h4>Surgical repair protocol</h4>
 <p>Non destructif dans un premier temps (rechargement du module, redémarrage du service). Persistez avant le risque (configuration d’instantané). Vérifiez à chaque étape. Chaque action nécessitant un redémarrage déclenche un interrupteur d'homme mort qui définit un <code>@reboot</code> reprendre le script automatiquement.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
-<h4>Réparation à distance via Tailscale</h4>
-<p>Diagnostiquez et réparez les machines n’importe où sur votre maillage Tailscale. L'IA émet des commandes sur la machine distante via le pont terminal, lit les résultats et continue, même lors des redémarrages à l'aide du système de point de contrôle/reprise.</p>
+<h4>Remote repair over Tailscale</h4>
+<p>Diagnose and repair machines anywhere on your Tailscale mesh. The AI issues commands on the remote machine via the terminal bridge, reads results and continues — even across reboots using the checkpoint/resume system.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Porteur de pilotes USB</h2>
-<p>Profiler n'importe quel périphérique USB → analyser son protocole → générer un pilote Linux prêt à installer</p>
+<p>Profile any USB device → analyse its protocol → generate a ready-to-install Linux driver</p>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
@@ -151,7 +151,7 @@ Généré : /tmp/driver_1234_5678/
 <div class="card">
 <div class="card-icon">🖥️</div>
 <h3>Backends de capture multiplateformes</h3>
-<p>ETW sous Windows, IOKit sur macOS, usbmon sous Linux. Profil sur n’importe quel système d’exploitation et générez un pilote Linux à partir du résultat <code>profile.json</code>.</p>
+<p>ETW on Windows, IOKit on macOS, usbmon on Linux. Profile on any OS and generate a Linux driver from the resulting <code>profile.json</code>.</p>
 </div>
 <div class="card">
 <div class="card-icon">🍓</div>
@@ -161,19 +161,19 @@ Généré : /tmp/driver_1234_5678/
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>Emballage DKMS</h3>
-<p>Les pilotes Path C sont packagés pour DKMS afin qu'ils survivent aux mises à niveau du noyau sans recompilation manuelle. Les critiques de l'IA <code>analysis.json</code> et vous invite à indiquer tous les talons TODO restants.</p>
+<p>Path C drivers are packaged for DKMS so they survive kernel upgrades without manual recompilation. The AI reviews <code>analysis.json</code> and prompts for any remaining TODO stubs.</p>
 </div>
 </div>
 <div class="cta-band">
 <h3>Réparer l'inréparable</h3>
-<p>Qu'il s'agisse d'une panique du noyau, d'un périphérique USB mort ou d'un périphérique propriétaire sans prise en charge Linux, Chameleon AI PC Technician est là pour vous.</p>
+<p>Whether it's a kernel panic, a dead USB device or a proprietary peripheral with no Linux support — Chameleon AI PC Technician has you covered.</p>
 <a class="btn btn-solid" href="../contact.html">Entrer en contact</a>
 <a class="btn" href="../index.html">← Retour à l'aperçu</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Accueil</a><a href="../ide.html">VOUS AVEZ DES IDÉES</a><a href="../presenter.html">Présentateur</a>
+<a href="../index.html">Accueil</a><a href="../ide.html">AI EDI</a><a href="../presenter.html">Présentateur</a>
 <a href="../accounting.html">Comptabilitu00e9</a><a href="../technician.html">Technicien informatique</a>
 <a href="../trading.html">Commerce</a><a href="../classroom.html">Classe</a><a href="../contact.html">Contact</a>
 </div>

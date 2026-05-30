@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
-<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../ide.html">AI IDE</a>
 <a class="active" href="../presenter.html">Δωρητής</a>
 <a href="../companion.html">Companion App</a>
 <a href="../logistics4x4.html">Logistics 4×4</a>
@@ -57,7 +57,7 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Παρουσιαστής Chameleon</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">Ένα σύστημα παρουσιάσεων εμπνευσμένο από το θέατρο, όπου οι διαφάνειές σας είναι Σκηνή, τα μπλοκ περιεχομένου είναι Ηθοποιοί και οι μεταβάσεις είναι Cues — όλα ελέγχονται από ένα τηλέφωνο.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Θεατρική μεταφορά</span>
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Kameleon Stack αντικείμενα στη σκηνή</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Στοίβα περιεχομένου — διαφάνειες διάλεξης</div>
 <div class="stage-obj obj-stage">🟡 Stack Stack — υποβολές μαθητών</div>
@@ -98,7 +98,7 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>KameleonStack</h3>
-<p>Το δοχείο περιεχομένου γενικής χρήσης. Κάθε στοίβα περιέχει πολλές υποδοχές (εικόνες, κείμενο, PDF). Δύο τρόποι λειτουργίας:</p>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">Περιεχόμενο</strong> — διαφάνειες ελεγχόμενες από τον δάσκαλο</li>
 <li><strong style="color:#eab308">Στάδιο</strong> — δέχεται υποβολές από ομοτίμους</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>Πακέτα έργων .kpt</h3>
-<p>Τα έργα αποθηκεύονται ως αρχεία ZIP (<code>.kpt</code>) που περιέχει όλα τα στοιχεία πολυμέσων, δεδομένα διάταξης και διαμορφώσεις κινούμενων εικόνων. Ανοίξτε σε οποιοδήποτε μηχάνημα που λειτουργεί Chameleon.</p>
+<p>Τα έργα αποθηκεύονται ως αρχεία ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -139,45 +139,45 @@
 <div class="strip-icon">📱</div>
 <div class="strip-body">
 <h4>Android mobile bridge</h4>
-<p>Η κινητή γέφυρα Chameleon (WebSocket) αναμεταδίδει εντολές θεάτρου από οποιαδήποτε συσκευή Android. Ελεγχος <strong>stack_next / prev / play / pause / stop</strong>, ωθήστε τις υποδοχές εικόνας ή κειμένου σε μια στοίβα και δείτε την κατάσταση μετάδοσης της στοίβας σε πραγματικό χρόνο.</p>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / prev / play / pause / stop</strong>, ωθήστε τις υποδοχές εικόνας ή κειμένου σε μια στοίβα και δείτε την κατάσταση μετάδοσης της στοίβας σε πραγματικό χρόνο.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Υποβολές ομοτίμων</h4>
-<p>Οι μαθητές σπρώχνουν εικόνες ή κείμενο σε μια στοίβα λειτουργίας Stage από τα τηλέφωνά τους. Οι υποβολές εμφανίζονται στη λωρίδα μικρογραφιών με ένα πορτοκαλί παλλόμενο περίγραμμα. Ο παρουσιαστής μπορεί <strong>εγκρίνει, κρατά, απορρίπτει ή προωθεί</strong> κάθε ένα πριν βγει ζωντανά στην οθόνη.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>εγκρίνει, κρατά, απορρίπτει ή προωθεί</strong> κάθε ένα πριν βγει ζωντανά στην οθόνη.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Κοινόχρηστος πίνακας σχεδίασης</h4>
-<p>Συνεργατικός ελεύθερος καμβάς ελεγχόμενος από την κινητή γέφυρα — <strong>draw_stroke / διαγραφή / αναίρεση</strong>. Ιδανικό για σχολιασμό διαφανειών, καταιγισμό ιδεών ή ζωντανά κουίζ.</p>
+<p>Συνεργατικός ελεύθερος καμβάς ελεγχόμενος από την κινητή γέφυρα — <strong>draw_stroke / διαγραφή / αναίρεση</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Καθρέφτης τηλεφώνου ADB &amp; λήψη PPT</h4>
-<p><strong>ADBPhoneBox</strong> μεταδίδει μια ζωντανή οθόνη Android απευθείας στη σκηνή μέσω ADB. <strong>PPTMirrorBox</strong> καταγράφει ένα παράθυρο PowerPoint — παρουσιάστε τα υπάρχοντα decks σας μέσα στο Kameleon χωρίς μετατροπή.</p>
+<p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirrorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Δώστε ζωή στις παρουσιάσεις σας</h3>
-<p>Επικοινωνήστε μαζί μας για να συζητήσουμε μια άδεια ή να κανονίσουμε μια ζωντανή επίδειξη του Kameleon Presenter.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Ζητήστε μια επίδειξη</a>
 <a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../index.html">Σπίτι</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Δωρητής</a>
 <a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
 <a href="../trading.html">Εμπορία</a><a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον χρήστη Marcos γνωστός και ως stemsee</p>
 </footer>
 </body>
 </html>

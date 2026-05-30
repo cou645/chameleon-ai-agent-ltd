@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Prezentator Kameleon — Cameleon AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,7 +39,7 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Acasă</a>
 <a href="../ide.html">AI IDE</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Prezentator Cameleon</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">Un sistem de prezentare inspirat de teatru, în care diapozitivele sunt o scenă, blocurile de conținut sunt actori și tranzițiile sunt indicii - toate controlabile de pe telefon.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Metafora teatrului</span>
 <span class="badge">📱 Control mobil</span>
 <span class="badge">✏️ Desen colaborativ</span>
-<span class="badge">🖥️ Oglindă Android ADB</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Obiecte KameleonStack pe scenă</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Stiva de conținut — diapozitive de prelegere</div>
 <div class="stage-obj obj-stage">🟡 Stage Stack — trimiteri ale studenților</div>
@@ -98,7 +98,7 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>KameleonStack</h3>
-<p>Containerul universal pentru conținut. Fiecare stivă deține mai multe sloturi (imagini, text, PDF-uri). Două moduri:</p>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">Conţinut</strong> — diapozitive controlate de profesor</li>
 <li><strong style="color:#eab308">Etapă</strong> — acceptă trimiteri peer-pused</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>pachete de proiecte .kpt</h3>
-<p>Proiectele sunt salvate ca arhive ZIP (<code>.kpt</code>) care conține toate elementele media, datele de aspect și configurațiile de animație. Deschideți pe orice mașină care rulează Chameleon.</p>
+<p>Proiectele sunt salvate ca arhive ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,35 +138,35 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Pod mobil Android</h4>
-<p>Podul mobil Chameleon (WebSocket) transmite comenzile de teatru de pe orice dispozitiv Android. Controla <strong>stack_next / prev / redare / pauză / oprire</strong>, împingeți sloturile pentru imagini sau text într-o stivă și vedeți starea stivei difuzată în timp real.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / prev / redare / pauză / oprire</strong>, împingeți sloturile pentru imagini sau text într-o stivă și vedeți starea stivei difuzată în timp real.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Trimiterile de la egal la egal</h4>
-<p>Elevii împing imagini sau text într-o stivă în modul Stage de pe telefoanele lor. Trimiterile apar în banda de miniaturi cu un chenar portocaliu pulsatoriu. Prezentatorul poate <strong>aproba, reține, respinge sau promovează</strong> fiecare înainte de a fi live pe ecran.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>aproba, reține, respinge sau promovează</strong> fiecare înainte de a fi live pe ecran.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Planșă de desen comună</h4>
-<p>Pânză colaborativă cu mână liberă controlabilă de pe puntea mobilă — <strong>draw_stroke / clear / undo</strong>. Ideal pentru adnotarea diapozitivelor, brainstorming sau chestionare live.</p>
+<p>Pânză colaborativă cu mână liberă controlabilă de pe puntea mobilă — <strong>draw_stroke / clear / undo</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Oglindă telefon ADB și captură PPT</h4>
-<p><strong>ADBPphoneBox</strong> transmite un ecran live Android direct pe scenă prin ADB. <strong>PPTMirorBox</strong> surprinde o fereastră PowerPoint - prezentați-vă pachetele existente în Kameleon fără conversie.</p>
+<p><strong>ADBPphoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Dă viață prezentărilor tale</h3>
-<p>Contactați-ne pentru a discuta despre o licență sau pentru a aranja o demonstrație live a Kameleon Presenter.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Solicitați o demonstrație</a>
 <a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
 </div>

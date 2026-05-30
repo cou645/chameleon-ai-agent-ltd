@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>مقدم Kameleon - Chameleon AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
-<a href="../ide.html">لديك أفكار</a>
+<a href="../ide.html">AI بيئة تطوير متكاملة</a>
 <a class="active" href="../presenter.html">مقدم</a>
 <a href="../companion.html">تطبيق مصاحب</a>
 <a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>مقدم الحرباء</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">نظام عرض تقديمي مستوحى من المسرح حيث تكون الشرائح الخاصة بك عبارة عن مسرح، وكتل المحتوى الخاصة بك عبارة عن ممثلين والانتقالات عبارة عن إشارات - وكل ذلك يمكن التحكم فيه من الهاتف.</p>
 <div class="hero-badges">
 <span class="badge">🎬 استعارة مسرحية</span>
 <span class="badge">📱 التحكم بالموبايل</span>
 <span class="badge">✏️ الرسم التعاوني</span>
-<span class="badge">🖥️مرآة Android ADB</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">كائنات KameleonStack على خشبة المسرح</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 مكدس المحتوى — شرائح المحاضرة</div>
 <div class="stage-obj obj-stage">🟡 Stage Stack - تقديمات الطلاب</div>
@@ -98,7 +98,7 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>KameleonStack</h3>
-<p>حاوية المحتوى العالمية. تحتوي كل حزمة على فتحات متعددة (الصور والنصوص وملفات PDF). وضعين:</p>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">محتوى</strong> - الشرائح التي يسيطر عليها المعلم</li>
 <li><strong style="color:#eab308">منصة</strong> - يقبل التقديمات المدفوعة من قبل الأقران</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>حزم المشروع .kpt</h3>
-<p>يتم حفظ المشاريع كمحفوظات ZIP (<code>.kpt</code>) تحتوي على جميع أصول الوسائط وبيانات التخطيط وتكوينات الرسوم المتحركة. فتح على أي جهاز يعمل بنظام الحرباء.</p>
+<p>يتم حفظ المشاريع كمحفوظات ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>جسر الروبوت المحمول</h4>
-<p>ينقل جسر Chameleon المحمول (WebSocket) أوامر المسرح من أي جهاز يعمل بنظام Android. يتحكم <strong>Stack_next / السابق / تشغيل / إيقاف مؤقت / إيقاف</strong>، ادفع فتحات الصورة أو النص إلى المكدس، وشاهد بث حالة المكدس في الوقت الفعلي.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>Stack_next / السابق / تشغيل / إيقاف مؤقت / إيقاف</strong>، ادفع فتحات الصورة أو النص إلى المكدس، وشاهد بث حالة المكدس في الوقت الفعلي.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>تقديمات الأقران</h4>
-<p>يقوم الطلاب بدفع الصور أو النصوص إلى حزمة وضع المسرح من هواتفهم. تظهر المشاركات في شريط الصور المصغرة بحد برتقالي نابض. يستطيع المقدم <strong>الموافقة أو التعليق أو الرفض أو الترويج</strong> كل واحد قبل أن يتم بثه مباشرة على الشاشة.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>الموافقة أو التعليق أو الرفض أو الترويج</strong> كل واحد قبل أن يتم بثه مباشرة على الشاشة.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>لوحة رسم مشتركة</h4>
-<p>لوحة قماشية تعاونية يدوية يمكن التحكم فيها من الجسر المتحرك — <strong>draw_stroke / مسح / تراجع</strong>. مثالية للتعليق على الشرائح أو العصف الذهني أو الاختبارات المباشرة.</p>
+<p>لوحة قماشية تعاونية يدوية يمكن التحكم فيها من الجسر المتحرك — <strong>draw_stroke / مسح / تراجع</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>مرآة هاتف ADB والتقاط PPT</h4>
-<p><strong>ADBPhoneBox</strong> يبث شاشة Android مباشرة على المسرح عبر ADB. <strong>PPTMirrorBox</strong> يلتقط نافذة PowerPoint - اعرض تشكيلاتك الحالية داخل Kameleon دون تحويل.</p>
+<p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirrorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>اجعل عروضك التقديمية تنبض بالحياة</h3>
-<p>اتصل بنا لمناقشة الترخيص أو الترتيب لعرض حي لبرنامج Kameleon Presenter.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">طلب العرض التوضيحي</a>
 <a class="btn" href="../index.html">← العودة إلى النظرة العامة</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">AI بيئة تطوير متكاملة</a><a href="../presenter.html">مقدم</a>
 <a href="../accounting.html">u0645u062du0627u0633u0628u0629</a><a href="../technician.html">فني كمبيوتر</a>
 <a href="../trading.html">تجارة</a><a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a><a href="../contact.html">اتصال</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · صممها ماركوس المعروف أيضًا باسم ستيمسي</p>
+<p>© 2026 Chameleon AI Technicians Ltd · تم الإنشاء بواسطة Marcos المعروف أيضًا باسم stemsee</p>
 </footer>
 </body>
 </html>

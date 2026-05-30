@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cyflwynydd Kameleon - Chameleon AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Cartref</a>
-<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../ide.html">AI IDE</a>
 <a class="active" href="../presenter.html">Cyflwynydd</a>
 <a href="../companion.html">Ap Cydymaith</a>
 <a href="../logistics4x4.html">Logisteg 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Cyflwynydd Chameleon</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">System gyflwyno wedi'i hysbrydoli gan theatr lle mae'ch sleidiau'n Llwyfan, eich blociau cynnwys yn Actorion a thrawsnewidiadau yn Giwiau - i gyd yn rheoladwy o ffôn.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Trosiad theatr</span>
 <span class="badge">📱 Rheolaeth symudol</span>
 <span class="badge">✏️ Lluniadu cydweithredol</span>
-<span class="badge">🖥️ Drych ADB Android</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Gwrthrychau KameleonStack ar y llwyfan</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Stack Cynnwys — sleidiau darlith</div>
 <div class="stage-obj obj-stage">🟡 Stac Llwyfan — cyflwyniadau myfyrwyr</div>
@@ -97,8 +97,8 @@
 <div class="cards">
 <div class="card">
 <div class="card-icon">📦</div>
-<h3>Stack Kameleon</h3>
-<p>Y cynhwysydd cynnwys cyffredinol. Mae pob pentwr yn dal slotiau lluosog (delweddau, testun, PDFs). Dau fodd:</p>
+<h3>KameleonStack</h3>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">Cynnwys</strong> — sleidiau a reolir gan yr athro</li>
 <li><strong style="color:#eab308">Llwyfan</strong> — yn derbyn cyflwyniadau wedi'u gwthio gan gymheiriaid</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>bwndeli prosiect .kpt</h3>
-<p>Mae prosiectau'n cael eu cadw fel archifau ZIP (<code>.kpt</code>) yn cynnwys yr holl asedau cyfryngau, data gosodiad a chyfluniadau animeiddio. Ar agor ar unrhyw beiriant sy'n rhedeg Chameleon.</p>
+<p>Mae prosiectau'n cael eu cadw fel archifau ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,42 +138,42 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Pont symudol Android</h4>
-<p>Mae pont symudol Chameleon (WebSocket) yn trosglwyddo gorchmynion theatr o unrhyw ddyfais Android. Rheolaeth <strong>stack_next / prev / chwarae / oedi / stopio</strong>, gwthio delwedd neu destun slotiau i mewn i stac, a gweld darllediad cyflwr stac mewn amser real.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / prev / chwarae / oedi / stopio</strong>, gwthio delwedd neu destun slotiau i mewn i stac, a gweld darllediad cyflwr stac mewn amser real.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Cyflwyniadau cyfoedion</h4>
-<p>Myfyrwyr yn gwthio delweddau neu destun i stac modd Llwyfan o'u ffonau. Mae cyflwyniadau yn ymddangos yn y stribed bawd gyda border pulsing oren. Gall y cyflwynydd <strong>cymeradwyo, dal, gwrthod neu hyrwyddo</strong> pob un cyn iddo fynd yn fyw ar y sgrin.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>cymeradwyo, dal, gwrthod neu hyrwyddo</strong> pob un cyn iddo fynd yn fyw ar y sgrin.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Bwrdd lluniadu a rennir</h4>
-<p>Cynfas llawrydd cydweithredol y gellir ei reoli o'r bont symudol — <strong>draw_stroke / clir / dadwneud</strong>. Delfrydol ar gyfer anodi sleidiau, taflu syniadau neu gwisiau byw.</p>
+<p>Cynfas llawrydd cydweithredol y gellir ei reoli o'r bont symudol — <strong>draw_stroke / clir / dadwneud</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Drych ffôn ADB a dal PPT</h4>
-<p><strong>ADBPhoneBox</strong> yn ffrydio sgrin Android fyw yn uniongyrchol i'r llwyfan trwy ADB. <strong>Blwch drych PPTM</strong> yn dal ffenestr PowerPoint - cyflwynwch eich deciau presennol y tu mewn i Kameleon heb eu trosi.</p>
+<p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>Blwch drych PPTM</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Dewch â'ch cyflwyniadau yn fyw</h3>
-<p>Cysylltwch â ni i drafod trwydded neu i drefnu arddangosiad byw o Kameleon Cyflwynydd.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Gofyn am demo</a>
 <a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
+<a href="../index.html">Cartref</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Cyflwynydd</a>
 <a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
 <a href="../trading.html">Masnachu</a><a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
 </div>

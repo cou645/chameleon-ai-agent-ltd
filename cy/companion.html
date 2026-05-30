@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ap Cydymaith Chameleon — Android</title>
+<title>Chameleon Companion App — Android</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .channel-grid {
@@ -85,10 +85,10 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Cartref</a>
-<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Cyflwynydd</a>
 <a class="active" href="../companion.html">Ap Cydymaith</a>
 <a href="../accounting.html">Cyfrifeg</a>
@@ -102,13 +102,13 @@
 <div class="hero">
 <div class="hero-icon">📱</div>
 <h1>Ap Cydymaith Chameleon</h1>
-<p class="sub">Mae eich ffôn Android yn dod yn bont aml-sianel i'r bwrdd gwaith - ras gyfnewid sgwrsio AI, fideo grŵp P2P ar gyfer 4+ o gyfranogwyr, pontio galwadau SIM, teclyn rheoli o bell, mynediad at ffeiliau, ffrydio cyfryngau a chyfrifo - ar hyd a lled eich rhwyll Tailscale preifat.</p>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Sgwrs AI trwy STT/TTS</span>
-<span class="badge">📹 Fideo grŵp P2P (4+)</span>
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
 <span class="badge">📞 Pont alwad SIM</span>
 <span class="badge">🎭 Cyflwynydd o bell</span>
-<span class="badge">🌐 Wedi'i ddiogelu wrth raddfa gynffon</span>
+<span class="badge">🌐 Tailscale-secured</span>
 <span class="badge">🖥️ Sgrin / VNC</span>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <div class="phone-msg msg-ai">Wedi'i wneud. Ffeil wedi'i chadw. Mae terfynell yn dangos allanfa 0.</div>
 <div class="phone-channels">
 <span class="pch pch-ide">IDE</span>
-<span class="pch pch-video">Fideo P2P</span>
+<span class="pch pch-video">P2P Video</span>
 <span class="pch pch-file">Ffeiliau</span>
 <span class="pch pch-media">Cyfryngau</span>
 <span class="pch pch-stt">STT/TTS</span>
@@ -141,19 +141,19 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Pensaernïaeth aml-sianel</h2>
-<p>Un bont WebSocket, pum lôn gyfathrebu annibynnol</p>
+<p>One WebSocket bridge, five independent communication lanes</p>
 </div>
 <div class="ws-diagram">
 <div class="ws-row">
-<div class="ws-node">📱 Ap Android</div>
+<div class="ws-node">📱 Android App</div>
 <div class="ws-arrow">⟷</div>
-<div class="ws-node">Rhwyll tailscale</div>
+<div class="ws-node">Tailscale mesh</div>
 <div class="ws-arrow">⟷</div>
 <div class="ws-node">🖥️ Penbwrdd</div>
 </div>
 <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">sianel IDE</div><div class="ws-label">Sgwrs AI · gorchmynion · sgrinluniau · uwchlwytho ffeiliau</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Fideo P2P</div><div class="ws-label">Taith gyfnewid SDP/ICE WebRTC · A/V hwyrni isel</div></div>
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">sianel IDE</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Porwr ffeil</div><div class="ws-label">Darllen · ysgrifennu · golygu ffeiliau ar y bwrdd gwaith</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Ffrwd cyfryngau</div><div class="ws-label">NAS / DLNA · bwrw i'r ffôn</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Rhannu sgrin</div><div class="ws-label">Drych bwrdd gwaith arddull VNC/RDP</div></div>
@@ -169,26 +169,26 @@
 <div class="channel-card ch-ide">
 <span class="ch-badge">SIANEL 1</span>
 <div class="ch-icon">🧠</div>
-<h3>IDE AI Sianel</h3>
-<p>Pont ddwy ffordd lawn i'r bwrdd gwaith AI. Anfon anogwyr o'ch ffôn, derbyn ymatebion wedi'u ffrydio. Gall yr AI ddarllen ffeiliau, rhedeg gorchmynion terfynell a chymhwyso golygiadau cod - pob un wedi'i sbarduno o'ch poced. Atodwch sgrinluniau neu luniau yn uniongyrchol o gofrestr eich camera fel cyd-destun.</p>
+<h3>IDE AI Channel</h3>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">AI ffrydio</span><span class="tag">Uwchlwytho ffeil</span><span class="tag">Sgrinluniau</span>
+<span class="tag">AI streaming</span><span class="tag">Uwchlwytho ffeil</span><span class="tag">Sgrinluniau</span>
 </div>
 </div>
 <div class="channel-card ch-p2p">
 <span class="ch-badge">SIANEL 2</span>
 <div class="ch-icon">📹</div>
-<h3>Fideo a Llais P2P Grŵp</h3>
-<p>Fideo a sain WebRTC rhwyll llawn ar gyfer grwpiau o 4 neu fwy - dim gweinydd cyfryngau canolog, dim bil misol. Tap <strong>Fideo grŵp</strong> i ffonio pob cyfoedion ar-lein ar unwaith. Mae'r grid yn addasu'n awtomatig wrth i gyfranogwyr ymuno â: 1 = sgrin lawn, 2 = ochr yn ochr, 3 = 2+1, 4 = 2×2, 5+ = grid awto-ffitio sgroladwy. Mae eich porthiant lleol yn arnofio fel llun-mewn-llun. Graddfeydd didau i lawr fesul cyfoedion i gadw ansawdd yn gytbwys ar unrhyw faint grŵp.</p>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Fideo grŵp</strong> i ffonio pob cyfoedion ar-lein ar unwaith. Mae'r grid yn addasu'n awtomatig wrth i gyfranogwyr ymuno â: 1 = sgrin lawn, 2 = ochr yn ochr, 3 = 2+1, 4 = 2×2, 5+ = grid awto-ffitio sgroladwy. Mae eich porthiant lleol yn arnofio fel llun-mewn-llun. Graddfeydd didau i lawr fesul cyfoedion i gadw ansawdd yn gytbwys ar unrhyw faint grŵp.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">WebRTC llawn-rwyll</span><span class="tag">Grid addasol</span><span class="tag">Porthiant lleol PiP</span><span class="tag">Gweinydd signal Termux</span>
+<span class="tag">WebRTC full-mesh</span><span class="tag">Grid addasol</span><span class="tag">Porthiant lleol PiP</span><span class="tag">Gweinydd signal Termux</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
 <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">PONT SIM</span>
 <div class="ch-icon">📞</div>
 <h3>Pont Galw SIM</h3>
-<p>Eisoes ar alwad cellog ac eisiau dod â chyfoedion P2P i mewn? Tap <strong>Ychwanegu at y grŵp galwadau</strong> — mae'r ap yn cofrestru'r alwad WebRTC gyda stac telathrebu Android ochr yn ochr â'r alwad SIM. Mae Android yn cyflwyno opsiwn "Uno galwadau" brodorol; ei dderbyn dwylo cymysgu sain i'r caledwedd teleffoni. Mae'r alwad cyfun yn chwarae yn y <strong>clustffon yn unig</strong> — cwbl breifat, dim ffôn siaradwr, does neb yn yr ystafell yn clywed. Pan nad yw'r cludwr yn cefnogi cynhadledd caledwedd, mae pont clustffon Bluetooth yn llwybro'r holl sain drwy'r cyswllt BT SCO yn lle hynny.</p>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Ychwanegu at y grŵp galwadau</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>clustffon yn unig</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Cynhadledd caledwedd</span><span class="tag">BT SCO wrth gefn</span><span class="tag">Clustffon yn unig</span><span class="tag">Gwasanaeth Cysylltiad</span>
 </div>
@@ -196,8 +196,8 @@
 <div class="channel-card ch-ide" style="border-color:#764ba2;">
 <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">SIANEL 3</span>
 <div class="ch-icon">🎭</div>
-<h3>Cyflwynydd Kameleon o Bell</h3>
-<p>Rheoli'r llwyfan Kameleon cyfan o'ch ffôn. Symud sleidiau ymlaen, ysgogi ciwiau, gwthio delweddau neu destun yn uniongyrchol i bentwr llwyfan, cymeradwyo neu wrthod cyflwyniadau gan gymheiriaid a rheoli'r bwrdd lluniadu cydweithredol - i gyd heb gyffwrdd â'r bysellfwrdd bwrdd gwaith.</p>
+<h3>Kameleon Presenter Remote</h3>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">stack_nesaf/blaen</span><span class="tag">gwthio_slot</span><span class="tag">stack_cymeradwyo</span><span class="tag">tynnu_strôc</span>
 </div>
@@ -206,16 +206,16 @@
 <span class="ch-badge">SIANEL 4</span>
 <div class="ch-icon">🖥️</div>
 <h3>Drych Sgrin (arddull VNC/RDP)</h3>
-<p>Gweld a rhyngweithio â'ch sgrin bwrdd gwaith o'r ffôn. Wedi'i weithredu fel ffrwd dal sgrin ysgafn dros y rhwyll Tailscale - nid oes angen gweinydd VNC trydydd parti. Tapiwch i glicio, swipe i sgrolio. Yn ddefnyddiol ar gyfer monitro prosesau rhedeg neu gymeradwyo gweithredoedd AI o bell.</p>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Cipio sgrin</span><span class="tag">Tap-i-glicio</span><span class="tag">Graddfa gynffon yn unig</span>
+<span class="tag">Cipio sgrin</span><span class="tag">Tap-i-glicio</span><span class="tag">Tailscale only</span>
 </div>
 </div>
 <div class="channel-card ch-file">
 <span class="ch-badge">SIANEL 5</span>
 <div class="ch-icon">📂</div>
 <h3>Porwr Ffeil o Bell a Golygydd</h3>
-<p>Porwch eich system ffeiliau bwrdd gwaith o'r ffôn. Agor, darllen a golygu ffeiliau testun. Llwythwch i fyny ffeiliau o'r camera ffôn neu storfa yn uniongyrchol i ffolder prosiect. Gofynnwch i'r IDE AI brosesu'r ffeil a uwchlwythwyd yn syth ar ôl ei throsglwyddo - e.e. "ychwanegu'r ddelwedd hon i lwyfan y cyflwynydd".</p>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Pori</span><span class="tag">Golygu</span><span class="tag">Llwytho i fyny o'r camera</span>
 </div>
@@ -224,25 +224,25 @@
 <span class="ch-badge">SIANEL 6</span>
 <div class="ch-icon">🎵</div>
 <h3>Ffrydio Cyfryngau (NAS / DLNA)</h3>
-<p>Ffrydiwch gerddoriaeth a fideo o weinydd NAS neu DLNA ar eich rhwydwaith cartref i'r ffôn dros Tailscale. Porwch y llyfrgell gyfryngau, traciau ciw a rheolaeth chwarae - mae'r bwrdd gwaith yn gweithredu fel pont rhwng eich gweinydd cyfryngau lleol a'r ffôn ble bynnag yr ydych ar y tailnet.</p>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Pont tailscale</span>
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Tailscale bont</span>
 </div>
 </div>
 <div class="channel-card ch-acct">
 <span class="ch-badge">SIANEL 7</span>
 <div class="ch-icon">🧾</div>
 <h3>Cyfrifo— Cipio Derbynneb</h3>
-<p>Tynnwch lun o dderbynneb ar eich ffôn a'i hanfon yn syth i'r modiwl cyfrifo. Mae'r IDE AI yn darllen y ddelwedd, yn tynnu'r swm, y dyddiad, y cyflenwr a'r TAW, ac yn logio cofnod dyddlyfr drafft yn y cyfriflyfr cofnod dwbl - yn barod i chi ei adolygu a'i bostio ar y bwrdd gwaith.</p>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Derbynneb OCR</span><span class="tag">Dyddiadur drafft</span><span class="tag">Echdynnu TAW</span>
+<span class="tag">Derbynneb OCR</span><span class="tag">Dyddiadur drafft</span><span class="tag">VAT extraction</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#ec4899;">
 <span class="ch-badge" style="background:#fce7f3;color:#be185d;">SIANEL 8</span>
 <div class="ch-icon">🗣️</div>
-<h3>Llais AI — Ffonio STT &amp; TTS</h3>
-<p>Siaradwch â'r IDE AI o'ch ffôn gan ddefnyddio llais-i-destun ar y ddyfais. Mae'r ymateb AI yn cael ei ffrydio'n ôl a'i ddarllen yn uchel trwy destun-i-leferydd. Cymorth codio di-dwylo tra bod eich bwrdd gwaith yn rhedeg heb oruchwyliaeth - gorchymyn atgyweiriad, clywed y canlyniad, cadarnhau o'r ffôn.</p>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">STT ar y ddyfais</span><span class="tag">Chwarae TTS</span><span class="tag">Di-dwylo</span>
 </div>
@@ -255,29 +255,29 @@
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Rhwyll tailscale-sicrhau</h4>
-<p>Mae pob sianel yn rhedeg dros eich rhwydwaith Tailscale preifat. Nid oes unrhyw borthladdoedd yn cael eu hagor i'r rhyngrwyd cyhoeddus. Rhaid i'r ffôn gael ei awdurdodi ar eich tailnet - mae popeth arall wedi'i amgryptio o'r dechrau i'r diwedd gyda WireGuard.</p>
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔌</div>
 <div class="strip-body">
-<h4>Pont WebSocket sengl</h4>
-<p>Mae'r bwrdd gwaith yn rhedeg <code>chameleon_mobile_bridge.py</code> fel edau daemon y tu mewn i'r broses Qt. Mae'r app ffôn yn cysylltu â phorthladd 8770 ar yr IP Tailscale. Mae un cysylltiad parhaus yn cario pob sianel fel negeseuon JSON wedi'u teipio.</p>
+<h4>Single WebSocket bridge</h4>
+<p>Mae'r bwrdd gwaith yn rhedeg <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Termux ar Android</h4>
-<p>Y gweinydd signal (<code>chameleon_signal.py</code>) yn gallu rhedeg yn uniongyrchol ar y ffôn Android trwy Termux - gan wneud y ffôn yn gleient ac yn nod signalau. Nid oes angen ras gyfnewid cwmwl ar gyfer cysylltiadau cyfoedion WebRTC o fewn eich tailnet.</p>
+<h4>Termux on Android</h4>
+<p>Y gweinydd signal (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📶</div>
 <div class="strip-body">
 <h4>LAN wrth gefn</h4>
-<p>Pan nad yw Tailscale ar gael, <code>lan_video.py</code> yn ffrydio fideo dros y CDU (porthladd 47732) a sain dros y CDU (porthladd 47733) yn uniongyrchol ar y rhwydwaith lleol - yr un sianeli, dim VPN uwchben.</p>
+<p>Pan nad yw Tailscale ar gaelaiar gael, <code>lan_video.py</code> yn ffrydio fideo dros y CDU (porthladd 47732) a sain dros y CDU (porthladd 47733) yn uniongyrchol ar y rhwydwaith lleol - yr un sianeli, dim VPN uwchben.</p>
 </div>
 </div>
 </div>
@@ -290,7 +290,7 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
+<a href="../index.html">Cartref</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Cyflwynydd</a>
 <a href="../companion.html">Ap Cydymaith</a><a href="../logistics4x4.html">Logisteg 4×4</a>
 <a href="../services.html">Gwasanaethau Gwe</a><a href="../accounting.html">Cyfrifeg</a>
 <a href="../technician.html">Technegydd PC</a><a href="../trading.html">Masnachu</a>

@@ -176,7 +176,7 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
 <a class="active" href="../logistics4x4.html">Logistics 4×4</a>
@@ -188,8 +188,8 @@
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 Αναφορά κώδικα επικοινωνιών πεδίου</h1>
-<div class="edition">Logistics 4×4 · Έκδοση 1 · 2026 · Chameleon AI Technicians Ltd</div>
-<p>Ένα συμπαγές πρωτόκολλο κώδικα για χρήση όταν η συνδεσιμότητα δεδομένων δεν είναι διαθέσιμη. Σχεδιασμένο για οδηγούς φορτηγών, πεζοπόρους και υπηρεσίες έκτακτης ανάγκης που λειτουργούν διασυνοριακά ή σε απομακρυσμένο έδαφος. Τρία προφίλ χρηστών μοιράζονται ένα κοινό λεξιλόγιο ειδοποιήσεων και συστήματος — επιτρέποντας την επικοινωνία μεταξύ πρακτορείων ακόμη και υπό εξαιρετικά υποβαθμισμένες συνθήκες.</p>
+<div class="edition">Logistics 4×4 · Edition 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>A compact code protocol for use when data connectivity is unavailable. Designed for truck drivers, hikers, and emergency services operating across borders or in remote terrain. Three user profiles share a common alert and system vocabulary — enabling cross-agency communication even under severely degraded conditions.</p>
 <p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Η κοινή χρήση αυτής της αναφοράς ενθαρρύνεται. Η διαλειτουργικότητα εξαρτάται από το ότι όλα τα μέρη γνωρίζουν τους κωδικούς.</p>
 </div>
 <!-- ── Download / print strip ──────────────────────────────── -->
@@ -210,7 +210,7 @@
 <div class="code-annotation" style="margin-top:-.8rem;">
 <span>└────── Επιστολή κατηγορίας</span>
 </div>
-<p style="margin-top:.8rem;">Πολλαπλοί κωδικοί μπορούν να συνδυαστούν σε ένα μόνο μήνυμα. Μια σημείωση ελεύθερου κειμένου μπορεί να προσαρτηθεί για περισσότερες λεπτομέρειες.</p>
+<p style="margin-top:.8rem;">Multiple codes can be combined in a single message. A free-text note can be appended for additional detail.</p>
 <div class="user-types">
 <div class="ut">
 <div class="ut-letter ut-d">ρε</div>
@@ -321,13 +321,13 @@
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
 <tr><td class="code-cell">Β11</td><td>Πλησιάζει τα σύνορα. Μέσα σε είκοσι χιλιόμετρα.</td></tr>
-<tr><td class="code-cell">Β22</td><td>Στην ουρά στο συνοριακό φυλάκιο. Κανονική αναμονή.</td></tr>
+<tr><td class="code-cell">Β22</td><td>In queue at border post. Normal wait.</td></tr>
 <tr><td class="code-cell">Β33</td><td>Καθυστέρηση στα σύνορα. Ζήτημα γραφειοκρατίας.</td></tr>
 <tr><td class="code-cell">Β44</td><td>Παραγγέλθηκε έλεγχος εμπορευμάτων.</td></tr>
 <tr><td class="code-cell">Β55</td><td>Απαιτείται ανεπίσημη πληρωμή.</td></tr>
 <tr><td class="code-cell">Β66</td><td>Κατασχέθηκαν εμπορεύματα από τις αρχές.</td></tr>
 <tr><td class="code-cell">Β77</td><td>Το όχημα κατασχέθηκε.</td></tr>
-<tr><td class="code-cell">Β88</td><td>Συνελήφθη ο οδηγός.</td></tr>
+<tr><td class="code-cell">Β88</td><td>Driver detained.</td></tr>
 <tr class="crit"><td class="code-cell">Β99</td><td>Απορρίφθηκε η είσοδος. Γύρισε πίσω.</td></tr>
 </tbody>
 </table>
@@ -349,7 +349,7 @@
 <tr><td class="code-cell">C55</td><td>Διαρροή ή αντικείμενα που έπεσαν από όχημα.</td></tr>
 <tr><td class="code-cell">C66</td><td>Μερική κλοπή φορτίου.</td></tr>
 <tr><td class="code-cell">C77</td><td>Όλο το φορτίο κλάπηκε ή κατασχέθηκε.</td></tr>
-<tr><td class="code-cell">C88</td><td>Περιστατικό Hazmat ή ψυχρής αλυσίδας.</td></tr>
+<tr><td class="code-cell">C88</td><td>Hazmat or cold-chain incident.</td></tr>
 <tr class="crit"><td class="code-cell">C99</td><td>Συνολική απώλεια φορτίου.</td></tr>
 </tbody>
 </table>
@@ -367,10 +367,10 @@
 <tr><td class="code-cell">Δ11</td><td>Οδηγός σε υπηρεσία. Οδηγώντας κανονικά.</td></tr>
 <tr><td class="code-cell">D22</td><td>Οδηγός σε στάση. Καύσιμα, γεύμα ή διάλειμμα.</td></tr>
 <tr><td class="code-cell">D33</td><td>Οδηγός φόρτωσης ή εκφόρτωσης φορτίου.</td></tr>
-<tr><td class="code-cell">D44</td><td>Οδηγός σε αναμονή. Τελωνείο, σημείο ελέγχου ή κυκλοφορία.</td></tr>
+<tr><td class="code-cell">D44</td><td>Driver waiting. Customs, checkpoint, or traffic.</td></tr>
 <tr><td class="code-cell">D55</td><td>Ο οδηγός καθυστέρησε. Πρόβλημα. Δεν είναι δυνατή η συνέχεια.</td></tr>
 <tr><td class="code-cell">D66</td><td>Ο οδηγός αισθάνεται αδιαθεσία ή κούραση.</td></tr>
-<tr><td class="code-cell">D77</td><td>Ο οδηγός συνελήφθη ή αντιμετωπίζει νομικά προβλήματα.</td></tr>
+<tr><td class="code-cell">D77</td><td>Driver detained or facing legal issue.</td></tr>
 <tr><td class="code-cell">D88</td><td>Βλάβη προγράμματος οδήγησης. Δεν μπορώ να συνεχίσω χωρίς βοήθεια.</td></tr>
 <tr class="crit"><td class="code-cell">D99</td><td>Έκτακτη ανάγκη οδηγού. Οδηγός σε κίνδυνο.</td></tr>
 </tbody>
@@ -392,7 +392,7 @@
 <tr><td class="code-cell">Ε33</td><td>Πολλαπλά σκασμένα ελαστικά. Δεν μπορεί να αλλάξει.</td></tr>
 <tr><td class="code-cell">Ε44</td><td>Υπερθέρμανση κινητήρα. Τραβήχτηκε πάνω.</td></tr>
 <tr><td class="code-cell">Ε55</td><td>Μηχανική βλάβη. Μη κινητήρας.</td></tr>
-<tr><td class="code-cell">Ε66</td><td>Πλήρης βλάβη κινητήρα.</td></tr>
+<tr><td class="code-cell">Ε66</td><td>Complete engine failure.</td></tr>
 <tr><td class="code-cell">Ε77</td><td>Φωτιά.</td></tr>
 <tr><td class="code-cell">Ε88</td><td>Ζημιά από ατύχημα. Το όχημα δεν μπορεί να κινηθεί.</td></tr>
 <tr class="crit"><td class="code-cell">Ε99</td><td>Διαγραφή οχήματος. Συνολική απώλεια.</td></tr>
@@ -432,7 +432,7 @@
 <tr><td class="code-cell">G11</td><td>Σόλο όχημα. Χωρίς κομβόι.</td></tr>
 <tr><td class="code-cell">G22</td><td>Μολύβδινο όχημα συνοδείας.</td></tr>
 <tr><td class="code-cell">G33</td><td>Συνοδεία μεσαία θέση.</td></tr>
-<tr><td class="code-cell">G44</td><td>Όχημα ουράς συνοδείας.</td></tr>
+<tr><td class="code-cell">G44</td><td>Convoy tail vehicle.</td></tr>
 <tr><td class="code-cell">G55</td><td>Συνοδεία ανέπαφη. Παρόντα όλα τα φορτηγά.</td></tr>
 <tr><td class="code-cell">G66</td><td>Ένα όχημα λείπει από τη συνοδεία.</td></tr>
 <tr><td class="code-cell">G77</td><td>Πολλά οχήματα αγνοούνται.</td></tr>
@@ -598,8 +598,8 @@
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
 <tr><td class="code-cell">Ε11</td><td>Διαυγές και στεγνό. Καλή ορατότητα.</td></tr>
-<tr><td class="code-cell">Ε22</td><td>Ελαφριά βροχή ή ομίχλη.</td></tr>
-<tr><td class="code-cell">W33</td><td>Δυνατή βροχή.</td></tr>
+<tr><td class="code-cell">Ε22</td><td>Light rain or haze.</td></tr>
+<tr><td class="code-cell">W33</td><td>Heavy rain.</td></tr>
 <tr><td class="code-cell">Ε44</td><td>Καταιγίδα ή δυνατός άνεμος.</td></tr>
 <tr><td class="code-cell">W55</td><td>Ομίχλη ή κακή ορατότητα.</td></tr>
 <tr><td class="code-cell">Ε66</td><td>Πλημμύρα. Δρόμος βρεγμένος αλλά βατός.</td></tr>
@@ -625,10 +625,10 @@
 <div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">Απαιτείται βοήθεια</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
 <tr><td class="code-cell">H11</td><td>Χρειάζεστε φαγητό ή νερό.</td></tr>
-<tr><td class="code-cell">H22</td><td>Χρειάζεστε πρώτες βοήθειες ή ιατρικό κιτ.</td></tr>
+<tr><td class="code-cell">H22</td><td>Need first aid or medical kit.</td></tr>
 <tr><td class="code-cell">H33</td><td>Χρειάζεστε ιατρική βοήθεια ή αξιολόγηση εκκένωσης.</td></tr>
 <tr><td class="code-cell">H44</td><td>Χρειάζεται ομάδα διάσωσης.</td></tr>
-<tr><td class="code-cell">H55</td><td>Χρειάζεστε ελικόπτερο ή αεροπορική εκκένωση.</td></tr>
+<tr><td class="code-cell">H55</td><td>Need helicopter or air evacuation.</td></tr>
 <tr><td class="code-cell">H66</td><td>Χρειάζεται έρευνα και διάσωση.</td></tr>
 <tr><td class="code-cell">H77</td><td>Χρειάζεστε καταφύγιο ή μπιβουάκ έκτακτης ανάγκης.</td></tr>
 <tr><td class="code-cell">H88</td><td>Χρειάζεται επείγουσα εκκένωση. Δεν μπορώ να περπατήσω.</td></tr>
@@ -636,17 +636,17 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Τ</div><div class="cat-icon">🏔</div><div class="cat-name">Συνθήκες διαδρομής</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Τ</div><div class="cat-icon">🏔</div><div class="cat-name">Trail conditions</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">Τ11</td><td>Καλή διαδρομή. Καλά σημειωμένο. Καλόβολος.</td></tr>
-<tr><td class="code-cell">Τ22</td><td>Μονοπάτι διακοπτόμενο ή κατάφυτο.</td></tr>
-<tr><td class="code-cell">Τ33</td><td>Χάθηκε το μονοπάτι. Πλοήγηση με GPS ή πυξίδα.</td></tr>
-<tr><td class="code-cell">Τ44</td><td>Εκτός διαδρομής. Ανοιχτό έδαφος. Πλωτός.</td></tr>
+<tr><td class="code-cell">Τ11</td><td>Good trail. Well marked. Easy going.</td></tr>
+<tr><td class="code-cell">Τ22</td><td>Trail intermittent or overgrown.</td></tr>
+<tr><td class="code-cell">Τ33</td><td>Trail lost. Navigating by GPS or compass.</td></tr>
+<tr><td class="code-cell">Τ44</td><td>Off trail. Open terrain. Navigable.</td></tr>
 <tr><td class="code-cell">Τ55</td><td>Απότομη ανάβαση. Επιβράδυνση του ρυθμού.</td></tr>
 <tr><td class="code-cell">Τ66</td><td>Απότομη κατάβαση. Φροντίζοντας.</td></tr>
-<tr><td class="code-cell">Τ77</td><td>Τεχνικό έδαφος. Στραμπλ, βράχος ή χιόνι.</td></tr>
+<tr><td class="code-cell">Τ77</td><td>Technical terrain. Scramble, rock, or snow.</td></tr>
 <tr><td class="code-cell">Τ88</td><td>Επικίνδυνο τμήμα. Διασχίζοντας προσεκτικά.</td></tr>
-<tr class="crit"><td class="code-cell">Τ99</td><td>Έδαφος αδιάβατο. Αναγκάστηκε να γυρίσει πίσω.</td></tr>
+<tr class="crit"><td class="code-cell">Τ99</td><td>Terrain impassable. Forced to turn back.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -655,11 +655,11 @@
 <tr><td class="code-cell">U11</td><td>Όλος ο εξοπλισμός σε καλή κατάσταση.</td></tr>
 <tr><td class="code-cell">U22</td><td>Μικρό πρόβλημα με τον εξοπλισμό. Μη κρίσιμο.</td></tr>
 <tr><td class="code-cell">U33</td><td>Ο εξοπλισμός είναι κατεστραμμένος αλλά βρέθηκε λύση.</td></tr>
-<tr><td class="code-cell">U44</td><td>Αποτυχία κρίσιμου στοιχείου. Σκηνή, σόμπα ή φίλτρο.</td></tr>
-<tr><td class="code-cell">U55</td><td>Χάθηκε ή απέτυχε ο εξοπλισμός πλοήγησης.</td></tr>
-<tr><td class="code-cell">U66</td><td>Κουτί πρώτων βοηθειών σε χρήση.</td></tr>
+<tr><td class="code-cell">U44</td><td>Critical item failing. Tent, stove, or filter.</td></tr>
+<tr><td class="code-cell">U55</td><td>Navigation equipment lost or failed.</td></tr>
+<tr><td class="code-cell">U66</td><td>First aid kit in use.</td></tr>
 <tr><td class="code-cell">U77</td><td>Ζητείται καταφύγιο έκτακτης ανάγκης. Ρύθμιση bivouac.</td></tr>
-<tr><td class="code-cell">U88</td><td>Πολλαπλές κρίσιμες αστοχίες γραναζιών.</td></tr>
+<tr><td class="code-cell">U88</td><td>Multiple critical gear failures.</td></tr>
 <tr class="crit"><td class="code-cell">U99</td><td>Χάθηκε όλος ο απαραίτητος εξοπλισμός. Καταστροφικός.</td></tr>
 </tbody></table>
 </div>
@@ -670,7 +670,7 @@
 <tr><td class="code-cell">V22</td><td>Μικρή κόπωση ή δυσφορία. Συνεχίζοντας.</td></tr>
 <tr><td class="code-cell">V33</td><td>Φουσκάλες ή μικροτραυματισμός. Επιβράδυνση ελαφρά.</td></tr>
 <tr><td class="code-cell">V44</td><td>Βλάβη. Σημαντικά πιο αργός ρυθμός.</td></tr>
-<tr><td class="code-cell">V55</td><td>Το μέλος δεν μπορεί να διατηρήσει κανονικό ρυθμό.</td></tr>
+<tr><td class="code-cell">V55</td><td>Member cannot maintain normal pace.</td></tr>
 <tr><td class="code-cell">V66</td><td>Σοβαρός τραυματισμός. Σταμάτησε. Αξιολόγηση της εκκένωσης.</td></tr>
 <tr><td class="code-cell">V77</td><td>Μέλος κατέρρευσε ή αναίσθητο.</td></tr>
 <tr><td class="code-cell">V88</td><td>Επείγουσα ιατρική κατάσταση. Απαιτείται εκκένωση.</td></tr>
@@ -687,7 +687,7 @@
 <tr><td class="code-cell">Υ55</td><td>Χάσατε το προηγούμενο παράθυρο check-in. Τώρα αναφορά.</td></tr>
 <tr><td class="code-cell">Υ66</td><td>Αίτημα επιβεβαίωσης από τη βάση.</td></tr>
 <tr><td class="code-cell">Υ77</td><td>Ασφαλής άφιξη στην κατασκήνωση ή προγραμματισμένο σημείο.</td></tr>
-<tr><td class="code-cell">Υ88</td><td>Φθίνων. Τελικό σκέλος προς αιχμή του μονοπατιού.</td></tr>
+<tr><td class="code-cell">Υ88</td><td>Descending. Final leg to trailhead.</td></tr>
 <tr class="crit"><td class="code-cell">Υ99</td><td>Χάθηκαν πολλά check-in. Ενεργοποιήθηκε συναγερμός έκτακτης ανάγκης.</td></tr>
 </tbody></table>
 </div>
@@ -756,7 +756,7 @@
 <tr><td class="code-cell">N22</td><td>Δύο έως πέντε θύματα.</td></tr>
 <tr><td class="code-cell">Ν33</td><td>Έξι με δέκα θύματα.</td></tr>
 <tr><td class="code-cell">Ν44</td><td>Έντεκα έως είκοσι θύματα.</td></tr>
-<tr><td class="code-cell">N55</td><td>Είκοσι με πενήντα θύματα.</td></tr>
+<tr><td class="code-cell">Ν55</td><td>Είκοσι με πενήντα θύματα.</td></tr>
 <tr><td class="code-cell">Ν66</td><td>Πενήντα έως εκατό θύματα.</td></tr>
 <tr><td class="code-cell">Ν77</td><td>Πάνω από εκατό θύματα.</td></tr>
 <tr><td class="code-cell">Ν88</td><td>Άγνωστος αριθμός. Η αξιολόγηση της σκηνής συνεχίζεται.</td></tr>
@@ -769,7 +769,7 @@
 <tr><td class="code-cell">V11</td><td>Συνειδητός και σε εγρήγορση. Μιλάμε κανονικά.</td></tr>
 <tr><td class="code-cell">V22</td><td>Συνειδητοποιημένος αλλά μπερδεμένος ή ταραγμένος.</td></tr>
 <tr><td class="code-cell">V33</td><td>Απάντηση μόνο σε φωνητικές εντολές.</td></tr>
-<tr><td class="code-cell">V44</td><td>Ανταπόκριση μόνο στον πόνο. Αναίσθητος.</td></tr>
+<tr><td class="code-cell">V44</td><td>Responding to pain only. Unconscious.</td></tr>
 <tr><td class="code-cell">V55</td><td>Απαθής. Αναπνοή παρόν.</td></tr>
 <tr><td class="code-cell">V66</td><td>Δεν αναπνέει. ΚΑΡΠΑ σε εξέλιξη.</td></tr>
 <tr><td class="code-cell">V77</td><td>Σοβαρή αιμορραγία. Εφαρμόστηκε τουρνικέ.</td></tr>
@@ -780,8 +780,8 @@
 <div class="section-block">
 <div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Πόροι επί σκηνής</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">R11</td><td>Μόνο πρώτων βοηθειών. Κανένας επαγγελματίας ανταποκριτής.</td></tr>
-<tr><td class="code-cell">R22</td><td>Παραϊατρικός ή προχωρημένος βοηθός πρώτων βοηθειών στη σκηνή.</td></tr>
+<tr><td class="code-cell">R11</td><td>First aider only. No professional responder.</td></tr>
+<tr><td class="code-cell">R22</td><td>Paramedic or advanced first aider on scene.</td></tr>
 <tr><td class="code-cell">R33</td><td>Επί τόπου συνεργείο ασθενοφόρου.</td></tr>
 <tr><td class="code-cell">R44</td><td>Επί τόπου συνεργείο της Πυροσβεστικής.</td></tr>
 <tr><td class="code-cell">R55</td><td>Επί τόπου η αστυνομία.</td></tr>
@@ -796,7 +796,7 @@
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
 <tr><td class="code-cell">H11</td><td>Δεν απαιτούνται πρόσθετοι πόροι.</td></tr>
 <tr><td class="code-cell">H22</td><td>Απαιτείται επιπλέον επίγειο ασθενοφόρο.</td></tr>
-<tr><td class="code-cell">H33</td><td>Απαιτείται ασθενοφόρο ή ελικόπτερο.</td></tr>
+<tr><td class="code-cell">H33</td><td>Air ambulance or helicopter required.</td></tr>
 <tr><td class="code-cell">H44</td><td>Απαιτείται πυρκαγιά και διάσωση.</td></tr>
 <tr><td class="code-cell">H55</td><td>Απαιτείται αστυνομική ή ένοπλη αντίδραση.</td></tr>
 <tr><td class="code-cell">H66</td><td>Απαιτείται ομάδα HAZMAT ή μόλυνσης.</td></tr>
@@ -812,7 +812,7 @@
 <tr><td class="code-cell">Ε22</td><td>Δυνατότητα αυτοεκκένωσης. Θύματα που περπατούν στη μεταφορά.</td></tr>
 <tr><td class="code-cell">Ε33</td><td>Δυνατότητα εκκένωσης του οχήματος. Ο δρόμος είναι προσβάσιμος.</td></tr>
 <tr><td class="code-cell">Ε44</td><td>Απαιτείται εκκένωση φορείου.</td></tr>
-<tr><td class="code-cell">Ε55</td><td>Απαιτείται εκκένωση αέρα. Απαιτείται ζώνη προσγείωσης.</td></tr>
+<tr><td class="code-cell">Ε55</td><td>Air evacuation required. Landing zone needed.</td></tr>
 <tr><td class="code-cell">Ε66</td><td>Απαιτείται εκκένωση νερού ή σκάφους.</td></tr>
 <tr><td class="code-cell">Ε77</td><td>Απαιτείται τεχνική διάσωση. Σχοινί ή περιορισμένος χώρος.</td></tr>
 <tr><td class="code-cell">Ε88</td><td>Η διαδρομή εκκένωσης διακυβεύτηκε. Αναζητώντας εναλλακτική.</td></tr>
@@ -865,12 +865,12 @@
 </table>
 <div class="cta-band no-print" style="margin-top:2.5rem;">
 <h3>Logistics 4×4</h3>
-<p>Διασυνοριακές επικοινωνίες στόλου για μικρούς φορείς εκμετάλλευσης — ζωντανοί χάρτες, ομαδικό βίντεο, γέφυρα SIM και αυτό το πρωτόκολλο έκτακτης ανάγκης, όλα σε ένα τυπικό τηλέφωνο Android.</p>
+<p>Cross-border fleet communications for small operators — live maps, group video, SIM bridge, and this emergency protocol, all on a standard Android phone.</p>
 <a class="btn btn-solid" href="../logistics4x4.html">Μάθετε περισσότερα</a>
 <a class="btn" href="../contact.html">Ελάτε σε επαφή</a>
 </div>
 <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-    © 2026 Chameleon AI Technicians Ltd · Πρωτόκολλο επικοινωνιών πεδίου Logistics 4×4 · Έκδοση 1<br/>
+    © 2026 Chameleon AI Technicians Ltd · Logistics 4×4 Field Communications Protocol · Edition 1<br/>
     Η κοινή χρήση αυτής της αναφοράς ενθαρρύνεται — το απαιτεί η διαλειτουργικότητα.
   </p>
 </div>
@@ -880,7 +880,7 @@
 <a href="../logistics4x4.html">Logistics 4×4</a>
 <a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί άδεια χρήσης · ​​Κατασκευάστηκε από τον Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

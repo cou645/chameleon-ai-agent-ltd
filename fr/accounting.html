@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Comptabilité au Royaume-Uni — Chameleon AI</title>
+<title>UK Accounting — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Caméléon IA</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Accueil</a>
-<a href="../ide.html">VOUS AVEZ DES IDÉES</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Présentateur</a>
 <a href="../companion.html">Application compagnon</a>
 <a href="../logistics4x4.html">Logistique 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Comptabilité au Royaume-Uni</h1>
-<p class="sub">Comptabilité en partie double, suivi de la TVA, profits et pertes, bilan – le tout dans un grand livre SQLite local ciblant HMRC Making Tax Digital.</p>
+<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇫🇷 Plan comptable britannique</span>
-<span class="badge">📋 Prêt pour MTD</span>
-<span class="badge">🔒 SQLite local</span>
-<span class="badge">🤖 Sortie JSON analysable par l'IA</span>
+<span class="badge">📋 MTD-ready</span>
+<span class="badge">🔒 Local SQLite</span>
+<span class="badge">🤖 AI-parseable JSON output</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Chaque transaction est équilibrée au centime près – les débits sont toujours égaux aux crédits</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date │ Compte │ Débit (£) │ Crédit (£) │ TVA</span>
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
 ────────────┼───────────────────── ─────┼───────────┼────────────┼────
-01/04/2026 │ 4000 Chiffre d'affaires │ │  <span class="cr">1,200.00</span>  │S20
-01/04/2026 │ Contrôle TVA 2200 │ │    <span class="cr">240.00</span>  │
+01/04/2026 │ 4000 Chiffre d'affaires │ │  <span class="cr">1,200.00</span>  │ S20
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
 01/04/2026 │ 1 100 dettes commerciales │ <span class="dr">1,440.00</span>  │ │
 ────────────┼───────────────────── ─────┼───────────┼────────────┼────
-2026-04-05 │ 6100 Dépenses de bureau │   <span class="dr">85.00</span>   │ │S20
-05/04/2026 │ Contrôle TVA 2200 │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 Dépenses de bureau │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
 05/04/2026 │ Courant bancaire 1 200 │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Plan comptable britannique</h3>
-<p>Codes de compte standard britanniques prêts à l'emploi : actifs, passifs, capitaux propres, revenus et dépenses mappés aux catégories HMRC. Étendez avec des comptes personnalisés selon vos besoins.</p>
+<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>Grand livre SQLite</h3>
+<h3>SQLite ledger</h3>
 <p>Toutes les données stockées dans <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Fonctionne complètement hors ligne. Prise en charge de plusieurs entreprises : basculez entre les entités avec un indicateur de commande.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Année d'imposition au Royaume-Uni</h3>
-<p>Fin d'année correctement fixée au 5 avril (exercice financier britannique du 6 avril au 5 avril). Les rapports P&amp;L et TVA couvrent automatiquement la période correcte sans ajustement manuel de la date.</p>
+<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Analyse médico-légale des anomalies</h3>
-<p>Courir <code>--forensic</code> pour détecter les écritures déséquilibrées, les références en double, les asymétries de TVA et autres irrégularités. Résultats imprimés sous forme de JSON structuré pour examen par l'IA.</p>
+<p>Courir <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Sortie lisible par l'IA</h3>
-<p>Tous les rapports génèrent un JSON structuré vers la sortie standard afin que Chameleon AI puisse analyser, résumer et donner des conseils sur votre situation financière en langage naturel.</p>
+<h3>AI-readable output</h3>
+<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>Pont WebSocket</h3>
-<p>Le pont comptable WebSocket (<code>acct_ws_bridge.py</code>) expose les requêtes de grand livre au compagnon mobile et aux tableaux de bord externes sur votre réseau Tailscale.</p>
+<h3>WebSocket bridge</h3>
+<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Codes TVA pris en charge</h2>
+<h2>VAT Codes Supported</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Tarif standard 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Récapitulatif de la déclaration de TVA</h4>
-<p>Chiffres de TVA boîte par boîte correspondant au format de déclaration de TVA HMRC MTD : case 1 (taxe en aval), case 4 (taxe en amont), case 6 (ventes nettes), case 7 (achats nets). Courir avec <code>--report vat</code>.</p>
+<h4>VAT Return Summary</h4>
+<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Facturation</h2>
-<p>Factures conformes à l'avis HMRC 700 : imprimées, enregistrées au format PDF ou transférées sur votre téléphone en un seul clic</p>
+<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Champs de facture conformes au Royaume-Uni</h4>
-<p>Chaque facture comprend tous les champs requis par l'avis HMRC 700 : numéro de facture séquentiel unique, nom et adresse du fournisseur, numéro d'enregistrement à la TVA, date de la facture, date de livraison (heure de livraison), nom et adresse du client, numéro de TVA du client le cas échéant, descriptions détaillées des lignes avec quantités et prix unitaires, taux de TVA par ligne, sous-totaux net et TVA et montant total dû. Rien ne manque, rien n'est deviné.</p>
+<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Configuration de l'entreprise</h4>
-<p>Ouvrir <em>Fichier → Factures → Configuration de l'entreprise</em> pour saisir le nom de votre entreprise enregistrée, votre adresse, votre numéro d'entreprise, votre numéro de TVA, votre e-mail, votre téléphone et vos coordonnées bancaires. Les paramètres sont enregistrés par base de données client dans <code>company.json</code> aux côtés du grand livre et chargé automatiquement chaque fois que des factures sont générées pour ce client.</p>
+<p>Ouvrir <em>Fichier → Factures → Configuration de l'entreprise</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> aux côtés du grand livre et chargé automatiquement chaque fois que des factures sont générées pour ce client.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>Base de données de contacts clients</h4>
-<p>La première fois que vous facturez un client, son nom, son adresse et son numéro de TVA sont enregistrés dans un tableau de contacts à l'intérieur du grand livre. Sur les factures suivantes, la saisie du nom du client complète automatiquement ses coordonnées – aucune nouvelle saisie n'est nécessaire. Les contacts sont modifiables à tout moment.</p>
+<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Imprimer, PDF et envoyer au téléphone</h4>
-<p>Depuis le gestionnaire de factures (<em>Fichier → Factures…</em>) sélectionnez n'importe quelle facture et choisissez : <strong>Imprimer</strong> (ouvre la boîte de dialogue d'impression du système d'exploitation - n'importe quelle imprimante ou pilote PDF), <strong>Enregistrer le PDF</strong> (directement sur le disque via l'exportation PDF intégrée de Qt), ou <strong>Envoyer au téléphone</strong> (pousse le HTML de la facture vers l'application Companion où il ouvre la boîte de dialogue d'impression Android - imprimez sans fil sur n'importe quelle imprimante AirPrint ou à proximité).</p>
+<p>Depuis le gestionnaire de factures (<em>Fichier → Factures…</em>) sélectionnez n'importe quelle facture et choisissez : <strong>Imprimer</strong> (ouvre la boîte de dialogue d'impression du système d'exploitation - n'importe quelle imprimante ou pilote PDF), <strong>Enregistrer le PDF</strong> (directement sur le disque via l'exportation PDF intégrée de Qt), ou <strong>Envoyer au téléphone</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Date de fourniture</h3>
-<p>Champ distinct « Date de livraison » (heure de livraison) – distinct de la date de facture. Exigé par le HMRC à des fins de TVA. La valeur par défaut est aujourd'hui mais est modifiable indépendamment par facture.</p>
+<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Impression de factures mobiles</h3>
-<p>L'application Companion peut imprimer n'importe quelle facture sans fil. Appuyez sur l'icône d'impression sur n'importe quelle ligne de facture : l'application récupère le code HTML de l'IDE, le convertit en PDF sur l'appareil via le <code>printing</code> package et ouvre la boîte de dialogue d'impression du système Android.</p>
+<p>L'application Companion peut imprimer n'importe quelle facture sans fil. Appuyez sur l'icône d'impression sur n'importe quelle ligne de facture : l'application récupère le code HTML de l'IDE, le convertit en PDF sur l'appareil via le <code>printing</code> package, and opens the Android system print dialog.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>Conformité à l'avis HMRC 700</h3>
-<p>Les 12 champs obligatoires pour une facture complète avec TVA britannique sont présents et renseignés. Les lignes à taux réduit et détaxées sont clairement étiquetées. La séquence des numéros de facture est strictement monotone, croissante et sans lacunes.</p>
+<h3>HMRC Notice 700 compliance</h3>
+<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Bénéfice et perte pour l'année fiscale en cours</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Bilan à ce jour</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Récapitulatif de déclaration de TVA (cases MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Analyse des anomalies et de l'intégrité</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Référence complète des commandes</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Accueil</a><a href="../ide.html">VOUS AVEZ DES IDÉES</a><a href="../presenter.html">Présentateur</a>
+<a href="../index.html">Accueil</a><a href="../ide.html">AI EDI</a><a href="../presenter.html">Présentateur</a>
 <a href="../accounting.html">Comptabilitu00e9</a><a href="../technician.html">Technicien informatique</a>
 <a href="../trading.html">Commerce</a><a href="../classroom.html">Classe</a><a href="../contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construit par Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ứng dụng đồng hành Chameleon - Android</title>
+<title>Chameleon Companion App — Android</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .channel-grid {
@@ -85,10 +85,10 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Trang chủ</a>
-<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Người trình bày</a>
 <a class="active" href="../companion.html">Ứng dụng đồng hành</a>
 <a href="../accounting.html">Kế toán</a>
@@ -102,13 +102,13 @@
 <div class="hero">
 <div class="hero-icon">📱</div>
 <h1>Ứng dụng đồng hành tắc kè hoa</h1>
-<p class="sub">Điện thoại Android của bạn trở thành cầu nối đa kênh với máy tính để bàn — chuyển tiếp trò chuyện AI, video P2P nhóm cho hơn 4 người tham gia, kết nối cuộc gọi SIM, điều khiển từ xa, truy cập tệp, truyền phát đa phương tiện và tính toán — trên toàn bộ lưới Tailscale riêng tư của bạn.</p>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Trò chuyện AI qua STT/TTS</span>
-<span class="badge">📹 Video P2P nhóm (4+)</span>
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
 <span class="badge">📞 Cầu gọi SIM</span>
 <span class="badge">🎭 Điều khiển từ xa của người thuyết trình</span>
-<span class="badge">🌐 Đuôi xe được bảo đảm an toàn</span>
+<span class="badge">🌐 Tailscale-secured</span>
 <span class="badge">🖥️ Màn hình / VNC</span>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <div class="phone-msg msg-ai">Xong. Đã lưu tệp. Terminal hiển thị lối ra 0.</div>
 <div class="phone-channels">
 <span class="pch pch-ide">IDE</span>
-<span class="pch pch-video">Video P2P</span>
+<span class="pch pch-video">P2P Video</span>
 <span class="pch pch-file">Tập tin</span>
 <span class="pch pch-media">Phương tiện truyền thông</span>
 <span class="pch pch-stt">STT/TTS</span>
@@ -141,19 +141,19 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Kiến trúc đa kênh</h2>
-<p>Một cầu WebSocket, năm làn giao tiếp độc lập</p>
+<p>One WebSocket bridge, five independent communication lanes</p>
 </div>
 <div class="ws-diagram">
 <div class="ws-row">
-<div class="ws-node">📱 Ứng dụng Android</div>
+<div class="ws-node">📱 Android App</div>
 <div class="ws-arrow">⟷</div>
-<div class="ws-node">Lưới đuôi</div>
+<div class="ws-node">Tailscale mesh</div>
 <div class="ws-arrow">⟷</div>
 <div class="ws-node">🖥️ Máy tính để bàn</div>
 </div>
 <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">kênh IDE</div><div class="ws-label">Trò chuyện AI · lệnh · ảnh chụp màn hình · tải tập tin lên</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Video P2P</div><div class="ws-label">Rơle WebRTC SDP/ICE · A/V có độ trễ thấp</div></div>
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">kênh IDE</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Trình duyệt tập tin</div><div class="ws-label">Đọc · viết · chỉnh sửa tập tin trên máy tính để bàn</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Luồng phương tiện</div><div class="ws-label">NAS / DLNA · truyền tới điện thoại</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Chia sẻ màn hình</div><div class="ws-label">Gương để bàn kiểu VNC/RDP</div></div>
@@ -169,26 +169,26 @@
 <div class="channel-card ch-ide">
 <span class="ch-badge">KÊNH 1</span>
 <div class="ch-icon">🧠</div>
-<h3>Kênh AI IDE</h3>
-<p>Cầu nối hai chiều đầy đủ với AI trên máy tính để bàn. Gửi lời nhắc từ điện thoại của bạn, nhận phản hồi trực tiếp. AI có thể đọc tệp, chạy lệnh đầu cuối và áp dụng chỉnh sửa mã — tất cả đều được kích hoạt từ túi của bạn. Đính kèm ảnh chụp màn hình hoặc ảnh trực tiếp từ thư viện ảnh của bạn làm bối cảnh.</p>
+<h3>IDE AI Channel</h3>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Phát trực tuyến AI</span><span class="tag">Tải tập tin lên</span><span class="tag">Ảnh chụp màn hình</span>
+<span class="tag">AI streaming</span><span class="tag">Tải tập tin lên</span><span class="tag">Ảnh chụp màn hình</span>
 </div>
 </div>
 <div class="channel-card ch-p2p">
 <span class="ch-badge">KÊNH 2</span>
 <div class="ch-icon">📹</div>
-<h3>Video &amp; Thoại P2P nhóm</h3>
-<p>Video và âm thanh WebRTC toàn lưới dành cho nhóm từ 4 người trở lên — không có máy chủ phương tiện trung tâm, không có hóa đơn hàng tháng. Vỗ nhẹ <strong>Video nhóm</strong> để gọi tất cả các đồng nghiệp trực tuyến cùng một lúc. Lưới tự động điều chỉnh khi người tham gia tham gia: 1 = toàn màn hình, 2 = cạnh nhau, 3 = 2+1, 4 = 2×2, 5+ = lưới tự động điều chỉnh có thể cuộn. Nguồn cấp dữ liệu địa phương của bạn nổi dưới dạng ảnh trong ảnh. Tốc độ bit giảm xuống trên mỗi thiết bị ngang hàng để giữ chất lượng được cân bằng ở mọi quy mô nhóm.</p>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Video nhóm</strong> để gọi tất cả các đồng nghiệp trực tuyến cùng một lúc. Lưới tự động điều chỉnh khi người tham gia tham gia: 1 = toàn màn hình, 2 = cạnh nhau, 3 = 2+1, 4 = 2×2, 5+ = lưới tự động điều chỉnh có thể cuộn. Nguồn cấp dữ liệu địa phương của bạn nổi dưới dạng ảnh trong ảnh. Tốc độ bit giảm xuống trên mỗi thiết bị ngang hàng để giữ chất lượng được cân bằng ở mọi quy mô nhóm.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Toàn bộ lưới WebRTC</span><span class="tag">Lưới thích ứng</span><span class="tag">Nguồn cấp dữ liệu địa phương PiP</span><span class="tag">Máy chủ tín hiệu Termux</span>
+<span class="tag">WebRTC full-mesh</span><span class="tag">Lưới thích ứng</span><span class="tag">Nguồn cấp dữ liệu địa phương PiP</span><span class="tag">Máy chủ tín hiệu Termux</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
 <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">CẦU SIM</span>
 <div class="ch-icon">📞</div>
 <h3>Cầu gọi SIM</h3>
-<p>Đã thực hiện cuộc gọi di động và muốn mang đến một thiết bị ngang hàng P2P? Vỗ nhẹ <strong>Thêm vào nhóm cuộc gọi</strong> — ứng dụng đăng ký cuộc gọi WebRTC với nhóm viễn thông của Android cùng với cuộc gọi SIM. Android cung cấp tùy chọn "Hợp nhất cuộc gọi" gốc; chấp nhận nó sẽ chuyển việc trộn âm thanh sang phần cứng điện thoại. Cuộc gọi đã hợp nhất sẽ phát trong <strong>chỉ tai nghe</strong> — hoàn toàn riêng tư, không có loa ngoài, không ai trong phòng nghe thấy. Khi nhà cung cấp dịch vụ không hỗ trợ hội thảo phần cứng, cầu nối tai nghe Bluetooth sẽ định tuyến tất cả âm thanh thông qua liên kết BT SCO.</p>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Thêm vào nhóm cuộc gọi</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>chỉ tai nghe</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Hội nghị phần cứng</span><span class="tag">Dự phòng BT SCO</span><span class="tag">Chỉ tai nghe</span><span class="tag">Dịch vụ kết nối</span>
 </div>
@@ -196,8 +196,8 @@
 <div class="channel-card ch-ide" style="border-color:#764ba2;">
 <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">KÊNH 3</span>
 <div class="ch-icon">🎭</div>
-<h3>Điều khiển từ xa của người thuyết trình Kameleon</h3>
-<p>Kiểm soát toàn bộ giai đoạn Kameleon từ điện thoại của bạn. Nâng cao các trang trình bày, kích hoạt tín hiệu, đẩy hình ảnh hoặc văn bản trực tiếp vào ngăn xếp giai đoạn, phê duyệt hoặc từ chối bài nộp ngang hàng và điều khiển bảng vẽ cộng tác — tất cả mà không cần chạm vào bàn phím máy tính để bàn.</p>
+<h3>Kameleon Presenter Remote</h3>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">stack_next/trước</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">nét vẽ</span>
 </div>
@@ -206,16 +206,16 @@
 <span class="ch-badge">KÊNH 4</span>
 <div class="ch-icon">🖥️</div>
 <h3>Gương màn hình (kiểu VNC/RDP)</h3>
-<p>Xem và tương tác với màn hình máy tính để bàn của bạn từ điện thoại. Được triển khai dưới dạng luồng chụp màn hình nhẹ trên lưới Tailscale — không cần máy chủ VNC của bên thứ ba. Nhấn để nhấp, vuốt để cuộn. Hữu ích cho việc giám sát các tiến trình đang chạy hoặc phê duyệt các hành động AI từ xa.</p>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Chụp màn hình</span><span class="tag">Nhấn để nhấp</span><span class="tag">Chỉ có vảy đuôi</span>
+<span class="tag">Chụp màn hình</span><span class="tag">Nhấn để nhấp</span><span class="tag">Tailscale only</span>
 </div>
 </div>
 <div class="channel-card ch-file">
 <span class="ch-badge">KÊNH 5</span>
 <div class="ch-icon">📂</div>
 <h3>Trình duyệt và chỉnh sửa tệp từ xa</h3>
-<p>Duyệt hệ thống tập tin máy tính để bàn của bạn từ điện thoại. Mở, đọc và chỉnh sửa tập tin văn bản. Tải tập tin từ camera điện thoại hoặc bộ lưu trữ trực tiếp vào thư mục dự án. Yêu cầu IDE AI xử lý tệp đã tải lên ngay sau khi chuyển - ví dụ: "thêm hình ảnh này vào giai đoạn người thuyết trình".</p>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Duyệt qua</span><span class="tag">Biên tập</span><span class="tag">Tải lên từ máy ảnh</span>
 </div>
@@ -224,25 +224,25 @@
 <span class="ch-badge">KÊNH 6</span>
 <div class="ch-icon">🎵</div>
 <h3>Truyền phát phương tiện (NAS / DLNA)</h3>
-<p>Truyền phát nhạc và video từ máy chủ NAS hoặc DLNA trên mạng gia đình của bạn tới điện thoại qua Tailscale. Duyệt qua thư viện phương tiện, xếp hàng các bản nhạc và kiểm soát việc phát lại — máy tính để bàn đóng vai trò là cầu nối giữa máy chủ phương tiện cục bộ của bạn và điện thoại dù bạn ở đâu trên tailnet.</p>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Cầu đuôi xe</span>
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">cầu Tailscale</span>
 </div>
 </div>
 <div class="channel-card ch-acct">
 <span class="ch-badge">KÊNH 7</span>
 <div class="ch-icon">🧾</div>
 <h3>Kế toán - Chụp biên lai</h3>
-<p>Chụp ảnh biên nhận trên điện thoại của bạn và gửi thẳng đến phân hệ kế toán. IDE AI đọc hình ảnh, trích xuất số tiền, ngày tháng, nhà cung cấp và VAT, đồng thời ghi nhật ký dự thảo vào sổ cái hai mục - sẵn sàng để bạn xem lại và đăng trên màn hình.</p>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Biên nhận OCR</span><span class="tag">Nhật ký dự thảo</span><span class="tag">trích xuất VAT</span>
+<span class="tag">Biên nhận OCR</span><span class="tag">Nhật ký dự thảo</span><span class="tag">VAT extraction</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#ec4899;">
 <span class="ch-badge" style="background:#fce7f3;color:#be185d;">KÊNH 8</span>
 <div class="ch-icon">🗣️</div>
-<h3>Giọng nói AI — STT &amp; TTS điện thoại</h3>
-<p>Nói chuyện với IDE AI từ điện thoại của bạn bằng cách sử dụng tính năng chuyển giọng nói thành văn bản trên thiết bị. Phản hồi AI được truyền lại và đọc to thông qua tính năng chuyển văn bản thành giọng nói. Hỗ trợ mã hóa rảnh tay trong khi máy tính để bàn của bạn chạy mà không cần giám sát - đưa ra cách khắc phục, nghe kết quả, xác nhận từ điện thoại.</p>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">STT trên thiết bị</span><span class="tag">phát lại TTS</span><span class="tag">Rảnh tay</span>
 </div>
@@ -255,29 +255,29 @@
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Lưới bảo vệ đuôi</h4>
-<p>Tất cả các kênh đều chạy trên mạng Tailscale riêng của bạn. Không có cổng nào được mở cho internet công cộng. Điện thoại phải được cấp phép trên tailnet của bạn — mọi thứ khác đều được mã hóa hai đầu bằng WireGuard.</p>
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔌</div>
 <div class="strip-body">
-<h4>Cầu WebSocket đơn</h4>
-<p>Máy tính để bàn chạy <code>chameleon_mobile_bridge.py</code> như một luồng daemon bên trong quy trình Qt. Ứng dụng điện thoại kết nối với cổng 8770 trên IP Tailscale. Một kết nối liên tục mang tất cả các kênh dưới dạng thông báo JSON đã nhập.</p>
+<h4>Single WebSocket bridge</h4>
+<p>Máy tính để bàn chạy <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Termux trên Android</h4>
-<p>Máy chủ tín hiệu (<code>chameleon_signal.py</code>) có thể chạy trực tiếp trên điện thoại Android thông qua Termux — biến điện thoại vừa là máy khách vừa là nút báo hiệu. Không cần chuyển tiếp đám mây cho các kết nối ngang hàng WebRTC trong tailnet của bạn.</p>
+<h4>Termux on Android</h4>
+<p>Máy chủ tín hiệu (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📶</div>
 <div class="strip-body">
 <h4>Dự phòng mạng LAN</h4>
-<p>Khi Tailscale không có sẵn, <code>lan_video.py</code> truyền phát video qua UDP (cổng 47732) và âm thanh qua UDP (cổng 47733) trực tiếp trên mạng cục bộ — cùng các kênh, không có phí VPN.</p>
+<p>Khi Tailscale không thể bật được, <code>lan_video.py</code> truyền phát video qua UDP (cổng 47732) và âm thanh qua UDP (cổng 47733) trực tiếp trên mạng cục bộ — cùng các kênh, không có phí VPN.</p>
 </div>
 </div>
 </div>
@@ -290,13 +290,13 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../index.html">Trang chủ</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Người trình bày</a>
 <a href="../companion.html">Ứng dụng đồng hành</a><a href="../logistics4x4.html">Hậu cần 4×4</a>
 <a href="../services.html">Dịch vụ web</a><a href="../accounting.html">Kế toán</a>
 <a href="../technician.html">Kỹ thuật viên PC</a><a href="../trading.html">Giao dịch</a>
 <a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Đang chờ cấp phép · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Đang chờ cấp phép · Được xây dựng bởi Marcos hay còn gọi là stemsee</p>
 </footer>
 </body>
 </html>

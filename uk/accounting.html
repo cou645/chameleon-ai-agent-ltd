@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Облік у Великобританії — Chameleon AI</title>
+<title>UK Accounting — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">додому</a>
-<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Ведучий</a>
 <a href="../companion.html">Додаток-супутник</a>
 <a href="../logistics4x4.html">Логістика 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Облік Великобританії</h1>
-<p class="sub">Подвійна бухгалтерія, відстеження ПДВ, прибутки та збитки, баланс — усе це в локальній бухгалтерській книзі SQLite, націленій на HMRC Making Tax Digital.</p>
+<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 План рахунків Великобританії</span>
-<span class="badge">📋 Готовий до MTD</span>
-<span class="badge">🔒 Локальний SQLite</span>
-<span class="badge">🤖 Вихід JSON з можливістю синтаксичного аналізу</span>
+<span class="badge">📋 MTD-ready</span>
+<span class="badge">🔒 Local SQLite</span>
+<span class="badge">🤖 AI-parseable JSON output</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Кожна транзакція збалансована до пенні — дебет завжди дорівнює кредиту</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Дата │ Рахунок │ Дебет (£) │ Кредит (£) │ ПДВ</span>
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
 ----------
 2026-04-01 │ 4000 Дохід від продажів │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 Контроль ПДВ │ │    <span class="cr">240.00</span>  │
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
 2026-04-01 │ 1100 Торгових боржників │ <span class="dr">1,440.00</span>  │ │
 ----------
-2026-04-05 │ 6100 Офісні витрати │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 Контроль ПДВ │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 Офісні витрати │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 Банк поточний │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>План рахунків Великобританії</h3>
-<p>Стандартні коди рахунків Великобританії з коробки — активи, зобов’язання, капітал, доходи та витрати, зіставлені з категоріями HMRC. За потреби розширюйте власні облікові записи.</p>
+<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>Книга SQLite</h3>
+<h3>SQLite ledger</h3>
 <p>Усі дані, що зберігаються в <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Працює повністю в автономному режимі. Підтримка кількох компаній — перемикайтеся між об’єктами за допомогою прапора команди.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Податковий рік Великобританії</h3>
-<p>Кінець року правильно встановлено на 5 квітня (фінансовий рік у Великобританії 6–5 квітня). Звіти про прибутки та збитки та ПДВ автоматично охоплюють правильний період без коригування дати вручну.</p>
+<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Судово-медичне сканування аномалій</h3>
-<p>бігти <code>--forensic</code> для виявлення незбалансованих записів, дублікатів довідок, невідповідностей ПДВ та інших порушень. Результати друкуються як структурований JSON для перевірки AI.</p>
+<p>бігти <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Вихід, який читається штучним інтелектом</h3>
-<p>Усі звіти виводять структурований JSON у stdout, щоб ШІ Chameleon міг аналізувати, узагальнювати та консультувати ваше фінансове становище природною мовою.</p>
+<h3>AI-readable output</h3>
+<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>Міст WebSocket</h3>
-<p>Обліковий міст WebSocket (<code>acct_ws_bridge.py</code>) надає запити реєстру до мобільного компаньйона та зовнішніх інформаційних панелей у вашій мережі Tailscale.</p>
+<h3>WebSocket bridge</h3>
+<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Коди ПДВ підтримуються</h2>
+<h2>VAT Codes Supported</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Стандартна ставка 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Резюме декларації з ПДВ</h4>
-<p>Показники ПДВ у графі, що відповідає формату декларації з ПДВ HMRC MTD: графа 1 (вихідний податок), графа 4 (вхідний податок), графа 6 (чисті продажі), графа 7 (чисті покупки). Бігати з <code>--report vat</code>.</p>
+<h4>VAT Return Summary</h4>
+<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Виставлення рахунків</h2>
-<p>Рахунки-фактури, сумісні з HMRC Notice 700 — роздруковані, збережені у форматі PDF або надіслані на ваш телефон одним клацанням миші</p>
+<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Поля рахунку-фактури, що відповідають стандартам Великобританії</h4>
-<p>Кожен рахунок-фактура містить усі поля, які вимагаються згідно з Повідомленням HMRC 700: унікальний порядковий номер рахунку-фактури, ім’я та адреса постачальника, реєстраційний номер платника ПДВ, дата рахунку-фактури, дата постачання (час постачання), ім’я та адреса клієнта, номер платника ПДВ клієнта, де застосовно, детальні описи рядків із кількістю та цінами за одиницю, ставка ПДВ на рядок, чисті та проміжні підсумки ПДВ, а також загальна сума до сплати. Нічого не втрачено, ні про що не вгадується.</p>
+<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Налаштування компанії</h4>
-<p>ВІДЧИНЕНО <em>Файл → Рахунки → Налаштування компанії</em> щоб ввести зареєстровану назву компанії, адресу, номер компанії, номер ПДВ, електронну адресу, телефон і банківські реквізити. Налаштування зберігаються для кожної клієнтської бази даних <code>company.json</code> поряд з обліковою книгою та автоматично завантажується щоразу, коли генеруються рахунки-фактури для цього клієнта.</p>
+<p>ВІДЧИНЕНО <em>Файл → Рахунки → Налаштування компанії</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> поряд з обліковою книгою та автоматично завантажується щоразу, коли генеруються рахунки-фактури для цього клієнта.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>База контактів клієнтів</h4>
-<p>Коли ви вперше виставляєте рахунок клієнту, його ім’я, адреса та номер платника ПДВ зберігаються в таблиці контактів у книзі. У наступних рахунках-фактурах введення імені клієнта автоматично заповнює його деталі — повторне введення не потрібне. Контакти можна редагувати в будь-який час.</p>
+<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Роздрукуйте, PDF і надішліть на телефон</h4>
-<p>Від менеджера рахунків-фактур (<em>Файл → Рахунки-фактури…</em>) виберіть будь-який рахунок-фактуру та виберіть: <strong>Роздрукувати</strong> (відкриває діалогове вікно друку ОС — будь-який принтер або драйвер PDF), <strong>Зберегти PDF</strong> (безпосередньо на диск через вбудований PDF-експорт Qt), або <strong>Надіслати на телефон</strong> (надсилає HTML-код рахунку-фактури до програми Companion, де відкривається діалогове вікно друку Android — друкуйте бездротовим способом на будь-якому AirPrint або найближчому принтері).</p>
+<p>Від менеджера рахунків-фактур (<em>Файл → Рахунки-фактури…</em>) виберіть будь-який рахунок-фактуру та виберіть: <strong>Роздрукувати</strong> (відкриває діалогове вікно друку ОС — будь-який принтер або драйвер PDF), <strong>Зберегти PDF</strong> (безпосередньо на диск через вбудований PDF-експорт Qt), або <strong>Надіслати на телефон</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Дата поставки</h3>
-<p>Окреме поле «Дата поставки» (час поставки) — відмінне від дати накладної. Вимагається HMRC для цілей ПДВ. За замовчуванням на сьогоднішній день, але його можна редагувати окремо для кожного рахунку-фактури.</p>
+<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Мобільний друк рахунків</h3>
-<p>Додаток Companion може роздрукувати будь-який рахунок-фактуру без проводів. Торкніться піктограми друку в будь-якому рядку рахунка-фактури — програма отримає HTML із IDE та перетворить його на PDF на пристрої за допомогою <code>printing</code> пакет і відкриває діалогове вікно друку системи Android.</p>
+<p>Додаток Companion може роздрукувати будь-який рахунок-фактуру без проводів. Торкніться піктограми друку в будь-якому рядку рахунка-фактури — програма отримає HTML із IDE та перетворить його на PDF на пристрої за допомогою <code>printing</code> package, and opens the Android system print dialog.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>Відповідність HMRC Notice 700</h3>
-<p>Усі 12 обов’язкових полів для повного рахунку-фактури з ПДВ у Великобританії присутні та заповнені. Лінії зі зниженою та нульовою ставками чітко позначені. Послідовність номерів накладної строго монотонно зростаюча без пропусків.</p>
+<h3>HMRC Notice 700 compliance</h3>
+<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Прибуток і збиток за поточний податковий рік</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Баланс на сьогодні</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Підсумок декларації з ПДВ (коробки MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Сканування аномалій і цілісності</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Повний довідник команд</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../index.html">додому</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Ведучий</a>
 <a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
 <a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
 </div>
-<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

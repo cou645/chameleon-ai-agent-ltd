@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aplicația Cameleon Companion — Android</title>
+<title>Chameleon Companion App — Android</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .channel-grid {
@@ -85,7 +85,7 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Acasă</a>
 <a href="../ide.html">AI IDE</a>
@@ -102,13 +102,13 @@
 <div class="hero">
 <div class="hero-icon">📱</div>
 <h1>Aplicația Cameleon Companion</h1>
-<p class="sub">Telefonul dvs. Android devine o punte cu mai multe canale către desktop - relau de chat AI, video P2P de grup pentru peste 4 participanți, conectare a apelurilor SIM, control de la distanță, acces la fișiere, streaming media și contabilitate - peste tot în rețeaua dvs. privată Tailscale.</p>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Chat AI prin STT/TTS</span>
-<span class="badge">📹 Videoclip P2P de grup (4+)</span>
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
 <span class="badge">📞 Punte de apel SIM</span>
 <span class="badge">🎭 Telecomanda prezentatorului</span>
-<span class="badge">🌐 Securizat cu coada</span>
+<span class="badge">🌐 Tailscale-secured</span>
 <span class="badge">🖥️ Ecran / VNC</span>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <div class="phone-msg msg-ai">Făcut. Fișier salvat. Terminalul arată ieșirea 0.</div>
 <div class="phone-channels">
 <span class="pch pch-ide">IDE</span>
-<span class="pch pch-video">Video P2P</span>
+<span class="pch pch-video">P2P Video</span>
 <span class="pch pch-file">Fișiere</span>
 <span class="pch pch-media">Media</span>
 <span class="pch pch-stt">STT/TTS</span>
@@ -141,19 +141,19 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Arhitectură multicanal</h2>
-<p>Un pod WebSocket, cinci benzi de comunicație independente</p>
+<p>One WebSocket bridge, five independent communication lanes</p>
 </div>
 <div class="ws-diagram">
 <div class="ws-row">
-<div class="ws-node">📱 Aplicația Android</div>
+<div class="ws-node">📱 Android App</div>
 <div class="ws-arrow">⟷</div>
-<div class="ws-node">Plasă de coadă</div>
+<div class="ws-node">Tailscale mesh</div>
 <div class="ws-arrow">⟷</div>
 <div class="ws-node">🖥️ Desktop</div>
 </div>
 <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Canalul IDE</div><div class="ws-label">Chat AI · comenzi · capturi de ecran · încărcare fișier</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Video P2P</div><div class="ws-label">Releu WebRTC SDP/ICE · A/V cu latență scăzută</div></div>
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Canalul IDE</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Browser de fișiere</div><div class="ws-label">Citiți · scrieți · editați fișiere pe desktop</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Flux media</div><div class="ws-label">NAS / DLNA · difuzare pe telefon</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Partajarea ecranului</div><div class="ws-label">Oglindă desktop în stil VNC/RDP</div></div>
@@ -170,16 +170,16 @@
 <span class="ch-badge">CANALUL 1</span>
 <div class="ch-icon">🧠</div>
 <h3>IDE AI Channel</h3>
-<p>Punte bidirecțională completă către AI desktop. Trimiteți solicitări de pe telefon, primiți răspunsuri transmise în flux. AI poate citi fișiere, rula comenzi de terminal și poate aplica editări de cod - toate declanșate din buzunar. Atașați capturi de ecran sau fotografii direct din camera foto ca context.</p>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Streaming AI</span><span class="tag">Încărcarea fișierului</span><span class="tag">Capturi de ecran</span>
+<span class="tag">AI streaming</span><span class="tag">Încărcarea fișierului</span><span class="tag">Capturi de ecran</span>
 </div>
 </div>
 <div class="channel-card ch-p2p">
 <span class="ch-badge">CANALUL 2</span>
 <div class="ch-icon">📹</div>
-<h3>Video și voce P2P de grup</h3>
-<p>Video și audio WebRTC cu rețea completă pentru grupuri de 4 sau mai multe — fără server media central, fără factură lunară. Robinet <strong>Video de grup</strong> pentru a suna toți colegii online simultan. Grila se adaptează automat pe măsură ce participanții se alătură: 1 = ecran complet, 2 = unul lângă altul, 3 = 2+1, 4 = 2×2, 5+ = grilă de potrivire automată derulabilă. Fluxul dvs. local plutește ca imagine în imagine. Rata de biți scade pe egal pentru a menține calitatea echilibrată la orice dimensiune a grupului.</p>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Video de grup</strong> pentru a suna toți colegii online simultan. Grila se adaptează automat pe măsură ce participanții se alătură: 1 = ecran complet, 2 = unul lângă altul, 3 = 2+1, 4 = 2×2, 5+ = grilă de potrivire automată derulabilă. Fluxul dvs. local plutește ca imagine în imagine. Rata de biți scade pe egal pentru a menține calitatea echilibrată la orice dimensiune a grupului.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">WebRTC full-mesh</span><span class="tag">Grilă adaptivă</span><span class="tag">Feed local PiP</span><span class="tag">Server de semnal Termux</span>
 </div>
@@ -188,7 +188,7 @@
 <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">SIM BRIDGE</span>
 <div class="ch-icon">📞</div>
 <h3>SIM Call Bridge</h3>
-<p>Sunteți deja la un apel mobil și doriți să aduceți un peer P2P? Robinet <strong>Adăugați la grupul de apeluri</strong> — aplicația înregistrează apelul WebRTC cu stiva de telecomunicații Android alături de apelul SIM. Android prezintă o opțiune nativă „Merge calls”; acceptând-o, mixarea audio este transmisă hardware-ului de telefonie. Apelul îmbinat este redat în <strong>numai cască</strong> — complet privat, fără difuzor, nimeni din cameră nu aude. Atunci când conferința hardware nu este acceptată de operator, o punte cu căști Bluetooth direcționează tot sunetul prin legătura BT SCO.</p>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Adăugați la grupul de apeluri</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>numai cască</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Conferință de hardware</span><span class="tag">BT SCO alternativă</span><span class="tag">Doar cască</span><span class="tag">ConnectionService</span>
 </div>
@@ -196,8 +196,8 @@
 <div class="channel-card ch-ide" style="border-color:#764ba2;">
 <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">CANALUL 3</span>
 <div class="ch-icon">🎭</div>
-<h3>Telecomanda Kameleon Prezentator</h3>
-<p>Controlați întreaga etapă Kameleon de pe telefon. Avansează diapozitive, declanșează indicații, împinge imagini sau text direct într-o stivă de scenă, aprobă sau respinge trimiterile de la colegi și controlează tabloul de desen colaborativ - totul fără a atinge tastatura desktopului.</p>
+<h3>Kameleon Presenter Remote</h3>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
 </div>
@@ -206,16 +206,16 @@
 <span class="ch-badge">CANALUL 4</span>
 <div class="ch-icon">🖥️</div>
 <h3>Oglindă ecran (stil VNC/RDP)</h3>
-<p>Vizualizați și interacționați cu ecranul desktopului de pe telefon. Implementat ca un flux ușor de captură de ecran pe rețeaua Tailscale - nu este necesar un server VNC terță parte. Atingeți pentru a da clic, glisați pentru a derula. Util pentru monitorizarea proceselor care rulează sau pentru aprobarea acțiunilor AI de la distanță.</p>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Captură de ecran</span><span class="tag">Atingeți pentru a face clic</span><span class="tag">Numai cozi</span>
+<span class="tag">Captură de ecran</span><span class="tag">Atingeți pentru a face clic</span><span class="tag">Tailscale only</span>
 </div>
 </div>
 <div class="channel-card ch-file">
 <span class="ch-badge">CANALUL 5</span>
 <div class="ch-icon">📂</div>
 <h3>Browser și editor de fișiere la distanță</h3>
-<p>Răsfoiți sistemul de fișiere desktop de pe telefon. Deschideți, citiți și editați fișiere text. Încărcați fișiere de pe camera sau de stocare a telefonului direct într-un folder de proiect. Solicitați IDE AI să proceseze fișierul încărcat imediat după transfer - de ex. „adăugați această imagine în stadiul de prezentator”.</p>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Răsfoiește</span><span class="tag">Edita</span><span class="tag">Încărcați de pe cameră</span>
 </div>
@@ -224,25 +224,25 @@
 <span class="ch-badge">CANALUL 6</span>
 <div class="ch-icon">🎵</div>
 <h3>Streaming media (NAS / DLNA)</h3>
-<p>Transmiteți în flux muzică și videoclipuri de pe un server NAS sau DLNA din rețeaua dvs. de acasă la telefon prin Tailscale. Răsfoiți biblioteca media, puneți în coadă melodiile și controlați redarea — desktopul acționează ca o punte între serverul dvs. media local și telefon oriunde vă aflați pe tailnet.</p>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Podul Tailscale</span>
+<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Tailscale pod</span>
 </div>
 </div>
 <div class="channel-card ch-acct">
 <span class="ch-badge">CANALUL 7</span>
 <div class="ch-icon">🧾</div>
 <h3>Contabilitate — Captură chitanță</h3>
-<p>Fotografiați o chitanță pe telefon și trimiteți-o direct la modulul de contabilitate. IDE AI citește imaginea, extrage suma, data, furnizorul și TVA-ul și înregistrează o intrare de jurnal nefinalizată în registrul cu intrare dublă - gata pentru a fi examinată și postată pe desktop.</p>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Chitanță OCR</span><span class="tag">Proiect de jurnal</span><span class="tag">extragerea TVA</span>
+<span class="tag">Chitanță OCR</span><span class="tag">Proiect de jurnal</span><span class="tag">VAT extraction</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#ec4899;">
 <span class="ch-badge" style="background:#fce7f3;color:#be185d;">CANALUL 8</span>
 <div class="ch-icon">🗣️</div>
-<h3>Voice AI — Telefon STT și TTS</h3>
-<p>Vorbiți cu IDE AI de pe telefon folosind conversia vorbirii în text de pe dispozitiv. Răspunsul AI este transmis înapoi și citit cu voce tare prin text-to-speech. Asistență pentru codare fără mâini în timp ce desktopul rulează nesupravegheat — dictați o remediere, ascultați rezultatul, confirmați de pe telefon.</p>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">STT pe dispozitiv</span><span class="tag">Redare TTS</span><span class="tag">Mâini libere</span>
 </div>
@@ -255,29 +255,29 @@
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Plasă de plasă asigurată</h4>
-<p>Toate canalele rulează prin rețeaua privată Tailscale. Niciun port nu este deschis pentru internetul public. Telefonul trebuie să fie autorizat pe tailnetul dvs. - totul este criptat end-to-end cu WireGuard.</p>
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔌</div>
 <div class="strip-body">
-<h4>Punte unică WebSocket</h4>
-<p>Desktopul rulează <code>chameleon_mobile_bridge.py</code> ca un fir de demon în interiorul procesului Qt. Aplicația pentru telefon se conectează la portul 8770 pe IP-ul Tailscale. O conexiune persistentă transportă toate canalele ca mesaje JSON tastate.</p>
+<h4>Single WebSocket bridge</h4>
+<p>Desktopul rulează <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Termux pe Android</h4>
-<p>Serverul de semnal (<code>chameleon_signal.py</code>) poate rula direct pe telefonul Android prin Termux - făcând telefonul atât un client, cât și un nod de semnalizare. Nu este nevoie de cloud relay pentru conexiunile peer WebRTC din rețeaua ta de acces.</p>
+<h4>Termux on Android</h4>
+<p>Serverul de semnal (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📶</div>
 <div class="strip-body">
 <h4>LAN alternativă</h4>
-<p>Când Tailscale nu este disponibil, <code>lan_video.py</code> transmite în flux video prin UDP (portul 47732) și audio prin UDP (portul 47733) direct în rețeaua locală - aceleași canale, fără overhead VPN.</p>
+<p>Când Tailscale nu este disponibilai, <code>lan_video.py</code> transmite în flux video prin UDP (portul 47732) și audio prin UDP (portul 47733) direct în rețeaua locală - aceleași canale, fără overhead VPN.</p>
 </div>
 </div>
 </div>
@@ -296,7 +296,7 @@
 <a href="../technician.html">Tehnician PC</a><a href="../trading.html">Comercial</a>
 <a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Licențiere în așteptare · Construit de Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Licență în așteptare · Construit de Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

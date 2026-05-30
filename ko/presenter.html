@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>카멜레온 발표자 — 카멜레온 AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">ud648</a>
-<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../ide.html">AI IDE</a>
 <a class="active" href="../presenter.html">증여자</a>
 <a href="../companion.html">컴패니언 앱</a>
 <a href="../logistics4x4.html">물류 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>카멜레온 프리젠터</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">슬라이드가 무대이고, 콘텐츠 블록이 배우이고, 전환이 단서인 극장에서 영감을 받은 프레젠테이션 시스템입니다. 모두 휴대폰으로 제어할 수 있습니다.</p>
 <div class="hero-badges">
 <span class="badge">🎬 연극 은유</span>
 <span class="badge">📱 모바일 제어</span>
 <span class="badge">✏️ 공동 그림</span>
-<span class="badge">🖥️ 안드로이드 ADB 미러</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">무대 위의 KameleonStack 객체</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 콘텐츠 스택 — 강의 슬라이드</div>
 <div class="stage-obj obj-stage">🟡 스테이지 스택 — 학생 제출물</div>
@@ -97,8 +97,8 @@
 <div class="cards">
 <div class="card">
 <div class="card-icon">📦</div>
-<h3>카멜레온스택</h3>
-<p>범용 콘텐츠 컨테이너입니다. 각 스택에는 여러 슬롯(이미지, 텍스트, PDF)이 있습니다. 두 가지 모드:</p>
+<h3>KameleonStack</h3>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">콘텐츠</strong> — 교사가 제어하는 ​​슬라이드</li>
 <li><strong style="color:#eab308">단계</strong> — 동료 푸시 제출을 허용합니다.</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>.kpt 프로젝트 번들</h3>
-<p>프로젝트는 ZIP 아카이브(<code>.kpt</code>) 모든 미디어 자산, 레이아웃 데이터 및 애니메이션 구성이 포함되어 있습니다. Chameleon을 실행하는 모든 머신에서 엽니다.</p>
+<p>프로젝트는 ZIP 아카이브(<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>안드로이드 모바일 브릿지</h4>
-<p>Chameleon 모바일 브리지(WebSocket)는 모든 Android 기기의 극장 명령을 중계합니다. 제어 <strong>stack_next / 이전 / 재생 / 일시 중지 / 중지</strong>, 이미지 또는 텍스트 슬롯을 스택에 푸시하고 실시간으로 브로드캐스트되는 스택 상태를 확인하세요.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / 이전 / 재생 / 일시 중지 / 중지</strong>, 이미지 또는 텍스트 슬롯을 스택에 푸시하고 실시간으로 브로드캐스트되는 스택 상태를 확인하세요.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>동료 제출</h4>
-<p>학생들은 휴대폰에서 스테이지 모드 스택으로 이미지나 텍스트를 푸시합니다. 제출물은 깜박이는 주황색 테두리와 함께 썸네일 스트립에 표시됩니다. 발표자는 다음을 수행할 수 있습니다. <strong>승인, 보류, 거부 또는 승격</strong> 화면에 표시되기 전에 각각.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>승인, 보류, 거부 또는 승격</strong> 화면에 표시되기 전에 각각.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>공유 드로잉 보드</h4>
-<p>모바일 브릿지에서 제어 가능한 협업 프리핸드 캔버스 — <strong>draw_Stroke / 지우기 / 실행 취소</strong>. 슬라이드에 주석을 달거나 브레인스토밍 또는 라이브 퀴즈에 적합합니다.</p>
+<p>모바일 브릿지에서 제어 가능한 협업 프리핸드 캔버스 — <strong>draw_Stroke / 지우기 / 실행 취소</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>ADB 전화 미러 및 PPT 캡처</h4>
-<p><strong>ADB폰박스</strong> ADB를 통해 라이브 Android 화면을 무대에 직접 스트리밍합니다. <strong>PPT거울상자</strong> PowerPoint 창을 캡처합니다. 변환 없이 Kameleon 내부에 기존 데크를 표시합니다.</p>
+<p><strong>ADB폰박스</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPT거울상자</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>프레젠테이션에 생기를 불어넣으세요</h3>
-<p>라이센스에 대해 논의하거나 Kameleon Presenter의 라이브 데모를 준비하려면 당사에 문의하십시오.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">데모 요청</a>
 <a class="btn" href="../index.html">← 개요로 돌아가기</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
+<a href="../index.html">ud648</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">증여자</a>
 <a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
 <a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos(일명 stemsee) 제작</p>
 </footer>
 </body>
 </html>

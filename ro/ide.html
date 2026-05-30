@@ -9,7 +9,7 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Acasă</a>
 <a class="active" href="../ide.html">AI IDE</a>
@@ -27,8 +27,8 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE alimentat de AI</h1>
-<p class="sub">Un editor de cod PyQt6 cu funcții complete, unde AI nu doar sugerează, ci citește, scrie, rulează și verifică codul în numele tău printr-o punte de comandă structurată.</p>
+<h1>AI-Powered IDE</h1>
+<p class="sub">A full-featured PyQt6 code editor where AI doesn't just suggest — it reads, writes, runs and verifies code on your behalf through a structured command bridge.</p>
 <div class="hero-badges">
 <span class="badge">Multi-provider AI</span>
 <span class="badge">🎙️ Intrare vocală și TTS</span>
@@ -38,15 +38,15 @@
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Podul de comandă AI</h2>
-<p>AI nu se limitează la chat, ci operează editorul printr-un protocol JSON structurat</p>
+<h2>The AI Command Bridge</h2>
+<p>AI doesn't just chat — it operates the editor through a structured JSON protocol</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">📖</div>
 <div class="strip-body">
 <h4>Citiți o dată, editați liber</h4>
-<p>AI citește un fișier o dată cu <strong>get_file_content</strong>, menține conținutul în context, apoi emite mai multe editări bazate pe ancoră fără a reciti între fiecare modificare. Fără călătorii dus-întors pierdute.</p>
+<p>The AI reads a file once with <strong>get_file_content</strong>, menține conținutul în context, apoi emite mai multe editări bazate pe ancoră fără a reciti între fiecare modificare. Fără călătorii dus-întors pierdute.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -60,21 +60,21 @@
 <div class="strip-icon">📝</div>
 <div class="strip-body">
 <h4>write_file pentru rescrieri complete</h4>
-<p>Pentru module noi sau rescrieri complete, AI trimite întregul conținut al fișierului într-o singură comandă. Sistemul creează automat un <code>.bak</code> backup înainte de suprascriere și deschide rezultatul într-o nouă filă editor.</p>
+<p>For new modules or complete rewrites the AI sends the entire file content in one command. The system automatically creates a <code>.bak</code> backup înainte de suprascriere și deschide rezultatul într-o nouă filă editor.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">💻</div>
 <div class="strip-body">
 <h4>Integrarea terminalelor</h4>
-<p>AI poate rula comenzi shell și poate primi rezultatul JSON înainte de a continua. Așteaptă fiecare rezultat, gestionează codurile de ieșire și distinge automat comenzile de diagnosticare, configurare, distructive și de încheiere a sesiunii.</p>
+<p>The AI can run shell commands and receive the JSON result before continuing. It waits for each result, handles exit codes, and distinguishes diagnostic, configuration, destructive and session-ending commands automatically.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🛡️</div>
 <div class="strip-body">
 <h4>Protectie la injectie</h4>
-<p>Tot conținutul returnat de la fișiere, terminale și pagini web este împachetat <code>[UNTRUSTED_CONTENT]</code> markere. AI este instruit să trateze totul din interior ca date – niciodată instrucțiuni – prevenind atacurile cu injectare promptă din conținutul fișierelor rău intenționate.</p>
+<p>Tot conținutul returnat de la fișiere, terminale și pagini web este împachetat <code>[UNTRUSTED_CONTENT]</code> markers. The AI is instructed to treat everything inside as data — never instructions — preventing prompt-injection attacks from malicious file content.</p>
 </div>
 </div>
 </div>
@@ -85,32 +85,32 @@
 <div class="card">
 <div class="card-icon">🗂️</div>
 <h3>Editor de cod cu mai multe file</h3>
-<p>Deschideți mai multe fișiere simultan. Fiecare filă urmărește propriul istoric de anulare, evidențierea sintaxei și contextul comenzii AI.</p>
+<p>Open multiple files simultaneously. Each tab tracks its own undo history, syntax highlighting and AI command context.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
 <h3>Vizualizare diferită încorporată</h3>
-<p>Un clic pentru a compara starea actuală a editorului cu ultima versiune salvată. Diferență unificată cu coduri de culori cu adăugare/eliminare evidențiere. Ieșiți din modul diff pentru a reveni la editarea completă.</p>
+<p>One click to compare the current editor state against the last saved version. Colour-coded unified diff with add/remove highlighting. Exit diff mode to return to full editing.</p>
 </div>
 <div class="card">
 <div class="card-icon">💬</div>
-<h3>Streaming chat AI</h3>
+<h3>Streaming AI chat</h3>
 <p>Răspunsurile transmit token-cu-token în panoul de chat. Comenzile IDE sunt extrase și executate într-un thread de fundal, astfel încât interfața de utilizare rămâne receptivă pe tot parcursul.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗃️</div>
 <h3>Sistem modular prompt</h3>
-<p>Solicitările de sistem sunt fișiere de modul text simplu în <code>~/.chameleon/prompts/</code>. Stivuiți orice combinație: Tech Repair + Academic + Chat. Numărul de jetoane live și estimarea costurilor per furnizor.</p>
+<p>System prompts are plain-text module files in <code>~/.chameleon/prompts/</code>. Stack any combination: Tech Repair + Academic + Chat. Live token count and cost estimate per provider.</p>
 </div>
 <div class="card">
 <div class="card-icon">📜</div>
 <h3>Istoricul comenzilor DB</h3>
-<p>Fiecare comandă AI este conectată <code>history.db</code> cu ID-ul sesiunii, marcajul de timp și rezultatul. Pista de audit completă pentru fiecare modificare de fișier făcută de AI.</p>
+<p>Every AI command is logged to <code>history.db</code> with session ID, timestamp and result. Full audit trail for every file change the AI made.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌳</div>
 <h3>Browser de fișiere</h3>
-<p>Panoul arborelui de proiect pentru navigare rapidă. AI folosește <code>list_project_files</code> şi <code>list_open_files</code> pentru a descoperi căi reale — nu inventează niciodată locațiile fișierelor.</p>
+<p>Project tree panel for fast navigation. The AI uses <code>list_project_files</code> şi <code>list_open_files</code> pentru a descoperi căi reale — nu inventează niciodată locațiile fișierelor.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -119,32 +119,32 @@
 <div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>În șoaptă vorbire în text</h3>
-<p>Local Whisper (whisper.cpp) vă transcrie vocea în intrarea de chat. Codare hands-free — dictați întrebări, comenzi sau solicitări întregi fără a atinge tastatura.</p>
-<div class="tags"><span class="tag">şoaptă.cpp</span><span class="tag">Inferență locală</span><span class="tag">Fără cloud STT</span></div>
+<h3>Whisper speech-to-text</h3>
+<p>Local Whisper (whisper.cpp) transcribes your voice into the chat input. Hands-free coding — dictate questions, commands or whole prompts without touching the keyboard.</p>
+<div class="tags"><span class="tag">whisper.cpp</span><span class="tag">Inferență locală</span><span class="tag">Fără cloud STT</span></div>
 </div>
 <div class="card">
 <div class="card-icon">🔊</div>
 <h3>Piper text-to-speech</h3>
-<p>Răspunsurile AI sunt citite cu voce tare folosind Piper TTS — voci rapide, locale, cu sunet natural. Ideal pentru accesibilitate sau lucrul cu mâinile ocupate. Căile platformei rezolvate automat pe Linux, Windows și macOS.</p>
+<p>AI responses are read aloud using Piper TTS — fast, local, natural-sounding voices. Ideal for accessibility or working with your hands occupied. Platform paths resolved automatically on Linux, Windows and macOS.</p>
 <div class="tags"><span class="tag">Piper TTS</span><span class="tag">Inferență locală</span><span class="tag">Voce configurabilă</span></div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Furnizori AI acceptați</h2>
+<h2>Supported AI Providers</h2>
 </div>
 <table class="spec-table">
 <thead><tr><th>Furnizor</th><th>Tip</th><th>Cost (aprox.)</th><th>Note</th></tr></thead>
 <tbody>
-<tr><td>DeepSeek</td><td>Cloud API</td><td>0,00014 USD/1K jetoane</td><td>Implicit; calitate excelentă a codului</td></tr>
+<tr><td translate="no">DeepSeek</td><td>Cloud API</td><td>0,00014 USD/1K jetoane</td><td>Implicit; calitate excelentă a codului</td></tr>
 <tr><td>OpenAI (GPT-4o)</td><td>Cloud API</td><td>0,0050 USD / jetoane 1K</td><td>Cel mai bun raționament general</td></tr>
-<tr><td>Antropic (Claude)</td><td>Cloud API</td><td>0,0030 USD / jetoane 1K</td><td>Puternic la editarea de context lung</td></tr>
-<tr><td>Claude Code (antropic)</td><td>Terminal / pct</td><td>Utilizarea API-ului</td><td>Se rulează ca un proces pty în interiorul terminalului IDE - codificare agentică completă într-un shell live</td></tr>
-<tr><td>Grok</td><td>Cloud API</td><td>0,00005 USD/1K jetoane</td><td>Inferență ultra-rapidă</td></tr>
-<tr><td>Mistral</td><td>Cloud API</td><td>0,00025 USD/1K jetoane</td><td>Opțiune bună găzduită în Europa</td></tr>
+<tr><td>Anthropic (Claude)</td><td>Cloud API</td><td>0,0030 USD / jetoane 1K</td><td>Puternic la editarea de context lung</td></tr>
+<tr><td>Claude Code (Anthropic)</td><td>Terminal / pct</td><td>API usage</td><td>Se rulează ca un proces pty în interiorul terminalului IDE - codificare agentică completă într-un shell live</td></tr>
+<tr><td translate="no">Groq</td><td>Cloud API</td><td>0,00005 USD/1K jetoane</td><td>Inferență ultra-rapidă</td></tr>
+<tr><td translate="no">Mistral</td><td>Cloud API</td><td>0,00025 USD/1K jetoane</td><td>Opțiune bună găzduită în Europa</td></tr>
 <tr><td>Moonshot / Kimi</td><td>Cloud API</td><td>0,00012 USD/1K jetoane</td><td>Fereastra de context mare</td></tr>
-<tr><td>A fi</td><td>Local</td><td>Gratuit</td><td>Rulați orice model GGUF la nivel local</td></tr>
-<tr><td>LM Studio</td><td>Local</td><td>Gratuit</td><td>Inferență locală prietenoasă cu GUI</td></tr>
+<tr><td translate="no">Ollama</td><td>Local</td><td>Gratuit</td><td>Rulați orice model GGUF la nivel local</td></tr>
+<tr><td translate="no">LM Studio</td><td>Local</td><td>Gratuit</td><td>Inferență locală prietenoasă cu GUI</td></tr>
 </tbody>
 </table>
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -162,10 +162,10 @@
 <div class="screenshot-frame">
 <div class="screenshot-placeholder">
 <div class="ph-icon">🖥️</div>
-<strong>IDE — fereastra principală</strong>
+<strong>IDE — main window</strong>
 <span>ide-main.png</span>
 </div>
-<div class="screenshot-caption">Panou de chat AI + editor de cod cu evidențiere de sintaxă</div>
+<div class="screenshot-caption">AI chat panel + code editor with syntax highlighting</div>
 </div>
 <div class="screenshot-frame">
 <div class="screenshot-placeholder">
@@ -173,12 +173,12 @@
 <strong>Vedere diferită</strong>
 <span>ide-diff.png</span>
 </div>
-<div class="screenshot-caption">Comparația înainte/după o modificare a codului aplicată de AI</div>
+<div class="screenshot-caption">Before/after comparison of an AI-applied code change</div>
 </div>
 <div class="screenshot-frame phone">
 <div class="screenshot-placeholder phone-ratio">
 <div class="ph-icon">📱</div>
-<strong>Companion Android</strong>
+<strong>Android companion</strong>
 <span>android-companion.png</span>
 </div>
 <div class="screenshot-caption">Aplicație mobilă — releu de chat și control prezentator</div>
@@ -215,7 +215,7 @@
 <div class="strip-icon">📡</div>
 <div class="strip-body">
 <h4>Server de semnal încorporat — fără releu cloud</h4>
-<p>Serverul de semnal Cameleon (<code>chameleon_signal.py</code>) rulează direct pe computerul de birou alături de IDE sau în interiorul Termux pe orice telefon Android din flotă. Telefoanele din flota se conectează la acesta prin Tailscale sau hotspot-ul local - fără releu terță parte, fără factură lunară de server.</p>
+<p>Serverul de semnal Cameleon (<code>chameleon_signal.py</code>) runs directly on the office PC alongside the IDE, or inside Termux on any Android phone in the fleet. Fleet phones connect to it over Tailscale or the local hotspot — no third-party relay, no monthly server bill.</p>
 </div>
 </div>
 </div>
@@ -224,7 +224,7 @@
 <span style="font-size:2rem;">🏢</span>
 <div>
 <div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC de birou care rulează Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Hub WebSocket · Comanda flotei</div>
+<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · WebSocket hub · Fleet command</div>
 </div>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
@@ -234,10 +234,10 @@
 <span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Echipa de teren</span>
 <span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Urgență</span>
 </div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Prin Tailscale (la distanță) sau hotspot LAN (convoi) · Fără retransmisie cloud · E2E criptat</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Via Tailscale (remote) or LAN hotspot (convoy) · No cloud relay · E2E encrypted</div>
 </div>
 <div class="cta-band">
-<h3>Vedeți AI IDE în acțiune</h3>
+<h3>See the AI IDE in action</h3>
 <p>Contactează-ne pentru o demonstrație live sau pentru a discuta despre o licență pentru echipa ta.</p>
 <a class="btn btn-solid" href="../contact.html">Solicitați o demonstrație</a>
 <a class="btn" href="../logistics4x4.html">Logistica 4×4 →</a>

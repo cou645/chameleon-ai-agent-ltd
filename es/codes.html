@@ -176,7 +176,7 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleón AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Inicio</a>
 <a class="active" href="../logistics4x4.html">Logística 4×4</a>
@@ -188,8 +188,8 @@
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 Referencia del código de comunicaciones de campo</h1>
-<div class="edition">Logística 4×4 · Edición 1 · 2026 · Chameleon AI Technicians Ltd</div>
-<p>Un protocolo de código compacto para usar cuando la conectividad de datos no está disponible. Diseñado para camioneros, excursionistas y servicios de emergencia que operan a través de fronteras o en terrenos remotos. Tres perfiles de usuario comparten un vocabulario común de alerta y sistema, lo que permite la comunicación entre agencias incluso en condiciones severamente degradadas.</p>
+<div class="edition">Logistics 4×4 · Edition 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<p>A compact code protocol for use when data connectivity is unavailable. Designed for truck drivers, hikers, and emergency services operating across borders or in remote terrain. Three user profiles share a common alert and system vocabulary — enabling cross-agency communication even under severely degraded conditions.</p>
 <p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Se recomienda compartir esta referencia. La interoperabilidad depende de que todas las partes conozcan los códigos.</p>
 </div>
 <!-- ── Download / print strip ──────────────────────────────── -->
@@ -210,7 +210,7 @@
 <div class="code-annotation" style="margin-top:-.8rem;">
 <span>└────── Letra de categoría</span>
 </div>
-<p style="margin-top:.8rem;">Se pueden combinar varios códigos en un solo mensaje. Se puede adjuntar una nota de texto libre para obtener detalles adicionales.</p>
+<p style="margin-top:.8rem;">Multiple codes can be combined in a single message. A free-text note can be appended for additional detail.</p>
 <div class="user-types">
 <div class="ut">
 <div class="ut-letter ut-d">D</div>
@@ -321,13 +321,13 @@
 <thead><tr><th>Código</th><th>Significado</th></tr></thead>
 <tbody>
 <tr><td class="code-cell">B11</td><td>Acercándose a la frontera. A veinte kilómetros.</td></tr>
-<tr><td class="code-cell">B22</td><td>En cola en el puesto fronterizo. Espera normal.</td></tr>
+<tr><td class="code-cell">B22</td><td>In queue at border post. Normal wait.</td></tr>
 <tr><td class="code-cell">B33</td><td>Retraso en la frontera. Problema de papeleo.</td></tr>
 <tr><td class="code-cell">B44</td><td>Se ordenó la inspección de mercancías.</td></tr>
 <tr><td class="code-cell">B55</td><td>Se exige pago no oficial.</td></tr>
 <tr><td class="code-cell">B66</td><td>Bienes incautados por las autoridades.</td></tr>
 <tr><td class="code-cell">B77</td><td>Vehículo confiscado.</td></tr>
-<tr><td class="code-cell">B88</td><td>Conductor detenido.</td></tr>
+<tr><td class="code-cell">B88</td><td>Driver detained.</td></tr>
 <tr class="crit"><td class="code-cell">B99</td><td>Entrada rechazada. Se volvió.</td></tr>
 </tbody>
 </table>
@@ -349,7 +349,7 @@
 <tr><td class="code-cell">C55</td><td>Derrames o artículos caídos del vehículo.</td></tr>
 <tr><td class="code-cell">C66</td><td>Carga parcialmente robada.</td></tr>
 <tr><td class="code-cell">C77</td><td>Toda la carga robada o incautada.</td></tr>
-<tr><td class="code-cell">C88</td><td>Incidente de materiales peligrosos o cadena de frío.</td></tr>
+<tr><td class="code-cell">C88</td><td>Hazmat or cold-chain incident.</td></tr>
 <tr class="crit"><td class="code-cell">C99</td><td>Pérdida total de carga.</td></tr>
 </tbody>
 </table>
@@ -367,10 +367,10 @@
 <tr><td class="code-cell">D11</td><td>Conductor de turno. Conduciendo normalmente.</td></tr>
 <tr><td class="code-cell">D22</td><td>Conductor detenido. Combustible, comida o descanso.</td></tr>
 <tr><td class="code-cell">D33</td><td>Conductor cargando o descargando carga.</td></tr>
-<tr><td class="code-cell">D44</td><td>Conductor esperando. Aduana, puesto de control o tráfico.</td></tr>
+<tr><td class="code-cell">D44</td><td>Driver waiting. Customs, checkpoint, or traffic.</td></tr>
 <tr><td class="code-cell">D55</td><td>Conductor retrasado. Problema. No se puede continuar todavía.</td></tr>
 <tr><td class="code-cell">D66</td><td>El conductor se siente mal o fatigado.</td></tr>
-<tr><td class="code-cell">D77</td><td>Conductor detenido o enfrentando un problema legal.</td></tr>
+<tr><td class="code-cell">D77</td><td>Driver detained or facing legal issue.</td></tr>
 <tr><td class="code-cell">D88</td><td>Avería del conductor. No puedo continuar sin ayuda.</td></tr>
 <tr class="crit"><td class="code-cell">D99</td><td>Emergencia del conductor. Conductor en peligro.</td></tr>
 </tbody>
@@ -392,7 +392,7 @@
 <tr><td class="code-cell">E33</td><td>Múltiples neumáticos pinchados. No se puede cambiar.</td></tr>
 <tr><td class="code-cell">E44</td><td>Sobrecalentamiento del motor. Detenido.</td></tr>
 <tr><td class="code-cell">E55</td><td>Avería mecánica. Sin motor.</td></tr>
-<tr><td class="code-cell">E66</td><td>Fallo completo del motor.</td></tr>
+<tr><td class="code-cell">E66</td><td>Complete engine failure.</td></tr>
 <tr><td class="code-cell">E77</td><td>Fuego.</td></tr>
 <tr><td class="code-cell">E88</td><td>Daños por accidente. El vehículo no puede moverse.</td></tr>
 <tr class="crit"><td class="code-cell">E99</td><td>Cancelación de vehículos. Pérdida total.</td></tr>
@@ -432,7 +432,7 @@
 <tr><td class="code-cell">G11</td><td>Vehículo en solitario. Ningún convoy.</td></tr>
 <tr><td class="code-cell">G22</td><td>Vehículo líder del convoy.</td></tr>
 <tr><td class="code-cell">G33</td><td>Posición media del convoy.</td></tr>
-<tr><td class="code-cell">G44</td><td>Vehículo de cola de convoy.</td></tr>
+<tr><td class="code-cell">G44</td><td>Convoy tail vehicle.</td></tr>
 <tr><td class="code-cell">G55</td><td>Convoy intacto. Todos los camiones presentes.</td></tr>
 <tr><td class="code-cell">G66</td><td>Falta un vehículo del convoy.</td></tr>
 <tr><td class="code-cell">G77</td><td>Faltan varios vehículos.</td></tr>
@@ -598,8 +598,8 @@
 <thead><tr><th>Código</th><th>Significado</th></tr></thead>
 <tbody>
 <tr><td class="code-cell">W11</td><td>Claro y seco. Buena visibilidad.</td></tr>
-<tr><td class="code-cell">W22</td><td>Lluvia ligera o calima.</td></tr>
-<tr><td class="code-cell">W33</td><td>Lluvia Pesada.</td></tr>
+<tr><td class="code-cell">W22</td><td>Light rain or haze.</td></tr>
+<tr><td class="code-cell">W33</td><td>Heavy rain.</td></tr>
 <tr><td class="code-cell">W44</td><td>Tormenta o viento fuerte.</td></tr>
 <tr><td class="code-cell">W55</td><td>Niebla o mala visibilidad.</td></tr>
 <tr><td class="code-cell">W66</td><td>Inundación. Camino mojado pero transitable.</td></tr>
@@ -625,10 +625,10 @@
 <div class="cat-label"><div class="cat-letter" style="background:#15803d;">h</div><div class="cat-icon">🆘</div><div class="cat-name">Se necesita ayuda</div></div>
 <table class="code-table"><thead><tr><th>Código</th><th>Significado</th></tr></thead><tbody>
 <tr><td class="code-cell">H11</td><td>Necesita comida o agua.</td></tr>
-<tr><td class="code-cell">H22</td><td>Necesita primeros auxilios o botiquín médico.</td></tr>
+<tr><td class="code-cell">H22</td><td>Need first aid or medical kit.</td></tr>
 <tr><td class="code-cell">H33</td><td>Necesita asistencia médica o evaluación de evacuación.</td></tr>
 <tr><td class="code-cell">H44</td><td>Necesita equipo de rescate.</td></tr>
-<tr><td class="code-cell">H55</td><td>Necesita helicóptero o evacuación aérea.</td></tr>
+<tr><td class="code-cell">H55</td><td>Need helicopter or air evacuation.</td></tr>
 <tr><td class="code-cell">H66</td><td>Necesita búsqueda y rescate.</td></tr>
 <tr><td class="code-cell">H77</td><td>Necesita refugio o vivac de emergencia.</td></tr>
 <tr><td class="code-cell">H88</td><td>Necesita evacuación urgente. No puedo caminar.</td></tr>
@@ -636,17 +636,17 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">t</div><div class="cat-icon">🏔</div><div class="cat-name">Condiciones del sendero</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">t</div><div class="cat-icon">🏔</div><div class="cat-name">Trail conditions</div></div>
 <table class="code-table"><thead><tr><th>Código</th><th>Significado</th></tr></thead><tbody>
-<tr><td class="code-cell">T11</td><td>Buen camino. Bien marcado. De trato fácil.</td></tr>
-<tr><td class="code-cell">T22</td><td>Sendero intermitente o cubierto de maleza.</td></tr>
-<tr><td class="code-cell">T33</td><td>Rastro perdido. Navegación por GPS o brújula.</td></tr>
-<tr><td class="code-cell">T44</td><td>Fuera de pista. Terreno abierto. Navegable.</td></tr>
+<tr><td class="code-cell">T11</td><td>Good trail. Well marked. Easy going.</td></tr>
+<tr><td class="code-cell">T22</td><td>Trail intermittent or overgrown.</td></tr>
+<tr><td class="code-cell">T33</td><td>Trail lost. Navigating by GPS or compass.</td></tr>
+<tr><td class="code-cell">T44</td><td>Off trail. Open terrain. Navigable.</td></tr>
 <tr><td class="code-cell">T55</td><td>Ascenso empinado. Ritmo lento.</td></tr>
 <tr><td class="code-cell">T66</td><td>Descenso pronunciado. Cuidando.</td></tr>
-<tr><td class="code-cell">T77</td><td>Terreno técnico. Trepa, roca o nieve.</td></tr>
+<tr><td class="code-cell">T77</td><td>Technical terrain. Scramble, rock, or snow.</td></tr>
 <tr><td class="code-cell">T88</td><td>Sección peligrosa. Cruzando con cuidado.</td></tr>
-<tr class="crit"><td class="code-cell">T99</td><td>Terreno intransitable. Obligado a dar marcha atrás.</td></tr>
+<tr class="crit"><td class="code-cell">T99</td><td>Terrain impassable. Forced to turn back.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -655,11 +655,11 @@
 <tr><td class="code-cell">U11</td><td>Todo el equipo en buen estado.</td></tr>
 <tr><td class="code-cell">U22</td><td>Problema menor con el equipo. No crítico.</td></tr>
 <tr><td class="code-cell">U33</td><td>Equipo dañado pero se encontró una solución.</td></tr>
-<tr><td class="code-cell">U44</td><td>Fallo del elemento crítico. Tienda de campaña, estufa o filtro.</td></tr>
-<tr><td class="code-cell">U55</td><td>Equipo de navegación perdido o averiado.</td></tr>
-<tr><td class="code-cell">U66</td><td>Botiquín de primeros auxilios en uso.</td></tr>
+<tr><td class="code-cell">U44</td><td>Critical item failing. Tent, stove, or filter.</td></tr>
+<tr><td class="code-cell">U55</td><td>Navigation equipment lost or failed.</td></tr>
+<tr><td class="code-cell">U66</td><td>First aid kit in use.</td></tr>
 <tr><td class="code-cell">U77</td><td>Se necesita refugio de emergencia. Montaje del vivac.</td></tr>
-<tr><td class="code-cell">U88</td><td>Múltiples fallas críticas en los engranajes.</td></tr>
+<tr><td class="code-cell">U88</td><td>Multiple critical gear failures.</td></tr>
 <tr class="crit"><td class="code-cell">U99</td><td>Todo el equipo esencial perdido. Catastrófico.</td></tr>
 </tbody></table>
 </div>
@@ -670,7 +670,7 @@
 <tr><td class="code-cell">V22</td><td>Cansancio o malestar leve. Continuo.</td></tr>
 <tr><td class="code-cell">V33</td><td>Ampollas o lesiones menores. Disminuyendo ligeramente.</td></tr>
 <tr><td class="code-cell">V44</td><td>Lesión. Ritmo significativamente más lento.</td></tr>
-<tr><td class="code-cell">V55</td><td>El miembro no puede mantener el ritmo normal.</td></tr>
+<tr><td class="code-cell">V55</td><td>Member cannot maintain normal pace.</td></tr>
 <tr><td class="code-cell">V66</td><td>Lesión grave. Interrumpido. Evaluación de la evacuación.</td></tr>
 <tr><td class="code-cell">V77</td><td>Miembro colapsado o inconsciente.</td></tr>
 <tr><td class="code-cell">V88</td><td>Emergencia médica. Se requiere evacuación.</td></tr>
@@ -687,7 +687,7 @@
 <tr><td class="code-cell">Y55</td><td>Se perdió la ventana de check-in anterior. Ahora informando.</td></tr>
 <tr><td class="code-cell">Y66</td><td>Solicitando acuse de recibo de la base.</td></tr>
 <tr><td class="code-cell">Y77</td><td>Llegada segura al campamento o punto de ruta planificado.</td></tr>
-<tr><td class="code-cell">Y88</td><td>Descendente. Último tramo hasta el inicio del sendero.</td></tr>
+<tr><td class="code-cell">Y88</td><td>Descending. Final leg to trailhead.</td></tr>
 <tr class="crit"><td class="code-cell">Y99</td><td>Se perdieron varios registros. Alerta de emergencia activada.</td></tr>
 </tbody></table>
 </div>
@@ -769,7 +769,7 @@
 <tr><td class="code-cell">V11</td><td>Consciente y alerta. Hablando normalmente.</td></tr>
 <tr><td class="code-cell">V22</td><td>Consciente pero confundido o agitado.</td></tr>
 <tr><td class="code-cell">V33</td><td>Responder únicamente a comandos de voz.</td></tr>
-<tr><td class="code-cell">V44</td><td>Responder sólo al dolor. Inconsciente.</td></tr>
+<tr><td class="code-cell">V44</td><td>Responding to pain only. Unconscious.</td></tr>
 <tr><td class="code-cell">V55</td><td>Insensible. Respiración presente.</td></tr>
 <tr><td class="code-cell">V66</td><td>Sin respirar. RCP en curso.</td></tr>
 <tr><td class="code-cell">V77</td><td>Hemorragia severa. Torniquete aplicado.</td></tr>
@@ -780,8 +780,8 @@
 <div class="section-block">
 <div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Recursos en escena</div></div>
 <table class="code-table"><thead><tr><th>Código</th><th>Significado</th></tr></thead><tbody>
-<tr><td class="code-cell">R11</td><td>Sólo socorristas. Ningún socorrista profesional.</td></tr>
-<tr><td class="code-cell">R22</td><td>Paramédico o socorrista avanzado en el lugar.</td></tr>
+<tr><td class="code-cell">R11</td><td>First aider only. No professional responder.</td></tr>
+<tr><td class="code-cell">R22</td><td>Paramedic or advanced first aider on scene.</td></tr>
 <tr><td class="code-cell">R33</td><td>Personal de ambulancia en el lugar.</td></tr>
 <tr><td class="code-cell">R44</td><td>Equipo de bomberos en el lugar.</td></tr>
 <tr><td class="code-cell">R55</td><td>Policía en el lugar.</td></tr>
@@ -796,7 +796,7 @@
 <table class="code-table"><thead><tr><th>Código</th><th>Significado</th></tr></thead><tbody>
 <tr><td class="code-cell">H11</td><td>No se requieren recursos adicionales.</td></tr>
 <tr><td class="code-cell">H22</td><td>Se requiere ambulancia terrestre adicional.</td></tr>
-<tr><td class="code-cell">H33</td><td>Se requiere ambulancia aérea o helicóptero.</td></tr>
+<tr><td class="code-cell">H33</td><td>Air ambulance or helicopter required.</td></tr>
 <tr><td class="code-cell">H44</td><td>Se requieren bomberos y rescate.</td></tr>
 <tr><td class="code-cell">H55</td><td>Se requiere respuesta policial o armada.</td></tr>
 <tr><td class="code-cell">H66</td><td>Se requiere equipo HAZMAT o contaminación.</td></tr>
@@ -812,7 +812,7 @@
 <tr><td class="code-cell">E22</td><td>Posible autoevacuación. Víctimas caminando hacia el transporte.</td></tr>
 <tr><td class="code-cell">E33</td><td>Posible evacuación de vehículos. El camino es accesible.</td></tr>
 <tr><td class="code-cell">E44</td><td>Se requiere evacuación en camilla.</td></tr>
-<tr><td class="code-cell">E55</td><td>Se requiere evacuación de aire. Se necesita zona de aterrizaje.</td></tr>
+<tr><td class="code-cell">E55</td><td>Air evacuation required. Landing zone needed.</td></tr>
 <tr><td class="code-cell">E66</td><td>Se requiere evacuación por agua o barco.</td></tr>
 <tr><td class="code-cell">E77</td><td>Se requiere rescate técnico. Cuerda o espacio confinado.</td></tr>
 <tr><td class="code-cell">E88</td><td>Ruta de evacuación comprometida. Buscando alternativa.</td></tr>
@@ -865,12 +865,12 @@
 </table>
 <div class="cta-band no-print" style="margin-top:2.5rem;">
 <h3>Logística 4×4</h3>
-<p>Comunicaciones de flotas transfronterizas para pequeños operadores: mapas en vivo, video grupal, puente SIM y este protocolo de emergencia, todo en un teléfono Android estándar.</p>
+<p>Cross-border fleet communications for small operators — live maps, group video, SIM bridge, and this emergency protocol, all on a standard Android phone.</p>
 <a class="btn btn-solid" href="../logistics4x4.html">Más información</a>
 <a class="btn" href="../contact.html">Ponte en contacto</a>
 </div>
 <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-    © 2026 Chameleon AI Technicians Ltd · Protocolo de comunicaciones de campo logística 4×4 · Edición 1<br/>
+    © 2026 Chameleon AI Technicians Ltd · Logistics 4×4 Field Communications Protocol · Edition 1<br/>
     Se recomienda compartir esta referencia: la interoperabilidad lo requiere.
   </p>
 </div>
@@ -880,7 +880,7 @@
 <a href="../logistics4x4.html">Logística 4×4</a>
 <a href="../contact.html">Contacto</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Licencia pendiente · Construido por Marcos también conocido como stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

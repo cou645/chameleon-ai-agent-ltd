@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Người dẫn chương trình Kameleon — Chameleon AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Trang chủ</a>
-<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../ide.html">AI IDE</a>
 <a class="active" href="../presenter.html">Người trình bày</a>
 <a href="../companion.html">Ứng dụng đồng hành</a>
 <a href="../logistics4x4.html">Hậu cần 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Người dẫn chương trình tắc kè hoa</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">Một hệ thống thuyết trình lấy cảm hứng từ rạp hát, trong đó các trang trình bày của bạn là Sân khấu, các khối nội dung của bạn là Diễn viên và chuyển tiếp là Cues — tất cả đều có thể điều khiển được từ điện thoại.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Ẩn dụ sân khấu</span>
 <span class="badge">📱 Điều khiển di động</span>
 <span class="badge">✏️ Hợp tác vẽ</span>
-<span class="badge">🖥️ Gương Android ADB</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack đối tượng trên sân khấu</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Ngăn xếp nội dung - slide bài giảng</div>
 <div class="stage-obj obj-stage">🟡 Xếp chồng giai đoạn — bài nộp của học sinh</div>
@@ -97,8 +97,8 @@
 <div class="cards">
 <div class="card">
 <div class="card-icon">📦</div>
-<h3>KameleonChồng</h3>
-<p>Nơi chứa nội dung phổ quát. Mỗi ngăn xếp chứa nhiều vị trí (hình ảnh, văn bản, tệp PDF). Hai chế độ:</p>
+<h3>KameleonStack</h3>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">Nội dung</strong> - slide do giáo viên điều khiển</li>
 <li><strong style="color:#eab308">Sân khấu</strong> - chấp nhận bài nộp ngang hàng</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>gói dự án .kpt</h3>
-<p>Các dự án được lưu dưới dạng kho lưu trữ ZIP (<code>.kpt</code>) chứa tất cả nội dung phương tiện, dữ liệu bố cục và cấu hình hoạt ảnh. Mở trên bất kỳ máy nào chạy Chameleon.</p>
+<p>Các dự án được lưu dưới dạng kho lưu trữ ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Cầu di động Android</h4>
-<p>Cầu di động Chameleon (WebSocket) chuyển tiếp các lệnh rạp hát từ bất kỳ thiết bị Android nào. Điều khiển <strong>stack_next/prev/phát/tạm dừng/dừng</strong>, đẩy các vị trí hình ảnh hoặc văn bản vào một ngăn xếp và xem trạng thái ngăn xếp được phát sóng trong thời gian thực.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next/prev/phát/tạm dừng/dừng</strong>, đẩy các vị trí hình ảnh hoặc văn bản vào một ngăn xếp và xem trạng thái ngăn xếp được phát sóng trong thời gian thực.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Đệ trình ngang hàng</h4>
-<p>Học sinh đẩy hình ảnh hoặc văn bản vào ngăn xếp ở Chế độ sân khấu từ điện thoại của họ. Bài gửi xuất hiện trong dải hình thu nhỏ với đường viền nhấp nháy màu cam. Người trình bày có thể <strong>phê duyệt, giữ, từ chối hoặc thúc đẩy</strong> từng cái trước khi nó xuất hiện trực tiếp trên màn hình.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>phê duyệt, giữ, từ chối hoặc thúc đẩy</strong> từng cái trước khi nó xuất hiện trực tiếp trên màn hình.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Bảng vẽ dùng chung</h4>
-<p>Có thể điều khiển canvas tự do cộng tác từ cầu di động — <strong>draw_Stroke / xóa / hoàn tác</strong>. Lý tưởng để chú thích các slide, động não hoặc các câu đố trực tiếp.</p>
+<p>Có thể điều khiển canvas tự do cộng tác từ cầu di động — <strong>draw_Stroke / xóa / hoàn tác</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Gương điện thoại ADB &amp; chụp PPT</h4>
-<p><strong>ADBĐiện ThoạiHộp</strong> truyền trực tiếp màn hình Android trực tiếp lên sân khấu thông qua ADB. <strong>PPTGươngHộp</strong> chụp cửa sổ PowerPoint — trình bày các tài liệu hiện có của bạn bên trong Kameleon mà không cần chuyển đổi.</p>
+<p><strong>ADBĐiện ThoạiHộp</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTGươngHộp</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Làm cho bài thuyết trình của bạn trở nên sống động</h3>
-<p>Hãy liên hệ với chúng tôi để thảo luận về giấy phép hoặc sắp xếp buổi trình diễn trực tiếp về Kameleon Presenter.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Yêu cầu bản demo</a>
 <a class="btn" href="../index.html">← Quay lại tổng quan</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../index.html">Trang chủ</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Người trình bày</a>
 <a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
 <a href="../trading.html">Giao dịch</a><a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stemsee</p>
 </footer>
 </body>
 </html>

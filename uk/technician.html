@@ -35,10 +35,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">додому</a>
-<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Ведучий</a>
 <a href="../companion.html">Додаток-супутник</a>
 <a href="../logistics4x4.html">Логістика 4×4</a>
@@ -53,25 +53,25 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>Технік ПК зі штучним інтелектом</h1>
-<p class="sub">Діагностика та ремонт системи під керуванням штучного інтелекту, а також профайлер USB-пристроїв, який виконує зворотне проектування апаратних протоколів і автоматично створює драйвери ядра Linux.</p>
+<h1>AI Технік ПК</h1>
+<p class="sub">AI-guided system diagnosis and repair — plus a USB device profiler that reverse-engineers hardware protocols and generates Linux kernel drivers automatically.</p>
 <div class="hero-badges">
 <span class="badge">🔬 Профілювання обладнання</span>
 <span class="badge">🐧 Генерація модуля ядра</span>
-<span class="badge">🌐 Дистанційне керування через Tailscale</span>
+<span class="badge">🌐 Remote via Tailscale</span>
 <span class="badge">⚡ Крос-компіляція ARM</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Ремонт системи під керуванням ШІ</h2>
-<p>ШІ дотримується структурованого хірургічного протоколу — діагностуйте перед дотиком, перевіряйте на кожному кроці</p>
+<h2>AI-Guided System Repair</h2>
+<p>The AI follows a structured surgical protocol — diagnose before touching, verify at every step</p>
 </div>
 <div class="terminal-block">
-<span class="comment"># Послідовність діагностики ШІ-хамелеона</span>
+<span class="comment"># Chameleon AI diagnosis sequence</span>
 <span class="cmd">$ lsusb -v | голова -80</span>
 <span class="out">Шина 002 Пристрій 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$ dmesg | хвіст -30</span>
+<span class="cmd">$ dmesg | tail -30</span>
 <span class="out">[12.445] r8152 2-1:1.0 eth1: перейменовано з eth0</span>
 <span class="cmd">$ lsmod | grep r8152</span>
 <span class="out">r8152 94208 0</span>
@@ -83,27 +83,27 @@
 <div class="strip-icon">🔍</div>
 <div class="strip-body">
 <h4>Структурована послідовність діагностики</h4>
-<p>Обладнання → стан ядра → стан драйвера → мережа → сховище. Штучний інтелект запускає кожен крок, зчитує результат JSON, а потім вирішує наступну дію. Він ніколи не пропускає кроки та не робить припущень.</p>
+<p>Hardware → kernel state → driver status → network → storage. The AI runs each step, reads the JSON result, then decides the next action. It never skips steps or makes assumptions.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏥</div>
 <div class="strip-body">
-<h4>Протокол хірургічного ремонту</h4>
+<h4>Surgical repair protocol</h4>
 <p>Спочатку неруйнівний (перезавантажити модуль, перезапустити службу). Зберігати до ризику (конфігурація знімка). Перевіряйте на кожному кроці. Кожна дія, яка потребує перезавантаження, запускає перемикач мертвого людини, який встановлює a <code>@reboot</code> автоматично відновити сценарій.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
-<h4>Віддалений ремонт через Tailscale</h4>
-<p>Діагностуйте та ремонтуйте машини будь-де на сітці Tailscale. AI видає команди на віддаленій машині через термінальний міст, зчитує результати та продовжує — навіть після перезавантаження за допомогою системи контрольних точок/відновлення.</p>
+<h4>Remote repair over Tailscale</h4>
+<p>Diagnose and repair machines anywhere on your Tailscale mesh. The AI issues commands on the remote machine via the terminal bridge, reads results and continues — even across reboots using the checkpoint/resume system.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Портер драйвера USB</h2>
-<p>Профілюйте будь-який USB-пристрій → проаналізуйте його протокол → створіть готовий до встановлення драйвер Linux</p>
+<p>Profile any USB device → analyse its protocol → generate a ready-to-install Linux driver</p>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
@@ -134,7 +134,7 @@
 <span class="out">Профілювання USB 1234:5678 протягом 30 с...
 Написав ~/.chameleon/drivers/1234_5678/profile.json</span>
 <span class="comment"># Крок 2 — створити драйвер</span>
-<span class="cmd">$ python3 device_porter.py --останній</span>
+<span class="cmd">$ python3 device_porter.py --latest</span>
 <span class="out">Вибраний шлях: C (власний, 3 сторінки постачальника)
 Створено: /tmp/driver_1234_5678/
   ├── chameleon_1234_5678.c
@@ -151,7 +151,7 @@
 <div class="card">
 <div class="card-icon">🖥️</div>
 <h3>Кроссплатформенний сервер захоплення</h3>
-<p>ETW у Windows, IOKit у macOS, usbmon у Linux. Профіль на будь-якій ОС і згенеруйте драйвер Linux із результату <code>profile.json</code>.</p>
+<p>ETW on Windows, IOKit on macOS, usbmon on Linux. Profile on any OS and generate a Linux driver from the resulting <code>profile.json</code>.</p>
 </div>
 <div class="card">
 <div class="card-icon">🍓</div>
@@ -161,23 +161,23 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>Упаковка DKMS</h3>
-<p>Драйвери Path C запаковані для DKMS, тому вони витримують оновлення ядра без повторної компіляції вручну. Огляди ШІ <code>analysis.json</code> і підказує будь-які залишкові заглушки TODO.</p>
+<p>Path C drivers are packaged for DKMS so they survive kernel upgrades without manual recompilation. The AI reviews <code>analysis.json</code> and prompts for any remaining TODO stubs.</p>
 </div>
 </div>
 <div class="cta-band">
 <h3>Виправити непоправне</h3>
-<p>Незалежно від того, чи то паніка ядра, чи не працює USB-пристрій, чи фірмовий периферійний пристрій без підтримки Linux — Chameleon AI PC Technician допоможе вам.</p>
+<p>Whether it's a kernel panic, a dead USB device or a proprietary peripheral with no Linux support — Chameleon AI PC Technician has you covered.</p>
 <a class="btn btn-solid" href="../contact.html">Зв'яжіться</a>
 <a class="btn" href="../index.html">← Повернутися до огляду</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a>
+<a href="../index.html">додому</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Ведучий</a>
 <a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
 <a href="../trading.html">Торгівля</a><a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a>
 </div>
-<p>© Chameleon AI Technicians Ltd, 2026 · Створено Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Створено Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

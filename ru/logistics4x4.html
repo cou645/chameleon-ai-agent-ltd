@@ -187,10 +187,10 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
-<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Ведущий</a>
 <a href="../companion.html">Сопутствующее приложение</a>
 <a class="active" href="../logistics4x4.html">Логистика 4х4</a>
@@ -205,7 +205,7 @@
 <div class="hero">
 <div class="hero-icon">🚛</div>
 <h1>Логистика 4х4</h1>
-<p class="sub">Трансграничная связь автопарка для небольших операторов. Четыре абонента, использующих SIM-карту, и четыре узла видеосвязи P2P используют одно пространство для вызовов — водитель на границе, головной офис, таможня, клиент — все в одной комнате одновременно. Живые карты, маршруты GPX, грузовые декларации, переведенный голосовой чат и экстренные трансляции — все на стандартном телефоне Android.</p>
+<p class="sub">Cross-border fleet communications for small operators. Four SIM callers and four P2P video peers share a single call space — driver at the border, head office, customs, customer — all in the room at once. Live maps, GPX routes, cargo manifests, translated voice chat and emergency broadcasts, all on a standard Android phone.</p>
 <div class="hero-badges">
 <span class="badge">📹 4 видео-пэра</span>
 <span class="badge">📞 Звонки на 4 SIM-карты</span>
@@ -248,7 +248,7 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Пространство для звонков 4х4</h2>
-<p>Телефонные звонки по SIM-карте и видео P2P разделяют одно подключенное пространство</p>
+<p>SIM phone calls and P2P video share one connected space</p>
 </div>
 <div class="fourbyfour">
 <div class="fbf-title">Одно место для разговора — восемь участников</div>
@@ -264,9 +264,9 @@
 </ul>
 </div>
 <div class="fbf-half fbf-p2p">
-<h4>📹 4 узла P2P-видео</h4>
+<h4>📹 4 P2P video peers</h4>
 <ul>
-<li>WebRTC — без платы за сервер</li>
+<li>WebRTC — no server bill</li>
 <li>Полноячеистое видео + аудио</li>
 <li>Водитель водителю</li>
 <li>Диспетчерский диспетчер</li>
@@ -274,10 +274,10 @@
 </ul>
 </div>
 </div>
-<div class="fbf-note">Звук вызовов с SIM-карты аппаратно объединяется с групповым вызовом через телекоммуникационный стек Android или Bluetooth SCO — только через наушник, конфиденциально.</div>
+<div class="fbf-note">Audio from SIM calls is hardware-merged into the group call via Android's telecom stack or Bluetooth SCO — earpiece only, private.</div>
 </div>
 <p style="color:var(--muted); font-size:.9rem; line-height:1.6;">
-        Logistics 4x4 не стремится заменить профессиональную собственную логистическую платформу, подобную тем, которые используются крупными курьерскими сетями. Он восполняет пробел в <strong>мелкие операторы</strong>, индивидуальные предприниматели и ситуации, в которые не может попасть инструмент крупного предприятия — водитель на удаленном пограничном переходе, которому необходимо мгновенно связаться с головным офисом, второй водитель в трех милях назад, таможенный инспектор в будке и клиент в другой стране, который может дозвониться только по телефону.
+        Logistics 4×4 does not aim to replace a professional proprietary logistics platform like those used by large courier networks. It fills the gap for <strong>мелкие операторы</strong>, индивидуальные предприниматели и ситуации, в которые не может попасть инструмент крупного предприятия — водитель на удаленном пограничном переходе, которому необходимо мгновенно связаться с головным офисом, второй водитель в трех милях назад, таможенный инспектор в будке и клиент в другой стране, который может дозвониться только по телефону.
       </p>
 </div>
 </div>
@@ -392,14 +392,14 @@
 <div class="strip-icon">🧭</div>
 <div class="strip-body">
 <h4>Экран компаса — одноранговая навигация в автономном режиме</h4>
-<p>Нет данных? На полноэкранном компасе отображается стрелка направления для каждого онлайн-узла, использующего последний известный GPS. Расстояния до сверстников и направления по компасу обновляются из кэшированных мест — это полезно для путешественников, навигации по бездорожью и координации спасательных операций в горах.</p>
+<p>No data? The full-screen compass rose shows a bearing arrow for each online peer using last-known GPS. Peer distances and compass headings update from cached locations — useful for trekkers, off-road convoy navigation and mountain rescue coordination.</p>
 </div>
 </div>
 <div class="strip-item" style="margin:0;">
 <div class="strip-icon">📍</div>
 <div class="strip-body">
 <h4>Слой точек интереса (POI)</h4>
-<p>Три источника POI показаны на карте в виде цветных меток. <strong style="color:#f59e0b;">Янтарь</strong> булавки пришли из <code>&lt;wpt&gt;</code> путевые точки, встроенные в файл GPX — они загружаются вместе с маршрутом и удаляются вместе с ним. <strong style="color:#22c55e;">Зеленый</strong> контакты передаются непосредственно из среды разработки Chameleon для ПК (остановки заправки, опасности, адреса доставки) независимо от какого-либо маршрута. <strong style="color:#ef4444;">Красный</strong> булавки сбрасываются водителем при длительном нажатии на карту. Все POI сохраняются между сеансами; коснитесь любой булавки, чтобы перейти, открыть ее на Картах или удалить. Значки адаптируются к типу: ⛽ топливо, 🚚 доставка, ⚠️ опасность, 🏥 больница, 🅿️ парковка, ✈️ аэропорт и многое другое.</p>
+<p>Три источника POI показаны на карте в виде цветных меток. <strong style="color:#f59e0b;">Янтарь</strong> булавки пришли из <code>&lt;wpt&gt;</code> путевые точки, встроенные в файл GPX — они загружаются вместе с маршрутом и удаляются вместе с ним. <strong style="color:#22c55e;">Зеленый</strong> контакты передаются непосредственно из среды разработки Chameleon для ПК (остановки заправки, опасности, адреса доставки) независимо от какого-либо маршрута. <strong style="color:#ef4444;">Красный</strong> pins are dropped by the driver with a long-press on the map. All POIs persist across sessions; tap any pin to navigate, open in Maps, or delete. Icons adapt to type: ⛽ fuel, 🚚 delivery, ⚠️ hazard, 🏥 hospital, 🅿️ parking, ✈️ airport and more.</p>
 </div>
 </div>
 </div>
@@ -414,17 +414,17 @@
 <div class="feat-card fc-video">
 <span class="fc-badge">ПИРЫ</span>
 <div class="fc-icon">📹</div>
-<h3>Групповое P2P-видео</h3>
-<p>Полноценное видео и аудио WebRTC для более чем 4 узлов — без центрального медиасервера и без ежемесячного счета за звонки. Адаптивная сетка: 1 узел = полноэкранный режим, 2 = рядом, 3 = 2+1, 4 = 2×2. Местный канал отображается в формате «картинка в картинке». Скорость передачи данных масштабируется для каждого узла (1,5 Мбит/с → 350 Кбит/с), чтобы сохранить качество даже при любом размере группы. Входящие вызовы звонят и вибрируют, даже если приложение работает в фоновом режиме.</p>
+<h3>Group P2P Video</h3>
+<p>Full-mesh WebRTC video and audio for up to 4+ peers — no central media server, no monthly call bill. Adaptive grid: 1 peer = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2. Local feed floats as picture-in-picture. Bitrate scales per peer (1.5 Mbps → 350 Kbps) to keep quality even at every group size. Incoming calls ring and vibrate even when the app is in the background.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Полноячеистая сеть WebRTC</span><span class="tag">Адаптивная сетка</span><span class="tag">PiP местный</span><span class="tag">Звонок + вибрация</span>
+<span class="tag">WebRTC полная сетка</span><span class="tag">Адаптивная сетка</span><span class="tag">PiP местный</span><span class="tag">Звонок + вибрация</span>
 </div>
 </div>
 <div class="feat-card fc-sim">
 <span class="fc-badge">SIM-МОСТ</span>
 <div class="fc-icon">📞</div>
 <h3>SIM-мост вызовов</h3>
-<p>Вы разговариваете по сотовой сети и хотите подключиться к одноранговому узлу P2P? Кран <strong>Добавить в группу</strong> — Телекоммуникационный стек Android регистрирует сеанс WebRTC вместе с вызовом SIM-карты и предоставляет встроенную опцию «Объединить вызовы». Сведение звука происходит в телефонном чипе — <strong>только наушник</strong>, полностью приватный. Если устройство или оператор связи не поддерживают аппаратную конференцию, маршрутизация гарнитуры Bluetooth SCO используется в качестве резервного варианта.</p>
+<p>In a cellular call and want to pull in a P2P peer? Tap <strong>Добавить в группу</strong> — Android's telecom stack registers the WebRTC session alongside the SIM call and presents a native "Merge calls" option. Audio mixing happens in the telephony chip — <strong>только наушник</strong>, fully private. When the device or carrier doesn't support hardware conference, Bluetooth SCO headset routing is used as a fallback.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Аппаратная конференция</span><span class="tag">Резервный вариант БТ ШОС</span><span class="tag">Только наушник</span>
 </div>
@@ -433,7 +433,7 @@
 <span class="fc-badge">КОММС</span>
 <div class="fc-icon">🗣️</div>
 <h3>Push-to-Talk + прямой перевод</h3>
-<p>Чтобы говорить, удерживайте кнопку PTT — распознаватель речи Android (16 кГц, 16 бит) транскрибирует текст в режиме реального времени. Обнаруженный язык отправляется на устройство <strong>Аргос Переводчик</strong> сервер. Каждый слушатель получает сообщение, переведенное на выбранный им языковой стандарт и прочитанное вслух с помощью TTS. Частичные транскрипции транслируются в качестве живого индикатора набора текста во время записи. Работает по каналу P2P или автономно через точку доступа.</p>
+<p>Hold the PTT button to speak — Android's speech recogniser (16 kHz, 16-bit) transcribes to text in real time. The detected language is sent to an on-device <strong>Аргос Переводчик</strong> server. Each listener receives the message translated into their own selected locale and read aloud by TTS. Partial transcriptions stream as a live typing indicator while recording. Works over the P2P channel or standalone over a hotspot.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Автоматическое определение языка</span><span class="tag">Аргос Переводчик</span><span class="tag">Живое считывание TTS</span><span class="tag">15 языков</span>
 </div>
@@ -478,7 +478,7 @@
 <span class="fc-badge">СЧЕТЫ</span>
 <div class="fc-icon">🧾</div>
 <h3>Счета-фактуры</h3>
-<p>Создавайте, распечатывайте и делитесь счетами прямо с телефона. Office может отправить заранее подготовленный счет из модуля учета ПК Chameleon водителю по одноранговому каналу — водитель просматривает, подписывает и отправляет его на месте. Ролевая панель учета: гость (только итоговые данные), оператор (полные транзакции + счета) и администратор (отправка MTD + предоставление доступа к QR).</p>
+<p>Create, print and share invoices directly from the phone. Office can push a pre-prepared invoice from the Chameleon PC accounting module to the driver over the peer channel — the driver reviews, signs and sends it on the spot. Role-gated accounting dashboard: guest (totals only), operator (full transactions + invoices) and admin (MTD submit + QR access grants).</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Отправка с ПК</span><span class="tag">Распечатать / PDF</span><span class="tag">Ролевой контроль</span>
 </div>
@@ -487,7 +487,7 @@
 <span class="fc-badge">ЧРЕЗВЫЧАЙНАЯ СИТУАЦИЯ</span>
 <div class="fc-icon">📟</div>
 <h3>Экстренный режим — SMS и Peer</h3>
-<p>Нет данных? Приложение возвращается к компактному закодированному протоколу. Водитель (<strong>Д</strong>), Путешественник (<strong>ЧАС</strong>) и службы экстренной помощи (<strong>Х</strong>) профили имеют универсальную шкалу оповещений. GPS-координаты вставляются автоматически. Сообщения декодируются и зачитываются вслух TTS при получении. A99+H99 — это универсальный сигнал SOS, который передается всем контактам и коллегам в одном касании. Когда данные доступны, кадры передаются по одноранговому каналу вместо SMS — выбирается для каждой отправки: <strong>только СМС</strong>, <strong>Только одноранговые сети</strong>, или <strong>Оба</strong>.</p>
+<p>Нет данных? Приложение возвращается к компактному закодированному протоколу. Водитель (<strong>Д</strong>), Путешественник (<strong>ЧАС</strong>) и службы экстренной помощи (<strong>Х</strong>) profiles share a universal alert scale. GPS coordinates embed automatically. Messages are decoded and read aloud by TTS on receipt. A99+H99 is the universal SOS — broadcast to all contacts and fleet peers in one tap. When data is available, frames travel over the peer channel instead of SMS — selectable per send: <strong>только СМС</strong>, <strong>Только одноранговые сети</strong>, или <strong>Оба</strong>.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">3 профиля пользователя</span><span class="tag">Встроенный GPS</span><span class="tag">TTS декодирование</span><span class="tag">МЕТАН согласован</span>
 <span class="tag">SMS · Пиры · Оба</span>
@@ -498,18 +498,18 @@
 <span class="fc-badge">КОНТАКТЫ</span>
 <div class="fc-icon">👥</div>
 <h3>Контакты и группы</h3>
-<p>Единая книга контактов, объединяющая номера телефонов SIM, идентификаторы узлов Tailscale и смешанные группы. Создайте <em>Пограничная группа</em> группа, содержащая два узла P2P и номер SIM-карты — коснитесь группы, чтобы позвонить всем трем. История звонков с временными метками. Фотографии аватаров для каждого контакта. Каждый участник автопарка устанавливает фотографию профиля в настройках — она автоматически передается по каналу сигнала при подключении, поэтому каждый партнер видит настоящую фотографию вместо начальной буквы.</p>
+<p>Unified contact book combining SIM phone numbers, Tailscale peer IDs and mixed groups. Create a <em>Пограничная группа</em> group containing two P2P peers and a SIM number — tap the group to start a call to all three. Call history with timestamps. Per-contact avatar photos. Each fleet member sets a profile photo in Settings — it is shared automatically over the signal channel when they connect, so every peer sees a real photo instead of an initial letter.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">SIM + одноранговые устройства</span><span class="tag">Смешанные группы</span><span class="tag">История звонков</span><span class="tag">Обмен аватарами</span>
+<span class="tag">SIM + одноранговые устройства</span><span class="tag">Смешанные группы</span><span class="tag">История звонков</span><span class="tag">Avatar sharing</span>
 </div>
 </div>
 <div class="feat-card fc-misc" style="border-color:#8b5cf6;">
 <span class="fc-badge" style="background:#ede9fe;color:#6d28d9;">СЕТЬ</span>
 <div class="fc-icon">📶</div>
 <h3>Гибкая сеть</h3>
-<p>Подключиться через <strong>Хвостовая чешуя</strong> (удаленно, через Интернет) или напрямую <strong>ЛВС/точка доступа</strong> — полезно для грузовиков в колонне или там, где установлена ​​направленная антенна дальнего действия (более 50 миль на открытой местности). Автоматическое обнаружение mDNS находит другие телефоны парка, подключенные к той же сети Wi-Fi, без ввода IP-адресов вручную.</p>
+<p>Подключиться через <strong translate="no">Tailscale</strong> (удаленно, через Интернет) или напрямую <strong>ЛВС/точка доступа</strong> — useful for trucks in convoy or where a long-range directional aerial is fitted (50+ miles in open terrain). mDNS auto-discovery finds other fleet phones on the same Wi-Fi without entering IP addresses manually.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Хвостовая чешуя</span><span class="tag">ЛВС/точка доступа</span><span class="tag">обнаружение mDNS</span><span class="tag">Радиус действия точки доступа более 50 миль</span>
+<span class="tag" translate="no">Tailscale</span><span class="tag">ЛВС/точка доступа</span><span class="tag">обнаружение mDNS</span><span class="tag">Радиус действия точки доступа более 50 миль</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -525,7 +525,7 @@
 <span class="fc-badge">ХАМЕЛЕОН</span>
 <div class="fc-icon">🖥️</div>
 <h3>Интеграция ПК Хамелеон</h3>
-<p>Подключается к Chameleon AI IDE на настольном или офисном ПК через WebSocket. Офис может передавать маршруты GPX (со встроенными путевыми точками, автоматически анализируемыми как POI), автономные наборы POI, PDF-файлы счетов и манифестные данные водителям на местах — по всему постоянно включенному каналу сигнала, активный видеовызов не требуется. Сервер сигналов Хамелеон (<code>chameleon_signal.py</code>) работает на ПК или в Termux на любом телефоне в парке, поэтому облачный ретранслятор не требуется.</p>
+<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes (with embedded waypoints parsed as POIs automatically), standalone POI sets, invoice PDFs and manifest data to drivers in the field — all over the always-on signal channel, no active video call required. The Chameleon signal server (<code>chameleon_signal.py</code>) работает на ПК или в Termux на любом телефоне в парке, поэтому облачный ретранслятор не требуется.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Продвижение маршрута</span><span class="tag">ЗАТЕМ нажмите</span><span class="tag">Выставление счета-фактуры</span><span class="tag">Нет облачного ретранслятора</span><span class="tag">Сервер сигналов Termux</span>
 </div>
@@ -539,7 +539,7 @@
 <div class="lang-strip">
 <span class="lang-chip">🇬🇧 английский</span>
 <span class="lang-chip">🇨🇳 中文（简体）</span>
-<span class="lang-chip">🇫🇷 Французский</span>
+<span class="lang-chip">🇫🇷 Français</span>
 <span class="lang-chip">🇩🇪 немецкий</span>
 <span class="lang-chip">🇪🇸 Испанский</span>
 <span class="lang-chip">🇯🇵 日本語</span>
@@ -572,7 +572,7 @@
 <div class="strip-icon">🔊</div>
 <div class="strip-body">
 <h4>TTS на языке слушателя</h4>
-<p>После перевода каждое сообщение зачитывается вслух на языке получателя с помощью Android TTS — слушатель слышит переведенное сообщение, даже не глядя на экран, что идеально подходит для водителя, который следит за дорогой.</p>
+<p>After translation each message is read aloud in the receiver's locale using Android TTS — the listener hears the translated message even without looking at the screen, ideal for a driver keeping eyes on the road.</p>
 </div>
 </div>
 </div>
@@ -588,14 +588,14 @@
 <div class="strip-icon">📟</div>
 <div class="strip-body">
 <h4>Двойной транспорт — SMS или одноранговый канал</h4>
-<p>Когда нет мобильных данных — глубоко в кустах, на удаленном пересечении границы или во время сбоя в сети — Logistics 4×4 отправляет закодированные статусные кадры по стандартному SMS. Когда данные <em>является</em> доступны, те же кадры передаются по одноранговому каналу группы на полной скорости. Селектор для каждой отправки позволяет вам выбирать <strong>только СМС</strong>, <strong>Только одноранговые сети</strong>, или <strong>Оба</strong>. SOS всегда срабатывает на всех доступных каналах одновременно, независимо от настроек.</p>
+<p>Когда нет мобильных данных — глубоко в кустах, на удаленном пересечении границы или во время сбоя в сети — Logistics 4×4 отправляет закодированные статусные кадры по стандартному SMS. Когда данные <em>является</em> available, the same frames travel over the fleet peer channel at full speed. A per-send selector lets you choose <strong>только СМС</strong>, <strong>Только одноранговые сети</strong>, или <strong>Оба</strong>. SOS always fires on every available channel simultaneously regardless of the setting.</p>
 </div>
 </div>
 <div class="strip-item" style="margin:0;">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>Три профиля — один общий язык</h4>
-<p>Коды организованы в три профиля пользователя, которые имеют общий словарь предупреждений: <strong>Д — Водитель</strong> (граница, груз, конвой, топливо, дорожные условия), <strong>H — Путешественник</strong> (жизненные показатели, маршрут, снаряжение, график регистрации) и <strong>X — Аварийные службы</strong> (сортировка, тип инцидента, ресурсы на месте происшествия, статус эвакуации). SOS из любого профиля понятен всем.</p>
+<p>Коды организованы в три профиля пользователя, которые имеют общий словарь предупреждений: <strong>Д — Водитель</strong> (граница, груз, конвой, топливо, дорожные условия), <strong>H — Путешественник</strong> (vitals, trail, gear, check-in schedule), and <strong>X — Аварийные службы</strong> (сортировка, тип инцидента, ресурсы на месте происшествия, статус эвакуации). SOS из любого профиля понятен всем.</p>
 </div>
 </div>
 <div class="strip-item" style="margin:0;">
@@ -609,7 +609,7 @@
 <div class="strip-icon">🔊</div>
 <div class="strip-body">
 <h4>Автоматическое чтение при получении</h4>
-<p>Входящие закодированные сообщения декодируются и читаются вслух посредством преобразования текста в речь — водитель, следящий за дорогой, или ответчик с занятыми руками слышит полное английское значение каждого кода, не прикасаясь к телефону. Поврежденные сообщения вызывают автоматический запрос на повторную отправку.</p>
+<p>Incoming coded messages are decoded and read aloud by text-to-speech — a driver keeping eyes on the road or a responder with hands occupied hears the full plain-English meaning of every code without touching the phone. Corrupted messages trigger an automatic resend request.</p>
 </div>
 </div>
 </div>
@@ -631,7 +631,7 @@
 <div style="margin-bottom:1rem;">
 <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Аварийные службы — РТЦ, пострадавшие P1</div>
 <div style="font-family:monospace;font-size:.82rem;color:#f87171;background:#111827;border-radius:6px;padding:.5rem .8rem;word-break:break-all;">I22 P44 N22 R33 H33</div>
-<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Дорожно-транспортное происшествие · Пострадавшие с угрозой жизни P1 · 2–5 человек · Скорая помощь на месте · Требуется санитарная авиация</div>
+<div style="color:#64748b;font-size:.75rem;margin-top:.3rem;">Road traffic collision · P1 life-threat casualties · 2–5 persons · Ambulance on scene · Air ambulance required</div>
 </div>
 <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.5rem;">
 <div style="color:#6b7280;font-size:.72rem;margin-bottom:.3rem;">Универсальный SOS — любой профиль</div>
@@ -665,21 +665,21 @@
 <div class="strip-icon">💰</div>
 <div class="strip-body">
 <h4>Нет счета за место и за каждого водителя</h4>
-<p>Одноранговые вызовы WebRTC осуществляются напрямую между телефонами без использования сервера ретрансляции мультимедиа и ежемесячной платы за пользователя. Приложение работает на стандартных телефонах Android, которые уже есть у команды.</p>
+<p>WebRTC peer calls are direct phone-to-phone with no media relay server and no monthly per-user fee. The app runs on standard Android phones the team already carries.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>Работает там, где корпоративные приложения не работают</h4>
-<p>Разработан для пересечения границ, удаленных территорий и международных операций, где стандартные логистические приложения предполагают быстрое и надежное соединение для передачи данных. При исчезновении данных происходит возврат к автономному компасу и кэшированным картам.</p>
+<p>Designed for border crossings, remote terrain and international operations where standard logistics apps assume a fast, reliable data connection. Falls back to offline compass and cached maps when data disappears.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Стандартный телефон Android</h4>
-<p>Никакого специального оборудования. Нет регистрации в MDM. Любой телефон Android 7.0+ (minSdk 24), на котором установлен APK, является полноценным узлом парка. Антенна дальнего радиуса действия, установленная в кабине грузовика, может расширить зону покрытия P2P до 50+ миль в открытой сельской местности.</p>
+<h4>Standard Android phone</h4>
+<p>No specialist hardware. No MDM enrolment. Any Android 7.0+ phone (minSdk 24) running the APK is a full fleet node. A long-range hotspot aerial fitted to a truck cab can extend P2P coverage to 50+ miles in open countryside.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -701,7 +701,7 @@
 <footer>
 <div class="foot-links">
 <a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
-<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Ведущий</a>
 <a href="../companion.html">Сопутствующее приложение</a>
 <a href="../logistics4x4.html">Логистика 4х4</a>
@@ -712,7 +712,7 @@
 <a href="../classroom.html">u041au043bu0430u0441u0441</a>
 <a href="../contact.html">Контакт</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Ожидается лицензирование · Создано Маркосом, также известным как Stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Ожидается лицензирование · Создано Marcos, также известное как stemsee</p>
 </footer>
 </body>
 </html>

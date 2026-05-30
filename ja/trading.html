@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>仮想通貨取引 — Chameleon AI</title>
+<title>Crypto Trading — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .regime-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
@@ -31,10 +31,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">u30dbu30fcu30e0</a>
-<a href="../ide.html">あなたにはアイデアがあります</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">プレゼンター</a>
 <a href="../companion.html">コンパニオンアプリ</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -50,10 +50,10 @@
 <div class="hero">
 <div class="hero-icon">📈</div>
 <h1>仮想通貨取引エンジン</h1>
-<p class="sub">AI 適応トレーリング ストップ、レジーム検出、WebSocket ライブ フィードを使用した、Binance での現物、先物、証拠金のアクティブなポジション管理。</p>
+<p class="sub">Active position management on Binance — spot, futures and margin — with AI-adaptive trailing stops, regime detection and WebSocket live feeds.</p>
 <div class="hero-badges">
-<span class="badge">⚡ Binance WebSocket フィード</span>
-<span class="badge">🔄 トレーリングストップ</span>
+<span class="badge">⚡ Binance WebSocket feeds</span>
+<span class="badge">🔄 Trailing stops</span>
 <span class="badge">📊 体制の検出</span>
 <span class="badge">🧪 まずはテストネット</span>
 </div>
@@ -75,22 +75,22 @@
 <div class="strip-item">
 <div class="strip-icon">📌</div>
 <div class="strip-body">
-<h4>トレーリングストップ</h4>
-<p>ポジションが上がるとトレーリングストップが有効になります <strong>+2%</strong>。ストップは価格の上昇に従い、市場が反転した場合に利益を確定します。戦略ごとにアクティベーションしきい値を構成可能。</p>
+<h4>Trailing stops</h4>
+<p>Trailing stop activates once a position is up <strong>+2%</strong>. The stop follows the price upward and locks in profit if the market reverses. Configurable activation threshold per strategy.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📊</div>
 <div class="strip-body">
 <h4>+3% でスケールイン</h4>
-<p>勝ちポジションに達したとき <strong>+3%</strong>、エンジンは位置を追加 (スケールイン) して、トレンドの動きでの利益を最大化します。リスクを制御するためにポジションごとに最大 3 つのスケールイン。</p>
+<p>勝ちポジションに達したとき <strong>+3%</strong>, the engine adds to the position (scale-in) to maximise gains on trending moves. Maximum 3 scale-ins per position to control risk.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">⏱️</div>
 <div class="strip-body">
 <h4>時間終了</h4>
-<p>一定期間横ばい (&lt; ±0.3%) だったポジション <strong>30分</strong> は自動的に閉じられます。フラット市場ではマージンが固定され、手数料が蓄積されます。時間が経てば、より良い機会を得るために自由資本がなくなります。</p>
+<p>一定期間横ばい (&lt; ±0.3%) だったポジション <strong>30分</strong> are closed automatically. Flat markets tie up margin and accumulate fees — time exits free capital for better opportunities.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -108,11 +108,11 @@
 <div class="regime-grid">
 <div class="regime-card ranging">
 <h4>🔵レンジングマーケット</h4>
-<p>きつい <strong>1%ストップ</strong> — 横向きのチョップでは、市場が有利に動く前にワイドストップが多くの地盤を譲りすぎます。出口を厳格化することで資本が保護され、再参入が可能になります。</p>
+<p>きつい <strong>1%ストップ</strong> — in a sideways chop, wide stops give up too much ground before the market moves in your favour. Tighter exits protect capital and allow re-entry.</p>
 </div>
 <div class="regime-card volatile">
 <h4>🟡 不安定な市場</h4>
-<p>より広い <strong>3%ストップ</strong> — ボラティリティが高い状況では、タイトなストップはノイズに見舞われます。幅広のストップにより、通常のスイングを乗り越えながら、真の反転を防ぎます。</p>
+<p>より広い <strong>3%ストップ</strong> — in high-volatility regimes, tight stops get hit by noise. The wider stop rides out normal swings while still protecting against a true reversal.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -122,17 +122,17 @@
 <div class="card">
 <div class="card-icon">🪙</div>
 <h3>現物取引</h3>
-<p>Binance スポット市場での暗号資産の標準的な売買。オーダーブックへの完全なアクセス、成行注文と指値注文、ポジションごとのリアルタイムの損益追跡。</p>
+<p>Standard buy/sell of crypto assets on Binance spot markets. Full order-book access, market and limit orders, real-time P&amp;L tracking per position.</p>
 </div>
 <div class="card">
 <div class="card-icon">⚡</div>
 <h3>先物 (USDⓈ-M)</h3>
-<p>Binance USDⓈ-M 無期限先物でロングポジションとショートポジションを活用しました。証拠金管理、清算監視、資金調達率追跡が含まれます。</p>
+<p>Leveraged long and short positions on Binance USDⓈ-M perpetual futures. Margin management, liquidation monitoring and funding-rate tracking included.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔄</div>
 <h3>信用取引</h3>
-<p>Binance マージンアカウントのクロスマージンと分離マージン。ポジションのライフサイクル管理の一環として、借入、返済、利息の追跡を自動的に行います。</p>
+<p>Cross and isolated margin on Binance margin accounts. Borrow, repay and track interest automatically as part of position lifecycle management.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -141,9 +141,9 @@
 <table class="spec-table">
 <thead><tr><th>ステップ</th><th>指示</th><th>u30ceu30fcu30c8</th></tr></thead>
 <tbody>
-<tr><td>1. APIキーを設定する</td><td><code>python3 binance_setup.py --setup</code></td><td>キーの保存場所 <code>api_keys.env</code></td></tr>
+<tr><td>1. Configure API keys</td><td><code>python3 binance_setup.py --setup</code></td><td>キーの保存場所 <code>api_keys.env</code></td></tr>
 <tr><td>2.テストネットでのテスト</td><td><code>BINANCE_TESTNET=1 python3 strategy_live_runner.py</code></td><td>リスクにさらされる実際の資金は存在しない</td></tr>
-<tr><td>3. ライブで実行する</td><td><code>python3 strategy_live_runner.py</code></td><td>WebSocket フィード、アクティブ位置ループ</td></tr>
+<tr><td>3. ライブで実行する</td><td><code>python3 strategy_live_runner.py</code></td><td>WebSocket feed, active position loop</td></tr>
 <tr><td>4. バックテスト戦略</td><td><code>python3 binance_backtest.py</code></td><td>過去のOHLCVリプレイ</td></tr>
 <tr><td>5. 操作防止</td><td><code>python3 binance_anti_manip.py</code></td><td>ウォッシュトレードおよびなりすましパターンを検出</td></tr>
 </tbody>
@@ -157,11 +157,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">プレゼンター</a>
 <a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
 <a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 stemsee によって構築されました</p>
 </footer>
 </body>
 </html>

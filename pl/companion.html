@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aplikacja towarzysząca Chameleon — Android</title>
+<title>Chameleon Companion App — Android</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .channel-grid {
@@ -85,10 +85,10 @@
 </div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Sztuczna inteligencja kameleona</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Dom</a>
-<a href="../ide.html">MASZ POMYSŁY</a>
+<a href="../ide.html">AIIDE</a>
 <a href="../presenter.html">Prezenter</a>
 <a class="active" href="../companion.html">Aplikacja towarzysząca</a>
 <a href="../accounting.html">Księgowość</a>
@@ -102,13 +102,13 @@
 <div class="hero">
 <div class="hero-icon">📱</div>
 <h1>Aplikacja towarzysząca Chameleon</h1>
-<p class="sub">Twój telefon z Androidem staje się wielokanałowym pomostem do komputera stacjonarnego — przekaźnik czatu AI, grupowe wideo P2P dla ponad 4 uczestników, mostkowanie połączeń SIM, zdalne sterowanie, dostęp do plików, strumieniowe przesyłanie multimediów i księgowanie — wszystko w Twojej prywatnej siatce Tailscale.</p>
+<p class="sub">Your Android phone becomes a multi-channel bridge to the desktop — AI chat relay, group P2P video for 4+ participants, SIM call bridging, remote control, file access, media streaming and accounting — all over your private Tailscale mesh.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Czat AI przez STT/TTS</span>
-<span class="badge">📹 Grupowe wideo P2P (4+)</span>
+<span class="badge">🤖 AI chat via STT/TTS</span>
+<span class="badge">📹 Group P2P video (4+)</span>
 <span class="badge">📞 Mostek telefoniczny SIM</span>
 <span class="badge">🎭 Pilot prezentera</span>
-<span class="badge">🌐 Zabezpieczone łuską ogonową</span>
+<span class="badge">🌐 Tailscale-secured</span>
 <span class="badge">🖥️Ekran/VNC</span>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <div class="phone-msg msg-ai">Zrobione. Plik został zapisany. Terminal pokazuje wyjście 0.</div>
 <div class="phone-channels">
 <span class="pch pch-ide">IDE</span>
-<span class="pch pch-video">Wideo P2P</span>
+<span class="pch pch-video">P2P Video</span>
 <span class="pch pch-file">Akta</span>
 <span class="pch pch-media">Głoska bezdźwięczna</span>
 <span class="pch pch-stt">STT/TTS</span>
@@ -141,19 +141,19 @@
 <div>
 <div class="section-title" style="margin-top:0;">
 <h2>Architektura wielokanałowa</h2>
-<p>Jeden most WebSocket, pięć niezależnych pasów komunikacyjnych</p>
+<p>One WebSocket bridge, five independent communication lanes</p>
 </div>
 <div class="ws-diagram">
 <div class="ws-row">
-<div class="ws-node">📱Aplikacja na Androida</div>
+<div class="ws-node">📱 Android App</div>
 <div class="ws-arrow">⟷</div>
-<div class="ws-node">Siatka ogonowa</div>
+<div class="ws-node">Tailscale mesh</div>
 <div class="ws-arrow">⟷</div>
 <div class="ws-node">🖥️ Pulpit</div>
 </div>
 <div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Kanał ID</div><div class="ws-label">Czat AI · polecenia · zrzuty ekranu · przesyłanie plików</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Wideo P2P</div><div class="ws-label">Przekaźnik WebRTC SDP/ICE · A/V o niskim opóźnieniu</div></div>
+<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Kanał ID</div><div class="ws-label">AI chat · commands · screenshots · file upload</div></div>
+<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">P2P video</div><div class="ws-label">WebRTC SDP/ICE relay · low-latency A/V</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Przeglądarka plików</div><div class="ws-label">Czytaj · pisz · edytuj pliki na komputerze</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Strumień multimediów</div><div class="ws-label">NAS / DLNA · przesyłanie na telefon</div></div>
 <div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Udostępnij ekran</div><div class="ws-label">Lustro pulpitu w stylu VNC/RDP</div></div>
@@ -169,26 +169,26 @@
 <div class="channel-card ch-ide">
 <span class="ch-badge">KANAŁ 1</span>
 <div class="ch-icon">🧠</div>
-<h3>Kanał IDE AI</h3>
-<p>Pełny dwukierunkowy most do sztucznej inteligencji na komputerze stacjonarnym. Wysyłaj podpowiedzi ze swojego telefonu i otrzymuj odpowiedzi przesyłane strumieniowo. Sztuczna inteligencja może czytać pliki, uruchamiać polecenia terminala i wprowadzać zmiany w kodzie — a wszystko to można uruchomić z Twojej kieszeni. Dołącz zrzuty ekranu lub zdjęcia bezpośrednio z rolki aparatu jako kontekst.</p>
+<h3>IDE AI Channel</h3>
+<p>Full two-way bridge to the desktop AI. Send prompts from your phone, receive streamed responses. The AI can read files, run terminal commands and apply code edits — all triggered from your pocket. Attach screenshots or photos directly from your camera roll as context.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Przesyłanie strumieniowe AI</span><span class="tag">Przesyłanie pliku</span><span class="tag">Zrzuty ekranu</span>
+<span class="tag">AI streaming</span><span class="tag">Przesyłanie pliku</span><span class="tag">Zrzuty ekranu</span>
 </div>
 </div>
 <div class="channel-card ch-p2p">
 <span class="ch-badge">KANAŁ 2</span>
 <div class="ch-icon">📹</div>
-<h3>Grupowe wideo i głos P2P</h3>
-<p>Wideo i audio WebRTC z pełną siatką dla grup składających się z 4 lub więcej osób — bez centralnego serwera multimediów, bez miesięcznych rachunków. Uzyskiwać <strong>Wideo grupowe</strong> aby jednocześnie dzwonić do wszystkich użytkowników online. Siatka dostosowuje się automatycznie w miarę dołączania uczestników: 1 = pełny ekran, 2 = obok siebie, 3 = 2+1, 4 = 2×2, 5+ = przewijana siatka z automatycznym dopasowaniem. Twój lokalny kanał jest wyświetlany w formie obrazu w obrazie. Szybkość transmisji zmniejsza się na każdy element równorzędny, aby zapewnić zrównoważoną jakość przy dowolnej wielkości grupy.</p>
+<h3>Group P2P Video &amp; Voice</h3>
+<p>Full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly bill. Tap <strong>Wideo grupowe</strong> aby jednocześnie dzwonić do wszystkich użytkowników online. Siatka dostosowuje się automatycznie w miarę dołączania uczestników: 1 = pełny ekran, 2 = obok siebie, 3 = 2+1, 4 = 2×2, 5+ = przewijana siatka z automatycznym dopasowaniem. Twój lokalny kanał jest wyświetlany w formie obrazu w obrazie. Szybkość transmisji zmniejsza się na każdy element równorzędny, aby zapewnić zrównoważoną jakość przy dowolnej wielkości grupy.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Pełna siatka WebRTC</span><span class="tag">Siatka adaptacyjna</span><span class="tag">Lokalny kanał PiP</span><span class="tag">Serwer sygnału Termux</span>
+<span class="tag">WebRTC full-mesh</span><span class="tag">Siatka adaptacyjna</span><span class="tag">Lokalny kanał PiP</span><span class="tag">Serwer sygnału Termux</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
 <span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">MOST SIM</span>
 <div class="ch-icon">📞</div>
 <h3>Mostek telefoniczny SIM</h3>
-<p>Prowadzisz już rozmowę komórkową i chcesz połączyć się z partnerem P2P? Uzyskiwać <strong>Dodaj do grupy rozmów</strong> — aplikacja rejestruje połączenie WebRTC w stosie telekomunikacyjnym Androida wraz z połączeniem SIM. Android oferuje natywną opcję „Scal połączenia”; zaakceptowanie tego przekazuje miksowanie dźwięku sprzętowi telefonicznemu. Połączone połączenie jest odtwarzane w formacie <strong>tylko słuchawka</strong> — pełna prywatność, brak zestawu głośnomówiącego, nikt w pomieszczeniu nie słyszy. Jeśli operator nie obsługuje konferencji sprzętowych, mostek słuchawkowy Bluetooth przesyła cały dźwięk przez łącze BT SCO.</p>
+<p>Already on a cellular call and want to bring in a P2P peer? Tap <strong>Dodaj do grupy rozmów</strong> — the app registers the WebRTC call with Android's telecom stack alongside the SIM call. Android presents a native "Merge calls" option; accepting it hands audio mixing to the telephony hardware. The merged call plays in the <strong>tylko słuchawka</strong> — fully private, no speakerphone, no one in the room hears. When hardware conference isn't supported by the carrier, a Bluetooth headset bridge routes all audio through the BT SCO link instead.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Konferencja sprzętowa</span><span class="tag">Rozwiązanie awaryjne BT SCO</span><span class="tag">Tylko słuchawka</span><span class="tag">Usługa połączenia</span>
 </div>
@@ -196,8 +196,8 @@
 <div class="channel-card ch-ide" style="border-color:#764ba2;">
 <span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">KANAŁ 3</span>
 <div class="ch-icon">🎭</div>
-<h3>Pilot prezentera Kameleon</h3>
-<p>Kontroluj cały etap Kameleon ze swojego telefonu. Wyświetlaj slajdy, wyzwalaj podpowiedzi, umieszczaj obrazy lub tekst bezpośrednio na stosie sceny, zatwierdzaj lub odrzucaj przesłane przez innych osoby i kontroluj wspólną tablicę kreślarską – a wszystko to bez dotykania klawiatury komputera.</p>
+<h3>Kameleon Presenter Remote</h3>
+<p>Control the entire Kameleon stage from your phone. Advance slides, trigger cues, push images or text directly into a stage stack, approve or reject peer submissions and control the collaborative drawing board — all without touching the desktop keyboard.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">stos_następny/poprzedni</span><span class="tag">push_slot</span><span class="tag">stos_zatwierdzenie</span><span class="tag">rys_pociągnięcie</span>
 </div>
@@ -206,16 +206,16 @@
 <span class="ch-badge">KANAŁ 4</span>
 <div class="ch-icon">🖥️</div>
 <h3>Lustro ekranu (w stylu VNC/RDP)</h3>
-<p>Wyświetlaj ekran komputera stacjonarnego i korzystaj z niego za pomocą telefonu. Zaimplementowany jako lekki strumień przechwytywania ekranu przez siatkę Tailscale — nie jest wymagany żaden serwer VNC innej firmy. Kliknij, aby kliknąć, przesuń, aby przewinąć. Przydatne do monitorowania uruchomionych procesów lub zdalnego zatwierdzania działań AI.</p>
+<p>View and interact with your desktop screen from the phone. Implemented as a lightweight screen-capture stream over the Tailscale mesh — no third-party VNC server required. Tap to click, swipe to scroll. Useful for monitoring running processes or approving AI actions remotely.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Przechwytywanie ekranu</span><span class="tag">Kliknij, aby kliknąć</span><span class="tag">Tylko ogon</span>
+<span class="tag">Przechwytywanie ekranu</span><span class="tag">Kliknij, aby kliknąć</span><span class="tag">Tailscale only</span>
 </div>
 </div>
 <div class="channel-card ch-file">
 <span class="ch-badge">KANAŁ 5</span>
 <div class="ch-icon">📂</div>
 <h3>Zdalna przeglądarka i edytor plików</h3>
-<p>Przeglądaj system plików na komputerze stacjonarnym za pomocą telefonu. Otwieraj, czytaj i edytuj pliki tekstowe. Przesyłaj pliki z aparatu telefonicznego lub pamięci bezpośrednio do folderu projektu. Poproś sztuczną inteligencję IDE o przetworzenie przesłanego pliku natychmiast po przesłaniu — np. „dodaj ten obraz do sceny prezentera”.</p>
+<p>Browse your desktop filesystem from the phone. Open, read and edit text files. Upload files from the phone camera or storage directly into a project folder. Ask the IDE AI to process the uploaded file immediately after transfer — e.g. "add this image to the presenter stage".</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">Przeglądać</span><span class="tag">Redagować</span><span class="tag">Prześlij z aparatu</span>
 </div>
@@ -224,25 +224,25 @@
 <span class="ch-badge">KANAŁ 6</span>
 <div class="ch-icon">🎵</div>
 <h3>Strumieniowe przesyłanie multimediów (NAS/DLNA)</h3>
-<p>Przesyłaj strumieniowo muzykę i wideo z serwera NAS lub DLNA w sieci domowej do telefonu za pośrednictwem Tailscale. Przeglądaj bibliotekę multimediów, kolejkuj ścieżki i steruj odtwarzaniem — komputer stacjonarny działa jak pomost między lokalnym serwerem multimediów a telefonem, gdziekolwiek jesteś w sieci.</p>
+<p>Stream music and video from a NAS or DLNA server on your home network to the phone over Tailscale. Browse the media library, queue tracks and control playback — the desktop acts as a bridge between your local media server and the phone wherever you are on the tailnet.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS-a</span><span class="tag">Mostek ogonowy</span>
+<span class="tag">DLNA</span><span class="tag">NAS-a</span><span class="tag">most Tailscale</span>
 </div>
 </div>
 <div class="channel-card ch-acct">
 <span class="ch-badge">KANAŁ 7</span>
 <div class="ch-icon">🧾</div>
 <h3>Księgowość — przechwytywanie paragonów</h3>
-<p>Zrób zdjęcie paragonu telefonem i wyślij bezpośrednio do modułu księgowego. IDE AI odczytuje obraz, wyodrębnia kwotę, datę, dostawcę i podatek VAT oraz rejestruje wersję roboczą wpisu księgowego w księdze podwójnego zapisu – gotową do przejrzenia i opublikowania na pulpicie.</p>
+<p>Photograph a receipt on your phone and send it straight to the accounting module. The IDE AI reads the image, extracts the amount, date, supplier and VAT, and logs a draft journal entry in the double-entry ledger — ready for you to review and post on the desktop.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Odbiór OCR</span><span class="tag">Projekt dziennika</span><span class="tag">Ekstrakcja podatku VAT</span>
+<span class="tag">Odbiór OCR</span><span class="tag">Projekt dziennika</span><span class="tag">VAT extraction</span>
 </div>
 </div>
 <div class="channel-card ch-p2p" style="border-color:#ec4899;">
 <span class="ch-badge" style="background:#fce7f3;color:#be185d;">KANAŁ 8</span>
 <div class="ch-icon">🗣️</div>
-<h3>Głosowa sztuczna inteligencja — telefon STT i TTS</h3>
-<p>Porozmawiaj z AI IDE ze swojego telefonu, korzystając z funkcji zamiany mowy na tekst na urządzeniu. Odpowiedź sztucznej inteligencji jest przesyłana strumieniowo i odczytywana na głos za pomocą funkcji zamiany tekstu na mowę. Pomoc w kodowaniu bez użycia rąk, gdy komputer stacjonarny działa bez nadzoru — podyktuj rozwiązanie, usłysz wynik i potwierdź przez telefon.</p>
+<h3>Voice AI — Phone STT &amp; TTS</h3>
+<p>Speak to the IDE AI from your phone using on-device speech-to-text. The AI response is streamed back and read aloud via text-to-speech. Hands-free coding assistance while your desktop runs unattended — dictate a fix, hear the result, confirm from the phone.</p>
 <div class="tags" style="margin-top:.8rem;">
 <span class="tag">STT na urządzeniu</span><span class="tag">Odtwarzanie TTS</span><span class="tag">Bez użycia rąk</span>
 </div>
@@ -255,29 +255,29 @@
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Siatka zabezpieczona łuską ogonową</h4>
-<p>Wszystkie kanały działają w Twojej prywatnej sieci Tailscale. Żadne porty nie są otwarte dla publicznego Internetu. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
+<h4>Tailscale-secured mesh</h4>
+<p>All channels run over your private Tailscale network. No ports are opened to the public internet. The phone must be authorised on your tailnet — everything else is end-to-end encrypted with WireGuard.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔌</div>
 <div class="strip-body">
-<h4>Pojedynczy mostek WebSocket</h4>
-<p>Pulpit działa <code>chameleon_mobile_bridge.py</code> jako wątek demona w procesie Qt. Aplikacja na telefon łączy się z portem 8770 na adresie IP Tailscale. Jedno trwałe połączenie przenosi wszystkie kanały jako wpisane komunikaty JSON.</p>
+<h4>Single WebSocket bridge</h4>
+<p>Pulpit działa <code>chameleon_mobile_bridge.py</code> as a daemon thread inside the Qt process. The phone app connects to port 8770 on the Tailscale IP. One persistent connection carries all channels as typed JSON messages.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Termux na Androida</h4>
-<p>Serwer sygnałowy (<code>chameleon_signal.py</code>) może działać bezpośrednio na telefonie z Androidem za pośrednictwem Termux – czyniąc telefon zarówno klientem, jak i węzłem sygnalizacyjnym. Do połączeń równorzędnych WebRTC w sieci ogonowej nie jest potrzebny żaden przekaźnik chmury.</p>
+<h4>Termux on Android</h4>
+<p>Serwer sygnałowy (<code>chameleon_signal.py</code>) can run directly on the Android phone via Termux — making the phone both a client and a signalling node. No cloud relay needed for WebRTC peer connections within your tailnet.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📶</div>
 <div class="strip-body">
 <h4>Awaryjna sieć LAN</h4>
-<p>Gdy skala ogonowa jest niedostępna, <code>lan_video.py</code> przesyła strumieniowo obraz przez UDP (port 47732) i dźwięk przez UDP (port 47733) bezpośrednio w sieci lokalnej — te same kanały, bez narzutu VPN.</p>
+<p>Kiedy Tailscale jest niedostępnaai, <code>lan_video.py</code> przesyła strumieniowo obraz przez UDP (port 47732) i dźwięk przez UDP (port 47733) bezpośrednio w sieci lokalnej — te same kanały, bez narzutu VPN.</p>
 </div>
 </div>
 </div>
@@ -290,13 +290,13 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Dom</a><a href="../ide.html">MASZ POMYSŁY</a><a href="../presenter.html">Prezenter</a>
+<a href="../index.html">Dom</a><a href="../ide.html">AIIDE</a><a href="../presenter.html">Prezenter</a>
 <a href="../companion.html">Aplikacja towarzysząca</a><a href="../logistics4x4.html">Logistyka 4×4</a>
 <a href="../services.html">Usługi sieciowe</a><a href="../accounting.html">Księgowość</a>
 <a href="../technician.html">Technik komputerowy</a><a href="../trading.html">Handlowy</a>
 <a href="../classroom.html">Klasa</a><a href="../contact.html">Kontakt</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Oczekiwanie na licencję · Zbudowane przez Marcosa aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Oczekuje na licencję · Stworzone przez Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

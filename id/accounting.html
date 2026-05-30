@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Akuntansi Inggris - Chameleon AI</title>
+<title>UK Accounting — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Rumah</a>
-<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">Pembawa acara</a>
 <a href="../companion.html">Aplikasi Pendamping</a>
 <a href="../logistics4x4.html">Logistik 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Akuntansi Inggris</h1>
-<p class="sub">Pembukuan double-entry, pelacakan PPN, Laba &amp; Rugi, Neraca — semuanya dalam buku besar SQLite lokal yang menargetkan HMRC Membuat Pajak Digital.</p>
+<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇮🇧 Bagan Akun Inggris</span>
-<span class="badge">📋 Siap MTD</span>
-<span class="badge">🔒 SQLite Lokal</span>
-<span class="badge">🤖 Keluaran JSON yang dapat diurai AI</span>
+<span class="badge">📋 MTD-ready</span>
+<span class="badge">🔒 Local SQLite</span>
+<span class="badge">🤖 AI-parseable JSON output</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Setiap transaksi diimbangi dengan sen — debit selalu sama dengan kredit</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Tanggal │ Rekening │ Debit (£) │ Kredit (£) │ PPN</span>
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
 ────────────┼───────────────────.
 01-04-2026 │ 4000 Pendapatan Penjualan │ │  <span class="cr">1,200.00</span>  │ S20
-01-04-2026 │ Kontrol PPN 2200 │ │    <span class="cr">240.00</span>  │
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
 01-04-2026 │ 1100 Debitur Perdagangan │ <span class="dr">1,440.00</span>  │ │
 ────────────┼───────────────────.
-05-04-2026 │ 6100 Biaya Kantor │   <span class="dr">85.00</span>   │ │ S20
-05-04-2026 │ Kontrol PPN 2200 │   <span class="dr">17.00</span>   │ │
+05-04-2026 │ 6100 Biaya Kantor │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
 05-04-2026 │ 1200 Bank Lancar │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Bagan Akun Inggris</h3>
-<p>Kode akun standar Inggris yang unik — aset, kewajiban, ekuitas, pendapatan, dan pengeluaran yang dipetakan ke kategori HMRC. Perluas dengan akun khusus sesuai kebutuhan.</p>
+<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>buku besar SQLite</h3>
+<h3>SQLite ledger</h3>
 <p>Semua data disimpan di <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Berjalan sepenuhnya offline. Dukungan beberapa perusahaan — beralih antar entitas dengan tanda perintah.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>tahun pajak Inggris</h3>
-<p>Akhir tahun disetel dengan benar ke 5 April (tahun fiskal Inggris 6 April – 5 April). Laporan P&amp;L dan PPN secara otomatis mencakup periode yang benar tanpa penyesuaian tanggal manual.</p>
+<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Pemindaian anomali forensik</h3>
-<p>Berlari <code>--forensic</code> untuk mendeteksi entri yang tidak seimbang, duplikat referensi, ketidaksesuaian PPN dan penyimpangan lainnya. Hasil dicetak sebagai JSON terstruktur untuk tinjauan AI.</p>
+<p>Berlari <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Output yang dapat dibaca AI</h3>
-<p>Semua laporan menghasilkan JSON terstruktur hingga stdout sehingga Chameleon AI dapat menguraikan, meringkas, dan memberi saran tentang posisi keuangan Anda dalam bahasa alami.</p>
+<h3>AI-readable output</h3>
+<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>Jembatan WebSocket</h3>
-<p>Jembatan WebSocket akuntansi (<code>acct_ws_bridge.py</code>) memaparkan kueri buku besar ke pendamping seluler dan dasbor eksternal melalui jaringan Tailscale Anda.</p>
+<h3>WebSocket bridge</h3>
+<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Kode PPN Didukung</h2>
+<h2>VAT Codes Supported</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Tarif standar 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Ringkasan Pengembalian PPN</h4>
-<p>Angka PPN kotak per kotak yang sesuai dengan format pengembalian PPN MTD HMRC: Kotak 1 (pajak keluaran), Kotak 4 (pajak masukan), Kotak 6 (penjualan bersih), Kotak 7 (pembelian bersih). Jalankan dengan <code>--report vat</code>.</p>
+<h4>VAT Return Summary</h4>
+<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Faktur</h2>
-<p>Faktur yang sesuai dengan HMRC Notice 700 — dicetak, disimpan sebagai PDF, atau dikirim ke ponsel Anda dalam satu klik</p>
+<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Bidang faktur yang sesuai dengan standar Inggris</h4>
-<p>Setiap faktur mencakup semua bidang yang diwajibkan oleh HMRC Notice 700: nomor faktur berurutan yang unik, nama dan alamat pemasok, nomor pendaftaran PPN, tanggal faktur, tanggal penyediaan (waktu penyediaan), nama dan alamat klien, nomor PPN klien jika berlaku, deskripsi baris terperinci dengan jumlah dan harga satuan, tarif PPN per baris, subtotal bersih dan PPN, dan jumlah total yang harus dibayar. Tidak ada yang hilang, tidak ada yang ditebak.</p>
+<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Pengaturan Perusahaan</h4>
-<p>Membuka <em>File → Faktur → Pengaturan Perusahaan</em> untuk memasukkan nama perusahaan terdaftar Anda, alamat, nomor Rumah Perusahaan, nomor PPN, email, telepon dan rincian bank. Pengaturan disimpan per database klien di <code>company.json</code> di samping buku besar dan dimuat secara otomatis setiap kali faktur dibuat untuk klien tersebut.</p>
+<p>Membuka <em>File → Faktur → Pengaturan Perusahaan</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> di samping buku besar dan dimuat secara otomatis setiap kali faktur dibuat untuk klien tersebut.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>Basis data kontak pelanggan</h4>
-<p>Saat pertama kali Anda menagih klien, nama, alamat, dan nomor PPN mereka disimpan ke tabel kontak di dalam buku besar. Pada faktur berikutnya, mengetikkan nama klien akan melengkapi detailnya secara otomatis — tidak perlu memasukkan ulang. Kontak dapat diedit kapan saja.</p>
+<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Cetak, PDF dan kirim ke telepon</h4>
-<p>Dari Manajer Faktur (<em>File → Faktur…</em>) pilih faktur apa pun dan pilih: <strong>Mencetak</strong> (membuka dialog pencetakan OS — printer atau driver PDF apa pun), <strong>Simpan PDF</strong> (langsung ke disk melalui ekspor PDF bawaan Qt), atau <strong>Kirim ke Telepon</strong> (mendorong HTML faktur ke aplikasi Pendamping yang membuka dialog pencetakan Android — mencetak secara nirkabel ke AirPrint atau printer terdekat).</p>
+<p>Dari Manajer Faktur (<em>File → Faktur…</em>) pilih faktur apa pun dan pilih: <strong>Mencetak</strong> (membuka dialog pencetakan OS — printer atau driver PDF apa pun), <strong>Simpan PDF</strong> (langsung ke disk melalui ekspor PDF bawaan Qt), atau <strong>Kirim ke Telepon</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Tanggal penyediaan</h3>
-<p>Pisahkan kolom "Tanggal persediaan" (waktu persediaan) — berbeda dengan tanggal faktur. Diperlukan oleh HMRC untuk keperluan PPN. Defaultnya adalah hari ini tetapi dapat diedit secara independen per faktur.</p>
+<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Pencetakan faktur seluler</h3>
-<p>Aplikasi Pendamping dapat mencetak faktur apa pun secara nirkabel. Ketuk ikon cetak di baris faktur mana pun — aplikasi mengambil HTML dari IDE, mengubahnya menjadi PDF di perangkat melalui <code>printing</code> paket, dan membuka dialog pencetakan sistem Android.</p>
+<p>Aplikasi Pendamping dapat mencetak faktur apa pun secara nirkabel. Ketuk ikon cetak di baris faktur mana pun — aplikasi mengambil HTML dari IDE, mengubahnya menjadi PDF di perangkat melalui <code>printing</code> package, and opens the Android system print dialog.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>Kepatuhan Pemberitahuan HMRC 700</h3>
-<p>Ke-12 bidang yang wajib diisi untuk faktur PPN Inggris lengkap sudah ada dan diisi. Garis dengan tarif rendah dan tarif nol diberi label dengan jelas. Urutan nomor faktur benar-benar meningkat secara monoton tanpa ada celah.</p>
+<h3>HMRC Notice 700 compliance</h3>
+<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Laba &amp; Rugi tahun pajak berjalan</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Neraca pada hari ini</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Ringkasan pengembalian PPN (kotak MTD)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Pemindaian anomali &amp; integritas</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Referensi perintah lengkap</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a>
+<a href="../index.html">Rumah</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Pembawa acara</a>
 <a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
 <a href="../trading.html">Jual beli</a><a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

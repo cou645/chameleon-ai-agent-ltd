@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>영국 회계 — 카멜레온 AI</title>
+<title>UK Accounting — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">ud648</a>
-<a href="../ide.html">당신은 아이디어가 있습니다</a>
+<a href="../ide.html">AI IDE</a>
 <a href="../presenter.html">증여자</a>
 <a href="../companion.html">컴패니언 앱</a>
 <a href="../logistics4x4.html">물류 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>영국 회계</h1>
-<p class="sub">복식 부기, VAT 추적, 손익, 대차대조표 — 모두 HMRC의 세금 디지털화를 목표로 하는 로컬 SQLite 원장에 있습니다.</p>
+<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 영국 계정과목표</span>
-<span class="badge">📋 MTD 준비</span>
-<span class="badge">🔒 로컬 SQLite</span>
-<span class="badge">🤖 AI로 구문 분석 가능한 JSON 출력</span>
+<span class="badge">📋 MTD-ready</span>
+<span class="badge">🔒 Local SQLite</span>
+<span class="badge">🤖 AI-parseable JSON output</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>모든 거래는 1페니 단위로 균형을 이룹니다. 차변은 항상 대변과 동일합니다.</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">날짜 │ 계좌 │ 차변(£) │ 대변(£) │ VAT</span>
+<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
 ────────────┼─────────────────────────┼──────────┼────────────┼────
 2026-04-01 │ 판매수익 4000 │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 부가세 관리 │ │    <span class="cr">240.00</span>  │
+2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
 2026-04-01 │ 무역채무자 1100명 │ <span class="dr">1,440.00</span>  │ │
 ────────────┼─────────────────────────┼──────────┼────────────┼────
-2026-04-05 │ 6100 사무비 │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 부가세 관리 │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 사무비 │   <span class="dr">85.00</span>   │            │ S20
+2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 은행현금 │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>영국 계정과목표</h3>
-<p>즉시 사용 가능한 표준 영국 계정 코드 — HMRC 범주에 매핑된 자산, 부채, 자본, 수입 및 지출. 필요에 따라 사용자 정의 계정으로 확장하세요.</p>
+<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite 원장</h3>
+<h3>SQLite ledger</h3>
 <p>모든 데이터는 다음 위치에 저장됩니다. <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. 완전히 오프라인으로 실행됩니다. 여러 회사 지원 - 명령 플래그를 사용하여 엔터티 간을 전환합니다.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>영국 과세 연도</h3>
-<p>연말이 4월 5일로 올바르게 설정되었습니다(영국 회계연도 4월 6일~4월 5일). 손익 및 VAT 보고서는 수동 날짜 조정 없이 자동으로 올바른 기간을 포괄합니다.</p>
+<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>법의학적 이상 스캔</h3>
-<p>달리다 <code>--forensic</code> 불균형 항목, 중복 참조, VAT 불일치 및 기타 불규칙성을 감지합니다. AI 검토를 위해 구조화된 JSON으로 결과가 인쇄됩니다.</p>
+<p>달리다 <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI 판독 가능 출력</h3>
-<p>모든 보고서는 구조화된 JSON을 stdout으로 출력하므로 Chameleon AI는 재무 상태를 자연어로 구문 분석, 요약 및 조언할 수 있습니다.</p>
+<h3>AI-readable output</h3>
+<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocket 브리지</h3>
-<p>회계 WebSocket 브리지(<code>acct_ws_bridge.py</code>)은 Tailscale 네트워크를 통해 모바일 컴패니언 및 외부 대시보드에 원장 쿼리를 노출합니다.</p>
+<h3>WebSocket bridge</h3>
+<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>지원되는 VAT 코드</h2>
+<h2>VAT Codes Supported</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>표준요금 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT 환급 요약</h4>
-<p>HMRC MTD VAT 반환 형식과 일치하는 박스별 VAT 수치: 상자 1(매입세), 상자 4(매입세), 상자 6(순매출), 상자 7(순매입). 다음으로 실행 <code>--report vat</code>.</p>
+<h4>VAT Return Summary</h4>
+<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>인보이스 발행</h2>
-<p>HMRC 공지 700 호환 송장 — 한 번의 클릭으로 인쇄, PDF로 저장 또는 휴대폰으로 푸시</p>
+<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>영국 규격 송장 필드</h4>
-<p>모든 송장에는 HMRC 공지 700에서 요구하는 모든 필드가 포함됩니다. 고유한 연속 송장 번호, 공급업체 이름 및 주소, VAT 등록 번호, 송장 날짜, 공급 날짜(공급 시간), 고객 이름 및 주소, 해당되는 경우 고객 VAT 번호, 수량 및 단가가 포함된 항목별 라인 설명, 라인당 VAT 요율, 순 및 VAT 소계, 총 미결제 금액. 누락된 것도 없고 추측된 것도 없습니다.</p>
+<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>회사 설립</h4>
-<p>열려 있는 <em>파일 → 송장 → 회사 설정</em> 등록된 회사 이름, 주소, 회사 집 번호, VAT 번호, 이메일, 전화번호 및 은행 정보를 입력합니다. 설정은 클라이언트 데이터베이스별로 저장됩니다. <code>company.json</code> 원장과 함께 해당 고객에 대한 송장이 생성될 때마다 자동으로 로드됩니다.</p>
+<p>열려 있는 <em>파일 → 송장 → 회사 설정</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> 원장과 함께 해당 고객에 대한 송장이 생성될 때마다 자동으로 로드됩니다.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>고객 연락처 데이터베이스</h4>
-<p>고객에게 처음으로 송장을 보낼 때 고객의 이름, 주소 및 VAT 번호가 원장 내부의 연락처 테이블에 저장됩니다. 후속 청구서에 고객 이름을 입력하면 세부 정보가 자동 완성되므로 다시 입력할 필요가 없습니다. 연락처는 언제든지 편집할 수 있습니다.</p>
+<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>인쇄, PDF 및 전화로 보내기</h4>
-<p>송장 관리자(<em>파일 → 송장…</em>) 송장을 선택하고 다음을 선택합니다. <strong>인쇄</strong> (OS 인쇄 대화 상자 열기 - 모든 프린터 또는 PDF 드라이버) <strong>PDF 저장</strong> (Qt에 내장된 PDF 내보내기를 통해 디스크로 직접) 또는 <strong>전화로 보내기</strong> (인보이스 HTML을 Android 인쇄 대화 상자가 열리는 Companion 앱으로 푸시합니다. AirPrint 또는 근처 프린터로 무선으로 인쇄합니다.)</p>
+<p>송장 관리자(<em>파일 → 송장…</em>) 송장을 선택하고 다음을 선택합니다. <strong>인쇄</strong> (OS 인쇄 대화 상자 열기 - 모든 프린터 또는 PDF 드라이버) <strong>PDF 저장</strong> (Qt에 내장된 PDF 내보내기를 통해 디스크로 직접) 또는 <strong>전화로 보내기</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>공급일자</h3>
-<p>별도의 "공급 날짜"(공급 시간) 필드 — 송장 날짜와 다릅니다. VAT 목적으로 HMRC에서 요구합니다. 기본값은 오늘이지만 송장별로 독립적으로 편집할 수 있습니다.</p>
+<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>모바일 송장 인쇄</h3>
-<p>Companion 앱을 사용하면 모든 송장을 무선으로 인쇄할 수 있습니다. 인보이스 행에서 인쇄 아이콘을 탭하세요. 앱이 IDE에서 HTML을 가져와 기기에서 PDF로 변환합니다. <code>printing</code> 패키지를 다운로드하고 Android 시스템 인쇄 대화상자를 엽니다.</p>
+<p>Companion 앱을 사용하면 모든 송장을 무선으로 인쇄할 수 있습니다. 인보이스 행에서 인쇄 아이콘을 탭하세요. 앱이 IDE에서 HTML을 가져와 기기에서 PDF로 변환합니다. <code>printing</code> package, and opens the Android system print dialog.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC 공지 700 준수</h3>
-<p>전체 영국 VAT 송장에 대한 12개의 필수 필드가 모두 존재하고 채워져 있습니다. 감속률 및 제로 정격 라인이 명확하게 표시되어 있습니다. 송장 번호 순서는 간격 없이 엄격하게 단조롭게 증가합니다.</p>
+<h3>HMRC Notice 700 compliance</h3>
+<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>현 과세연도의 손익</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>오늘 기준 대차대조표</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT 환급 요약(MTD 상자)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>이상 및 무결성 검사</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>전체 명령 참조</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
+<a href="../index.html">ud648</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">증여자</a>
 <a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
 <a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

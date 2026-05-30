@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Presenter Kameleon — Bunglon AI</title>
+<title>Kameleon Presenter — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Rumah</a>
-<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../ide.html">AI IDE</a>
 <a class="active" href="../presenter.html">Pembawa acara</a>
 <a href="../companion.html">Aplikasi Pendamping</a>
 <a href="../logistics4x4.html">Logistik 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Pembawa acara Bunglon</h1>
+<h1 translate="no">Kameleon Presenter</h1>
 <p class="sub">Sebuah sistem presentasi yang terinspirasi dari teater di mana slide Anda adalah sebuah Panggung, blok konten Anda adalah Aktor dan transisi adalah Isyarat — semuanya dapat dikontrol dari telepon.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Metafora teater</span>
 <span class="badge">📱 Kontrol seluler</span>
 <span class="badge">✏️ Gambar kolaboratif</span>
-<span class="badge">🖥️ Cermin Android ADB</span>
+<span class="badge">🖥️ Android ADB mirror</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Objek KameleonStack di atas panggung</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Tumpukan Konten — slide kuliah</div>
 <div class="stage-obj obj-stage">🟡 Tahap Stack - kiriman siswa</div>
@@ -98,7 +98,7 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>KameleonStack</h3>
-<p>Wadah konten universal. Setiap tumpukan menampung banyak slot (gambar, teks, PDF). Dua mode:</p>
+<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
 <ul>
 <li><strong style="color:#22c55e">Isi</strong> — slide yang dikendalikan guru</li>
 <li><strong style="color:#eab308">Panggung</strong> — menerima kiriman yang didorong oleh rekan sejawat</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>bundel proyek .kpt</h3>
-<p>Proyek disimpan sebagai arsip ZIP (<code>.kpt</code>) berisi semua aset media, data tata letak, dan konfigurasi animasi. Buka di mesin apa pun yang menjalankan Chameleon.</p>
+<p>Proyek disimpan sebagai arsip ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Jembatan seluler Android</h4>
-<p>Jembatan seluler Chameleon (WebSocket) menyampaikan perintah teater dari perangkat Android apa pun. Kontrol <strong>stack_next / sebelumnya / putar / jeda / hentikan</strong>, dorong slot gambar atau teks ke dalam tumpukan, dan lihat siaran status tumpukan secara real-time.</p>
+<h4>Android mobile bridge</h4>
+<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / sebelumnya / putar / jeda / hentikan</strong>, dorong slot gambar atau teks ke dalam tumpukan, dan lihat siaran status tumpukan secara real-time.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Kiriman rekan</h4>
-<p>Siswa memasukkan gambar atau teks ke tumpukan mode Tahap dari ponsel mereka. Kiriman muncul di strip thumbnail dengan garis tepi oranye yang berkedip-kedip. Pembawa acara bisa <strong>menyetujui, menahan, menolak atau mempromosikan</strong> masing-masing sebelum ditayangkan di layar.</p>
+<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>menyetujui, menahan, menolak atau mempromosikan</strong> masing-masing sebelum ditayangkan di layar.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Papan gambar bersama</h4>
-<p>Kanvas tangan bebas kolaboratif yang dapat dikontrol dari jembatan seluler — <strong>draw_stroke / hapus / batalkan</strong>. Ideal untuk membuat anotasi pada slide, bertukar pikiran, atau kuis langsung.</p>
+<p>Kanvas tangan bebas kolaboratif yang dapat dikontrol dari jembatan seluler — <strong>draw_stroke / hapus / batalkan</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Cermin telepon ADB &amp; pengambilan PPT</h4>
-<p><strong>Kotak Telepon ADB</strong> mengalirkan layar Android langsung langsung ke panggung melalui ADB. <strong>Kotak Cermin PPT</strong> menangkap jendela PowerPoint — menampilkan deck Anda yang ada di dalam Kameleon tanpa konversi.</p>
+<p><strong>Kotak Telepon ADB</strong> streams a live Android screen directly onto the stage via ADB. <strong>Kotak Cermin PPT</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Hidupkan presentasi Anda</h3>
-<p>Hubungi kami untuk mendiskusikan lisensi atau mengatur demonstrasi langsung Kameleon Presenter.</p>
+<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Minta demo</a>
 <a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a>
+<a href="../index.html">Rumah</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Pembawa acara</a>
 <a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
 <a href="../trading.html">Jual beli</a><a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Dibuat oleh Marcos alias stemsee</p>
 </footer>
 </body>
 </html>
