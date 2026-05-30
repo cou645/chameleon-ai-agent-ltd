@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UK Accounting — Chameleon AI</title>
+<title>英国会计 — C​​hameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
 <div class="nav-links">
 <a href="../index.html">家</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">你有想法</a>
 <a href="../presenter.html">主持人</a>
 <a href="../companion.html">配套应用程序</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>英国会计</h1>
-<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+<p class="sub">复式记账、增值税跟踪、损益表、资产负债表——所有这些都在本地 SQLite 分类账中，目标是 HMRC 使税务数字化。</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 英国会计科目表</span>
-<span class="badge">📋 MTD-ready</span>
-<span class="badge">🔒 Local SQLite</span>
-<span class="badge">🤖 AI-parseable JSON output</span>
+<span class="badge">📋 MTD 就绪</span>
+<span class="badge">🔒 本地 SQLite</span>
+<span class="badge">🤖 AI 可解析的 JSON 输出</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>每笔交易都平衡到一分钱——借方始终等于贷方</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
+<span class="hd">日期 │ 帐户 │ 借方 (£) │ 贷方 (£) │ 增值税</span>
 ────────────┼────────────────────────┼────────────┼────────────┼────
 2026-04-01 │ 4000销售收入 │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
+2026-04-01 │ 2200增值税管制 │ │    <span class="cr">240.00</span>  │
 2026-04-01 │ 1100个贸易债务人 │ <span class="dr">1,440.00</span>  │ │
 ────────────┼────────────────────────┼────────────┼────────────┼────
-2026-04-05 │ 6100 办公费用 │   <span class="dr">85.00</span>   │            │ S20
-2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 办公费用 │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200增值税管制 │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 银行往来 │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>英国会计科目表</h3>
-<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
+<p>开箱即用的标准英国账户代码 — 映射到 HMRC 类别的资产、负债、股权、收入和支出。根据需要使用自定义帐户进行扩展。</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite ledger</h3>
+<h3>SQLite 账本</h3>
 <p>所有数据存储在 <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>。完全离线运行。多公司支持 - 使用命令标志在实体之间切换。</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>英国纳税年度</h3>
-<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+<p>年终正确设置为 4 月 5 日（英国财政年度为 4 月 6 日至 4 月 5 日）。损益和增值税报告自动跨越正确的期间，无需手动调整日期。</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>法医异常扫描</h3>
-<p>跑步 <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+<p>跑步 <code>--forensic</code> 检测不平衡条目、重复引用、增值税不匹配和其他违规行为。结果以结构化 JSON 形式打印以供 AI 审核。</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI-readable output</h3>
-<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
+<h3>AI可读输出</h3>
+<p>所有报告都将结构化 JSON 输出到标准输出，以便 Chameleon AI 可以用自然语言解析、总结和建议您的财务状况。</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocket bridge</h3>
-<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+<h3>WebSocket桥接器</h3>
+<p>会计 WebSocket 桥（<code>acct_ws_bridge.py</code>）通过 Tailscale 网络向移动配套设备和外部仪表板公开账本查询。</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>VAT Codes Supported</h2>
+<h2>支持的增值税代码</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>标准税率20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT Return Summary</h4>
-<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+<h4>增值税申报表摘要</h4>
+<p>与 HMRC MTD 增值税申报表格式相符的逐栏增值税数字：框 1（销项税）、框 4（进项税）、框 6（净销售）、框 7（净采购）。运行与 <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>开具发票</h2>
-<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
+<p>符合 HMRC 通知 700 标准的发票 — 打印、保存为 PDF 或一键推送到您的手机</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>符合英国标准的发票字段</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
+<p>每张发票均包含 HMRC 通知 700 要求的所有字段：唯一的连续发票号、供应商名称和地址、增值税登记号、发票日期、供应日期（供应时间）、客户名称和地址、客户增值税号（如适用）、包含数量和单价的逐项行说明、每行增值税率、净额和增值税小计以及应付总额。什么都没有丢失，什么也没有被猜测。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>公司设立</h4>
-<p>打开 <em>文件 → 发票 → 公司设置</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> 与分类账一起并在为该客户生成发票时自动加载。</p>
+<p>打开 <em>文件 → 发票 → 公司设置</em> 输入您的注册公司名称、地址、公司门牌号码、增值税号码、电子邮件、电话和银行详细信息。设置保存在每个客户端数据库中 <code>company.json</code> 与分类账一起并在为该客户生成发票时自动加载。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>客户联系数据库</h4>
-<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
+<p>第一次向客户开具发票时，他们的姓名、地址和增值税号将保存到分类账内的联系人表中。在后续发票上，输入客户名称会自动填写其详细信息 - 无需重新输入。联系人可以随时编辑。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>打印、PDF 并发送到手机</h4>
-<p>来自发票管理器（<em>文件 → 发票...</em>) 选择任何发票并选择： <strong>打印</strong> （打开操作系统打印对话框 - 任何打印机或 PDF 驱动程序）， <strong>保存PDF</strong> （通过 Qt 的内置 PDF 导出直接到磁盘），或者 <strong>发送至电话</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
+<p>来自发票管理器（<em>文件 → 发票...</em>) 选择任何发票并选择： <strong>打印</strong> （打开操作系统打印对话框 - 任何打印机或 PDF 驱动程序）， <strong>保存PDF</strong> （通过 Qt 的内置 PDF 导出直接到磁盘），或者 <strong>发送至电话</strong> （将发票 HTML 推送到配套应用程序，在其中打开 Android 打印对话框 — 无线打印到任何 AirPrint 或附近的打印机）。</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>供货日期</h3>
-<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
+<p>单独的“供应日期”（供应时间）字段 — 与发票日期不同。 HMRC 出于增值税目的要求。默认为今天，但可以根据发票独立编辑。</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>移动发票打印</h3>
-<p>配套应用程序可以无线打印任何发票。点击任何发票行上的打印图标 — 应用程序从 IDE 获取 HTML，通过 <code>printing</code> package, and opens the Android system print dialog.</p>
+<p>配套应用程序可以无线打印任何发票。点击任何发票行上的打印图标 — 应用程序从 IDE 获取 HTML，通过 <code>printing</code> 打包，并打开 Android 系统打印对话框。</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC Notice 700 compliance</h3>
-<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
+<h3>HMRC 通知 700 合规性</h3>
+<p>完整的英国增值税发票的所有 12 个必填字段均已显示并已填充。低费率和零费率线路都有明确的标签。发票编号序列严格单调递增，没有间隙。</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>当前纳税年度的损益</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>截至今日的资产负债表</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>增值税申报表摘要（MTD 框）</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>异常和完整性扫描</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>完整命令参考</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">家</a><a href="../ide.html">AI集成开发环境</a><a href="../presenter.html">主持人</a>
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
 <a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
 <a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
 </footer>
 </body>
 </html>

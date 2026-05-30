@@ -51,64 +51,6 @@ LANGS = {
 # Tags whose text content is never translated
 SKIP_TAGS = {"style", "script", "code", "pre", "noscript"}
 
-# Terms that must never be translated — brand names, product names, tech terms.
-# Sorted longest-first so the regex alternation can't partially match a shorter term first.
-PROTECTED_TERMS = sorted([
-    # Company / product
-    "Chameleon AI Technicians Ltd",
-    "Chameleon AI",
-    "Kameleon Presenter",
-    "Kameleon",
-    "Claude Code",
-    "LM Studio",
-    # People
-    "Marcos",
-    "stemsee",
-    # AI providers
-    "Anthropic",
-    "DeepSeek",
-    "Moonshot",
-    "Mistral",
-    "OpenAI",
-    "Ollama",
-    "Groq",
-    # Platforms / services
-    "Tailscale",
-    "Binance",
-    "Alipay",
-    "PayPal",
-    "Stripe",
-    "GitHub",
-    "Whisper",
-    "Piper",
-    # Tech terms
-    "WebSocket",
-    "WebRTC",
-    "PyQt6",
-    "SQLite",
-    "Android",
-    "Windows",
-    "macOS",
-    "Linux",
-    "Python",
-    # UK regulatory
-    "Making Tax Digital",
-    "HMRC",
-    "MTD",
-    "VAT",
-    # Abbreviations
-    "GNU",
-    "GPL",
-    "API",
-    "P2P",
-    "AI",
-], key=len, reverse=True)
-
-_PROTECTED_RE = re.compile(
-    "|".join(re.escape(t) for t in PROTECTED_TERMS),
-    re.IGNORECASE,
-)
-
 LANG_SWITCHER_CSS = """
 /* ── Language switcher ── */
 .lang-switcher { position: relative; flex-shrink: 0; margin-left: .4rem; }
@@ -141,38 +83,18 @@ LANG_SWITCHER_CSS = """
 # ── Translation ──────────────────────────────────────────────────────────────
 
 def hashtext(lang: str, text: str) -> str:
-    """Translate text, keeping protected terms intact via numbered placeholders."""
+    """Call hashtext binary. Returns translation (cache hit) or original (cache miss)."""
     stripped = text.strip()
     if not stripped or not re.search(r'[A-Za-z]', stripped):
         return text
-
-    # Mask protected terms so the translation engine never touches them
-    slots: dict[str, str] = {}
-    counter = 0
-
-    def _mask(m: re.Match) -> str:
-        nonlocal counter
-        key = f"{{{counter}}}"
-        slots[key] = m.group(0)   # preserve original casing
-        counter += 1
-        return key
-
-    masked = _PROTECTED_RE.sub(_mask, stripped)
-
-    # Nothing left to translate after masking
-    if not re.search(r'[A-Za-z]', masked):
-        return text
-
     try:
-        out = subprocess.run(
-            ["hashtext", lang, masked],
-            capture_output=True, text=True, timeout=15,
-        ).stdout.strip()
+        result = subprocess.run(
+            ["hashtext", lang, stripped],
+            capture_output=True, text=True, timeout=15
+        )
+        out = result.stdout.strip()
         if not out:
             return text
-        # Restore protected terms
-        for key, original in slots.items():
-            out = out.replace(key, original)
         lead  = text[:len(text) - len(text.lstrip())]
         trail = text[len(text.rstrip()):]
         return lead + out + trail
@@ -187,27 +109,10 @@ def iter_text_nodes(soup):
             continue
         if any(getattr(p, "name", None) in SKIP_TAGS for p in node.parents):
             continue
-        # Respect translate="no" on any ancestor element
-        if any(p.get("translate") == "no" for p in node.parents if hasattr(p, "get")):
-            continue
         text = str(node)
         if not text.strip() or not re.search(r'[A-Za-z]', text):
             continue
         yield node
-
-
-def stamp_no_translate(soup) -> int:
-    """Add translate="no" to elements whose entire text content is a protected term.
-    Returns the number of elements stamped."""
-    stamped = 0
-    for tag in soup.find_all(True):
-        if tag.get("translate") == "no":
-            continue
-        # tag.string is non-None only when the tag has exactly one NavigableString child
-        if tag.string and _PROTECTED_RE.fullmatch(tag.string.strip()):
-            tag["translate"] = "no"
-            stamped += 1
-    return stamped
 
 
 # ── Path fixing ──────────────────────────────────────────────────────────────
@@ -325,9 +230,6 @@ def cmd_build(langs: list, update_en: bool = True):
             if old:
                 old.decompose()
 
-            # Stamp translate="no" on protected-term elements before translation
-            stamp_no_translate(soup)
-
             # Set <html lang="…"> and optional dir="rtl"
             html_tag = soup.find("html")
             if html_tag:
@@ -364,14 +266,11 @@ def cmd_build(langs: list, update_en: bool = True):
             d.name for d in SITE_ROOT.iterdir()
             if d.is_dir() and d.name in LANGS
         )
-        total_stamped = 0
         for html_file in html_files:
             soup = BeautifulSoup(html_file.read_text(), "lxml")
-            total_stamped += stamp_no_translate(soup)
             inject_switcher(soup, switcher_for_en(html_file.name, all_built))
             html_file.write_text(render(soup))
         print(f"  Updated {len(html_files)} English pages with lang switcher ({', '.join(all_built)})")
-        print(f"  Stamped translate=\"no\" on {total_stamped} elements across English pages")
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────

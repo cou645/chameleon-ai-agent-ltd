@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UK Accounting — Chameleon AI</title>
+<title>Бухгалтерский учет в Великобритании — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
 <div class="nav-links">
 <a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
 <a href="../presenter.html">Ведущий</a>
 <a href="../companion.html">Сопутствующее приложение</a>
 <a href="../logistics4x4.html">Логистика 4х4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Бухгалтерский учет в Великобритании</h1>
-<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+<p class="sub">Двойная бухгалтерия, отслеживание НДС, отчет о прибылях и убытках, балансовый отчет — все это в локальном реестре SQLite, ориентированном на HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 План счетов Великобритании</span>
-<span class="badge">📋 MTD-ready</span>
-<span class="badge">🔒 Local SQLite</span>
-<span class="badge">🤖 AI-parseable JSON output</span>
+<span class="badge">📋 Готовность к MTD</span>
+<span class="badge">🔒 Локальный SQLite</span>
+<span class="badge">🤖 Вывод JSON с возможностью анализа AI</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Каждая транзакция сбалансирована до копейки — дебет всегда равен кредиту</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
+<span class="hd">Дата │ Счет │ Дебет (фунтов стерлингов) │ Кредит (фунтов стерлингов) │ НДС</span>
 ───────────┼─────────────────────────┼───────────┼────────────┼────
-01.04.2026 │ 4000 Выручка от продаж │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
+01.04.2026 │ 4000 Выручка от продаж │ │  <span class="cr">1,200.00</span>  │ С20
+01.04.2026 │ 2200 Контроль НДС │ │    <span class="cr">240.00</span>  │
 01.04.2026 │ 1100 торговых должников │ <span class="dr">1,440.00</span>  │ │
 ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─
-05.04.2026 │ 6100 Офисные расходы │   <span class="dr">85.00</span>   │            │ S20
-2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
+05.04.2026 │ 6100 Офисные расходы │   <span class="dr">85.00</span>   │ │ S20
+05.04.2026 │ 2200 Контроль НДС │   <span class="dr">17.00</span>   │ │
 05.04.2026 │ 1200 Текущий банк │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>План счетов Великобритании</h3>
-<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
+<p>Стандартные коды счетов Великобритании «из коробки» — активы, обязательства, капитал, доходы и расходы сопоставлены с категориями HMRC. При необходимости расширяйте возможности с помощью пользовательских учетных записей.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite ledger</h3>
+<h3>SQLite реестр</h3>
 <p>Все данные, хранящиеся в <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Работает полностью в автономном режиме. Поддержка нескольких компаний — переключение между сущностями с помощью командного флага.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Налоговый год Великобритании</h3>
-<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+<p>Конец года правильно установлен на 5 апреля (финансовый год в Великобритании с 6 по 5 апреля). Отчеты о прибылях и убытках и НДС автоматически охватывают правильный период без ручной корректировки даты.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Криминалистическое сканирование аномалий</h3>
-<p>Бегать <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+<p>Бегать <code>--forensic</code> для выявления несбалансированных проводок, дублирующих ссылок, несоответствий НДС и других нарушений. Результаты распечатываются в виде структурированного JSON для проверки ИИ.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI-readable output</h3>
-<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
+<h3>AI-читаемый вывод</h3>
+<p>Все отчеты выводят структурированный JSON на стандартный вывод, чтобы ИИ-хамелеон мог анализировать, обобщать и давать рекомендации о вашем финансовом положении на естественном языке.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocket bridge</h3>
-<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+<h3>Мост WebSocket</h3>
+<p>Учётный мост WebSocket (<code>acct_ws_bridge.py</code>) предоставляет запросы реестра мобильному помощнику и внешним информационным панелям через вашу сеть Tailscale.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>VAT Codes Supported</h2>
+<h2>Поддерживаемые коды НДС</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">С20</div><p>Стандартная ставка 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT Return Summary</h4>
-<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+<h4>Сводная информация по декларации по НДС</h4>
+<p>Подробные данные по НДС соответствуют формату декларации по НДС HMRC MTD: Графа 1 (исходящий налог), Графа 4 (входной налог), Графа 6 (чистые продажи), Графа 7 (чистые покупки). Беги с <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Выставление счетов</h2>
-<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
+<p>Счета-фактуры, соответствующие требованиям HMRC Notification 700 — распечатываются, сохраняются в формате PDF или пересылаются на телефон одним щелчком мыши.</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Поля счета, соответствующие требованиям Великобритании</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
+<p>Каждый счет включает в себя все поля, требуемые Уведомлением HMRC 700: уникальный последовательный номер счета, имя и адрес поставщика, регистрационный номер НДС, дату счета, дату поставки (время поставки), имя и адрес клиента, номер НДС клиента, где это применимо, детализированные описания строк с указанием количества и цен за единицу, ставку НДС по каждой строке, чистые суммы и промежуточные суммы НДС, а также общую сумму к оплате. Ничего не упущено, ничего не угадано.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Создание компании</h4>
-<p>Открыть <em>Файл → Счета → Настройка компании</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> вместе с бухгалтерской книгой и автоматически загружаются всякий раз, когда для этого клиента создаются счета.</p>
+<p>Открыть <em>Файл → Счета → Настройка компании</em> чтобы ввести зарегистрированное название компании, адрес, номер Регистрационной палаты, номер плательщика НДС, адрес электронной почты, телефон и банковские реквизиты. Настройки сохраняются для каждой клиентской базы данных в <code>company.json</code> вместе с бухгалтерской книгой и автоматически загружаются всякий раз, когда для этого клиента создаются счета.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>База контактов клиентов</h4>
-<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
+<p>При первом выставлении счета клиенту его имя, адрес и номер плательщика НДС сохраняются в таблице контактов внутри книги. В последующих счетах при вводе имени клиента его данные заполняются автоматически — повторный ввод не требуется. Контакты доступны для редактирования в любое время.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Распечатать, PDF и отправить на телефон</h4>
-<p>От Менеджера счетов (<em>Файл → Счета…</em>) выберите любой счет и выберите: <strong>Распечатать</strong> (открывает диалог печати ОС — любой принтер или драйвер PDF), <strong>Сохранить PDF</strong> (непосредственно на диск через встроенный PDF-экспорт Qt) или <strong>Отправить на телефон</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
+<p>От Менеджера счетов (<em>Файл → Счета…</em>) выберите любой счет и выберите: <strong>Распечатать</strong> (открывает диалог печати ОС — любой принтер или драйвер PDF), <strong>Сохранить PDF</strong> (непосредственно на диск через встроенный PDF-экспорт Qt) или <strong>Отправить на телефон</strong> (отправляет HTML-код счета в приложение Companion, где открывается диалоговое окно печати Android — печатайте по беспроводной сети на любом AirPrint или ближайшем принтере).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Дата поставки</h3>
-<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
+<p>Отдельное поле «Дата поставки» (время поставки) — отличное от даты выставления счета. Требуется HMRC для целей НДС. По умолчанию используется сегодняшний день, но его можно редактировать независимо для каждого счета.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Мобильная печать счетов</h3>
-<p>Приложение Companion позволяет распечатать любой счет по беспроводной сети. Коснитесь значка печати в любой строке счета — приложение получит HTML-код из IDE, преобразует его в PDF на устройстве с помощью <code>printing</code> package, and opens the Android system print dialog.</p>
+<p>Приложение Companion позволяет распечатать любой счет по беспроводной сети. Коснитесь значка печати в любой строке счета — приложение получит HTML-код из IDE, преобразует его в PDF на устройстве с помощью <code>printing</code> пакет и открывает диалоговое окно печати системы Android.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC Notice 700 compliance</h3>
-<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
+<h3>Соответствие Уведомлению HMRC 700</h3>
+<p>Все 12 обязательных полей для полного счета-фактуры с НДС в Великобритании присутствуют и заполнены. Линии с пониженной и нулевой ставкой четко обозначены. Последовательность номеров счетов строго монотонно возрастающая, без пропусков.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Прибыль и убыток за текущий налоговый год</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Баланс на сегодняшний день</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Сводная декларация по НДС (ящики MTD)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Сканирование аномалий и целостности</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Полный справочник команд</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Ведущий</a>
+<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
 <a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a><a href="../technician.html">ПК-техник</a>
 <a href="../trading.html">Торговля</a><a href="../classroom.html">u041au043bu0430u0441u0441</a><a href="../contact.html">Контакт</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Создано Маркосом, также известным как Stemsee.</p>
 </footer>
 </body>
 </html>

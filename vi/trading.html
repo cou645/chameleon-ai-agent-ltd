@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Crypto Trading — Chameleon AI</title>
+<title>Giao dịch tiền điện tử — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .regime-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
@@ -31,10 +31,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
 <div class="nav-links">
 <a href="../index.html">Trang chủ</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
 <a href="../presenter.html">Người trình bày</a>
 <a href="../companion.html">Ứng dụng đồng hành</a>
 <a href="../logistics4x4.html">Hậu cần 4×4</a>
@@ -50,10 +50,10 @@
 <div class="hero">
 <div class="hero-icon">📈</div>
 <h1>Công cụ giao dịch tiền điện tử</h1>
-<p class="sub">Active position management on Binance — spot, futures and margin — with AI-adaptive trailing stops, regime detection and WebSocket live feeds.</p>
+<p class="sub">Quản lý vị thế tích cực trên Binance — giao ngay, hợp đồng tương lai và ký quỹ — với các điểm dừng theo dõi thích ứng với AI, phát hiện chế độ và nguồn cấp dữ liệu trực tiếp WebSocket.</p>
 <div class="hero-badges">
-<span class="badge">⚡ Binance WebSocket feeds</span>
-<span class="badge">🔄 Trailing stops</span>
+<span class="badge">⚡ Nguồn cấp dữ liệu Binance WebSocket</span>
+<span class="badge">🔄 Điểm dừng</span>
 <span class="badge">📊 Phát hiện chế độ</span>
 <span class="badge">🧪 Mạng thử nghiệm đầu tiên</span>
 </div>
@@ -75,22 +75,22 @@
 <div class="strip-item">
 <div class="strip-icon">📌</div>
 <div class="strip-body">
-<h4>Trailing stops</h4>
-<p>Trailing stop activates once a position is up <strong>+2%</strong>. The stop follows the price upward and locks in profit if the market reverses. Configurable activation threshold per strategy.</p>
+<h4>Điểm dừng cuối</h4>
+<p>Trailing stop kích hoạt khi một vị thế tăng <strong>+2%</strong>. Điểm dừng theo sau giá đi lên và chốt lợi nhuận nếu thị trường đảo chiều. Ngưỡng kích hoạt có thể định cấu hình cho mỗi chiến lược.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">📊</div>
 <div class="strip-body">
 <h4>Mở rộng quy mô ở mức +3%</h4>
-<p>Khi vị trí chiến thắng đạt đến <strong>+3%</strong>, the engine adds to the position (scale-in) to maximise gains on trending moves. Maximum 3 scale-ins per position to control risk.</p>
+<p>Khi vị trí chiến thắng đạt đến <strong>+3%</strong>, công cụ sẽ thêm vào vị trí (mở rộng quy mô) để tối đa hóa lợi ích khi di chuyển theo xu hướng. Tối đa 3 tỷ lệ cho mỗi vị trí để kiểm soát rủi ro.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">⏱️</div>
 <div class="strip-body">
 <h4>Thời gian thoát</h4>
-<p>Các vị trí bằng phẳng (&lt; ±0,3%) trong <strong>30 phút</strong> are closed automatically. Flat markets tie up margin and accumulate fees — time exits free capital for better opportunities.</p>
+<p>Các vị trí bằng phẳng (&lt; ±0,3%) trong <strong>30 phút</strong> được đóng tự động. Thị trường phẳng ràng buộc ký quỹ và tích lũy phí - thời gian thoát khỏi nguồn vốn tự do để có cơ hội tốt hơn.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -108,11 +108,11 @@
 <div class="regime-grid">
 <div class="regime-card ranging">
 <h4>🔵 Thị trường đa dạng</h4>
-<p>Chặt <strong>dừng 1%</strong> — in a sideways chop, wide stops give up too much ground before the market moves in your favour. Tighter exits protect capital and allow re-entry.</p>
+<p>Chặt <strong>dừng 1%</strong> — trong một giao dịch đi ngang, các điểm dừng rộng sẽ nhường quá nhiều điểm trước khi thị trường chuyển động theo hướng có lợi cho bạn. Lối thoát chặt chẽ hơn bảo vệ vốn và cho phép tái gia nhập.</p>
 </div>
 <div class="regime-card volatile">
 <h4>🟡 Thị trường biến động</h4>
-<p>rộng hơn <strong>dừng 3%</strong> — in high-volatility regimes, tight stops get hit by noise. The wider stop rides out normal swings while still protecting against a true reversal.</p>
+<p>rộng hơn <strong>dừng 3%</strong> — trong chế độ biến động cao, các điểm dừng chặt sẽ bị ảnh hưởng bởi tiếng ồn. Điểm dừng rộng hơn giúp loại bỏ các dao động bình thường trong khi vẫn bảo vệ khỏi sự đảo chiều thực sự.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -122,17 +122,17 @@
 <div class="card">
 <div class="card-icon">🪙</div>
 <h3>Giao dịch giao ngay</h3>
-<p>Standard buy/sell of crypto assets on Binance spot markets. Full order-book access, market and limit orders, real-time P&amp;L tracking per position.</p>
+<p>Mua/bán tiêu chuẩn tài sản tiền điện tử trên thị trường giao ngay Binance. Truy cập sổ lệnh đầy đủ, lệnh thị trường và lệnh giới hạn, theo dõi P&amp;L theo thời gian thực cho mỗi vị thế.</p>
 </div>
 <div class="card">
 <div class="card-icon">⚡</div>
 <h3>Hợp đồng tương lai (USDⓈ-M)</h3>
-<p>Leveraged long and short positions on Binance USDⓈ-M perpetual futures. Margin management, liquidation monitoring and funding-rate tracking included.</p>
+<p>Tận dụng các vị thế mua và bán trên hợp đồng tương lai vĩnh viễn USDⓈ-M của Binance. Bao gồm quản lý ký quỹ, giám sát thanh lý và theo dõi tỷ lệ tài trợ.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔄</div>
 <h3>Giao dịch ký quỹ</h3>
-<p>Cross and isolated margin on Binance margin accounts. Borrow, repay and track interest automatically as part of position lifecycle management.</p>
+<p>Ký quỹ chéo và ký quỹ riêng biệt trên tài khoản ký quỹ Binance. Vay, trả nợ và theo dõi lãi suất tự động như một phần của quản lý vòng đời vị thế.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -141,9 +141,9 @@
 <table class="spec-table">
 <thead><tr><th>Bước chân</th><th>Yêu cầu</th><th>Ghi chú</th></tr></thead>
 <tbody>
-<tr><td>1. Configure API keys</td><td><code>python3 binance_setup.py --setup</code></td><td>Các khóa được lưu trữ trong <code>api_keys.env</code></td></tr>
+<tr><td>1. Định cấu hình khóa API</td><td><code>python3 binance_setup.py --setup</code></td><td>Các khóa được lưu trữ trong <code>api_keys.env</code></td></tr>
 <tr><td>2.Kiểm tra trên mạng thử nghiệm</td><td><code>BINANCE_TESTNET=1 python3 strategy_live_runner.py</code></td><td>Không có tiền thực sự gặp rủi ro</td></tr>
-<tr><td>3. Chạy trực tiếp</td><td><code>python3 strategy_live_runner.py</code></td><td>WebSocket feed, active position loop</td></tr>
+<tr><td>3. Chạy trực tiếp</td><td><code>python3 strategy_live_runner.py</code></td><td>Nguồn cấp dữ liệu WebSocket, vòng lặp vị trí hoạt động</td></tr>
 <tr><td>4. Chiến lược backtest</td><td><code>python3 binance_backtest.py</code></td><td>Phát lại OHLCV lịch sử</td></tr>
 <tr><td>5. Chống thao túng</td><td><code>python3 binance_anti_manip.py</code></td><td>Phát hiện các mô hình rửa tiền và giả mạo</td></tr>
 </tbody>
@@ -157,11 +157,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Trang chủ</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Người trình bày</a>
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
 <a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
 <a href="../trading.html">Giao dịch</a><a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
 </footer>
 </body>
 </html>

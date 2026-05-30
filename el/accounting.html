@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UK Accounting — Chameleon AI</title>
+<title>Λογιστική του Ηνωμένου Βασιλείου — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
 <a href="../presenter.html">Δωρητής</a>
 <a href="../companion.html">Companion App</a>
 <a href="../logistics4x4.html">Logistics 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Λογιστική του Ηνωμένου Βασιλείου</h1>
-<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+<p class="sub">Διπλή λογιστική, παρακολούθηση ΦΠΑ, Κέρδη και Ζημίες, Ισολογισμός — όλα σε ένα τοπικό καθολικό SQLite που στοχεύει το HMRC Making Tax Digital.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 Λογιστικό Σχέδιο ΗΒ</span>
-<span class="badge">📋 MTD-ready</span>
-<span class="badge">🔒 Local SQLite</span>
-<span class="badge">🤖 AI-parseable JSON output</span>
+<span class="badge">📋 έτοιμο για MTD</span>
+<span class="badge">🔒 Τοπικό SQLite</span>
+<span class="badge">🤖 Έξοδος JSON με δυνατότητα ανάλυσης AI</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Κάθε συναλλαγή ισοσκελισμένη σε πένα - χρεώνει πάντα ίσες πιστώσεις</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
+<span class="hd">Ημερομηνία │ Λογαριασμός │ Χρέωση (£) │ Πίστωση (£) │ ΦΠΑ</span>
 ────────────┼────────── ─────┼───────────┼─────
 2026-04-01 │ 4000 έσοδα από πωλήσεις │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
+2026-04-01 │ 2200 ΦΠΑ Έλεγχος │ │    <span class="cr">240.00</span>  │
 2026-04-01 │ 1100 Εμπορικοί Οφειλέτες │ <span class="dr">1,440.00</span>  │ │
 ────────────┼────────── ─────┼───────────┼─────
-2026-04-05 │ 6100 Έξοδα Γραφείου │   <span class="dr">85.00</span>   │            │ S20
-2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 Έξοδα Γραφείου │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200 ΦΠΑ Έλεγχος │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 Τραπεζικό ρεύμα │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Λογιστικό Σχέδιο ΗΒ</h3>
-<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
+<p>Τυπικοί κωδικοί λογαριασμών του Ηνωμένου Βασιλείου εκτός πλαισίου — περιουσιακά στοιχεία, υποχρεώσεις, ίδια κεφάλαια, έσοδα και έξοδα αντιστοιχισμένα στις κατηγορίες HMRC. Επέκταση με προσαρμοσμένους λογαριασμούς όπως απαιτείται.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite ledger</h3>
+<h3>Καθολικό SQLite</h3>
 <p>Όλα τα δεδομένα είναι αποθηκευμένα σε <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Εκτελείται εντελώς εκτός σύνδεσης. Υποστήριξη πολλαπλών εταιρειών — εναλλαγή μεταξύ οντοτήτων με σημαία εντολής.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>φορολογικό έτος στο Ηνωμένο Βασίλειο</h3>
-<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+<p>Το τέλος έτους έχει οριστεί σωστά στις 5 Απριλίου (οικονομικό έτος 6 Απριλίου – 5 Απριλίου). Οι αναφορές P&amp;L και ΦΠΑ καλύπτουν αυτόματα τη σωστή περίοδο χωρίς μη αυτόματη προσαρμογή ημερομηνίας.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Ιατροδικαστική σάρωση ανωμαλιών</h3>
-<p>Τρέξιμο <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+<p>Τρέξιμο <code>--forensic</code> για τον εντοπισμό μη ισορροπημένων εγγραφών, διπλών αναφορών, αναντιστοιχιών ΦΠΑ και άλλων παρατυπιών. Τα αποτελέσματα εκτυπώθηκαν ως δομημένο JSON για έλεγχο τεχνητής νοημοσύνης.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI-readable output</h3>
-<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
+<h3>Έξοδος αναγνώσιμη από AI</h3>
+<p>Όλες οι αναφορές εξάγουν δομημένο JSON σε stdout, ώστε το Chameleon AI να μπορεί να αναλύει, να συνοψίζει και να συμβουλεύει για την οικονομική σας θέση σε φυσική γλώσσα.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocket bridge</h3>
-<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+<h3>Γέφυρα WebSocket</h3>
+<p>Η λογιστική γέφυρα WebSocket (<code>acct_ws_bridge.py</code>) εκθέτει τα ερωτήματα του καθολικού στο συνοδευτικό κινητό και στους εξωτερικούς πίνακες εργαλείων μέσω του δικτύου σας Tailscale.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>VAT Codes Supported</h2>
+<h2>Υποστηρίζονται Κωδικοί ΦΠΑ</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Τυπικό ποσοστό 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT Return Summary</h4>
-<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+<h4>Περίληψη Δήλωσης ΦΠΑ</h4>
+<p>Αριθμοί ΦΠΑ ανά κουτί που αντιστοιχούν στη μορφή δήλωσης ΦΠΑ HMRC MTD: Πλαίσιο 1 (φόρος εκροών), Πλαίσιο 4 (φόρος εισροών), Πλαίσιο 6 (καθαρές πωλήσεις), Πλαίσιο 7 (καθαρές αγορές). Τρέξτε με <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Τιμολόγηση</h2>
-<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
+<p>Τιμολόγια συμβατά με το HMRC Notice 700 — εκτυπώθηκαν, αποθηκεύτηκαν ως PDF ή προωθήθηκαν στο τηλέφωνό σας με ένα κλικ</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Πεδία τιμολογίων συμβατά με το Ηνωμένο Βασίλειο</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
+<p>Κάθε τιμολόγιο περιλαμβάνει όλα τα πεδία που απαιτούνται από την Ειδοποίηση HMRC 700: μοναδικό διαδοχικό αριθμό τιμολογίου, όνομα και διεύθυνση προμηθευτή, αριθμό μητρώου ΦΠΑ, ημερομηνία τιμολογίου, ημερομηνία παράδοσης (ώρα παράδοσης), όνομα και διεύθυνση πελάτη, αριθμό ΦΠΑ πελάτη, κατά περίπτωση, αναλυτικές περιγραφές γραμμών με ποσότητες και τιμές μονάδας, συντελεστής ΦΠΑ ανά γραμμή, καθαρό ποσό και υποσύνολα ΦΠΑ. Τίποτα δεν λείπει, τίποτα δεν μαντεύεται.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Εγκατάσταση εταιρείας</h4>
-<p>Ανοιχτό <em>Αρχείο → Τιμολόγια → Ρύθμιση εταιρείας</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> δίπλα στο καθολικό και φορτώνεται αυτόματα κάθε φορά που δημιουργούνται τιμολόγια για αυτόν τον πελάτη.</p>
+<p>Ανοιχτό <em>Αρχείο → Τιμολόγια → Ρύθμιση εταιρείας</em> για να εισαγάγετε το όνομα της εγγεγραμμένης εταιρείας σας, τη διεύθυνση, τον αριθμό οικίας Εταιρειών, τον ΑΦΜ, το email, το τηλέφωνο και τα τραπεζικά στοιχεία. Οι ρυθμίσεις αποθηκεύονται ανά βάση δεδομένων πελάτη <code>company.json</code> δίπλα στο καθολικό και φορτώνεται αυτόματα κάθε φορά που δημιουργούνται τιμολόγια για αυτόν τον πελάτη.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>Βάση δεδομένων επαφών πελατών</h4>
-<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
+<p>Την πρώτη φορά που τιμολογείτε έναν πελάτη το όνομα, η διεύθυνση και ο ΑΦΜ του αποθηκεύονται σε έναν πίνακα επαφών μέσα στο καθολικό. Σε επόμενα τιμολόγια, η πληκτρολόγηση του ονόματος πελάτη συμπληρώνει αυτόματα τα στοιχεία του — δεν απαιτείται εκ νέου καταχώριση. Οι επαφές είναι επεξεργάσιμες ανά πάσα στιγμή.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Εκτύπωση, PDF και αποστολή στο τηλέφωνο</h4>
-<p>Από τον Διαχειριστή Τιμολογίων (<em>Αρχείο → Τιμολόγια…</em>) επιλέξτε οποιοδήποτε τιμολόγιο και επιλέξτε: <strong>Αποτύπωμα</strong> (ανοίγει το παράθυρο διαλόγου εκτύπωσης του λειτουργικού συστήματος — οποιοδήποτε πρόγραμμα οδήγησης εκτυπωτή ή PDF), <strong>Αποθήκευση PDF</strong> (απευθείας στο δίσκο μέσω της ενσωματωμένης εξαγωγής PDF του Qt), ή <strong>Αποστολή στο τηλέφωνο</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
+<p>Από τον Διαχειριστή Τιμολογίων (<em>Αρχείο → Τιμολόγια…</em>) επιλέξτε οποιοδήποτε τιμολόγιο και επιλέξτε: <strong>Αποτύπωμα</strong> (ανοίγει το παράθυρο διαλόγου εκτύπωσης του λειτουργικού συστήματος — οποιοδήποτε πρόγραμμα οδήγησης εκτυπωτή ή PDF), <strong>Αποθήκευση PDF</strong> (απευθείας στο δίσκο μέσω της ενσωματωμένης εξαγωγής PDF του Qt), ή <strong>Αποστολή στο τηλέφωνο</strong> (σπρώχνει το HTML του τιμολογίου στην εφαρμογή Companion όπου ανοίγει το παράθυρο διαλόγου εκτύπωσης Android — εκτυπώστε ασύρματα σε οποιοδήποτε AirPrint ή κοντινό εκτυπωτή).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Ημερομηνία προμήθειας</h3>
-<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
+<p>Ξεχωριστό πεδίο "Ημερομηνία προμήθειας" (ώρα προμήθειας) — διαφορετικό από την ημερομηνία τιμολογίου. Απαιτείται από την HMRC για σκοπούς ΦΠΑ. Προεπιλογή μέχρι σήμερα, αλλά μπορεί να επεξεργαστεί ανεξάρτητα ανά τιμολόγιο.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Εκτύπωση τιμολογίου από κινητό</h3>
-<p>Η εφαρμογή Companion μπορεί να εκτυπώσει οποιοδήποτε τιμολόγιο ασύρματα. Πατήστε το εικονίδιο εκτύπωσης σε οποιαδήποτε σειρά τιμολογίου — η εφαρμογή ανακτά το HTML από το IDE, το μετατρέπει σε PDF στη συσκευή μέσω του <code>printing</code> package, and opens the Android system print dialog.</p>
+<p>Η εφαρμογή Companion μπορεί να εκτυπώσει οποιοδήποτε τιμολόγιο ασύρματα. Πατήστε το εικονίδιο εκτύπωσης σε οποιαδήποτε σειρά τιμολογίου — η εφαρμογή ανακτά το HTML από το IDE, το μετατρέπει σε PDF στη συσκευή μέσω του <code>printing</code> πακέτο και ανοίγει το παράθυρο διαλόγου εκτύπωσης συστήματος Android.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC Notice 700 compliance</h3>
-<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
+<h3>Συμμόρφωση HMRC Notice 700</h3>
+<p>Και τα 12 υποχρεωτικά πεδία για ένα πλήρες τιμολόγιο ΦΠΑ στο ΗΒ είναι παρόντα και συμπληρωμένα. Οι γραμμές μειωμένου και μηδενικού ρυθμού επισημαίνονται με σαφήνεια. Η ακολουθία αριθμών τιμολογίου είναι αυστηρά μονότονη-αυξητική χωρίς κενά.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Κέρδη &amp; Ζημίες τρέχοντος φορολογικού έτους</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Ισολογισμός από σήμερα</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Περίληψη δήλωσης ΦΠΑ (πλαίσια MTD)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Σάρωση ανωμαλίας και ακεραιότητας</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Πλήρης αναφορά εντολής</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Σπίτι</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Δωρητής</a>
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
 <a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
 <a href="../trading.html">Εμπορία</a><a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

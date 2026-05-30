@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UK Accounting — Chameleon AI</title>
+<title>Cyfrifeg y DU — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Cartref</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
 <a href="../presenter.html">Cyflwynydd</a>
 <a href="../companion.html">Ap Cydymaith</a>
 <a href="../logistics4x4.html">Logisteg 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Cyfrifeg y DU</h1>
-<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+<p class="sub">Cadw cyfrifon cofnod dwbl, olrhain TAW, Elw a Cholled, Mantolen — i gyd mewn cyfriflyfr SQLite lleol yn targedu Troi Treth yn Ddigidol CThEM.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 Siart Cyfrifon y DU</span>
-<span class="badge">📋 MTD-ready</span>
-<span class="badge">🔒 Local SQLite</span>
-<span class="badge">🤖 AI-parseable JSON output</span>
+<span class="badge">📋 MTD-barod</span>
+<span class="badge">🔒 SQLite Lleol</span>
+<span class="badge">🤖 Allbwn JSON AI-darnadwy</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>Mae pob trafodiad wedi'i gydbwyso â'r geiniog - debydau bob amser yn gredydau cyfartal</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
+<span class="hd">Dyddiad │ Cyfrif │ Debyd (£) │ Credyd (£) │ TAW</span>
 ────────────────────────────── ──────────────────────────────────
 2026-04-01 │ 4000 Refeniw Gwerthiant │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
+2026-04-01 │ 2200 Rheoli TAW │ │    <span class="cr">240.00</span>  │
 2026-04-01 │ 1100 o Ddyledwyr Masnach │ <span class="dr">1,440.00</span>  │ │
 ────────────────────────────── ──────────────────────────────────
-2026-04-05 │ 6100 Treuliau Swyddfa │   <span class="dr">85.00</span>   │            │ S20
-2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 Treuliau Swyddfa │   <span class="dr">85.00</span>   │ │ S20
+2026-04-05 │ 2200 Rheoli TAW │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 Banc Cyfredol │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Siart Cyfrifon y DU</h3>
-<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
+<p>Codau cyfrif safonol y DU allan o’r blwch — asedau, rhwymedigaethau, ecwiti, incwm a threuliau wedi’u mapio i gategorïau CThEM. Ymestyn gyda chyfrifon personol yn ôl yr angen.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite ledger</h3>
+<h3>Cyfriflyfr SQLite</h3>
 <p>Yr holl ddata sydd wedi'i storio yn <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Yn rhedeg yn gyfan gwbl all-lein. Cefnogaeth cwmni lluosog - newidiwch rhwng endidau â baner orchymyn.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>blwyddyn dreth y DU</h3>
-<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+<p>Pennwyd diwedd y flwyddyn yn gywir i 5 Ebrill (blwyddyn ariannol y DU 6 Ebrill – 5 Ebrill). Mae adroddiadau P&amp;L a TAW yn rhychwantu'r cyfnod cywir yn awtomatig heb addasu dyddiad â llaw.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>Sgan anomaledd fforensig</h3>
-<p>Rhedeg <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+<p>Rhedeg <code>--forensic</code> i ganfod cofnodion anghytbwys, cyfeiriadau dyblyg, anghysonderau TAW ac afreoleidd-dra arall. Canlyniadau wedi'u hargraffu fel JSON strwythuredig ar gyfer adolygiad AI.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI-readable output</h3>
-<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
+<h3>Allbwn darllenadwy AI</h3>
+<p>Mae'r holl allbwn adroddiadau wedi'u strwythuro JSON i stdout fel y gall y Chameleon AI dosrannu, crynhoi a chynghori ar eich sefyllfa ariannol mewn iaith naturiol.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocket bridge</h3>
-<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+<h3>Pont WebSocket</h3>
+<p>Y bont cyfrifo WebSocket (<code>acct_ws_bridge.py</code>) yn datgelu ymholiadau cyfriflyfr i'r cydymaith symudol a dangosfyrddau allanol dros eich rhwydwaith Tailscale.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>VAT Codes Supported</h2>
+<h2>Cefnogir Codau TAW</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Cyfradd safonol 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT Return Summary</h4>
-<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+<h4>Crynodeb o'r Ffurflen TAW</h4>
+<p>Ffigurau TAW fesul blwch yn cyfateb i fformat ffurflen TAW MTD CThEM: Blwch 1 (treth allbwn), Blwch 4 (treth mewnbwn), Blwch 6 (gwerthiannau net), Blwch 7 (pryniannau net). Rhedeg gyda <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Anfonebu</h2>
-<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
+<p>Anfonebau CThEM sy'n cydymffurfio â 700 o Hysbysiadau - wedi'u hargraffu, eu cadw fel PDF neu eu gwthio i'ch ffôn mewn un clic</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>Meysydd anfoneb sy'n cydymffurfio â'r DU</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
+<p>Mae pob anfoneb yn cynnwys yr holl feysydd sy’n ofynnol dan Hysbysiad 700 CThEM: rhif anfoneb ddilyniannol unigryw, enw a chyfeiriad y cyflenwr, rhif cofrestru TAW, dyddiad yr anfoneb, dyddiad cyflenwi (amser cyflenwi), enw a chyfeiriad y cleient, rhif TAW cleient lle bo’n berthnasol, disgrifiadau llinell fesul eitem gyda symiau a phrisiau uned, cyfradd TAW fesul llinell, isgyfansymiau net a TAW, a’r cyfanswm sy’n ddyledus. Does dim byd ar goll, does dim byd yn cael ei ddyfalu.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>Sefydlu Cwmni</h4>
-<p>Agored <em>Ffeil → Anfonebau → Sefydlu Cwmni</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> ochr yn ochr â'r cyfriflyfr a'i lwytho'n awtomatig pryd bynnag y cynhyrchir anfonebau ar gyfer y cleient hwnnw.</p>
+<p>Agored <em>Ffeil → Anfonebau → Sefydlu Cwmni</em> i nodi enw cofrestredig eich cwmni, cyfeiriad, rhif Tŷ'r Cwmnïau, rhif TAW, e-bost, ffôn a manylion banc. Mae gosodiadau yn cael eu cadw fesul cronfa ddata cleient i mewn <code>company.json</code> ochr yn ochr â'r cyfriflyfr a'i lwytho'n awtomatig pryd bynnag y cynhyrchir anfonebau ar gyfer y cleient hwnnw.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>Cronfa ddata cysylltiadau cwsmeriaid</h4>
-<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
+<p>Y tro cyntaf y byddwch yn anfonebu cleient bydd eu henw, eu cyfeiriad a'u rhif TAW yn cael eu cadw mewn tabl cysylltiadau y tu mewn i'r cyfriflyfr. Ar anfonebau dilynol, mae teipio enw'r cleient yn awtolenwi eu manylion - nid oes angen ail-fynediad. Mae modd golygu cysylltiadau ar unrhyw adeg.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>Argraffu, PDF a'i anfon i'r ffôn</h4>
-<p>Gan y Rheolwr Anfonebau (<em>Ffeil → Anfonebau…</em>) dewiswch unrhyw anfoneb a dewis: <strong>Argraffu</strong> (yn agor deialog argraffu OS - unrhyw argraffydd neu yrrwr PDF), <strong>Arbed PDF</strong> (yn uniongyrchol i ddisg trwy allforiad PDF adeiledig Qt), neu <strong>Anfon i Ffôn</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
+<p>Gan y Rheolwr Anfonebau (<em>Ffeil → Anfonebau…</em>) dewiswch unrhyw anfoneb a dewis: <strong>Argraffu</strong> (yn agor deialog argraffu OS - unrhyw argraffydd neu yrrwr PDF), <strong>Arbed PDF</strong> (yn uniongyrchol i ddisg trwy allforiad PDF adeiledig Qt), neu <strong>Anfon i Ffôn</strong> (yn gwthio'r anfoneb HTML i'r app Companion lle mae'n agor yr ymgom argraffu Android - argraffwch yn ddi-wifr i unrhyw AirPrint neu argraffydd cyfagos).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>Dyddiad cyflenwi</h3>
-<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
+<p>Maes ar wahân "Dyddiad cyflenwi" (amser cyflenwi) — ar wahân i ddyddiad yr anfoneb. Yn ofynnol gan CThEM at ddibenion TAW. Rhagosodiadau hyd heddiw ond gellir ei olygu'n annibynnol fesul anfoneb.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>Argraffu anfoneb symudol</h3>
-<p>Gall ap Companion argraffu unrhyw anfoneb yn ddi-wifr. Tapiwch yr eicon argraffu ar unrhyw res anfoneb - mae'r ap yn nôl yr HTML o'r DRhA, yn ei drosi i PDF ar y ddyfais trwy'r <code>printing</code> package, and opens the Android system print dialog.</p>
+<p>Gall ap Companion argraffu unrhyw anfoneb yn ddi-wifr. Tapiwch yr eicon argraffu ar unrhyw res anfoneb - mae'r ap yn nôl yr HTML o'r DRhA, yn ei drosi i PDF ar y ddyfais trwy'r <code>printing</code> pecyn, ac yn agor y deialog argraffu system Android.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC Notice 700 compliance</h3>
-<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
+<h3>Cydymffurfiaeth Hysbysiad 700 CThEM</h3>
+<p>Mae pob un o'r 12 maes gofynnol ar gyfer anfoneb TAW lawn y DU yn bresennol ac wedi'u llenwi. Mae llinellau cyfradd is a chyfradd sero wedi'u labelu'n glir. Mae dilyniant rhif yr anfoneb yn gwbl undonog ac nid oes unrhyw fylchau.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Elw a Cholled ar gyfer y flwyddyn dreth gyfredol</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Mantolen hyd heddiw</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Crynodeb Ffurflen TAW (blychau MTD)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Sgan anomaledd a chywirdeb</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Cyfeirnod gorchymyn llawn</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Cartref</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Cyflwynydd</a>
+<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
 <a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
 <a href="../trading.html">Masnachu</a><a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Adeiladwyd gan Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

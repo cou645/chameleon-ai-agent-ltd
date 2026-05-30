@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Language Classroom — Chameleon AI</title>
+<title>Sprachunterricht – Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
@@ -34,10 +34,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Start</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">SIE HABEN IDEEN</a>
 <a href="../presenter.html">Moderator</a>
 <a href="../companion.html">Begleit-App</a>
 <a href="../logistics4x4.html">Logistik 4×4</a>
@@ -53,10 +53,10 @@
 <div class="hero">
 <div class="hero-icon">🎓</div>
 <h1>Sprachunterricht</h1>
-<p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
+<p class="sub">Live-WebRTC-Videokurse mit Tailscale-gesicherten P2P-Verbindungen, integrierten Zahlungen und dem Kameleon Presenter – alles in einer Anwendung.</p>
 <div class="hero-badges">
-<span class="badge">📹 WebRTC video</span>
-<span class="badge">🌐 Tailscale mesh</span>
+<span class="badge">📹 WebRTC-Video</span>
+<span class="badge">🌐 Tailscale-Netz</span>
 <span class="badge">💳 Stripe · Alipay · PayPal</span>
 <span class="badge">🔐 Registrierungsdatenbank</span>
 </div>
@@ -107,22 +107,22 @@
 <div class="strip-item">
 <div class="strip-icon">📹</div>
 <div class="strip-body">
-<h4>WebRTC group video — 4+ participants</h4>
-<p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
+<h4>WebRTC-Gruppenvideo – 4+ Teilnehmer</h4>
+<p>Full-Mesh-WebRTC-Video und -Audio mit geringer Latenz für Gruppen ab 4 Personen – kein zentraler Medienserver, keine monatlichen Kosten. Der Chameleon-Signalserver (<code>chameleon_signal.py</code>) verwaltet SDP- und ICE-Relay (Port 8766) und läuft auch auf Termux auf Android. Die Companion-App zeigt ein adaptives Raster, das automatisch wächst, wenn Schüler beitreten: 1 = Vollbild, 2 = nebeneinander, 3 = 2+1, 4 = 2×2, 5+ = scrollbares Raster mit automatischer Anpassung – wobei der lokale Feed des Lehrers immer als Bild-in-Bild angezeigt wird.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Tailscale-secured connections</h4>
-<p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
+<h4>Tailscale-gesicherte Verbindungen</h4>
+<p>Alle Peers verbinden sich über Ihr Tailscale-Mesh – keine öffentliche IP, keine Portweiterleitung. Die IDE verwaltet ACLs, Geräteautorisierung und Authentifizierungsschlüsselgenerierung, ohne die App zu verlassen.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🎭</div>
 <div class="strip-body">
-<h4>Integrated Kameleon Presenter</h4>
-<p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
+<h4>Integrierter Kameleon Presenter</h4>
+<p>Unterrichten Sie während Ihres Unterrichts mit der vollständigen Kameleon-Bühne. Schüler können Antworten, Zeichnungen und Bilder direkt auf einen Stapel im Bühnenmodus übertragen – moderieren und in Echtzeit anzeigen, ohne die App wechseln zu müssen.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -136,7 +136,7 @@
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>LAN-Video-Fallback</h4>
-<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
+<p>Wenn Tailscale nicht verfügbar ist, <code>lan_video.py</code> Streamt Video über UDP (Port 47732), Audio über UDP (Port 47733) und kollaborative Diffs über WebSocket (Port 47731) – alles im lokalen Netzwerk.</p>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <div class="strip-icon">📞</div>
 <div class="strip-body">
 <h4>Zwei Arten von Anrufen – ein Gespräch</h4>
-<p>Die Companion-App unterstützt zwei parallele Anrufkanäle: einen <strong>App-Aufruf</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>SIM-Anruf</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>Und</em> Tätigen Sie gleichzeitig einen SIM-Anruf mit einem Dritten und verbinden Sie ihn dann für ein Gespräch mit mehreren Teilnehmern – ohne die App zu verlassen.</p>
+<p>Die Companion-App unterstützt zwei parallele Anrufkanäle: einen <strong>App-Aufruf</strong> (WebRTC, Peer-to-Peer über Tailscale, kostenlos) und a <strong>SIM-Anruf</strong> (Standard-Mobilfunknetz, beliebige Telefonnummer). Sie können an einem WebRTC-Anruf mit einem Peer teilnehmen <em>Und</em> Tätigen Sie gleichzeitig einen SIM-Anruf mit einem Dritten und verbinden Sie ihn dann für ein Gespräch mit mehreren Teilnehmern – ohne die App zu verlassen.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -163,7 +163,7 @@
 <div class="strip-icon">🔀</div>
 <div class="strip-body">
 <h4>Unterrichtsablauf in mehreren Richtungen</h4>
-<p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
+<p>Nützlich für den Sprachunterricht: Rufen Sie einen Schüler per WebRTC-App an und rufen Sie dann auf der SIM-Karte einen Muttersprachler an, um spontan ein Gespräch in der realen Welt zu führen. Alle drei Parteien können sich gegenseitig hören. Der Lehrer moderiert über die App, während Kameleon Presenter weiterhin auf der IDE läuft.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -179,7 +179,7 @@
 <p>Akzeptieren Sie Zahlungen von Schülern aus der ganzen Welt, bevor Sie Zugang zu den Lektionen gewähren</p>
 </div>
 <div class="payment-logos">
-<div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">(GBP primär)</span></div>
+<div class="pay-pill">💳 Streifen <span style="color:var(--muted);font-weight:400">(GBP primär)</span></div>
 <div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Chinesische Studenten)</span></div>
 <div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(zurückgreifen)</span></div>
 </div>
@@ -187,32 +187,32 @@
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>Kurs- und Einschreibungsdatenbank</h3>
-<p>Kurse und Studenteneinschreibungen werden gespeichert in <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
+<p>Kurse und Studenteneinschreibungen werden gespeichert in <code>~/.chameleon/courses.db</code>. Die KI kann Kurse erstellen, Anmeldungen auflisten, den Zahlungsstatus überprüfen und den Zugriff widerrufen – alles über IDE-Befehle.</p>
 </div>
 <div class="card">
 <div class="card-icon">💰</div>
 <h3>Unterstützung mehrerer Währungen</h3>
-<p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
+<p>Stripe wickelt GBP-Zahlungen von britischen und internationalen Studenten ab. Alipay richtet sich an chinesische Studenten, die in CNY zahlen. PayPal bietet einen universellen Fallback mit umfassender Länderabdeckung.</p>
 </div>
 <div class="card">
 <div class="card-icon">📸</div>
 <h3>WeChat-Screenshot-Zahlungen</h3>
-<p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
+<p>Für Studierende ohne Kartenzugang akzeptieren Sie WeChat Pay-Zahlungsnachweis-Screenshots. Die KI liest das Bild, extrahiert den Betrag und die Referenz und protokolliert die manuelle Zahlung bei der Anmeldung.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔗</div>
 <h3>Zahlungslinks</h3>
-<p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
+<p>Generieren Sie von Stripe gehostete Zahlungslinks für jeden Kurs. Teilen Sie den Link – Student zahlt – die Einschreibung erfolgt automatisch. Keine Checkout-Seite zum Erstellen oder Hosten.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Referenz zum Zahlungsbefehl</h2>
 </div>
 <table class="spec-table">
-<thead><tr><th>AI Command</th><th>Beschreibung</th></tr></thead>
+<thead><tr><th>KI-Befehl</th><th>Beschreibung</th></tr></thead>
 <tbody>
 <tr><td><code>payment_create_course</code></td><td>Erstellen Sie einen neuen Kurs mit Preis, Titel und Beschreibung</td></tr>
-<tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
+<tr><td><code>payment_links</code></td><td>Generieren Sie einen Stripe-Zahlungslink für einen Kurs</td></tr>
 <tr><td><code>payment_status</code></td><td>Überprüfen Sie den Zahlungs- und Einschreibungsstatus eines Studenten</td></tr>
 <tr><td><code>payment_enrol</code></td><td>Einen Studierenden manuell einschreiben (z. B. nach Barzahlung)</td></tr>
 <tr><td><code>payment_revoke</code></td><td>Entfernen Sie den Registrierungszugriff eines Schülers</td></tr>
@@ -229,11 +229,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Start</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Moderator</a>
+<a href="../index.html">Start</a><a href="../ide.html">SIE HABEN IDEEN</a><a href="../presenter.html">Moderator</a>
 <a href="../accounting.html">Buchhaltung</a><a href="../technician.html">PC-Techniker</a>
 <a href="../trading.html">Handel</a><a href="../classroom.html">Unterricht</a><a href="../contact.html">Kontakt</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Erstellt von Marcos, auch bekannt als stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Gebaut von Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

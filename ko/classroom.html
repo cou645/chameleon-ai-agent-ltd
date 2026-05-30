@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Language Classroom — Chameleon AI</title>
+<title>언어교실 — 카멜레온 AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
@@ -34,10 +34,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">ud648</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">당신은 아이디어가 있습니다</a>
 <a href="../presenter.html">증여자</a>
 <a href="../companion.html">컴패니언 앱</a>
 <a href="../logistics4x4.html">물류 4×4</a>
@@ -53,11 +53,11 @@
 <div class="hero">
 <div class="hero-icon">🎓</div>
 <h1>어학교실</h1>
-<p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
+<p class="sub">Tailscale 보안 P2P 연결, 통합 결제 및 Kameleon Presenter가 모두 하나의 애플리케이션에 포함된 라이브 WebRTC 비디오 강의입니다.</p>
 <div class="hero-badges">
-<span class="badge">📹 WebRTC video</span>
-<span class="badge">🌐 Tailscale mesh</span>
-<span class="badge">💳 Stripe · Alipay · PayPal</span>
+<span class="badge">📹 WebRTC 비디오</span>
+<span class="badge">🌐 테일스케일 메쉬</span>
+<span class="badge">💳 스트라이프 · 알리페이 · 페이팔</span>
 <span class="badge">🔐 등록 DB</span>
 </div>
 </div>
@@ -107,22 +107,22 @@
 <div class="strip-item">
 <div class="strip-icon">📹</div>
 <div class="strip-body">
-<h4>WebRTC group video — 4+ participants</h4>
-<p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
+<h4>WebRTC 그룹 비디오 — 4명 이상의 참가자</h4>
+<p>4명 이상의 그룹을 위한 저지연 풀 메시 WebRTC 비디오 및 오디오 — 중앙 미디어 서버가 없고 월별 비용이 없습니다. 카멜레온 시그널 서버(<code>chameleon_signal.py</code>)는 SDP 및 ICE 릴레이(포트 8766)를 처리하고 Android의 Termux에서도 실행됩니다. Companion 앱은 학생이 참여할 때 자동으로 커지는 적응형 그리드를 표시합니다. 1 = 전체 화면, 2 = 나란히, 3 = 2+1, 4 = 2×2, 5+ = 스크롤 가능한 자동 맞춤 그리드 — 교사의 로컬 피드는 항상 PIP(Picture-in-Picture)에 표시됩니다.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Tailscale-secured connections</h4>
-<p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
+<h4>Tailscale 보안 연결</h4>
+<p>모든 피어는 공개 IP나 포트 전달 없이 Tailscale 메시를 통해 연결됩니다. IDE는 앱을 종료하지 않고도 ACL, 장치 승인 및 인증 키 생성을 관리합니다.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🎭</div>
 <div class="strip-body">
-<h4>Integrated Kameleon Presenter</h4>
-<p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
+<h4>통합 Kameleon 발표자</h4>
+<p>수업 중에 전체 Kameleon 무대를 사용하여 가르칩니다. 학생들은 답변, 그림 및 이미지를 스테이지 모드 스택에 직접 푸시할 수 있습니다. 즉, 앱을 전환하지 않고도 실시간으로 검토하고 표시할 수 있습니다.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -136,7 +136,7 @@
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>LAN 비디오 폴백</h4>
-<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
+<p>Tailscale을 사용할 수 없는 경우, <code>lan_video.py</code> UDP(포트 47732)를 통한 비디오, UDP(포트 47733)를 통한 오디오 및 WebSocket(포트 47731)을 통한 협업 비교를 모두 로컬 네트워크에서 스트리밍합니다.</p>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <div class="strip-icon">📞</div>
 <div class="strip-body">
 <h4>두 종류의 통화 - 하나의 대화</h4>
-<p>Companion 앱은 두 가지 병렬 호출 채널을 지원합니다. <strong>앱콜</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>SIM 통화</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>그리고</em> 동시에 제3자에게 SIM 전화를 걸고 앱을 종료하지 않고도 다자간 대화를 위해 함께 회의를 할 수 있습니다.</p>
+<p>Companion 앱은 두 가지 병렬 호출 채널을 지원합니다. <strong>앱콜</strong> (WebRTC, Tailscale을 통한 P2P, 무료) 및 <strong>SIM 통화</strong> (표준 모바일 네트워크, 모든 전화번호) 동료와 WebRTC 통화를 할 수 있습니다. <em>그리고</em> 동시에 제3자에게 SIM 전화를 걸고 앱을 종료하지 않고도 다자간 대화를 위해 함께 회의를 할 수 있습니다.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -163,7 +163,7 @@
 <div class="strip-icon">🔀</div>
 <div class="strip-body">
 <h4>다방향 수업 흐름</h4>
-<p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
+<p>언어 수업에 유용합니다. 학생에게 WebRTC 앱 호출을 요청한 다음 SIM에서 원어민에게 전화를 걸어 자연스러운 실제 대화를 해보세요. 세 당사자 모두 서로의 말을 들을 수 있습니다. Kameleon Presenter가 IDE에서 계속 실행되는 동안 교사는 앱을 통해 조정합니다.</p>
 </div>
 </div>
 <div class="strip-item">
@@ -179,40 +179,40 @@
 <p>수업 액세스 권한을 부여하기 전에 전 세계 학생으로부터 결제를 수락하세요.</p>
 </div>
 <div class="payment-logos">
-<div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">(GBP 기본)</span></div>
-<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(중국학생)</span></div>
-<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(대체)</span></div>
+<div class="pay-pill">💳 스트라이프 <span style="color:var(--muted);font-weight:400">(GBP 기본)</span></div>
+<div class="pay-pill">🟦 알리페이 <span style="color:var(--muted);font-weight:400">(중국학생)</span></div>
+<div class="pay-pill">🅿️ 페이팔 <span style="color:var(--muted);font-weight:400">(대체)</span></div>
 </div>
 <div class="cards" style="margin-top:1.5rem;">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>수강신청 DB</h3>
-<p>다음에 저장된 강좌 및 학생 등록 <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
+<p>다음에 저장된 강좌 및 학생 등록 <code>~/.chameleon/courses.db</code>. AI는 IDE 명령을 통해 강좌를 생성하고, 등록을 나열하고, 결제 상태를 확인하고, 액세스를 취소할 수 있습니다.</p>
 </div>
 <div class="card">
 <div class="card-icon">💰</div>
 <h3>다중 통화 지원</h3>
-<p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
+<p>Stripe은 영국 및 유학생의 GBP 결제를 처리합니다. Alipay는 CNY로 결제하는 중국 학생을 대상으로 합니다. PayPal은 광범위한 국가에 적용되는 보편적인 대체 서비스를 제공합니다.</p>
 </div>
 <div class="card">
 <div class="card-icon">📸</div>
 <h3>위챗 스크린샷 결제</h3>
-<p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
+<p>카드 액세스 권한이 없는 학생의 경우 WeChat Pay 결제 증명 스크린샷을 허용하세요. AI는 이미지를 읽고 금액과 참조를 추출한 후 등록에 대한 수동 결제를 기록합니다.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔗</div>
 <h3>결제 링크</h3>
-<p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
+<p>모든 코스에 대해 Stripe에서 호스팅하는 결제 링크를 생성합니다. 링크를 공유하세요(학생 지불). 등록이 자동으로 생성됩니다. 구축하거나 호스팅할 결제 페이지가 없습니다.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>결제 명령 참조</h2>
 </div>
 <table class="spec-table">
-<thead><tr><th>AI Command</th><th>설명</th></tr></thead>
+<thead><tr><th>AI 명령</th><th>설명</th></tr></thead>
 <tbody>
 <tr><td><code>payment_create_course</code></td><td>가격, 제목, 설명이 포함된 새 강좌 만들기</td></tr>
-<tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
+<tr><td><code>payment_links</code></td><td>강좌에 대한 Stripe 결제 링크 생성</td></tr>
 <tr><td><code>payment_status</code></td><td>학생의 결제 및 등록 상태 확인</td></tr>
 <tr><td><code>payment_enrol</code></td><td>수동으로 학생 등록(예: 현금 결제 후)</td></tr>
 <tr><td><code>payment_revoke</code></td><td>학생의 등록 액세스 제거</td></tr>
@@ -229,11 +229,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">ud648</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">증여자</a>
+<a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
 <a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
 <a href="../trading.html">거래</a><a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Marcos(일명 stemsee) 제작</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
 </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kameleon Presenter — Chameleon AI</title>
+<title>Presentador Kameleon — Camaleón AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleón AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Inicio</a>
-<a href="../ide.html">AIIDE</a>
+<a href="../ide.html">TIENES IDEAS</a>
 <a class="active" href="../presenter.html">Presentador</a>
 <a href="../companion.html">Aplicación complementaria</a>
 <a href="../logistics4x4.html">Logística 4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1 translate="no">Kameleon Presenter</h1>
+<h1>Presentador Camaleón</h1>
 <p class="sub">Un sistema de presentación inspirado en el teatro donde las diapositivas son un escenario, los bloques de contenido son actores y las transiciones son señales, todo controlable desde un teléfono.</p>
 <div class="hero-badges">
 <span class="badge">🎬 Metáfora del teatro</span>
 <span class="badge">📱 Control móvil</span>
 <span class="badge">✏️ Dibujo colaborativo</span>
-<span class="badge">🖥️ Android ADB mirror</span>
+<span class="badge">🖥️ espejo ADB de Android</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objetos en el escenario</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 Pila de contenido: diapositivas de conferencias</div>
 <div class="stage-obj obj-stage">🟡 Stage Stack: envíos de estudiantes</div>
@@ -97,8 +97,8 @@
 <div class="cards">
 <div class="card">
 <div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
+<h3>KameleonPila</h3>
+<p>El contenedor de contenidos universal. Cada pila contiene múltiples espacios (imágenes, texto, archivos PDF). Dos modos:</p>
 <ul>
 <li><strong style="color:#22c55e">Contenido</strong> — diapositivas controladas por el profesor</li>
 <li><strong style="color:#eab308">Escenario</strong> — acepta envíos enviados por pares</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>Paquetes de proyectos .kpt</h3>
-<p>Los proyectos se guardan como archivos ZIP (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
+<p>Los proyectos se guardan como archivos ZIP (<code>.kpt</code>) que contiene todos los recursos multimedia, datos de diseño y configuraciones de animación. Ábralo en cualquier máquina que ejecute Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Android mobile bridge</h4>
-<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next/anterior/reproducir/pausar/detener</strong>, inserte espacios de imagen o texto en una pila y vea la transmisión del estado de la pila en tiempo real.</p>
+<h4>Puente móvil Android</h4>
+<p>El puente móvil Chameleon (WebSocket) transmite comandos del teatro desde cualquier dispositivo Android. Control <strong>stack_next/anterior/reproducir/pausar/detener</strong>, inserte espacios de imagen o texto en una pila y vea la transmisión del estado de la pila en tiempo real.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>Envíos de pares</h4>
-<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>aprobar, mantener, rechazar o promover</strong> cada uno antes de que salga en vivo en la pantalla.</p>
+<p>Los estudiantes envían imágenes o texto a una pila en modo Stage desde sus teléfonos. Los envíos aparecen en la franja de miniaturas con un borde naranja intermitente. El presentador puede <strong>aprobar, mantener, rechazar o promover</strong> cada uno antes de que salga en vivo en la pantalla.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>Tablero de dibujo compartido</h4>
-<p>Lienzo colaborativo a mano alzada controlable desde el puente móvil. <strong>draw_stroke / borrar / deshacer</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
+<p>Lienzo colaborativo a mano alzada controlable desde el puente móvil. <strong>draw_stroke / borrar / deshacer</strong>. Ideal para anotar diapositivas, realizar lluvias de ideas o realizar cuestionarios en vivo.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>Espejo de teléfono ADB y captura PPT</h4>
-<p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
+<p><strong>ADBPhoneBox</strong> transmite una pantalla de Android en vivo directamente al escenario a través de ADB. <strong>PPTMirorBox</strong> captura una ventana de PowerPoint: presente sus presentaciones existentes dentro de Kameleon sin conversión.</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>Da vida a tus presentaciones</h3>
-<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
+<p>Contáctenos para discutir una licencia u organizar una demostración en vivo de Kameleon Presenter.</p>
 <a class="btn btn-solid" href="../contact.html">Solicitar una demostración</a>
 <a class="btn" href="../index.html">← Volver a la descripción general</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Inicio</a><a href="../ide.html">AIIDE</a><a href="../presenter.html">Presentador</a>
+<a href="../index.html">Inicio</a><a href="../ide.html">TIENES IDEAS</a><a href="../presenter.html">Presentador</a>
 <a href="../accounting.html">Contabilidad</a><a href="../technician.html">Técnico de PC</a>
 <a href="../trading.html">Comercio</a><a href="../classroom.html">Aula</a><a href="../contact.html">Contacto</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Creado por Marcos también conocido como stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Construido por Marcos también conocido como stemsee</p>
 </footer>
 </body>
 </html>

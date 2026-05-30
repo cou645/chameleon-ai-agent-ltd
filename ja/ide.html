@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE — Chameleon AI</title>
+<title>AI IDE — カメレオン AI</title>
 <link href="../style.css" rel="stylesheet"/>
 </head>
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
 <div class="nav-links">
 <a href="../index.html">u30dbu30fcu30e0</a>
-<a class="active" href="../ide.html">AI IDE</a>
+<a class="active" href="../ide.html">あなたにはアイデアがあります</a>
 <a href="../presenter.html">プレゼンター</a>
 <a href="../companion.html">コンパニオンアプリ</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -27,10 +27,10 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>AI-Powered IDE</h1>
-<p class="sub">A full-featured PyQt6 code editor where AI doesn't just suggest — it reads, writes, runs and verifies code on your behalf through a structured command bridge.</p>
+<h1>AI を活用した IDE</h1>
+<p class="sub">AI が提案するだけでなく、構造化されたコマンド ブリッジを通じてユーザーに代わってコードの読み取り、書き込み、実行、検証を行うフル機能の PyQt6 コード エディター。</p>
 <div class="hero-badges">
-<span class="badge">Multi-provider AI</span>
+<span class="badge">マルチプロバイダAI</span>
 <span class="badge">🎙️ 音声入力と TTS</span>
 <span class="badge">🔀 差分ビュー</span>
 <span class="badge">⚡ ストリーミング応答</span>
@@ -38,15 +38,15 @@
 </div>
 <div class="page">
 <div class="section-title">
-<h2>The AI Command Bridge</h2>
-<p>AI doesn't just chat — it operates the editor through a structured JSON protocol</p>
+<h2>AI コマンドブリッジ</h2>
+<p>AI はただチャットするだけではなく、構造化された JSON プロトコルを通じてエディターを操作します。</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">📖</div>
 <div class="strip-body">
 <h4>一度読んだら自由に編集できます</h4>
-<p>The AI reads a file once with <strong>get_file_content</strong>、コンテンツをコンテキスト内に保持し、各変更の間に再読み取りを行わずに複数のアンカーベースの編集を発行します。無駄な往復がありません。</p>
+<p>AI はファイルを 1 回読み取ります。 <strong>get_file_content</strong>、コンテンツをコンテキスト内に保持し、各変更の間に再読み取りを行わずに複数のアンカーベースの編集を発行します。無駄な往復がありません。</p>
 </div>
 </div>
 <div class="strip-item">
@@ -60,21 +60,21 @@
 <div class="strip-icon">📝</div>
 <div class="strip-body">
 <h4>完全な書き換えの場合は write_file</h4>
-<p>For new modules or complete rewrites the AI sends the entire file content in one command. The system automatically creates a <code>.bak</code> 上書きする前にバックアップし、結果を新しいエディター タブで開きます。</p>
+<p>新しいモジュールまたは完全な書き換えの場合、AI は 1 つのコマンドでファイル コンテンツ全体を送信します。システムが自動的に作成します <code>.bak</code> 上書きする前にバックアップし、結果を新しいエディター タブで開きます。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">💻</div>
 <div class="strip-body">
 <h4>端末統合</h4>
-<p>The AI can run shell commands and receive the JSON result before continuing. It waits for each result, handles exit codes, and distinguishes diagnostic, configuration, destructive and session-ending commands automatically.</p>
+<p>AI はシェル コマンドを実行し、続行する前に JSON 結果を受け取ることができます。各結果を待ち、終了コードを処理し、診断コマンド、構成コマンド、破壊コマンド、およびセッション終了コマンドを自動的に区別します。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🛡️</div>
 <div class="strip-body">
 <h4>注射保護</h4>
-<p>ファイル、端末、Web ページから返されるすべてのコンテンツは、次のようにラップされます。 <code>[UNTRUSTED_CONTENT]</code> markers. The AI is instructed to treat everything inside as data — never instructions — preventing prompt-injection attacks from malicious file content.</p>
+<p>ファイル、端末、Web ページから返されるすべてのコンテンツは、次のようにラップされます。 <code>[UNTRUSTED_CONTENT]</code> マーカー。 AI は、悪意のあるファイル コンテンツからのプロンプト インジェクション攻撃を防ぐために、内部のすべてのものをデータとして扱うように指示されます (決して指示ではありません)。</p>
 </div>
 </div>
 </div>
@@ -85,32 +85,32 @@
 <div class="card">
 <div class="card-icon">🗂️</div>
 <h3>マルチタブコードエディター</h3>
-<p>Open multiple files simultaneously. Each tab tracks its own undo history, syntax highlighting and AI command context.</p>
+<p>複数のファイルを同時に開きます。各タブは、独自の元に戻す履歴、構文の強調表示、および AI コマンド コンテキストを追跡します。</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
 <h3>組み込みの差分ビュー</h3>
-<p>One click to compare the current editor state against the last saved version. Colour-coded unified diff with add/remove highlighting. Exit diff mode to return to full editing.</p>
+<p>ワンクリックで現在のエディターの状態を最後に保存されたバージョンと比較します。強調表示の追加/削除を備えた色分けされた統合差分。完全な編集に戻るには、差分モードを終了します。</p>
 </div>
 <div class="card">
 <div class="card-icon">💬</div>
-<h3>Streaming AI chat</h3>
+<h3>ストリーミングAIチャット</h3>
 <p>応答はトークンごとにチャット パネルにストリーミングされます。 IDE コマンドはバックグラウンド スレッドで抽出および実行されるため、UI は全体的に応答性を維持します。</p>
 </div>
 <div class="card">
 <div class="card-icon">🗃️</div>
 <h3>モジュラープロンプトシステム</h3>
-<p>System prompts are plain-text module files in <code>~/.chameleon/prompts/</code>. Stack any combination: Tech Repair + Academic + Chat. Live token count and cost estimate per provider.</p>
+<p>システム プロンプトはプレーンテキストのモジュール ファイルです。 <code>~/.chameleon/prompts/</code>。任意の組み合わせをスタックできます: Tech Repair + Academic + Chat。プロバイダーごとのライブ トークン数とコストの見積もり。</p>
 </div>
 <div class="card">
 <div class="card-icon">📜</div>
 <h3>コマンド履歴DB</h3>
-<p>Every AI command is logged to <code>history.db</code> with session ID, timestamp and result. Full audit trail for every file change the AI made.</p>
+<p>すべての AI コマンドがログに記録されます <code>history.db</code> セッション ID、タイムスタンプ、結果が含まれます。 AI が行ったすべてのファイル変更の完全な監査証跡。</p>
 </div>
 <div class="card">
 <div class="card-icon">🌳</div>
 <h3>ファイルブラウザ</h3>
-<p>Project tree panel for fast navigation. The AI uses <code>list_project_files</code> そして <code>list_open_files</code> 実際のパスを検出するためです。ファイルの場所を発明することはありません。</p>
+<p>プロジェクトツリーパネルによる素早いナビゲーション。 AI が使用するのは、 <code>list_project_files</code> そして <code>list_open_files</code> 実際のパスを検出するためです。ファイルの場所を発明することはありません。</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -119,32 +119,32 @@
 <div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Whisper speech-to-text</h3>
-<p>Local Whisper (whisper.cpp) transcribes your voice into the chat input. Hands-free coding — dictate questions, commands or whole prompts without touching the keyboard.</p>
-<div class="tags"><span class="tag">whisper.cpp</span><span class="tag">局所的な推論</span><span class="tag">クラウドSTTなし</span></div>
+<h3>ささやき音声からテキストへの変換</h3>
+<p>Local Whisper (whisper.cpp) は、あなたの音声をチャット入力に転写します。ハンズフリー コーディング — キーボードに触れずに、質問、コマンド、またはプロンプト全体を口述筆記します。</p>
+<div class="tags"><span class="tag">ささやき.cpp</span><span class="tag">局所的な推論</span><span class="tag">クラウドSTTなし</span></div>
 </div>
 <div class="card">
 <div class="card-icon">🔊</div>
-<h3>Piper text-to-speech</h3>
-<p>AI responses are read aloud using Piper TTS — fast, local, natural-sounding voices. Ideal for accessibility or working with your hands occupied. Platform paths resolved automatically on Linux, Windows and macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">局所的な推論</span><span class="tag">設定可能な音声</span></div>
+<h3>パイパーのテキスト読み上げ</h3>
+<p>AI の応答は、Piper TTS (高速でローカルで自然な音声) を使用して読み上げられます。アクセシビリティや両手がふさがっている作業に最適です。 Linux、Windows、macOS ではプラットフォーム パスが自動的に解決されます。</p>
+<div class="tags"><span class="tag">パイパーTTS</span><span class="tag">局所的な推論</span><span class="tag">設定可能な音声</span></div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Supported AI Providers</h2>
+<h2>サポートされている AI プロバイダー</h2>
 </div>
 <table class="spec-table">
 <thead><tr><th>プロバイダー</th><th>タイプ</th><th>費用（概算）</th><th>u30ceu30fcu30c8</th></tr></thead>
 <tbody>
-<tr><td translate="no">DeepSeek</td><td>Cloud API</td><td>$0.00014 / 1,000 トークン</td><td>デフォルト;優れたコード品質</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>Cloud API</td><td>$0.0050 / 1,000 トークン</td><td>最良の一般推論</td></tr>
-<tr><td>Anthropic (Claude)</td><td>Cloud API</td><td>$0.0030 / 1,000 トークン</td><td>長いコンテキストの編集に強い</td></tr>
-<tr><td>Claude Code (Anthropic)</td><td>ターミナル/pty</td><td>API usage</td><td>IDE ターミナル内で pty プロセスとして実行 - ライブ シェルでの完全なエージェント コーディング</td></tr>
-<tr><td translate="no">Groq</td><td>クラウドAPI</td><td>$0.00005 / 1,000 トークン</td><td>超高速推論</td></tr>
-<tr><td translate="no">Mistral</td><td>クラウドAPI</td><td>$0.00025 / 1,000 トークン</td><td>ヨーロッパがホストする優れたオプション</td></tr>
-<tr><td>Moonshot / Kimi</td><td>クラウドAPI</td><td>$0.00012 / 1,000 トークン</td><td>大きなコンテキストウィンドウ</td></tr>
-<tr><td translate="no">Ollama</td><td>地元</td><td>無料</td><td>GGUF モデルをローカルで実行する</td></tr>
-<tr><td translate="no">LM Studio</td><td>地元</td><td>無料</td><td>GUI フレンドリーなローカル推論</td></tr>
+<tr><td>ディープシーク</td><td>クラウドAPI</td><td>$0.00014 / 1,000 トークン</td><td>デフォルト;優れたコード品質</td></tr>
+<tr><td>OpenAI (GPT-4o)</td><td>クラウドAPI</td><td>$0.0050 / 1,000 トークン</td><td>最良の一般推論</td></tr>
+<tr><td>人間性（クロード）</td><td>クラウドAPI</td><td>$0.0030 / 1,000 トークン</td><td>長いコンテキストの編集に強い</td></tr>
+<tr><td>クロード・コード (人類)</td><td>ターミナル/pty</td><td>APIの使用法</td><td>IDE ターミナル内で pty プロセスとして実行 - ライブ シェルでの完全なエージェント コーディング</td></tr>
+<tr><td>グロク</td><td>クラウドAPI</td><td>$0.00005 / 1,000 トークン</td><td>超高速推論</td></tr>
+<tr><td>ミストラル</td><td>クラウドAPI</td><td>$0.00025 / 1,000 トークン</td><td>ヨーロッパがホストする優れたオプション</td></tr>
+<tr><td>ムーンショット / キミ</td><td>クラウドAPI</td><td>$0.00012 / 1,000 トークン</td><td>大きなコンテキストウィンドウ</td></tr>
+<tr><td>であること</td><td>地元</td><td>無料</td><td>GGUF モデルをローカルで実行する</td></tr>
+<tr><td>LMスタジオ</td><td>地元</td><td>無料</td><td>GUI フレンドリーなローカル推論</td></tr>
 </tbody>
 </table>
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -162,10 +162,10 @@
 <div class="screenshot-frame">
 <div class="screenshot-placeholder">
 <div class="ph-icon">🖥️</div>
-<strong>IDE — main window</strong>
+<strong>IDE — メインウィンドウ</strong>
 <span>ide-main.png</span>
 </div>
-<div class="screenshot-caption">AI chat panel + code editor with syntax highlighting</div>
+<div class="screenshot-caption">AI チャット パネル + 構文ハイライト付きのコード エディター</div>
 </div>
 <div class="screenshot-frame">
 <div class="screenshot-placeholder">
@@ -173,13 +173,13 @@
 <strong>差分ビュー</strong>
 <span>ide-diff.png</span>
 </div>
-<div class="screenshot-caption">Before/after comparison of an AI-applied code change</div>
+<div class="screenshot-caption">AI適用によるコード変更前後の比較</div>
 </div>
 <div class="screenshot-frame phone">
 <div class="screenshot-placeholder phone-ratio">
 <div class="ph-icon">📱</div>
-<strong>Android companion</strong>
-<span>android-companion.png</span>
+<strong>アンドロイドコンパニオン</strong>
+<span>アンドロイド-コンパニオン.png</span>
 </div>
 <div class="screenshot-caption">モバイルアプリ — チャットリレーとプレゼンターコントロール</div>
 </div>
@@ -215,7 +215,7 @@
 <div class="strip-icon">📡</div>
 <div class="strip-body">
 <h4>内蔵シグナルサーバー — クラウドリレーなし</h4>
-<p>Chameleon シグナル サーバー (<code>chameleon_signal.py</code>) runs directly on the office PC alongside the IDE, or inside Termux on any Android phone in the fleet. Fleet phones connect to it over Tailscale or the local hotspot — no third-party relay, no monthly server bill.</p>
+<p>Chameleon シグナル サーバー (<code>chameleon_signal.py</code>) は、IDE と一緒にオフィスの PC 上で直接実行するか、フリート内の Android スマートフォン上の Termux 内で実行します。フリートの電話は、Tailscale またはローカル ホットスポット経由で接続します。サードパーティ製のリレーや月々のサーバー料金は必要ありません。</p>
 </div>
 </div>
 </div>
@@ -224,7 +224,7 @@
 <span style="font-size:2rem;">🏢</span>
 <div>
 <div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Chameleon IDE を実行するオフィス PC</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · WebSocket hub · Fleet command</div>
+<div style="color:#64748b;font-size:.82rem;">Chameleon_signal.py · WebSocket ハブ · フリート コマンド</div>
 </div>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
@@ -234,10 +234,10 @@
 <span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭フィールドチーム</span>
 <span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — 緊急事態</span>
 </div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Via Tailscale (remote) or LAN hotspot (convoy) · No cloud relay · E2E encrypted</div>
+<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Tailscale (リモート) または LAN ホットスポット (コンボイ) 経由 · クラウド リレーなし · E2E 暗号化</div>
 </div>
 <div class="cta-band">
-<h3>See the AI IDE in action</h3>
+<h3>AI IDE の動作を確認する</h3>
 <p>ライブデモについて、またはチームのライセンスについてご相談については、お問い合わせください。</p>
 <a class="btn btn-solid" href="../contact.html">デモをリクエストする</a>
 <a class="btn" href="../logistics4x4.html">物流4×4 →</a>
@@ -246,12 +246,12 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">プレゼンター</a>
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
 <a href="../logistics4x4.html">物流4×4</a>
 <a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
 <a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 stemsee によって構築されました</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
 </footer>
 </body>
 </html>

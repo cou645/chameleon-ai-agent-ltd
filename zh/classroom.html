@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Language Classroom — Chameleon AI</title>
+<title>语言课堂——Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
@@ -34,10 +34,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
 <div class="nav-links">
 <a href="../index.html">家</a>
-<a href="../ide.html">AI集成开发环境</a>
+<a href="../ide.html">你有想法</a>
 <a href="../presenter.html">主持人</a>
 <a href="../companion.html">配套应用程序</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -53,11 +53,11 @@
 <div class="hero">
 <div class="hero-icon">🎓</div>
 <h1>语言教室</h1>
-<p class="sub">Live WebRTC video lessons with Tailscale-secured P2P connections, integrated payments and the Kameleon Presenter — all in one application.</p>
+<p class="sub">实时 WebRTC 视频课程，具有 Tailscale 安全的 P2P 连接、集成支付和 Kameleon Presenter — 所有这些都在一个应用程序中。</p>
 <div class="hero-badges">
-<span class="badge">📹 WebRTC video</span>
-<span class="badge">🌐 Tailscale mesh</span>
-<span class="badge">💳 Stripe · Alipay · PayPal</span>
+<span class="badge">📹 WebRTC 视频</span>
+<span class="badge">🌐 尾鳞网格</span>
+<span class="badge">💳 Stripe · 支付宝 · PayPal</span>
 <span class="badge">🔐 招生数据库</span>
 </div>
 </div>
@@ -107,22 +107,22 @@
 <div class="strip-item">
 <div class="strip-icon">📹</div>
 <div class="strip-body">
-<h4>WebRTC group video — 4+ participants</h4>
-<p>Low-latency full-mesh WebRTC video and audio for groups of 4 or more — no central media server, no monthly cost. The Chameleon signal server (<code>chameleon_signal.py</code>) handles SDP and ICE relay (port 8766) and runs on Termux on Android too. The Companion app shows an adaptive grid that grows automatically as students join: 1 = full screen, 2 = side-by-side, 3 = 2+1, 4 = 2×2, 5+ = scrollable auto-fit grid — with the teacher's local feed always in a picture-in-picture.</p>
+<h4>WebRTC 群组视频 — 4 名以上参与者</h4>
+<p>适合 4 人或以上团体的低延迟全网状 WebRTC 视频和音频 — 无需中央媒体服务器，无需每月付费。 Chameleon 信号服务器（<code>chameleon_signal.py</code>）处理 SDP 和 ICE 中继（端口 8766），也可以在 Android 上的 Termux 上运行。 Companion 应用程序显示一个自适应网格，该网格会随着学生的加入而自动增长：1 = 全屏、2 = 并排、3 = 2+1、4 = 2×2、5+ = 可滚动自动调整网格 — 教师的本地提要始终显示在画中画中。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🔐</div>
 <div class="strip-body">
-<h4>Tailscale-secured connections</h4>
-<p>All peers connect through your Tailscale mesh — no public IP, no port forwarding. The IDE manages ACLs, device authorisation and auth key generation without leaving the app.</p>
+<h4>Tailscale 安全连接</h4>
+<p>所有对等点都通过您的 Tailscale 网格进行连接 — 没有公共 IP，没有端口转发。 IDE 无需离开应用程序即可管理 ACL、设备授权和身份验证密钥生成。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🎭</div>
 <div class="strip-body">
-<h4>Integrated Kameleon Presenter</h4>
-<p>Teach with the full Kameleon stage during your lesson. Students can push answers, drawings and images directly to a Stage-mode stack — moderate and display in real time without switching apps.</p>
+<h4>集成 Kameleon 演示器</h4>
+<p>在课程中使用完整的 Kameleon 阶段进行教学。学生可以将答案、绘图和图像直接推送到舞台模式堆栈 - 实时调整和显示，无需切换应用程序。</p>
 </div>
 </div>
 <div class="strip-item">
@@ -136,7 +136,7 @@
 <div class="strip-icon">🌐</div>
 <div class="strip-body">
 <h4>LAN 视频回退</h4>
-<p>When Tailscale is unavailable, <code>lan_video.py</code> streams video over UDP (port 47732), audio over UDP (port 47733) and collaborative diffs over WebSocket (port 47731) — all on the local network.</p>
+<p>当 Tailscale 不可用时， <code>lan_video.py</code> 通过 UDP（端口 47732）传输视频，通过 UDP（端口 47733）传输音频，并通过 WebSocket（端口 47731）传输协作差异 — 全部都在本地网络上。</p>
 </div>
 </div>
 </div>
@@ -149,7 +149,7 @@
 <div class="strip-icon">📞</div>
 <div class="strip-body">
 <h4>两种通话——一种对话</h4>
-<p>Companion 应用程序支持两个并行呼叫通道： <strong>应用程序调用</strong> (WebRTC, peer-to-peer over Tailscale, free) and a <strong>SIM卡通话</strong> (standard mobile network, any phone number). You can be on a WebRTC call with a peer <em>和</em> 同时向第三方拨打 SIM 卡呼叫，然后将他们聚集在一起进行多方对话 - 无需离开应用程序。</p>
+<p>Companion 应用程序支持两个并行呼叫通道： <strong>应用程序调用</strong> （WebRTC，Tailscale 上的点对点，免费）和 <strong>SIM卡通话</strong> （标准移动网络，任何电话号码）。您可以与同伴进行 WebRTC 通话 <em>和</em> 同时向第三方拨打 SIM 卡呼叫，然后将他们聚集在一起进行多方对话 - 无需离开应用程序。</p>
 </div>
 </div>
 <div class="strip-item">
@@ -163,7 +163,7 @@
 <div class="strip-icon">🔀</div>
 <div class="strip-body">
 <h4>多方课程流程</h4>
-<p>Useful for language lessons: put a student on a WebRTC app call, then dial a native speaker on SIM for a spontaneous real-world conversation. All three parties can hear each other. The teacher moderates via the app while Kameleon Presenter continues running on the IDE.</p>
+<p>对于语言课程很有用：让学生进行 WebRTC 应用通话，然后通过 SIM 拨打母语人士的电话，进行自发的现实对话。三方都能听到对方的声音。教师通过应用程序进行主持，而 Kameleon Presenter 继续在 IDE 上运行。</p>
 </div>
 </div>
 <div class="strip-item">
@@ -179,40 +179,40 @@
 <p>在授予课程访问权限之前接受世界各地学生的付款</p>
 </div>
 <div class="payment-logos">
-<div class="pay-pill">💳 Stripe <span style="color:var(--muted);font-weight:400">（英镑主要）</span></div>
-<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">（中国学生）</span></div>
-<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">（倒退）</span></div>
+<div class="pay-pill">💳 条纹 <span style="color:var(--muted);font-weight:400">（英镑主要）</span></div>
+<div class="pay-pill">🟦支付宝 <span style="color:var(--muted);font-weight:400">（中国学生）</span></div>
+<div class="pay-pill">🅿️贝宝 <span style="color:var(--muted);font-weight:400">（倒退）</span></div>
 </div>
 <div class="cards" style="margin-top:1.5rem;">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>课程和招生数据库</h3>
-<p>课程和学生注册存储在 <code>~/.chameleon/courses.db</code>. The AI can create courses, list enrolments, check payment status and revoke access — all via IDE commands.</p>
+<p>课程和学生注册存储在 <code>~/.chameleon/courses.db</code>。人工智能可以创建课程、列出注册情况、检查付款状态和撤销访问权限——所有这些都通过 IDE 命令进行。</p>
 </div>
 <div class="card">
 <div class="card-icon">💰</div>
 <h3>多币种支持</h3>
-<p>Stripe handles GBP payments from UK and international students. Alipay targets Chinese students paying in CNY. PayPal provides a universal fallback with broad country coverage.</p>
+<p>Stripe 处理英国和国际学生的英镑付款。支付宝的目标客户是用人民币付款的中国学生。 PayPal 提供覆盖广泛国家的通用后备方案。</p>
 </div>
 <div class="card">
 <div class="card-icon">📸</div>
 <h3>微信截图支付</h3>
-<p>For students without card access, accept WeChat Pay proof-of-payment screenshots. The AI reads the image, extracts the amount and reference, and logs the manual payment against the enrolment.</p>
+<p>对于没有刷卡权限的学生，接受微信支付付款证明截图。人工智能读取图像，提取金额和参考，并根据注册记录手动付款。</p>
 </div>
 <div class="card">
 <div class="card-icon">🔗</div>
 <h3>付款链接</h3>
-<p>Generate Stripe-hosted payment links for any course. Share the link — student pays — enrolment is created automatically. No checkout page to build or host.</p>
+<p>为任何课程生成 Stripe 托管的付款链接。分享链接 — 学生付款 — 注册会自动创建。无需构建或托管结账页面。</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>支付命令参考</h2>
 </div>
 <table class="spec-table">
-<thead><tr><th>AI Command</th><th>描述</th></tr></thead>
+<thead><tr><th>人工智能指令</th><th>描述</th></tr></thead>
 <tbody>
 <tr><td><code>payment_create_course</code></td><td>创建包含价格、标题和说明的新课程</td></tr>
-<tr><td><code>payment_links</code></td><td>Generate Stripe payment link for a course</td></tr>
+<tr><td><code>payment_links</code></td><td>生成课程的 Stripe 付款链接</td></tr>
 <tr><td><code>payment_status</code></td><td>检查学生的付款和注册状态</td></tr>
 <tr><td><code>payment_enrol</code></td><td>手动注册学生（例如现金付款后）</td></tr>
 <tr><td><code>payment_revoke</code></td><td>删除学生的注册访问权限</td></tr>
@@ -229,11 +229,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">家</a><a href="../ide.html">AI集成开发环境</a><a href="../presenter.html">主持人</a>
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
 <a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
 <a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 stemsee 构建</p>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
 </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kameleon Presenter — Chameleon AI</title>
+<title>カメレオン プレゼンター — カメレオン AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
 <div class="nav-links">
 <a href="../index.html">u30dbu30fcu30e0</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">あなたにはアイデアがあります</a>
 <a class="active" href="../presenter.html">プレゼンター</a>
 <a href="../companion.html">コンパニオンアプリ</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1 translate="no">Kameleon Presenter</h1>
+<h1>カメレオンプレゼンター</h1>
 <p class="sub">劇場にインスピレーションを得たプレゼンテーション システム。スライドはステージ、コンテンツ ブロックはアクター、トランジションはキューであり、すべて携帯電話から制御できます。</p>
 <div class="hero-badges">
 <span class="badge">🎬 演劇のメタファー</span>
 <span class="badge">📱 モバイルコントロール</span>
 <span class="badge">✏️ 共同でお絵かき</span>
-<span class="badge">🖥️ Android ADB mirror</span>
+<span class="badge">🖥️ Android ADB ミラー</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">ステージ上のカメレオンスタックオブジェクト</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 コンテンツスタック — 講義スライド</div>
 <div class="stage-obj obj-stage">🟡 Stage Stack — 学生の提出物</div>
@@ -97,8 +97,8 @@
 <div class="cards">
 <div class="card">
 <div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
+<h3>カメレオンスタック</h3>
+<p>ユニバーサルコンテンツコンテナ。各スタックには複数のスロット (画像、テキスト、PDF) が保持されます。 2 つのモード:</p>
 <ul>
 <li><strong style="color:#22c55e">コンテンツ</strong> — 教師が管理するスライド</li>
 <li><strong style="color:#eab308">ステージ</strong> — ピアプッシュの送信を受け入れます</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>.kpt プロジェクト バンドル</h3>
-<p>プロジェクトは ZIP アーカイブとして保存されます (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
+<p>プロジェクトは ZIP アーカイブとして保存されます (<code>.kpt</code>) すべてのメディア アセット、レイアウト データ、アニメーション構成が含まれます。 Chameleon を実行している任意のマシンで開きます。</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Android mobile bridge</h4>
-<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / prev / 再生 / 一時停止 / 停止</strong>、画像またはテキスト スロットをスタックにプッシュし、リアルタイムでスタック状態のブロードキャストを確認します。</p>
+<h4>Androidモバイルブリッジ</h4>
+<p>Chameleon モバイル ブリッジ (WebSocket) は、Android デバイスからの劇場コマンドを中継します。コントロール <strong>stack_next / prev / 再生 / 一時停止 / 停止</strong>、画像またはテキスト スロットをスタックにプッシュし、リアルタイムでスタック状態のブロードキャストを確認します。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>ピアの提出物</h4>
-<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>承認、保留、拒否、または昇格</strong> 画面上でライブになる前に、それぞれを確認します。</p>
+<p>学生は携帯電話から画像またはテキストをステージモード スタックにプッシュします。提出物はサムネイル ストリップにオレンジ色の点滅する枠で表示されます。プレゼンターができることは、 <strong>承認、保留、拒否、または昇格</strong> 画面上でライブになる前に、それぞれを確認します。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>共有製図板</h4>
-<p>モバイルブリッジから制御可能な共同フリーハンドキャンバス — <strong>描画ストローク / クリア / 元に戻す</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
+<p>モバイルブリッジから制御可能な共同フリーハンドキャンバス — <strong>描画ストローク / クリア / 元に戻す</strong>。スライドへの注釈付け、ブレインストーミング、ライブクイズに最適です。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>ADB 電話ミラーと PPT キャプチャ</h4>
-<p><strong>ADBフォンボックス</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTミラーボックス</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
+<p><strong>ADBフォンボックス</strong> Android のライブ画面を ADB 経由でステージに直接ストリーミングします。 <strong>PPTミラーボックス</strong> PowerPoint ウィンドウをキャプチャします。変換せずに、Kameleon 内で既存のデッキを表示します。</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>プレゼンテーションに活気を与える</h3>
-<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
+<p>ライセンスについてご相談いただくか、Kameleon Presenter のライブ デモンストレーションを手配するには、お問い合わせください。</p>
 <a class="btn btn-solid" href="../contact.html">デモをリクエストする</a>
 <a class="btn" href="../index.html">← 概要に戻る</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">プレゼンター</a>
+<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
 <a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
 <a href="../trading.html">トレーディング</a><a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 stemsee によって構築されました</p>
+<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
 </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UK Accounting — Chameleon AI</title>
+<title>المحاسبة في المملكة المتحدة – الحرباء الذكاء الاصطناعي</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .vat-grid {
@@ -28,10 +28,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
 <div class="nav-links">
 <a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">لديك أفكار</a>
 <a href="../presenter.html">مقدم</a>
 <a href="../companion.html">تطبيق مصاحب</a>
 <a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
@@ -47,12 +47,12 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>المحاسبة في المملكة المتحدة</h1>
-<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+<p class="sub">مسك الدفاتر ذات القيد المزدوج، وتتبع ضريبة القيمة المضافة، والأرباح والخسائر، والميزانية العمومية - كل ذلك في دفتر أستاذ SQLite محلي يستهدف HMRC لجعل الضرائب رقمية.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 مخطط حسابات المملكة المتحدة</span>
-<span class="badge">📋 MTD-ready</span>
-<span class="badge">🔒 Local SQLite</span>
-<span class="badge">🤖 AI-parseable JSON output</span>
+<span class="badge">📋 MTD جاهز</span>
+<span class="badge">🔒 SQLite المحلي</span>
+<span class="badge">🤖 إخراج JSON قابل للتحليل باستخدام الذكاء الاصطناعي</span>
 </div>
 </div>
 <div class="page">
@@ -61,50 +61,50 @@
 <p>كل معاملة تتوازن مع قرش واحد - تُخصم دائمًا أرصدة متساوية</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
+<span class="hd">التاريخ │ الحساب │ الخصم (جنيه إسترليني) │ الائتمان (جنيه إسترليني) │ ضريبة القيمة المضافة</span>
 ────────────┼──────────────── ─────┼─────────┼─────────┼────
-2026-04-01 │ 4000 إيرادات المبيعات │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
+2026-04-01 │ 4000 إيرادات المبيعات │ │  <span class="cr">1,200.00</span>  │ س20
+01-04-2026 │ 2200 مراقبة ضريبة القيمة المضافة │ │    <span class="cr">240.00</span>  │
 2026-04-01 │ 1100 المدينون التجاريون │ <span class="dr">1,440.00</span>  │ │
 ────────────┼──────────────── ─────┼─────────┼─────────┼────
-2026-04-05 │ 6100 مصاريف مكتب │   <span class="dr">85.00</span>   │            │ S20
-2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │ │
+2026-04-05 │ 6100 مصاريف مكتب │   <span class="dr">85.00</span>   │ │ S20
+05-04-2026 │ 2200 مراقبة ضريبة القيمة المضافة │   <span class="dr">17.00</span>   │ │
 2026-04-05 │ 1200 البنك الحالي │ │    <span class="cr">102.00</span>  │
   </div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
 <h3>مخطط حسابات المملكة المتحدة</h3>
-<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
+<p>رموز الحساب القياسية في المملكة المتحدة جاهزة للاستخدام - الأصول والالتزامات وحقوق الملكية والدخل والنفقات المعينة لفئات إدارة الإيرادات والجمارك البريطانية. قم بالتوسيع باستخدام الحسابات المخصصة حسب الحاجة.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗄️</div>
-<h3>SQLite ledger</h3>
+<h3>دفتر الأستاذ سكليتي</h3>
 <p>جميع البيانات المخزنة في <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. يعمل دون اتصال بالإنترنت تمامًا. دعم الشركات المتعددة - التبديل بين الكيانات باستخدام علامة الأمر.</p>
 </div>
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>السنة الضريبية في المملكة المتحدة</h3>
-<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+<p>تم ضبط نهاية العام بشكل صحيح على 5 أبريل (السنة المالية في المملكة المتحدة من 6 أبريل إلى 5 أبريل). تمتد تقارير الأرباح والخسائر وضريبة القيمة المضافة تلقائيًا خلال الفترة الصحيحة دون تعديل التاريخ يدويًا.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
 <h3>مسح شذوذ الطب الشرعي</h3>
-<p>يجري <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+<p>يجري <code>--forensic</code> للكشف عن الإدخالات غير المتوازنة، والمراجع المكررة، وعدم تطابق ضريبة القيمة المضافة وغيرها من المخالفات. تمت طباعة النتائج بتنسيق JSON منظم لمراجعة الذكاء الاصطناعي.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI-readable output</h3>
-<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
+<h3>مخرجات قابلة للقراءة بالذكاء الاصطناعي</h3>
+<p>يتم إخراج جميع التقارير بتنسيق JSON إلى stdout حتى يتمكن Chameleon AI من تحليل وضعك المالي وتلخيصه وتقديم المشورة بشأنه باللغة الطبيعية.</p>
 </div>
 <div class="card">
 <div class="card-icon">🌐</div>
-<h3>WebSocket bridge</h3>
-<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+<h3>جسر WebSocket</h3>
+<p>جسر WebSocket المحاسبي (<code>acct_ws_bridge.py</code>) يعرض استعلامات دفتر الأستاذ إلى المرافق المحمول ولوحات المعلومات الخارجية عبر شبكة Tailscale الخاصة بك.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>VAT Codes Supported</h2>
+<h2>رموز ضريبة القيمة المضافة المدعومة</h2>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>المعدل القياسي 20%</p></div>
@@ -134,42 +134,42 @@
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>VAT Return Summary</h4>
-<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+<h4>ملخص إقرار ضريبة القيمة المضافة</h4>
+<p>أرقام ضريبة القيمة المضافة لكل صندوق تطابق تنسيق إقرار ضريبة القيمة المضافة HMRC MTD: المربع 1 (ضريبة المخرجات)، المربع 4 (ضريبة المدخلات)، المربع 6 (صافي المبيعات)، المربع 7 (صافي المشتريات). تشغيل مع <code>--report vat</code>.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>الفواتير</h2>
-<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
+<p>إشعار إدارة الإيرادات والجمارك البريطانية (HMRC) بفواتير متوافقة مع 700 - مطبوعة أو محفوظة بصيغة PDF أو يتم دفعها إلى هاتفك بنقرة واحدة</p>
 </div>
 <div class="strip">
 <div class="strip-item">
 <div class="strip-icon">🧾</div>
 <div class="strip-body">
 <h4>حقول الفاتورة المتوافقة مع المملكة المتحدة</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
+<p>تشتمل كل فاتورة على جميع الحقول المطلوبة بواسطة إشعار HMRC رقم 700: رقم الفاتورة التسلسلي الفريد، واسم المورد وعنوانه، ورقم تسجيل ضريبة القيمة المضافة، وتاريخ الفاتورة، وتاريخ التوريد (وقت التوريد)، واسم العميل وعنوانه، ورقم ضريبة القيمة المضافة للعميل حيثما ينطبق ذلك، وأوصاف السطر المفصلة مع الكميات وأسعار الوحدات، ومعدل ضريبة القيمة المضافة لكل سطر، والصافي والإجماليات الفرعية لضريبة القيمة المضافة، وإجمالي المبلغ المستحق. لا شيء مفقود، لا شيء يمكن تخمينه.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🏢</div>
 <div class="strip-body">
 <h4>إعداد الشركة</h4>
-<p>يفتح <em>ملف → الفواتير → إعداد الشركة</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> جنبًا إلى جنب مع دفتر الأستاذ ويتم تحميلها تلقائيًا عند إنشاء فواتير لهذا العميل.</p>
+<p>يفتح <em>ملف → الفواتير → إعداد الشركة</em> لإدخال اسم شركتك المسجلة والعنوان ورقم مقر الشركة ورقم ضريبة القيمة المضافة والبريد الإلكتروني والهاتف والتفاصيل المصرفية. يتم حفظ الإعدادات لكل قاعدة بيانات العميل في <code>company.json</code> جنبًا إلى جنب مع دفتر الأستاذ ويتم تحميلها تلقائيًا عند إنشاء فواتير لهذا العميل.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">👥</div>
 <div class="strip-body">
 <h4>قاعدة بيانات اتصالات العملاء</h4>
-<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
+<p>في المرة الأولى التي تقوم فيها بإصدار فاتورة للعميل، يتم حفظ اسمه وعنوانه ورقم ضريبة القيمة المضافة في جدول جهات الاتصال داخل دفتر الأستاذ. في الفواتير اللاحقة، تؤدي كتابة اسم العميل إلى إكمال تفاصيله تلقائيًا - دون الحاجة إلى إعادة الإدخال. جهات الاتصال قابلة للتحرير في أي وقت.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🖨️</div>
 <div class="strip-body">
 <h4>طباعة، PDF وإرسالها إلى الهاتف</h4>
-<p>من مدير الفواتير (<em>ملف → الفواتير…</em>) حدد أي فاتورة واختر: <strong>مطبعة</strong> (يفتح مربع حوار طباعة نظام التشغيل — أي طابعة أو برنامج تشغيل PDF)، <strong>حفظ قوات الدفاع الشعبي</strong> (مباشرة إلى القرص عبر تصدير PDF المدمج في Qt)، أو <strong>إرسال إلى الهاتف</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
+<p>من مدير الفواتير (<em>ملف → الفواتير…</em>) حدد أي فاتورة واختر: <strong>مطبعة</strong> (يفتح مربع حوار طباعة نظام التشغيل — أي طابعة أو برنامج تشغيل PDF)، <strong>حفظ قوات الدفاع الشعبي</strong> (مباشرة إلى القرص عبر تصدير PDF المدمج في Qt)، أو <strong>إرسال إلى الهاتف</strong> (يدفع HTML للفاتورة إلى التطبيق Companion حيث يفتح مربع حوار الطباعة على Android - اطبع لاسلكيًا إلى أي AirPrint أو طابعة قريبة).</p>
 </div>
 </div>
 </div>
@@ -177,17 +177,17 @@
 <div class="card">
 <div class="card-icon">📅</div>
 <h3>تاريخ التوريد</h3>
-<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
+<p>حقل "تاريخ التوريد" (وقت التوريد) منفصل — يختلف عن تاريخ الفاتورة. مطلوب من قبل HMRC لأغراض ضريبة القيمة المضافة. الافتراضي هو اليوم ولكنه قابل للتحرير بشكل مستقل لكل فاتورة.</p>
 </div>
 <div class="card">
 <div class="card-icon">📱</div>
 <h3>طباعة فواتير الجوال</h3>
-<p>يمكن للتطبيق المصاحب طباعة أي فاتورة لاسلكيًا. اضغط على أيقونة الطباعة في أي صف فاتورة - يقوم التطبيق بإحضار HTML من IDE، ويحوله إلى PDF على الجهاز عبر <code>printing</code> package, and opens the Android system print dialog.</p>
+<p>يمكن للتطبيق المصاحب طباعة أي فاتورة لاسلكيًا. اضغط على أيقونة الطباعة في أي صف فاتورة - يقوم التطبيق بإحضار HTML من IDE، ويحوله إلى PDF على الجهاز عبر <code>printing</code> الحزمة، ويفتح مربع حوار الطباعة لنظام Android.</p>
 </div>
 <div class="card">
 <div class="card-icon">✅</div>
-<h3>HMRC Notice 700 compliance</h3>
-<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
+<h3>إشعار HMRC الامتثال 700</h3>
+<p>جميع الحقول الـ 12 المطلوبة لفاتورة ضريبة القيمة المضافة الكاملة في المملكة المتحدة موجودة ومملوءة. يتم وضع علامات واضحة على الخطوط ذات السعر المخفض والسعر صفر. يكون تسلسل أرقام الفاتورة رتيبًا بشكل صارم دون وجود أي فجوات.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -198,7 +198,7 @@
 <tbody>
 <tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>الربح والخسارة للسنة الضريبية الحالية</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>الميزانية العمومية اعتبارا من اليوم</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
+<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>ملخص إقرار ضريبة القيمة المضافة (صناديق MTD)</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>فحص الشذوذ والنزاهة</td></tr>
 <tr><td><code>python3 chameleon_accounting.py --help</code></td><td>مرجع الأمر الكامل</td></tr>
 </tbody>
@@ -212,11 +212,11 @@
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">AI بيئة تطوير متكاملة</a><a href="../presenter.html">مقدم</a>
+<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
 <a href="../accounting.html">u0645u062du0627u0633u0628u0629</a><a href="../technician.html">فني كمبيوتر</a>
 <a href="../trading.html">تجارة</a><a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a><a href="../contact.html">اتصال</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Technicians Ltd · صممها ماركوس المعروف أيضًا باسم ستيمسي</p>
 </footer>
 </body>
 </html>

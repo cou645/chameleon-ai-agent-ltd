@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kameleon Presenter — Chameleon AI</title>
+<title>Kameleon 演讲者 — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .stage-demo {
@@ -39,10 +39,10 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong translate="no">Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
 <div class="nav-links">
 <a href="../index.html">家</a>
-<a href="../ide.html">AI集成开发环境</a>
+<a href="../ide.html">你有想法</a>
 <a class="active" href="../presenter.html">主持人</a>
 <a href="../companion.html">配套应用程序</a>
 <a href="../logistics4x4.html">物流4×4</a>
@@ -57,13 +57,13 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1 translate="no">Kameleon Presenter</h1>
+<h1>变色龙主持人</h1>
 <p class="sub">一个受剧院启发的演示系统，其中您的幻灯片是舞台，您的内容块是演员，过渡是提示 - 所有这些都可以通过手机控制。</p>
 <div class="hero-badges">
 <span class="badge">🎬 戏剧隐喻</span>
 <span class="badge">📱 手机控制</span>
 <span class="badge">✏️ 协作绘图</span>
-<span class="badge">🖥️ Android ADB mirror</span>
+<span class="badge">🖥️ Android ADB 镜像</span>
 </div>
 </div>
 <div class="page">
@@ -73,7 +73,7 @@
 </div>
 <!-- Live stage mockup -->
 <div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
+<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">舞台上的 KameleonStack 对象</div>
 <div class="stage-objects">
 <div class="stage-obj obj-content">🟢 内容堆栈 — 讲座幻灯片</div>
 <div class="stage-obj obj-stage">🟡 Stage Stack — 学生提交的作品</div>
@@ -98,7 +98,7 @@
 <div class="card">
 <div class="card-icon">📦</div>
 <h3>KameleonStack</h3>
-<p>The universal content container. Each stack holds multiple slots (images, text, PDFs). Two modes:</p>
+<p>通用内容容器。每个堆栈包含多个插槽（图像、文本、PDF）。两种模式：</p>
 <ul>
 <li><strong style="color:#22c55e">内容</strong> — 教师控制的幻灯片</li>
 <li><strong style="color:#eab308">阶段</strong> - 接受同行推送的提交</li>
@@ -122,7 +122,7 @@
 <div class="card">
 <div class="card-icon">💾</div>
 <h3>.kpt 项目包</h3>
-<p>项目保存为 ZIP 存档（<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
+<p>项目保存为 ZIP 存档（<code>.kpt</code>）包含所有媒体资源、布局数据和动画配置。在任何运行 Chameleon 的机器上打开。</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -138,46 +138,46 @@
 <div class="strip-item">
 <div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Android mobile bridge</h4>
-<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next/上一个/播放/暂停/停止</strong>，将图像或文本槽推入堆栈，并实时查看堆栈状态广播。</p>
+<h4>Android 移动桥</h4>
+<p>Chameleon 移动桥 (WebSocket) 可中继来自任何 Android 设备的影院命令。控制 <strong>stack_next/上一个/播放/暂停/停止</strong>，将图像或文本槽推入堆栈，并实时查看堆栈状态广播。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🙋</div>
 <div class="strip-body">
 <h4>同行提交的意见</h4>
-<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>批准、保留、拒绝或促进</strong> 每一个在屏幕上播出之前。</p>
+<p>学生将图像或文本从手机推送到舞台模式堆栈。提交的内容会显示在带有橙色脉动边框的缩略图条中。主持人可以 <strong>批准、保留、拒绝或促进</strong> 每一个在屏幕上播出之前。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">✏️</div>
 <div class="strip-body">
 <h4>共享画板</h4>
-<p>可通过移动桥控制协作手绘画布 — <strong>绘制_描边/清除/撤消</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
+<p>可通过移动桥控制协作手绘画布 — <strong>绘制_描边/清除/撤消</strong>。非常适合注释幻灯片、头脑风暴或现场测验。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>ADB手机镜像&amp;PPT截图</h4>
-<p><strong>ADB电话盒</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPT镜盒</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
+<p><strong>ADB电话盒</strong> 通过 ADB 将实时 Android 屏幕直接传输到舞台上。 <strong>PPT镜盒</strong> 捕获 PowerPoint 窗口 — 在 Kameleon 中展示您现有的幻灯片，无需转换。</p>
 </div>
 </div>
 </div>
 <div class="cta-band">
 <h3>让您的演示文稿栩栩如生</h3>
-<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
+<p>请联系我们讨论许可证或安排 Kameleon Presenter 的现场演示。</p>
 <a class="btn btn-solid" href="../contact.html">请求演示</a>
 <a class="btn" href="../index.html">← 返回概述</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">家</a><a href="../ide.html">AI集成开发环境</a><a href="../presenter.html">主持人</a>
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a>
 <a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
 <a href="../trading.html">贸易</a><a href="../classroom.html">课堂</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 stemsee 构建</p>
+<p>© 2026 Chameleon AI Technicians Ltd · 由 Marcos 又名 Stemsee 建造</p>
 </footer>
 </body>
 </html>
