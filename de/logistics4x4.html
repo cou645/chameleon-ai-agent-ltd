@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Logistik 4×4 – Grenzüberschreitende Flottenkommunikation</title>
-<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<!-- last updated: 2026-06-06 — IDE beacon auto-connect, Tailnet peer dropdown, Advanced Connection UX, field/hotspot mode -->
 <link href="../style.css" rel="stylesheet"/>
 <style>
     /* ── Card grid ────────────────────────────────────────────────── */
@@ -199,7 +199,7 @@
 <a href="../trading.html">Handel</a>
 <a href="../classroom.html">Unterricht</a>
 <a href="../contact.html">Kontakt</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇩🇪 DE ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,8 +508,9 @@
 <div class="fc-icon">📶</div>
 <h3>Flexible Vernetzung</h3>
 <p>Verbinden Sie sich über <strong>Tailscale</strong> (remote, über das Internet) oder direkt <strong>LAN / Hotspot</strong> – nützlich für LKWs im Konvoi oder wenn eine Richtantenne mit großer Reichweite eingebaut ist (50+ Meilen in offenem Gelände). Die automatische mDNS-Erkennung findet andere Flottentelefone im selben WLAN, ohne dass IP-Adressen manuell eingegeben werden müssen.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Tailscale</span><span class="tag">LAN / Hotspot</span><span class="tag">mDNS-Erkennung</span><span class="tag">Hotspot-Reichweite von über 50 Meilen</span>
+<span class="tag">Tailscale</span><span class="tag">LAN / Hotspot</span><span class="tag">mDNS-Erkennung</span><span class="tag">Zero-config hub election</span><span class="tag">Hotspot-Reichweite von über 50 Meilen</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -525,9 +526,10 @@
 <span class="fc-badge">CHAMÄLEON</span>
 <div class="fc-icon">🖥️</div>
 <h3>Chameleon PC-Integration</h3>
-<p>Verbindet sich über WebSocket mit der Chameleon AI IDE auf einem Desktop- oder Büro-PC. Das Büro kann GPX-Routen (mit eingebetteten Wegpunkten, die automatisch als POIs analysiert werden), eigenständige POI-Sets, Rechnungs-PDFs und Manifestdaten an Fahrer vor Ort übertragen – über den ständig aktiven Signalkanal, kein aktiver Videoanruf erforderlich. Der Chameleon-Signalserver (<code>chameleon_signal.py</code>) läuft auf dem PC oder in Termux auf jedem Telefon in der Flotte, sodass kein Cloud-Relay erforderlich ist.</p>
+<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Routenschub</span><span class="tag">DANN drücken</span><span class="tag">Rechnungs-Push</span><span class="tag">Kein Cloud-Relay</span><span class="tag">Termux-Signalserver</span>
+<span class="tag">Routenschub</span><span class="tag">DANN drücken</span><span class="tag">Rechnungs-Push</span><span class="tag">Kein Cloud-Relay</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
 </div>
 </div>
 </div>

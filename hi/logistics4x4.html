@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>लॉजिस्टिक्स 4×4 - क्रॉस-बॉर्डर फ्लीट कम्युनिकेशंस</title>
-<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<!-- last updated: 2026-06-06 — IDE beacon auto-connect, Tailnet peer dropdown, Advanced Connection UX, field/hotspot mode -->
 <link href="../style.css" rel="stylesheet"/>
 <style>
     /* ── Card grid ────────────────────────────────────────────────── */
@@ -199,7 +199,7 @@
 <a href="../trading.html">व्यापार</a>
 <a href="../classroom.html">u0915u0915u094du0937u093e</a>
 <a href="../contact.html">संपर्क</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,8 +508,9 @@
 <div class="fc-icon">📶</div>
 <h3>लचीली नेटवर्किंग</h3>
 <p>के माध्यम से कनेक्ट करें <strong>टेलस्केल</strong> (दूरस्थ, इंटरनेट पर) या प्रत्यक्ष <strong>लैन/हॉटस्पॉट</strong> - काफिले में ट्रकों के लिए उपयोगी या जहां लंबी दूरी की दिशात्मक हवाई पट्टी लगी हो (खुले इलाके में 50+ मील)। एमडीएनएस ऑटो-डिस्कवरी आईपी पते को मैन्युअल रूप से दर्ज किए बिना उसी वाई-फाई पर अन्य फ्लीट फोन ढूंढता है।</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">टेलस्केल</span><span class="tag">लैन/हॉटस्पॉट</span><span class="tag">एमडीएनएस खोज</span><span class="tag">50+ मील हॉटस्पॉट रेंज</span>
+<span class="tag">टेलस्केल</span><span class="tag">लैन/हॉटस्पॉट</span><span class="tag">एमडीएनएस खोज</span><span class="tag">Zero-config hub election</span><span class="tag">50+ मील हॉटस्पॉट रेंज</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -525,9 +526,10 @@
 <span class="fc-badge">गिरगिट</span>
 <div class="fc-icon">🖥️</div>
 <h3>गिरगिट पीसी एकीकरण</h3>
-<p>वेबसॉकेट के माध्यम से डेस्कटॉप या ऑफिस पीसी पर गिरगिट एआई आईडीई से कनेक्ट होता है। कार्यालय जीपीएक्स मार्गों (स्वचालित रूप से पीओआई के रूप में पार्स किए गए एम्बेडेड वेप्वाइंट के साथ), स्टैंडअलोन पीओआई सेट, चालान पीडीएफ और क्षेत्र में ड्राइवरों के लिए मैनिफ़ेस्ट डेटा को पुश कर सकता है - हमेशा चालू सिग्नल चैनल पर, कोई सक्रिय वीडियो कॉल की आवश्यकता नहीं है। गिरगिट सिग्नल सर्वर (<code>chameleon_signal.py</code>) बेड़े में किसी भी फोन पर पीसी या टर्मक्स पर चलता है, इसलिए किसी क्लाउड रिले की आवश्यकता नहीं है।</p>
+<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">मार्ग धक्का</span><span class="tag">फिर धक्का</span><span class="tag">चालान धक्का</span><span class="tag">कोई क्लाउड रिले नहीं</span><span class="tag">टर्मक्स सिग्नल सर्वर</span>
+<span class="tag">मार्ग धक्का</span><span class="tag">फिर धक्का</span><span class="tag">चालान धक्का</span><span class="tag">कोई क्लाउड रिले नहीं</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
 </div>
 </div>
 </div>

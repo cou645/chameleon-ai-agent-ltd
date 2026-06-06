@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>物流4×4——跨境车队通讯</title>
-<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<!-- last updated: 2026-06-06 — IDE beacon auto-connect, Tailnet peer dropdown, Advanced Connection UX, field/hotspot mode -->
 <link href="../style.css" rel="stylesheet"/>
 <style>
     /* ── Card grid ────────────────────────────────────────────────── */
@@ -199,7 +199,7 @@
 <a href="../trading.html">贸易</a>
 <a href="../classroom.html">课堂</a>
 <a href="../contact.html">接触</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,8 +508,9 @@
 <div class="fc-icon">📶</div>
 <h3>灵活组网</h3>
 <p>通过连接 <strong>尾鳞</strong> （远程，通过互联网）或直接 <strong>局域网/热点</strong> — 对于车队中的卡车或安装了远程定向天线的卡车（在开阔地形中 50 英里以上）非常有用。 mDNS 自动发现功能可在同一 Wi-Fi 上查找其他车队电话，无需手动输入 IP 地址。</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">尾鳞</span><span class="tag">局域网/热点</span><span class="tag">mDNS 发现</span><span class="tag">50+ 英里热点范围</span>
+<span class="tag">尾鳞</span><span class="tag">局域网/热点</span><span class="tag">mDNS 发现</span><span class="tag">Zero-config hub election</span><span class="tag">50+ 英里热点范围</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -525,9 +526,10 @@
 <span class="fc-badge">变色龙</span>
 <div class="fc-icon">🖥️</div>
 <h3>变色龙 PC 集成</h3>
-<p>通过 WebSocket 连接到台式机或办公室 PC 上的 Chameleon AI IDE。办公室可以将 GPX 路线（带有自动解析为 POI 的嵌入式航点）、独立 POI 集、发票 PDF 和舱单数据推送给现场的驾驶员 - 所有这些都通过始终在线的信号通道，无需进行视频通话。 Chameleon 信号服务器（<code>chameleon_signal.py</code>）在 PC 上或在机群中任何手机上的 Termux 中运行，因此不需要云中继。</p>
+<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">路由推送</span><span class="tag">然后推</span><span class="tag">发票推送</span><span class="tag">无云中继</span><span class="tag">Termux 信号服务器</span>
+<span class="tag">路由推送</span><span class="tag">然后推</span><span class="tag">发票推送</span><span class="tag">无云中继</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
 </div>
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Logistics 4×4 — Cross-Border Fleet Communications</title>
-<!-- last updated: 2026-05-28 — SMS Emergency Mode, X profile, codes reference; peer channel for skeleton frames -->
+<!-- last updated: 2026-06-06 — IDE beacon auto-connect, Tailnet peer dropdown, Advanced Connection UX, field/hotspot mode -->
 <link href="style.css" rel="stylesheet"/>
 <style>
     /* ── Card grid ────────────────────────────────────────────────── */
@@ -508,8 +508,9 @@
 <div class="fc-icon">📶</div>
 <h3>Flexible Networking</h3>
 <p>Connect via <strong>Tailscale</strong> (remote, over the internet) or direct <strong>LAN / hotspot</strong> — useful for trucks in convoy or where a long-range directional aerial is fitted (50+ miles in open terrain). mDNS auto-discovery finds other fleet phones on the same Wi-Fi without entering IP addresses manually.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Tailscale</span><span class="tag">LAN / hotspot</span><span class="tag">mDNS discovery</span><span class="tag">50+ mile hotspot range</span>
+<span class="tag">Tailscale</span><span class="tag">LAN / hotspot</span><span class="tag">mDNS discovery</span><span class="tag">Zero-config hub election</span><span class="tag">50+ mile hotspot range</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -525,9 +526,10 @@
 <span class="fc-badge">CHAMELEON</span>
 <div class="fc-icon">🖥️</div>
 <h3>Chameleon PC Integration</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes (with embedded waypoints parsed as POIs automatically), standalone POI sets, invoice PDFs and manifest data to drivers in the field — all over the always-on signal channel, no active video call required. The Chameleon signal server (<code>chameleon_signal.py</code>) runs on the PC or in Termux on any phone in the fleet, so no cloud relay is needed.</p>
+<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Route push</span><span class="tag">POI push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">Termux signal server</span>
+<span class="tag">Route push</span><span class="tag">POI push</span><span class="tag">Invoice push</span><span class="tag">No cloud relay</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
 </div>
 </div>
 </div>
