@@ -49,7 +49,7 @@
 <a href="services.html">Web Services</a>
 <a href="accounting.html">Accounting</a>
 <a href="technician.html">PC Technician</a>
-<a href="trading.html">Trading</a>
+
 <a href="classroom.html">Classroom</a>
 <a href="contact.html">Contact</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🌐 EN ▾</button><div class="lang-menu"><a href="ar/presenter.html">🇸🇦 AR — العربية</a><a href="cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/presenter.html">🇩🇪 DE — Deutsch</a><a href="el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="es/presenter.html">🇪🇸 ES — Español</a><a href="fr/presenter.html">🇫🇷 FR — Français</a><a href="hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="id/presenter.html">🇮🇩 ID — Indonesia</a><a href="it/presenter.html">🇮🇹 IT — Italiano</a><a href="ja/presenter.html">🇯🇵 JA — 日本語</a><a href="ko/presenter.html">🇰🇷 KO — 한국어</a><a href="pl/presenter.html">🇵🇱 PL — Polski</a><a href="pt/presenter.html">🇵🇹 PT — Português</a><a href="ro/presenter.html">🇷🇴 RO — Română</a><a href="ru/presenter.html">🇷🇺 RU — Русский</a><a href="sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="uk/presenter.html">🇺🇦 UK — Українська</a><a href="vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
@@ -64,6 +64,12 @@
 <span class="badge">📱 Mobile control</span>
 <span class="badge">✏️ Collaborative drawing</span>
 <span class="badge">🖥️ Android ADB mirror</span>
+<span class="badge">📜 Multi-script timelines</span>
+<span class="badge">🎯 Smart pick-target</span>
+<span class="badge">✦ AI stage blocks</span>
+<span class="badge">📰 Horizontal &amp; vertical tickers</span>
+<span class="badge">🔍 Cue type filter</span>
+<span class="badge">⇄ Ping-pong playback</span>
 </div>
 </div>
 <div class="page">
@@ -92,6 +98,7 @@ Your browser does not support HTML5 video.
 <div class="stage-obj obj-misc">📱 ADB Phone Mirror</div>
 <div class="stage-obj obj-misc">🖥️ PPT Mirror</div>
 <div class="stage-obj obj-misc">✏️ Drawing Board</div>
+<div class="stage-obj obj-misc">🎬 VideoBox</div>
 </div>
 <div class="thumbnail-strip">
 <div class="thumb thumb-active thumb-content">🖼️</div>
@@ -117,12 +124,12 @@ Your browser does not support HTML5 video.
 <div class="card">
 <div class="card-icon">🎬</div>
 <h3>Animation system</h3>
-<p>Per-object enter/exit animations with freehand motion paths. Paths are drawn on screen, smoothed via Douglas-Peucker compression and Catmull-Rom spline interpolation before storage.</p>
+<p>Per-object enter/exit animations with freehand motion paths. Choose a directional preset and the app immediately enters pick-target mode — one gesture sets both animation type and destination. Paths use Douglas-Peucker + Catmull-Rom smoothing.</p>
 </div>
 <div class="card">
 <div class="card-icon">🗃️</div>
 <h3>Dresser panel</h3>
-<p>Off-stage holding area — create objects in the dresser, preview on stage with a double-click. Drag back to Dresser from the right-click menu. Properties panel shows enter/exit animation state.</p>
+<p>Off-stage holding area — create objects in the dresser, preview on stage with a double-click. Objects removed from stage with the Delete key reappear in the Dresser automatically.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔢</div>
@@ -130,9 +137,45 @@ Your browser does not support HTML5 video.
 <p>Trigger points advance the presentation step by step, just like theatrical lighting cues. Each cue can animate objects in or out, switch stack slots or execute timed sequences.</p>
 </div>
 <div class="card">
+<div class="card-icon">✦</div>
+<h3>AI Stage Blocks</h3>
+<p>Paint generative animation bands directly on the timeline — scheduled for breaks or intervals. During an <strong>AI Stage Block</strong>, on-stage objects choreograph themselves automatically in one of four patterns: <strong>orbit</strong>, <strong>snake</strong>, <strong>random drift</strong>, or <strong>focus spotlight</strong>. Objects return to their original positions when the block ends.</p>
+</div>
+<div class="card">
+<div class="card-icon">📰</div>
+<h3>Ticker objects</h3>
+<p>Scrolling text tickers in <strong>horizontal</strong> (right → left) and <strong>vertical</strong> (bottom → top) orientations. Up to 8 tickers can run simultaneously — ideal for breaking-news strips, agenda reminders, or event info panels. Speed and text are editable live.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Cue type filter</h3>
+<p>A compact filter bar sits between the controls and the ruler with one toggle button per object type: <strong>Txt · Img · ADB · PPT · PDF · Draw · Tick · Conn · Stack</strong>. Click any combination to isolate just those cues — all others are hidden. A faint blue tint on the ruler reminds you the filter is active. Click <strong>✕ All</strong> to restore the full view instantly.</p>
+<p>The <strong>⬛ Preview</strong> toggle takes filtering one step further: when active, playback itself only fires cues for the selected types — everything else stays static on stage. The playhead turns <strong>amber</strong> while preview is on, so you always know you're in a filtered run. Perfect for rehearsing a single object type or checking ADB cue timing without disturbing the rest of the presentation.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>Scrolling playhead</h3>
+<p>The red playhead line is fixed at the centre of the timeline widget. As playback advances, the ruler scrolls leftward beneath it — upcoming cues always visible on the right, past cues drifting off the left. Hover over any cue arrowhead for a large floating popup showing its full label and timestamp.</p>
+</div>
+<div class="card">
+<div class="card-icon">⇄</div>
+<h3>Ping-pong playback</h3>
+<p>Enable <strong>⇄</strong> to reverse direction at each boundary instead of restarting. The timeline plays forward to the end, then backwards to the start, then forward again — indefinitely. Cues fire their <strong>opposite action</strong> on the reverse pass (enter↔exit). The <strong>GenerativeAnimator</strong> reverses its beat direction so orbit, snake and focus patterns retrace their paths. The playhead turns <strong>cyan</strong> with a downward triangle during reverse travel. Pair with AI Stage Blocks for hypnotic break-time displays.</p>
+</div>
+<div class="card">
+<div class="card-icon">📋</div>
+<h3>Timeline templates</h3>
+<p>Apply a pre-built timing framework in one click: <strong>Conference Keynote (20 min)</strong>, <strong>University Lecture (50 min)</strong>, <strong>Workshop (90 min)</strong>, <strong>Short Pitch (5 min)</strong>, or <strong>Conference Half-Day (3 hrs)</strong>. Templates retime existing cues or scaffold an empty script with labelled markers.</p>
+</div>
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>Multi-script timelines</h3>
+<p>A single <code>.kpt</code> tank holds up to <strong>10 named scripts</strong> — independent cue timings sharing the same stage objects. Switching scripts repopulates the timeline instantly. Perfect for a full version, a highlights cut, and a Q&amp;A order all in one file.</p>
+</div>
+<div class="card">
 <div class="card-icon">💾</div>
 <h3>.kpt project bundles</h3>
-<p>Projects are saved as ZIP archives (<code>.kpt</code>) containing all media assets, layout data and animation configs. Open on any machine running Chameleon.</p>
+<p>Projects are saved as ZIP archives (<code>.kpt</code>) containing all media assets, layout data, animation configs, and all named scripts. Open on any machine running Chameleon.</p>
 </div>
 <div class="card">
 <div class="card-icon">📐</div>
@@ -167,10 +210,24 @@ Your browser does not support HTML5 video.
 </div>
 </div>
 <div class="strip-item">
+<div class="strip-icon">🎯</div>
+<div class="strip-body">
+<h4>Smart animation workflow</h4>
+<p>Right-click any object, pick <strong>Enter Left</strong> (or any directional preset), and the app enters pick-target mode instantly — one click sets where the object travels to. Recording a freehand motion path automatically stamps start and end cues onto the timeline.</p>
+</div>
+</div>
+<div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
 <h4>ADB phone mirror &amp; PPT capture</h4>
 <p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirrorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">⚙️</div>
+<div class="strip-body">
+<h4>Startup &amp; settings</h4>
+<p>Choose whether Kameleon opens with the <strong>last project loaded</strong> or a <strong>blank stage</strong> via the Settings → On Startup menu. The preference is saved to <code>~/.chameleon/kameleon_settings.json</code> and respected every launch.</p>
 </div>
 </div>
 </div>
@@ -185,7 +242,7 @@ Your browser does not support HTML5 video.
 <div class="foot-links">
 <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
 <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
-<a href="trading.html">Trading</a><a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+<a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
 </div>
 <p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
 </footer>
