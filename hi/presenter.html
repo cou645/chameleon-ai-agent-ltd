@@ -35,6 +35,22 @@
     .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
     .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
   </style>
+  <style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -247,6 +263,13 @@
 <p>खुला <strong>सेटिंग्स → 🌐 भाषा</strong> कैमेलियन प्रेजेंटर यूआई को 25 भाषाओं में से किसी में स्विच करने के लिए - फ्रेंच, जर्मन, स्पेनिश, अरबी, चीनी, जापानी, कोरियाई, रूसी, वेल्श, थाई और अन्य सहित। सभी मेनू तुरंत अपडेट हो जाते हैं <strong>कोई पुनरारंभ नहीं</strong>. पहली बार उपयोग करने पर अनुवाद पृष्ठभूमि में आ जाते हैं; एक बार कैश हो जाने पर स्विचिंग तुरंत हो जाती है।</p>
 </div>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Screenshots</h2>
+<p>Kameleon Presenter — captured live</p>
+</div>
+<div class="screenshot-gallery" id="presenter-gallery">
+<!-- drop images into presenter-assets/ and add entries here -->
 </div>
 <div class="cta-band">
 <h3>अपनी प्रस्तुतियों को जीवंत बनाएं</h3>

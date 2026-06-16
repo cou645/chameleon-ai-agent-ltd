@@ -35,6 +35,22 @@
     .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
     .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
   </style>
+  <style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -247,6 +263,13 @@
 <p>يفتح <strong>الإعدادات → 🌐 اللغة</strong> لتبديل واجهة مستخدم Kameleon Presenter إلى أي من اللغات الـ 25 - بما في ذلك الفرنسية والألمانية والإسبانية والعربية والصينية واليابانية والكورية والروسية والويلزية والتايلاندية والمزيد. يتم تحديث جميع القوائم على الفور باستخدام <strong>لا إعادة التشغيل</strong>. يتم جلب الترجمات في الخلفية عند الاستخدام الأول؛ يتم التبديل بشكل فوري بمجرد تخزينه مؤقتًا.</p>
 </div>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Screenshots</h2>
+<p>Kameleon Presenter — captured live</p>
+</div>
+<div class="screenshot-gallery" id="presenter-gallery">
+<!-- drop images into presenter-assets/ and add entries here -->
 </div>
 <div class="cta-band">
 <h3>اجعل عروضك التقديمية تنبض بالحياة</h3>

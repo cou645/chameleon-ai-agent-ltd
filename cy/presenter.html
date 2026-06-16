@@ -35,6 +35,22 @@
     .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
     .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
   </style>
+  <style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -247,6 +263,13 @@ Nid yw eich porwr yn cefnogi fideo HTML5.
 <p>Agored <strong>Gosodiadau → 🌐 Iaith</strong> i newid UI Cyflwynydd Kameleon i unrhyw un o 25 o ieithoedd - gan gynnwys Ffrangeg, Almaeneg, Sbaeneg, Arabeg, Tsieinëeg, Japaneaidd, Corëeg, Rwsieg, Cymraeg, Thai, a mwy. Mae pob dewislen yn diweddaru ar unwaith gyda <strong>dim ailgychwyn</strong>. Cyfieithiadau yn cael eu nôl yn y cefndir ar y defnydd cyntaf; mae newid yn syth ar ôl ei storio.</p>
 </div>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Screenshots</h2>
+<p>Kameleon Presenter — captured live</p>
+</div>
+<div class="screenshot-gallery" id="presenter-gallery">
+<!-- drop images into presenter-assets/ and add entries here -->
 </div>
 <div class="cta-band">
 <h3>Dewch â'ch cyflwyniadau yn fyw</h3>

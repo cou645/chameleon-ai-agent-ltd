@@ -35,6 +35,22 @@
     .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
     .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
   </style>
+  <style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -247,6 +263,13 @@
 <p>열려 있는 <strong>설정 → 🌐 언어</strong> Kameleon Presenter UI를 프랑스어, 독일어, 스페인어, 아랍어, 중국어, 일본어, 한국어, 러시아어, 웨일스어, 태국어 등을 포함한 25개 언어로 전환합니다. 모든 메뉴는 즉시 업데이트됩니다. <strong>다시 시작하지 않음</strong>. 번역은 처음 사용할 때 백그라운드에서 가져옵니다. 캐시되면 즉시 전환됩니다.</p>
 </div>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Screenshots</h2>
+<p>Kameleon Presenter — captured live</p>
+</div>
+<div class="screenshot-gallery" id="presenter-gallery">
+<!-- drop images into presenter-assets/ and add entries here -->
 </div>
 <div class="cta-band">
 <h3>프레젠테이션에 생기를 불어넣으세요</h3>

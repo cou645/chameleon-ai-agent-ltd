@@ -35,6 +35,22 @@
     .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
     .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
   </style>
+  <style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -247,6 +263,13 @@ Votre navigateur ne prend pas en charge la vidéo HTML5.
 <p>Ouvrir <strong>Paramètres → 🌐 Langue</strong> pour basculer l'interface utilisateur de Kameleon Presenter dans l'une des 25 langues, dont le français, l'allemand, l'espagnol, l'arabe, le chinois, le japonais, le coréen, le russe, le gallois, le thaï, etc. Tous les menus se mettent à jour instantanément avec <strong>pas de redémarrage</strong>. Les traductions sont récupérées en arrière-plan lors de la première utilisation ; la commutation est instantanée une fois mise en cache.</p>
 </div>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Screenshots</h2>
+<p>Kameleon Presenter — captured live</p>
+</div>
+<div class="screenshot-gallery" id="presenter-gallery">
+<!-- drop images into presenter-assets/ and add entries here -->
 </div>
 <div class="cta-band">
 <h3>Donnez vie à vos présentations</h3>
