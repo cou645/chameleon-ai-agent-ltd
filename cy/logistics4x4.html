@@ -179,7 +179,21 @@
     .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
     .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
     .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
-  </style>
+      .phone-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem; margin: 1.5rem 0;
+    }
+    .phone-gallery .pshot {
+      background: #0f0f1f; border-radius: 16px; overflow: hidden;
+      border: 2px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .phone-gallery .pshot img { width: 100%; height: auto; display: block; }
+    .phone-gallery .pshot-cap {
+      text-align: center; font-size: .7rem; color: #8888aa;
+      padding: .3rem .4rem .5rem;
+    }
+</style>
 </head>
 <body>
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
@@ -196,10 +210,9 @@
 <a class="active" href="../logistics4x4.html">Logisteg 4×4</a>
 <a href="../accounting.html">Cyfrifeg</a>
 <a href="../technician.html">Technegydd PC</a>
-
 <a href="../classroom.html">Dosbarth</a>
 <a href="../contact.html">Cysylltwch</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,9 +521,9 @@
 <div class="fc-icon">📶</div>
 <h3>Rhwydweithio Hyblyg</h3>
 <p>Cysylltwch drwy <strong>Graddfa gynffon</strong> (o bell, dros y rhyngrwyd) neu'n uniongyrchol <strong>LAN / man cychwyn</strong> — yn ddefnyddiol ar gyfer tryciau mewn confoi neu lle gosodir erial cyfeiriadol pellter hir (50+ milltir mewn tir agored). Mae auto-darganfod mDNS yn dod o hyd i ffonau fflyd eraill ar yr un Wi-Fi heb fynd i mewn i gyfeiriadau IP â llaw.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Etholiad hwb sero-config</strong> — pan nad oes cyfrifiadur personol yn rhedeg, mae ffonau'n ethol canolbwynt yn awtomatig: mae'r aelod fflyd â'r IP isaf Tailscale yn dod yn ganolbwynt signalau ac mae'r gweddill yn cysylltu fel adenydd. Nid oes angen cyfluniad. Mae meysydd cyfeiriad IP yn cynnig awtolenwi tap-i-lenwi o'r rhestr dyfeisiau Tailscale wedi'u harchwilio, gyda dangosyddion cyraeddadwyedd gwyrdd/llwyd yn cael eu diweddaru bob 30 eiliad.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Graddfa gynffon</span><span class="tag">LAN / man cychwyn</span><span class="tag">mDNS darganfyddiad</span><span class="tag">Zero-config hub election</span><span class="tag">Amrediad o fannau problemus 50+ milltir</span>
+<span class="tag">Graddfa gynffon</span><span class="tag">LAN / man cychwyn</span><span class="tag">mDNS darganfyddiad</span><span class="tag">Etholiad hwb sero-config</span><span class="tag">Amrediad o fannau problemus 50+ milltir</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -526,10 +539,10 @@
 <span class="fc-badge">CAMELION</span>
 <div class="fc-icon">🖥️</div>
 <h3>Integreiddio PC Chameleon</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
+<p>Yn cysylltu â'r Chameleon AI IDE ar bwrdd gwaith neu gyfrifiadur personol swyddfa trwy WebSocket. Gall y swyddfa wthio llwybrau GPX, setiau POI, anfonebu PDFs a data amlwg i yrwyr dros y sianel signal bob amser - nid oes angen galwad fideo weithredol. Mae'r gweinydd signal yn rhedeg ar y cyfrifiadur personol neu unrhyw ffôn; dim angen cyfnewid cwmwl.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Moddau beacon IDE</strong> — mae'r PC yn darlledu signal CDU i bob ffôn fflyd yn awtomatig: <em>Gorfodol</em> gorfodi pob ffôn i gysylltu â'r gweinydd PC ar unwaith; <em>Dewisol</em> yn cysylltu ffonau segur (ffonau mewn galwad P2P byw yn ailgysylltu pan ddaw'r alwad i ben); <em>I ffwrdd</em> yn gadael i ffonau hunan-ethol canolbwynt yn ôl IP isaf Tailscale. Newid moddau ar amser rhedeg trwy alwad REST syml neu o'r togl IDE UI.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Gwthio llwybr</span><span class="tag">YNA gwthio</span><span class="tag">Gwthiad anfoneb</span><span class="tag">Dim ras gyfnewid cwmwl</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
+<span class="tag">Gwthio llwybr</span><span class="tag">YNA gwthio</span><span class="tag">Gwthiad anfoneb</span><span class="tag">Dim ras gyfnewid cwmwl</span><span class="tag">CDU beacon awto-gysylltu</span><span class="tag">Gorfodol / Dewisol / Wedi'i Ddiffodd</span>
 </div>
 </div>
 </div>
@@ -692,6 +705,18 @@
 </div>
 </div>
 </div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>App Screenshots</h2>
+<p>Logistics 4×4 — captured live on device</p>
+</div>
+<div class="phone-gallery">
+<div class="pshot"><img src="../9CHAMELEON-COMPANION1258.png" alt="Logistics 4x4 screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
+<div class="pshot"><img src="../10CHAMELEON-COMPANION1337.png" alt="Logistics 4x4 screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
+<div class="pshot"><img src="../11CHAMELEON-COMPANION1404.png" alt="Logistics 4x4 screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
+<div class="pshot"><img src="../12CHAMELEON-COMPANION1429.png" alt="Logistics 4x4 screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
+<div class="pshot"><img src="../13CHAMELEON-COMPANION1459.png" alt="Logistics 4x4 screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
+<div class="pshot"><img src="../14CHAMELEON-COMPANION1516.png" alt="Logistics 4x4 screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
+</div>
 <div class="cta-band">
 <h3>Diddordeb mewn Logisteg 4×4?</h3>
 <p>Mewn profion ar hyn o bryd - cysylltwch â ni i drafod cynllun peilot, i ofyn am adeilad neu i ofyn am drwyddedu ar gyfer eich fflyd.</p>
@@ -710,7 +735,6 @@
 <a href="../services.html">Gwasanaethau Gwe</a>
 <a href="../accounting.html">Cyfrifeg</a>
 <a href="../technician.html">Technegydd PC</a>
-
 <a href="../classroom.html">Dosbarth</a>
 <a href="../contact.html">Cysylltwch</a>
 </div>

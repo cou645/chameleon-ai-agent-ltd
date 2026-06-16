@@ -179,7 +179,21 @@
     .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
     .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
     .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
-  </style>
+      .phone-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem; margin: 1.5rem 0;
+    }
+    .phone-gallery .pshot {
+      background: #0f0f1f; border-radius: 16px; overflow: hidden;
+      border: 2px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .phone-gallery .pshot img { width: 100%; height: auto; display: block; }
+    .phone-gallery .pshot-cap {
+      text-align: center; font-size: .7rem; color: #8888aa;
+      padding: .3rem .4rem .5rem;
+    }
+</style>
 </head>
 <body>
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
@@ -196,10 +210,9 @@
 <a class="active" href="../logistics4x4.html">Logistics 4×4</a>
 <a href="../accounting.html">Λογιστική</a>
 <a href="../technician.html">Τεχνικός Η/Υ</a>
-
 <a href="../classroom.html">Αίθουσα διδασκαλίας</a>
 <a href="../contact.html">Επαφή</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,9 +521,9 @@
 <div class="fc-icon">📶</div>
 <h3>Ευέλικτη Δικτύωση</h3>
 <p>Σύνδεση μέσω <strong>Κλίμακα ουράς</strong> (από απόσταση, μέσω Διαδικτύου) ή απευθείας <strong>LAN / hotspot</strong> — χρήσιμο για φορτηγά σε συνοδεία ή όπου έχει τοποθετηθεί κατευθυντική κεραία μεγάλης εμβέλειας (50+ μίλια σε ανοιχτό έδαφος). Η αυτόματη ανακάλυψη mDNS εντοπίζει άλλα τηλέφωνα στόλου στο ίδιο Wi-Fi χωρίς να εισάγει διευθύνσεις IP με μη αυτόματο τρόπο.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Εκλογή κόμβου μηδενικής διαμόρφωσης</strong> — όταν δεν λειτουργεί κανένας υπολογιστής, τα τηλέφωνα επιλέγουν αυτόματα έναν διανομέα: το μέλος του στόλου με το χαμηλότερο Tailscale IP γίνεται ο κόμβος σηματοδότησης και τα υπόλοιπα συνδέονται ως ακτίνες. Δεν απαιτείται διαμόρφωση. Τα πεδία διεύθυνσης IP προσφέρουν αυτόματη συμπλήρωση με πάτημα για συμπλήρωση από τη λίστα συσκευών Tailscale, με πράσινο/γκρι δείκτες προσβασιμότητας που ενημερώνονται κάθε 30 δευτερόλεπτα.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Κλίμακα ουράς</span><span class="tag">LAN / hotspot</span><span class="tag">Ανακάλυψη mDNS</span><span class="tag">Zero-config hub election</span><span class="tag">Εμβέλεια hotspot 50+ μιλίων</span>
+<span class="tag">Κλίμακα ουράς</span><span class="tag">LAN / hotspot</span><span class="tag">Ανακάλυψη mDNS</span><span class="tag">Εκλογή κόμβου μηδενικής διαμόρφωσης</span><span class="tag">Εμβέλεια hotspot 50+ μιλίων</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -526,10 +539,10 @@
 <span class="fc-badge">ΧΑΜΑΙΛΕΟΝΤΑΣ</span>
 <div class="fc-icon">🖥️</div>
 <h3>Ενσωμάτωση υπολογιστή Chameleon</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
+<p>Συνδέεται με το Chameleon AI IDE σε επιτραπέζιο ή γραφείο υπολογιστή μέσω WebSocket. Το γραφείο μπορεί να προωθήσει διαδρομές GPX, σύνολα POI, αρχεία PDF τιμολογίων και δεδομένα δήλωσης στα προγράμματα οδήγησης μέσω του καναλιού σήματος που είναι πάντα ενεργό — δεν απαιτείται ενεργή κλήση βίντεο. Ο διακομιστής σήματος λειτουργεί στον υπολογιστή ή σε οποιοδήποτε τηλέφωνο. δεν χρειάζεται ρελέ σύννεφο.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Λειτουργίες φάρου IDE</strong> — ο υπολογιστής εκπέμπει αυτόματα ένα σήμα UDP σε όλα τα τηλέφωνα του στόλου: <em>Επιτακτικός</em> αναγκάζει όλα τα τηλέφωνα να συνδεθούν αμέσως στον διακομιστή υπολογιστή. <em>Προαιρετικός</em> συνδέει τηλέφωνα σε αδράνεια (τηλέφωνα σε ζωντανή κλήση P2P επανασυνδέονται όταν τελειώσει η κλήση). <em>Μακριά από</em> επιτρέπει στα τηλέφωνα να επιλέγουν μόνοι τους έναν διανομέα με τη χαμηλότερη Tailscale IP. Αλλάξτε λειτουργίες κατά το χρόνο εκτέλεσης μέσω μιας απλής κλήσης REST ή από την εναλλαγή διεπαφής χρήστη IDE.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Πώληση διαδρομής</span><span class="tag">ΜΕΤΑ πιέστε</span><span class="tag">Πώληση τιμολογίου</span><span class="tag">Χωρίς ρελέ σύννεφο</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
+<span class="tag">Πώληση διαδρομής</span><span class="tag">ΜΕΤΑ πιέστε</span><span class="tag">Πώληση τιμολογίου</span><span class="tag">Χωρίς ρελέ σύννεφο</span><span class="tag">Αυτόματη σύνδεση του φάρου UDP</span><span class="tag">Υποχρεωτικό / Προαιρετικό / Απενεργοποίηση</span>
 </div>
 </div>
 </div>
@@ -692,6 +705,18 @@
 </div>
 </div>
 </div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>App Screenshots</h2>
+<p>Logistics 4×4 — captured live on device</p>
+</div>
+<div class="phone-gallery">
+<div class="pshot"><img src="../9CHAMELEON-COMPANION1258.png" alt="Logistics 4x4 screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
+<div class="pshot"><img src="../10CHAMELEON-COMPANION1337.png" alt="Logistics 4x4 screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
+<div class="pshot"><img src="../11CHAMELEON-COMPANION1404.png" alt="Logistics 4x4 screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
+<div class="pshot"><img src="../12CHAMELEON-COMPANION1429.png" alt="Logistics 4x4 screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
+<div class="pshot"><img src="../13CHAMELEON-COMPANION1459.png" alt="Logistics 4x4 screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
+<div class="pshot"><img src="../14CHAMELEON-COMPANION1516.png" alt="Logistics 4x4 screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
+</div>
 <div class="cta-band">
 <h3>Ενδιαφέρεστε για Logistics 4×4;</h3>
 <p>Επί του παρόντος σε δοκιμή — επικοινωνήστε μαζί μας για να συζητήσουμε έναν πιλότο, να ζητήσουμε μια κατασκευή ή να ρωτήσουμε σχετικά με την αδειοδότηση του στόλου σας.</p>
@@ -710,7 +735,6 @@
 <a href="../services.html">Υπηρεσίες Ιστού</a>
 <a href="../accounting.html">Λογιστική</a>
 <a href="../technician.html">Τεχνικός Η/Υ</a>
-
 <a href="../classroom.html">Αίθουσα διδασκαλίας</a>
 <a href="../contact.html">Επαφή</a>
 </div>

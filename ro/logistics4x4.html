@@ -179,7 +179,21 @@
     .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
     .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
     .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
-  </style>
+      .phone-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem; margin: 1.5rem 0;
+    }
+    .phone-gallery .pshot {
+      background: #0f0f1f; border-radius: 16px; overflow: hidden;
+      border: 2px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .phone-gallery .pshot img { width: 100%; height: auto; display: block; }
+    .phone-gallery .pshot-cap {
+      text-align: center; font-size: .7rem; color: #8888aa;
+      padding: .3rem .4rem .5rem;
+    }
+</style>
 </head>
 <body>
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
@@ -196,10 +210,9 @@
 <a class="active" href="../logistics4x4.html">Logistica 4×4</a>
 <a href="../accounting.html">Contabilitate</a>
 <a href="../technician.html">Tehnician PC</a>
-
 <a href="../classroom.html">Sala de clasă</a>
 <a href="../contact.html">Contact</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -462,7 +475,7 @@
 <h3>Manifestul de marfă</h3>
 <p>Scanați codul QR de depozit pentru a încărca articole în manifest. La livrare, scanați POD QR al clientului pentru a marca livrarea. Gestionarea excepțiilor: livrarea refuzată înregistrează o fotografie și o notă scrisă; safe-drop înregistrează o fotografie a locației de drop; semnătura clientului este capturată pe ecranul tactil. Toate evenimentele sunt marcate cu coordonatele GPS.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Scanare QR de intrare/ieșire</span><span class="tag">Photo POD</span><span class="tag">Semnătura ecranului</span><span class="tag">Marcaje de timp GPS</span>
+<span class="tag">Scanare QR de intrare/ieșire</span><span class="tag">Fotografie POD</span><span class="tag">Semnătura ecranului</span><span class="tag">Marcaje de timp GPS</span>
 </div>
 </div>
 <div class="feat-card fc-disp" style="border-color:#65a30d;">
@@ -508,9 +521,9 @@
 <div class="fc-icon">📶</div>
 <h3>Rețea flexibilă</h3>
 <p>Conectați prin <strong>Scala de coadă</strong> (la distanță, prin internet) sau direct <strong>LAN / hotspot</strong> — utilă pentru camioanele din convoi sau unde este prevăzută o antenă direcțională cu rază lungă de acțiune (50+ mile pe teren deschis). Descoperirea automată mDNS găsește alte telefoane ale flotei pe același Wi-Fi fără a introduce manual adresele IP.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Alegerea hub-ului zero-config</strong> — când nu funcționează niciun PC, telefoanele aleg automat un hub: membrul flotei cu cel mai mic IP Tailscale devine hub de semnalizare, iar restul se conectează ca spițe. Nu necesită configurare. Câmpurile de adresă IP oferă completare automată prin atingere și completare din lista de dispozitive Tailscale sondată, cu indicatori de accesibilitate verzi/gri actualizați la fiecare 30 de secunde.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Scala de coadă</span><span class="tag">LAN / hotspot</span><span class="tag">Descoperirea mDNS</span><span class="tag">Zero-config hub election</span><span class="tag">Raza de acțiune hotspot de peste 50 de mile</span>
+<span class="tag">Scala de coadă</span><span class="tag">LAN / hotspot</span><span class="tag">Descoperirea mDNS</span><span class="tag">Alegerea hub-ului zero-config</span><span class="tag">Raza de acțiune hotspot de peste 50 de mile</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -526,10 +539,10 @@
 <span class="fc-badge">CAMELEON</span>
 <div class="fc-icon">🖥️</div>
 <h3>Integrare Chameleon PC</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
+<p>Se conectează la Chameleon AI IDE de pe un computer desktop sau de birou prin WebSocket. Biroul poate trimite rute GPX, seturi de POI, PDF-uri de factură și date manifest către șoferi prin canalul de semnal permanent - nu este necesar un apel video activ. Serverul de semnal rulează pe PC sau pe orice telefon; nu este nevoie de releu de nor.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Moduri de semnalizare IDE</strong> — PC-ul transmite automat un semnal UDP către toate telefoanele flotei: <em>Obligatoriu</em> obligă toate telefoanele să se conecteze imediat la serverul PC; <em>Opțional</em> conectează telefoane inactive (telefoanele aflate într-un apel P2P live se reconnectează când apelul se termină); <em>Oprit</em> permite telefoanelor să-și aleagă singur un hub cu cel mai mic IP Tailscale. Comutați între moduri în timpul rulării printr-un simplu apel REST sau din comutatorul IDE UI.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Impingerea traseului</span><span class="tag">APOI împingeți</span><span class="tag">Factura push</span><span class="tag">Fără releu de nor</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
+<span class="tag">Impingerea traseului</span><span class="tag">APOI împingeți</span><span class="tag">Factura push</span><span class="tag">Fără releu de nor</span><span class="tag">Conexiune automată a farului UDP</span><span class="tag">Obligatoriu / Opțional / Dezactivat</span>
 </div>
 </div>
 </div>
@@ -692,6 +705,18 @@
 </div>
 </div>
 </div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>App Screenshots</h2>
+<p>Logistics 4×4 — captured live on device</p>
+</div>
+<div class="phone-gallery">
+<div class="pshot"><img src="../9CHAMELEON-COMPANION1258.png" alt="Logistics 4x4 screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
+<div class="pshot"><img src="../10CHAMELEON-COMPANION1337.png" alt="Logistics 4x4 screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
+<div class="pshot"><img src="../11CHAMELEON-COMPANION1404.png" alt="Logistics 4x4 screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
+<div class="pshot"><img src="../12CHAMELEON-COMPANION1429.png" alt="Logistics 4x4 screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
+<div class="pshot"><img src="../13CHAMELEON-COMPANION1459.png" alt="Logistics 4x4 screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
+<div class="pshot"><img src="../14CHAMELEON-COMPANION1516.png" alt="Logistics 4x4 screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
+</div>
 <div class="cta-band">
 <h3>Vă interesează Logistica 4×4?</h3>
 <p>Momentan în testare — contactați-ne pentru a discuta despre un pilot, pentru a solicita o construcție sau pentru a întreba despre acordarea de licențe pentru flota dvs.</p>
@@ -710,7 +735,6 @@
 <a href="../services.html">Servicii Web</a>
 <a href="../accounting.html">Contabilitate</a>
 <a href="../technician.html">Tehnician PC</a>
-
 <a href="../classroom.html">Sala de clasă</a>
 <a href="../contact.html">Contact</a>
 </div>

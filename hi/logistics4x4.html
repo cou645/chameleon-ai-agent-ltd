@@ -179,7 +179,21 @@
     .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
     .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
     .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
-  </style>
+      .phone-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem; margin: 1.5rem 0;
+    }
+    .phone-gallery .pshot {
+      background: #0f0f1f; border-radius: 16px; overflow: hidden;
+      border: 2px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .phone-gallery .pshot img { width: 100%; height: auto; display: block; }
+    .phone-gallery .pshot-cap {
+      text-align: center; font-size: .7rem; color: #8888aa;
+      padding: .3rem .4rem .5rem;
+    }
+</style>
 </head>
 <body>
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
@@ -196,10 +210,9 @@
 <a class="active" href="../logistics4x4.html">रसद 4×4</a>
 <a href="../accounting.html">u0932u0947u0916u093e</a>
 <a href="../technician.html">पीसी तकनीशियन</a>
-
 <a href="../classroom.html">u0915u0915u094du0937u093e</a>
 <a href="../contact.html">संपर्क</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,9 +521,9 @@
 <div class="fc-icon">📶</div>
 <h3>लचीली नेटवर्किंग</h3>
 <p>के माध्यम से कनेक्ट करें <strong>टेलस्केल</strong> (दूरस्थ, इंटरनेट पर) या प्रत्यक्ष <strong>लैन/हॉटस्पॉट</strong> - काफिले में ट्रकों के लिए उपयोगी या जहां लंबी दूरी की दिशात्मक हवाई पट्टी लगी हो (खुले इलाके में 50+ मील)। एमडीएनएस ऑटो-डिस्कवरी आईपी पते को मैन्युअल रूप से दर्ज किए बिना उसी वाई-फाई पर अन्य फ्लीट फोन ढूंढता है।</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>शून्य-कॉन्फिग हब चुनाव</strong> - जब कोई पीसी नहीं चल रहा होता है, तो फोन स्वचालित रूप से एक हब का चुनाव करते हैं: सबसे कम टेलस्केल आईपी वाला फ्लीट सदस्य सिग्नलिंग हब बन जाता है और बाकी स्पोक के रूप में जुड़ जाते हैं। किसी कॉन्फ़िगरेशन की आवश्यकता नहीं है. आईपी ​​एड्रेस फ़ील्ड जांचे गए टेलस्केल डिवाइस सूची से टैप-टू-फिल स्वत: पूर्ण प्रदान करते हैं, जिसमें हर 30 सेकंड में हरे/ग्रे रीचैबिलिटी संकेतक अपडेट होते हैं।</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">टेलस्केल</span><span class="tag">लैन/हॉटस्पॉट</span><span class="tag">एमडीएनएस खोज</span><span class="tag">Zero-config hub election</span><span class="tag">50+ मील हॉटस्पॉट रेंज</span>
+<span class="tag">टेलस्केल</span><span class="tag">लैन/हॉटस्पॉट</span><span class="tag">एमडीएनएस खोज</span><span class="tag">शून्य-कॉन्फिग हब चुनाव</span><span class="tag">50+ मील हॉटस्पॉट रेंज</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -526,10 +539,10 @@
 <span class="fc-badge">गिरगिट</span>
 <div class="fc-icon">🖥️</div>
 <h3>गिरगिट पीसी एकीकरण</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
+<p>वेबसॉकेट के माध्यम से डेस्कटॉप या ऑफिस पीसी पर गिरगिट एआई आईडीई से कनेक्ट होता है। कार्यालय जीपीएक्स रूट, पीओआई सेट, इनवॉइस पीडीएफ और मैनिफ़ेस्ट डेटा को हमेशा चालू सिग्नल चैनल पर ड्राइवरों तक पहुंचा सकता है - किसी सक्रिय वीडियो कॉल की आवश्यकता नहीं है। सिग्नल सर्वर पीसी या किसी फोन पर चलता है; किसी क्लाउड रिले की आवश्यकता नहीं.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>आईडीई बीकन मोड</strong> - पीसी स्वचालित रूप से सभी फ्लीट फोन पर यूडीपी सिग्नल प्रसारित करता है: <em>अनिवार्य</em> सभी फ़ोनों को तुरंत पीसी सर्वर से कनेक्ट करने के लिए बाध्य करता है; <em>वैकल्पिक</em> निष्क्रिय फ़ोन को कनेक्ट करता है (लाइव P2P कॉल में फ़ोन कॉल समाप्त होने पर पुनः कनेक्ट हो जाता है); <em>बंद</em> फ़ोन को निम्नतम टेलस्केल आईपी द्वारा एक हब स्वयं चुनने की सुविधा देता है। एक साधारण REST कॉल के माध्यम से या IDE UI टॉगल से रनटाइम पर मोड स्विच करें।</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">मार्ग धक्का</span><span class="tag">फिर धक्का</span><span class="tag">चालान धक्का</span><span class="tag">कोई क्लाउड रिले नहीं</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
+<span class="tag">मार्ग धक्का</span><span class="tag">फिर धक्का</span><span class="tag">चालान धक्का</span><span class="tag">कोई क्लाउड रिले नहीं</span><span class="tag">यूडीपी बीकन ऑटो-कनेक्ट</span><span class="tag">अनिवार्य/वैकल्पिक/बंद</span>
 </div>
 </div>
 </div>
@@ -692,6 +705,18 @@
 </div>
 </div>
 </div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>App Screenshots</h2>
+<p>Logistics 4×4 — captured live on device</p>
+</div>
+<div class="phone-gallery">
+<div class="pshot"><img src="../9CHAMELEON-COMPANION1258.png" alt="Logistics 4x4 screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
+<div class="pshot"><img src="../10CHAMELEON-COMPANION1337.png" alt="Logistics 4x4 screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
+<div class="pshot"><img src="../11CHAMELEON-COMPANION1404.png" alt="Logistics 4x4 screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
+<div class="pshot"><img src="../12CHAMELEON-COMPANION1429.png" alt="Logistics 4x4 screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
+<div class="pshot"><img src="../13CHAMELEON-COMPANION1459.png" alt="Logistics 4x4 screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
+<div class="pshot"><img src="../14CHAMELEON-COMPANION1516.png" alt="Logistics 4x4 screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
+</div>
 <div class="cta-band">
 <h3>लॉजिस्टिक्स 4×4 में रुचि है?</h3>
 <p>वर्तमान में परीक्षण में - पायलट पर चर्चा करने, निर्माण का अनुरोध करने या अपने बेड़े के लिए लाइसेंसिंग के बारे में पूछने के लिए हमसे संपर्क करें।</p>
@@ -710,7 +735,6 @@
 <a href="../services.html">वेब सेवाएं</a>
 <a href="../accounting.html">u0932u0947u0916u093e</a>
 <a href="../technician.html">पीसी तकनीशियन</a>
-
 <a href="../classroom.html">u0915u0915u094du0937u093e</a>
 <a href="../contact.html">संपर्क</a>
 </div>

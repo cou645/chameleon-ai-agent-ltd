@@ -179,7 +179,21 @@
     .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
     .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
     .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
-  </style>
+      .phone-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem; margin: 1.5rem 0;
+    }
+    .phone-gallery .pshot {
+      background: #0f0f1f; border-radius: 16px; overflow: hidden;
+      border: 2px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .phone-gallery .pshot img { width: 100%; height: auto; display: block; }
+    .phone-gallery .pshot-cap {
+      text-align: center; font-size: .7rem; color: #8888aa;
+      padding: .3rem .4rem .5rem;
+    }
+</style>
 </head>
 <body>
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
@@ -196,10 +210,9 @@
 <a class="active" href="../logistics4x4.html">Logistique 4×4</a>
 <a href="../accounting.html">Comptabilitu00e9</a>
 <a href="../technician.html">Technicien informatique</a>
-
 <a href="../classroom.html">Classe</a>
 <a href="../contact.html">Contact</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇫🇷 FR ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇫🇷 FR ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ja/logistics4x4.html">🇯🇵 JA — 日本語</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,9 +521,9 @@
 <div class="fc-icon">📶</div>
 <h3>Réseau flexible</h3>
 <p>Connectez-vous via <strong>Échelle arrière</strong> (à distance, par Internet) ou en direct <strong>Réseau local/point d'accès</strong> — utile pour les camions en convoi ou lorsqu'une antenne directionnelle à longue portée est installée (plus de 50 milles en terrain découvert). La découverte automatique mDNS trouve les autres téléphones de la flotte sur le même réseau Wi-Fi sans saisir manuellement les adresses IP.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Élection du hub sans configuration</strong> — lorsqu'aucun PC n'est en cours d'exécution, les téléphones élisent automatiquement un hub : le membre de la flotte avec l'adresse IP Tailscale la plus basse devient le hub de signalisation et les autres se connectent en tant que rayons. Aucune configuration requise. Les champs d'adresse IP offrent une saisie semi-automatique par simple pression sur la liste des appareils Tailscale sondés, avec des indicateurs d'accessibilité vert/gris mis à jour toutes les 30 secondes.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Échelle arrière</span><span class="tag">Réseau local/point d'accès</span><span class="tag">Découverte mDNS</span><span class="tag">Zero-config hub election</span><span class="tag">Portée de points d'accès de plus de 50 miles</span>
+<span class="tag">Échelle arrière</span><span class="tag">Réseau local/point d'accès</span><span class="tag">Découverte mDNS</span><span class="tag">Élection du hub sans configuration</span><span class="tag">Portée de points d'accès de plus de 50 miles</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -526,10 +539,10 @@
 <span class="fc-badge">CAMÉLÉON</span>
 <div class="fc-icon">🖥️</div>
 <h3>Intégration PC Caméléon</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
+<p>Se connecte à l'IDE Chameleon AI sur un ordinateur de bureau ou de bureau via WebSocket. Le bureau peut transmettre des itinéraires GPX, des ensembles de POI, des factures PDF et des données de manifeste aux conducteurs via le canal de signal toujours actif – aucun appel vidéo actif n'est requis. Le serveur de signaux fonctionne sur le PC ou n'importe quel téléphone ; aucun relais cloud n'est nécessaire.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Modes de balise IDE</strong> — le PC diffuse automatiquement un signal UDP à tous les téléphones de la flotte : <em>Obligatoire</em> force tous les téléphones à se connecter immédiatement au serveur PC ; <em>Facultatif</em> connecte les téléphones inactifs (les téléphones participant à un appel P2P en direct se reconnectent à la fin de l'appel) ; <em>Désactivé</em> permet aux téléphones d'élire eux-mêmes un hub en fonction de l'adresse IP Tailscale la plus basse. Changez de mode au moment de l'exécution via un simple appel REST ou à partir de la bascule de l'interface utilisateur de l'IDE.</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">Poussée d'itinéraire</span><span class="tag">PUIS poussez</span><span class="tag">Poussée de facture</span><span class="tag">Pas de relais cloud</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
+<span class="tag">Poussée d'itinéraire</span><span class="tag">PUIS poussez</span><span class="tag">Poussée de facture</span><span class="tag">Pas de relais cloud</span><span class="tag">Connexion automatique de la balise UDP</span><span class="tag">Obligatoire / Facultatif / Désactivé</span>
 </div>
 </div>
 </div>
@@ -692,6 +705,18 @@
 </div>
 </div>
 </div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>App Screenshots</h2>
+<p>Logistics 4×4 — captured live on device</p>
+</div>
+<div class="phone-gallery">
+<div class="pshot"><img src="../9CHAMELEON-COMPANION1258.png" alt="Logistics 4x4 screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
+<div class="pshot"><img src="../10CHAMELEON-COMPANION1337.png" alt="Logistics 4x4 screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
+<div class="pshot"><img src="../11CHAMELEON-COMPANION1404.png" alt="Logistics 4x4 screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
+<div class="pshot"><img src="../12CHAMELEON-COMPANION1429.png" alt="Logistics 4x4 screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
+<div class="pshot"><img src="../13CHAMELEON-COMPANION1459.png" alt="Logistics 4x4 screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
+<div class="pshot"><img src="../14CHAMELEON-COMPANION1516.png" alt="Logistics 4x4 screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
+</div>
 <div class="cta-band">
 <h3>Intéressé par la logistique 4×4 ?</h3>
 <p>Actuellement en test – contactez-nous pour discuter d’un projet pilote, demander une construction ou poser des questions sur les licences pour votre flotte.</p>
@@ -710,7 +735,6 @@
 <a href="../services.html">Services Web</a>
 <a href="../accounting.html">Comptabilitu00e9</a>
 <a href="../technician.html">Technicien informatique</a>
-
 <a href="../classroom.html">Classe</a>
 <a href="../contact.html">Contact</a>
 </div>

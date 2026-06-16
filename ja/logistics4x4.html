@@ -179,7 +179,21 @@
     .scenario-card .sc-icon { font-size:2rem; margin-bottom:.6rem; }
     .scenario-card h4 { color:#e2e8f0; font-size:.95rem; margin:0 0 .5rem; }
     .scenario-card p  { color:#94a3b8; font-size:.83rem; line-height:1.6; margin:0; }
-  </style>
+      .phone-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem; margin: 1.5rem 0;
+    }
+    .phone-gallery .pshot {
+      background: #0f0f1f; border-radius: 16px; overflow: hidden;
+      border: 2px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .phone-gallery .pshot img { width: 100%; height: auto; display: block; }
+    .phone-gallery .pshot-cap {
+      text-align: center; font-size: .7rem; color: #8888aa;
+      padding: .3rem .4rem .5rem;
+    }
+</style>
 </head>
 <body>
 <div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
@@ -196,10 +210,9 @@
 <a class="active" href="../logistics4x4.html">物流4×4</a>
 <a href="../accounting.html">u7d4cu7406</a>
 <a href="../technician.html">パソコン技術者</a>
-
 <a href="../classroom.html">u6388u696d</a>
 <a href="../contact.html">接触</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../logistics4x4.html">🌐 EN — English</a><a href="../ar/logistics4x4.html">🇸🇦 AR — العربية</a><a href="../cy/logistics4x4.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/logistics4x4.html">🇩🇪 DE — Deutsch</a><a href="../el/logistics4x4.html">🇬🇷 EL — Ελληνικά</a><a href="../es/logistics4x4.html">🇪🇸 ES — Español</a><a href="../fr/logistics4x4.html">🇫🇷 FR — Français</a><a href="../hi/logistics4x4.html">🇮🇳 HI — हिन्दी</a><a href="../id/logistics4x4.html">🇮🇩 ID — Indonesia</a><a href="../it/logistics4x4.html">🇮🇹 IT — Italiano</a><a href="../ko/logistics4x4.html">🇰🇷 KO — 한국어</a><a href="../pl/logistics4x4.html">🇵🇱 PL — Polski</a><a href="../pt/logistics4x4.html">🇵🇹 PT — Português</a><a href="../ro/logistics4x4.html">🇷🇴 RO — Română</a><a href="../ru/logistics4x4.html">🇷🇺 RU — Русский</a><a href="../sw/logistics4x4.html">🇰🇪 SW — Kiswahili</a><a href="../uk/logistics4x4.html">🇺🇦 UK — Українська</a><a href="../vi/logistics4x4.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/logistics4x4.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -508,9 +521,9 @@
 <div class="fc-icon">📶</div>
 <h3>柔軟なネットワーキング</h3>
 <p>経由で接続します <strong>テールスケール</strong> (リモート、インターネット経由) または直接 <strong>LAN/ホットスポット</strong> — コンボイ内のトラックや、長距離指向性アンテナが取り付けられている場所 (開けた地形で 50 マイル以上) に役立ちます。 mDNS 自動検出は、IP アドレスを手動で入力しなくても、同じ Wi-Fi 上の他のフリート電話を検索します。</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>Zero-config hub election</strong> — when no PC is running, phones automatically elect a hub: the fleet member with the lowest Tailscale IP becomes the signalling hub and the rest connect as spokes. No configuration required. IP address fields offer tap-to-fill autocomplete from the probed Tailscale device list, with green/grey reachability indicators updated every 30 seconds.</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>ゼロ構成ハブの選択</strong> — PC が実行されていない場合、電話機は自動的にハブを選択します。Tailscale IP が最も低いフリート メンバーがシグナリング ハブとなり、残りはスポークとして接続されます。設定は必要ありません。 IP アドレス フィールドでは、プローブされた Tailscale デバイス リストからタップして入力するオートコンプリートが提供され、緑/灰色の到達可能性インジケーターが 30 秒ごとに更新されます。</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">テールスケール</span><span class="tag">LAN/ホットスポット</span><span class="tag">mDNS 検出</span><span class="tag">Zero-config hub election</span><span class="tag">50マイル以上のホットスポット範囲</span>
+<span class="tag">テールスケール</span><span class="tag">LAN/ホットスポット</span><span class="tag">mDNS 検出</span><span class="tag">ゼロ構成ハブの選択</span><span class="tag">50マイル以上のホットスポット範囲</span>
 </div>
 </div>
 <div class="feat-card fc-map" style="border-color:#0ea5e9;">
@@ -526,10 +539,10 @@
 <span class="fc-badge">カメレオン</span>
 <div class="fc-icon">🖥️</div>
 <h3>カメレオン PC の統合</h3>
-<p>Connects to the Chameleon AI IDE on a desktop or office PC via WebSocket. The office can push GPX routes, POI sets, invoice PDFs and manifest data to drivers over the always-on signal channel — no active video call required. The signal server runs on the PC or any phone; no cloud relay needed.</p>
-<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDE beacon modes</strong> — the PC broadcasts a UDP signal to all fleet phones automatically: <em>Mandatory</em> forces all phones to connect to the PC server immediately; <em>Optional</em> connects idle phones (phones in a live P2P call reconnect when the call ends); <em>Off</em> lets phones self-elect a hub by lowest Tailscale IP. Switch modes at runtime via a simple REST call or from the IDE UI toggle.</p>
+<p>WebSocket 経由でデスクトップまたはオフィス PC 上の Chameleon AI IDE に接続します。オフィスは、GPX ルート、POI セット、請求書 PDF、マニフェスト データを常時オンの信号チャネル経由でドライバーにプッシュできます。アクティブなビデオ通話は必要ありません。シグナル サーバーは PC または任意の電話上で実行されます。クラウドリレーは必要ありません。</p>
+<p style="margin-top:.6rem;font-size:.85rem;color:#374151;"><strong>IDEビーコンモード</strong> — PC はすべてのフリート電話に UDP 信号を自動的にブロードキャストします。 <em>必須</em> すべての電話を強制的に PC サーバーに即時に接続します。 <em>オプション</em> アイドル状態の電話を接続します (ライブ P2P 通話中の電話は、通話が終了すると再接続します)。 <em>オフ</em> 電話機が最も低い Tailscale IP によってハブを自己選択できるようにします。単純な REST 呼び出しまたは IDE UI トグルを使用して、実行時にモードを切り替えます。</p>
 <div class="tags" style="margin-top:.8rem;">
-<span class="tag">ルートプッシュ</span><span class="tag">次に押します</span><span class="tag">請求書のプッシュ</span><span class="tag">クラウドリレーなし</span><span class="tag">UDP beacon auto-connect</span><span class="tag">Mandatory / Optional / Off</span>
+<span class="tag">ルートプッシュ</span><span class="tag">次に押します</span><span class="tag">請求書のプッシュ</span><span class="tag">クラウドリレーなし</span><span class="tag">UDPビーコン自動接続</span><span class="tag">必須 / 任意 / オフ</span>
 </div>
 </div>
 </div>
@@ -692,6 +705,18 @@
 </div>
 </div>
 </div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>App Screenshots</h2>
+<p>Logistics 4×4 — captured live on device</p>
+</div>
+<div class="phone-gallery">
+<div class="pshot"><img src="../9CHAMELEON-COMPANION1258.png" alt="Logistics 4x4 screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
+<div class="pshot"><img src="../10CHAMELEON-COMPANION1337.png" alt="Logistics 4x4 screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
+<div class="pshot"><img src="../11CHAMELEON-COMPANION1404.png" alt="Logistics 4x4 screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
+<div class="pshot"><img src="../12CHAMELEON-COMPANION1429.png" alt="Logistics 4x4 screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
+<div class="pshot"><img src="../13CHAMELEON-COMPANION1459.png" alt="Logistics 4x4 screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
+<div class="pshot"><img src="../14CHAMELEON-COMPANION1516.png" alt="Logistics 4x4 screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
+</div>
 <div class="cta-band">
 <h3>物流4×4に興味がありますか?</h3>
 <p>現在テスト中 — パイロットについて話し合ったり、ビルドをリクエストしたり、フリートのライセンスについて問い合わせたりするには、お問い合わせください。</p>
@@ -710,7 +735,6 @@
 <a href="../services.html">ウェブサービス</a>
 <a href="../accounting.html">u7d4cu7406</a>
 <a href="../technician.html">パソコン技術者</a>
-
 <a href="../classroom.html">u6388u696d</a>
 <a href="../contact.html">接触</a>
 </div>
