@@ -188,7 +188,7 @@
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 Odniesienie do Kodeksu komunikacji terenowej</h1>
-<div class="edition">Logistyka 4×4 · Wydanie 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<div class="edition">Logistics 4×4 · Edition 1 · 2026 · Chameleon AI Agent Ltd</div>
 <p>Kompaktowy protokół kodowy do użytku, gdy łączność danych jest niedostępna. Przeznaczony dla kierowców ciężarówek, turystów pieszych i służb ratunkowych działających transgranicznie lub w odległym terenie. Trzy profile użytkowników mają wspólne słownictwo dotyczące alertów i systemu, co umożliwia komunikację między agencjami nawet w znacznie gorszych warunkach.</p>
 <p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Zachęcamy do udostępniania tego odniesienia. Interoperacyjność zależy od znajomości kodów przez wszystkie strony.</p>
 </div>
@@ -205,7 +205,7 @@
 <div class="code-block">1 1</div>
 <div class="code-annotation">
 <span style="margin-right:1.5rem;">│ </span>
-<span>└─┴── Dotkliwość  11 = nominalna → 99 = awaryjna</span>
+<span>└─┴── Severity  11 = nominal → 99 = emergency</span>
 </div>
 <div class="code-annotation" style="margin-top:-.8rem;">
 <span>└────── Litera kategorii</span>
@@ -266,12 +266,12 @@
 <table class="code-table">
 <thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">A11</td><td>Wszystko jasne. Sytuacja normalna.</td></tr>
+<tr><td class="code-cell">Dostępność</td><td>Wszystko jasne. Sytuacja normalna.</td></tr>
 <tr><td class="code-cell">A22</td><td>Drobny incydent. Samodzielna obsługa.</td></tr>
 <tr><td class="code-cell">A33</td><td>Ostrożność. Możliwe wystąpienie problemu. Monitorowanie.</td></tr>
-<tr><td class="code-cell">A44</td><td>Potrzebna pomoc. Niepilne.</td></tr>
+<tr><td class="code-cell">Tłumaczenie interfejsu użytkownika na język polski (kod 'pl') dla ciągu „A44” — proszę o podanie pełnego tekstu do przetłumaczenia, ponieważ „A44” samo w sobie nie zawiera treści do tłumaczenia. Jeśli to identyfikator lub kod, pozostaje bez zmian.</td><td>Potrzebna pomoc. Niepilne.</td></tr>
 <tr><td class="code-cell">A55</td><td>Pomoc potrzebna pilnie.</td></tr>
-<tr><td class="code-cell">A66</td><td>Poważny incydent w toku.</td></tr>
+<tr><td class="code-cell">Nie można załadować zasobu.</td><td>Poważny incydent w toku.</td></tr>
 <tr><td class="code-cell">A77</td><td>Sytuacja krytyczna. Wiele problemów.</td></tr>
 <tr><td class="code-cell">A88</td><td>Ekstremalne niebezpieczeństwo.</td></tr>
 <tr class="crit"><td class="code-cell">A99</td><td>SOS. Stan zagrożenia życia. Natychmiast wyślij pomoc.</td></tr>
@@ -287,7 +287,7 @@
 <table class="code-table">
 <thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">Z00</td><td>Bicie serca. Bez zmian.</td></tr>
+<tr><td class="code-cell">Nie można połączyć się z serwerem.</td><td>Bicie serca. Bez zmian.</td></tr>
 <tr><td class="code-cell">Z01</td><td>Początek zmiany / wędrówki / wdrożenia.</td></tr>
 <tr><td class="code-cell">Z02</td><td>Koniec zmiany/wędrówki. Bezpiecznie wstał.</td></tr>
 <tr><td class="code-cell">Z03</td><td>Wiadomość potwierdzona.</td></tr>
@@ -313,7 +313,7 @@
 <!-- B Border -->
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">B</div>
+<div class="cat-letter" style="background:#f59e0b;">Tak</div>
 <div class="cat-icon">🛃</div>
 <div class="cat-name">Granica</div>
 </div>
@@ -324,9 +324,10 @@
 <tr><td class="code-cell">B22</td><td>W kolejce na przejściu granicznym. Normalne czekanie.</td></tr>
 <tr><td class="code-cell">B33</td><td>Opóźniony na granicy. Kwestia papierów.</td></tr>
 <tr><td class="code-cell">B44</td><td>Zlecona kontrola towaru.</td></tr>
-<tr><td class="code-cell">B55</td><td>Zażądano nieoficjalnej zapłaty.</td></tr>
+<tr><td class="code-cell">Przeglądarka B55</td><td>Zażądano nieoficjalnej zapłaty.</td></tr>
 <tr><td class="code-cell">B66</td><td>Towary skonfiskowane przez władze.</td></tr>
-<tr><td class="code-cell">B77</td><td>Pojazd skonfiskowany.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język „pl”. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+B77</td><td>Pojazd skonfiskowany.</td></tr>
 <tr><td class="code-cell">B88</td><td>Kierowca zatrzymany.</td></tr>
 <tr class="crit"><td class="code-cell">B99</td><td>Odmówiono wjazdu. Zawrócił.</td></tr>
 </tbody>
@@ -394,8 +395,8 @@
 <tr><td class="code-cell">E55</td><td>Awaria mechaniczna. Bez silnika.</td></tr>
 <tr><td class="code-cell">E66</td><td>Kompletna awaria silnika.</td></tr>
 <tr><td class="code-cell">E77</td><td>Ogień.</td></tr>
-<tr><td class="code-cell">E88</td><td>Uszkodzenia powypadkowe. Pojazd nie może się poruszać.</td></tr>
-<tr class="crit"><td class="code-cell">E99</td><td>Spisanie pojazdu. Całkowita strata.</td></tr>
+<tr><td class="code-cell">Nie można załadować ustawień.</td><td>Uszkodzenia powypadkowe. Pojazd nie może się poruszać.</td></tr>
+<tr class="crit"><td class="code-cell">Nieprawidłowy kod błędu.</td><td>Spisanie pojazdu. Całkowita strata.</td></tr>
 </tbody>
 </table>
 </div>
@@ -477,7 +478,8 @@
 <tr><td class="code-cell">J44</td><td>Ukończone w 75%.</td></tr>
 <tr><td class="code-cell">J55</td><td>Zbliżamy się do celu. Poniżej 10 km.</td></tr>
 <tr><td class="code-cell">J66</td><td>Dotarł do celu.</td></tr>
-<tr><td class="code-cell">J77</td><td>Trasa znacznie wydłużona. Główny objazd.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język o kodzie „pl”. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+J77</td><td>Trasa znacznie wydłużona. Główny objazd.</td></tr>
 <tr><td class="code-cell">J88</td><td>Zawrócił. Odtworzenie trasy.</td></tr>
 <tr class="crit"><td class="code-cell">J99</td><td>Zaginiony. Całkowicie poza trasą.</td></tr>
 </tbody>
@@ -527,7 +529,7 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">S</div>
+<div class="cat-letter" style="background:#f59e0b;">Zapisz</div>
 <div class="cat-icon">🛡</div>
 <div class="cat-name">Bezpieczeństwo</div>
 </div>
@@ -538,9 +540,10 @@
 <tr><td class="code-cell">S22</td><td>Ogólna ostrożność w okolicy.</td></tr>
 <tr><td class="code-cell">S33</td><td>Nieoficjalny punkt kontrolny lub śledzenie pojazdu.</td></tr>
 <tr><td class="code-cell">S44</td><td>Zgłoszono wcześniej blokadę karną.</td></tr>
-<tr><td class="code-cell">S55</td><td>Zażądał łapówki.</td></tr>
-<tr><td class="code-cell">S66</td><td>Próba rabunku. Odpychany.</td></tr>
-<tr><td class="code-cell">S77</td><td>Trwa rabunek.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język 'pl'. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+S55</td><td>Zażądał łapówki.</td></tr>
+<tr><td class="code-cell">Przeglądarka S66</td><td>Próba rabunku. Odpychany.</td></tr>
+<tr><td class="code-cell">Zapisz</td><td>Trwa rabunek.</td></tr>
 <tr><td class="code-cell">S88</td><td>Zbrojny atak na konwój.</td></tr>
 <tr class="crit"><td class="code-cell">S99</td><td>Porwij lub porwij.</td></tr>
 </tbody>
@@ -569,22 +572,22 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-letter" style="background:#f59e0b;">W</div>
 <div class="cat-icon">🚛</div>
 <div class="cat-name">Ruch pojazdu</div>
 </div>
 <table class="code-table">
 <thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">V11</td><td>Pojazd zaparkowany. Zatrzymał się bezpiecznie.</td></tr>
-<tr><td class="code-cell">V22</td><td>Pojazd porusza się normalnie.</td></tr>
-<tr><td class="code-cell">V33</td><td>Pojazd porusza się powoli. Poniżej 20 km/h.</td></tr>
-<tr><td class="code-cell">V44</td><td>Pojazd utknął. Błoto, piasek lub rów.</td></tr>
-<tr><td class="code-cell">V55</td><td>Holowanie innego pojazdu.</td></tr>
-<tr><td class="code-cell">V66</td><td>Holowany.</td></tr>
-<tr><td class="code-cell">V77</td><td>Pojazd się przewrócił.</td></tr>
+<tr><td class="code-cell">Wersja 11</td><td>Pojazd zaparkowany. Zatrzymał się bezpiecznie.</td></tr>
+<tr><td class="code-cell">W22</td><td>Pojazd porusza się normalnie.</td></tr>
+<tr><td class="code-cell">Wersja 33</td><td>Pojazd porusza się powoli. Poniżej 20 km/h.</td></tr>
+<tr><td class="code-cell">Wersja 44</td><td>Pojazd utknął. Błoto, piasek lub rów.</td></tr>
+<tr><td class="code-cell">Wersja V55</td><td>Holowanie innego pojazdu.</td></tr>
+<tr><td class="code-cell">Wersja 66</td><td>Holowany.</td></tr>
+<tr><td class="code-cell">Nie można połączyć się z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.</td><td>Pojazd się przewrócił.</td></tr>
 <tr><td class="code-cell">V88</td><td>Wypadek. Pojazd nie może się poruszać.</td></tr>
-<tr class="crit"><td class="code-cell">V99</td><td>Odpisanie. Całkowita strata.</td></tr>
+<tr class="crit"><td class="code-cell">Wersja 99</td><td>Odpisanie. Całkowita strata.</td></tr>
 </tbody>
 </table>
 </div>
@@ -600,10 +603,12 @@
 <tr><td class="code-cell">W11</td><td>Jasne i suche. Dobra widoczność.</td></tr>
 <tr><td class="code-cell">W22</td><td>Lekki deszcz lub mgła.</td></tr>
 <tr><td class="code-cell">W33</td><td>Ulewa.</td></tr>
-<tr><td class="code-cell">W44</td><td>Burza z piorunami lub silny wiatr.</td></tr>
-<tr><td class="code-cell">W55</td><td>Mgła lub słaba widoczność.</td></tr>
-<tr><td class="code-cell">W66</td><td>Powódź. Droga mokra, ale przejezdna.</td></tr>
-<tr><td class="code-cell">W77</td><td>Powódź. Droga nieprzejezdna.</td></tr>
+<tr><td class="code-cell">Przeglądarka W44</td><td>Burza z piorunami lub silny wiatr.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na kod języka „pl”. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+W55</td><td>Mgła lub słaba widoczność.</td></tr>
+<tr><td class="code-cell">Nieprawidłowy kod W66</td><td>Powódź. Droga mokra, ale przejezdna.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język „pl”. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+W77</td><td>Powódź. Droga nieprzejezdna.</td></tr>
 <tr><td class="code-cell">W88</td><td>Burza piaskowa lub harmattan. Widoczność bliska zeru.</td></tr>
 <tr class="crit"><td class="code-cell">W99</td><td>Ekstremalne warunki pogodowe. Zatrzymany.</td></tr>
 </tbody>
@@ -650,35 +655,35 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">U</div><div class="cat-icon">🎒</div><div class="cat-name">Sprzęt / sprzęt</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Niepewność</div><div class="cat-icon">🎒</div><div class="cat-name">Sprzęt / sprzęt</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
 <tr><td class="code-cell">U11</td><td>Cały sprzęt w dobrym stanie.</td></tr>
 <tr><td class="code-cell">U22</td><td>Drobny problem ze sprzętem. Niekrytyczny.</td></tr>
-<tr><td class="code-cell">U33</td><td>Sprzęt uszkodzony, ale znaleziono obejście.</td></tr>
-<tr><td class="code-cell">U44</td><td>Awaria elementu krytycznego. Namiot, kuchenka lub filtr.</td></tr>
+<tr><td class="code-cell">Nieprawidłowy format danych wejściowych.</td><td>Sprzęt uszkodzony, ale znaleziono obejście.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język „pl”. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:</td><td>Awaria elementu krytycznego. Namiot, kuchenka lub filtr.</td></tr>
 <tr><td class="code-cell">U55</td><td>Sprzęt nawigacyjny zaginął lub uległ awarii.</td></tr>
-<tr><td class="code-cell">U66</td><td>Apteczka pierwszej pomocy w użyciu.</td></tr>
-<tr><td class="code-cell">U77</td><td>Potrzebne schronienie awaryjne. Rozkładanie biwaku.</td></tr>
+<tr><td class="code-cell">Nie można załadować zawartości.</td><td>Apteczka pierwszej pomocy w użyciu.</td></tr>
+<tr><td class="code-cell">Nie można załadować zawartości.</td><td>Potrzebne schronienie awaryjne. Rozkładanie biwaku.</td></tr>
 <tr><td class="code-cell">U88</td><td>Liczne krytyczne awarie przekładni.</td></tr>
 <tr class="crit"><td class="code-cell">U99</td><td>Zgubiono cały niezbędny sprzęt. Katastrofalny.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">Witalność / zdrowie grupy</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">W</div><div class="cat-icon">❤️</div><div class="cat-name">Witalność / zdrowie grupy</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
-<tr><td class="code-cell">V11</td><td>Wszyscy członkowie grupy są cali i zdrowi.</td></tr>
-<tr><td class="code-cell">V22</td><td>Niewielkie zmęczenie lub dyskomfort. Kontynuacja.</td></tr>
-<tr><td class="code-cell">V33</td><td>Pęcherze lub drobne obrażenia. Lekko zwalnia.</td></tr>
-<tr><td class="code-cell">V44</td><td>Obrażenia. Wyraźnie wolniejsze tempo.</td></tr>
-<tr><td class="code-cell">V55</td><td>Członek nie jest w stanie utrzymać normalnego tempa.</td></tr>
-<tr><td class="code-cell">V66</td><td>Poważna kontuzja. Zatrzymany. Ocena ewakuacji.</td></tr>
-<tr><td class="code-cell">V77</td><td>Członek upadł lub stracił przytomność.</td></tr>
+<tr><td class="code-cell">Wersja 11</td><td>Wszyscy członkowie grupy są cali i zdrowi.</td></tr>
+<tr><td class="code-cell">W22</td><td>Niewielkie zmęczenie lub dyskomfort. Kontynuacja.</td></tr>
+<tr><td class="code-cell">Wersja 33</td><td>Pęcherze lub drobne obrażenia. Lekko zwalnia.</td></tr>
+<tr><td class="code-cell">Wersja 44</td><td>Obrażenia. Wyraźnie wolniejsze tempo.</td></tr>
+<tr><td class="code-cell">Wersja V55</td><td>Członek nie jest w stanie utrzymać normalnego tempa.</td></tr>
+<tr><td class="code-cell">Wersja 66</td><td>Poważna kontuzja. Zatrzymany. Ocena ewakuacji.</td></tr>
+<tr><td class="code-cell">Nie można połączyć się z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.</td><td>Członek upadł lub stracił przytomność.</td></tr>
 <tr><td class="code-cell">V88</td><td>Nagły wypadek medyczny. Konieczna ewakuacja.</td></tr>
-<tr class="crit"><td class="code-cell">V99</td><td>Zagrażające życiu. Służby ratunkowe potrzebne natychmiast.</td></tr>
+<tr class="crit"><td class="code-cell">Wersja 99</td><td>Zagrażające życiu. Służby ratunkowe potrzebne natychmiast.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Y</div><div class="cat-icon">✅</div><div class="cat-name">Zaplanowane zameldowanie</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Tak</div><div class="cat-icon">✅</div><div class="cat-name">Zaplanowane zameldowanie</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
 <tr><td class="code-cell">Y11</td><td>Zaplanowane zameldowanie. Wszystko dobrze. Na trasie.</td></tr>
 <tr><td class="code-cell">Y22</td><td>Zameldować się. Nieznaczne opóźnienie. Nadal bezpieczny.</td></tr>
@@ -692,15 +697,16 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">S</div><div class="cat-icon">🛡</div><div class="cat-name">Bezpieczeństwo</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Zapisz</div><div class="cat-icon">🛡</div><div class="cat-name">Bezpieczeństwo</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
 <tr><td class="code-cell">S11</td><td>Sytuacja normalna. Żadnych zagrożeń.</td></tr>
 <tr><td class="code-cell">S22</td><td>Ogólna ostrożność. Nieznany obszar.</td></tr>
 <tr><td class="code-cell">S33</td><td>Podejrzana aktywność w pobliżu.</td></tr>
 <tr><td class="code-cell">S44</td><td>Zagrożenie dla dzikiej przyrody. Utrzymywanie dystansu.</td></tr>
-<tr><td class="code-cell">S55</td><td>Spotkanie z dziką przyrodą. Wycofywanie się.</td></tr>
-<tr><td class="code-cell">S66</td><td>Agresywna przyroda. Wycofanie się.</td></tr>
-<tr><td class="code-cell">S77</td><td>Spotkano wrogich ludzi.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język 'pl'. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+S55</td><td>Spotkanie z dziką przyrodą. Wycofywanie się.</td></tr>
+<tr><td class="code-cell">Przeglądarka S66</td><td>Agresywna przyroda. Wycofanie się.</td></tr>
+<tr><td class="code-cell">Zapisz</td><td>Spotkano wrogich ludzi.</td></tr>
 <tr><td class="code-cell">S88</td><td>Groził lub śledził. Przeprowadzka w bezpieczne miejsce.</td></tr>
 <tr class="crit"><td class="code-cell">S99</td><td>Bezpośrednie zagrożenie ze strony ludzi lub zwierząt.</td></tr>
 </tbody></table>
@@ -722,16 +728,17 @@
   </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">I</div><div class="cat-icon">🔥</div><div class="cat-name">Typ zdarzenia</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Przetłumacz następujący ciąg znaków interfejsu użytkownika na język o kodzie „pl”. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+I</div><div class="cat-icon">🔥</div><div class="cat-name">Typ zdarzenia</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
-<tr><td class="code-cell">I11</td><td>Nagły wypadek medyczny. Brak zagrożenia scenicznego.</td></tr>
-<tr><td class="code-cell">I22</td><td>Kolizja drogowa.</td></tr>
-<tr><td class="code-cell">I33</td><td>Szukaj i ratuj. Zaginiona osoba.</td></tr>
-<tr><td class="code-cell">I44</td><td>Pożar lub incydent strukturalny.</td></tr>
-<tr><td class="code-cell">I55</td><td>Ratownictwo wodne lub powodziowe.</td></tr>
-<tr><td class="code-cell">I66</td><td>Niebezpieczne materiały lub uwolnienia substancji chemicznych.</td></tr>
-<tr><td class="code-cell">I77</td><td>Załamanie strukturalne.</td></tr>
-<tr><td class="code-cell">I88</td><td>Niepokoje społeczne, przemoc lub incydent zbrojny.</td></tr>
+<tr><td class="code-cell">Jedenasty</td><td>Nagły wypadek medyczny. Brak zagrożenia scenicznego.</td></tr>
+<tr><td class="code-cell">Nie można załadować treści.</td><td>Kolizja drogowa.</td></tr>
+<tr><td class="code-cell">Nieprawidłowy kod I33.</td><td>Szukaj i ratuj. Zaginiona osoba.</td></tr>
+<tr><td class="code-cell">Przeglądarka nie jest obsługiwana.</td><td>Pożar lub incydent strukturalny.</td></tr>
+<tr><td class="code-cell">Nieprawidłowy kod I55.</td><td>Ratownictwo wodne lub powodziowe.</td></tr>
+<tr><td class="code-cell">Nie znaleziono wyników.</td><td>Niebezpieczne materiały lub uwolnienia substancji chemicznych.</td></tr>
+<tr><td class="code-cell">Przepraszam, nie zrozumiałem. Czy mógłbyś powtórzyć?</td><td>Załamanie strukturalne.</td></tr>
+<tr><td class="code-cell">Nieprawidłowy kod I88.</td><td>Niepokoje społeczne, przemoc lub incydent zbrojny.</td></tr>
 <tr class="crit"><td class="code-cell">I99</td><td>Ogłoszono poważny incydent.</td></tr>
 </tbody></table>
 </div>
@@ -750,7 +757,7 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">Liczba ofiar</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Nie</div><div class="cat-icon">👥</div><div class="cat-name">Liczba ofiar</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
 <tr><td class="code-cell">N11</td><td>Jedna ofiara.</td></tr>
 <tr><td class="code-cell">N22</td><td>Dwie do pięciu ofiar.</td></tr>
@@ -764,17 +771,17 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">Parametry życiowe pacjenta</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">W</div><div class="cat-icon">💓</div><div class="cat-name">Parametry życiowe pacjenta</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
-<tr><td class="code-cell">V11</td><td>Świadomy i czujny. Rozmawiamy normalnie.</td></tr>
-<tr><td class="code-cell">V22</td><td>Świadomy, ale zdezorientowany lub pobudzony.</td></tr>
-<tr><td class="code-cell">V33</td><td>Reagowanie wyłącznie na polecenia głosowe.</td></tr>
-<tr><td class="code-cell">V44</td><td>Reagowanie wyłącznie na ból. Nieświadomy.</td></tr>
-<tr><td class="code-cell">V55</td><td>Brak odpowiedzi. Oddychanie obecne.</td></tr>
-<tr><td class="code-cell">V66</td><td>Nie oddycha. Trwa reanimacja.</td></tr>
-<tr><td class="code-cell">V77</td><td>Ciężki krwotok. Założono opaskę uciskową.</td></tr>
+<tr><td class="code-cell">Wersja 11</td><td>Świadomy i czujny. Rozmawiamy normalnie.</td></tr>
+<tr><td class="code-cell">W22</td><td>Świadomy, ale zdezorientowany lub pobudzony.</td></tr>
+<tr><td class="code-cell">Wersja 33</td><td>Reagowanie wyłącznie na polecenia głosowe.</td></tr>
+<tr><td class="code-cell">Wersja 44</td><td>Reagowanie wyłącznie na ból. Nieświadomy.</td></tr>
+<tr><td class="code-cell">Wersja V55</td><td>Brak odpowiedzi. Oddychanie obecne.</td></tr>
+<tr><td class="code-cell">Wersja 66</td><td>Nie oddycha. Trwa reanimacja.</td></tr>
+<tr><td class="code-cell">Nie można połączyć się z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.</td><td>Ciężki krwotok. Założono opaskę uciskową.</td></tr>
 <tr><td class="code-cell">V88</td><td>Zatrzymanie akcji serca.</td></tr>
-<tr class="crit"><td class="code-cell">V99</td><td>Zmarły. Potwierdzony.</td></tr>
+<tr class="crit"><td class="code-cell">Wersja 99</td><td>Zmarły. Potwierdzony.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -815,20 +822,21 @@
 <tr><td class="code-cell">E55</td><td>Wymagana ewakuacja powietrza. Potrzebna strefa lądowania.</td></tr>
 <tr><td class="code-cell">E66</td><td>Wymagana ewakuacja wodą lub łodzią.</td></tr>
 <tr><td class="code-cell">E77</td><td>Wymagany ratunek techniczny. Lina lub ograniczona przestrzeń.</td></tr>
-<tr><td class="code-cell">E88</td><td>Droga ewakuacyjna zagrożona. Szukam alternatywy.</td></tr>
-<tr class="crit"><td class="code-cell">E99</td><td>Ewakuacja niemożliwa. Ofiary chronią się na miejscu.</td></tr>
+<tr><td class="code-cell">Nie można załadować ustawień.</td><td>Droga ewakuacyjna zagrożona. Szukam alternatywy.</td></tr>
+<tr class="crit"><td class="code-cell">Nieprawidłowy kod błędu.</td><td>Ewakuacja niemożliwa. Ofiary chronią się na miejscu.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">S</div><div class="cat-icon">⚠️</div><div class="cat-name">Bezpieczeństwo sceny</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Zapisz</div><div class="cat-icon">⚠️</div><div class="cat-name">Bezpieczeństwo sceny</div></div>
 <table class="code-table"><thead><tr><th>Kod</th><th>Oznaczający</th></tr></thead><tbody>
 <tr><td class="code-cell">S11</td><td>Scena bezpieczna. Żadnych zagrożeń.</td></tr>
 <tr><td class="code-cell">S22</td><td>Występują potencjalne zagrożenia. Zalecana ostrożność.</td></tr>
 <tr><td class="code-cell">S33</td><td>Zagrożenie pożarowe, chemiczne lub strukturalne na miejscu zdarzenia.</td></tr>
 <tr><td class="code-cell">S44</td><td>Aktywne zagrożenie. Scena nie jest jeszcze zabezpieczona.</td></tr>
-<tr><td class="code-cell">S55</td><td>Wrogie osoby na miejscu zdarzenia. Wymagane egzekwowanie prawa.</td></tr>
-<tr><td class="code-cell">S66</td><td>Niebezpieczeństwo zanieczyszczenia. Wymagana strefa wykluczenia.</td></tr>
-<tr><td class="code-cell">S77</td><td>Scena częściowo oczyszczona. Ciągłe ryzyko.</td></tr>
+<tr><td class="code-cell">Przetłumacz następujący ciąg UI na język 'pl'. Zwróć WYŁĄCZNIE przetłumaczony ciąg, bez cudzysłowów, bez wyjaśnień:
+S55</td><td>Wrogie osoby na miejscu zdarzenia. Wymagane egzekwowanie prawa.</td></tr>
+<tr><td class="code-cell">Przeglądarka S66</td><td>Niebezpieczeństwo zanieczyszczenia. Wymagana strefa wykluczenia.</td></tr>
+<tr><td class="code-cell">Zapisz</td><td>Scena częściowo oczyszczona. Ciągłe ryzyko.</td></tr>
 <tr><td class="code-cell">S88</td><td>Scena niebezpieczna. Respondenci wycofani.</td></tr>
 <tr class="crit"><td class="code-cell">S99</td><td>Bezpośrednie zagrożenie dla osób udzielających pomocy. Ewakuuj miejsce teraz.</td></tr>
 </tbody></table>
@@ -851,7 +859,7 @@
 </tr>
 </thead>
 <tbody>
-<tr><td>Wszystko jasne/normalne</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>Wszystko jasne/normalne</td><td>Dostępność</td><td>Dostępność</td><td>Dostępność</td></tr>
 <tr><td>Potrzebujesz pilnej pomocy</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
 <tr><td>Zagrożenie życia – SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
 <tr><td>Komunikacja wyłącznie SMS-owa</td><td>K33</td><td>K33</td><td>K33</td></tr>
@@ -870,7 +878,7 @@
 <a class="btn" href="../contact.html">Skontaktuj się</a>
 </div>
 <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-    © 2026 Chameleon AI Technicians Ltd · Logistyka Protokół komunikacji polowej 4×4 · Wydanie 1<br/>
+    © 2026 Chameleon AI Agent Ltd · Logistics 4×4 Field Communications Protocol · Edition 1<br/>
     Zachęcamy do udostępniania tego odniesienia – wymaga tego interoperacyjność.
   </p>
 </div>
@@ -880,7 +888,7 @@
 <a href="../logistics4x4.html">Logistyka 4×4</a>
 <a href="../contact.html">Kontakt</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Oczekiwanie na licencję · Zbudowane przez Marcosa aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

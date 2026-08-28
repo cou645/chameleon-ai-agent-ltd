@@ -6,36 +6,6 @@
 <title>مقدم Kameleon - Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,22 +20,31 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter قيد التطوير النشط. الميزات أدناه حديثة؛ لا يزال يجري وضع اللمسات النهائية على التسعير والتوافر العام - <a href="../contact.html">احجز عرضًا توضيحيًا</a> وسنبقيك على اطلاع.
+</div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>الحرباء منظمة العفو الدولية</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>شاميليون AI</strong></a>
 <div class="nav-links">
-<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a>
+<a href="../index.html">بيت</a>
 <a href="../ide.html">لديك أفكار</a>
 <a class="active" href="../presenter.html">مقدم</a>
 <a href="../companion.html">تطبيق مصاحب</a>
 <a href="../logistics4x4.html">الخدمات اللوجستية 4×4</a>
 <a href="../services.html">خدمات الويب</a>
-<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a>
+<a href="../accounting.html">محاسبة</a>
 <a href="../technician.html">فني كمبيوتر</a>
-<a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a>
+<a href="../classroom.html">الفصل الدراسي</a>
 <a href="../contact.html">اتصال</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
@@ -73,225 +52,128 @@
 <div class="hero">
 <div class="hero-icon">🎭</div>
 <h1>مقدم الحرباء</h1>
-<p class="sub">نظام عرض تقديمي مستوحى من المسرح حيث تكون الشرائح الخاصة بك عبارة عن مسرح، وكتل المحتوى الخاصة بك عبارة عن ممثلين والانتقالات عبارة عن إشارات - وكل ذلك يمكن التحكم فيه من الهاتف.</p>
+<p class="sub">العروض التقديمية التي تتحرك. قم بإسقاط الشرائح أو ملفات PDF أو الفيديو أو شاشة الهاتف المباشرة أو كاميرا الويب - قم بتحريك أي شيء على طول جدول زمني، وقم بتشغيل العرض بالكامل من هاتفك.</p>
 <div class="hero-badges">
-<span class="badge">🎬 استعارة مسرحية</span>
-<span class="badge">📱 التحكم بالموبايل</span>
-<span class="badge">✏️ الرسم التعاوني</span>
-<span class="badge">🖥️مرآة Android ADB</span>
-<span class="badge">📜 جداول زمنية متعددة النصوص</span>
-<span class="badge">🎯 اختيار الهدف الذكي</span>
-<span class="badge">✦ كتل مرحلة الذكاء الاصطناعي</span>
-<span class="badge">📰 أشرطة أفقية وعمودية</span>
-<span class="badge">🔍 مرشح نوع جديلة</span>
-<span class="badge">⇄ تشغيل كرة الطاولة</span>
-<span class="badge">🖱 تنقية وتكبير الخط الزمني</span>
-<span class="badge">🗂 قائمة السياق دريسر</span>
-<span class="badge">📂 كومة من المجلد</span>
-<span class="badge">🕐 إشارات الجدول الزمني لبنك التنمية الآسيوي</span>
-<span class="badge">🌐 واجهة مستخدم بـ 25 لغة</span>
-<span class="badge">⇒ مسار المرحلة وPOPI</span>
+<span class="badge">🎬 الرسوم المتحركة الجدول الزمني</span>
+<span class="badge">📱 ريموت الهاتف، لا يوجد إعداد</span>
+<span class="badge">🖇 فتح ملفات ClassIn وXournal++</span>
+<span class="badge">🙋 التقديمات المباشرة للجمهور</span>
+<span class="badge">🤖 اتجاه مسرح اختياري للذكاء الاصطناعي</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>شاهده على أرض الواقع</h2>
-<p>عرض توضيحي مباشر لبرنامج Kameleon Presenter - المراحل والأكوام والإشارات والتحكم عبر الهاتف المحمول</p>
+<h2>شاهد تشغيله</h2>
+<p>في هذا التسجيل، يتولى الذكاء الاصطناعي مقعد المخرج — حيث يحرّك العناصر ويبدّل التخطيطات مباشرة، دون وجود أحد أمام لوحة المفاتيح. كل عنصر تحكم يستخدمه، يمكنك تشغيله بنفسك من التطبيق أو من هاتفك.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
 متصفحك لا يدعم فيديو HTML5.
 </video>
 </div>
 <div class="section-title">
-<h2>نموذج المسرح</h2>
-<p>تم إنشاء العروض التقديمية كإنتاج مسرحي - فالأشياء لها مداخل ومخارج وإشارات</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">كائنات KameleonStack على خشبة المسرح</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 مكدس المحتوى — شرائح المحاضرة</div>
-<div class="stage-obj obj-stage">🟡 Stage Stack - تقديمات الطلاب</div>
-<div class="stage-obj obj-misc">🖼️ صندوق الصور</div>
-<div class="stage-obj obj-misc">📄 صندوق PDF</div>
-<div class="stage-obj obj-misc">📱 مرآة الهاتف ADB</div>
-<div class="stage-obj obj-misc">🖥️ مرآة PPT</div>
-<div class="stage-obj obj-misc">✏️ لوحة الرسم</div>
-<div class="stage-obj obj-misc">🎬 صندوق الفيديو</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      الحد الأبيض = نشط · النبض البرتقالي = إرسال النظير المعلق · الأخضر = حزمة المحتوى · الأصفر = حزمة المرحلة
-    </div>
+<h2>ما يمكنك القيام به معها</h2>
+<p>مرحلة تقوم بتأليفها، وليس كومة من الشرائح المسطحة</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>حاوية المحتوى العالمية. تحتوي كل حزمة على فتحات متعددة (الصور والنصوص وملفات PDF والفيديو وHTML). وضعين:</p>
-<ul>
-<li><strong style="color:#22c55e">محتوى</strong> - الشرائح التي يسيطر عليها المعلم</li>
-<li><strong style="color:#eab308">منصة</strong> - يقبل التقديمات المدفوعة من قبل الأقران</li>
-</ul>
-<p><strong>📂 كومة من المجلد</strong> - اختر دليلاً للملفات ذات البادئات الرقمية (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) ويقوم Kameleon بإنشاء مكدس مكتوب بالكامل بنقرة واحدة. يتم دعم الصور والفيديو وPDF والنص العادي وHTML.</p>
+<div class="card-icon">🗂️</div>
+<h3>ضع أي شيء على الشريحة</h3>
+<p>الصور والنصوص وملفات PDF والفيديو وصفحات الويب المباشرة وشاشة هاتف Android معكوسة وموجز كاميرا الويب ولوحة رسم مشتركة. كل واحدة منها عبارة عن كائن تضعه وتغير حجمه وتحريكه من تلقاء نفسها - قم بترتيب الشاشة بالطريقة التي تريدها.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>نظام الرسوم المتحركة</h3>
-<p>الرسوم المتحركة للدخول والخروج لكل كائن مع مسارات الحركة اليدوية. اختر إعدادًا مسبقًا للاتجاه وسيدخل التطبيق فورًا في وضع اختيار الهدف - حيث تقوم إيماءة واحدة بتعيين نوع الرسوم المتحركة والوجهة. تستخدم المسارات تجانس Douglas-Peucker + Catmull-Rom.</p>
-<p><strong>الرسوم المتحركة المرحلة</strong> تحريك الكائنات أثناء وجودها بالفعل على الشاشة. انقر بزر الماوس الأيمن على أي كائن على المسرح → <strong>⇒ الرسوم المتحركة المرحلة</strong> لتسجيل مسار مسرحي يدوي أو اختيار <strong>لعبة</strong> الهدف (العنصر المنبثق للخارج): يتغير حجم الكائن إلى الصفر، وينتقل فوريًا، ثم يعود مرة أخرى إلى الموضع الجديد.</p>
+<h3>تحريك على طول الجدول الزمني</h3>
+<p>امنح أي كائن مدخلاً أو مخرجًا أو مسار حركة مرسومًا باليد. تعمل الإشارات المرقمة على دفع العرض إلى الأمام دفعة واحدة في كل مرة. نقرة واحدة تسقط في خطة توقيت جاهزة لعرض مدته 5 دقائق، أو محاضرة مدتها 50 دقيقة، أو ورشة عمل مدتها 90 دقيقة.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>لوحة تسريحة</h3>
-<p>منطقة الاحتفاظ خارج المسرح - قم بإنشاء كائنات في خزانة الملابس، وقم بمعاينتها على المسرح بنقرة مزدوجة. الكائنات التي تمت إزالتها من الجزء الرئيسي باستخدام مفتاح الحذف تظهر مرة أخرى في خزانة الملابس تلقائيًا.</p>
-<p><strong>انقر بزر الماوس الأيمن فوق أي عنصر خزانة</strong> لقائمة السياق: <strong>👁 معاينة</strong> (وضع في منتصف المسرح، بدون رسوم متحركة - لفحص الحجم؛ تتم استعادة الموضع الأصلي عند العودة لذلك لا يتأثر التشغيل أبدًا)، <strong>⧉ مكررة</strong>, <strong>◈ احتياطي</strong> (تظليل فتحة التثبيت باللون الرمادي)، أو <strong>✕ إزالة</strong>. الكائنات ذات الرسوم المتحركة على المسرح تظهر أ <strong>⇒</strong> لاحقة في القائمة.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>إشارات مرقمة</h3>
-<p>تقدم نقاط التشغيل العرض التقديمي خطوة بخطوة، تمامًا مثل إشارات الإضاءة المسرحية. يمكن لكل إشارة تحريك الكائنات للداخل أو للخارج، أو تبديل فتحات المكدس أو تنفيذ تسلسلات محددة بوقت.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>كتل مرحلة الذكاء الاصطناعي</h3>
-<p>قم برسم نطاقات الرسوم المتحركة التوليدية مباشرة على المخطط الزمني — المجدولة للفواصل أو الفواصل الزمنية. خلال <strong>كتلة مرحلة الذكاء الاصطناعي</strong>، تقوم الكائنات الموجودة على المسرح بتصميم نفسها تلقائيًا في أحد الأنماط الأربعة: <strong>مدار</strong>, <strong>ثعبان</strong>, <strong>الانجراف العشوائي</strong>، أو <strong>التركيز على الأضواء</strong>. تعود الكائنات إلى مواقعها الأصلية عندما تنتهي الكتلة.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>كائنات المؤشر</h3>
-<p>تمرير مؤشرات النص في <strong>أفقي</strong> (يمين → يسار) و <strong>رَأسِيّ</strong> (أسفل → أعلى) التوجهات. يمكن تشغيل ما يصل إلى 8 أشرطة في وقت واحد، وهو مثالي لشرائط الأخبار العاجلة أو تذكيرات جدول الأعمال أو لوحات معلومات الأحداث. السرعة والنص قابلة للتحرير مباشرة.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>مرشح نوع جديلة</h3>
-<p>يوجد شريط تصفية مضغوط بين عناصر التحكم والمسطرة مع زر تبديل واحد لكل نوع كائن: <strong>Txt · Img · ADB · PPT · PDF · رسم · وضع علامة · Conn · المكدس</strong>. انقر فوق أي مجموعة لعزل تلك الإشارات فقط، ويتم إخفاء جميع الإشارات الأخرى. يذكرك اللون الأزرق الباهت على المسطرة بأن الفلتر نشط. انقر <strong>✕ الكل</strong> لاستعادة العرض الكامل على الفور.</p>
-<p>ال <strong>⬛ معاينة</strong> يأخذ التبديل عملية التصفية خطوة أخرى إلى الأمام: عندما يكون التشغيل نشطًا، فإن التشغيل نفسه يطلق فقط إشارات للأنواع المحددة - ويظل كل شيء آخر ثابتًا على المسرح. يتحول رأس التشغيل <strong>العنبر</strong> أثناء تشغيل المعاينة، حتى تعرف دائمًا أنك في مرحلة التشغيل التي تمت تصفيتها. مثالي للتمرين على نوع كائن واحد أو التحقق من توقيت إشارة ADB دون إزعاج بقية العرض التقديمي.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>التمرير playhead</h3>
-<p>تم تثبيت خط رأس التشغيل الأحمر في منتصف أداة المخطط الزمني. مع تقدم التشغيل، يتم تمرير المسطرة إلى اليسار أسفلها - تكون الإشارات القادمة مرئية دائمًا على اليمين، وتنجرف الإشارات السابقة إلى اليسار. قم بالتمرير فوق أي رأس سهم إشارة للحصول على نافذة منبثقة كبيرة عائمة تعرض التسمية الكاملة والطابع الزمني.</p>
-<p><strong>عجلة التمرير</strong> يفرك رأس التشغيل (1 ثانية لكل درجة). <strong>السيطرة + التمرير</strong> يقوم بتكبير/تصغير المسطرة (نطاق 20-200 بكسل/ثانية)، مع الحفاظ على مزامنة شريط تمرير التكبير/التصغير.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>تشغيل بينج بونج</h3>
-<p>يُمكَِن <strong>⇄</strong> لعكس الاتجاه عند كل حد بدلاً من إعادة التشغيل. يتم تشغيل الخط الزمني للأمام حتى النهاية، ثم للخلف حتى البداية، ثم للأمام مرة أخرى - إلى أجل غير مسمى. العظة إطلاق النار بهم <strong>عمل معاكس</strong> على الممر العكسي (دخول↔خروج). ال <strong>الرسوم المتحركة التوليدية</strong> يعكس اتجاه إيقاعه بحيث تتتبع أنماط المدار والثعبان والتركيز مساراتها. يتحول رأس التشغيل <strong>سماوي</strong> مع مثلث هابط أثناء السفر العكسي. يمكنك إقرانها مع AI Stage Blocks لعروض وقت الاستراحة المنومة.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>قوالب الجدول الزمني</h3>
-<p>قم بتطبيق إطار توقيت محدد مسبقًا بنقرة واحدة: <strong>الكلمة الرئيسية للمؤتمر (20 دقيقة)</strong>, <strong>محاضرة جامعية (50 دقيقة)</strong>, <strong>ورشة عمل (90 دقيقة)</strong>, <strong>عرض قصير (5 دقائق)</strong>، أو <strong>المؤتمر نصف يوم (3 ساعات)</strong>. تعمل القوالب على إعادة توقيت الإشارات الموجودة أو دعم نص فارغ باستخدام علامات مصنفة.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>جداول زمنية متعددة النصوص</h3>
-<p>واحد <code>.kpt</code> خزان يحمل ما يصل إلى <strong>10 مخطوطات مسماة</strong> - توقيتات جديلة مستقلة تتقاسم نفس كائنات المرحلة. يؤدي تبديل البرامج النصية إلى إعادة ملء المخطط الزمني على الفور. مثالي للإصدار الكامل، وقص النقاط البارزة، وطلب الأسئلة والأجوبة، كل ذلك في ملف واحد.</p>
+<div class="card-icon">🖇️</div>
+<h3>افتح الملفات الموجودة لديك بالفعل</h3>
+<p>كلاس إن <span class="fmt">.إدب</span> السبورات و Xournal ++ <span class="fmt">.xop</span> الملاحظات - من سطح المكتب أو تطبيق Xournal++ على الهاتف المحمول - يتم استيرادها مباشرةً: تصبح كل صفحة وكل رسمة كائنًا يمكنك تحريره وتحريكه. يتم توفير PowerPoint وKeynote وWord وMarkdown من خلال استيراد المستندات العالمية.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>حزم المشروع .kpt</h3>
-<p>يتم حفظ المشاريع كمحفوظات ZIP (<code>.kpt</code>) تحتوي على جميع أصول الوسائط وبيانات التخطيط وتكوينات الرسوم المتحركة وجميع البرامج النصية المسماة. فتح على أي جهاز يعمل بنظام الحرباء.</p>
+<h3>ملف واحد، العديد من الإصدارات</h3>
+<p>يتم حفظ المشروع كمشروع واحد <span class="fmt">.capt</span> يحتوي على جميع الوسائط الخاصة بك بالإضافة إلى ما يصل إلى عشرة جداول زمنية مسماة - الحديث الكامل، والمقطع البارز، وترتيب تشغيل الأسئلة والأجوبة، يمكن أن تكون جميعها موجودة في ملف واحد ترسله بالبريد الإلكتروني إلى زميل.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>الإحداثيات المنطقية</h3>
-<p>تستخدم المرحلة مساحة إحداثيات منطقية تتراوح من 0 إلى 10000 بشكل مستقل عن دقة العرض. تبدو العروض التقديمية متطابقة على شاشة الكمبيوتر المحمول أو جهاز عرض 4K.</p>
+<div class="card-icon">📱</div>
+<h3>قم بتشغيل العرض من هاتفك</h3>
+<p>يعثر تطبيق Kameleon Remote Android على جهاز الكمبيوتر الخاص بك بمفرده عبر Wi-Fi أو USB - لا يوجد شيء للكتابة فيه. تحصل على صورة مصغرة مباشرة لما يراه الجمهور بالضبط، السابق / التالي، التشغيل / الإيقاف المؤقت / الإيقاف، وضوء كشاف بمؤشر ليزر، والقدرة على الرسم مباشرة على الشريحة المباشرة.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>دع الغرفة تشارك</h3>
+<p>قم بتبديل الفتحة إلى وضع الجمهور وسيرسل الأشخاص صورة أو إجابة مكتوبة من هواتفهم الخاصة. ينتظر كل واحد في الدرج - يمكنك الموافقة عليه أو الاحتفاظ به أو رفضه قبل ظهوره على الشاشة.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>قم بتسليمها إلى الذكاء الاصطناعي – إذا كنت تريد ذلك</h3>
+<p>حدد أجزاء من الخط الزمني كشرائح ذكاء اصطناعي: أثناء الاستراحة، يقوم الذكاء الاصطناعي بتنسيق ما يظهر على الشاشة بلطف. أو دعه يدير الحديث بالكامل، كما في الفيديو أعلاه. اختياري تمامًا — التطبيق يعمل بالكامل بدونه.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>يبدو صحيحا على أي شاشة</h3>
+<p>يتناسب حجم المسرح مع حجم الشاشة التي تهبط عليها، لذا فإن المحادثة المبنية على جهاز كمبيوتر محمول تبدو متطابقة على جهاز عرض بدقة 4K. لا يوجد تدفق، ولا مفاجآت في الغرفة.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>مراقبة الأجهزة المحمولة والأقران</h2>
-<p>قم بتشغيل المقدم من هاتفك؛ السماح للطلاب بدفع المحتوى من محتواهم</p>
+<h2>يعمل مع الحرباء الفصول الدراسية</h2>
+<p>يشترك التطبيقان في تنسيق ملف ومشغل</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>جسر الروبوت المحمول</h4>
-<p>ينقل جسر Chameleon المحمول (WebSocket) أوامر المسرح من أي جهاز يعمل بنظام Android. يتحكم <strong>Stack_next / السابق / تشغيل / إيقاف مؤقت / إيقاف</strong>، ادفع فتحات الصورة أو النص إلى المكدس، وشاهد بث حالة المكدس في الوقت الفعلي.</p>
+<h4>نفس محرك الاستيراد</h4>
+<p>ال <span class="fmt">.إدب</span> و <span class="fmt">.xop</span> يعمل الاستيراد بشكل متماثل في Chameleon Classroom، لذا تنتقل مواد الدرس بين التطبيقين دون تغيير.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>تقديمات الأقران</h4>
-<p>يقوم الطلاب بدفع الصور أو النصوص إلى حزمة وضع المسرح من هواتفهم. تظهر المشاركات في شريط الصور المصغرة بحد برتقالي نابض. يستطيع المقدم <strong>الموافقة أو التعليق أو الرفض أو الترويج</strong> كل واحد قبل أن يتم بثه مباشرة على الشاشة.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>لوحة رسم مشتركة</h4>
-<p>لوحة قماشية تعاونية يدوية يمكن التحكم فيها من الجسر المتحرك — <strong>draw_stroke / مسح / تراجع</strong>. مثالية للتعليق على الشرائح أو العصف الذهني أو الاختبارات المباشرة.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>سير عمل الرسوم المتحركة الذكية</h4>
-<p>انقر بزر الماوس الأيمن فوق أي كائن، ثم اختر <strong>أدخل اليسار</strong> (أو أي إعداد مسبق للاتجاه)، ويدخل التطبيق في وضع اختيار الهدف على الفور - بنقرة واحدة تحدد المكان الذي ينتقل إليه الكائن. يؤدي تسجيل مسار الحركة اليدوية تلقائيًا إلى ختم إشارات البداية والنهاية على المخطط الزمني.</p>
+<h4>مشغل مدمج</h4>
+<p>يقوم تطبيق Classroom بتشغيل برنامج Kameleon Presenter في اللوحة السفلية في وضع التشغيل فقط — تقديم أ <span class="fmt">.capt</span> سطح داخل الدرس المباشر دون مغادرة الفصل الدراسي.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>مرآة هاتف ADB والتقاط PPT</h4>
-<p><strong>ADBPhoneBox</strong> يبث شاشة Android مباشرة على المسرح عبر ADB. <strong>PPTMirrorBox</strong> يلتقط نافذة PowerPoint - اعرض تشكيلاتك الحالية داخل Kameleon دون تحويل.</p>
-<p><strong>🕐 إشارات الجدول الزمني لبنك التنمية الآسيوي</strong> - انقر بزر الماوس الأيمن على أي ممثل ADB → <em>إضافة إشارة إلى المخطط الزمني...</em> لختم <strong>إعادة تشغيل الدفق</strong>, <strong>افتح عنوان URL</strong>، أو <strong>إطلاق التطبيق</strong> (حسب اسم الحزمة) يشير إلى مواضع رأس التشغيل الدقيقة. يتم إطلاق الإشارات أثناء تشغيل الخط الزمني والخط الزمني التلقائي.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>بدء التشغيل والإعدادات</h4>
-<p>اختر ما إذا كان Kameleon سيفتح باستخدام ملف <strong>تم تحميل المشروع الأخير</strong> أو أ <strong>مرحلة فارغة</strong> عبر الإعدادات → في قائمة بدء التشغيل. يتم حفظ التفضيل في <code>~/.chameleon/kameleon_settings.json</code> واحترم كل إطلاق.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>واجهة 25 لغة</h4>
-<p>يفتح <strong>الإعدادات → 🌐 اللغة</strong> لتبديل واجهة مستخدم Kameleon Presenter إلى أي من اللغات الـ 25 - بما في ذلك الفرنسية والألمانية والإسبانية والعربية والصينية واليابانية والكورية والروسية والويلزية والتايلاندية والمزيد. يتم تحديث جميع القوائم على الفور باستخدام <strong>لا إعادة التشغيل</strong>. يتم جلب الترجمات في الخلفية عند الاستخدام الأول؛ يتم التبديل بشكل فوري بمجرد تخزينه مؤقتًا.</p>
+<h4>الذكاء الاصطناعي في دردشة الدرس</h4>
+<p>يضيف Classroom مشاركًا في دردشة AI تخاطبه مثل أي طالب آخر. أ <strong>أرسل إلى منظمة العفو الدولية</strong> الزر الموجود على كل من سطح المكتب وتطبيقات Android يجلبه إلى المحادثة وقتما تشاء.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>لقطات الشاشة</h2>
+<p>مقدم Kameleon - تم التقاطه على الهواء مباشرة</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">الشاشة 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">الشاشة 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">الشاشة 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">الشاشة 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">الشاشة 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">الشاشة 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">الشاشة 7</div></div>
 </div>
 <div class="cta-band">
-<h3>اجعل عروضك التقديمية تنبض بالحياة</h3>
-<p>اتصل بنا لمناقشة الترخيص أو الترتيب لعرض حي لبرنامج Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">طلب العرض التوضيحي</a>
+<h3>جرب مقدم Kameleon</h3>
+<p>يُباع كترخيص سطح مكتب لمرة واحدة لأنظمة التشغيل Linux وWindows وmacOS. <strong>يتم تحديد السعر النهائي الآن</strong> - احجز عرضًا توضيحيًا وسنرسله مع تاريخ الإطلاق.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">احجز عرضًا توضيحيًا</a>
 <a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 تنزيل دليل المستخدم (PDF)</a>
 <a class="btn" href="../index.html">← العودة إلى النظرة العامة</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0627u0644u0631u0626u064au0633u064au0629</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
-<a href="../accounting.html">u0645u062du0627u0633u0628u0629</a><a href="../technician.html">فني كمبيوتر</a>
-<a href="../classroom.html">u0641u0635u0644 u062fu0631u0627u0633u064a</a><a href="../contact.html">اتصال</a>
+<a href="../index.html">بيت</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
+<a href="../accounting.html">محاسبة</a><a href="../technician.html">فني كمبيوتر</a>
+<a href="../classroom.html">الفصل الدراسي</a><a href="../contact.html">اتصال</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · صممها ماركوس المعروف أيضًا باسم ستيمسي</p>
+<p>© 2026 شاميليون AI Agent Ltd · بناه ماركوس المعروف بـ stemsee</p>
 </footer>
 </body>
 </html>

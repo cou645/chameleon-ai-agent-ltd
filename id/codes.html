@@ -188,7 +188,7 @@
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 Referensi Kode Komunikasi Lapangan</h1>
-<div class="edition">Logistik 4×4 · Edisi 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<div class="edition">Logistics 4×4 · Edition 1 · 2026 · Chameleon AI Agent Ltd</div>
 <p>Protokol kode ringkas untuk digunakan saat konektivitas data tidak tersedia. Dirancang untuk pengemudi truk, pejalan kaki, dan layanan darurat yang beroperasi melintasi perbatasan atau di medan terpencil. Tiga profil pengguna berbagi peringatan dan kosa kata sistem yang sama — memungkinkan komunikasi lintas lembaga bahkan dalam kondisi yang sangat terdegradasi.</p>
 <p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Berbagi referensi ini dianjurkan. Interoperabilitas bergantung pada semua pihak yang mengetahui kodenya.</p>
 </div>
@@ -205,7 +205,7 @@
 <div class="code-block">SEBUAH 1 1</div>
 <div class="code-annotation">
 <span style="margin-right:1.5rem;">│ </span>
-<span>└─┴── Tingkat Keparahan  11 = nominal → 99 = darurat</span>
+<span>└─┴── Severity  11 = nominal → 99 = emergency</span>
 </div>
 <div class="code-annotation" style="margin-top:-.8rem;">
 <span>└────── Kategori surat</span>
@@ -326,7 +326,7 @@
 <tr><td class="code-cell">B44</td><td>Pemeriksaan barang dipesan.</td></tr>
 <tr><td class="code-cell">B55</td><td>Pembayaran tidak resmi diminta.</td></tr>
 <tr><td class="code-cell">B66</td><td>Barang-barang yang disita oleh pihak berwenang.</td></tr>
-<tr><td class="code-cell">B77</td><td>Kendaraan disita.</td></tr>
+<tr><td class="code-cell">S77</td><td>Kendaraan disita.</td></tr>
 <tr><td class="code-cell">B88</td><td>Sopir ditahan.</td></tr>
 <tr class="crit"><td class="code-cell">B99</td><td>Menolak masuk. Berbalik.</td></tr>
 </tbody>
@@ -367,10 +367,10 @@
 <tr><td class="code-cell">D11</td><td>Sopir sedang bertugas. Mengemudi dengan normal.</td></tr>
 <tr><td class="code-cell">D22</td><td>Pengemudi berhenti. Bahan bakar, makan, atau istirahat.</td></tr>
 <tr><td class="code-cell">D33</td><td>Pengemudi memuat atau membongkar muatan.</td></tr>
-<tr><td class="code-cell">D44</td><td>Sopir menunggu. Bea Cukai, pos pemeriksaan, atau lalu lintas.</td></tr>
+<tr><td class="code-cell">Hapus</td><td>Sopir menunggu. Bea Cukai, pos pemeriksaan, atau lalu lintas.</td></tr>
 <tr><td class="code-cell">D55</td><td>Pengemudi tertunda. Masalah. Belum dapat melanjutkan.</td></tr>
 <tr><td class="code-cell">D66</td><td>Pengemudi merasa tidak enak badan atau lelah.</td></tr>
-<tr><td class="code-cell">D77</td><td>Pengemudi ditahan atau menghadapi masalah hukum.</td></tr>
+<tr><td class="code-cell">Sunting</td><td>Pengemudi ditahan atau menghadapi masalah hukum.</td></tr>
 <tr><td class="code-cell">D88</td><td>Kerusakan pengemudi. Tidak dapat melanjutkan tanpa bantuan.</td></tr>
 <tr class="crit"><td class="code-cell">D99</td><td>darurat pengemudi. Pengemudi dalam bahaya.</td></tr>
 </tbody>
@@ -380,7 +380,7 @@
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">E</div>
+<div class="cat-letter" style="background:#f59e0b;">Hai</div>
 <div class="cat-icon">🔧</div>
 <div class="cat-name">Kesalahan kendaraan</div>
 </div>
@@ -394,8 +394,8 @@
 <tr><td class="code-cell">E55</td><td>Kerusakan mekanis. Non-mesin.</td></tr>
 <tr><td class="code-cell">E66</td><td>Kegagalan mesin total.</td></tr>
 <tr><td class="code-cell">E77</td><td>Api.</td></tr>
-<tr><td class="code-cell">E88</td><td>Kerusakan akibat kecelakaan. Kendaraan tidak bisa bergerak.</td></tr>
-<tr class="crit"><td class="code-cell">E99</td><td>Penghapusan kendaraan. Kerugian total.</td></tr>
+<tr><td class="code-cell">Sunting</td><td>Kerusakan akibat kecelakaan. Kendaraan tidak bisa bergerak.</td></tr>
+<tr class="crit"><td class="code-cell">Kesalahan E99</td><td>Penghapusan kendaraan. Kerugian total.</td></tr>
 </tbody>
 </table>
 </div>
@@ -414,7 +414,7 @@
 <tr><td class="code-cell">F44</td><td>Seperempat bahan bakar.</td></tr>
 <tr><td class="code-cell">F55</td><td>Bahan bakar rendah. Perlu mengisi bahan bakar dalam jarak 50 km.</td></tr>
 <tr><td class="code-cell">F66</td><td>Bahan bakar kritis. Perlu mengisi bahan bakar sekarang.</td></tr>
-<tr><td class="code-cell">F77</td><td>Berjalan dengan menggunakan jerigen atau tangki cadangan.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Berjalan dengan menggunakan jerigen atau tangki cadangan.</td></tr>
 <tr><td class="code-cell">F88</td><td>Bahan bakar terkontaminasi atau bahan bakar yang digunakan salah.</td></tr>
 <tr class="crit"><td class="code-cell">F99</td><td>Tidak ada bahan bakar. Berhenti.</td></tr>
 </tbody>
@@ -474,10 +474,10 @@
 <tr><td class="code-cell">J11</td><td>Perjalanan dimulai. Berangkat sesuai jadwal.</td></tr>
 <tr><td class="code-cell">J22</td><td>25% rute selesai.</td></tr>
 <tr><td class="code-cell">J33</td><td>Setengah jalan. 50% selesai.</td></tr>
-<tr><td class="code-cell">J44</td><td>75% selesai.</td></tr>
+<tr><td class="code-cell">Sistem tidak dapat menemukan file yang diminta.</td><td>75% selesai.</td></tr>
 <tr><td class="code-cell">J55</td><td>Mendekati tujuan. Di bawah 10 km.</td></tr>
-<tr><td class="code-cell">J66</td><td>Tiba di tempat tujuan.</td></tr>
-<tr><td class="code-cell">J77</td><td>Rute diperpanjang secara signifikan. Jalan memutar besar.</td></tr>
+<tr><td class="code-cell">Selesaikan</td><td>Tiba di tempat tujuan.</td></tr>
+<tr><td class="code-cell">Selesaikan</td><td>Rute diperpanjang secara signifikan. Jalan memutar besar.</td></tr>
 <tr><td class="code-cell">J88</td><td>Berbalik. Menelusuri kembali rute.</td></tr>
 <tr class="crit"><td class="code-cell">J99</td><td>Hilang. Keluar dari rute sepenuhnya.</td></tr>
 </tbody>
@@ -519,7 +519,7 @@
 <tr><td class="code-cell">R44</td><td>Jalur yang kasar. Lumpur atau permukaan yang buruk.</td></tr>
 <tr><td class="code-cell">R55</td><td>Jalan diblokir sebagian.</td></tr>
 <tr><td class="code-cell">R66</td><td>Penutupan jalan atau hambatan satu jalur.</td></tr>
-<tr><td class="code-cell">R77</td><td>Jembatan keluar atau berbahaya.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Jembatan keluar atau berbahaya.</td></tr>
 <tr><td class="code-cell">R88</td><td>Jalan tidak bisa dilalui.</td></tr>
 <tr class="crit"><td class="code-cell">R99</td><td>Tidak ada rute. Off road atau hilang sama sekali.</td></tr>
 </tbody>
@@ -540,7 +540,7 @@
 <tr><td class="code-cell">S44</td><td>Penghalang jalan kriminal dilaporkan sebelumnya.</td></tr>
 <tr><td class="code-cell">S55</td><td>Tuntutan suap.</td></tr>
 <tr><td class="code-cell">S66</td><td>Upaya perampokan. ditolak.</td></tr>
-<tr><td class="code-cell">S77</td><td>Perampokan sedang berlangsung.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Perampokan sedang berlangsung.</td></tr>
 <tr><td class="code-cell">S88</td><td>Serangan bersenjata terhadap konvoi.</td></tr>
 <tr class="crit"><td class="code-cell">S99</td><td>Membajak atau menculik.</td></tr>
 </tbody>
@@ -548,21 +548,22 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">T</div>
+<div class="cat-letter" style="background:#f59e0b;">Terjemahkan</div>
 <div class="cat-icon">⏱</div>
 <div class="cat-name">Jadwal</div>
 </div>
 <table class="code-table">
 <thead><tr><th>Kode</th><th>Arti</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">T11</td><td>Tepat waktu. Sesuai jadwal.</td></tr>
-<tr><td class="code-cell">T22</td><td>Sedikit tertunda. Kurang dari satu jam.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Tepat waktu. Sesuai jadwal.</td></tr>
+<tr><td class="code-cell">Terjemahkan string UI berikut ke kode bahasa 'id'. Kembalikan HANYA string yang diterjemahkan, tanpa tanda kutip, tanpa penjelasan:
+T22</td><td>Sedikit tertunda. Kurang dari satu jam.</td></tr>
 <tr><td class="code-cell">T33</td><td>Tertunda satu hingga dua jam.</td></tr>
 <tr><td class="code-cell">T44</td><td>Tertunda dua hingga empat jam.</td></tr>
-<tr><td class="code-cell">T55</td><td>Tertunda empat hingga delapan jam.</td></tr>
-<tr><td class="code-cell">T66</td><td>Tertunda suatu hari.</td></tr>
-<tr><td class="code-cell">T77</td><td>Penundaan besar. Waktu tempuhnya tidak diketahui.</td></tr>
-<tr><td class="code-cell">T88</td><td>Jadwal ditinggalkan.</td></tr>
+<tr><td class="code-cell">Unggah</td><td>Tertunda empat hingga delapan jam.</td></tr>
+<tr><td class="code-cell">Ubah ke bahasa Indonesia</td><td>Tertunda suatu hari.</td></tr>
+<tr><td class="code-cell">S77</td><td>Penundaan besar. Waktu tempuhnya tidak diketahui.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Jadwal ditinggalkan.</td></tr>
 <tr class="crit"><td class="code-cell">T99</td><td>Perjalanan dibatalkan. Kembali.</td></tr>
 </tbody>
 </table>
@@ -636,26 +637,27 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">T</div><div class="cat-icon">🏔</div><div class="cat-name">Kondisi jalur</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Terjemahkan</div><div class="cat-icon">🏔</div><div class="cat-name">Kondisi jalur</div></div>
 <table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
-<tr><td class="code-cell">T11</td><td>Jejak yang bagus. Ditandai dengan baik. Mudah bergaul.</td></tr>
-<tr><td class="code-cell">T22</td><td>Jalur terputus-putus atau ditumbuhi tanaman.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Jejak yang bagus. Ditandai dengan baik. Mudah bergaul.</td></tr>
+<tr><td class="code-cell">Terjemahkan string UI berikut ke kode bahasa 'id'. Kembalikan HANYA string yang diterjemahkan, tanpa tanda kutip, tanpa penjelasan:
+T22</td><td>Jalur terputus-putus atau ditumbuhi tanaman.</td></tr>
 <tr><td class="code-cell">T33</td><td>Jejak hilang. Menavigasi dengan GPS atau kompas.</td></tr>
 <tr><td class="code-cell">T44</td><td>Keluar dari jalur. Medan terbuka. Dapat dinavigasi.</td></tr>
-<tr><td class="code-cell">T55</td><td>Pendakian yang curam. Kecepatan melambat.</td></tr>
-<tr><td class="code-cell">T66</td><td>Turunan curam. Merawat.</td></tr>
-<tr><td class="code-cell">T77</td><td>Medan teknis. Perebutan, batu, atau salju.</td></tr>
-<tr><td class="code-cell">T88</td><td>Bagian berbahaya. Menyeberang dengan hati-hati.</td></tr>
+<tr><td class="code-cell">Unggah</td><td>Pendakian yang curam. Kecepatan melambat.</td></tr>
+<tr><td class="code-cell">Ubah ke bahasa Indonesia</td><td>Turunan curam. Merawat.</td></tr>
+<tr><td class="code-cell">S77</td><td>Medan teknis. Perebutan, batu, atau salju.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Bagian berbahaya. Menyeberang dengan hati-hati.</td></tr>
 <tr class="crit"><td class="code-cell">T99</td><td>Medan tidak bisa dilewati. Terpaksa untuk kembali.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
 <div class="cat-label"><div class="cat-letter" style="background:#15803d;">kamu</div><div class="cat-icon">🎒</div><div class="cat-name">Perlengkapan / perlengkapan</div></div>
 <table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
-<tr><td class="code-cell">U11</td><td>Semua perlengkapan dalam kondisi baik.</td></tr>
+<tr><td class="code-cell">Antarmuka U11</td><td>Semua perlengkapan dalam kondisi baik.</td></tr>
 <tr><td class="code-cell">U22</td><td>Masalah gigi kecil. Tidak kritis.</td></tr>
 <tr><td class="code-cell">U33</td><td>Gigi rusak tetapi solusi ditemukan.</td></tr>
-<tr><td class="code-cell">U44</td><td>Item penting gagal. Tenda, kompor, atau filter.</td></tr>
+<tr><td class="code-cell">Antarmuka U44</td><td>Item penting gagal. Tenda, kompor, atau filter.</td></tr>
 <tr><td class="code-cell">U55</td><td>Peralatan navigasi hilang atau rusak.</td></tr>
 <tr><td class="code-cell">U66</td><td>Kotak P3K sedang digunakan.</td></tr>
 <tr><td class="code-cell">U77</td><td>Dibutuhkan tempat berlindung darurat. Menyiapkan bivak.</td></tr>
@@ -678,7 +680,7 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Y</div><div class="cat-icon">✅</div><div class="cat-name">Check-in terjadwal</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Ya</div><div class="cat-icon">✅</div><div class="cat-name">Check-in terjadwal</div></div>
 <table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
 <tr><td class="code-cell">Y11</td><td>Check-in terjadwal. Semuanya baik-baik saja. Dalam perjalanan.</td></tr>
 <tr><td class="code-cell">Y22</td><td>Lapor masuk. Sedikit penundaan. Masih aman.</td></tr>
@@ -686,7 +688,7 @@
 <tr><td class="code-cell">Y44</td><td>Keluar dari rute tetapi aman dan navigasi.</td></tr>
 <tr><td class="code-cell">Y55</td><td>Jendela check-in sebelumnya terlewatkan. Sekarang melaporkan.</td></tr>
 <tr><td class="code-cell">Y66</td><td>Meminta pengakuan dari pangkalan.</td></tr>
-<tr><td class="code-cell">Y77</td><td>Tiba dengan selamat di kamp atau titik jalan yang direncanakan.</td></tr>
+<tr><td class="code-cell">Terjemahkan</td><td>Tiba dengan selamat di kamp atau titik jalan yang direncanakan.</td></tr>
 <tr><td class="code-cell">Y88</td><td>Menurun. Bagian terakhir menuju ujung jalan setapak.</td></tr>
 <tr class="crit"><td class="code-cell">Y99</td><td>Beberapa check-in terlewatkan. Peringatan darurat dipicu.</td></tr>
 </tbody></table>
@@ -700,7 +702,7 @@
 <tr><td class="code-cell">S44</td><td>Ancaman satwa liar. Menjaga jarak.</td></tr>
 <tr><td class="code-cell">S55</td><td>Pertemuan satwa liar. Mundur.</td></tr>
 <tr><td class="code-cell">S66</td><td>Satwa liar yang agresif. Mundur.</td></tr>
-<tr><td class="code-cell">S77</td><td>Orang-orang yang bermusuhan ditemui.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Orang-orang yang bermusuhan ditemui.</td></tr>
 <tr><td class="code-cell">S88</td><td>Diancam atau diikuti. Pindah ke tempat yang aman.</td></tr>
 <tr class="crit"><td class="code-cell">S99</td><td>Bahaya langsung dari manusia atau satwa liar.</td></tr>
 </tbody></table>
@@ -726,7 +728,7 @@
 <table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
 <tr><td class="code-cell">Saya11</td><td>Darurat medis. Tidak ada bahaya pemandangan.</td></tr>
 <tr><td class="code-cell">Saya22</td><td>Tabrakan lalu lintas jalan.</td></tr>
-<tr><td class="code-cell">I33</td><td>Pencarian dan penyelamatan. Orang Hilang.</td></tr>
+<tr><td class="code-cell">Saya33</td><td>Pencarian dan penyelamatan. Orang Hilang.</td></tr>
 <tr><td class="code-cell">Saya44</td><td>Kebakaran atau insiden struktural.</td></tr>
 <tr><td class="code-cell">Saya55</td><td>Penyelamatan banjir atau air.</td></tr>
 <tr><td class="code-cell">saya66</td><td>Bahan berbahaya atau pelepasan bahan kimia.</td></tr>
@@ -786,7 +788,7 @@
 <tr><td class="code-cell">R44</td><td>Kru pemadam kebakaran di lokasi.</td></tr>
 <tr><td class="code-cell">R55</td><td>Polisi di tempat kejadian.</td></tr>
 <tr><td class="code-cell">R66</td><td>Beberapa layanan darurat di lokasi.</td></tr>
-<tr><td class="code-cell">R77</td><td>Komandan insiden ditetapkan.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Komandan insiden ditetapkan.</td></tr>
 <tr><td class="code-cell">R88</td><td>Rumah sakit lapangan atau stasiun pembersihan korban aktif.</td></tr>
 <tr class="crit"><td class="code-cell">R99</td><td>Semua sumber daya kewalahan. Diperlukan penguatan segera.</td></tr>
 </tbody></table>
@@ -806,7 +808,7 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">E</div><div class="cat-icon">🚁</div><div class="cat-name">Status evakuasi</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Hai</div><div class="cat-icon">🚁</div><div class="cat-name">Status evakuasi</div></div>
 <table class="code-table"><thead><tr><th>Kode</th><th>Arti</th></tr></thead><tbody>
 <tr><td class="code-cell">E11</td><td>Tidak diperlukan evakuasi. Mengobati di tempat kejadian.</td></tr>
 <tr><td class="code-cell">E22</td><td>Evakuasi mandiri dimungkinkan. Korban berjalan menuju transportasi.</td></tr>
@@ -815,8 +817,8 @@
 <tr><td class="code-cell">E55</td><td>Diperlukan evakuasi udara. Dibutuhkan zona pendaratan.</td></tr>
 <tr><td class="code-cell">E66</td><td>Diperlukan evakuasi air atau perahu.</td></tr>
 <tr><td class="code-cell">E77</td><td>Diperlukan penyelamatan teknis. Tali atau ruang terbatas.</td></tr>
-<tr><td class="code-cell">E88</td><td>Jalur evakuasi terganggu. Mencari alternatif.</td></tr>
-<tr class="crit"><td class="code-cell">E99</td><td>Evakuasi tidak mungkin dilakukan. Korban berlindung di tempatnya.</td></tr>
+<tr><td class="code-cell">Sunting</td><td>Jalur evakuasi terganggu. Mencari alternatif.</td></tr>
+<tr class="crit"><td class="code-cell">Kesalahan E99</td><td>Evakuasi tidak mungkin dilakukan. Korban berlindung di tempatnya.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -828,7 +830,7 @@
 <tr><td class="code-cell">S44</td><td>Ancaman aktif. Adegan belum aman.</td></tr>
 <tr><td class="code-cell">S55</td><td>Orang-orang yang bermusuhan di tempat kejadian. Penegakan hukum diperlukan.</td></tr>
 <tr><td class="code-cell">S66</td><td>Bahaya kontaminasi. Diperlukan zona pengecualian.</td></tr>
-<tr><td class="code-cell">S77</td><td>Adegan dibersihkan sebagian. Risiko yang berkelanjutan.</td></tr>
+<tr><td class="code-cell">Simpan</td><td>Adegan dibersihkan sebagian. Risiko yang berkelanjutan.</td></tr>
 <tr><td class="code-cell">S88</td><td>Adegan tidak aman. Responden ditarik.</td></tr>
 <tr class="crit"><td class="code-cell">S99</td><td>Bahaya langsung bagi responden. Evakuasi tempat kejadian sekarang.</td></tr>
 </tbody></table>
@@ -856,7 +858,7 @@
 <tr><td>Ancaman hidup — SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
 <tr><td>Komunikasi hanya SMS</td><td>K33</td><td>K33</td><td>K33</td></tr>
 <tr><td>Sesuai jadwal / dalam perjalanan</td><td>T11 / H11</td><td>Y11</td><td>J11</td></tr>
-<tr><td>Tiba di tempat tujuan</td><td>J66</td><td>J66</td><td>J66</td></tr>
+<tr><td>Tiba di tempat tujuan</td><td>Selesaikan</td><td>Selesaikan</td><td>Selesaikan</td></tr>
 <tr><td>Hilang/keluar jalur</td><td>J99</td><td>J99</td><td>J99</td></tr>
 <tr><td>Cuaca buruk</td><td>W77–W99</td><td>W77–W99</td><td>W77–W99</td></tr>
 <tr><td>Diakui</td><td>Z03</td><td>Z03</td><td>Z03</td></tr>
@@ -870,7 +872,7 @@
 <a class="btn" href="../contact.html">Hubungi kami</a>
 </div>
 <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-    © 2026 Chameleon AI Technicians Ltd · Logistik 4×4 Protokol Komunikasi Lapangan · Edisi 1<br/>
+    © 2026 Chameleon AI Agent Ltd · Logistics 4×4 Field Communications Protocol · Edition 1<br/>
     Berbagi referensi ini dianjurkan — interoperabilitas memerlukannya.
   </p>
 </div>
@@ -880,7 +882,7 @@
 <a href="../logistics4x4.html">Logistik 4×4</a>
 <a href="../contact.html">Kontak</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Lisensi tertunda · Dibangun oleh Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

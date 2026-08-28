@@ -3,29 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cyfrifeg y DU — Chameleon AI</title>
+<title>Cyfrifeg — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .vat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
-    }
-    .vat-code {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow);
-    }
-    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
-    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .ledger-sample {
       background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
-      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
-      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: .8rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0; line-height: 1.7;
     }
     .ledger-sample .dr { color: #f87171; }
     .ledger-sample .cr { color: #4ade80; }
     .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+    .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+    .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Mae Chameleon Accounting wrthi'n cael ei ddatblygu. Mae’n paratoi eich ffigurau—rydych chi neu’ch cyfrifydd yn eu ffeilio. Mae prisiau ac argaeledd yn dal i gael eu cwblhau - <a href="../contact.html">Archebu demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
@@ -45,167 +46,109 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📊</div>
-<h1>Cyfrifeg y DU</h1>
-<p class="sub">Cadw cyfrifon cofnod dwbl, olrhain TAW, Elw a Cholled, Mantolen — i gyd mewn cyfriflyfr SQLite lleol yn targedu Troi Treth yn Ddigidol CThEM.</p>
+<h1>Cyfrifeg</h1>
+<p class="sub">Llyfrau cofnod dwbl ar gyfer cwmni bach yn y DU — TAW, Elw a Cholled, Mantolen a Ffurflenni TAW Troi Treth yn Ddigidol, mewn cyfriflyfr sy'n byw ar eich peiriant eich hun.</p>
 <div class="hero-badges">
-<span class="badge">🇬🇧 Siart Cyfrifon y DU</span>
-<span class="badge">📋 MTD-barod</span>
-<span class="badge">🔒 SQLite Lleol</span>
-<span class="badge">🤖 Allbwn JSON AI-darnadwy</span>
+<span class="badge">🇬🇧 Siart cyfrifon y DU wedi'i ymgorffori</span>
+<span class="badge">📋 Fformat ffurflen TAW MTD</span>
+<span class="badge">🧾 Hysbysiad 700 CThEM o anfonebau</span>
+<span class="badge">🔒 Ffeil leol, yn gweithio all-lein</span>
+<span class="badge">🤖 Gofynnwch i'r AI am eich rhifau</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Cyfriflyfr Mynediad Dwbl</h2>
-<p>Mae pob trafodiad wedi'i gydbwyso â'r geiniog - debydau bob amser yn gredydau cyfartal</p>
+<h2>Mae pob cofnod yn cydbwyso</h2>
+<p>Mynediad dwbl priodol — credydau cyfartal debyd, i'r geiniog</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Dyddiad │ Cyfrif │ Debyd (£) │ Credyd (£) │ TAW</span>
-────────────────────────────── ──────────────────────────────────
-2026-04-01 │ 4000 Refeniw Gwerthiant │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 Rheoli TAW │ │    <span class="cr">240.00</span>  │
-2026-04-01 │ 1100 o Ddyledwyr Masnach │ <span class="dr">1,440.00</span>  │ │
-────────────────────────────── ──────────────────────────────────
-2026-04-05 │ 6100 Treuliau Swyddfa │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 Rheoli TAW │   <span class="dr">17.00</span>   │ │
-2026-04-05 │ 1200 Banc Cyfredol │ │    <span class="cr">102.00</span>  │
-  </div>
+<span class="hd">Dyddiad Cyfrif Debit (£) Credyd (£) TAW</span><br/>
+2026-04-01 4000 Refeniw Gwerthiannau                       <span class="cr">1,200.00</span>   S20<br/>
+2026-04-01 2200 Rheoli TAW                           <span class="cr">240.00</span><br/>
+2026-04-01 1100 Dyledwyr Masnach          <span class="dr">1,440.00</span><br/>
+<br/>
+2026-04-05 6100 Treuliau Swyddfa          <span class="dr">85.00</span>                S20<br/>
+2026-04-05 2200 Rheoli TAW              <span class="dr">17.00</span><br/>
+2026-04-05 1200 Banc Cyfredol                          <span class="cr">102.00</span>
+</div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
-<h3>Siart Cyfrifon y DU</h3>
-<p>Codau cyfrif safonol y DU allan o’r blwch — asedau, rhwymedigaethau, ecwiti, incwm a threuliau wedi’u mapio i gategorïau CThEM. Ymestyn gyda chyfrifon personol yn ôl yr angen.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗄️</div>
-<h3>Cyfriflyfr SQLite</h3>
-<p>Yr holl ddata sydd wedi'i storio yn <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Yn rhedeg yn gyfan gwbl all-lein. Cefnogaeth cwmni lluosog - newidiwch rhwng endidau â baner orchymyn.</p>
-</div>
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>blwyddyn dreth y DU</h3>
-<p>Pennwyd diwedd y flwyddyn yn gywir i 5 Ebrill (blwyddyn ariannol y DU 6 Ebrill – 5 Ebrill). Mae adroddiadau P&amp;L a TAW yn rhychwantu'r cyfnod cywir yn awtomatig heb addasu dyddiad â llaw.</p>
+<h3>Siart cyfrifon y DU, yn barod i fynd</h3>
+<p>Codau cyfrif safonol y DU allan o’r blwch, wedi’u mapio i gategorïau CThEM — asedau, rhwymedigaethau, ecwiti, incwm, treuliau. Ychwanegwch eich cyfrifon eich hun pryd bynnag y bydd eu hangen arnoch.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
-<h3>Sgan anomaledd fforensig</h3>
-<p>Rhedeg <code>--forensic</code> i ganfod cofnodion anghytbwys, cyfeiriadau dyblyg, anghysonderau TAW ac afreoleidd-dra arall. Canlyniadau wedi'u hargraffu fel JSON strwythuredig ar gyfer adolygiad AI.</p>
+<h3>Mae'n gwirio ei weithrediad ei hun</h3>
+<p>Mae sgan fforensig yn tynnu sylw at unrhyw beth nad yw'n adio — cofnodion anghytbwys, cyfeiriadau dyblyg, anghydweddiadau TAW — cyn iddo gyrraedd adroddiad.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Yn gwybod blwyddyn dreth y DU</h3>
+<p>Diwedd y flwyddyn yw 6 Ebrill i 5 Ebrill. Mae adroddiadau Elw a Cholled a TAW yn cwmpasu'r cyfnod cywir yn awtomatig - dim amser gwegian â dyddiad.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Ffurflenni TAW siâp MTD</h3>
+<p>Mae’r crynodeb TAW yn dod allan fesul blwch yn fformat Troi Treth yn Ddigidol CThEM: Treth allbwn Blwch 1, treth fewnosod Blwch 4, gwerthiannau net Blwch 6, pryniannau net Blwch 7.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Yr adroddiadau rydych chi'n eu ffeilio mewn gwirionedd</h3>
+<p>Elw a Cholled, Mantolen, Crynodeb o'r Ffurflen TAW — pob un wedi'i rannu yn ôl cod cyfrif. Mae'r Fantolen hefyd yn cadarnhau bod y llyfrau'n gyfan: asedau rhwymedigaethau cyfartal ynghyd ag ecwiti.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Anfonebau sy'n pasio</h3>
+<p>Mae pob anfoneb yn cynnwys yr holl feysydd sy'n ofynnol yn Hysbysiad 700 CThEM — rhif dilyniannol, y ddau rifau TAW, dyddiadau anfonebu a chyflenwi, llinellau eitemedig gydag isgyfansymiau TAW fesul llinell, net a TAW. Argraffwch ef, cadwch PDF, neu ei wthio i'ch ffôn. Gosodwch fanylion eich cwmni unwaith.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Eich llyfrau chi sy'n aros</h3>
+<p>Mae'r cyfriflyfr cyfan yn un ffeil ar eich cyfrifiadur. Mae'n gweithio heb unrhyw rhyngrwyd. Rhedeg sawl cwmni ochr yn ochr a newid rhyngddynt ag un faner.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Allbwn darllenadwy AI</h3>
-<p>Mae'r holl allbwn adroddiadau wedi'u strwythuro JSON i stdout fel y gall y Chameleon AI dosrannu, crynhoi a chynghori ar eich sefyllfa ariannol mewn iaith naturiol.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>Pont WebSocket</h3>
-<p>Y bont cyfrifo WebSocket (<code>acct_ws_bridge.py</code>) yn datgelu ymholiadau cyfriflyfr i'r cydymaith symudol a dangosfyrddau allanol dros eich rhwydwaith Tailscale.</p>
+<h3>Gofynnwch am eich sefyllfa</h3>
+<p>Mae pob adroddiad hefyd yn dod allan fel data strwythuredig y gall Chameleon AI ei ddarllen — felly gallwch ofyn, mewn Saesneg plaen, sut mae'r chwarter yn edrych neu ble aeth y TAW.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Cefnogir Codau TAW</h2>
+<h2>Codau TAW</h2>
+<p>Y cyfraddau sydd eu hangen ar fusnes bach yn y DU</p>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Cyfradd safonol 20%</p></div>
 <div class="vat-code"><div class="vc">R5</div><p>Cyfradd is 5%</p></div>
 <div class="vat-code"><div class="vc">Z</div><p>Gradd sero</p></div>
-<div class="vat-code"><div class="vc">E</div><p>Eithriedig</p></div>
-<div class="vat-code"><div class="vc">O</div><p>Allan o gwmpas</p></div>
+<div class="vat-code"><div class="vc">Mae</div><p>Eithriedig</p></div>
+<div class="vat-code"><div class="vc">Mae gennych negeseuon newydd</div><p>Allan o gwmpas</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Adroddiadau</h2>
+<h2>Mae derbynebau yn dod atoch chi</h2>
+<p>O'r ffôn, ac o'r ffordd</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📈</div>
+<div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Elw a Cholled</h4>
-<p>Incwm yn erbyn treuliau am y cyfnod. Gwerthiannau, cost nwyddau, elw crynswth, costau gweithredu, elw net - i gyd wedi'u dadansoddi yn ôl cod cyfrif. Rhedeg gyda <code>--report pl</code>.</p>
+<h4>O'r ap Cydymaith</h4>
+<p>Tynnwch lun derbynneb yn y <a href="../companion.html">Cydymaith Chameleon</a> ap ffôn ac mae'n cyrraedd y bwrdd gwaith fel cofnod cyfriflyfr drafft i chi ei gadarnhau.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">⚖️</div>
+<div class="strip-icon">🚛</div>
 <div class="strip-body">
-<h4>Mantolen</h4>
-<p>Asedau, rhwymedigaethau ac ecwiti ar adeg benodol. Yn cadarnhau uniondeb mynediad dwbl — rhaid i asedau atebolrwydd cyfartal ynghyd ag ecwiti. Rhedeg gyda <code>--report bs</code>.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Crynodeb o'r Ffurflen TAW</h4>
-<p>Ffigurau TAW fesul blwch yn cyfateb i fformat ffurflen TAW MTD CThEM: Blwch 1 (treth allbwn), Blwch 4 (treth mewnbwn), Blwch 6 (gwerthiannau net), Blwch 7 (pryniannau net). Rhedeg gyda <code>--report vat</code>.</p>
+<h4>O Logisteg 4×4</h4>
+<p>Mae derbyniadau tanwydd a threuliau gyrwyr yn llifo o'r <a href="../logistics4x4.html">Logisteg 4×4</a> ap yn syth i'r un cyfriflyfr.</p>
 </div>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Anfonebu</h2>
-<p>Anfonebau CThEM sy'n cydymffurfio â 700 o Hysbysiadau - wedi'u hargraffu, eu cadw fel PDF neu eu gwthio i'ch ffôn mewn un clic</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Meysydd anfoneb sy'n cydymffurfio â'r DU</h4>
-<p>Mae pob anfoneb yn cynnwys yr holl feysydd sy’n ofynnol dan Hysbysiad 700 CThEM: rhif anfoneb ddilyniannol unigryw, enw a chyfeiriad y cyflenwr, rhif cofrestru TAW, dyddiad yr anfoneb, dyddiad cyflenwi (amser cyflenwi), enw a chyfeiriad y cleient, rhif TAW cleient lle bo’n berthnasol, disgrifiadau llinell fesul eitem gyda symiau a phrisiau uned, cyfradd TAW fesul llinell, isgyfansymiau net a TAW, a’r cyfanswm sy’n ddyledus. Does dim byd ar goll, does dim byd yn cael ei ddyfalu.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏢</div>
-<div class="strip-body">
-<h4>Sefydlu Cwmni</h4>
-<p>Agored <em>Ffeil → Anfonebau → Sefydlu Cwmni</em> i nodi enw cofrestredig eich cwmni, cyfeiriad, rhif Tŷ'r Cwmnïau, rhif TAW, e-bost, ffôn a manylion banc. Mae gosodiadau yn cael eu cadw fesul cronfa ddata cleient i mewn <code>company.json</code> ochr yn ochr â'r cyfriflyfr a'i lwytho'n awtomatig pryd bynnag y cynhyrchir anfonebau ar gyfer y cleient hwnnw.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">👥</div>
-<div class="strip-body">
-<h4>Cronfa ddata cysylltiadau cwsmeriaid</h4>
-<p>Y tro cyntaf y byddwch yn anfonebu cleient bydd eu henw, eu cyfeiriad a'u rhif TAW yn cael eu cadw mewn tabl cysylltiadau y tu mewn i'r cyfriflyfr. Ar anfonebau dilynol, mae teipio enw'r cleient yn awtolenwi eu manylion - nid oes angen ail-fynediad. Mae modd golygu cysylltiadau ar unrhyw adeg.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🖨️</div>
-<div class="strip-body">
-<h4>Argraffu, PDF a'i anfon i'r ffôn</h4>
-<p>Gan y Rheolwr Anfonebau (<em>Ffeil → Anfonebau…</em>) dewiswch unrhyw anfoneb a dewis: <strong>Argraffu</strong> (yn agor deialog argraffu OS - unrhyw argraffydd neu yrrwr PDF), <strong>Arbed PDF</strong> (yn uniongyrchol i ddisg trwy allforiad PDF adeiledig Qt), neu <strong>Anfon i Ffôn</strong> (yn gwthio'r anfoneb HTML i'r app Companion lle mae'n agor yr ymgom argraffu Android - argraffwch yn ddi-wifr i unrhyw AirPrint neu argraffydd cyfagos).</p>
-</div>
-</div>
-</div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Dyddiad cyflenwi</h3>
-<p>Maes ar wahân "Dyddiad cyflenwi" (amser cyflenwi) — ar wahân i ddyddiad yr anfoneb. Yn ofynnol gan CThEM at ddibenion TAW. Rhagosodiadau hyd heddiw ond gellir ei olygu'n annibynnol fesul anfoneb.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Argraffu anfoneb symudol</h3>
-<p>Gall ap Companion argraffu unrhyw anfoneb yn ddi-wifr. Tapiwch yr eicon argraffu ar unrhyw res anfoneb - mae'r ap yn nôl yr HTML o'r DRhA, yn ei drosi i PDF ar y ddyfais trwy'r <code>printing</code> pecyn, ac yn agor y deialog argraffu system Android.</p>
-</div>
-<div class="card">
-<div class="card-icon">✅</div>
-<h3>Cydymffurfiaeth Hysbysiad 700 CThEM</h3>
-<p>Mae pob un o'r 12 maes gofynnol ar gyfer anfoneb TAW lawn y DU yn bresennol ac wedi'u llenwi. Mae llinellau cyfradd is a chyfradd sero wedi'u labelu'n glir. Mae dilyniant rhif yr anfoneb yn gwbl undonog ac nid oes unrhyw fylchau.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Cyfeirnod Cyflym CLI</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Gorchymyn</th><th>Disgrifiad</th></tr></thead>
-<tbody>
-<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Elw a Cholled ar gyfer y flwyddyn dreth gyfredol</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Mantolen hyd heddiw</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Crynodeb Ffurflen TAW (blychau MTD)</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Sgan anomaledd a chywirdeb</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Cyfeirnod gorchymyn llawn</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Symleiddio eich cadw cyfrifon yn y DU</h3>
-<p>Wedi'i adeiladu'n bwrpasol ar gyfer gweithwyr llawrydd a busnesau bach sy'n gweithredu o dan reolau treth y DU.</p>
-<a class="btn btn-solid" href="../contact.html">Cysylltwch</a>
+<h3>Rhowch gynnig ar Chameleon Accounting</h3>
+<p>Wedi'i werthu fel trwydded bwrdd gwaith un-amser. Mae’n paratoi eich ffigurau mewn fformatau CThEM— <strong>chi neu'ch cyfrifydd yn eu cyflwyno</strong>. Mae'r pris terfynol yn cael ei osod nawr.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Archebu demo</a>
 <a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
 </div>
 </div>
@@ -215,7 +158,7 @@
 <a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
 <a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Adeiladwyd gan Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Wedi'i adeiladu gan Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

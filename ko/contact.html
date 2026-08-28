@@ -3,37 +3,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>연락처 및 라이선스 — 카멜레온 AI</title>
+<title>연락처 — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
     .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
     @media (max-width: 680px) { .contact-layout { grid-template-columns: 1fr; } }
-    .contact-box {
-      background: white; border-radius: var(--radius);
-      border: 1px solid var(--border); padding: 2rem; box-shadow: var(--shadow);
-    }
+    .contact-box { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 2rem; box-shadow: var(--shadow); }
     .contact-box h3 { color: var(--brand-start); margin-bottom: 1rem; font-size: 1.2rem; }
     .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.2rem; }
     .contact-item .ci { font-size: 1.6rem; flex-shrink: 0; margin-top: .1rem; }
     .contact-item a { color: var(--brand-start); text-decoration: none; font-weight: 500; }
     .contact-item a:hover { text-decoration: underline; }
     .contact-item p { color: var(--muted); font-size: .9rem; margin-top: .15rem; }
-    .lic-table { width: 100%; border-collapse: collapse; }
-    .lic-table th {
-      background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
-      color: white; padding: .6rem 1rem; text-align: left; font-size: .9rem;
-    }
-    .lic-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); font-size: .9rem; color: var(--muted); }
-    .lic-table tr:last-child td { border-bottom: none; }
-    .lic-table .yes { color: #16a34a; font-weight: 600; }
-    .lic-table .no  { color: #dc2626; font-weight: 600; }
-    .faq { margin-top: 2rem; }
-    .faq-item { background: white; border-radius: var(--radius); border: 1px solid var(--border); padding: 1.3rem 1.5rem; margin-bottom: .8rem; box-shadow: var(--shadow); }
+    .faq-item { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 1.3rem 1.5rem; margin-bottom: .8rem; box-shadow: var(--shadow); }
     .faq-item h4 { color: var(--brand-start); margin-bottom: .4rem; }
-    .faq-item p  { color: var(--muted); font-size: .93rem; }
+    .faq-item p { color: var(--muted); font-size: .93rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Chameleon AI는 활발히 개발 중입니다. 라이선스 및 가격은 아직 확정되지 않았습니다 — 관심 등록이나 데모 예약을 위해 문의하세요.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
@@ -41,10 +35,10 @@
 <a href="../index.html">ud648</a>
 <a href="../ide.html">당신은 아이디어가 있습니다</a>
 <a href="../presenter.html">증여자</a>
-<a href="../companion.html">컴패니언 앱</a>
+<a href="../companion.html">동반자 앱</a>
 <a href="../logistics4x4.html">물류 4×4</a>
 <a href="../services.html">웹 서비스</a>
-<a href="../accounting.html">ud68cuacc4</a>
+<a href="../accounting.html">회계</a>
 <a href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a>
 <a class="active" href="../contact.html">연락하다</a>
@@ -54,127 +48,76 @@
 <div class="hero">
 <div class="hero-icon">✉️</div>
 <h1>연락처 및 라이센스</h1>
-<p class="sub">데모, 상업용 라이선스, 맞춤형 통합 또는 일반 문의가 필요하시면 연락하세요. 우리는 영국의 소규모 기업입니다. 개발자와 직접 대화하게 됩니다.</p>
+<p class="sub">이메일 하나면 제작자에게 바로 전달됩니다. 질문하기, 데모 요청, 또는 라이선스 관심 등록이 가능합니다.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 영국 회사</span>
-<span class="badge">⚡ 빠른 응답</span>
-<span class="badge">🤝 개발자에게 직접 문의</span>
+<span class="badge">⏱️ 영업일 기준 1일 이내에 답변드립니다.</span>
+<span class="badge">🤝 개발자와 직접</span>
 </div>
 </div>
 <div class="page">
 <div class="contact-layout">
 <div class="contact-box">
 <h3>연락하세요</h3>
-<div class="contact-item">
-<div class="ci">📧</div>
-<div>
-<a href="mailto:stemsee@chameleon-ai-agent-ltd.net">줄기see@chameleon-ai-agent-ltd.net</a>
-<p>기본 연락처 — 데모, 라이센스, 지원</p>
-</div>
-</div>
-<div class="contact-item">
-<div class="ci">🏢</div>
-<div>
-<strong>카멜레온 AI 기술자 주식회사</strong>
-<p>잉글랜드 및 웨일스에 등록됨 · 기업 및 개인을 위한 프리랜서 AI 도구</p>
-</div>
-</div>
-<div class="contact-item">
-<div class="ci">👤</div>
-<div>
-<strong>마르코스(일명 스템시)</strong>
-<p>수석 개발자 — 모든 문의에 개인적으로 답변</p>
-</div>
-</div>
-<div class="contact-item">
-<div class="ci">⏱️</div>
-<div>
-<strong>응답 시간</strong>
-<p>일반적으로 영업일 기준 1일 이내(영국 시간)</p>
-</div>
-</div>
+<div class="contact-item"><span class="ci">📧</span><div><a href="mailto:stemsee@chameleon-ai-agent-ltd.net">줄기see@chameleon-ai-agent-ltd.net</a><p>가장 빠르게 저희에게 연락하는 방법입니다.</p></div></div>
+<div class="contact-item"><span class="ci">🏢</span><div>카멜레온 AI 에이전트 Ltd<p>잉글랜드 및 웨일즈에 등록됨. 기업과 개인을 위한 프리랜스 AI 도구.</p></div></div>
+<div class="contact-item"><span class="ci">👤</span><div>Marcos, 일명 stemsee<p>도구를 직접 구축하고 지원합니다.</p></div></div>
+<div class="contact-item"><span class="ci">⏱️</span><div>응답 시간<p>보통 영업일 기준 1일 이내, 영국 시간 기준입니다.</p></div></div>
 </div>
 <div class="contact-box">
-<h3>이메일에 포함할 내용</h3>
-<ul style="color:var(--muted);padding-left:1.2rem;line-height:2.1;">
-<li>가장 관심 있는 기능</li>
-<li>원하는 사용 사례(개인/비즈니스/교실)</li>
-<li>필요한 사용자 또는 시트 수</li>
-<li>운영 체제(Linux/Windows/macOS)</li>
-<li>모든 통합 또는 사용자 정의 요구 사항</li>
-<li>라이브 데모(화상 통화)를 원하는지 여부</li>
-</ul>
+<h3>언급하면 도움이 되는 사항</h3>
+<div class="contact-item"><span class="ci">🎯</span><div>어떤 도구에 관심이 있으신가요?<p>그리고 그들이 당신을 위해 해주길 바라는 것.</p></div></div>
+<div class="contact-item"><span class="ci">🧭</span><div>어떻게 사용할지<p>개인, 비즈니스 또는 교육용.</p></div></div>
+<div class="contact-item"><span class="ci">👥</span><div>몇 명인가요?<p>사용자 또는 시트 수.</p></div></div>
+<div class="contact-item"><span class="ci">💻</span><div>운영 체제<p>Linux, Windows 또는 macOS.</p></div></div>
+<div class="contact-item"><span class="ci">🎥</span><div>데모를 원하시든지<p>사용 중인 모습을 보기 위한 짧은 화상 통화.</p></div></div>
 </div>
 </div>
-<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2rem 0;box-shadow:var(--shadow);">
-<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ 라이선스 — 확정 보류 중</h3>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;">카멜레온 AI는 아직 출시되지 않았습니다. 현재 개인용, 상업용 또는 기타 라이센스가 제공되거나 부여되지 않습니다. 라이센스 조건은 개발 중이며 예고 없이 변경될 수 있습니다. 이 사이트에 표시된 라이센스 정보를 기반으로 비즈니스 또는 법적 결정을 내리지 마십시오.</p>
+<div class="section-title" style="margin-top:2rem;">
+<h2>라이선싱 — 계획됨, 아직 시행되지 않음</h2>
+<p>참고용이며, 변경될 수 있습니다</p>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>계획된 라이선스(변경될 수 있음)</h2>
-<p>이 약관은 단지 참고용일 뿐 아직 시행되지는 않습니다.</p>
-</div>
-<div class="split">
-<div class="card" style="opacity:.7;">
+<div class="cards">
+<div class="card">
 <div class="card-icon">🆓</div>
-<h3>GPL 3.0 — 개인 용도 <span style="font-size:.75rem;color:#b91c1c;font-weight:400;">(아직 활성화되지 않음)</span></h3>
-<p>GNU General Public License v3에 따라 개인적이고 무료로 사용할 수 있습니다. 아직 확정되지 않은 조건입니다.</p>
-<ul style="margin-top:.8rem;color:var(--muted);padding-left:1.1rem;font-size:.93rem;line-height:2;">
-<li>개인 프로젝트 - 계획됨</li>
-<li>학습 및 실험 — 계획됨</li>
-<li>확정될 예정</li>
-</ul>
+<h3>개인용</h3>
+<p>개인적, 비상업적 사용을 위해 GNU 일반 공중 사용 허가서 v3에 따라 무료로 제공될 예정입니다. 최종 조건은 아직 확정되지 않았습니다.</p>
 </div>
-<div class="card" style="opacity:.7;">
+<div class="card">
 <div class="card-icon">🏢</div>
-<h3>상업용 라이센스 <span style="font-size:.75rem;color:#b91c1c;font-weight:400;">(아직 활성화되지 않음)</span></h3>
-<p>상업용 라이센스는 유료 또는 업무용으로 계획되어 있습니다. 기간, 가격, 범위는 아직 결정되지 않았습니다. 관심을 등록하려면 저희에게 연락하세요.</p>
-<ul style="margin-top:.8rem;color:var(--muted);padding-left:1.1rem;font-size:.93rem;line-height:2;">
-<li>업무용 — 예정</li>
-<li>가격 미정</li>
-<li>관심 등록을 원하시면 연락주세요</li>
-</ul>
+<h3>상업적 사용</h3>
+<p>유료 라이선스는 비즈니스 또는 유급 시간 사용을 위해 계획되어 있습니다. 가격과 범위는 아직 결정되지 않았습니다 — 관심을 등록하려면 문의해 주시면 가장 먼저 알려드리겠습니다.</p>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>자주 묻는 질문</h2>
-</div>
-<div class="faq">
-<div class="faq-item">
-<h4>카멜레온을 시험해 볼 수 있나요?</h4>
-<p>해당 제품은 현재 테스트 중이며 아직 공개 출시되지 않았습니다. 관심을 등록하거나 데모를 요청하려면 저희에게 연락하세요. 준비가 되면 연락드리겠습니다.</p>
+<div class="section-title" style="margin-top:2.5rem;">
+<h2>일반적인 질문</h2>
 </div>
 <div class="faq-item">
-<h4>인터넷에 연결하지 않고도 작동합니까?</h4>
-<p>대부분의 기능은 오프라인으로 작동합니다. 편집자, 회계, 발표자 및 드라이버 포터는 모두 로컬에서 실행됩니다. AI 기능을 사용하려면 클라우드 공급자(DeepSeek, OpenAI 등)에 대한 인터넷 연결이 필요하지만 로컬 Ollama 또는 LM Studio 인스턴스를 사용하여 오프라인으로 작동합니다.</p>
+<h4>사용해 볼 수 있을까요?</h4>
+<p>아직 일반 공개 전입니다. 데모를 원하시거나 오픈 시 알림을 받으시려면 이메일을 보내주세요.</p>
 </div>
 <div class="faq-item">
-<h4>어떤 플랫폼이 지원되나요?</h4>
-<p>Linux는 기본 개발 플랫폼입니다. Windows 및 macOS는 다음을 통해 지원됩니다. <code>platform_utils.py</code>. Android 컴패니언 앱은 WebSocket을 통해 데스크톱 애플리케이션에 연결됩니다.</p>
+<h4>오프라인에서도 작동하나요?</h4>
+<p>대부분 그렇습니다. 편집기, 회계, 발표자 및 드라이버 도구는 모두 로컬에서 실행됩니다. AI 기능은 클라우드 제공업체를 위해 인터넷이 필요하거나, Ollama 또는 LM Studio를 통해 로컬 모델로 오프라인에서 작동합니다.</p>
 </div>
 <div class="faq-item">
-<h4>기능을 추가하거나 우리 시스템과 통합할 수 있나요?</h4>
-<p>맞춤형 통합이 계획되어 있습니다. 귀하의 요구 사항이 있으면 당사에 문의하십시오. 일반적인 요청에는 맞춤형 AI 제공업체, 맞춤형 회계 워크플로 및 Tailscale ACL 자동화가 포함됩니다. 확정될 조건.</p>
-</div>
-<div class="faq-item">
-<h4>API 키는 안전한가요?</h4>
-<p>API 키는 다음 위치에 저장됩니다. <code>api_keys.env</code> 귀하의 로컬 컴퓨터에 저장되며 귀하가 선택한 공급자 이외의 다른 곳으로는 전송되지 않습니다. 읽기 전용 DB API 서버(포트 8769)는 Tailscale 네트워크로 제한됩니다.</p>
-</div>
+<h4>어떤 플랫폼인가요?</h4>
+<p>Linux는 주요 플랫폼이며, Windows와 macOS가 지원됩니다. 휴대폰 동반 앱은 Android이며, 데스크톱과 사용자 개인 네트워크를 통해 페어링됩니다.</p>
 </div>
 <div class="cta-band">
-<h3>이야기할 준비가 되셨나요?</h3>
-<p>이메일을 보내주시면 영업일 기준 1일 이내에 연락드리겠습니다.</p>
-<a class="btn btn-solid" href="mailto:stemsee@chameleon-ai-agent-ltd.net">줄기see@chameleon-ai-agent-ltd.net</a>
+<h3>안녕하세요라고 말하세요</h3>
+<p>질문, 데모 요청 및 라이선스 문의는 모두 같은 곳으로 보내주세요.</p>
+<a class="btn btn-solid" href="mailto:stemsee@chameleon-ai-agent-ltd.net">이메일 보내기</a>
 <a class="btn" href="../index.html">← 개요로 돌아가기</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
-<a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
+<a href="../accounting.html">회계</a><a href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+<p>© 2026 Chameleon AI Agent Ltd · Marcos aka stemsee 제작</p>
 </footer>
 </body>
 </html>

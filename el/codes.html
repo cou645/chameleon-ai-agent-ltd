@@ -176,7 +176,7 @@
 <body>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Χαμαιλέοντας AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
 <a class="active" href="../logistics4x4.html">Logistics 4×4</a>
@@ -188,7 +188,7 @@
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 Αναφορά κώδικα επικοινωνιών πεδίου</h1>
-<div class="edition">Logistics 4×4 · Έκδοση 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<div class="edition">Logistics 4×4 · Edition 1 · 2026 · Chameleon AI Agent Ltd</div>
 <p>Ένα συμπαγές πρωτόκολλο κώδικα για χρήση όταν η συνδεσιμότητα δεδομένων δεν είναι διαθέσιμη. Σχεδιασμένο για οδηγούς φορτηγών, πεζοπόρους και υπηρεσίες έκτακτης ανάγκης που λειτουργούν διασυνοριακά ή σε απομακρυσμένο έδαφος. Τρία προφίλ χρηστών μοιράζονται ένα κοινό λεξιλόγιο ειδοποιήσεων και συστήματος — επιτρέποντας την επικοινωνία μεταξύ πρακτορείων ακόμη και υπό εξαιρετικά υποβαθμισμένες συνθήκες.</p>
 <p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">Η κοινή χρήση αυτής της αναφοράς ενθαρρύνεται. Η διαλειτουργικότητα εξαρτάται από το ότι όλα τα μέρη γνωρίζουν τους κωδικούς.</p>
 </div>
@@ -205,7 +205,7 @@
 <div class="code-block">Α 1 1</div>
 <div class="code-annotation">
 <span style="margin-right:1.5rem;">│ </span>
-<span>└─┴── Σοβαρότητα  11 = ονομαστική → 99 = έκτακτη ανάγκη</span>
+<span>└─┴── Severity  11 = nominal → 99 = emergency</span>
 </div>
 <div class="code-annotation" style="margin-top:-.8rem;">
 <span>└────── Επιστολή κατηγορίας</span>
@@ -220,7 +220,7 @@
 </div>
 </div>
 <div class="ut">
-<div class="ut-letter ut-h">H</div>
+<div class="ut-letter ut-h">Η</div>
 <div>
 <strong>Πεζοπόρος</strong>
 <span>Μέλος της ομάδας εξωτερικού χώρου / πεζοπορίας</span>
@@ -243,7 +243,7 @@
 <p>Στείλτε αυτούς τους δύο κωδικούς μαζί για να ενεργοποιήσετε μια άμεση ειδοποίηση έκτακτης ανάγκης για απειλή της ζωής με τοποθεσία GPS σε όλες τις καταχωρημένες επαφές.</p>
 <div class="sos-codes">
 <span class="sos-chip">Α99</span>
-<span class="sos-chip">H99</span>
+<span class="sos-chip">Χ99</span>
 </div>
 </div>
 </div>
@@ -345,10 +345,10 @@
 <tr><td class="code-cell">C11</td><td>Φορτίο φορτωμένο. Όλα ασφαλή. Κανονικός.</td></tr>
 <tr><td class="code-cell">C22</td><td>Μερικό φορτίο ή μικρή μετατόπιση.</td></tr>
 <tr><td class="code-cell">C33</td><td>Το φορτίο μετατοπίστηκε. Σταμάτημα για εκ νέου ασφάλιση.</td></tr>
-<tr><td class="code-cell">C44</td><td>Φορτίο κατεστραμμένο.</td></tr>
-<tr><td class="code-cell">C55</td><td>Διαρροή ή αντικείμενα που έπεσαν από όχημα.</td></tr>
-<tr><td class="code-cell">C66</td><td>Μερική κλοπή φορτίου.</td></tr>
-<tr><td class="code-cell">C77</td><td>Όλο το φορτίο κλάπηκε ή κατασχέθηκε.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>Φορτίο κατεστραμμένο.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>Διαρροή ή αντικείμενα που έπεσαν από όχημα.</td></tr>
+<tr><td class="code-cell">Μετάφραση διεπαφής χρήστη</td><td>Μερική κλοπή φορτίου.</td></tr>
+<tr><td class="code-cell">Μετάφραση C77</td><td>Όλο το φορτίο κλάπηκε ή κατασχέθηκε.</td></tr>
 <tr><td class="code-cell">C88</td><td>Περιστατικό Hazmat ή ψυχρής αλυσίδας.</td></tr>
 <tr class="crit"><td class="code-cell">C99</td><td>Συνολική απώλεια φορτίου.</td></tr>
 </tbody>
@@ -365,12 +365,12 @@
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
 <tr><td class="code-cell">Δ11</td><td>Οδηγός σε υπηρεσία. Οδηγώντας κανονικά.</td></tr>
-<tr><td class="code-cell">D22</td><td>Οδηγός σε στάση. Καύσιμα, γεύμα ή διάλειμμα.</td></tr>
+<tr><td class="code-cell">Δ22</td><td>Οδηγός σε στάση. Καύσιμα, γεύμα ή διάλειμμα.</td></tr>
 <tr><td class="code-cell">D33</td><td>Οδηγός φόρτωσης ή εκφόρτωσης φορτίου.</td></tr>
-<tr><td class="code-cell">D44</td><td>Οδηγός σε αναμονή. Τελωνείο, σημείο ελέγχου ή κυκλοφορία.</td></tr>
-<tr><td class="code-cell">D55</td><td>Ο οδηγός καθυστέρησε. Πρόβλημα. Δεν είναι δυνατή η συνέχεια.</td></tr>
+<tr><td class="code-cell">Μετάβαση</td><td>Οδηγός σε αναμονή. Τελωνείο, σημείο ελέγχου ή κυκλοφορία.</td></tr>
+<tr><td class="code-cell">Δ55</td><td>Ο οδηγός καθυστέρησε. Πρόβλημα. Δεν είναι δυνατή η συνέχεια.</td></tr>
 <tr><td class="code-cell">D66</td><td>Ο οδηγός αισθάνεται αδιαθεσία ή κούραση.</td></tr>
-<tr><td class="code-cell">D77</td><td>Ο οδηγός συνελήφθη ή αντιμετωπίζει νομικά προβλήματα.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>Ο οδηγός συνελήφθη ή αντιμετωπίζει νομικά προβλήματα.</td></tr>
 <tr><td class="code-cell">D88</td><td>Βλάβη προγράμματος οδήγησης. Δεν μπορώ να συνεχίσω χωρίς βοήθεια.</td></tr>
 <tr class="crit"><td class="code-cell">D99</td><td>Έκτακτη ανάγκη οδηγού. Οδηγός σε κίνδυνο.</td></tr>
 </tbody>
@@ -413,7 +413,7 @@
 <tr><td class="code-cell">F33</td><td>Καύσιμο μισό.</td></tr>
 <tr><td class="code-cell">F44</td><td>Τρίμηνο καυσίμων.</td></tr>
 <tr><td class="code-cell">F55</td><td>Χαμηλό καύσιμο. Χρειάζεστε ανεφοδιασμό σε 50 χλμ.</td></tr>
-<tr><td class="code-cell">F66</td><td>Το καύσιμο είναι κρίσιμο. Χρειάζομαι ανεφοδιασμό τώρα.</td></tr>
+<tr><td class="code-cell">Μετάφραση συμβολοσειράς διεπαφής χρήστη</td><td>Το καύσιμο είναι κρίσιμο. Χρειάζομαι ανεφοδιασμό τώρα.</td></tr>
 <tr><td class="code-cell">F77</td><td>Τρέξιμο σε μπιτόνια ή ρεζερβουάρ.</td></tr>
 <tr><td class="code-cell">F88</td><td>Μολυσμένο καύσιμο ή λάθος καύσιμο που χρησιμοποιείται.</td></tr>
 <tr class="crit"><td class="code-cell">F99</td><td>Χωρίς καύσιμο. Σταμάτησε.</td></tr>
@@ -443,43 +443,43 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">H</div>
+<div class="cat-letter" style="background:#f59e0b;">Η</div>
 <div class="cat-icon">🆘</div>
 <div class="cat-name">Απαιτείται βοήθεια</div>
 </div>
 <table class="code-table">
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">H11</td><td>Χρειάζομαι καύσιμα παράδοση στην τοποθεσία μου.</td></tr>
-<tr><td class="code-cell">H22</td><td>Ζητείται μηχανικός ή κινητό συνεργείο.</td></tr>
-<tr><td class="code-cell">H33</td><td>Χρειάζεστε ιατρική βοήθεια ή ασθενοφόρο.</td></tr>
-<tr><td class="code-cell">H44</td><td>Χρειάζεστε αστυνομική ή επίσημη συνοδεία.</td></tr>
+<tr><td class="code-cell">Η11</td><td>Χρειάζομαι καύσιμα παράδοση στην τοποθεσία μου.</td></tr>
+<tr><td class="code-cell">Η22</td><td>Ζητείται μηχανικός ή κινητό συνεργείο.</td></tr>
+<tr><td class="code-cell">Η33</td><td>Χρειάζεστε ιατρική βοήθεια ή ασθενοφόρο.</td></tr>
+<tr><td class="code-cell">Η44</td><td>Χρειάζεστε αστυνομική ή επίσημη συνοδεία.</td></tr>
 <tr><td class="code-cell">H55</td><td>Χρειάζεστε φορτηγό ή γερανό ανάκτησης.</td></tr>
-<tr><td class="code-cell">H66</td><td>Χρειάζεστε φαγητό, νερό ή προμήθειες.</td></tr>
-<tr><td class="code-cell">H77</td><td>Χρειάζεστε βοήθεια εκτελωνιστή ή τεκμηρίωσης.</td></tr>
-<tr><td class="code-cell">H88</td><td>Χρειάζεται ένοπλη συνοδεία.</td></tr>
-<tr class="crit"><td class="code-cell">H99</td><td>Μεγάλο περιστατικό. Όλη η βοήθεια απαιτείται επειγόντως.</td></tr>
+<tr><td class="code-cell">Χ66</td><td>Χρειάζεστε φαγητό, νερό ή προμήθειες.</td></tr>
+<tr><td class="code-cell">Χ77</td><td>Χρειάζεστε βοήθεια εκτελωνιστή ή τεκμηρίωσης.</td></tr>
+<tr><td class="code-cell">Η88</td><td>Χρειάζεται ένοπλη συνοδεία.</td></tr>
+<tr class="crit"><td class="code-cell">Χ99</td><td>Μεγάλο περιστατικό. Όλη η βοήθεια απαιτείται επειγόντως.</td></tr>
 </tbody>
 </table>
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">J</div>
+<div class="cat-letter" style="background:#f59e0b;">Έ</div>
 <div class="cat-icon">🗺</div>
 <div class="cat-name">Πρόοδος ταξιδιού</div>
 </div>
 <table class="code-table">
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">J11</td><td>Το ταξίδι ξεκίνησε. Αναχώρησε σύμφωνα με το πρόγραμμα.</td></tr>
-<tr><td class="code-cell">J22</td><td>Ολοκληρώθηκε το 25% της διαδρομής.</td></tr>
-<tr><td class="code-cell">J33</td><td>Στα μέσα του δρόμου. 50% ολοκληρωμένο.</td></tr>
-<tr><td class="code-cell">J44</td><td>75% ολοκληρωμένο.</td></tr>
+<tr><td class="code-cell">Δεν είναι διαθέσιμο.</td><td>Το ταξίδι ξεκίνησε. Αναχώρησε σύμφωνα με το πρόγραμμα.</td></tr>
+<tr><td class="code-cell">Δεν είναι διαθέσιμο.</td><td>Ολοκληρώθηκε το 25% της διαδρομής.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>Στα μέσα του δρόμου. 50% ολοκληρωμένο.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>75% ολοκληρωμένο.</td></tr>
 <tr><td class="code-cell">J55</td><td>Πλησιάζει στον προορισμό. Κάτω από 10 χλμ.</td></tr>
-<tr><td class="code-cell">J66</td><td>Έφτασε στον προορισμό.</td></tr>
-<tr><td class="code-cell">J77</td><td>Η διαδρομή επεκτάθηκε σημαντικά. Μεγάλη παράκαμψη.</td></tr>
+<tr><td class="code-cell">Η μετάφραση δεν παρέχεται επειδή λείπει το αρχικό κείμενο προς μετάφραση.</td><td>Έφτασε στον προορισμό.</td></tr>
+<tr><td class="code-cell">Η εφαρμογή δεν ανταποκρίνεται.</td><td>Η διαδρομή επεκτάθηκε σημαντικά. Μεγάλη παράκαμψη.</td></tr>
 <tr><td class="code-cell">J88</td><td>Γύρισε πίσω. Αναζητώντας διαδρομή.</td></tr>
-<tr class="crit"><td class="code-cell">J99</td><td>Χαμένος. Εντελώς εκτός διαδρομής.</td></tr>
+<tr class="crit"><td class="code-cell">Δεν είναι διαθέσιμο</td><td>Χαμένος. Εντελώς εκτός διαδρομής.</td></tr>
 </tbody>
 </table>
 </div>
@@ -506,7 +506,7 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">R</div>
+<div class="cat-letter" style="background:#f59e0b;">Ρ</div>
 <div class="cat-icon">🛣</div>
 <div class="cat-name">Συνθήκες δρόμου</div>
 </div>
@@ -518,9 +518,9 @@
 <tr><td class="code-cell">R33</td><td>Χωματόδρομος ή χωματόδρομος. Μέτριος.</td></tr>
 <tr><td class="code-cell">R44</td><td>Τραχύ κομμάτι. Λάσπη ή κακή επιφάνεια.</td></tr>
 <tr><td class="code-cell">R55</td><td>Μερικώς αποκλεισμένος δρόμος.</td></tr>
-<tr><td class="code-cell">R66</td><td>Κλειστός δρόμος ή παρεμπόδιση μιας λωρίδας.</td></tr>
-<tr><td class="code-cell">R77</td><td>Γέφυρα έξω ή επικίνδυνο.</td></tr>
-<tr><td class="code-cell">R88</td><td>Δρόμος αδιάβατος.</td></tr>
+<tr><td class="code-cell">Ρ66</td><td>Κλειστός δρόμος ή παρεμπόδιση μιας λωρίδας.</td></tr>
+<tr><td class="code-cell">Ρ77</td><td>Γέφυρα έξω ή επικίνδυνο.</td></tr>
+<tr><td class="code-cell">Ρ88</td><td>Δρόμος αδιάβατος.</td></tr>
 <tr class="crit"><td class="code-cell">R99</td><td>Καμία διαδρομή. Εκτός δρόμου ή εντελώς χαμένος.</td></tr>
 </tbody>
 </table>
@@ -534,15 +534,15 @@
 <table class="code-table">
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">S11</td><td>Κατάσταση φυσιολογική. Χωρίς απειλές.</td></tr>
+<tr><td class="code-cell">Μετάβαση S11</td><td>Κατάσταση φυσιολογική. Χωρίς απειλές.</td></tr>
 <tr><td class="code-cell">S22</td><td>Γενική προσοχή στην περιοχή.</td></tr>
 <tr><td class="code-cell">S33</td><td>Ακολουθεί ανεπίσημο σημείο ελέγχου ή όχημα.</td></tr>
-<tr><td class="code-cell">S44</td><td>Αναφέρθηκε εγκληματικό οδόφραγμα μπροστά.</td></tr>
-<tr><td class="code-cell">S55</td><td>Ζητήθηκε δωροδοκία.</td></tr>
-<tr><td class="code-cell">S66</td><td>Απόπειρα ληστείας. Απωθημένο.</td></tr>
-<tr><td class="code-cell">S77</td><td>Η ληστεία σε εξέλιξη.</td></tr>
+<tr><td class="code-cell">Μετάφραση S44</td><td>Αναφέρθηκε εγκληματικό οδόφραγμα μπροστά.</td></tr>
+<tr><td class="code-cell">Σ55</td><td>Ζητήθηκε δωροδοκία.</td></tr>
+<tr><td class="code-cell">Η εφαρμογή δεν ανταποκρίνεται.</td><td>Απόπειρα ληστείας. Απωθημένο.</td></tr>
+<tr><td class="code-cell">Σ77</td><td>Η ληστεία σε εξέλιξη.</td></tr>
 <tr><td class="code-cell">S88</td><td>Ένοπλη επίθεση σε αυτοκινητοπομπή.</td></tr>
-<tr class="crit"><td class="code-cell">S99</td><td>πειρατεία ή απαγωγή.</td></tr>
+<tr class="crit"><td class="code-cell">Το S99</td><td>πειρατεία ή απαγωγή.</td></tr>
 </tbody>
 </table>
 </div>
@@ -569,20 +569,20 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">V</div>
+<div class="cat-letter" style="background:#f59e0b;">Β</div>
 <div class="cat-icon">🚛</div>
 <div class="cat-name">Κίνηση οχήματος</div>
 </div>
 <table class="code-table">
 <thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">V11</td><td>Όχημα σταθμευμένο. Σταμάτησε με ασφάλεια.</td></tr>
-<tr><td class="code-cell">V22</td><td>Το όχημα κινείται κανονικά.</td></tr>
+<tr><td class="code-cell">Έκδοση 11</td><td>Όχημα σταθμευμένο. Σταμάτησε με ασφάλεια.</td></tr>
+<tr><td class="code-cell">Έκδοση 22</td><td>Το όχημα κινείται κανονικά.</td></tr>
 <tr><td class="code-cell">V33</td><td>Το όχημα κινείται αργά. Κάτω από 20 km/h.</td></tr>
 <tr><td class="code-cell">V44</td><td>Το όχημα κόλλησε. Λάσπη, άμμος ή χαντάκι.</td></tr>
 <tr><td class="code-cell">V55</td><td>Ρυμούλκηση άλλου οχήματος.</td></tr>
-<tr><td class="code-cell">V66</td><td>Ρυμουλκούμενο.</td></tr>
-<tr><td class="code-cell">V77</td><td>Το όχημα ανατράπηκε.</td></tr>
+<tr><td class="code-cell">Ενημέρωση V66</td><td>Ρυμουλκούμενο.</td></tr>
+<tr><td class="code-cell">Β77</td><td>Το όχημα ανατράπηκε.</td></tr>
 <tr><td class="code-cell">V88</td><td>Ατύχημα. Το όχημα δεν μπορεί να κινηθεί.</td></tr>
 <tr class="crit"><td class="code-cell">V99</td><td>Διαγραφή. Συνολική απώλεια.</td></tr>
 </tbody>
@@ -590,7 +590,7 @@
 </div>
 <div class="section-block">
 <div class="cat-label">
-<div class="cat-letter" style="background:#f59e0b;">W</div>
+<div class="cat-letter" style="background:#f59e0b;">Σ</div>
 <div class="cat-icon">🌦</div>
 <div class="cat-name">Καιρός</div>
 </div>
@@ -601,11 +601,11 @@
 <tr><td class="code-cell">Ε22</td><td>Ελαφριά βροχή ή ομίχλη.</td></tr>
 <tr><td class="code-cell">W33</td><td>Δυνατή βροχή.</td></tr>
 <tr><td class="code-cell">Ε44</td><td>Καταιγίδα ή δυνατός άνεμος.</td></tr>
-<tr><td class="code-cell">W55</td><td>Ομίχλη ή κακή ορατότητα.</td></tr>
+<tr><td class="code-cell">Το W55</td><td>Ομίχλη ή κακή ορατότητα.</td></tr>
 <tr><td class="code-cell">Ε66</td><td>Πλημμύρα. Δρόμος βρεγμένος αλλά βατός.</td></tr>
-<tr><td class="code-cell">W77</td><td>Πλημμύρα. Δρόμος αδιάβατος.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>Πλημμύρα. Δρόμος αδιάβατος.</td></tr>
 <tr><td class="code-cell">W88</td><td>Καταιγίδα σκόνης ή Χαρματτάν. Σχεδόν μηδενική ορατότητα.</td></tr>
-<tr class="crit"><td class="code-cell">W99</td><td>Ακραίες καιρικές συνθήκες. Σταμάτησε.</td></tr>
+<tr class="crit"><td class="code-cell">Το W99</td><td>Ακραίες καιρικές συνθήκες. Σταμάτησε.</td></tr>
 </tbody>
 </table>
 </div>
@@ -622,17 +622,17 @@
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1rem;">
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">H</div><div class="cat-icon">🆘</div><div class="cat-name">Απαιτείται βοήθεια</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Η</div><div class="cat-icon">🆘</div><div class="cat-name">Απαιτείται βοήθεια</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">H11</td><td>Χρειάζεστε φαγητό ή νερό.</td></tr>
-<tr><td class="code-cell">H22</td><td>Χρειάζεστε πρώτες βοήθειες ή ιατρικό κιτ.</td></tr>
-<tr><td class="code-cell">H33</td><td>Χρειάζεστε ιατρική βοήθεια ή αξιολόγηση εκκένωσης.</td></tr>
-<tr><td class="code-cell">H44</td><td>Χρειάζεται ομάδα διάσωσης.</td></tr>
+<tr><td class="code-cell">Η11</td><td>Χρειάζεστε φαγητό ή νερό.</td></tr>
+<tr><td class="code-cell">Η22</td><td>Χρειάζεστε πρώτες βοήθειες ή ιατρικό κιτ.</td></tr>
+<tr><td class="code-cell">Η33</td><td>Χρειάζεστε ιατρική βοήθεια ή αξιολόγηση εκκένωσης.</td></tr>
+<tr><td class="code-cell">Η44</td><td>Χρειάζεται ομάδα διάσωσης.</td></tr>
 <tr><td class="code-cell">H55</td><td>Χρειάζεστε ελικόπτερο ή αεροπορική εκκένωση.</td></tr>
-<tr><td class="code-cell">H66</td><td>Χρειάζεται έρευνα και διάσωση.</td></tr>
-<tr><td class="code-cell">H77</td><td>Χρειάζεστε καταφύγιο ή μπιβουάκ έκτακτης ανάγκης.</td></tr>
-<tr><td class="code-cell">H88</td><td>Χρειάζεται επείγουσα εκκένωση. Δεν μπορώ να περπατήσω.</td></tr>
-<tr class="crit"><td class="code-cell">H99</td><td>Μεγάλη έκτακτη ανάγκη. Χρειάζεται άμεσα κάθε βοήθεια.</td></tr>
+<tr><td class="code-cell">Χ66</td><td>Χρειάζεται έρευνα και διάσωση.</td></tr>
+<tr><td class="code-cell">Χ77</td><td>Χρειάζεστε καταφύγιο ή μπιβουάκ έκτακτης ανάγκης.</td></tr>
+<tr><td class="code-cell">Η88</td><td>Χρειάζεται επείγουσα εκκένωση. Δεν μπορώ να περπατήσω.</td></tr>
+<tr class="crit"><td class="code-cell">Χ99</td><td>Μεγάλη έκτακτη ανάγκη. Χρειάζεται άμεσα κάθε βοήθεια.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -650,29 +650,29 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">U</div><div class="cat-icon">🎒</div><div class="cat-name">Εξοπλισμός / εξοπλισμός</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Ε</div><div class="cat-icon">🎒</div><div class="cat-name">Εξοπλισμός / εξοπλισμός</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">U11</td><td>Όλος ο εξοπλισμός σε καλή κατάσταση.</td></tr>
-<tr><td class="code-cell">U22</td><td>Μικρό πρόβλημα με τον εξοπλισμό. Μη κρίσιμο.</td></tr>
-<tr><td class="code-cell">U33</td><td>Ο εξοπλισμός είναι κατεστραμμένος αλλά βρέθηκε λύση.</td></tr>
-<tr><td class="code-cell">U44</td><td>Αποτυχία κρίσιμου στοιχείου. Σκηνή, σόμπα ή φίλτρο.</td></tr>
-<tr><td class="code-cell">U55</td><td>Χάθηκε ή απέτυχε ο εξοπλισμός πλοήγησης.</td></tr>
-<tr><td class="code-cell">U66</td><td>Κουτί πρώτων βοηθειών σε χρήση.</td></tr>
-<tr><td class="code-cell">U77</td><td>Ζητείται καταφύγιο έκτακτης ανάγκης. Ρύθμιση bivouac.</td></tr>
+<tr><td class="code-cell">Διεπαφή U11</td><td>Όλος ο εξοπλισμός σε καλή κατάσταση.</td></tr>
+<tr><td class="code-cell">Διεπαφή U22</td><td>Μικρό πρόβλημα με τον εξοπλισμό. Μη κρίσιμο.</td></tr>
+<tr><td class="code-cell">Δεν είναι δυνατή η φόρτωση των δεδομένων.</td><td>Ο εξοπλισμός είναι κατεστραμμένος αλλά βρέθηκε λύση.</td></tr>
+<tr><td class="code-cell">Μετάφραση</td><td>Αποτυχία κρίσιμου στοιχείου. Σκηνή, σόμπα ή φίλτρο.</td></tr>
+<tr><td class="code-cell">Διεπαφή χρήστη</td><td>Χάθηκε ή απέτυχε ο εξοπλισμός πλοήγησης.</td></tr>
+<tr><td class="code-cell">Διεπαφή χρήστη</td><td>Κουτί πρώτων βοηθειών σε χρήση.</td></tr>
+<tr><td class="code-cell">Διεπαφή χρήστη</td><td>Ζητείται καταφύγιο έκτακτης ανάγκης. Ρύθμιση bivouac.</td></tr>
 <tr><td class="code-cell">U88</td><td>Πολλαπλές κρίσιμες αστοχίες γραναζιών.</td></tr>
-<tr class="crit"><td class="code-cell">U99</td><td>Χάθηκε όλος ο απαραίτητος εξοπλισμός. Καταστροφικός.</td></tr>
+<tr class="crit"><td class="code-cell">Διεπαφή χρήστη</td><td>Χάθηκε όλος ο απαραίτητος εξοπλισμός. Καταστροφικός.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#15803d;">V</div><div class="cat-icon">❤️</div><div class="cat-name">Ζωτικά / ομαδική υγεία</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#15803d;">Β</div><div class="cat-icon">❤️</div><div class="cat-name">Ζωτικά / ομαδική υγεία</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">V11</td><td>Όλα τα μέλη της ομάδας ταιριάζουν και καλά.</td></tr>
-<tr><td class="code-cell">V22</td><td>Μικρή κόπωση ή δυσφορία. Συνεχίζοντας.</td></tr>
+<tr><td class="code-cell">Έκδοση 11</td><td>Όλα τα μέλη της ομάδας ταιριάζουν και καλά.</td></tr>
+<tr><td class="code-cell">Έκδοση 22</td><td>Μικρή κόπωση ή δυσφορία. Συνεχίζοντας.</td></tr>
 <tr><td class="code-cell">V33</td><td>Φουσκάλες ή μικροτραυματισμός. Επιβράδυνση ελαφρά.</td></tr>
 <tr><td class="code-cell">V44</td><td>Βλάβη. Σημαντικά πιο αργός ρυθμός.</td></tr>
 <tr><td class="code-cell">V55</td><td>Το μέλος δεν μπορεί να διατηρήσει κανονικό ρυθμό.</td></tr>
-<tr><td class="code-cell">V66</td><td>Σοβαρός τραυματισμός. Σταμάτησε. Αξιολόγηση της εκκένωσης.</td></tr>
-<tr><td class="code-cell">V77</td><td>Μέλος κατέρρευσε ή αναίσθητο.</td></tr>
+<tr><td class="code-cell">Ενημέρωση V66</td><td>Σοβαρός τραυματισμός. Σταμάτησε. Αξιολόγηση της εκκένωσης.</td></tr>
+<tr><td class="code-cell">Β77</td><td>Μέλος κατέρρευσε ή αναίσθητο.</td></tr>
 <tr><td class="code-cell">V88</td><td>Επείγουσα ιατρική κατάσταση. Απαιτείται εκκένωση.</td></tr>
 <tr class="crit"><td class="code-cell">V99</td><td>Απειλητική για τη ζωή. Απαιτούνται άμεσα υπηρεσίες έκτακτης ανάγκης.</td></tr>
 </tbody></table>
@@ -694,15 +694,15 @@
 <div class="section-block">
 <div class="cat-label"><div class="cat-letter" style="background:#15803d;">μικρό</div><div class="cat-icon">🛡</div><div class="cat-name">Ασφάλεια</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">S11</td><td>Κατάσταση φυσιολογική. Χωρίς απειλές.</td></tr>
+<tr><td class="code-cell">Μετάβαση S11</td><td>Κατάσταση φυσιολογική. Χωρίς απειλές.</td></tr>
 <tr><td class="code-cell">S22</td><td>Γενική προσοχή. Άγνωστη περιοχή.</td></tr>
 <tr><td class="code-cell">S33</td><td>ύποπτη δραστηριότητα σε κοντινή απόσταση.</td></tr>
-<tr><td class="code-cell">S44</td><td>Απειλή άγριας ζωής. Τήρηση αποστάσεων.</td></tr>
-<tr><td class="code-cell">S55</td><td>Συνάντηση άγριας ζωής. Πίσω μακριά.</td></tr>
-<tr><td class="code-cell">S66</td><td>Επιθετική άγρια ​​ζωή. Υποχώρηση.</td></tr>
-<tr><td class="code-cell">S77</td><td>Συνάντησαν εχθρικά άτομα.</td></tr>
+<tr><td class="code-cell">Μετάφραση S44</td><td>Απειλή άγριας ζωής. Τήρηση αποστάσεων.</td></tr>
+<tr><td class="code-cell">Σ55</td><td>Συνάντηση άγριας ζωής. Πίσω μακριά.</td></tr>
+<tr><td class="code-cell">Η εφαρμογή δεν ανταποκρίνεται.</td><td>Επιθετική άγρια ​​ζωή. Υποχώρηση.</td></tr>
+<tr><td class="code-cell">Σ77</td><td>Συνάντησαν εχθρικά άτομα.</td></tr>
 <tr><td class="code-cell">S88</td><td>Απειλήθηκε ή ακολουθήθηκε. Μετακίνηση προς την ασφάλεια.</td></tr>
-<tr class="crit"><td class="code-cell">S99</td><td>Άμεσος κίνδυνος από ανθρώπους ή άγρια ​​ζωή.</td></tr>
+<tr class="crit"><td class="code-cell">Το S99</td><td>Άμεσος κίνδυνος από ανθρώπους ή άγρια ​​ζωή.</td></tr>
 </tbody></table>
 </div>
 </div><!-- end hiker grid -->
@@ -740,11 +740,11 @@
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
 <tr><td class="code-cell">P11</td><td>Δεν υπάρχουν θύματα στη σκηνή.</td></tr>
 <tr><td class="code-cell">P22</td><td>Περπατώντας μόνο τραυματισμένος. P3 — δευτερεύον.</td></tr>
-<tr><td class="code-cell">P33</td><td>Σοβαρό αλλά σταθερό. P2 — καθυστερημένη.</td></tr>
+<tr><td class="code-cell">Ρ33</td><td>Σοβαρό αλλά σταθερό. P2 — καθυστερημένη.</td></tr>
 <tr><td class="code-cell">P44</td><td>Απειλητικά για τη ζωή θύματα. P1 — άμεσο.</td></tr>
 <tr><td class="code-cell">P55</td><td>Αναμενόμενα θύματα. P4 — ανακουφιστικό.</td></tr>
 <tr><td class="code-cell">P66</td><td>Μικτή διαλογή. Υπάρχουν πολλές κατηγορίες.</td></tr>
-<tr><td class="code-cell">P77</td><td>Ανακοινώθηκε περιστατικό μαζικών απωλειών.</td></tr>
+<tr><td class="code-cell">Μετάφραση P77</td><td>Ανακοινώθηκε περιστατικό μαζικών απωλειών.</td></tr>
 <tr><td class="code-cell">P88</td><td>Ο αριθμός των θυμάτων δεν είναι πλήρης. Η σκηνή δεν διαγράφηκε.</td></tr>
 <tr class="crit"><td class="code-cell">P99</td><td>Καταστροφικός. Επιβεβαιώθηκαν πολλά θύματα.</td></tr>
 </tbody></table>
@@ -753,56 +753,56 @@
 <div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Ν</div><div class="cat-icon">👥</div><div class="cat-name">Αριθμός θυμάτων</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
 <tr><td class="code-cell">Ν11</td><td>Ένα θύμα.</td></tr>
-<tr><td class="code-cell">N22</td><td>Δύο έως πέντε θύματα.</td></tr>
+<tr><td class="code-cell">Ν22</td><td>Δύο έως πέντε θύματα.</td></tr>
 <tr><td class="code-cell">Ν33</td><td>Έξι με δέκα θύματα.</td></tr>
 <tr><td class="code-cell">Ν44</td><td>Έντεκα έως είκοσι θύματα.</td></tr>
 <tr><td class="code-cell">Ν55</td><td>Είκοσι με πενήντα θύματα.</td></tr>
 <tr><td class="code-cell">Ν66</td><td>Πενήντα έως εκατό θύματα.</td></tr>
 <tr><td class="code-cell">Ν77</td><td>Πάνω από εκατό θύματα.</td></tr>
 <tr><td class="code-cell">Ν88</td><td>Άγνωστος αριθμός. Η αξιολόγηση της σκηνής συνεχίζεται.</td></tr>
-<tr class="crit"><td class="code-cell">N99</td><td>Θύματα σε πολλές τοποθεσίες.</td></tr>
+<tr class="crit"><td class="code-cell">Ν99</td><td>Θύματα σε πολλές τοποθεσίες.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">V</div><div class="cat-icon">💓</div><div class="cat-name">Ζωτικά στοιχεία ασθενούς</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Β</div><div class="cat-icon">💓</div><div class="cat-name">Ζωτικά στοιχεία ασθενούς</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">V11</td><td>Συνειδητός και σε εγρήγορση. Μιλάμε κανονικά.</td></tr>
-<tr><td class="code-cell">V22</td><td>Συνειδητοποιημένος αλλά μπερδεμένος ή ταραγμένος.</td></tr>
+<tr><td class="code-cell">Έκδοση 11</td><td>Συνειδητός και σε εγρήγορση. Μιλάμε κανονικά.</td></tr>
+<tr><td class="code-cell">Έκδοση 22</td><td>Συνειδητοποιημένος αλλά μπερδεμένος ή ταραγμένος.</td></tr>
 <tr><td class="code-cell">V33</td><td>Απάντηση μόνο σε φωνητικές εντολές.</td></tr>
 <tr><td class="code-cell">V44</td><td>Ανταπόκριση μόνο στον πόνο. Αναίσθητος.</td></tr>
 <tr><td class="code-cell">V55</td><td>Απαθής. Αναπνοή παρόν.</td></tr>
-<tr><td class="code-cell">V66</td><td>Δεν αναπνέει. ΚΑΡΠΑ σε εξέλιξη.</td></tr>
-<tr><td class="code-cell">V77</td><td>Σοβαρή αιμορραγία. Εφαρμόστηκε τουρνικέ.</td></tr>
+<tr><td class="code-cell">Ενημέρωση V66</td><td>Δεν αναπνέει. ΚΑΡΠΑ σε εξέλιξη.</td></tr>
+<tr><td class="code-cell">Β77</td><td>Σοβαρή αιμορραγία. Εφαρμόστηκε τουρνικέ.</td></tr>
 <tr><td class="code-cell">V88</td><td>Καρδιακή ανακοπή.</td></tr>
 <tr class="crit"><td class="code-cell">V99</td><td>Μακαρίτης. Επιβεβαιωμένος.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">R</div><div class="cat-icon">🚒</div><div class="cat-name">Πόροι επί σκηνής</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Ρ</div><div class="cat-icon">🚒</div><div class="cat-name">Πόροι επί σκηνής</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
 <tr><td class="code-cell">R11</td><td>Μόνο πρώτων βοηθειών. Κανένας επαγγελματίας ανταποκριτής.</td></tr>
 <tr><td class="code-cell">R22</td><td>Παραϊατρικός ή προχωρημένος βοηθός πρώτων βοηθειών στη σκηνή.</td></tr>
 <tr><td class="code-cell">R33</td><td>Επί τόπου συνεργείο ασθενοφόρου.</td></tr>
 <tr><td class="code-cell">R44</td><td>Επί τόπου συνεργείο της Πυροσβεστικής.</td></tr>
 <tr><td class="code-cell">R55</td><td>Επί τόπου η αστυνομία.</td></tr>
-<tr><td class="code-cell">R66</td><td>Πολλαπλές υπηρεσίες έκτακτης ανάγκης στη σκηνή.</td></tr>
-<tr><td class="code-cell">R77</td><td>Καθιερώθηκε ο διοικητής του συμβάντος.</td></tr>
-<tr><td class="code-cell">R88</td><td>Νοσοκομείο υπαίθρου ή σταθμός εκκαθάρισης ατυχημάτων ενεργός.</td></tr>
+<tr><td class="code-cell">Ρ66</td><td>Πολλαπλές υπηρεσίες έκτακτης ανάγκης στη σκηνή.</td></tr>
+<tr><td class="code-cell">Ρ77</td><td>Καθιερώθηκε ο διοικητής του συμβάντος.</td></tr>
+<tr><td class="code-cell">Ρ88</td><td>Νοσοκομείο υπαίθρου ή σταθμός εκκαθάρισης ατυχημάτων ενεργός.</td></tr>
 <tr class="crit"><td class="code-cell">R99</td><td>Όλοι οι πόροι κατακλύζονται. Απαιτείται επείγουσα ενίσχυση.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">H</div><div class="cat-icon">📞</div><div class="cat-name">Απαιτούνται πόροι</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">Η</div><div class="cat-icon">📞</div><div class="cat-name">Απαιτούνται πόροι</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">H11</td><td>Δεν απαιτούνται πρόσθετοι πόροι.</td></tr>
-<tr><td class="code-cell">H22</td><td>Απαιτείται επιπλέον επίγειο ασθενοφόρο.</td></tr>
-<tr><td class="code-cell">H33</td><td>Απαιτείται ασθενοφόρο ή ελικόπτερο.</td></tr>
-<tr><td class="code-cell">H44</td><td>Απαιτείται πυρκαγιά και διάσωση.</td></tr>
+<tr><td class="code-cell">Η11</td><td>Δεν απαιτούνται πρόσθετοι πόροι.</td></tr>
+<tr><td class="code-cell">Η22</td><td>Απαιτείται επιπλέον επίγειο ασθενοφόρο.</td></tr>
+<tr><td class="code-cell">Η33</td><td>Απαιτείται ασθενοφόρο ή ελικόπτερο.</td></tr>
+<tr><td class="code-cell">Η44</td><td>Απαιτείται πυρκαγιά και διάσωση.</td></tr>
 <tr><td class="code-cell">H55</td><td>Απαιτείται αστυνομική ή ένοπλη αντίδραση.</td></tr>
-<tr><td class="code-cell">H66</td><td>Απαιτείται ομάδα HAZMAT ή μόλυνσης.</td></tr>
-<tr><td class="code-cell">H77</td><td>Απαιτείται βαριά ομάδα διάσωσης ή αστικής έρευνας.</td></tr>
-<tr><td class="code-cell">H88</td><td>Απαιτείται στρατιωτική ή εξειδικευμένη υποστήριξη.</td></tr>
-<tr class="crit"><td class="code-cell">H99</td><td>Μαζική ανταπόκριση σε θύματα. Όλοι οι απαιτούμενοι πόροι.</td></tr>
+<tr><td class="code-cell">Χ66</td><td>Απαιτείται ομάδα HAZMAT ή μόλυνσης.</td></tr>
+<tr><td class="code-cell">Χ77</td><td>Απαιτείται βαριά ομάδα διάσωσης ή αστικής έρευνας.</td></tr>
+<tr><td class="code-cell">Η88</td><td>Απαιτείται στρατιωτική ή εξειδικευμένη υποστήριξη.</td></tr>
+<tr class="crit"><td class="code-cell">Χ99</td><td>Μαζική ανταπόκριση σε θύματα. Όλοι οι απαιτούμενοι πόροι.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -822,15 +822,15 @@
 <div class="section-block">
 <div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">μικρό</div><div class="cat-icon">⚠️</div><div class="cat-name">Ασφάλεια σκηνής</div></div>
 <table class="code-table"><thead><tr><th>Κώδικας</th><th>Εννοια</th></tr></thead><tbody>
-<tr><td class="code-cell">S11</td><td>Ασφαλής σκηνή. Χωρίς κινδύνους.</td></tr>
+<tr><td class="code-cell">Μετάβαση S11</td><td>Ασφαλής σκηνή. Χωρίς κινδύνους.</td></tr>
 <tr><td class="code-cell">S22</td><td>Πιθανοί κίνδυνοι που υπάρχουν. Συνιστάται προσοχή.</td></tr>
 <tr><td class="code-cell">S33</td><td>Πυρκαγιά, χημικός ή δομικός κίνδυνος στη σκηνή.</td></tr>
-<tr><td class="code-cell">S44</td><td>Ενεργή απειλή. Η σκηνή δεν είναι ακόμα ασφαλής.</td></tr>
-<tr><td class="code-cell">S55</td><td>Εχθρικά άτομα στη σκηνή. Απαιτείται επιβολή του νόμου.</td></tr>
-<tr><td class="code-cell">S66</td><td>Κίνδυνος μόλυνσης. Απαιτείται ζώνη αποκλεισμού.</td></tr>
-<tr><td class="code-cell">S77</td><td>Η σκηνή καθαρίστηκε μερικώς. Διαρκής κίνδυνος.</td></tr>
+<tr><td class="code-cell">Μετάφραση S44</td><td>Ενεργή απειλή. Η σκηνή δεν είναι ακόμα ασφαλής.</td></tr>
+<tr><td class="code-cell">Σ55</td><td>Εχθρικά άτομα στη σκηνή. Απαιτείται επιβολή του νόμου.</td></tr>
+<tr><td class="code-cell">Η εφαρμογή δεν ανταποκρίνεται.</td><td>Κίνδυνος μόλυνσης. Απαιτείται ζώνη αποκλεισμού.</td></tr>
+<tr><td class="code-cell">Σ77</td><td>Η σκηνή καθαρίστηκε μερικώς. Διαρκής κίνδυνος.</td></tr>
 <tr><td class="code-cell">S88</td><td>Σκηνή επικίνδυνη. Οι απαντητές αποσύρθηκαν.</td></tr>
-<tr class="crit"><td class="code-cell">S99</td><td>Άμεσος κίνδυνος για τους ανταποκριτές. Εκκενώστε τη σκηνή τώρα.</td></tr>
+<tr class="crit"><td class="code-cell">Το S99</td><td>Άμεσος κίνδυνος για τους ανταποκριτές. Εκκενώστε τη σκηνή τώρα.</td></tr>
 </tbody></table>
 </div>
 </div><!-- end emergency grid -->
@@ -855,9 +855,9 @@
 <tr><td>Χρειάζεστε επείγουσα βοήθεια</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
 <tr><td>Απειλή για τη ζωή — SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
 <tr><td>Επικοινωνίες μόνο με SMS</td><td>Κ33</td><td>Κ33</td><td>Κ33</td></tr>
-<tr><td>Εντός προγράμματος / καθ' οδόν</td><td>T11 / D11</td><td>Υ11</td><td>J11</td></tr>
-<tr><td>Έφτασε στον προορισμό</td><td>J66</td><td>J66</td><td>J66</td></tr>
-<tr><td>Χαμένη / εκτός διαδρομής</td><td>J99</td><td>J99</td><td>J99</td></tr>
+<tr><td>Εντός προγράμματος / καθ' οδόν</td><td>Τ11 / Δ11</td><td>Υ11</td><td>Δεν είναι διαθέσιμο.</td></tr>
+<tr><td>Έφτασε στον προορισμό</td><td>Η μετάφραση δεν παρέχεται επειδή λείπει το αρχικό κείμενο προς μετάφραση.</td><td>Η μετάφραση δεν παρέχεται επειδή λείπει το αρχικό κείμενο προς μετάφραση.</td><td>Η μετάφραση δεν παρέχεται επειδή λείπει το αρχικό κείμενο προς μετάφραση.</td></tr>
+<tr><td>Χαμένη / εκτός διαδρομής</td><td>Δεν είναι διαθέσιμο</td><td>Δεν είναι διαθέσιμο</td><td>Δεν είναι διαθέσιμο</td></tr>
 <tr><td>Δριμιές καιρικές συνθήκες</td><td>Ε77–Ε99</td><td>Ε77–Ε99</td><td>Ε77–Ε99</td></tr>
 <tr><td>Αναγνώρισε</td><td>Ζ03</td><td>Ζ03</td><td>Ζ03</td></tr>
 <tr><td>Κατεστραμμένο μήνυμα</td><td>Ζ04</td><td>Ζ04</td><td>Ζ04</td></tr>
@@ -870,7 +870,7 @@
 <a class="btn" href="../contact.html">Ελάτε σε επαφή</a>
 </div>
 <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-    © 2026 Chameleon AI Technicians Ltd · Πρωτόκολλο επικοινωνιών πεδίου Logistics 4×4 · Έκδοση 1<br/>
+    © 2026 Chameleon AI Agent Ltd · Logistics 4×4 Field Communications Protocol · Edition 1<br/>
     Η κοινή χρήση αυτής της αναφοράς ενθαρρύνεται — το απαιτεί η διαλειτουργικότητα.
   </p>
 </div>
@@ -880,7 +880,7 @@
 <a href="../logistics4x4.html">Logistics 4×4</a>
 <a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Εκκρεμεί άδεια χρήσης · ​​Κατασκευάστηκε από τον Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

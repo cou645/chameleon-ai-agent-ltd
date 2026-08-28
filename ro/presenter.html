@@ -6,36 +6,6 @@
 <title>Prezentator Kameleon — Cameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,18 +20,27 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter este în dezvoltare activă. Funcțiile de mai jos sunt actuale; prețurile și disponibilitatea generală sunt încă în curs de finalizare — <a href="../contact.html">Rezervă o demonstrație</a> și vă vom ține la curent.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Acasă</a>
-<a href="../ide.html">AI IDE</a>
+<a href="../ide.html">IDE AI</a>
 <a class="active" href="../presenter.html">Prezentator</a>
 <a href="../companion.html">Aplicația însoțitoare</a>
-<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../logistics4x4.html">Logistică 4×4</a>
 <a href="../services.html">Servicii Web</a>
 <a href="../accounting.html">Contabilitate</a>
 <a href="../technician.html">Tehnician PC</a>
@@ -72,226 +51,129 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Prezentator Cameleon</h1>
-<p class="sub">Un sistem de prezentare inspirat de teatru, în care diapozitivele sunt o scenă, blocurile de conținut sunt actori și tranzițiile sunt indicii - toate controlabile de pe telefon.</p>
+<h1>Kameleon Prezentator</h1>
+<p class="sub">Prezentări care prind viață. Adaugă slide-uri, PDF-uri, video, un ecran de telefon live sau o cameră web — animează orice pe o cronologie și condu întregul spectacol de pe telefonul tău.</p>
 <div class="hero-badges">
-<span class="badge">🎬 Metafora teatrului</span>
-<span class="badge">📱 Control mobil</span>
-<span class="badge">✏️ Desen colaborativ</span>
-<span class="badge">🖥️ Oglindă Android ADB</span>
-<span class="badge">📜 Cronologie cu mai multe scenarii</span>
-<span class="badge">🎯 Țintă inteligentă</span>
-<span class="badge">✦ Blocuri de etapă AI</span>
-<span class="badge">📰 Tickere orizontale și verticale</span>
-<span class="badge">🔍 Filtru de tip cue</span>
-<span class="badge">⇄ Redare ping-pong</span>
-<span class="badge">🖱 Curățare cronologică și zoom</span>
-<span class="badge">🗂 Meniul contextual pentru sifonier</span>
-<span class="badge">📂 Stivă din folder</span>
-<span class="badge">🕐 Indicații de cronologie ADB</span>
-<span class="badge">🌐 Interfață de utilizare în 25 de limbi</span>
-<span class="badge">⇒ Stage Path &amp; POPI</span>
+<span class="badge">🎬 Animație cronologie</span>
+<span class="badge">📱 Telecomandă telefon, fără configurare</span>
+<span class="badge">🖇 Deschide fișierele ClassIn &amp; Xournal++</span>
+<span class="badge">🙋 Întrebări din public, în direct</span>
+<span class="badge">🤖 Direcție de scenă AI opțională</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Vedeți-l în acțiune</h2>
-<p>O demonstrație live a lui Kameleon Presenter — etape, stive, indicii și control mobil</p>
+<h2>Vezi cum rulează</h2>
+<p>În această înregistrare, o inteligență artificială preia rolul de regizor — animând obiecte și schimbând machetele în timp real, fără nimeni la tastatură. Fiecare control pe care îl folosește, poți să îl conduci și tu din aplicație sau de pe telefon.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
-Browserul dvs. nu acceptă videoclipuri HTML5.
+Browserul dumneavoastră nu suportă video HTML5.
 </video>
 </div>
 <div class="section-title">
-<h2>Modelul Teatrului</h2>
-<p>Prezentări construite ca o producție de scenă - obiectele au intrări, ieșiri și repere</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Obiecte KameleonStack pe scenă</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Stiva de conținut — diapozitive de prelegere</div>
-<div class="stage-obj obj-stage">🟡 Stage Stack — trimiteri ale studenților</div>
-<div class="stage-obj obj-misc">🖼️ ImageBox</div>
-<div class="stage-obj obj-misc">📄 PDFBox</div>
-<div class="stage-obj obj-misc">📱 ADB Phone Mirror</div>
-<div class="stage-obj obj-misc">🖥️ Oglindă PPT</div>
-<div class="stage-obj obj-misc">✏️ Tablă de desen</div>
-<div class="stage-obj obj-misc">🎬 VideoBox</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      Chenar alb = activ · Puls portocaliu = în așteptare trimitere de la egal la egal · Verde = stivă de conținut · Galben = stivă de etapă
-    </div>
+<h2>Ce poți face cu el</h2>
+<p>O scenă pe care o compui, nu un teanc de slide-uri plate</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>Containerul universal pentru conținut. Fiecare stivă deține mai multe sloturi (imagini, text, PDF-uri, video, HTML). Două moduri:</p>
-<ul>
-<li><strong style="color:#22c55e">Conţinut</strong> — diapozitive controlate de profesor</li>
-<li><strong style="color:#eab308">Etapă</strong> — acceptă trimiteri peer-pused</li>
-</ul>
-<p><strong>📂 Stivă din folder</strong> — alegeți un director de fișiere cu prefix numeric (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) și Kameleon construiește un teanc complet tastat cu un singur clic. Sunt acceptate imagini, videoclipuri, PDF, text simplu și HTML.</p>
+<div class="card-icon">🗂️</div>
+<h3>Pune orice pe un diapozitiv</h3>
+<p>Imagini, text, PDF-uri, video, pagini web live, ecranul unui telefon Android oglindit, flux de webcam, o tablă de desen partajată. Fiecare este un obiect pe care îl plasezi, redimensionezi și muți independent — aranjează ecranul așa cum vrei.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Sistem de animație</h3>
-<p>Animații de intrare/ieșire pentru fiecare obiect cu căi de mișcare manuală. Alegeți o presetare direcțională și aplicația intră imediat în modul alegere țintă - un singur gest setează atât tipul de animație, cât și destinația. Căile utilizează netezirea Douglas-Peucker + Catmull-Rom.</p>
-<p><strong>Animații de scenă</strong> mutați obiectele în timp ce sunt deja pe ecran. Faceți clic dreapta pe orice obiect de pe scenă → <strong>⇒ Animație scenică</strong> pentru a înregistra o cale de scenă cu mână liberă sau alegeți a <strong>PĂPUŞĂ</strong> (Pop-Out Pop-In) țintă: obiectul se ridică la zero, se teleportează, apoi revine în noua poziție.</p>
+<h3>Animează de-a lungul unei cronologii</h3>
+<p>Dă oricărui obiect o intrare, o ieșire sau o traiectorie de mișcare desenată manual. Indicațiile numerotate avansează spectacolul cu un pas la un moment dat. Un singur clic introduce un plan de sincronizare gata făcut pentru un pitch de 5 minute, o prelegere de 50 de minute sau un atelier de 90 de minute.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Panou pentru sifonier</h3>
-<p>Zona de deținere în afara scenei — creați obiecte în dulap, previzualizați pe scenă cu un dublu clic. Obiectele eliminate de pe scenă cu tasta Delete reapar automat în Dresser.</p>
-<p><strong>Faceți clic dreapta pe orice articol de comodă</strong> pentru un meniu contextual: <strong>👁 Previzualizare</strong> (loc în centrul scenei, fără animație - pentru inspecția dimensiunii; poziția inițială este restabilită la întoarcere, astfel încât redarea nu este niciodată afectată), <strong>⧉ Duplicat</strong>, <strong>◈ Rezervă</strong> (îngrijiți un slot de reținere) sau <strong>✕ Îndepărtați</strong>. Obiectele cu o animație scenă arată a <strong>⇒</strong> sufix în listă.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Indici numerotate</h3>
-<p>Punctele de declanșare avansează prezentarea pas cu pas, la fel ca indicațiile de iluminare teatrală. Fiecare tac poate anima obiecte înăuntru sau în afara, poate schimba sloturile de stivă sau poate executa secvențe cronometrate.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>Blocuri AI Stage</h3>
-<p>Pictați benzi de animație generativă direct pe cronologia - programate pentru pauze sau intervale. În timpul unui <strong>AI Stage Block</strong>, obiectele de pe scenă se coregrafiază automat în unul dintre cele patru modele: <strong>orbită</strong>, <strong>şarpe</strong>, <strong>deriva aleatorie</strong>, sau <strong>focus reflector</strong>. Obiectele revin la pozițiile inițiale când blocul se termină.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>Obiecte ticker</h3>
-<p>Derularea ticker-urilor de text <strong>orizontală</strong> (dreapta → stânga) și <strong>vertical</strong> (jos → sus) orientări. Până la 8 ticker-uri pot rula simultan - ideal pentru știri de ultimă oră, mementouri pentru agendă sau panouri cu informații despre evenimente. Viteza și textul sunt editabile live.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>Filtru de tip cue</h3>
-<p>O bară de filtrare compactă se află între comenzi și riglă cu un buton de comutare pentru fiecare tip de obiect: <strong>Txt · Img · ADB · PPT · PDF · Desenare · Bifare · Conexiune · Stivă</strong>. Faceți clic pe orice combinație pentru a izola doar acele indicii - toate celelalte sunt ascunse. O nuanță albastră slabă pe riglă vă amintește că filtrul este activ. Clic <strong>✕ Toate</strong> pentru a restabili instantaneu vizualizarea completă.</p>
-<p>The <strong>⬛ Previzualizare</strong> comutatorul duce filtrarea cu un pas mai departe: atunci când este activă, redarea în sine declanșează doar indicii pentru tipurile selectate - totul rămâne static pe scenă. Capul de redare se întoarce <strong>chihlimbar</strong> în timp ce previzualizarea este activată, astfel încât să știți întotdeauna că vă aflați într-o rulare filtrată. Perfect pentru a repeta un singur tip de obiect sau pentru a verifica sincronizarea cue ADB fără a deranja restul prezentării.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Cap de redare derulant</h3>
-<p>Linia roșie a capului de redare este fixată în centrul widget-ului cronologiei. Pe măsură ce redarea avansează, rigla se derulează spre stânga sub ea - indicațiile viitoare vizibile întotdeauna în dreapta, indicațiile trecute care se deplasează în stânga. Plasați cursorul peste orice vârf de săgeată indicativ pentru o fereastră de tip pop-up mare, plutitoare, care arată eticheta completă și marcajul de timp.</p>
-<p><strong>Rotiță de defilare</strong> curățează capul de redare (1 s pe crestătură). <strong>Ctrl+defilare</strong> micșorează/depărtează rigla (20–200 px/s), păstrând glisorul de zoom sincronizat.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>Redare ping-pong</h3>
-<p>Permite <strong>⇄</strong> pentru a inversa direcția la fiecare graniță în loc să reporniți. Cronologia este redată înainte până la sfârșit, apoi înapoi până la început, apoi înainte din nou - pe termen nelimitat. Tacurile le trag <strong>acțiune opusă</strong> pe trecerea inversă (intrare↔ieșire). The <strong>GenerativeAnimator</strong> își inversează direcția ritmului, astfel încât modelele de orbită, șarpe și focalizare să își retragă traseele. Capul de redare se întoarce <strong>cyan</strong> cu un triunghi descendent în timpul mersului înapoi. Asociați cu blocurile AI Stage pentru afișări hipnotice pentru pauze.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>Șabloane de cronologie</h3>
-<p>Aplicați un cadru de sincronizare pre-construit cu un singur clic: <strong>Conferință Keynote (20 min)</strong>, <strong>Prelegere universitară (50 min)</strong>, <strong>Atelier (90 min)</strong>, <strong>Pitch scurt (5 min)</strong>, sau <strong>Conferință jumătate de zi (3 ore)</strong>. Șabloanele repetă indiciile existente sau schelează un script gol cu ​​marcatori etichetați.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Cronologie cu mai multe scenarii</h3>
-<p>Un singur <code>.kpt</code> rezervorul rezistă până la <strong>10 scripturi numite</strong> — temporizări independente care partajează aceleași obiecte de scenă. Schimbarea scripturilor repopulează instantaneu cronologia. Perfect pentru o versiune completă, o tăietură de evidențiere și o comandă de întrebări și răspunsuri într-un singur fișier.</p>
+<div class="card-icon">🖇️</div>
+<h3>Deschideți fișierele pe care le aveți deja</h3>
+<p>ClassIn <span class="fmt">.edb</span> table albe și Xournal++ <span class="fmt">.xop</span> note — de pe desktop sau din aplicația mobilă Xournal++ — se importă direct: fiecare pagină și fiecare trăsătură devine un obiect pe care îl poți edita și anima. PowerPoint, Keynote, Word și Markdown intră prin importul universal de documente.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>pachete de proiecte .kpt</h3>
-<p>Proiectele sunt salvate ca arhive ZIP (<code>.kpt</code>) care conține toate elementele media, datele de aspect, configurațiile de animație și toate scripturile denumite. Deschideți pe orice mașină care rulează Chameleon.</p>
+<h3>Un fișier, multe versiuni</h3>
+<p>Un proiect se salvează ca un singur <span class="fmt">.capt</span> Fișierul care conține tot media ta plus până la zece cronologii denumite — discursul complet, o versiune cu momentele importante și ordinea pentru sesiunea de întrebări și răspunsuri pot fi toate într-un singur fișier pe care îl trimiți prin e-mail unui coleg.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>Coordonate logice</h3>
-<p>Scena folosește un spațiu de coordonate logice 0-10.000, independent de rezoluția afișajului. Prezentările arată identic pe ecranul unui laptop sau pe un proiector 4K.</p>
+<div class="card-icon">📱</div>
+<h3>Rulează spectacolul de pe telefonul tău</h3>
+<p>Aplicația Kameleon Remote pentru Android îți găsește computerul automat prin Wi-Fi sau USB — nu trebuie să tastezi nimic. Primești o miniatură live cu exact ceea ce vede publicul, anterior / următor, redare / pauză / oprire, un reflector tip laser-pointer și posibilitatea de a desena direct pe diapozitivul live.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Lăsați camera să participe</h3>
+<p>Comută un slot în modul audiență, iar oamenii trimit o imagine sau un răspuns scris de pe propriile telefoane. Fiecare răspuns așteaptă într-o tavă — îl aprobi, îl reții sau îl respingi înainte să ajungă pe ecran.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Dă-l unui AI — dacă vrei</h3>
+<p>Marchează porțiuni din cronologie ca segmente AI: în timpul unei pauze, AI-ul coregrafiază ușor orice este pe ecran. Sau lasă-l să dirijeze întreaga prezentare, ca în videoclipul de mai sus. Complet opțional — aplicația funcționează pe deplin fără această funcție.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Arată bine pe orice ecran</h3>
+<p>Scena se scalează la afișajul pe care ajunge, astfel încât o prezentare construită pe un laptop arată identic pe un proiector 4K. Fără rearanjare, fără surprize în sală.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Mobil și control de la egal la egal</h2>
-<p>Rulați prezentatorul de pe telefon; lăsați elevii să împingă conținut din al lor</p>
+<h2>Funcționează cu Chameleon Classroom</h2>
+<p>Cele două aplicații împărtășesc un format de fișier și un player.</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Pod mobil Android</h4>
-<p>Podul mobil Chameleon (WebSocket) transmite comenzile de teatru de pe orice dispozitiv Android. Controla <strong>stack_next / prev / redare / pauză / oprire</strong>, împingeți sloturile pentru imagini sau text într-o stivă și vedeți starea stivei difuzată în timp real.</p>
+<h4>Același motor de import</h4>
+<p>Traducerea <span class="fmt">.edb</span> şi <span class="fmt">.xop</span> Importul funcționează identic în Chameleon Classroom, astfel încât materialele de lecție se mută între cele două aplicații neschimbate.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Trimiterile de la egal la egal</h4>
-<p>Elevii împing imagini sau text într-o stivă în modul Stage de pe telefoanele lor. Trimiterile apar în banda de miniaturi cu un chenar portocaliu pulsatoriu. Prezentatorul poate <strong>aproba, reține, respinge sau promovează</strong> fiecare înainte de a fi live pe ecran.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Planșă de desen comună</h4>
-<p>Pânză colaborativă cu mână liberă controlabilă de pe puntea mobilă — <strong>draw_stroke / clear / undo</strong>. Ideal pentru adnotarea diapozitivelor, brainstorming sau chestionare live.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Flux de lucru de animație inteligent</h4>
-<p>Faceți clic dreapta pe orice obiect, alegeți <strong>Intră în stânga</strong> (sau orice presetare direcțională), iar aplicația intră instantaneu în modul de alegere a țintei - cu un clic se stabilește unde se deplasează obiectul. Înregistrarea unei căi de mișcare cu mână liberă ștampilă automat indicațiile de început și de sfârșit pe cronologia.</p>
+<h4>Player încorporat</h4>
+<p>Clasa rulează Kameleon Presenter în panoul inferior în modul doar-prezentare — prezintă <span class="fmt">.capt</span> Pachet de diapozitive într-o lecție live fără a părăsi sala de clasă.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Oglindă telefon ADB și captură PPT</h4>
-<p><strong>ADBPphoneBox</strong> transmite un ecran live Android direct pe scenă prin ADB. <strong>PPTMirorBox</strong> surprinde o fereastră PowerPoint - prezentați-vă pachetele existente în Kameleon fără conversie.</p>
-<p><strong>🕐 Indicații de cronologie ADB</strong> — faceți clic dreapta pe orice actor ADB → <em>Adăugați Cue la cronologie...</em> a ștampila <strong>Reporniți fluxul</strong>, <strong>Deschideți adresa URL</strong>, sau <strong>Lansați aplicația</strong> (după numele pachetului) indicii la poziții precise ale capului de redare. Indicațiile se declanșează atât în ​​timpul redării cu bara de spațiu, cât și în timpul redării automate.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>Pornire și setări</h4>
-<p>Alegeți dacă Kameleon se deschide cu <strong>ultimul proiect încărcat</strong> sau a <strong>scena goală</strong> prin meniul Setări → La pornire. Preferința este salvată în <code>~/.chameleon/kameleon_settings.json</code> și a respectat fiecare lansare.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Interfață în 25 de limbi</h4>
-<p>Deschide <strong>Setări → 🌐 Limbă</strong> pentru a comuta interfața de utilizare Kameleon Presenter în oricare dintre cele 25 de limbi – inclusiv franceză, germană, spaniolă, arabă, chineză, japoneză, coreeană, rusă, galeză, thailandeză și multe altele. Toate meniurile se actualizează instantaneu cu <strong>nicio repornire</strong>. Traducerile sunt preluate în fundal la prima utilizare; comutarea este instantanee odată stocată în cache.</p>
+<h4>Un AI în chat-ul lecției</h4>
+<p>Clasa adaugă un participant de chat cu inteligență artificială pe care îl adresezi ca pe orice alt student. <strong>Trimite către AI</strong> Butonul din aplicațiile de desktop și Android îl aduce în conversație ori de câte ori doriți.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>Capturi de ecran</h2>
+<p>Kameleon Presenter — capturat live</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">Ecranul 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">Ecranul 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">Ecranul 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">Ecranul 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">Ecranul 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">Ecranul 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">Ecranul 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Dă viață prezentărilor tale</h3>
-<p>Contactați-ne pentru a discuta despre o licență sau pentru a aranja o demonstrație live a Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">Solicitați o demonstrație</a>
+<h3>Încearcă Kameleon Presenter</h3>
+<p>Vândut ca licență desktop unică pentru Linux, Windows și macOS. <strong>Prețul final se stabilește acum</strong> — rezerva o demonstrație și ți-l vom trimite cu o dată de lansare.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Rezervă o demonstrație</a>
 <a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Descărcați Ghidul utilizatorului (PDF)</a>
 <a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Acasă</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Prezentator</a>
+<a href="../index.html">Acasă</a><a href="../ide.html">IDE AI</a><a href="../presenter.html">Prezentator</a>
 <a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
 <a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construit de Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Construit de Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

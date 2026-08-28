@@ -3,10 +3,37 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE — Tắc kè hoa AI</title>
+<title>Chameleon AI IDE — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  IDE Chameleon AI đang trong quá trình phát triển tích cực. Các tính năng dưới đây là hiện tại; giá cả và tính khả dụng chung vẫn đang được hoàn thiện — <a href="../contact.html">Đặt lịch demo</a> và chúng tôi sẽ cập nhật cho bạn.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
@@ -19,238 +46,134 @@
 <a href="../services.html">Dịch vụ web</a>
 <a href="../accounting.html">Kế toán</a>
 <a href="../technician.html">Kỹ thuật viên PC</a>
-
 <a href="../classroom.html">lớp học</a>
 <a href="../contact.html">Liên hệ</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE hỗ trợ AI</h1>
-<p class="sub">Trình chỉnh sửa mã PyQt6 đầy đủ tính năng trong đó AI không chỉ đề xuất — nó còn đọc, viết, chạy và xác minh mã thay mặt bạn thông qua cầu lệnh có cấu trúc.</p>
+<h1>IDE AI của tắc kè hoa</h1>
+<p class="sub">Trình soạn thảo mã nơi AI làm mọi việc — nó đọc tệp của bạn, thực hiện chỉnh sửa, chạy lệnh và kiểm tra kết quả. Bạn xem xét và phê duyệt.</p>
 <div class="hero-badges">
-<span class="badge">AI đa nhà cung cấp</span>
-<span class="badge">🎙️ Nhập bằng giọng nói &amp; TTS</span>
-<span class="badge">🔀 Chế độ xem khác</span>
-<span class="badge">⚡ Truyền phát phản hồi</span>
+<span class="badge">🧠 AI trực tiếp chỉnh sửa mã của bạn</span>
+<span class="badge">🎙️ Nhập bằng giọng nói, trả lời bằng lời nói</span>
+<span class="badge">🔀 Xem sự khác biệt trước khi bạn chấp nhận</span>
+<span class="badge">🔌 Chín nhà cung cấp AI, đổi bất cứ lúc nào</span>
+<span class="badge">🔒 Chạy cục bộ, khóa vẫn thuộc về bạn</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Cầu lệnh AI</h2>
-<p>AI không chỉ trò chuyện - nó vận hành trình soạn thảo thông qua giao thức JSON có cấu trúc</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Đọc một lần, chỉnh sửa thoải mái</h4>
-<p>AI đọc một tập tin một lần với <strong>get_file_content</strong>, giữ nội dung trong ngữ cảnh, sau đó đưa ra nhiều chỉnh sửa dựa trên điểm cố định mà không cần đọc lại giữa mỗi lần thay đổi. Không có chuyến đi khứ hồi lãng phí.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>văn bản thay thế dựa trên neo</h4>
-<p>Chỉnh sửa tham chiếu chính xác văn bản cần tìm, không phải số dòng. Số dòng thay đổi khi mã được thêm vào hoặc bị xóa - các neo thì không. Nhiều <code>replace_text</code> các cuộc gọi có thể được nhóm lại trong một phản hồi duy nhất, tất cả đều được áp dụng nguyên tử.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file để viết lại đầy đủ</h4>
-<p>Đối với các mô-đun mới hoặc viết lại hoàn chỉnh, AI sẽ gửi toàn bộ nội dung tệp trong một lệnh. Hệ thống sẽ tự động tạo một <code>.bak</code> sao lưu trước khi ghi đè và mở kết quả trong tab soạn thảo mới.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Tích hợp thiết bị đầu cuối</h4>
-<p>AI có thể chạy các lệnh shell và nhận kết quả JSON trước khi tiếp tục. Nó chờ đợi từng kết quả, xử lý mã thoát và tự động phân biệt các lệnh chẩn đoán, cấu hình, phá hủy và kết thúc phiên.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Bảo vệ tiêm</h4>
-<p>Tất cả nội dung được trả về từ các tập tin, thiết bị đầu cuối và trang web được gói gọn trong <code>[UNTRUSTED_CONTENT]</code> đánh dấu. AI được hướng dẫn xử lý mọi thứ bên trong dưới dạng dữ liệu - không bao giờ là hướng dẫn - ngăn chặn các cuộc tấn công tiêm nhắc từ nội dung tệp độc hại.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Tính năng biên tập</h2>
+<h2>Điều gì làm cho nó khác biệt</h2>
+<p>Hầu hết các trình soạn thảo AI chỉ gợi ý. Cái này vận hành trình soạn thảo.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Trình chỉnh sửa mã nhiều tab</h3>
-<p>Mở nhiều tập tin cùng một lúc. Mỗi tab theo dõi lịch sử hoàn tác, tô sáng cú pháp và bối cảnh lệnh AI của riêng nó.</p>
+<div class="card-icon">🤖</div>
+<h3>AI thực hiện các chỉnh sửa</h3>
+<p>Nó đọc tệp một lần, sau đó thực hiện bao nhiêu thay đổi chính xác cũng được mà không cần đọc lại. Các chỉnh sửa nhắm vào văn bản chính xác, không phải số dòng, nên chúng không bị lệch khi tệp thay đổi. Các tệp mới được ghi toàn bộ — kèm theo bản sao lưu tự động của bất kỳ thứ gì nó thay thế.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Nó chạy các lệnh và đọc kết quả</h3>
+<p>AI chạy các lệnh shell trong terminal tích hợp, chờ kết quả từng lệnh, kiểm tra mã thoát và quyết định bước tiếp theo. Công việc thực tế trong shell trực tiếp — không phải sao chép-dán các đoạn mã.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>An toàn theo mặc định</h3>
+<p>Mọi thứ AI đọc từ tệp tin, thiết bị đầu cuối hoặc trang web đều được ngăn cách như dữ liệu, không bao giờ là chỉ dẫn — một tệp tin độc hại không thể chiếm quyền phiên làm việc. Mọi thay đổi mà nó thực hiện đều được ghi lại kèm dấu thời gian và ID phiên, để bạn có toàn bộ lịch sử về những gì đã xảy ra.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Chế độ xem khác biệt tích hợp</h3>
-<p>Một cú nhấp chuột để so sánh trạng thái trình chỉnh sửa hiện tại với phiên bản đã lưu gần đây nhất. Khác biệt thống nhất được mã hóa bằng màu sắc với tính năng thêm/xóa đánh dấu. Thoát khỏi chế độ khác để quay lại chỉnh sửa đầy đủ.</p>
+<h3>Xem lại trước khi bạn chấp nhận</h3>
+<p>Một cú nhấp chuột hiển thị bản so sánh mã màu giữa các thay đổi của AI và bản lưu gần nhất của bạn. Chấp nhận chúng, tiếp tục chỉnh sửa hoặc quay lại.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Truyền phát trò chuyện AI</h3>
-<p>Các câu trả lời truyền từng mã thông báo vào bảng trò chuyện. Các lệnh IDE được trích xuất và thực thi trong luồng nền để giao diện người dùng luôn phản hồi xuyên suốt.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Hệ thống nhắc nhở mô-đun</h3>
-<p>Lời nhắc hệ thống là các tệp mô-đun văn bản thuần túy ở dạng <code>~/.chameleon/prompts/</code>. Xếp chồng bất kỳ sự kết hợp nào: Tech Repair + Academic + Chat. Số lượng mã thông báo trực tiếp và ước tính chi phí cho mỗi nhà cung cấp.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Lịch sử lệnh DB</h3>
-<p>Mọi lệnh AI đều được ghi vào <code>history.db</code> với ID phiên, dấu thời gian và kết quả. Dấu vết kiểm tra đầy đủ cho mọi thay đổi tệp mà AI thực hiện.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>Trình duyệt tập tin</h3>
-<p>Bảng cây dự án để điều hướng nhanh. AI sử dụng <code>list_project_files</code> Và <code>list_open_files</code> để khám phá các đường dẫn thực - nó không bao giờ phát minh ra vị trí tệp.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Giọng nói &amp; Lời nói</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Chuyển lời nói thành văn bản thì thầm</h3>
-<p>Local Whisper (whisper.cpp) ghi lại giọng nói của bạn vào đầu vào trò chuyện. Mã hóa rảnh tay — đọc chính tả câu hỏi, lệnh hoặc toàn bộ lời nhắc mà không cần chạm vào bàn phím.</p>
-<div class="tags"><span class="tag">thì thầm.cpp</span><span class="tag">Suy luận cục bộ</span><span class="tag">Không có STT đám mây</span></div>
+<h3>Rảnh tay</h3>
+<p>Đọc câu hỏi hoặc toàn bộ lời nhắc bằng tính năng chuyển giọng nói thành văn bản trên thiết bị, và nghe câu trả lời được đọc lại bằng giọng tự nhiên. Không có dữ liệu nào được gửi đến dịch vụ chuyển đổi đám mây.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Chuyển văn bản thành giọng nói của Piper</h3>
-<p>Phản hồi AI được đọc to bằng Piper TTS — giọng nói nhanh, cục bộ, nghe tự nhiên. Lý tưởng cho khả năng tiếp cận hoặc làm việc với đôi tay của bạn. Đường dẫn nền tảng được giải quyết tự động trên Linux, Windows và macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Suy luận cục bộ</span><span class="tag">Giọng nói có thể cấu hình</span></div>
+<div class="card-icon">🔌</div>
+<h3>Mang AI của riêng bạn</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — chuyển đổi nhà cung cấp ngay giữa dự án. Chạy mô hình cục bộ qua Ollama hoặc LM Studio hoàn toàn miễn phí. Claude Code chạy như một tiến trình trực tiếp ngay trong terminal.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Chế độ làm việc có thể xếp chồng</h3>
+<p>Bật các chế độ bạn cần — sửa mã, viết học thuật, trò chuyện thông thường — và kết hợp chúng. Ước tính chi phí chạy sẽ hiển thị trước khi bạn gửi bất cứ điều gì.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Một trình soạn thảo thực sự bên dưới</h3>
+<p>Chỉnh sửa đa tab với hoàn tác theo từng tab và tô sáng cú pháp, cây tệp dự án, và trò chuyện trực tuyến giúp cửa sổ luôn phản hồi trong khi các lệnh chạy nền.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Nhà cung cấp AI được hỗ trợ</h2>
+<h2>Chọn nhà cung cấp AI của bạn</h2>
+<p>Tài khoản của bạn, lựa chọn của bạn — đám mây hoặc hoàn toàn trên máy của riêng bạn</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>nhà cung cấp</th><th>Kiểu</th><th>Chi phí (ước chừng)</th><th>Ghi chú</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>nhà cung cấp</th><th>Nơi nó chạy</th><th>Chi phí ước tính</th></tr></thead>
 <tbody>
-<tr><td>tìm kiếm sâu</td><td>API đám mây</td><td>0,00014 USD / 1 nghìn mã thông báo</td><td>Mặc định; chất lượng mã tuyệt vời</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>API đám mây</td><td>0,0050 USD / 1 nghìn mã thông báo</td><td>Lý luận chung tốt nhất</td></tr>
-<tr><td>Nhân loại (Claude)</td><td>API đám mây</td><td>0,0030 USD / 1 nghìn mã thông báo</td><td>Mạnh về chỉnh sửa ngữ cảnh dài</td></tr>
-<tr><td>Mã Claude (Nhân chủng học)</td><td>Thiết bị đầu cuối / pty</td><td>Sử dụng API</td><td>Chạy như một quy trình pty bên trong thiết bị đầu cuối IDE - mã hóa tác nhân đầy đủ trong một trình bao trực tiếp</td></tr>
-<tr><td>Grok</td><td>API đám mây</td><td>0,00005 USD / 1 nghìn mã thông báo</td><td>Suy luận cực nhanh</td></tr>
-<tr><td>Mistral</td><td>API đám mây</td><td>0,00025 USD / 1 nghìn mã thông báo</td><td>Tùy chọn lưu trữ tốt ở châu Âu</td></tr>
-<tr><td>Ánh trăng / Kimi</td><td>API đám mây</td><td>0,00012 USD / 1 nghìn mã thông báo</td><td>Cửa sổ ngữ cảnh lớn</td></tr>
-<tr><td>trở thành</td><td>Địa phương</td><td>Miễn phí</td><td>Chạy bất kỳ mô hình GGUF nào cục bộ</td></tr>
-<tr><td>Studio LM</td><td>Địa phương</td><td>Miễn phí</td><td>Suy luận cục bộ thân thiện với GUI</td></tr>
+<tr><td>tìm kiếm sâu <em>(mặc định)</em></td><td>Cloud, tài khoản của bạn</td><td>Thấp nhất — mạnh về mã</td></tr>
+<tr><td>OpenAI</td><td>Cloud, tài khoản của bạn</td><td>Cao hơn — lý luận tổng quát tốt nhất</td></tr>
+<tr><td>Nhân loại (Claude)</td><td>Cloud, tài khoản của bạn</td><td>Trung bình — mạnh trên các tệp dài</td></tr>
+<tr><td>Mã Claude</td><td>Chạy bên trong terminal</td><td>Mức sử dụng Anthropic của bạn</td></tr>
+<tr><td>Grok</td><td>Cloud, tài khoản của bạn</td><td>Rất thấp — phản hồi nhanh nhất</td></tr>
+<tr><td>Mistral</td><td>Cloud, tài khoản của bạn</td><td>Thấp — lưu trữ tại Châu Âu</td></tr>
+<tr><td>Giống</td><td>Cloud, tài khoản của bạn</td><td>Thấp — ngữ cảnh rất lớn</td></tr>
+<tr><td>Ollama / LM Studio</td><td>Trên máy của bạn</td><td>Miễn phí</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="../Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="../Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Trạm chỉ huy công ty (CCS)</h2>
-<p>Chạy Chameleon IDE làm trung tâm văn phòng cho đội Logistics 4×4 của bạn — không cần phần mềm điều phối riêng</p>
+<h2>Quản lý doanh nghiệp của bạn từ đó luôn</h2>
+<p>Trạm chỉ huy công ty — IDE làm trung tâm cho đội xe Logistics 4×4</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Đẩy các tuyến đường &amp; POI tới tài xế</h4>
-<p>Gửi một <code>.gpx</code> tập tin từ IDE trực tiếp tới điện thoại của bất kỳ trình điều khiển nào qua kênh ngang hàng. Các tuyến đường tải ngay lập tức trên bản đồ trực tiếp của người lái xe. Các bộ POI độc lập — điểm dừng nhiên liệu, mối nguy hiểm, địa chỉ giao hàng — có thể được đẩy độc lập với bất kỳ tuyến đường nào và xuất hiện dưới dạng các ghim có mã màu.</p>
+<h4>Gửi tuyến đường và điểm dừng cho tài xế</h4>
+<p>Đẩy tệp lộ trình trực tiếp từ IDE đến điện thoại của tài xế — nó tải ngay trên bản đồ trực tiếp của họ. Các tập hợp điểm (trạm nhiên liệu, điểm nguy hiểm, địa chỉ giao hàng) có thể được gửi riêng và hiển thị dưới dạng ghim được mã hóa màu. Không cần phần mềm điều phối riêng.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Bản kê khai &amp; gửi hóa đơn</h4>
-<p>Xây dựng bản kê khai hàng hóa hoặc chuẩn bị hóa đơn trong IDE, sau đó đẩy nó ngang hàng tới điện thoại của tài xế. Trình điều khiển nhìn thấy bản kê khai được tải sẵn — không cần quét, không cần nhập thủ công. Hóa đơn có thể được ký trên màn hình và được gửi lại qua cùng một kênh.</p>
+<h4>Biên lai được ghi vào sổ sách của bạn</h4>
+<p>Ứng dụng điện thoại Chameleon Companion chụp ảnh hóa đơn và đẩy nó lên máy tính để bàn, nơi nó trở thành một mục nháp trong sổ kế toán — xem <a href="../accounting.html">Kế toán</a> Và <a href="../companion.html">ứng dụng Companion</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Phát sóng mã cổ phiếu trên toàn đội tàu</h4>
-<p>Gửi cảnh báo ưu tiên — Khẩn cấp, Quan trọng, Hướng dẫn hoặc Thông tin — và nó sẽ xuất hiện đồng thời dưới dạng thanh đánh dấu có chiều rộng đầy đủ trên màn hình của mọi người lái xe. Văn phòng luôn nắm toàn quyền kiểm soát sự chú ý của đội xe mà không cần gọi điện đến từng phương tiện.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Máy chủ tín hiệu tích hợp - không có chuyển tiếp đám mây</h4>
-<p>Máy chủ tín hiệu Chameleon (<code>chameleon_signal.py</code>) chạy trực tiếp trên PC văn phòng cùng với IDE hoặc bên trong Termux trên bất kỳ điện thoại Android nào trong nhóm. Điện thoại của nhóm kết nối với nó qua Tailscale hoặc điểm phát sóng địa phương — không cần chuyển tiếp của bên thứ ba, không cần hóa đơn máy chủ hàng tháng.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC văn phòng chạy Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Trung tâm WebSocket · Chỉ huy nhóm</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Đội tàu được kết nối →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Tài xế A</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Tài xế B</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Đội thực địa</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Khẩn cấp</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Qua Tailscale (từ xa) hoặc điểm truy cập mạng LAN (đoàn xe) · Không có chuyển tiếp đám mây · Mã hóa E2E</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Ảnh chụp màn hình</h2>
+<p>Chameleon AI IDE — được ghi lại trực tiếp</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="../ide-assets/AI-IDE-1.png"/><div class="sg-cap">Tổng quan màn hình nền</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="../ide-assets/AI-IDE-2.png"/><div class="sg-cap">Bảng chat + trình soạn thảo</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="../ide-assets/AI-IDE-3.png"/><div class="sg-cap">Chế độ xem khác</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="../ide-assets/AI-IDE-4.png"/><div class="sg-cap">Trình duyệt giọng nói + tệp</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="../ide-assets/Chameleon1.png"/><div class="sg-cap">Thiết bị đầu cuối + lịch sử</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="../ide-assets/Chameleon2.png"/><div class="sg-cap">Không gian làm việc</div></div>
 </div>
 <div class="cta-band">
-<h3>Xem AI IDE hoạt động</h3>
-<p>Liên hệ với chúng tôi để có bản demo trực tiếp hoặc thảo luận về giấy phép cho nhóm của bạn.</p>
-<a class="btn btn-solid" href="../contact.html">Yêu cầu bản demo</a>
-<a class="btn" href="../logistics4x4.html">Hậu cần 4×4 →</a>
+<h3>Dùng thử Chameleon AI IDE</h3>
+<p>Được bán dưới dạng giấy phép máy tính để bàn một lần cho Linux, Windows và macOS. <strong>Giá cuối cùng đang được thiết lập ngay bây giờ</strong> — đặt lịch demo và chúng tôi sẽ gửi kèm ngày ra mắt.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Đặt lịch demo</a>
 <a class="btn" href="../index.html">← Quay lại tổng quan</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
-<a href="../logistics4x4.html">Hậu cần 4×4</a>
 <a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
 <a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Được xây dựng bởi Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

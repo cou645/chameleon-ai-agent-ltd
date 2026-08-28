@@ -3,36 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI PC 기술자 — 카멜레온 AI</title>
+<title>PC 기술자 — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .path-card {
-      border-radius: var(--radius); padding: 1.5rem;
-      border: 2px solid; box-shadow: var(--shadow);
-      background: white;
-    }
-    .path-a { border-color: #22c55e; }
-    .path-b { border-color: #3b82f6; }
-    .path-c { border-color: #f59e0b; }
-    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-    .path-a .path-label { color: #22c55e; }
-    .path-b .path-label { color: #3b82f6; }
-    .path-c .path-label { color: #f59e0b; }
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card { border-radius: var(--radius); padding: 1.5rem; border: 2px solid; box-shadow: var(--shadow); background: var(--card-bg); }
+    .path-a { border-color: #22c55e; } .path-b { border-color: #3b82f6; } .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.1rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #16a34a; } .path-b .path-label { color: #2563eb; } .path-c .path-label { color: #d97706; }
     .path-card h4 { margin-bottom: .4rem; color: var(--text); }
     .path-card p { color: var(--muted); font-size: .9rem; }
-    .terminal-block {
-      background: #0f0f1a; border-radius: var(--radius);
-      padding: 1.5rem; font-family: 'Courier New', monospace;
-      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
-      box-shadow: var(--shadow-lg); overflow-x: auto;
-    }
-    .terminal-block .cmd { color: #67e8f9; }
-    .terminal-block .out { color: #86efac; }
-    .terminal-block .comment { color: #6b7280; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  AI PC Technician은(는) 현재 활발히 개발 중이며, Linux 명령줄에 익숙한 사용자를 대상으로 제작되었습니다. 가격 및 제공 시기는 아직 확정 중입니다 — <a href="../contact.html">데모 예약하기</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
@@ -40,10 +28,10 @@
 <a href="../index.html">ud648</a>
 <a href="../ide.html">당신은 아이디어가 있습니다</a>
 <a href="../presenter.html">증여자</a>
-<a href="../companion.html">컴패니언 앱</a>
+<a href="../companion.html">동반자 앱</a>
 <a href="../logistics4x4.html">물류 4×4</a>
 <a href="../services.html">웹 서비스</a>
-<a href="../accounting.html">ud68cuacc4</a>
+<a href="../accounting.html">회계</a>
 <a class="active" href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a>
 <a href="../contact.html">연락하다</a>
@@ -52,131 +40,88 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>AI PC 기술자</h1>
-<p class="sub">AI 기반 시스템 진단 및 수리와 더불어 하드웨어 프로토콜을 리버스 엔지니어링하고 Linux 커널 드라이버를 자동으로 생성하는 USB 장치 프로파일러도 제공됩니다.</p>
+<h1>PC 기술자</h1>
+<p class="sub">한 번에 한 단계씩 Linux 시스템을 진단하고 수리하는 AI — 그리고 알 수 없는 장치의 프로토콜을 파악해 드라이버를 작성해 주는 USB 프로파일러.</p>
 <div class="hero-badges">
-<span class="badge">🔬 하드웨어 프로파일링</span>
-<span class="badge">🐧 커널 모듈 생성</span>
-<span class="badge">🌐 Tailscale을 통한 원격</span>
-<span class="badge">⚡ ARM 크로스 컴파일</span>
+<span class="badge">🔬 알 수 없는 USB 하드웨어 프로필</span>
+<span class="badge">🐧 Linux 드라이버를 생성합니다</span>
+<span class="badge">🩺 어떤 것에도 닿기 전에 진단합니다</span>
+<span class="badge">🌐 Tailscale을 통해 기계를 수리합니다</span>
+<span class="badge">🥧 라즈베리 파이용 크로스 컴파일 지원</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>AI 기반 시스템 수리</h2>
-<p>AI는 구조화된 수술 프로토콜을 따릅니다. 만지기 전에 진단하고 모든 단계에서 확인합니다.</p>
+<h2>AI 안내 수리</h2>
+<p>고정 프로토콜 — 만지기 전에 진단하고, 모든 단계에서 검증하세요</p>
 </div>
-<div class="terminal-block">
-<span class="comment"># 카멜레온 AI 진단 시퀀스</span>
-<span class="cmd">$ lsusb -v | 머리 -80</span>
-<span class="out">버스 002 장치 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$dmesg | 꼬리 -30</span>
-<span class="out">[12.445] r8152 2-1:1.0 eth1: eth0에서 이름이 변경됨</span>
-<span class="cmd">$lsmod | grep r8152</span>
-<span class="out">r8152 94208 0</span>
-<span class="cmd">$ modinfo r8152 | grep 버전</span>
-<span class="out">버전: v1.12.13</span>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🩺</div>
+<h3>먼저 진단하고, 나중에 터치하세요</h3>
+<p>AI는 하드웨어, 커널, 드라이버, 네트워크, 저장소 순서대로 한 번에 하나씩 검사를 실행하고 결과를 확인한 후 다음 단계를 결정합니다. 단계를 건너뛰거나 추측하지 않습니다.</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🔍</div>
-<div class="strip-body">
-<h4>구조화된 진단 순서</h4>
-<p>하드웨어 → 커널 상태 → 드라이버 상태 → 네트워크 → 저장소. AI는 각 단계를 실행하고 JSON 결과를 읽은 후 다음 작업을 결정합니다. 결코 단계를 건너뛰거나 가정을 하지 않습니다.</p>
+<div class="card">
+<div class="card-icon">🔧</div>
+<h3>가장 위험성이 낮은 수정부터 먼저</h3>
+<p>모듈을 다시 로드하거나 서비스를 재시작한 후 더 위험한 작업을 하세요. 문제가 될 수 있는 변경 전에 구성을 스냅샷하세요. 각 단계 후에 제대로 작동하는지 확인하세요.</p>
 </div>
+<div class="card">
+<div class="card-icon">⏱️</div>
+<h3>재부팅 후에도 유지됩니다</h3>
+<p>재시작이 필요한 모든 수정은 먼저 재개 스크립트를 설정하므로, 머신이 다시 켜지면 AI가 정확히 중단된 지점부터 이어서 작업합니다.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🏥</div>
-<div class="strip-body">
-<h4>수술적 수리 프로토콜</h4>
-<p>비파괴적 우선(모듈 다시 로드, 서비스 다시 시작). 위험이 발생하기 전에 유지합니다(스냅샷 구성). 각 단계에서 확인하세요. 재부팅이 필요한 모든 작업은 다음을 설정하는 Dead Man's Switch를 트리거합니다. <code>@reboot</code> 스크립트를 자동으로 다시 시작합니다.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Tailscale을 통한 원격 수리</h4>
-<p>Tailscale 메시의 어느 곳에서나 기계를 진단하고 수리하십시오. AI는 터미널 브리지를 통해 원격 시스템에 명령을 내리고, 결과를 읽고, 검사점/재개 시스템을 사용하여 재부팅하더라도 계속 진행됩니다.</p>
-</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>앉아 있지 않은 기계를 수리하세요</h3>
+<p>Tailscale 네트워크의 모든 것을 진단하고 수리하세요. AI가 원격 머신에서 명령을 실행하고 결과를 읽은 후 계속 진행합니다 — 재부팅을 포함해서요.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>USB 드라이버 포터</h2>
-<p>USB 장치 프로파일링 → 프로토콜 분석 → 즉시 설치 가능한 Linux 드라이버 생성</p>
+<p>알 수 없는 장치를 연결하세요 → 통신 방식을 캡처하세요 → Linux 드라이버를 얻으세요</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔬</div>
+<div class="strip-body">
+<h4>30초 프로필</h4>
+<p>기기를 연결하고 짧은 캡처를 실행하세요. 프로파일러는 실제 통신 방식을 기록하며, 이 프로파일이 이후의 모든 과정을 결정합니다. 그런 다음 기기가 얼마나 커스텀한지에 따라 세 가지 경로 중 하나를 선택합니다.</p>
+</div>
+</div>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
-<div class="path-label">경로 A</div>
-<h4>표준 프로토콜</h4>
-<p>공급업체 페이지를 찾을 수 없습니다. udev 규칙 + modprobe 구성을 생성합니다. <strong>컴파일이 필요하지 않습니다.</strong> HID, CDC, 대용량 저장소 및 기타 표준 클래스와 함께 작동합니다.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">모드프로브</span></div>
+<div class="path-label">표준</div>
+<h4>알려진 장치 클래스</h4>
+<p>키보드, 시리얼 어댑터, 저장 장치 및 기타 표준 유형. udev 규칙과 modprobe 구성이 제공되며 컴파일할 필요가 없습니다.</p>
 </div>
 <div class="path-card path-b">
-<div class="path-label">경로 B</div>
-<h4>부분 공급업체 프로토콜</h4>
-<p>공급업체 페이지가 감지되었습니다(≤2). hidraw/uhid 사용자 공간 데몬 또는 ALSA 플러그인을 생성합니다. 사용자 공간에서 실행됩니다. 커널 컴파일이 필요하지 않습니다.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">숨기다</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">ALSA 플러그인</span></div>
+<div class="path-label">부품 맞춤</div>
+<h4>일부 공급업체 전용 프로토콜</h4>
+<p>작은 사용자 공간 프로그램이나 오디오 플러그인을 얻어 장치의 프로토콜을 말하게 합니다. 여전히 사용자 공간에서 실행되며 — 커널 빌드는 필요 없습니다.</p>
 </div>
 <div class="path-card path-c">
-<div class="path-label">경로 C</div>
-<h4>독점 프로토콜</h4>
-<p>완전 맞춤형 프로토콜. Raspberry Pi 3, 4 및 5에 대한 DKMS 패키징 및 ARM 크로스 컴파일 지원을 통해 완전한 커널 모듈을 생성합니다.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">커널 모듈</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">팔</span></div>
-</div>
-</div>
-<div class="section-title" style="margin-top:2rem;">
-<h2>프로파일러 작업 흐름</h2>
-</div>
-<div class="terminal-block">
-<span class="comment"># 1단계 - 장치 프로파일링(30초 캡처)</span>
-<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
-<span class="out">30초 동안 USB 1234:5678을 프로파일링하는 중...
-~/.chameleon/drivers/1234_5678/profile.json을 작성했습니다.</span>
-<span class="comment"># 2단계 - 드라이버 생성</span>
-<span class="cmd">$ python3 device_porter.py --latest</span>
-<span class="out">선택한 경로: C(전용, 3개 공급업체 페이지)
-생성됨: /tmp/driver_1234_5678/
-  ├── 카멜레온_1234_5678.c
-  ├── Makefile (cross-aarch64, cross-armv7)
-  ├── install.sh
-  ├── test_device.sh
-  └── 분석.json</span>
-<span class="comment"># 3단계 — 설치</span>
-<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
-<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
-<span class="out">PASS — /dev/chameleon0 장치가 올바르게 응답합니다.</span>
-</div>
-<div class="cards">
-<div class="card">
-<div class="card-icon">🖥️</div>
-<h3>크로스 플랫폼 캡처 백엔드</h3>
-<p>ETW on Windows, IOKit on macOS, usbmon on Linux. 모든 OS에서 프로파일링하고 결과로부터 Linux 드라이버를 생성합니다. <code>profile.json</code>.</p>
-</div>
-<div class="card">
-<div class="card-icon">🍓</div>
-<h3>라즈베리파이 크로스컴파일</h3>
-<p>메이크파일 대상 <code>cross-aarch64</code> (파이 4/5) 그리고 <code>cross-armv7</code> (Pi 3)은 경로 C에 자동으로 포함됩니다. x86에서 빌드하고 ARM에 배포합니다.</p>
-</div>
-<div class="card">
-<div class="card-icon">📦</div>
-<h3>DKMS 패키징</h3>
-<p>경로 C 드라이버는 DKMS용으로 패키지되어 있으므로 수동으로 다시 컴파일하지 않고도 커널 업그레이드를 계속할 수 있습니다. AI 리뷰 <code>analysis.json</code> 남은 TODO 스텁을 묻는 메시지를 표시합니다.</p>
+<div class="path-label">독점</div>
+<h4>완전 사용자 정의 프로토콜</h4>
+<p>완전한 커널 모듈을 제공하며, DKMS로 패키징되어 커널 업데이트 후에도 유지되고, Raspberry Pi 3, 4, 5용으로 크로스 컴파일됩니다.</p>
 </div>
 </div>
 <div class="cta-band">
-<h3>고칠 수 없는 것을 고친다</h3>
-<p>커널 패닉, USB 장치 작동 불능, Linux를 지원하지 않는 독점 주변 장치 등 모든 문제를 Chameleon AI PC Technician이 해결해 드립니다.</p>
-<a class="btn btn-solid" href="../contact.html">연락하세요</a>
+<h3>AI PC 기술자 사용해 보기</h3>
+<p>Linux용 일회성 데스크톱 라이선스로 판매됩니다. <strong>최종 가격이 지금 설정되고 있습니다</strong> — 데모를 예약하시면 출시일과 함께 보내드리겠습니다.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">데모 예약하기</a>
 <a class="btn" href="../index.html">← 개요로 돌아가기</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="../index.html">ud648</a><a href="../ide.html">당신은 아이디어가 있습니다</a><a href="../presenter.html">증여자</a>
-<a href="../accounting.html">ud68cuacc4</a><a href="../technician.html">PC 기술자</a>
+<a href="../accounting.html">회계</a><a href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a><a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Stemsee라고도 불리는 Marcos 제작</p>
+<p>© 2026 Chameleon AI Agent Ltd · Marcos aka stemsee 제작</p>
 </footer>
 </body>
 </html>

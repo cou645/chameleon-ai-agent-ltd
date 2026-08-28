@@ -6,36 +6,6 @@
 <title>Kameleon Presenter — Chameleon AI</title>
 <link href="style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,9 +20,18 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter is in active development. The features below are current; pricing and general availability are still being finalised — <a href="contact.html">book a demo</a> and we will keep you posted.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
@@ -65,7 +44,6 @@
 <a href="services.html">Web Services</a>
 <a href="accounting.html">Accounting</a>
 <a href="technician.html">PC Technician</a>
-
 <a href="classroom.html">Classroom</a>
 <a href="contact.html">Contact</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🌐 EN ▾</button><div class="lang-menu"><a href="ar/presenter.html">🇸🇦 AR — العربية</a><a href="cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/presenter.html">🇩🇪 DE — Deutsch</a><a href="el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="es/presenter.html">🇪🇸 ES — Español</a><a href="fr/presenter.html">🇫🇷 FR — Français</a><a href="hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="id/presenter.html">🇮🇩 ID — Indonesia</a><a href="it/presenter.html">🇮🇹 IT — Italiano</a><a href="ja/presenter.html">🇯🇵 JA — 日本語</a><a href="ko/presenter.html">🇰🇷 KO — 한국어</a><a href="pl/presenter.html">🇵🇱 PL — Polski</a><a href="pt/presenter.html">🇵🇹 PT — Português</a><a href="ro/presenter.html">🇷🇴 RO — Română</a><a href="ru/presenter.html">🇷🇺 RU — Русский</a><a href="sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="uk/presenter.html">🇺🇦 UK — Українська</a><a href="vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
@@ -74,194 +52,96 @@
 <div class="hero">
 <div class="hero-icon">🎭</div>
 <h1>Kameleon Presenter</h1>
-<p class="sub">A theatre-inspired presentation system where your slides are a Stage, your content blocks are Actors and transitions are Cues — all controllable from a phone.</p>
+<p class="sub">Presentations that move. Drop in slides, PDFs, video, a live phone screen or a webcam — animate anything along a timeline, and run the whole show from your phone.</p>
 <div class="hero-badges">
-<span class="badge">🎬 Theatre metaphor</span>
-<span class="badge">📱 Mobile control</span>
-<span class="badge">✏️ Collaborative drawing</span>
-<span class="badge">🖥️ Android ADB mirror</span>
-<span class="badge">📜 Multi-script timelines</span>
-<span class="badge">🎯 Smart pick-target</span>
-<span class="badge">✦ AI stage blocks</span>
-<span class="badge">📰 Horizontal &amp; vertical tickers</span>
-<span class="badge">🔍 Cue type filter</span>
-<span class="badge">⇄ Ping-pong playback</span>
-<span class="badge">🖱 Timeline scrubbing &amp; zoom</span>
-<span class="badge">🗂 Dresser context menu</span>
-<span class="badge">📂 Stack from Folder</span>
-<span class="badge">🕐 ADB timeline cues</span>
-<span class="badge">🌐 25-language UI</span>
-<span class="badge">⇒ Stage Path &amp; POPI</span>
+<span class="badge">🎬 Timeline animation</span>
+<span class="badge">📱 Phone remote, no setup</span>
+<span class="badge">🖇 Opens ClassIn &amp; Xournal++ files</span>
+<span class="badge">🙋 Live audience submissions</span>
+<span class="badge">🤖 Optional AI stage direction</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>AI Director — live demo</h2>
-<p>Claude DeepSeek autonomously controls Kameleon Presenter in real time — animating objects, switching layouts and directing the stage with no human input</p>
+<h2>See it run</h2>
+<p>In this recording an AI takes the director's seat — animating objects and switching layouts live, with no one at the keyboard. Every control it uses, you can drive yourself from the app or your phone.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
-<video controls preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
+<div style="max-width:860px;margin:0 auto 3rem;">
+<video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
 Your browser does not support HTML5 video.
 </video>
 </div>
 <div class="section-title">
-<h2>The Theatre Model</h2>
-<p>Presentations built like a stage production — objects have entrances, exits and cues</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objects on stage</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Content Stack — lecture slides</div>
-<div class="stage-obj obj-stage">🟡 Stage Stack — student submissions</div>
-<div class="stage-obj obj-misc">🖼️ ImageBox</div>
-<div class="stage-obj obj-misc">📄 PDFBox</div>
-<div class="stage-obj obj-misc">📱 ADB Phone Mirror</div>
-<div class="stage-obj obj-misc">🖥️ PPT Mirror</div>
-<div class="stage-obj obj-misc">✏️ Drawing Board</div>
-<div class="stage-obj obj-misc">🎬 VideoBox</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      White border = active · Orange pulse = pending peer submission · Green = content stack · Yellow = stage stack
-    </div>
+<h2>What you can do with it</h2>
+<p>A stage you compose, not a stack of flat slides</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>The universal content container. Each stack holds multiple slots (images, text, PDFs, video, HTML). Two modes:</p>
-<ul>
-<li><strong style="color:#22c55e">Content</strong> — teacher-controlled slides</li>
-<li><strong style="color:#eab308">Stage</strong> — accepts peer-pushed submissions</li>
-</ul>
-<p><strong>📂 Stack from Folder</strong> — pick a directory of numerically-prefixed files (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) and Kameleon builds a fully typed stack in one click. Images, video, PDF, plain text, and HTML are all supported.</p>
+<div class="card-icon">🗂️</div>
+<h3>Put anything on a slide</h3>
+<p>Images, text, PDFs, video, live web pages, a mirrored Android phone screen, a webcam feed, a shared drawing board. Each one is an object you place, resize and move on its own — arrange the screen the way you want it.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Animation system</h3>
-<p>Per-object enter/exit animations with freehand motion paths. Choose a directional preset and the app immediately enters pick-target mode — one gesture sets both animation type and destination. Paths use Douglas-Peucker + Catmull-Rom smoothing.</p>
-<p><strong>Stage animations</strong> move objects while they're already on screen. Right-click any on-stage object → <strong>⇒ Stage Animation</strong> to record a freehand stage path or pick a <strong>POPI</strong> (Pop-Out Pop-In) target: the object scales to zero, teleports, then springs back in at the new position.</p>
+<h3>Animate along a timeline</h3>
+<p>Give any object an entrance, an exit, or a hand-drawn motion path. Numbered cues step the show forward one beat at a time. One click drops in a ready-made timing plan for a 5-minute pitch, a 50-minute lecture or a 90-minute workshop.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Dresser panel</h3>
-<p>Off-stage holding area — create objects in the dresser, preview on stage with a double-click. Objects removed from stage with the Delete key reappear in the Dresser automatically.</p>
-<p><strong>Right-click any dresser item</strong> for a context menu: <strong>👁 Preview</strong> (place at centre-stage, no animation — for size inspection; original position is restored on return so playback is never affected), <strong>⧉ Duplicate</strong>, <strong>◈ Reserve</strong> (grey-out a holding slot), or <strong>✕ Remove</strong>. Objects with a stage animation show a <strong>⇒</strong> suffix in the list.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Numbered cues</h3>
-<p>Trigger points advance the presentation step by step, just like theatrical lighting cues. Each cue can animate objects in or out, switch stack slots or execute timed sequences.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>AI Stage Blocks</h3>
-<p>Paint generative animation bands directly on the timeline — scheduled for breaks or intervals. During an <strong>AI Stage Block</strong>, on-stage objects choreograph themselves automatically in one of four patterns: <strong>orbit</strong>, <strong>snake</strong>, <strong>random drift</strong>, or <strong>focus spotlight</strong>. Objects return to their original positions when the block ends.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>Ticker objects</h3>
-<p>Scrolling text tickers in <strong>horizontal</strong> (right → left) and <strong>vertical</strong> (bottom → top) orientations. Up to 8 tickers can run simultaneously — ideal for breaking-news strips, agenda reminders, or event info panels. Speed and text are editable live.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>Cue type filter</h3>
-<p>A compact filter bar sits between the controls and the ruler with one toggle button per object type: <strong>Txt · Img · ADB · PPT · PDF · Draw · Tick · Conn · Stack</strong>. Click any combination to isolate just those cues — all others are hidden. A faint blue tint on the ruler reminds you the filter is active. Click <strong>✕ All</strong> to restore the full view instantly.</p>
-<p>The <strong>⬛ Preview</strong> toggle takes filtering one step further: when active, playback itself only fires cues for the selected types — everything else stays static on stage. The playhead turns <strong>amber</strong> while preview is on, so you always know you're in a filtered run. Perfect for rehearsing a single object type or checking ADB cue timing without disturbing the rest of the presentation.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Scrolling playhead</h3>
-<p>The red playhead line is fixed at the centre of the timeline widget. As playback advances, the ruler scrolls leftward beneath it — upcoming cues always visible on the right, past cues drifting off the left. Hover over any cue arrowhead for a large floating popup showing its full label and timestamp.</p>
-<p><strong>Scroll wheel</strong> scrubs the playhead (1 s per notch). <strong>Ctrl+scroll</strong> zooms the ruler in/out (20–200 px/s range), keeping the zoom slider in sync.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>Ping-pong playback</h3>
-<p>Enable <strong>⇄</strong> to reverse direction at each boundary instead of restarting. The timeline plays forward to the end, then backwards to the start, then forward again — indefinitely. Cues fire their <strong>opposite action</strong> on the reverse pass (enter↔exit). The <strong>GenerativeAnimator</strong> reverses its beat direction so orbit, snake and focus patterns retrace their paths. The playhead turns <strong>cyan</strong> with a downward triangle during reverse travel. Pair with AI Stage Blocks for hypnotic break-time displays.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>Timeline templates</h3>
-<p>Apply a pre-built timing framework in one click: <strong>Conference Keynote (20 min)</strong>, <strong>University Lecture (50 min)</strong>, <strong>Workshop (90 min)</strong>, <strong>Short Pitch (5 min)</strong>, or <strong>Conference Half-Day (3 hrs)</strong>. Templates retime existing cues or scaffold an empty script with labelled markers.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Multi-script timelines</h3>
-<p>A single <code>.kpt</code> tank holds up to <strong>10 named scripts</strong> — independent cue timings sharing the same stage objects. Switching scripts repopulates the timeline instantly. Perfect for a full version, a highlights cut, and a Q&amp;A order all in one file.</p>
+<div class="card-icon">🖇️</div>
+<h3>Open the files you already have</h3>
+<p>ClassIn <span class="fmt">.edb</span> blackboards and Xournal++ <span class="fmt">.xopp</span> notes — from the desktop or the mobile Xournal++ app — import directly: every page and stroke becomes an object you can edit and animate. PowerPoint, Keynote, Word and Markdown come in through universal document import.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>.kpt project bundles</h3>
-<p>Projects are saved as ZIP archives (<code>.kpt</code>) containing all media assets, layout data, animation configs, and all named scripts. Open on any machine running Chameleon.</p>
+<h3>One file, many versions</h3>
+<p>A project saves as a single <span class="fmt">.kpt</span> file holding all your media plus up to ten named timelines — the full talk, a highlights cut and a Q&amp;A running order can all live in one file you email to a colleague.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>Logical coordinates</h3>
-<p>The stage uses a 0–10,000 logical coordinate space independent of display resolution. Presentations look identical on a laptop screen or a 4K projector.</p>
+<div class="card-icon">📱</div>
+<h3>Run the show from your phone</h3>
+<p>The Kameleon Remote Android app finds your computer on its own over Wi-Fi or USB — nothing to type in. You get a live thumbnail of exactly what the audience sees, previous / next, play / pause / stop, a laser-pointer spotlight, and the ability to draw straight onto the live slide.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Let the room take part</h3>
+<p>Switch a slot into audience mode and people send an image or a written answer from their own phones. Each one waits in a tray — you approve, hold or reject it before it goes on screen.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Hand it to an AI — if you want</h3>
+<p>Mark stretches of the timeline as AI segments: during a break the AI gently choreographs whatever is on screen. Or let it direct the whole talk, as in the video above. Entirely optional — the app works fully without it.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Looks right on any screen</h3>
+<p>The stage scales to the display it lands on, so a talk built on a laptop looks identical on a 4K projector. No reflowing, no surprises in the room.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Mobile &amp; Peer Control</h2>
-<p>Run the presenter from your phone; let students push content from theirs</p>
+<h2>Works with Chameleon Classroom</h2>
+<p>The two apps share a file format and a player</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Android mobile bridge</h4>
-<p>The Chameleon mobile bridge (WebSocket) relays theatre commands from any Android device. Control <strong>stack_next / prev / play / pause / stop</strong>, push image or text slots into a stack, and see stack state broadcast in real time.</p>
+<h4>Same import engine</h4>
+<p>The <span class="fmt">.edb</span> and <span class="fmt">.xopp</span> import works identically in Chameleon Classroom, so lesson material moves between the two apps unchanged.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Peer submissions</h4>
-<p>Students push images or text to a Stage-mode stack from their phones. Submissions appear in the thumbnail strip with an orange pulsing border. The presenter can <strong>approve, hold, reject or promote</strong> each one before it goes live on screen.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Shared drawing board</h4>
-<p>Collaborative freehand canvas controllable from the mobile bridge — <strong>draw_stroke / clear / undo</strong>. Ideal for annotating slides, brainstorming or live quizzes.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Smart animation workflow</h4>
-<p>Right-click any object, pick <strong>Enter Left</strong> (or any directional preset), and the app enters pick-target mode instantly — one click sets where the object travels to. Recording a freehand motion path automatically stamps start and end cues onto the timeline.</p>
+<h4>Built-in player</h4>
+<p>Classroom runs Kameleon Presenter in its lower panel in play-only mode — present a <span class="fmt">.kpt</span> deck inside a live lesson without leaving the classroom.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>ADB phone mirror &amp; PPT capture</h4>
-<p><strong>ADBPhoneBox</strong> streams a live Android screen directly onto the stage via ADB. <strong>PPTMirrorBox</strong> captures a PowerPoint window — present your existing decks inside Kameleon without conversion.</p>
-<p><strong>🕐 ADB timeline cues</strong> — right-click any ADB actor → <em>Add Cue to Timeline…</em> to stamp <strong>Restart Stream</strong>, <strong>Open URL</strong>, or <strong>Launch App</strong> (by package name) cues at precise playhead positions. Cues fire during both spacebar-paced and auto-timeline playback.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>Startup &amp; settings</h4>
-<p>Choose whether Kameleon opens with the <strong>last project loaded</strong> or a <strong>blank stage</strong> via the Settings → On Startup menu. The preference is saved to <code>~/.chameleon/kameleon_settings.json</code> and respected every launch.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>25-language interface</h4>
-<p>Open <strong>Settings → 🌐 Language</strong> to switch the Kameleon Presenter UI into any of 25 languages — including French, German, Spanish, Arabic, Chinese, Japanese, Korean, Russian, Welsh, Thai, and more. All menus update instantly with <strong>no restart</strong>. Translations are fetched in the background on first use; switching is instant once cached.</p>
+<h4>An AI in the lesson chat</h4>
+<p>Classroom adds an AI chat participant you address like any other student. A <strong>Send to AI</strong> button on both the desktop and Android apps brings it into the conversation whenever you want it.</p>
 </div>
 </div>
 </div>
@@ -270,19 +150,20 @@ Your browser does not support HTML5 video.
 <p>Kameleon Presenter — captured live</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="presenter-assets/1-presenter.png"/><div class="sg-cap">Screen 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="presenter-assets/2-presenter.png"/><div class="sg-cap">Screen 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="presenter-assets/3-presenter.png"/><div class="sg-cap">Screen 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="presenter-assets/4-presenter.png"/><div class="sg-cap">Screen 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="presenter-assets/5-presenter.png"/><div class="sg-cap">Screen 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="presenter-assets/6-presenter.png"/><div class="sg-cap">Screen 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="presenter-assets/7-presenter.png"/><div class="sg-cap">Screen 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Bring your presentations to life</h3>
-<p>Contact us to discuss a licence or arrange a live demonstration of Kameleon Presenter.</p>
-<a class="btn btn-solid" href="contact.html">Request a demo</a>
-<a class="btn" href="docs/Kameleon_Presenter_User_Guide.pdf" download>📄 Download User Guide (PDF)</a>
+<h3>Try Kameleon Presenter</h3>
+<p>Sold as a one-time desktop licence for Linux, Windows and macOS. <strong>The final price is being set now</strong> — book a demo and we will send it with a launch date.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="contact.html">Book a demo</a>
+<a class="btn" download="" href="docs/Kameleon_Presenter_User_Guide.pdf">📄 Download the User Guide (PDF)</a>
 <a class="btn" href="index.html">← Back to overview</a>
 </div>
 </div>
@@ -292,7 +173,7 @@ Your browser does not support HTML5 video.
 <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
 <a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

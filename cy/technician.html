@@ -3,36 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Technegydd PC AI — Chameleon AI</title>
+<title>Technegydd PC — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .path-card {
-      border-radius: var(--radius); padding: 1.5rem;
-      border: 2px solid; box-shadow: var(--shadow);
-      background: white;
-    }
-    .path-a { border-color: #22c55e; }
-    .path-b { border-color: #3b82f6; }
-    .path-c { border-color: #f59e0b; }
-    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-    .path-a .path-label { color: #22c55e; }
-    .path-b .path-label { color: #3b82f6; }
-    .path-c .path-label { color: #f59e0b; }
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card { border-radius: var(--radius); padding: 1.5rem; border: 2px solid; box-shadow: var(--shadow); background: var(--card-bg); }
+    .path-a { border-color: #22c55e; } .path-b { border-color: #3b82f6; } .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.1rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #16a34a; } .path-b .path-label { color: #2563eb; } .path-c .path-label { color: #d97706; }
     .path-card h4 { margin-bottom: .4rem; color: var(--text); }
     .path-card p { color: var(--muted); font-size: .9rem; }
-    .terminal-block {
-      background: #0f0f1a; border-radius: var(--radius);
-      padding: 1.5rem; font-family: 'Courier New', monospace;
-      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
-      box-shadow: var(--shadow-lg); overflow-x: auto;
-    }
-    .terminal-block .cmd { color: #67e8f9; }
-    .terminal-block .out { color: #86efac; }
-    .terminal-block .comment { color: #6b7280; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Mae Technegydd AI PC wrthi'n cael ei ddatblygu, ac mae wedi'i adeiladu ar gyfer pobl sy'n gyfforddus ar linell orchymyn Linux. Mae prisiau ac argaeledd yn dal i gael eu cwblhau - <a href="../contact.html">Archebu demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
@@ -52,121 +40,78 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>Technegydd PC AI</h1>
-<p class="sub">Diagnosis ac atgyweirio system dan arweiniad AI - ynghyd â phroffilio dyfais USB sy'n gwrthdroi protocolau caledwedd ac yn cynhyrchu gyrwyr cnewyllyn Linux yn awtomatig.</p>
+<h1>Technegydd PC</h1>
+<p class="sub">AI sy'n gwneud diagnosis ac yn atgyweirio system Linux un cam ar y tro - a phroffilydd USB sy'n gweithio allan protocol dyfais anhysbys ac yn ysgrifennu gyrrwr atoch.</p>
 <div class="hero-badges">
-<span class="badge">🔬 Proffilio caledwedd</span>
-<span class="badge">🐧 Cynhyrchu modiwl cnewyllyn</span>
-<span class="badge">🌐 Pell trwy Tailscale</span>
-<span class="badge">⚡ ARM traws-grynhoi</span>
+<span class="badge">🔬 Yn proffilio caledwedd USB anhysbys</span>
+<span class="badge">🐧 Yn cynhyrchu gyrrwr Linux</span>
+<span class="badge">🩺 Yn gwneud diagnosis cyn iddo gyffwrdd ag unrhyw beth</span>
+<span class="badge">🌐 Atgyweirio peiriannau dros Tailscale</span>
+<span class="badge">🥧 Traws-gasglu ar gyfer Raspberry Pi</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Atgyweirio System dan Arweiniad AI</h2>
-<p>Mae'r AI yn dilyn protocol llawfeddygol strwythuredig - diagnosis cyn cyffwrdd, gwiriwch ar bob cam</p>
+<h2>Atgyweiriad dan arweiniad AI</h2>
+<p>Protocol sefydlog - diagnosis cyn cyffwrdd, gwiriwch bob cam</p>
 </div>
-<div class="terminal-block">
-<span class="comment">Dilyniant diagnosis # Chameleon AI</span>
-<span class="cmd">$lsusb -v | pen -80</span>
-<span class="out">Dyfais Bws 002 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$dmsg | cynffon -30</span>
-<span class="out">[12.445] r8152 2-1:1.0 eth1: ailenwyd o eth0</span>
-<span class="cmd">$lsmod | grep r8152</span>
-<span class="out">r8152 94208 0</span>
-<span class="cmd">$ modinfo r8152 | fersiwn grep</span>
-<span class="out">fersiwn: v1.12.13</span>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🩺</div>
+<h3>Diagnosis yn gyntaf, cyffwrdd yn ddiweddarach</h3>
+<p>Mae'r AI yn gweithio trwy drefn benodol - caledwedd, cnewyllyn, gyrwyr, rhwydwaith, storfa - gan redeg un siec ar y tro a darllen y canlyniad cyn penderfynu ar y symudiad nesaf. Nid yw'n hepgor camau nac yn gwneud rhagdybiaethau.</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🔍</div>
-<div class="strip-body">
-<h4>Dilyniant diagnosis strwythuredig</h4>
-<p>Caledwedd → cyflwr cnewyllyn → statws gyrrwr → rhwydwaith → storio. Mae'r AI yn rhedeg pob cam, yn darllen canlyniad JSON, yna'n penderfynu ar y cam nesaf. Nid yw byth yn hepgor camau nac yn gwneud rhagdybiaethau.</p>
+<div class="card">
+<div class="card-icon">🔧</div>
+<h3>Atgyweiriad lleiaf peryglus yn gyntaf</h3>
+<p>Ail-lwythwch fodiwl neu ailgychwyn gwasanaeth cyn unrhyw beth mwy peryglus. Cipluniwch y ffurfweddiad cyn newid a allai frathu. Cadarnhewch ei fod wedi gweithio ar ôl pob cam.</p>
 </div>
+<div class="card">
+<div class="card-icon">⏱️</div>
+<h3>Wedi goroesi ailgychwyn</h3>
+<p>Mae unrhyw atgyweiriad y mae angen ei ailgychwyn yn gosod sgript ailddechrau yn gyntaf, felly mae'r AI yn codi'n union lle y gadawodd pan ddaw'r peiriant yn ôl.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🏥</div>
-<div class="strip-body">
-<h4>Protocol atgyweirio llawfeddygol</h4>
-<p>Annistrywiol yn gyntaf (ail-lwytho modiwl, ailgychwyn gwasanaeth). Parhewch cyn risg (cyfluniad ciplun). Dilyswch ar bob cam. Mae pob gweithred sy'n gofyn am ailgychwyn yn sbarduno Dead Man's Switch sy'n gosod a <code>@reboot</code> ailddechrau sgript yn awtomatig.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Atgyweirio o bell dros Tailscale</h4>
-<p>Diagnosio a thrwsio peiriannau unrhyw le ar eich rhwyll Tailscale. Mae'r AI yn cyhoeddi gorchmynion ar y peiriant anghysbell trwy'r bont derfynell, yn darllen canlyniadau ac yn parhau - hyd yn oed ar draws ailgychwyn gan ddefnyddio'r system pwynt gwirio / ailddechrau.</p>
-</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Trwsiwch beiriannau nad ydych yn eistedd ynddynt</h3>
+<p>Diagnosio a thrwsio unrhyw beth ar eich rhwydwaith Tailscale. Mae'r AI yn rhedeg gorchmynion ar y peiriant anghysbell, yn darllen y canlyniadau ac yn parhau - ar draws yr ailgychwyniadau sydd wedi'u cynnwys.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Porthor Gyrrwr USB</h2>
-<p>Proffiliwch unrhyw ddyfais USB → dadansoddwch ei phrotocol → cynhyrchwch yrrwr Linux parod i'w osod</p>
+<p>Plygiwch ddyfais anhysbys i mewn → dal sut mae'n siarad → cael gyrrwr Linux</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔬</div>
+<div class="strip-body">
+<h4>Proffil 30 eiliad</h4>
+<p>Plygiwch y ddyfais i mewn a rhedwch gipio byr. Mae'r proffiliwr yn cofnodi sut mae'n cyfathrebu mewn gwirionedd - mae'r proffil hwnnw'n gyrru popeth sy'n dilyn. Yna mae'n dewis un o dri llwybr, yn seiliedig ar ba mor arferol y mae'r ddyfais yn troi allan i fod:</p>
+</div>
+</div>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
-<div class="path-label">Llwybr A</div>
-<h4>Protocolau safonol</h4>
-<p>Heb ganfod tudalennau gwerthwr. Yn cynhyrchu rheolau udev + modprobe config. <strong>Dim angen casglu.</strong> Yn gweithio gyda HID, CDC, storio torfol a dosbarthiadau safonol eraill.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+<div class="path-label">Safonol</div>
+<h4>Dosbarth dyfais hysbys</h4>
+<p>Bysellfyrddau, addaswyr cyfresol, storfa a mathau safonol eraill. Rydych chi'n cael rheolau udev a chyfluniad modprobe - dim byd i'w lunio.</p>
 </div>
 <div class="path-card path-b">
-<div class="path-label">Llwybr B</div>
-<h4>Protocol gwerthwr rhannol</h4>
-<p>Canfod tudalennau'r gwerthwr (≤2). Yn cynhyrchu ellyll gofod defnyddiwr hidraw/uhid neu ategyn ALSA. Yn rhedeg yn y gofod defnyddiwr - nid oes angen llunio cnewyllyn.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">hidraw</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Ategyn ALSA</span></div>
+<div class="path-label">Rhan-arfer</div>
+<h4>Rhywfaint o brotocol sy'n benodol i'r gwerthwr</h4>
+<p>Rydych chi'n cael rhaglen gofod defnyddiwr bach neu ategyn sain sy'n siarad protocol y ddyfais. Yn dal i redeg yn y gofod defnyddiwr - dim adeiladu cnewyllyn.</p>
 </div>
 <div class="path-card path-c">
-<div class="path-label">Llwybr C</div>
-<h4>Protocol perchnogol</h4>
-<p>Protocol wedi'i deilwra'n llawn. Yn cynhyrchu modiwl cnewyllyn cyflawn gyda phecynnu DKMS a chefnogaeth traws-grynhoi ARM ar gyfer Raspberry Pi 3, 4 a 5.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Modiwl cnewyllyn</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">ARM</span></div>
-</div>
-</div>
-<div class="section-title" style="margin-top:2rem;">
-<h2>Llif Gwaith Proffiliwr</h2>
-</div>
-<div class="terminal-block">
-<span class="comment"># Cam 1 - proffiliwch y ddyfais (cipio 30 eiliad)</span>
-<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
-<span class="out">Proffilio USB 1234:5678 ar gyfer 30au...
-Ysgrifennodd ~/.chameleon/drivers/1234_5678/profile.json</span>
-<span class="comment"># Cam 2 - cynhyrchu'r gyrrwr</span>
-<span class="cmd">$python3 device_porter.py --diweddaraf</span>
-<span class="out">Llwybr a ddewiswyd: C (perchnogol, 3 tudalen gwerthwr)
-Wedi'i gynhyrchu: /tmp/driver_1234_5678/
-  ├── chameleon_1234_5678.c
-  ├── Makefile (traws-aarch64, traws-armv7)
-  ├── install.sh
-  ├── test_device.sh
-  └── dadansoddiad.json</span>
-<span class="comment"># Cam 3 - gosod</span>
-<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
-<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
-<span class="out">LLWYDDO - dyfais /dev/chameleon0 yn ymateb yn gywir</span>
-</div>
-<div class="cards">
-<div class="card">
-<div class="card-icon">🖥️</div>
-<h3>Backendau dal traws-lwyfan</h3>
-<p>ETW ar Windows, IOKit ar macOS, usbmon ar Linux. Proffiliwch unrhyw OS a chynhyrchwch yrrwr Linux o'r canlyniad <code>profile.json</code>.</p>
-</div>
-<div class="card">
-<div class="card-icon">🍓</div>
-<h3>Raspberry Pi croes-gasglu</h3>
-<p>Targedau Makefile <code>cross-aarch64</code> (Pi 4/5) a <code>cross-armv7</code> (Pi 3) yn cael eu cynnwys yn awtomatig yn Llwybr C. Adeiladu ar x86 a'i ddefnyddio i ARM.</p>
-</div>
-<div class="card">
-<div class="card-icon">📦</div>
-<h3>Pecynnu DKMS</h3>
-<p>Mae gyrwyr Llwybr C yn cael eu pecynnu ar gyfer DKMS fel eu bod yn goroesi uwchraddio cnewyllyn heb ail-grynhoi â llaw. Mae'r adolygiadau AI <code>analysis.json</code> ac awgrymiadau ar gyfer unrhyw fonion TODO sy'n weddill.</p>
+<div class="path-label">Perchnogol</div>
+<h4>Protocol wedi'i deilwra'n llawn</h4>
+<p>Rydych chi'n cael modiwl cnewyllyn cyflawn, wedi'i becynnu gan DKMS fel ei fod yn goroesi diweddariadau cnewyllyn, ac wedi'i groes-grynhoi ar gyfer Raspberry Pi 3, 4 a 5.</p>
 </div>
 </div>
 <div class="cta-band">
-<h3>Trwsiwch yr unfixable</h3>
-<p>P'un a yw'n banig cnewyllyn, dyfais USB marw neu ymylol perchnogol heb unrhyw gefnogaeth Linux - mae Technegydd PC Chameleon AI wedi eich gorchuddio.</p>
-<a class="btn btn-solid" href="../contact.html">Cysylltwch</a>
+<h3>Rhowch gynnig ar Dechnegydd PC AI</h3>
+<p>Wedi'i werthu fel trwydded bwrdd gwaith un-amser ar gyfer Linux. <strong>Mae'r pris terfynol yn cael ei osod nawr</strong> — archebu demo ac byddwn yn ei anfon gyda dyddiad lansio.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Archebu demo</a>
 <a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
 </div>
 </div>
@@ -176,7 +121,7 @@ Wedi'i gynhyrchu: /tmp/driver_1234_5678/
 <a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
 <a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Adeiladwyd gan Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Wedi'i adeiladu gan Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

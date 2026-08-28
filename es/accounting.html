@@ -3,29 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contabilidad del Reino Unido: Chameleon AI</title>
+<title>Contabilidad — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .vat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
-    }
-    .vat-code {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow);
-    }
-    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
-    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .ledger-sample {
       background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
-      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
-      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: .8rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0; line-height: 1.7;
     }
     .ledger-sample .dr { color: #f87171; }
     .ledger-sample .cr { color: #4ade80; }
     .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+    .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+    .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Contabilidad Chameleon está en desarrollo activo. Prepara tus cifras — tú o tu contador las presentan. Los precios y la disponibilidad aún se están ultimando — <a href="../contact.html">Reserve una demostración</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleón AI</strong></a>
@@ -45,167 +46,109 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📊</div>
-<h1>Contabilidad del Reino Unido</h1>
-<p class="sub">Contabilidad por partida doble, seguimiento del IVA, pérdidas y ganancias, balance general: todo en un libro de contabilidad SQLite local dirigido a HMRC Making Tax Digital.</p>
+<h1>Contabilidad</h1>
+<p class="sub">Libros de contabilidad por partida doble para una pequeña empresa del Reino Unido: IVA, Pérdidas y Ganancias, Balance general y declaraciones de IVA de Making Tax Digital, en un libro mayor que vive en tu propia máquina.</p>
 <div class="hero-badges">
-<span class="badge">🇬🇧 Plan de cuentas del Reino Unido</span>
-<span class="badge">📋 Listo para MTD</span>
-<span class="badge">🔒SQLite local</span>
-<span class="badge">🤖 Salida JSON analizable por IA</span>
+<span class="badge">Plan contable del Reino Unido 🇬🇧 integrado</span>
+<span class="badge">📋 Formato de declaración de IVA MTD</span>
+<span class="badge">🧾 Facturas del Aviso 700 de HMRC</span>
+<span class="badge">🔒 Archivo local, funciona sin conexión</span>
+<span class="badge">🤖 Pregúntale a la IA sobre tus números</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Libro mayor de doble entrada</h2>
-<p>Cada transacción está equilibrada al centavo: los débitos siempre equivalen a créditos</p>
+<h2>Cada entrada cuadra</h2>
+<p>Entrada doble adecuada: débitos iguales a créditos, hasta el último centavo</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Fecha │ Cuenta │ Débito (£) │ Crédito (£) │ IVA</span>
-────────────┼───────────────────── ─────┼───────────┼────────────┼────
-2026-04-01 │ 4000 Ingresos por ventas │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 Control IVA │ │    <span class="cr">240.00</span>  │
-2026-04-01 │ 1100 Deudores Comerciales │ <span class="dr">1,440.00</span>  │ │
-────────────┼───────────────────── ─────┼───────────┼────────────┼────
-2026-04-05 │ 6100 Gastos de Oficina │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 Control IVA │   <span class="dr">17.00</span>   │ │
-2026-04-05 │ 1200 Banco Corriente │ │    <span class="cr">102.00</span>  │
-  </div>
+<span class="hd">Fecha Cuenta Débito (£) Crédito (£) IVA</span><br/>
+2026-04-01 4000 Ingresos por Ventas                       <span class="cr">1,200.00</span>   Serie S20<br/>
+2026-04-01 2200 Control de IVA                           <span class="cr">240.00</span><br/>
+2026-04-01 1100 Deudores Comerciales          <span class="dr">1,440.00</span><br/>
+<br/>
+2026-04-05 6100 Gastos de Oficina          <span class="dr">85.00</span>                Serie S20<br/>
+2026-04-05 2200 Control de IVA              <span class="dr">17.00</span><br/>
+2026-04-05 1200 Banco Corriente                          <span class="cr">102.00</span>
+</div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
-<h3>Plan de cuentas del Reino Unido</h3>
-<p>Códigos de cuenta estándar del Reino Unido listos para usar: activos, pasivos, capital, ingresos y gastos asignados a las categorías HMRC. Amplíe con cuentas personalizadas según sea necesario.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗄️</div>
-<h3>Libro mayor de SQLite</h3>
-<p>Todos los datos almacenados en <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Se ejecuta completamente sin conexión. Soporte para múltiples empresas: cambie entre entidades con un indicador de comando.</p>
-</div>
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>año fiscal del Reino Unido</h3>
-<p>Fin de año configurado correctamente el 5 de abril (año fiscal del Reino Unido del 6 al 5 de abril). Los informes de pérdidas y ganancias y de IVA abarcan automáticamente el período correcto sin ajuste manual de fecha.</p>
+<h3>Plan contable del Reino Unido, listo para usar</h3>
+<p>Códigos de cuenta estándar del Reino Unido incluidos de serie, asignados a las categorías de HMRC: activos, pasivos, patrimonio, ingresos y gastos. Añade tus propias cuentas cuando las necesites.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
-<h3>Escaneo de anomalías forenses</h3>
-<p>Correr <code>--forensic</code> para detectar asientos desequilibrados, referencias duplicadas, desfases de IVA y otras irregularidades. Resultados impresos como JSON estructurado para revisión de IA.</p>
+<h3>Verifica su propio funcionamiento</h3>
+<p>Un análisis forense señala cualquier cosa que no cuadre — asientos desbalanceados, referencias duplicadas, discrepancias de IVA — antes de que llegue a un informe.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Conoce el año fiscal del Reino Unido</h3>
+<p>El fin de año es del 6 de abril al 5 de abril. Los informes de pérdidas y ganancias y del IVA cubren el período correcto automáticamente, sin necesidad de disputas manuales sobre las fechas.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Declaraciones de IVA en formato MTD</h3>
+<p>El resumen del IVA aparece cuadro por cuadro en el formato HMRC Making Tax Digital: Cuadro 1, impuesto repercutido, Cuadro 4, impuesto soportado, Cuadro 6, ventas netas, Cuadro 7, compras netas.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Los informes que realmente presenta</h3>
+<p>Pérdidas y ganancias, balance general, resumen de declaración de IVA, cada uno desglosado por código de cuenta. El balance también confirma que los libros están completos: los activos son iguales a los pasivos más el capital.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Facturas que pasan</h3>
+<p>Cada factura incluye todos los campos que exige el Aviso 700 del HMRC: número secuencial, ambos números de IVA, fechas de factura y suministro, líneas detalladas con IVA por línea, subtotales netos y de IVA. Imprímela, guárdala en PDF o envíala a tu teléfono. Configura los datos de tu empresa una sola vez.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Tus libros siguen siendo tuyos</h3>
+<p>Todo el libro mayor es un único archivo en su computadora. Funciona sin internet. Dirige varias empresas una al lado de la otra y cambia entre ellas con una sola bandera.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Salida legible por IA</h3>
-<p>Todos los informes generan JSON estructurado en la salida estándar para que Chameleon AI pueda analizar, resumir y asesorar sobre su situación financiera en lenguaje natural.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>Puente WebSocket</h3>
-<p>El puente WebSocket contable (<code>acct_ws_bridge.py</code>) expone las consultas del libro mayor al complemento móvil y a los paneles externos a través de su red Tailscale.</p>
+<h3>Pregunta sobre tu posición</h3>
+<p>Cada informe también sale como datos estructurados que el Chameleon AI puede leer — así que puedes preguntar, en inglés sencillo, cómo se ve el trimestre o a dónde fue el IVA.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Códigos de IVA admitidos</h2>
+<h2>Códigos de IVA</h2>
+<p>Las tarifas que necesita una pequeña empresa en el Reino Unido</p>
 </div>
 <div class="vat-grid">
-<div class="vat-code"><div class="vc">S20</div><p>Tarifa estándar 20%</p></div>
+<div class="vat-code"><div class="vc">Serie S20</div><p>Tarifa estándar 20%</p></div>
 <div class="vat-code"><div class="vc">R5</div><p>Tipo reducido 5%</p></div>
 <div class="vat-code"><div class="vc">z</div><p>Calificación cero</p></div>
 <div class="vat-code"><div class="vc">mi</div><p>Eximir</p></div>
 <div class="vat-code"><div class="vc">oh</div><p>Fuera de alcance</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Informes</h2>
+<h2>Los recibos te llegan</h2>
+<p>Desde el teléfono y desde la carretera</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📈</div>
+<div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Ganancias y pérdidas</h4>
-<p>Ingresos vs gastos del periodo. Ventas, costo de bienes, utilidad bruta, gastos operativos, utilidad neta, todo desglosado por código de cuenta. correr con <code>--report pl</code>.</p>
+<h4>Desde la aplicación Companion</h4>
+<p>Fotografía un recibo en el <a href="../companion.html">Compañero Chameleon</a> La aplicación del teléfono y llega al escritorio como un borrador de asiento contable para que lo confirmes.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">⚖️</div>
+<div class="strip-icon">🚛</div>
 <div class="strip-body">
-<h4>Balance</h4>
-<p>Activos, pasivos y patrimonio en un momento dado. Confirma la integridad de la doble entrada: los activos deben ser iguales a los pasivos más el capital. correr con <code>--report bs</code>.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Resumen de devolución de IVA</h4>
-<p>Cifras de IVA caja por caja que coinciden con el formato de declaración de IVA HMRC MTD: Caja 1 (impuesto repercutido), Caja 4 (impuesto soportado), Caja 6 (ventas netas), Caja 7 (compras netas). correr con <code>--report vat</code>.</p>
+<h4>De Logística 4×4</h4>
+<p>Los recibos de combustible y gastos de los conductores fluyen desde el <a href="../logistics4x4.html">Logística 4×4</a> aplicación directamente en el mismo libro mayor.</p>
 </div>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Facturación</h2>
-<p>Facturas que cumplen con el Aviso 700 de HMRC: impresas, guardadas como PDF o enviadas a su teléfono con un solo clic</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Campos de factura compatibles con el Reino Unido</h4>
-<p>Cada factura incluye todos los campos requeridos por el Aviso 700 de HMRC: número de factura secuencial único, nombre y dirección del proveedor, número de registro de IVA, fecha de la factura, fecha de suministro (hora de suministro), nombre y dirección del cliente, número de IVA del cliente cuando corresponda, descripciones de línea detalladas con cantidades y precios unitarios, tasa de IVA por línea, subtotales netos y de IVA, y monto total adeudado. No falta nada, no se adivina nada.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏢</div>
-<div class="strip-body">
-<h4>Configuración de la empresa</h4>
-<p>Abierto <em>Archivo → Facturas → Configuración de la empresa</em> para ingresar el nombre de su empresa registrada, dirección, número de registro mercantil, número de IVA, correo electrónico, teléfono y datos bancarios. Las configuraciones se guardan por base de datos del cliente en <code>company.json</code> junto con el libro mayor y se carga automáticamente cada vez que se generan facturas para ese cliente.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">👥</div>
-<div class="strip-body">
-<h4>Base de datos de contactos de clientes</h4>
-<p>La primera vez que factura a un cliente, su nombre, dirección y número de IVA se guardan en una tabla de contactos dentro del libro mayor. En facturas posteriores, al escribir el nombre del cliente se completan automáticamente sus datos, sin necesidad de volver a ingresarlos. Los contactos son editables en cualquier momento.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🖨️</div>
-<div class="strip-body">
-<h4>Imprimir, PDF y enviar al teléfono</h4>
-<p>Desde el Administrador de Facturas (<em>Archivo → Facturas…</em>) seleccione cualquier factura y elija: <strong>Imprimir</strong> (abre el cuadro de diálogo de impresión del sistema operativo: cualquier impresora o controlador de PDF), <strong>Guardar PDF</strong> (directamente al disco a través de la exportación de PDF incorporada de Qt), o <strong>Enviar al teléfono</strong> (envía el HTML de la factura a la aplicación complementaria donde abre el cuadro de diálogo de impresión de Android: imprima de forma inalámbrica en cualquier AirPrint o impresora cercana).</p>
-</div>
-</div>
-</div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Fecha de suministro</h3>
-<p>Campo separado "Fecha de suministro" (hora de suministro), distinto de la fecha de factura. Requerido por HMRC a efectos del IVA. El valor predeterminado es hoy, pero se puede editar de forma independiente por factura.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Impresión de facturas móviles</h3>
-<p>La aplicación Companion puede imprimir cualquier factura de forma inalámbrica. Toque el ícono de imprimir en cualquier fila de la factura: la aplicación obtiene el HTML del IDE y lo convierte a PDF en el dispositivo a través del <code>printing</code> paquete y abre el cuadro de diálogo de impresión del sistema Android.</p>
-</div>
-<div class="card">
-<div class="card-icon">✅</div>
-<h3>Cumplimiento del Aviso 700 de HMRC</h3>
-<p>Los 12 campos obligatorios para una factura completa con IVA del Reino Unido están presentes y completos. Las líneas de tipo reducido y tipo cero están claramente etiquetadas. La secuencia del número de factura es estrictamente monótona y creciente sin espacios.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Referencia rápida de CLI</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Dominio</th><th>Descripción</th></tr></thead>
-<tbody>
-<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Ganancias y pérdidas del año fiscal actual</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Balance al día de hoy</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Resumen de declaración de IVA (casillas MTD)</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Escaneo de anomalías e integridad</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Referencia de comando completa</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Optimice su contabilidad en el Reino Unido</h3>
-<p>Diseñado específicamente para autónomos y pequeñas empresas que operan según las normas fiscales del Reino Unido.</p>
-<a class="btn btn-solid" href="../contact.html">Ponte en contacto</a>
+<h3>Prueba Chameleon Accounting</h3>
+<p>Vendido como licencia de escritorio de pago único. Prepara tus figuras en formatos HMRC — <strong>usted o su contador los envían</strong>. El precio final se está fijando ahora.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Reserva una demo</a>
 <a class="btn" href="../index.html">← Volver a la descripción general</a>
 </div>
 </div>
@@ -215,7 +158,7 @@
 <a href="../accounting.html">Contabilidad</a><a href="../technician.html">Técnico de PC</a>
 <a href="../classroom.html">Aula</a><a href="../contact.html">Contacto</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construido por Marcos también conocido como stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Construido por Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

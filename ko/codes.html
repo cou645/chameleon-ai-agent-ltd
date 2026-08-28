@@ -188,7 +188,7 @@
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 현장 통신 코드 참조</h1>
-<div class="edition">Logistics 4×4 · 에디션 1 · 2026 · Chameleon AI Technicians Ltd</div>
+<div class="edition">Logistics 4×4 · Edition 1 · 2026 · Chameleon AI Agent Ltd</div>
 <p>데이터 연결이 불가능할 때 사용하기 위한 컴팩트 코드 프로토콜입니다. 국경을 넘거나 외딴 지역에서 활동하는 트럭 운전사, 등산객 및 응급 서비스를 위해 설계되었습니다. 세 가지 사용자 프로필은 공통 경고 및 시스템 용어를 공유하므로 심각하게 성능이 저하된 조건에서도 기관 간 통신이 가능합니다.</p>
 <p style="margin-top:.7rem; font-size:.83rem; color:#94a3b8;">이 참조 자료를 공유하는 것이 좋습니다. 상호 운용성은 코드를 아는 모든 당사자에 따라 달라집니다.</p>
 </div>
@@ -205,7 +205,7 @@
 <div class="code-block">1 1</div>
 <div class="code-annotation">
 <span style="margin-right:1.5rem;">│ </span>
-<span>└─┴── 심각도  11 = 보통 → 99 = 긴급</span>
+<span>└─┴── Severity  11 = nominal → 99 = emergency</span>
 </div>
 <div class="code-annotation" style="margin-top:-.8rem;">
 <span>└────── 카테고리 문자</span>
@@ -266,7 +266,7 @@
 <table class="code-table">
 <thead><tr><th>암호</th><th>의미</th></tr></thead>
 <tbody>
-<tr><td class="code-cell">A11</td><td>공습 경보 신호. 상황은 정상입니다.</td></tr>
+<tr><td class="code-cell">접근성</td><td>공습 경보 신호. 상황은 정상입니다.</td></tr>
 <tr><td class="code-cell">A22</td><td>사소한 사건. 자가 처리.</td></tr>
 <tr><td class="code-cell">A33</td><td>주의. 문제가 발생할 수 있습니다. 모니터링.</td></tr>
 <tr><td class="code-cell">A44</td><td>도움이 필요합니다. 긴급하지 않습니다.</td></tr>
@@ -600,7 +600,7 @@
 <tr><td class="code-cell">W11</td><td>맑고 건조함. 가시성이 좋습니다.</td></tr>
 <tr><td class="code-cell">W22</td><td>가벼운 비 또는 안개.</td></tr>
 <tr><td class="code-cell">W33</td><td>폭우.</td></tr>
-<tr><td class="code-cell">W44</td><td>뇌우 또는 강풍.</td></tr>
+<tr><td class="code-cell">오류</td><td>뇌우 또는 강풍.</td></tr>
 <tr><td class="code-cell">W55</td><td>안개가 끼거나 시야가 좋지 않습니다.</td></tr>
 <tr><td class="code-cell">W66</td><td>홍수. 도로는 젖었지만 통과할 수 있습니다.</td></tr>
 <tr><td class="code-cell">W77</td><td>홍수. 지나갈 수 없는 도로.</td></tr>
@@ -687,7 +687,7 @@
 <tr><td class="code-cell">Y55</td><td>이전 체크인 창을 놓쳤습니다. 이제 보고합니다.</td></tr>
 <tr><td class="code-cell">Y66</td><td>베이스로부터 승인을 요청합니다.</td></tr>
 <tr><td class="code-cell">Y77</td><td>캠프 또는 예정된 중간지점에 안전하게 도착합니다.</td></tr>
-<tr><td class="code-cell">Y88</td><td>내림차순. 트레일헤드로 향하는 마지막 다리.</td></tr>
+<tr><td class="code-cell">와이88</td><td>내림차순. 트레일헤드로 향하는 마지막 다리.</td></tr>
 <tr class="crit"><td class="code-cell">Y99</td><td>여러 번 체크인을 놓쳤습니다. 긴급 경보가 발동되었습니다.</td></tr>
 </tbody></table>
 </div>
@@ -724,15 +724,15 @@
 <div class="section-block">
 <div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">나</div><div class="cat-icon">🔥</div><div class="cat-name">사고 유형</div></div>
 <table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
-<tr><td class="code-cell">I11</td><td>의료 응급 상황. 현장 위험이 없습니다.</td></tr>
+<tr><td class="code-cell">11</td><td>의료 응급 상황. 현장 위험이 없습니다.</td></tr>
 <tr><td class="code-cell">I22</td><td>도로 교통 충돌.</td></tr>
-<tr><td class="code-cell">I33</td><td>수색 및 구조. 실종자.</td></tr>
-<tr><td class="code-cell">I44</td><td>화재 또는 구조적 사고.</td></tr>
+<tr><td class="code-cell">제33화</td><td>수색 및 구조. 실종자.</td></tr>
+<tr><td class="code-cell">44</td><td>화재 또는 구조적 사고.</td></tr>
 <tr><td class="code-cell">I55</td><td>홍수 또는 물 구조.</td></tr>
 <tr><td class="code-cell">I66</td><td>위험 물질 또는 화학 물질 방출.</td></tr>
 <tr><td class="code-cell">I77</td><td>구조적 붕괴.</td></tr>
 <tr><td class="code-cell">I88</td><td>시민 불안, 폭력, 무장 사건.</td></tr>
-<tr class="crit"><td class="code-cell">I99</td><td>중대한 사건이 선언되었습니다.</td></tr>
+<tr class="crit"><td class="code-cell">아이99</td><td>중대한 사건이 선언되었습니다.</td></tr>
 </tbody></table>
 </div>
 <div class="section-block">
@@ -750,7 +750,7 @@
 </tbody></table>
 </div>
 <div class="section-block">
-<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">N</div><div class="cat-icon">👥</div><div class="cat-name">사상자 수</div></div>
+<div class="cat-label"><div class="cat-letter" style="background:#b91c1c;">네</div><div class="cat-icon">👥</div><div class="cat-name">사상자 수</div></div>
 <table class="code-table"><thead><tr><th>암호</th><th>의미</th></tr></thead><tbody>
 <tr><td class="code-cell">N11</td><td>사상자 1명.</td></tr>
 <tr><td class="code-cell">N22</td><td>사상자는 2~5명.</td></tr>
@@ -851,7 +851,7 @@
 </tr>
 </thead>
 <tbody>
-<tr><td>올 클리어 / 노멀</td><td>A11</td><td>A11</td><td>A11</td></tr>
+<tr><td>올 클리어 / 노멀</td><td>접근성</td><td>접근성</td><td>접근성</td></tr>
 <tr><td>긴급한 도움이 필요합니다</td><td>A55 + H44</td><td>A55 + H44</td><td>A55 + H33</td></tr>
 <tr><td>생명 위협 - SOS</td><td>A99 + H99</td><td>A99 + H99</td><td>A99 + H99</td></tr>
 <tr><td>SMS 전용 커뮤니케이션</td><td>K33</td><td>K33</td><td>K33</td></tr>
@@ -870,7 +870,7 @@
 <a class="btn" href="../contact.html">연락하세요</a>
 </div>
 <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem;">
-    © 2026 Chameleon AI Technicians Ltd · Logistics 4×4 Field Communications Protocol · 에디션 1<br/>
+    © 2026 Chameleon AI Agent Ltd · Logistics 4×4 Field Communications Protocol · Edition 1<br/>
     이 참조를 공유하는 것이 권장됩니다. 상호 운용성을 위해서는 공유가 필요합니다.
   </p>
 </div>
@@ -880,7 +880,7 @@
 <a href="../logistics4x4.html">물류 4×4</a>
 <a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · 라이센스 보류 중 · Marcos aka 줄기시 제작</p>
+<p>© 2026 Chameleon AI Agent Ltd · Licensing pending · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

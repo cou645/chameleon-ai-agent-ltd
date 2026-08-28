@@ -3,47 +3,28 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Chameleon AI — Platform Kecerdasan Adaptif</title>
+<title>Chameleon AI — alat desktop AI lokal-pertama</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .feature-nav {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem; margin: 2.5rem 0;
-    }
-    .feature-nav a {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; gap: .5rem;
-      background: white; border-radius: var(--radius);
-      border: 1px solid var(--border); padding: 1.6rem 1rem;
-      text-decoration: none; color: var(--text);
-      box-shadow: var(--shadow);
-      transition: transform .2s, box-shadow .2s;
-    }
+    .feature-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 2.5rem 0; }
+    .feature-nav a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem;
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text); box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
     .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .feature-nav a .fn-icon { font-size: 2.4rem; }
     .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
     .feature-nav a span { color: var(--muted); font-size: .85rem; }
-    .intro-block {
-      background: white; border-radius: var(--radius);
-      border: 1px solid var(--border); padding: 2.5rem;
-      box-shadow: var(--shadow); margin-bottom: 2rem;
-    }
+    .intro-block { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 2.5rem; box-shadow: var(--shadow); margin-bottom: 2rem; }
     .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
     .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
-    .license-row {
-      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
-    }
-    .license-pill {
-      background: #eeeeff; border: 1px solid var(--border);
-      border-radius: 50px; padding: .5rem 1.2rem;
-      font-size: .88rem; color: var(--brand-start); font-weight: 600;
-    }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
-<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
-  ⚠️ PENGUJIAN DALAM PROGRES — Situs ini sedang dalam pengembangan aktif. Fitur, harga, dan lisensi belum diselesaikan. Jangan mengandalkan informasi apa pun yang disajikan di sini.
+<div class="pre-note">
+  Chameleon AI sedang dalam pengembangan aktif. Fitur dan harga yang ditampilkan di sini adalah pekerjaan yang sedang berjalan saat ini, bukan penawaran final — <a href="../contact.html">Pesan demo</a> dan kami akan terus memberi tahu Anda.
 </div>
 <nav>
 <div class="nav-inner">
@@ -64,153 +45,56 @@
 </nav>
 <div class="hero">
 <div class="hero-icon"><img alt="Chameleon AI" src="../icon.png" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"/></div>
-<h1>Platform AI Bunglon</h1>
-<p class="sub">Rangkaian desktop lengkap yang didukung AI — IDE, presenter, akuntansi, ruang kelas, dan banyak lagi. Dibangun untuk pekerja lepas dan usaha kecil.</p>
+<h1>Bunglon AI</h1>
+<p class="sub">Perangkat desktop lokal-pertama dengan AI bawaan — editor kode, studio presentasi, ruang kelas mengajar, akuntansi UK, komunikasi armada, dan lainnya. Data Anda tetap di mesin Anda; kunci AI Anda tetap milik Anda.</p>
 <div class="hero-badges">
 <span class="badge"><span class="pulse"></span> Dikembangkan secara aktif</span>
-<span class="badge">🇮🇧 Bisnis Inggris</span>
-<span class="badge">🔒 Mengutamakan lokal / Mengutamakan privasi</span>
+<span class="badge">🇬🇧 Bisnis Inggris</span>
+<span class="badge">🔒 Lokal-pertama, privasi-pertama</span>
 <span class="badge">🐧 Linux · Windows · macOS</span>
 </div>
 </div>
 <div class="page">
 <div class="intro-block">
-<h2>Satu platform. Tujuh disiplin ilmu.</h2>
-<p>Chameleon AI adalah aplikasi desktop PyQt6 yang dibuat oleh Marcos alias stemsee untuk Chameleon AI Technicians Ltd. Aplikasi ini menggabungkan editor kode AI profesional, sistem presentasi yang terinspirasi teater, akuntansi double-entry Inggris lengkap, ruang kelas video pengajaran bahasa, jaringan P2P, dan banyak lagi — semuanya berjalan secara lokal di mesin Anda tanpa ketergantungan cloud. AI IDE mengintegrasikan Claude Code yang berjalan di terminal (pty) untuk pengeditan kode langsung yang digerakkan oleh AI.</p>
-<p>Penyedia AI dapat ditukar saat runtime: DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot, dan banyak lagi. Kunci tidak pernah meninggalkan perangkat Anda.</p>
-<div class="license-row">
-<span class="license-pill">Perizinan — Menunggu penyelesaian</span>
-<span class="license-pill">Belum tersedia untuk dirilis</span>
-</div>
+<h2>Satu platform, beberapa alat</h2>
+<p>Chameleon AI adalah suite desktop untuk pekerja lepas dan usaha kecil. Setiap alat melakukan pekerjaan nyata — menulis kode, memberi ceramah, mengajar kelas, memelihara pembukuan, mengoordinasikan armada — dan masing-masing memiliki AI yang terintegrasi di tempat yang membantu, bukan ditambahkan untuk pamer.</p>
+<p>Semuanya berjalan di mesin Anda sendiri. Pilih penyedia AI kapan saja — DeepSeek, OpenAI, Anthropic, Groq, Mistral, Kimi — atau jalankan model secara lokal tanpa biaya. Kunci Anda tidak pernah meninggalkan perangkat Anda.</p>
 </div>
 <div class="section-title">
-<h2>Jelajahi Platformnya</h2>
-<p>Klik fitur apa pun untuk mempelajari lebih lanjut</p>
+<h2>Perkakas</h2>
+<p>Klik salah satu untuk melihat fungsinya</p>
 </div>
 <nav class="feature-nav">
-<a href="../ide.html">
-<span class="fn-icon">🧠</span>
-<strong>ANDA PUNYA IDE</strong>
-<span>Editor kode AI multi-penyedia dengan suara, tampilan berbeda &amp; jembatan perintah</span>
-</a>
-<a href="../presenter.html">
-<span class="fn-icon">🎭</span>
-<strong>Pembawa acara Bunglon</strong>
-<span>Slide metafora teater dengan kontrol seluler langsung &amp; gambar kolaboratif</span>
-</a>
-<a href="../companion.html">
-<span class="fn-icon">📱</span>
-<strong>Aplikasi Pendamping</strong>
-<span>Jembatan Android — Obrolan AI, video P2P, remote presenter, file, media &amp; tanda terima</span>
-</a>
-<a href="../logistics4x4.html">
-<span class="fn-icon">🚛</span>
-<strong>Logistik 4×4</strong>
-<span>Komunikasi armada lintas batas — 4 rekan video + 4 penelepon SIM, peta langsung, manifes &amp; 15 bahasa</span>
-</a>
-<a href="../services.html">
-<span class="fn-icon">🌐</span>
-<strong>Layanan Web</strong>
-<span>Pembuat situs web AI, hosting gratis, penyiapan domain, kotak masuk terkelola &amp; SEO</span>
-</a>
-<a href="../accounting.html">
-<span class="fn-icon">📊</span>
-<strong>Akuntansi</strong>
-<span>Buku besar pencatatan ganda Inggris, PPN, P&amp;L, Neraca — Menyiapkan Pajak Digital</span>
-</a>
-<a href="../technician.html">
-<span class="fn-icon">🔧</span>
-<strong>Teknisi AI PC</strong>
-<span>Perbaikan sistem yang dipandu AI, profiler driver USB &amp; generator modul kernel Linux</span>
-</a>
-<a href="../classroom.html">
-<span class="fn-icon">🎓</span>
-<strong>Kelas Bahasa</strong>
-<span>Pengajaran video WebRTC, Tailscale mesh, pembayaran Stripe/Alipay/PayPal</span>
-</a>
-<a href="../contact.html">
-<span class="fn-icon">✉️</span>
-<strong>Kontak &amp; Lisensi</strong>
-<span>Hubungi kami, minta demo, atau beli lisensi komersial</span>
-</a>
+<a href="../ide.html"><span class="fn-icon">🧠</span><strong>ANDA PUNYA IDE</strong><span>Editor kode tempat AI membaca, mengedit, dan menjalankan kode Anda, lalu menampilkan perbedaannya.</span></a>
+<a href="../presenter.html"><span class="fn-icon">🎭</span><strong>Presenter Kameleon</strong><span>Presentasi animasi dengan sumber langsung, dijalankan dari ponsel Anda. Membuka file ClassIn dan Xournal++.</span></a>
+<a href="../companion.html"><span class="fn-icon">📱</span><strong>Aplikasi Pendamping</strong><span>Desktop Anda di ponsel Anda — obrolan AI, file, remote presenter, video grup, tanda terima.</span></a>
+<a href="../logistics4x4.html"><span class="fn-icon">🚛</span><strong>Logistik 4×4</strong><span>Komunikasi armada lintas batas di ponsel biasa — empat rekan video dan empat penelepon dalam satu panggilan, peta langsung, manifes.</span></a>
+<a href="../services.html"><span class="fn-icon">🌐</span><strong>Layanan Web</strong><span>Kami membangun, menghosting, dan merawat situs web Anda untuk Anda — selesai untuk Anda, dengan bantuan AI.</span></a>
+<a href="../accounting.html"><span class="fn-icon">📊</span><strong>Akuntansi</strong><span>Buku pembukuan ganda untuk perusahaan kecil di Inggris — PPN, Laba Rugi, Neraca, pengembalian MTD.</span></a>
+<a href="../technician.html"><span class="fn-icon">🔧</span><strong>Teknisi PC</strong><span>AI yang memperbaiki Linux langkah demi langkah, dan memprofilkan perangkat keras USB yang tidak dikenal menjadi driver.</span></a>
+<a href="../classroom.html"><span class="fn-icon">🎓</span><strong>Kelas</strong><span>Kelas online langsung untuk pengajaran bahasa — video, papan tulis, pemutar slide, peserta AI.</span></a>
+<a href="../contact.html"><span class="fn-icon">✉️</span><strong>Kontak &amp; Lisensi</strong><span>Hubungi kami, minta demo, atau daftarkan minat untuk lisensi.</span></a>
 </nav>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Sorotan Platform</h2>
+<h2>Apa persamaan mereka</h2>
 </div>
 <div class="cards">
-<div class="card">
-<div class="card-icon">🔒</div>
-<h3>Privasi yang mengutamakan lokal</h3>
-<p>Semua data — buku besar, riwayat obrolan, file proyek — ada di dalamnya <code>~/.chameleon/</code> di mesin Anda. Tidak ada yang dikirim ke server pihak ketiga kecuali Anda secara eksplisit memilih penyedia cloud AI.</p>
+<div class="card"><div class="card-icon">🔒</div><h3>Berjalan di mesin Anda</h3><p>File, buku besar, dan riwayat obrolan Anda tersimpan di komputer Anda. Tidak ada yang dikirim ke pihak ketiga kecuali Anda memilih penyedia AI cloud.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>Bawa AI Anda sendiri</h3><p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — sekali klik untuk berpindah. Atau jalankan model secara lokal melalui Ollama atau LM Studio secara gratis.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Pendamping telepon</h3><p>Ngobrol dengan AI, kendalikan presenter, akses file Anda, dan ikuti panggilan video dari ponsel Anda.</p></div>
+<div class="card"><div class="card-icon">🌐</div><h3>Koneksi pribadi</h3><p>Video dan suara langsung terhubung antar perangkat melalui jaringan pribadi Anda sendiri — tanpa layanan di tengah, tanpa tagihan per menit.</p></div>
+<div class="card"><div class="card-icon">🎙️</div><h3>Suara masuk dan keluar</h3><p>Diktekan padanya dan jawaban akan dibacakan kembali — di perangkat, tanpa transkripsi cloud.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux, Windows, macOS</h3><p>Satu codebase, untuk ketiga platform.</p></div>
 </div>
-<div class="card">
-<div class="card-icon">🔄</div>
-<h3>Penyedia AI yang dapat ditukar</h3>
-<p>Beralih antara DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot, dan lainnya dalam satu klik. Jalankan model lokal melalui Ollama atau LM Studio tanpa biaya.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Teman seluler</h3>
-<p>Jembatan Android melalui WebSocket menyampaikan obrolan AI, tangkapan layar, dan unggahan file dari ponsel Anda. Kontrol presenter, picu rekaman, dan setujui kiriman dari jarak jauh.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>Jaring sisik ekor</h3>
-<p>Video dan suara peer-to-peer melalui jaringan Tailscale Anda sendiri. Kelola ACL, otorisasi perangkat, dan kunci langsung dari IDE.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎙️</div>
-<h3>Suara masuk, suara keluar</h3>
-<p>Pidato-ke-teks berbasis bisikan untuk pengkodean hands-free. Piper TTS membacakan respons AI dengan lantang. Mendiktekan kode, dokumentasi, atau pesan secara alami.</p>
-</div>
-<div class="card">
-<div class="card-icon">🐧</div>
-<h3>Lintas platform</h3>
-<p>Berjalan di Linux, Windows dan macOS. Jalur khusus platform, pemutar audio, dan binari TTS diabstraksikan <em>platform_utils.py</em> — satu basis kode di mana saja.</p>
-</div>
-</div>
-<!-- SCREENSHOTS: drop real images in here when ready
-       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Lihat aksinya</h2>
-<p>Tangkapan layar segera hadir</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<div class="screenshot-placeholder">
-<div class="ph-icon">🧠</div>
-<strong>ANDA PUNYA IDE</strong>
-<span>ide-utama.png</span>
-</div>
-<div class="screenshot-caption">AI IDE — panel obrolan, editor kode, tampilan berbeda</div>
-</div>
-<div class="screenshot-frame">
-<div class="screenshot-placeholder">
-<div class="ph-icon">🎭</div>
-<strong>Pembawa acara Bunglon</strong>
-<span>panggung presenter.png</span>
-</div>
-<div class="screenshot-caption">Kameleon Presenter — panggung dengan kiriman siswa secara langsung</div>
-</div>
-<div class="screenshot-frame phone">
-<div class="screenshot-placeholder phone-ratio">
-<div class="ph-icon">📱</div>
-<strong>aplikasi Android</strong>
-<span>pendamping android.png</span>
-</div>
-<div class="screenshot-caption">Pendamping Android — Obrolan AI &amp; presenter jarak jauh</div>
-</div>
-</div>
-<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
-<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ Pemberitahuan &amp; Penafian Hukum</h3>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Situs web ini adalah bagian dari proses pengujian dan pengembangan aktif. Konten dibuat dengan bantuan AI (Claude Code, Anthropic) dan mungkin berisi ketidakakuratan, informasi tidak lengkap, atau teks placeholder. Tidak ada apa pun di situs ini yang merupakan penawaran produk akhir, jaminan, atau komitmen hukum.</p>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Ketentuan perizinan adalah <strong>menunggu finalisasi</strong>. Tidak ada lisensi perangkat lunak — komersial, pribadi, atau lainnya — yang diberikan atau tersirat oleh situs web ini. Jangan membuat keputusan bisnis berdasarkan informasi yang ditampilkan di sini.</p>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 Chameleon AI Technicians Ltd. Semua hak dilindungi undang-undang. Terdaftar di Inggris &amp; Wales. Situs ini disediakan untuk tujuan informasi dan pengujian saja.</p>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.6rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.5rem;">Catatan</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">Situs ini merupakan bagian dari proses pengembangan yang aktif. Sebagian konten bersifat sementara, dan harga serta lisensi belum final. Tidak ada apa pun di sini yang merupakan penawaran produk akhir atau jaminan.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 Chameleon AI Agent Ltd (terdaftar sebagai CHAMELEON-AI-AGENT LTD, Inggris &amp; Wales). Disediakan untuk informasi selama dalam pengembangan.</p>
 </div>
 <div class="cta-band">
-<h3>Tertarik dengan Bunglon?</h3>
-<p>Hubungi kami — produk sedang dalam pengujian dan belum tersedia untuk dirilis.</p>
-<a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
+<h3>Ingin melihat lebih dekat?</h3>
+<p>Alat-alat ini masih dalam tahap pengujian dan belum dirilis secara umum. Pesan demo dan kami akan memberi tahu Anda tentang harga dan peluncurannya.</p>
+<a class="btn btn-solid" href="../contact.html">Pesan demo</a>
 <a class="btn" href="mailto:stemsee@chameleon-ai-agent-ltd.net">stemsee@chameleon-ai-agent-ltd.net</a>
 </div>
 </div>
@@ -224,7 +108,7 @@
 <a href="../classroom.html">Kelas</a>
 <a href="../contact.html">Kontak</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Lisensi tertunda · Dibangun oleh Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Dibuat oleh Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

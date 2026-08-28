@@ -6,36 +6,6 @@
 <title>Presenter Kameleon — Bunglon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,9 +20,18 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter sedang dalam pengembangan aktif. Fitur-fitur di bawah ini adalah yang terkini; harga dan ketersediaan umum masih dalam tahap finalisasi — <a href="../contact.html">Pesan demo</a> dan kami akan terus memberi tahu Anda.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
@@ -72,215 +51,118 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Pembawa acara Bunglon</h1>
-<p class="sub">Sebuah sistem presentasi yang terinspirasi dari teater di mana slide Anda adalah sebuah Panggung, blok konten Anda adalah Aktor dan transisi adalah Isyarat — semuanya dapat dikontrol dari telepon.</p>
+<h1>Presenter Kameleon</h1>
+<p class="sub">Presentasi yang bergerak. Seret slide, PDF, video, layar ponsel langsung, atau webcam — animasikan apa pun di sepanjang garis waktu, dan jalankan seluruh pertunjukan dari ponsel Anda.</p>
 <div class="hero-badges">
-<span class="badge">🎬 Metafora teater</span>
-<span class="badge">📱 Kontrol seluler</span>
-<span class="badge">✏️ Gambar kolaboratif</span>
-<span class="badge">🖥️ Cermin Android ADB</span>
-<span class="badge">📜 Garis waktu multi-skrip</span>
-<span class="badge">🎯 Target pemilihan yang cerdas</span>
-<span class="badge">✦ Blok panggung AI</span>
-<span class="badge">📰 Ticker horizontal &amp; vertikal</span>
-<span class="badge">🔍 Filter tipe isyarat</span>
-<span class="badge">⇄ Pemutaran ping-pong</span>
-<span class="badge">🖱 Menggosok &amp; memperbesar garis waktu</span>
-<span class="badge">🗂 Menu konteks meja rias</span>
-<span class="badge">📂 Tumpukan dari Folder</span>
-<span class="badge">🕐 Petunjuk garis waktu ADB</span>
-<span class="badge">🌐 UI 25 bahasa</span>
-<span class="badge">⇒ Jalur Panggung &amp; POPI</span>
+<span class="badge">🎬 Animasi linimasa</span>
+<span class="badge">📱 Remote telepon, tanpa pengaturan</span>
+<span class="badge">🖇 Membuka file ClassIn &amp; Xournal++</span>
+<span class="badge">🙋 Kiriman langsung dari penonton</span>
+<span class="badge">🤖 Arah panggung AI opsional</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Lihat aksinya</h2>
-<p>Demo langsung Kameleon Presenter — tahapan, tumpukan, isyarat, dan kontrol seluler</p>
+<h2>Lihat ia berjalan</h2>
+<p>Dalam rekaman ini, AI mengambil kursi sutradara — menganimasikan objek dan mengganti tata letak secara langsung, tanpa ada orang di keyboard. Setiap kontrol yang digunakannya, dapat Anda kendalikan sendiri dari aplikasi atau ponsel Anda.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
 Browser Anda tidak mendukung video HTML5.
 </video>
 </div>
 <div class="section-title">
-<h2>Model Teater</h2>
-<p>Presentasi dibangun seperti produksi panggung — objek memiliki pintu masuk, keluar, dan isyarat</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Objek KameleonStack di atas panggung</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Tumpukan Konten — slide kuliah</div>
-<div class="stage-obj obj-stage">🟡 Tahap Stack - kiriman siswa</div>
-<div class="stage-obj obj-misc">🖼️ Kotak Gambar</div>
-<div class="stage-obj obj-misc">📄 Kotak PDF</div>
-<div class="stage-obj obj-misc">📱 Cermin Telepon ADB</div>
-<div class="stage-obj obj-misc">🖥️ Cermin PPT</div>
-<div class="stage-obj obj-misc">✏️ Papan Gambar</div>
-<div class="stage-obj obj-misc">🎬 Kotak Video</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      Batas putih = aktif · Pulsa oranye = menunggu pengiriman rekan · Hijau = tumpukan konten · Kuning = tumpukan tahap
-    </div>
+<h2>Yang bisa Anda lakukan dengannya</h2>
+<p>Tahap yang Anda susun, bukan tumpukan slide datar</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>Wadah konten universal. Setiap tumpukan menampung banyak slot (gambar, teks, PDF, video, HTML). Dua mode:</p>
-<ul>
-<li><strong style="color:#22c55e">Isi</strong> — slide yang dikendalikan guru</li>
-<li><strong style="color:#eab308">Panggung</strong> — menerima kiriman yang didorong oleh rekan sejawat</li>
-</ul>
-<p><strong>📂 Tumpukan dari Folder</strong> — pilih direktori file yang diberi awalan numerik (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) dan Kameleon membuat tumpukan yang diketik sepenuhnya dalam satu klik. Gambar, video, PDF, teks biasa, dan HTML semuanya didukung.</p>
+<div class="card-icon">🗂️</div>
+<h3>Letakkan apa pun di slide</h3>
+<p>Gambar, teks, PDF, video, halaman web langsung, layar ponsel Android yang dicerminkan, umpan webcam, papan gambar bersama. Masing-masing adalah objek yang dapat Anda tempatkan, ubah ukuran, dan pindahkan sendiri — atur layar sesuai keinginan Anda.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Sistem animasi</h3>
-<p>Animasi masuk/keluar per objek dengan jalur gerakan tangan bebas. Pilih preset arah dan aplikasi segera memasuki mode pilih target — satu gerakan akan menetapkan jenis animasi dan tujuan. Jalur menggunakan pemulusan Douglas-Peucker + Catmull-Rom.</p>
-<p><strong>Animasi panggung</strong> memindahkan objek saat sudah ada di layar. Klik kanan objek apa pun di panggung → <strong>⇒ Animasi Panggung</strong> untuk merekam jalur panggung secara bebas atau memilih a <strong>BONEKA</strong> Target (Pop-Out Pop-In): objek berskala ke nol, berteleportasi, lalu muncul kembali di posisi baru.</p>
+<h3>Animasi sepanjang garis waktu</h3>
+<p>Beri objek apa pun pintu masuk, pintu keluar, atau jalur gerak gambar tangan. Isyarat bernomor memajukan pertunjukan selangkah demi selangkah. Satu klik menyediakan rencana waktu siap pakai untuk presentasi 5 menit, kuliah 50 menit, atau lokakarya 90 menit.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Panel meja rias</h3>
-<p>Area penyimpanan di luar panggung — membuat objek di lemari, pratinjau di panggung dengan klik dua kali. Objek yang dipindahkan dari panggung dengan tombol Hapus muncul kembali di Lemari secara otomatis.</p>
-<p><strong>Klik kanan item lemari mana pun</strong> untuk menu konteks: <strong>👁 Pratinjau</strong> (tempatkan di tengah panggung, tanpa animasi — untuk pemeriksaan ukuran; posisi asli dikembalikan saat kembali sehingga pemutaran tidak terpengaruh), <strong>⧉ Duplikat</strong>, <strong>◈ Cadangan</strong> (slot penahan menjadi abu-abu), atau <strong>✕ Hapus</strong>. Objek dengan animasi panggung menampilkan a <strong>⇒</strong> akhiran dalam daftar.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Isyarat bernomor</h3>
-<p>Titik pemicu memajukan presentasi selangkah demi selangkah, sama seperti isyarat pencahayaan teater. Setiap isyarat dapat menganimasikan objek masuk atau keluar, mengganti slot tumpukan, atau menjalankan urutan waktu.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>Blok Panggung AI</h3>
-<p>Lukis pita animasi generatif langsung di garis waktu — dijadwalkan untuk jeda atau interval. Selama suatu <strong>Blok Panggung AI</strong>, objek di atas panggung membuat koreografinya sendiri secara otomatis dalam salah satu dari empat pola: <strong>orbit</strong>, <strong>ular</strong>, <strong>penyimpangan acak</strong>, atau <strong>sorotan fokus</strong>. Objek kembali ke posisi semula ketika blok berakhir.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>Objek ticker</h3>
-<p>Menggulir ticker teks ke dalam <strong>horisontal</strong> (kanan → kiri) dan <strong>vertikal</strong> orientasi (bawah → atas). Hingga 8 ticker dapat dijalankan secara bersamaan — ideal untuk strip berita terkini, pengingat agenda, atau panel info acara. Kecepatan dan teks dapat diedit secara langsung.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>Filter tipe isyarat</h3>
-<p>Bilah filter ringkas berada di antara kontrol dan penggaris dengan satu tombol pengalih per jenis objek: <strong>Txt · Gambar · ADB · PPT · PDF · Gambar · Centang · Sambung · Tumpukan</strong>. Klik kombinasi apa pun untuk mengisolasi isyarat tersebut saja — semua isyarat lainnya disembunyikan. Warna biru samar pada penggaris mengingatkan Anda bahwa filter sedang aktif. Klik <strong>✕ Semua</strong> untuk mengembalikan tampilan penuh secara instan.</p>
-<p>Itu <strong>⬛ Pratinjau</strong> toggle mengambil pemfilteran satu langkah lebih jauh: ketika aktif, pemutaran itu sendiri hanya memicu isyarat untuk jenis yang dipilih — yang lainnya tetap statis di panggung. Playhead berputar <strong>amber</strong> saat pratinjau aktif, sehingga Anda selalu tahu bahwa Anda sedang dalam proses yang difilter. Sempurna untuk melatih satu jenis objek atau memeriksa waktu isyarat ADB tanpa mengganggu presentasi lainnya.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Menggulir playhead</h3>
-<p>Garis playhead merah dipasang di tengah widget garis waktu. Saat pemutaran berlanjut, penggaris akan bergulir ke kiri di bawahnya — isyarat yang akan datang selalu terlihat di sebelah kanan, isyarat yang lalu akan berpindah ke kiri. Arahkan kursor ke tanda panah mana pun untuk melihat popup mengambang besar yang menampilkan label lengkap dan stempel waktunya.</p>
-<p><strong>Roda gulir</strong> menggosok playhead (1 detik per takik). <strong>Ctrl+gulir</strong> memperbesar/memperkecil penggaris (rentang 20–200 px/s), menjaga penggeser zoom tetap sinkron.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>Pemutaran ping-pong</h3>
-<p>Memungkinkan <strong>⇄</strong> untuk membalikkan arah di setiap batas alih-alih memulai kembali. Garis waktu diputar maju hingga akhir, lalu mundur ke awal, lalu maju lagi — tanpa batas. Isyarat menyala mereka <strong>tindakan sebaliknya</strong> pada jalur sebaliknya (enter↔exit). Itu <strong>Animator Generatif</strong> membalikkan arah iramanya sehingga pola orbit, ular, dan fokus menelusuri kembali jalurnya. Playhead berputar <strong>cyan</strong> dengan segitiga ke bawah selama perjalanan mundur. Sandingkan dengan AI Stage Block untuk tampilan waktu istirahat yang menghipnotis.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>Templat garis waktu</h3>
-<p>Terapkan kerangka waktu yang telah dibuat sebelumnya dalam satu klik: <strong>Pembicara Konferensi (20 menit)</strong>, <strong>Kuliah Universitas (50 menit)</strong>, <strong>Lokakarya (90 menit)</strong>, <strong>Pitch Pendek (5 menit)</strong>, atau <strong>Konferensi Setengah Hari (3 jam)</strong>. Templat mengatur ulang waktu isyarat yang ada atau menyusun skrip kosong dengan penanda berlabel.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Garis waktu multi-skrip</h3>
-<p>Satu <code>.kpt</code> tangki tahan hingga <strong>10 skrip bernama</strong> — pengaturan waktu isyarat independen yang berbagi objek panggung yang sama. Beralih skrip akan mengisi ulang timeline secara instan. Sempurna untuk versi lengkap, potongan highlight, dan urutan Tanya Jawab, semuanya dalam satu file.</p>
+<div class="card-icon">🖇️</div>
+<h3>Buka file yang sudah Anda miliki</h3>
+<p>KelasDalam <span class="fmt">.edb</span> papan tulis dan Xournal++ <span class="fmt">.xop</span> catatan — dari desktop atau aplikasi Xournal++ seluler — diimpor langsung: setiap halaman dan goresan menjadi objek yang dapat Anda edit dan animasikan. PowerPoint, Keynote, Word, dan Markdown masuk melalui impor dokumen universal.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>bundel proyek .kpt</h3>
-<p>Proyek disimpan sebagai arsip ZIP (<code>.kpt</code>) berisi semua aset media, data tata letak, konfigurasi animasi, dan semua skrip bernama. Buka di mesin apa pun yang menjalankan Chameleon.</p>
+<h3>Satu file, banyak versi</h3>
+<p>Proyek disimpan sebagai satu file tunggal <span class="fmt">.capt</span> File yang menyimpan semua media Anda plus hingga sepuluh linimasa bernama — ceramah lengkap, potongan sorotan, dan urutan tanya jawab semuanya bisa berada dalam satu file yang Anda kirim melalui email ke rekan kerja.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>Koordinat logis</h3>
-<p>Panggung ini menggunakan ruang koordinat logis 0–10.000 yang tidak bergantung pada resolusi tampilan. Presentasi terlihat sama di layar laptop atau proyektor 4K.</p>
+<div class="card-icon">📱</div>
+<h3>Jalankan acara dari ponsel Anda</h3>
+<p>Aplikasi Kameleon Remote Android menemukan komputer Anda sendiri melalui Wi-Fi atau USB — tidak perlu mengetik apa pun. Anda mendapatkan pratinjau langsung dari apa yang dilihat audiens, sebelumnya / berikutnya, putar / jeda / berhenti, sorotan penunjuk laser, dan kemampuan menggambar langsung di slide langsung.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Biarkan ruangan ikut serta</h3>
+<p>Alihkan slot ke mode audiens dan orang-orang mengirim gambar atau jawaban tertulis dari ponsel mereka masing-masing. Setiap jawaban menunggu di baki — Anda menyetujui, menahan, atau menolaknya sebelum tampil di layar.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Serahkan pada AI — jika kamu mau</h3>
+<p>Tandai bagian-bagian garis waktu sebagai segmen AI: saat jeda, AI dengan lembut mengatur koreografi apa pun yang ada di layar. Atau biarkan ia mengarahkan seluruh presentasi, seperti pada video di atas. Sepenuhnya opsional — aplikasi tetap berfungsi penuh tanpa fitur ini.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Tampil dengan benar di layar mana pun</h3>
+<p>Panggung menyesuaikan skala dengan layar tempat ia ditampilkan, sehingga presentasi yang dibuat di laptop akan terlihat identik di proyektor 4K. Tidak ada perubahan tata letak, tidak ada kejutan di ruangan.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Kontrol Seluler &amp; Rekan</h2>
-<p>Jalankan presenter dari ponsel Anda; biarkan siswa mendorong konten dari konten mereka</p>
+<h2>Berfungsi dengan Chameleon Classroom</h2>
+<p>Kedua aplikasi berbagi format file dan pemutar yang sama</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Jembatan seluler Android</h4>
-<p>Jembatan seluler Chameleon (WebSocket) menyampaikan perintah teater dari perangkat Android apa pun. Kontrol <strong>stack_next / sebelumnya / putar / jeda / hentikan</strong>, dorong slot gambar atau teks ke dalam tumpukan, dan lihat siaran status tumpukan secara real-time.</p>
+<h4>Mesin impor yang sama</h4>
+<p>Itu <span class="fmt">.edb</span> Dan <span class="fmt">.xop</span> Impor bekerja identik di Chameleon Classroom, sehingga materi pelajaran berpindah antara kedua aplikasi tanpa perubahan.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Kiriman rekan</h4>
-<p>Siswa memasukkan gambar atau teks ke tumpukan mode Tahap dari ponsel mereka. Kiriman muncul di strip thumbnail dengan garis tepi oranye yang berkedip-kedip. Pembawa acara bisa <strong>menyetujui, menahan, menolak atau mempromosikan</strong> masing-masing sebelum ditayangkan di layar.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Papan gambar bersama</h4>
-<p>Kanvas tangan bebas kolaboratif yang dapat dikontrol dari jembatan seluler — <strong>draw_stroke / hapus / batalkan</strong>. Ideal untuk membuat anotasi pada slide, bertukar pikiran, atau kuis langsung.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Alur kerja animasi cerdas</h4>
-<p>Klik kanan objek apa pun, pilih <strong>Masuk ke Kiri</strong> (atau preset arah apa pun), dan aplikasi langsung memasuki mode pilih target — satu klik akan menentukan ke mana objek bergerak. Merekam jalur gerakan tangan bebas secara otomatis menandai isyarat awal dan akhir pada timeline.</p>
+<h4>Pemutar bawaan</h4>
+<p>Kelas menjalankan Kameleon Presenter di panel bawahnya dalam mode hanya-tayang — presentasikan <span class="fmt">.capt</span> dek di dalam pelajaran langsung tanpa meninggalkan ruang kelas.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Cermin telepon ADB &amp; pengambilan PPT</h4>
-<p><strong>Kotak Telepon ADB</strong> mengalirkan layar Android langsung langsung ke panggung melalui ADB. <strong>Kotak Cermin PPT</strong> menangkap jendela PowerPoint — menampilkan deck Anda yang ada di dalam Kameleon tanpa konversi.</p>
-<p><strong>🕐 Petunjuk garis waktu ADB</strong> — right-click any ADB actor → <em>Tambahkan Isyarat ke Timeline…</em> untuk mencap <strong>Mulai ulang Aliran</strong>, <strong>Buka URL</strong>, atau <strong>Luncurkan Aplikasi</strong> (berdasarkan nama paket) memberi isyarat pada posisi playhead yang tepat. Isyarat menyala selama pemutaran dengan kecepatan spasi dan garis waktu otomatis.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>Permulaan &amp; pengaturan</h4>
-<p>Pilih apakah Kameleon dibuka dengan <strong>proyek terakhir dimuat</strong> atau a <strong>panggung kosong</strong> melalui menu Pengaturan → Pada Startup. Preferensi disimpan ke <code>~/.chameleon/kameleon_settings.json</code> dan menghormati setiap peluncuran.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Antarmuka 25 bahasa</h4>
-<p>Membuka <strong>Pengaturan → 🌐 Bahasa</strong> untuk mengalihkan UI Kameleon Presenter ke salah satu dari 25 bahasa — termasuk Prancis, Jerman, Spanyol, Arab, China, Jepang, Korea, Rusia, Welsh, Thailand, dan banyak lagi. Semua menu diperbarui secara instan dengan <strong>tidak ada restart</strong>. Terjemahan diambil di latar belakang saat pertama kali digunakan; peralihan terjadi secara instan setelah di-cache.</p>
+<h4>AI dalam obrolan pelajaran</h4>
+<p>Classroom menambahkan peserta obrolan AI yang Anda sapa seperti siswa lainnya. Sebuah <strong>Kirim ke AI</strong> Tombol di aplikasi desktop dan Android membawanya ke dalam percakapan kapan pun Anda menginginkannya.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>Tangkapan layar</h2>
+<p>Kameleon Presenter — ditangkap langsung</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">Layar 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">Layar 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">Layar 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">Layar 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">Layar 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">Layar 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">Layar 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Hidupkan presentasi Anda</h3>
-<p>Hubungi kami untuk mendiskusikan lisensi atau mengatur demonstrasi langsung Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">Minta demo</a>
+<h3>Coba Kameleon Presenter</h3>
+<p>Dijual sebagai lisensi desktop sekali bayar untuk Linux, Windows, dan macOS. <strong>Harga akhir sedang ditetapkan sekarang</strong> — pesan demo dan kami akan mengirimkannya dengan tanggal peluncuran.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Pesan demo</a>
 <a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Unduh Panduan Pengguna (PDF)</a>
 <a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
 </div>
@@ -291,7 +173,7 @@ Browser Anda tidak mendukung video HTML5.
 <a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
 <a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Dibuat oleh Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

@@ -6,36 +6,6 @@
 <title>कैमेलियन प्रस्तुतकर्ता - गिरगिट एआई</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,248 +20,160 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  कामेलियन प्रेजेंटर सक्रिय विकास में है। नीचे दी गई सुविधाएँ वर्तमान हैं; मूल्य निर्धारण और सामान्य उपलब्धता अभी भी अंतिम रूप दी जा रही हैं — <a href="../contact.html">डेमो बुक करें</a> और हम आपको अपडेट करते रहेंगे।
+</div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>गिरगिट ए.आई</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>कैमेलियन एआई</strong></a>
 <div class="nav-links">
-<a href="../index.html">u0939u094bu092e</a>
+<a href="../index.html">होम</a>
 <a href="../ide.html">आपके पास विचार हैं</a>
 <a class="active" href="../presenter.html">प्रस्तुतकर्ता</a>
-<a href="../companion.html">सहयोगी ऐप</a>
-<a href="../logistics4x4.html">रसद 4×4</a>
+<a href="../companion.html">साथी ऐप</a>
+<a href="../logistics4x4.html">लॉजिस्टिक्स 4×4</a>
 <a href="../services.html">वेब सेवाएं</a>
 <a href="../accounting.html">u0932u0947u0916u093e</a>
 <a href="../technician.html">पीसी तकनीशियन</a>
-<a href="../classroom.html">u0915u0915u094du0937u093e</a>
+<a href="../classroom.html">कक्षा</a>
 <a href="../contact.html">संपर्क</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>गिरगिट प्रस्तुतकर्ता</h1>
-<p class="sub">एक थिएटर-प्रेरित प्रेजेंटेशन सिस्टम जहां आपकी स्लाइड्स एक स्टेज हैं, आपके कंटेंट ब्लॉक अभिनेता हैं और ट्रांज़िशन संकेत हैं - सभी को एक फोन से नियंत्रित किया जा सकता है।</p>
+<h1>कामेलियन प्रस्तुतकर्ता</h1>
+<p class="sub">प्रस्तुतियाँ जो हिलती हैं। स्लाइड्स, PDF, वीडियो, लाइव फ़ोन स्क्रीन या वेबकैम डालें — टाइमलाइन पर कुछ भी एनिमेट करें, और पूरा शो अपने फ़ोन से चलाएँ।</p>
 <div class="hero-badges">
-<span class="badge">🎬 रंगमंच रूपक</span>
-<span class="badge">📱 मोबाइल नियंत्रण</span>
-<span class="badge">✏️ सहयोगात्मक ड्राइंग</span>
-<span class="badge">🖥️एंड्रॉइड एडीबी मिरर</span>
-<span class="badge">📜 मल्टी-स्क्रिप्ट टाइमलाइन</span>
-<span class="badge">🎯 स्मार्ट पिक-टारगेट</span>
-<span class="badge">✦ एआई स्टेज ब्लॉक</span>
-<span class="badge">📰 क्षैतिज और ऊर्ध्वाधर टिकर</span>
-<span class="badge">🔍 क्यू प्रकार फ़िल्टर</span>
-<span class="badge">⇄ पिंग-पोंग प्लेबैक</span>
-<span class="badge">🖱 टाइमलाइन स्क्रबिंग और ज़ूम</span>
-<span class="badge">🗂 ड्रेसर संदर्भ मेनू</span>
-<span class="badge">📂फ़ोल्डर से स्टैक</span>
-<span class="badge">🕐एडीबी समयरेखा संकेत</span>
-<span class="badge">🌐 25-भाषा यूआई</span>
-<span class="badge">⇒ Stage Path &amp; POPI</span>
+<span class="badge">🎬 टाइमलाइन एनिमेशन</span>
+<span class="badge">📱 फ़ोन रिमोट, कोई सेटअप नहीं</span>
+<span class="badge">🖇 ClassIn और Xournal++ फ़ाइलें खोलता है</span>
+<span class="badge">🙋 लाइव दर्शकों की प्रस्तुतियाँ</span>
+<span class="badge">🤖 वैकल्पिक AI मंच निर्देशन</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>इसे क्रियान्वित करके देखें</h2>
-<p>कैमेलियन प्रस्तुतकर्ता का एक लाइव डेमो - चरण, ढेर, संकेत और मोबाइल नियंत्रण</p>
+<h2>देखें यह चलता है</h2>
+<p>इस रिकॉर्डिंग में एक AI निर्देशक की भूमिका निभाता है — वस्तुओं को एनिमेट करता है और लेआउट बदलता है, लाइव, और कीबोर्ड पर कोई नहीं होता। यह जो भी नियंत्रण उपयोग करता है, आप उन्हें स्वयं ऐप या अपने फ़ोन से चला सकते हैं।</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
-आपका ब्राउज़र HTML5 वीडियो का समर्थन नहीं करता.
+आपका ब्राउज़र HTML5 वीडियो का समर्थन नहीं करता है।
 </video>
 </div>
 <div class="section-title">
-<h2>थिएटर मॉडल</h2>
-<p>प्रस्तुतियाँ एक स्टेज प्रोडक्शन की तरह निर्मित होती हैं - वस्तुओं में प्रवेश, निकास और संकेत होते हैं</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">मंच पर कैमेलोनस्टैक वस्तुएं</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 सामग्री ढेर - व्याख्यान स्लाइड</div>
-<div class="stage-obj obj-stage">🟡 स्टेज स्टैक - छात्र प्रस्तुतियाँ</div>
-<div class="stage-obj obj-misc">🖼️इमेजबॉक्स</div>
-<div class="stage-obj obj-misc">📄 पीडीएफबॉक्स</div>
-<div class="stage-obj obj-misc">📱एडीबी फोन मिरर</div>
-<div class="stage-obj obj-misc">🖥️ पीपीटी मिरर</div>
-<div class="stage-obj obj-misc">✏️ ड्राइंग बोर्ड</div>
-<div class="stage-obj obj-misc">🎬वीडियोबॉक्स</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      सफ़ेद बॉर्डर = सक्रिय · नारंगी पल्स = लंबित सहकर्मी प्रस्तुतिकरण · हरा = सामग्री स्टैक · पीला = स्टेज स्टैक
-    </div>
+<h2>आप इसके साथ क्या कर सकते हैं</h2>
+<p>एक स्टेज जिसे आप रचते हैं, न कि सपाट स्लाइडों का ढेर</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>कैमेलोनस्टैक</h3>
-<p>सार्वभौमिक सामग्री कंटेनर. प्रत्येक स्टैक में कई स्लॉट (चित्र, पाठ, पीडीएफ, वीडियो, HTML) होते हैं। दो मोड:</p>
-<ul>
-<li><strong style="color:#22c55e">सामग्री</strong> — शिक्षक-नियंत्रित स्लाइड</li>
-<li><strong style="color:#eab308">अवस्था</strong> - सहकर्मी द्वारा प्रेरित प्रस्तुतियाँ स्वीकार करता है</li>
-</ul>
-<p><strong>📂फ़ोल्डर से स्टैक</strong> - संख्यात्मक रूप से उपसर्ग वाली फ़ाइलों की एक निर्देशिका चुनें (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) और कैमेलियन एक क्लिक में पूरी तरह से टाइप किया गया स्टैक बनाता है। छवियाँ, वीडियो, पीडीएफ, सादा पाठ और HTML सभी समर्थित हैं।</p>
+<div class="card-icon">🗂️</div>
+<h3>स्लाइड पर कुछ भी रखें</h3>
+<p>छवियाँ, टेक्स्ट, PDF, वीडियो, लाइव वेब पेज, मिरर किया गया Android फ़ोन स्क्रीन, वेबकैम फ़ीड, साझा ड्रॉइंग बोर्ड। इनमें से हर एक एक ऑब्जेक्ट है जिसे आप अपने हिसाब से रख, आकार बदल और हिला सकते हैं — स्क्रीन को अपनी पसंद के अनुसार व्यवस्थित करें।</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>एनीमेशन प्रणाली</h3>
-<p>मुक्तहस्त गति पथों के साथ प्रति-ऑब्जेक्ट प्रवेश/निकास एनिमेशन। एक दिशात्मक प्रीसेट चुनें और ऐप तुरंत पिक-टारगेट मोड में प्रवेश कर जाता है - एक इशारा एनीमेशन प्रकार और गंतव्य दोनों को सेट करता है। पथ डगलस-प्यूकर + कैटमुल-रोम स्मूथिंग का उपयोग करते हैं।</p>
-<p><strong>स्टेज एनिमेशन</strong> वस्तुओं को तब स्थानांतरित करें जब वे पहले से ही स्क्रीन पर हों। किसी भी ऑन-स्टेज ऑब्जेक्ट पर राइट-क्लिक करें → <strong>⇒ स्टेज एनीमेशन</strong> फ्रीहैंड स्टेज पथ रिकॉर्ड करने या चुनने के लिए <strong>गुड़िया</strong> (पॉप-आउट पॉप-इन) लक्ष्य: ऑब्जेक्ट शून्य पर स्केल करता है, टेलीपोर्ट करता है, फिर नई स्थिति में वापस आ जाता है।</p>
+<h3>टाइमलाइन के साथ एनिमेट करें</h3>
+<p>किसी भी ऑब्जेक्ट को प्रवेश, निकास, या हाथ से बनाया गया गति पथ दें। क्रमांकित संकेत शो को एक-एक बीट आगे बढ़ाते हैं। एक क्लिक 5 मिनट की पिच, 50 मिनट के व्याख्यान या 90 मिनट की कार्यशाला के लिए तैयार समय योजना डाल देता है।</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>ड्रेसर पैनल</h3>
-<p>ऑफ-स्टेज होल्डिंग एरिया - ड्रेसर में ऑब्जेक्ट बनाएं, डबल-क्लिक के साथ स्टेज पर पूर्वावलोकन करें। डिलीट कुंजी के साथ मंच से हटाई गई वस्तुएं ड्रेसर में स्वचालित रूप से फिर से दिखाई देती हैं।</p>
-<p><strong>किसी भी ड्रेसर आइटम पर राइट-क्लिक करें</strong> संदर्भ मेनू के लिए: <strong>👁पूर्वावलोकन</strong> (केंद्र-मंच पर स्थान, कोई एनीमेशन नहीं - आकार निरीक्षण के लिए; वापसी पर मूल स्थिति बहाल हो जाती है ताकि प्लेबैक कभी प्रभावित न हो), <strong>⧉ डुप्लिकेट</strong>, <strong>◈ रिजर्व</strong> (होल्डिंग स्लॉट को ग्रे-आउट करें), या <strong>✕ हटाएं</strong>. स्टेज एनीमेशन वाली वस्तुएं एक दिखाती हैं <strong>⇒</strong> सूची में प्रत्यय.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>क्रमांकित संकेत</h3>
-<p>ट्रिगर पॉइंट नाटकीय प्रकाश संकेतों की तरह, प्रस्तुति को चरण दर चरण आगे बढ़ाते हैं। प्रत्येक क्यू वस्तुओं को अंदर या बाहर चेतन कर सकता है, स्टैक स्लॉट स्विच कर सकता है या समयबद्ध अनुक्रम निष्पादित कर सकता है।</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>एआई स्टेज ब्लॉक</h3>
-<p>जेनरेटिव एनीमेशन बैंड को सीधे टाइमलाइन पर पेंट करें - ब्रेक या अंतराल के लिए निर्धारित। एक के दौरान <strong>एआई स्टेज ब्लॉक</strong>, मंच पर मौजूद वस्तुएं चार पैटर्न में से एक में स्वचालित रूप से खुद को कोरियोग्राफ करती हैं: <strong>कक्षा</strong>, <strong>साँप</strong>, <strong>यादृच्छिक बहाव</strong>, या <strong>फोकस स्पॉटलाइट</strong>. ब्लॉक समाप्त होने पर वस्तुएँ अपनी मूल स्थिति में लौट आती हैं।</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>टिकर ऑब्जेक्ट</h3>
-<p>टेक्स्ट टिकर को अंदर स्क्रॉल करना <strong>क्षैतिज</strong> (दाएँ → बाएँ) और <strong>खड़ा</strong> (नीचे → शीर्ष) झुकाव। अधिकतम 8 टिकर एक साथ चल सकते हैं - ब्रेकिंग-न्यूज़ स्ट्रिप्स, एजेंडा रिमाइंडर, या ईवेंट सूचना पैनल के लिए आदर्श। गति और पाठ लाइव संपादन योग्य हैं।</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>क्यू प्रकार फ़िल्टर</h3>
-<p>एक कॉम्पैक्ट फ़िल्टर बार नियंत्रण और रूलर के बीच प्रत्येक ऑब्जेक्ट प्रकार के लिए एक टॉगल बटन के साथ बैठता है: <strong>Txt · Img · ADB · PPT · PDF · ड्रा · टिक · कॉन · स्टैक</strong>. केवल उन संकेतों को अलग करने के लिए किसी भी संयोजन पर क्लिक करें - अन्य सभी छिपे हुए हैं। रूलर पर हल्का नीला रंग आपको याद दिलाता है कि फ़िल्टर सक्रिय है। क्लिक <strong>✕ सभी</strong> पूर्ण दृश्य को तुरंत पुनर्स्थापित करने के लिए।</p>
-<p>The <strong>⬛ पूर्वावलोकन</strong> टॉगल फ़िल्टरिंग को एक कदम आगे ले जाता है: सक्रिय होने पर, प्लेबैक स्वयं केवल चयनित प्रकारों के लिए संकेत सक्रिय करता है - बाकी सब कुछ मंच पर स्थिर रहता है। प्लेहेड घूम जाता है <strong>अंबर</strong> जबकि पूर्वावलोकन चालू है, इसलिए आप हमेशा जानते हैं कि आप फ़िल्टर किए गए रन में हैं। प्रेजेंटेशन के बाकी हिस्सों को परेशान किए बिना एकल ऑब्जेक्ट प्रकार का पूर्वाभ्यास करने या एडीबी क्यू टाइमिंग की जांच करने के लिए बिल्कुल सही।</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>स्क्रॉलिंग प्लेहेड</h3>
-<p>लाल प्लेहेड लाइन टाइमलाइन विजेट के केंद्र में तय की गई है। जैसे-जैसे प्लेबैक आगे बढ़ता है, रूलर इसके नीचे बाईं ओर स्क्रॉल करता है - आगामी संकेत हमेशा दाईं ओर दिखाई देते हैं, पिछले संकेत बाईं ओर बहते रहते हैं। एक बड़े फ़्लोटिंग पॉपअप के लिए किसी भी क्यू एरोहेड पर होवर करें जो उसका पूरा लेबल और टाइमस्टैम्प दिखाता है।</p>
-<p><strong>स्क्रॉल व्हील</strong> प्लेहेड को स्क्रब करता है (1 सेकंड प्रति नॉच)। <strong>Ctrl+स्क्रॉल</strong> ज़ूम स्लाइडर को सिंक में रखते हुए, रूलर को ज़ूम इन/आउट (20–200 px/s रेंज) करता है।</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>पिंग-पोंग प्लेबैक</h3>
-<p>सक्षम <strong>⇄</strong> पुनः आरंभ करने के बजाय प्रत्येक सीमा पर दिशा उलटने के लिए। समयरेखा आगे से अंत तक, फिर प्रारंभ से पीछे, फिर आगे - अनिश्चित काल तक चलती है। संकेत उनकी आग <strong>विपरीत क्रिया</strong> रिवर्स पास पर (एंटर↔एग्जिट)। <strong>जेनरेटिवएनिमेटर</strong> अपनी धड़कन की दिशा को उलट देता है जिससे कक्षा, साँप और फोकस पैटर्न अपने पथ पर वापस आ जाते हैं। प्लेहेड घूम जाता है <strong>सियान</strong> विपरीत यात्रा के दौरान नीचे की ओर त्रिकोण के साथ। सम्मोहक ब्रेक-टाइम डिस्प्ले के लिए एआई स्टेज ब्लॉक के साथ युग्मित करें।</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>समयरेखा टेम्पलेट्स</h3>
-<p>एक क्लिक में पूर्व-निर्मित टाइमिंग फ़्रेमवर्क लागू करें: <strong>सम्मेलन मुख्य वक्ता (20 मिनट)</strong>, <strong>विश्वविद्यालय व्याख्यान (50 मिनट)</strong>, <strong>कार्यशाला (90 मिनट)</strong>, <strong>शॉर्ट पिच (5 मिनट)</strong>, या <strong>सम्मेलन का आधा दिन (3 घंटे)</strong>. टेम्प्लेट मौजूदा संकेतों को पुनः समयबद्ध करते हैं या लेबल वाले मार्करों के साथ एक खाली स्क्रिप्ट तैयार करते हैं।</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>मल्टी-स्क्रिप्ट टाइमलाइन</h3>
-<p>एक भी <code>.kpt</code> टैंक तक टिकता है <strong>10 नामित स्क्रिप्ट</strong> - समान चरण की वस्तुओं को साझा करने वाली स्वतंत्र क्यू टाइमिंग। स्क्रिप्ट स्विच करने से समयरेखा तुरंत पुनः स्थापित हो जाती है। पूर्ण संस्करण, हाइलाइट्स कट और प्रश्नोत्तरी ऑर्डर सभी के लिए एक ही फ़ाइल में बिल्कुल सही।</p>
+<div class="card-icon">🖇️</div>
+<h3>अपनी पहले से मौजूद फ़ाइलें खोलें</h3>
+<p>क्लासइन <span class="fmt">.ईडीबी</span> ब्लैकबोर्ड और Xournal++ <span class="fmt">.एक्सओपीपी</span> नोट्स — डेस्कटॉप या मोबाइल Xournal++ ऐप से — सीधे आयात होते हैं: हर पेज और स्ट्रोक एक ऑब्जेक्ट बन जाता है जिसे आप संपादित और एनिमेट कर सकते हैं। PowerPoint, Keynote, Word और Markdown यूनिवर्सल डॉक्यूमेंट आयात के माध्यम से आते हैं।</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>.kpt प्रोजेक्ट बंडल</h3>
-<p>परियोजनाओं को ज़िप अभिलेखागार के रूप में सहेजा जाता है (<code>.kpt</code>) जिसमें सभी मीडिया संपत्तियां, लेआउट डेटा, एनीमेशन कॉन्फ़िगरेशन और सभी नामित स्क्रिप्ट शामिल हैं। गिरगिट चलाने वाली किसी भी मशीन पर खोलें।</p>
+<h3>एक फ़ाइल, कई संस्करण</h3>
+<p>एक प्रोजेक्ट एकल फ़ाइल के रूप में सहेजा जाता है <span class="fmt">.केपीटी</span> वह फ़ाइल जिसमें आपका सारा मीडिया और दस नामित टाइमलाइन तक शामिल हैं — पूरी बातचीत, एक हाइलाइट्स कट और एक प्रश्नोत्तर क्रम, सब एक ही फ़ाइल में रह सकते हैं जिसे आप किसी सहकर्मी को ईमेल कर सकते हैं।</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>तार्किक निर्देशांक</h3>
-<p>यह चरण डिस्प्ले रिज़ॉल्यूशन से स्वतंत्र 0-10,000 तार्किक समन्वय स्थान का उपयोग करता है। प्रेजेंटेशन लैपटॉप स्क्रीन या 4K प्रोजेक्टर पर समान दिखते हैं।</p>
+<div class="card-icon">📱</div>
+<h3>अपने फ़ोन से शो चलाएँ</h3>
+<p>कामेलियन रिमोट एंड्रॉइड ऐप आपके कंप्यूटर को वाई-फाई या यूएसबी के जरिए अपने आप ढूंढ लेता है — कुछ भी टाइप करने की जरूरत नहीं। आपको दर्शकों को दिखने वाली चीज़ का लाइव थंबनेल, पिछला / अगला, प्ले / पॉज़ / स्टॉप, एक लेज़र-पॉइंटर स्पॉटलाइट, और लाइव स्लाइड पर सीधे चित्र बनाने की क्षमता मिलती है।</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>कमरे को भाग लेने दें</h3>
+<p>स्लॉट को ऑडियंस मोड में बदलें और लोग अपने फोन से एक छवि या लिखित उत्तर भेजें। हर एक ट्रे में प्रतीक्षा करता है — स्क्रीन पर जाने से पहले आप उसे स्वीकृत, रोक या अस्वीकार करते हैं।</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>इसे किसी AI को सौंप दो — अगर तुम चाहो</h3>
+<p>टाइमलाइन के हिस्सों को AI सेगमेंट के रूप में चिह्नित करें: ब्रेक के दौरान AI धीरे से स्क्रीन पर जो कुछ भी है उसे कोरियोग्राफ करता है। या इसे पूरी बातचीत को निर्देशित करने दें, जैसा ऊपर दिए गए वीडियो में है। पूरी तरह से वैकल्पिक — ऐप इसके बिना भी पूरी तरह काम करता है।</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>किसी भी स्क्रीन पर सही दिखता है</h3>
+<p>स्टेज उस डिस्प्ले के अनुसार स्केल होता है जिस पर वह दिखता है, इसलिए लैपटॉप पर बनाई गई प्रस्तुति 4K प्रोजेक्टर पर भी बिल्कुल वैसी ही दिखती है। न कोई रीफ्लो, न कमरे में कोई आश्चर्य।</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>मोबाइल एवं सहकर्मी नियंत्रण</h2>
-<p>अपने फ़ोन से प्रस्तुतकर्ता चलाएँ; विद्यार्थियों को अपनी सामग्री आगे बढ़ाने दें</p>
+<h2>Chameleon Classroom के साथ काम करता है</h2>
+<p>दोनों ऐप एक फ़ाइल प्रारूप और एक प्लेयर साझा करते हैं</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>एंड्रॉइड मोबाइल ब्रिज</h4>
-<p>गिरगिट मोबाइल ब्रिज (वेबसॉकेट) किसी भी एंड्रॉइड डिवाइस से थिएटर कमांड रिले करता है। नियंत्रण <strong>स्टैक_नेक्स्ट / प्रीव / प्ले / पॉज़ / स्टॉप</strong>, छवि या टेक्स्ट स्लॉट को स्टैक में पुश करें, और वास्तविक समय में स्टैक स्थिति का प्रसारण देखें।</p>
+<h4>समान आयात इंजन</h4>
+<p>हाँ <span class="fmt">.ईडीबी</span> और <span class="fmt">.एक्सओपीपी</span> import काम करता है Chameleon Classroom में समान रूप से, इसलिए पाठ सामग्री दोनों ऐप्स के बीच बिना बदलाव के स्थानांतरित होती है।</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>सहकर्मी प्रस्तुतियाँ</h4>
-<p>छात्र अपने फ़ोन से छवियों या टेक्स्ट को स्टेज-मोड स्टैक पर धकेलते हैं। सबमिशन थंबनेल पट्टी में नारंगी स्पंदनशील बॉर्डर के साथ दिखाई देते हैं। प्रस्तुतकर्ता कर सकता है <strong>स्वीकृत करना, रोकना, अस्वीकार करना या प्रचारित करना</strong> स्क्रीन पर लाइव होने से पहले हर एक।</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>साझा ड्राइंग बोर्ड</h4>
-<p>मोबाइल ब्रिज से नियंत्रित किया जाने वाला सहयोगात्मक फ्रीहैंड कैनवास - <strong>ड्रा_स्ट्रोक / साफ़ / पूर्ववत करें</strong>. स्लाइडों पर टिप्पणी करने, विचार-मंथन करने या लाइव क्विज़ के लिए आदर्श।</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>स्मार्ट एनिमेशन वर्कफ़्लो</h4>
-<p>किसी भी ऑब्जेक्ट पर राइट-क्लिक करें, चुनें <strong>बाएँ दर्ज करें</strong> (या कोई दिशात्मक प्रीसेट), और ऐप तुरंत पिक-टारगेट मोड में प्रवेश करता है - एक क्लिक सेट करता है कि ऑब्जेक्ट कहां जाता है। फ्रीहैंड मोशन पथ को रिकॉर्ड करने से टाइमलाइन पर स्वचालित रूप से प्रारंभ और समाप्ति संकेत अंकित हो जाते हैं।</p>
+<h4>अंतर्निहित प्लेयर</h4>
+<p>क्लासरूम कामेलियन प्रेजेंटर को अपने निचले पैनल में केवल-प्ले मोड में चलाता है — प्रस्तुत करें <span class="fmt">.केपीटी</span> कक्षा छोड़े बिना लाइव पाठ के अंदर डेक।</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>एडीबी फोन मिरर और पीपीटी कैप्चर</h4>
-<p><strong>एडीबीफोनबॉक्स</strong> एडीबी के माध्यम से एक लाइव एंड्रॉइड स्क्रीन को सीधे मंच पर स्ट्रीम करता है। <strong>पीपीटीमिररबॉक्स</strong> एक पावरपॉइंट विंडो कैप्चर करता है - अपने मौजूदा डेक को बिना रूपांतरण के केमेलियन के अंदर प्रस्तुत करें।</p>
-<p><strong>🕐एडीबी समयरेखा संकेत</strong> - किसी भी ADB एक्टर पर राइट-क्लिक करें → <em>टाइमलाइन में क्यू जोड़ें...</em> सिक्का मारना <strong>स्ट्रीम पुनः प्रारंभ करें</strong>, <strong>यूआरएल खोलें</strong>, या <strong>ऐप लॉन्च करें</strong> (पैकेज नाम से) सटीक प्लेहेड स्थितियों पर संकेत। स्पेसबार-गति और ऑटो-टाइमलाइन प्लेबैक दोनों के दौरान संकेत सक्रिय होते हैं।</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>स्टार्टअप और सेटिंग्स</h4>
-<p>चुनें कि क्या कैमेलियन इसके साथ खुलता है <strong>अंतिम प्रोजेक्ट लोड किया गया</strong> या ए <strong>रिक्त मंच</strong> सेटिंग्स → स्टार्टअप मेनू के माध्यम से। प्राथमिकता को सहेजा गया है <code>~/.chameleon/kameleon_settings.json</code> और हर प्रक्षेपण का सम्मान किया।</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>25-भाषा इंटरफ़ेस</h4>
-<p>खुला <strong>सेटिंग्स → 🌐 भाषा</strong> कैमेलियन प्रेजेंटर यूआई को 25 भाषाओं में से किसी में स्विच करने के लिए - फ्रेंच, जर्मन, स्पेनिश, अरबी, चीनी, जापानी, कोरियाई, रूसी, वेल्श, थाई और अन्य सहित। सभी मेनू तुरंत अपडेट हो जाते हैं <strong>कोई पुनरारंभ नहीं</strong>. पहली बार उपयोग करने पर अनुवाद पृष्ठभूमि में आ जाते हैं; एक बार कैश हो जाने पर स्विचिंग तुरंत हो जाती है।</p>
+<h4>पाठ चैट में एक AI</h4>
+<p>कक्षा में एक AI चैट प्रतिभागी जुड़ता है, जिसे आप किसी अन्य छात्र की तरह संबोधित करते हैं। <strong>AI को भेजें</strong> डेस्कटॉप और एंड्रॉइड ऐप दोनों पर बटन इसे जब चाहें बातचीत में ले आता है।</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>स्क्रीनशॉट</h2>
+<p>कामेलियन प्रेजेंटर — लाइव कैप्चर किया गया</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">स्क्रीन 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">स्क्रीन 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">स्क्रीन 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">स्क्रीन 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">स्क्रीन 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">स्क्रीन 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">स्क्रीन 7</div></div>
 </div>
 <div class="cta-band">
-<h3>अपनी प्रस्तुतियों को जीवंत बनाएं</h3>
-<p>लाइसेंस पर चर्चा करने या कैमेलियन प्रस्तुतकर्ता के लाइव प्रदर्शन की व्यवस्था करने के लिए हमसे संपर्क करें।</p>
-<a class="btn btn-solid" href="../contact.html">डेमो का अनुरोध करें</a>
-<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 उपयोगकर्ता गाइड डाउनलोड करें (पीडीएफ)</a>
+<h3>कामेलियन प्रेजेंटर आज़माएं</h3>
+<p>Linux, Windows और macOS के लिए एकमुश्त डेस्कटॉप लाइसेंस के रूप में बेचा जाता है। <strong>अंतिम मूल्य अभी निर्धारित किया जा रहा है</strong> डेमो बुक करें और हम इसे लॉन्च की तारीख के साथ भेज देंगे।</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">डेमो बुक करें</a>
+<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 उपयोगकर्ता गाइड डाउनलोड करें (PDF)</a>
 <a class="btn" href="../index.html">← सिंहावलोकन पर वापस जाएँ</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0939u094bu092e</a><a href="../ide.html">आपके पास विचार हैं</a><a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../index.html">होम</a><a href="../ide.html">आपके पास विचार हैं</a><a href="../presenter.html">प्रस्तुतकर्ता</a>
 <a href="../accounting.html">u0932u0947u0916u093e</a><a href="../technician.html">पीसी तकनीशियन</a>
-<a href="../classroom.html">u0915u0915u094du0937u093e</a><a href="../contact.html">संपर्क</a>
+<a href="../classroom.html">कक्षा</a><a href="../contact.html">संपर्क</a>
 </div>
-<p>© 2026 गिरगिट एआई तकनीशियन लिमिटेड · मार्कोस उर्फ ​​स्टेमसी द्वारा निर्मित</p>
+<p>© 2026 Chameleon AI Agent Ltd · मार्कोस उर्फ stemsee द्वारा निर्मित</p>
 </footer>
 </body>
 </html>

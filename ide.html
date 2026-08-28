@@ -3,10 +3,37 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE — Chameleon AI</title>
+<title>Chameleon AI IDE — Chameleon AI</title>
 <link href="style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  The Chameleon AI IDE is in active development. The features below are current; pricing and general availability are still being finalised — <a href="contact.html">book a demo</a> and we will keep you posted.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
@@ -19,7 +46,6 @@
 <a href="services.html">Web Services</a>
 <a href="accounting.html">Accounting</a>
 <a href="technician.html">PC Technician</a>
-
 <a href="classroom.html">Classroom</a>
 <a href="contact.html">Contact</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🌐 EN ▾</button><div class="lang-menu"><a href="ar/ide.html">🇸🇦 AR — العربية</a><a href="cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/ide.html">🇩🇪 DE — Deutsch</a><a href="el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="es/ide.html">🇪🇸 ES — Español</a><a href="fr/ide.html">🇫🇷 FR — Français</a><a href="hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="id/ide.html">🇮🇩 ID — Indonesia</a><a href="it/ide.html">🇮🇹 IT — Italiano</a><a href="ja/ide.html">🇯🇵 JA — 日本語</a><a href="ko/ide.html">🇰🇷 KO — 한국어</a><a href="pl/ide.html">🇵🇱 PL — Polski</a><a href="pt/ide.html">🇵🇹 PT — Português</a><a href="ro/ide.html">🇷🇴 RO — Română</a><a href="ru/ide.html">🇷🇺 RU — Русский</a><a href="sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="uk/ide.html">🇺🇦 UK — Українська</a><a href="vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
@@ -27,230 +53,127 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>AI-Powered IDE</h1>
-<p class="sub">A full-featured PyQt6 code editor where AI doesn't just suggest — it reads, writes, runs and verifies code on your behalf through a structured command bridge.</p>
+<h1>Chameleon AI IDE</h1>
+<p class="sub">A code editor where the AI does the work — it reads your files, makes the edits, runs the commands and checks the result. You review and approve.</p>
 <div class="hero-badges">
-<span class="badge">Multi-provider AI</span>
-<span class="badge">🎙️ Voice input &amp; TTS</span>
-<span class="badge">🔀 Diff view</span>
-<span class="badge">⚡ Streaming responses</span>
+<span class="badge">🧠 AI edits your code directly</span>
+<span class="badge">🎙️ Voice in, spoken answers</span>
+<span class="badge">🔀 See a diff before you accept</span>
+<span class="badge">🔌 Nine AI providers, swap anytime</span>
+<span class="badge">🔒 Runs local, keys stay yours</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>The AI Command Bridge</h2>
-<p>AI doesn't just chat — it operates the editor through a structured JSON protocol</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Read once, edit freely</h4>
-<p>The AI reads a file once with <strong>get_file_content</strong>, holds the content in context, then issues multiple anchor-based edits without re-reading between each change. No wasted round-trips.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Anchor-based replace_text</h4>
-<p>Edits reference exact text to find, not line numbers. Line numbers shift as code is added or removed — anchors don't. Multiple <code>replace_text</code> calls can be batched in a single response, all applied atomically.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file for full rewrites</h4>
-<p>For new modules or complete rewrites the AI sends the entire file content in one command. The system automatically creates a <code>.bak</code> backup before overwriting and opens the result in a new editor tab.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Terminal integration</h4>
-<p>The AI can run shell commands and receive the JSON result before continuing. It waits for each result, handles exit codes, and distinguishes diagnostic, configuration, destructive and session-ending commands automatically.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Injection protection</h4>
-<p>All content returned from files, terminals and web pages is wrapped in <code>[UNTRUSTED_CONTENT]</code> markers. The AI is instructed to treat everything inside as data — never instructions — preventing prompt-injection attacks from malicious file content.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Editor Features</h2>
+<h2>What makes it different</h2>
+<p>Most AI editors suggest. This one operates the editor.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Multi-tab code editor</h3>
-<p>Open multiple files simultaneously. Each tab tracks its own undo history, syntax highlighting and AI command context.</p>
+<div class="card-icon">🤖</div>
+<h3>The AI makes the edits</h3>
+<p>It reads a file once, then makes as many precise changes as needed without re-reading. Edits target exact text, not line numbers, so they don't drift as the file changes. New files are written whole — with an automatic backup of anything it replaces.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>It runs commands and reads the results</h3>
+<p>The AI runs shell commands in the built-in terminal, waits for each result, checks the exit code, and decides what to do next. Real work in a live shell — not copy-paste snippets.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Safe by default</h3>
+<p>Everything the AI reads from a file, a terminal or a web page is fenced off as data, never as instructions — a malicious file can't hijack the session. Every change it makes is logged with a timestamp and session ID, so you have a full history of what happened.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Built-in diff view</h3>
-<p>One click to compare the current editor state against the last saved version. Colour-coded unified diff with add/remove highlighting. Exit diff mode to return to full editing.</p>
+<h3>Review before you accept</h3>
+<p>One click shows a colour-coded diff of the AI's changes against your last save. Accept them, keep editing, or back out.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Streaming AI chat</h3>
-<p>Responses stream token-by-token into the chat panel. IDE commands are extracted and executed in a background thread so the UI stays responsive throughout.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Modular prompt system</h3>
-<p>System prompts are plain-text module files in <code>~/.chameleon/prompts/</code>. Stack any combination: Tech Repair + Academic + Chat. Live token count and cost estimate per provider.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Command history DB</h3>
-<p>Every AI command is logged to <code>history.db</code> with session ID, timestamp and result. Full audit trail for every file change the AI made.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>File browser</h3>
-<p>Project tree panel for fast navigation. The AI uses <code>list_project_files</code> and <code>list_open_files</code> to discover real paths — it never invents file locations.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Voice &amp; Speech</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Whisper speech-to-text</h3>
-<p>Local Whisper (whisper.cpp) transcribes your voice into the chat input. Hands-free coding — dictate questions, commands or whole prompts without touching the keyboard.</p>
-<div class="tags"><span class="tag">whisper.cpp</span><span class="tag">Local inference</span><span class="tag">No cloud STT</span></div>
+<h3>Hands-free</h3>
+<p>Dictate a question or a whole prompt with on-device speech-to-text, and have answers read back in a natural voice. Nothing goes to a cloud transcription service.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Piper text-to-speech</h3>
-<p>AI responses are read aloud using Piper TTS — fast, local, natural-sounding voices. Ideal for accessibility or working with your hands occupied. Platform paths resolved automatically on Linux, Windows and macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Local inference</span><span class="tag">Configurable voice</span></div>
+<div class="card-icon">🔌</div>
+<h3>Bring your own AI</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — switch provider in the middle of a project. Run a model locally through Ollama or LM Studio for no cost at all. Claude Code runs as a live process right inside the terminal.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Stackable working modes</h3>
+<p>Turn on the modes you need — code repair, academic writing, plain chat — and combine them. A running cost estimate shows before you send anything.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>A real editor underneath</h3>
+<p>Multi-tab editing with per-tab undo and syntax highlighting, a project file tree, and streaming chat that keeps the window responsive while commands run in the background.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Supported AI Providers</h2>
+<h2>Choose your AI provider</h2>
+<p>Your account, your choice — cloud or entirely on your own machine</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>Provider</th><th>Type</th><th>Cost (approx.)</th><th>Notes</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>Provider</th><th>Where it runs</th><th>Rough cost</th></tr></thead>
 <tbody>
-<tr><td>DeepSeek</td><td>Cloud API</td><td>$0.00014 / 1K tokens</td><td>Default; excellent code quality</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>Cloud API</td><td>$0.0050 / 1K tokens</td><td>Best general reasoning</td></tr>
-<tr><td>Anthropic (Claude)</td><td>Cloud API</td><td>$0.0030 / 1K tokens</td><td>Strong at long-context editing</td></tr>
-<tr><td>Claude Code (Anthropic)</td><td>Terminal / pty</td><td>API usage</td><td>Runs as a pty process inside the IDE terminal — full agentic coding in a live shell</td></tr>
-<tr><td>Groq</td><td>Cloud API</td><td>$0.00005 / 1K tokens</td><td>Ultra-fast inference</td></tr>
-<tr><td>Mistral</td><td>Cloud API</td><td>$0.00025 / 1K tokens</td><td>Good European-hosted option</td></tr>
-<tr><td>Moonshot / Kimi</td><td>Cloud API</td><td>$0.00012 / 1K tokens</td><td>Large context window</td></tr>
-<tr><td>Ollama</td><td>Local</td><td>Free</td><td>Run any GGUF model locally</td></tr>
-<tr><td>LM Studio</td><td>Local</td><td>Free</td><td>GUI-friendly local inference</td></tr>
+<tr><td>DeepSeek <em>(default)</em></td><td>Cloud, your account</td><td>Lowest — strong at code</td></tr>
+<tr><td>OpenAI</td><td>Cloud, your account</td><td>Higher — best general reasoning</td></tr>
+<tr><td>Anthropic (Claude)</td><td>Cloud, your account</td><td>Mid — strong on long files</td></tr>
+<tr><td>Claude Code</td><td>Runs inside the terminal</td><td>Your Anthropic usage</td></tr>
+<tr><td>Groq</td><td>Cloud, your account</td><td>Very low — fastest responses</td></tr>
+<tr><td>Mistral</td><td>Cloud, your account</td><td>Low — European-hosted</td></tr>
+<tr><td>Kimi</td><td>Cloud, your account</td><td>Low — very large context</td></tr>
+<tr><td>Ollama / LM Studio</td><td>On your machine</td><td>Free</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="ide-assets/Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="ide-assets/Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="ide-assets/AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="ide-assets/AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="ide-assets/AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="ide-assets/AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Company Command Station (CCS)</h2>
-<p>Run the Chameleon IDE as the office hub for your Logistics 4×4 fleet — no separate dispatch software needed</p>
+<h2>Run your business from it too</h2>
+<p>Company Command Station — the IDE as the hub for a Logistics 4×4 fleet</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Push routes &amp; POIs to drivers</h4>
-<p>Send a <code>.gpx</code> file from the IDE directly to any driver's phone over the peer channel. Routes load instantly on the driver's live map. Standalone POI sets — fuel stops, hazards, delivery addresses — can be pushed independently of any route and appear as colour-coded pins.</p>
+<h4>Send routes and stops to drivers</h4>
+<p>Push a route file straight from the IDE to a driver's phone — it loads on their live map instantly. Point sets (fuel stops, hazards, delivery addresses) can be sent on their own and show up as colour-coded pins. No separate dispatch software.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Manifest &amp; invoice dispatch</h4>
-<p>Build a cargo manifest or prepare an invoice in the IDE, then push it peer-to-peer to the driver's phone. The driver sees the manifest pre-loaded — no scanning, no manual entry. Invoices can be signed on-screen and returned over the same channel.</p>
+<h4>Receipts land in your books</h4>
+<p>The Chameleon Companion phone app photographs a receipt and pushes it to the desktop, where it becomes a draft entry in the Accounting ledger — see <a href="accounting.html">Accounting</a> and <a href="companion.html">the Companion app</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Fleet-wide ticker broadcast</h4>
-<p>Send a priority alert — Emergency, Important, Instructions or Info — and it appears as a full-width ticker bar on every driver's screen simultaneously. The office stays in full command of the fleet's attention without a phone call to each vehicle.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Built-in signal server — no cloud relay</h4>
-<p>The Chameleon signal server (<code>chameleon_signal.py</code>) runs directly on the office PC alongside the IDE, or inside Termux on any Android phone in the fleet. Fleet phones connect to it over Tailscale or the local hotspot — no third-party relay, no monthly server bill.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Office PC running Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · WebSocket hub · Fleet command</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Connected fleet →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Driver A</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Driver B</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Field Team</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Emergency</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Via Tailscale (remote) or LAN hotspot (convoy) · No cloud relay · E2E encrypted</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Screenshots</h2>
+<p>Chameleon AI IDE — captured live</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="ide-assets/AI-IDE-1.png"/><div class="sg-cap">Desktop overview</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="ide-assets/AI-IDE-2.png"/><div class="sg-cap">Chat panel + editor</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="ide-assets/AI-IDE-3.png"/><div class="sg-cap">Diff view</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="ide-assets/AI-IDE-4.png"/><div class="sg-cap">Voice + file browser</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="ide-assets/Chameleon1.png"/><div class="sg-cap">Terminal + history</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="ide-assets/Chameleon2.png"/><div class="sg-cap">Workspace</div></div>
 </div>
 <div class="cta-band">
-<h3>See the AI IDE in action</h3>
-<p>Contact us for a live demo or to discuss a licence for your team.</p>
-<a class="btn btn-solid" href="contact.html">Request a demo</a>
-<a class="btn" href="logistics4x4.html">Logistics 4×4 →</a>
+<h3>Try the Chameleon AI IDE</h3>
+<p>Sold as a one-time desktop licence for Linux, Windows and macOS. <strong>The final price is being set now</strong> — book a demo and we will send it with a launch date.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="contact.html">Book a demo</a>
 <a class="btn" href="index.html">← Back to overview</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
-<a href="logistics4x4.html">Logistics 4×4</a>
 <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
 <a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

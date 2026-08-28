@@ -6,36 +6,6 @@
 <title>Người dẫn chương trình Kameleon — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,9 +20,18 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter đang trong quá trình phát triển tích cực. Các tính năng dưới đây là hiện tại; giá cả và tính khả dụng chung vẫn đang được hoàn thiện — <a href="../contact.html">Đặt lịch demo</a> và chúng tôi sẽ cập nhật cho bạn.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
@@ -65,148 +44,126 @@
 <a href="../services.html">Dịch vụ web</a>
 <a href="../accounting.html">Kế toán</a>
 <a href="../technician.html">Kỹ thuật viên PC</a>
-
 <a href="../classroom.html">lớp học</a>
 <a href="../contact.html">Liên hệ</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
 <h1>Người dẫn chương trình tắc kè hoa</h1>
-<p class="sub">Một hệ thống thuyết trình lấy cảm hứng từ rạp hát, trong đó các trang trình bày của bạn là Sân khấu, các khối nội dung của bạn là Diễn viên và chuyển tiếp là Cues — tất cả đều có thể điều khiển được từ điện thoại.</p>
+<p class="sub">Bản trình bày biết chuyển động. Kéo thả slide, PDF, video, màn hình điện thoại trực tiếp hoặc webcam — làm hoạt ảnh mọi thứ theo dòng thời gian, và điều khiển toàn bộ chương trình ngay từ điện thoại của bạn.</p>
 <div class="hero-badges">
-<span class="badge">🎬 Ẩn dụ sân khấu</span>
-<span class="badge">📱 Điều khiển di động</span>
-<span class="badge">✏️ Hợp tác vẽ</span>
-<span class="badge">🖥️ Gương Android ADB</span>
+<span class="badge">🎬 Hoạt ảnh dòng thời gian</span>
+<span class="badge">📱 Điều khiển từ xa qua điện thoại, không cần thiết lập</span>
+<span class="badge">🖇 Mở tệp ClassIn &amp; Xournal++</span>
+<span class="badge">🙋 Khán giả trực tiếp gửi bài</span>
+<span class="badge">🤖 Hướng dẫn sân khấu AI tùy chọn</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Xem trong hành động</h2>
-<p>Demo trực tiếp của Kameleon Presenter — sân khấu, ngăn xếp, tín hiệu và điều khiển di động</p>
+<h2>Xem nó chạy</h2>
+<p>Trong bản ghi này, một AI đảm nhận vai trò đạo diễn — làm chuyển động các đối tượng và chuyển đổi bố cục trực tiếp, không cần ai ngồi trước bàn phím. Mọi điều khiển mà nó sử dụng, bạn đều có thể tự thao tác từ ứng dụng hoặc điện thoại của mình.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
-<video controls preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
+<div style="max-width:860px;margin:0 auto 3rem;">
+<video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
-Your browser does not support HTML5 video.
+Trình duyệt của bạn không hỗ trợ video HTML5.
 </video>
 </div>
 <div class="section-title">
-<h2>Mô hình rạp hát</h2>
-<p>Bài thuyết trình được xây dựng giống như một sân khấu sản xuất — đồ vật có lối vào, lối ra và tín hiệu</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack đối tượng trên sân khấu</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Ngăn xếp nội dung - slide bài giảng</div>
-<div class="stage-obj obj-stage">🟡 Xếp chồng giai đoạn — bài nộp của học sinh</div>
-<div class="stage-obj obj-misc">🖼️ Hộp hình ảnh</div>
-<div class="stage-obj obj-misc">📄Hộp PDF</div>
-<div class="stage-obj obj-misc">📱 Gương điện thoại ADB</div>
-<div class="stage-obj obj-misc">🖥️ Gương PPT</div>
-<div class="stage-obj obj-misc">✏️ Bảng vẽ</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      Viền trắng = đang hoạt động · Xung màu cam = đang chờ gửi ngang hàng · Xanh lục = ngăn xếp nội dung · Vàng = ngăn xếp giai đoạn
-    </div>
+<h2>Những gì bạn có thể làm với nó</h2>
+<p>Một sân khấu bạn dàn dựng, không phải một chồng slide phẳng</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonChồng</h3>
-<p>Nơi chứa nội dung phổ quát. Mỗi ngăn xếp chứa nhiều vị trí (hình ảnh, văn bản, tệp PDF). Hai chế độ:</p>
-<ul>
-<li><strong style="color:#22c55e">Nội dung</strong> - slide do giáo viên điều khiển</li>
-<li><strong style="color:#eab308">Sân khấu</strong> - chấp nhận bài nộp ngang hàng</li>
-</ul>
+<div class="card-icon">🗂️</div>
+<h3>Đặt bất cứ thứ gì lên một trang chiếu</h3>
+<p>Hình ảnh, văn bản, PDF, video, trang web trực tiếp, màn hình điện thoại Android được phản chiếu, nguồn webcam, bảng vẽ chia sẻ. Mỗi mục là một đối tượng bạn có thể đặt, thay đổi kích thước và di chuyển riêng — sắp xếp màn hình theo cách bạn muốn.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Hệ thống hoạt hình</h3>
-<p>Hoạt ảnh vào/ra theo từng đối tượng với các đường chuyển động tự do. Các đường dẫn được vẽ trên màn hình, được làm mịn thông qua nén Douglas-Peucker và nội suy spline Catmull-Rom trước khi lưu trữ.</p>
+<h3>Hoạt hình dọc theo dòng thời gian</h3>
+<p>Gán cho bất kỳ đối tượng nào một lối vào, lối ra hoặc đường chuyển động vẽ tay. Các tín hiệu được đánh số giúp chương trình tiến lên từng nhịp một. Một cú nhấp chuột sẽ đưa vào một kế hoạch thời gian có sẵn cho bài thuyết trình 5 phút, bài giảng 50 phút hoặc hội thảo 90 phút.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Bảng tủ quần áo</h3>
-<p>Khu vực giữ ngoài sân khấu - tạo đồ vật trong tủ, xem trước trên sân khấu bằng một cú nhấp đúp. Kéo trở lại Dresser từ menu chuột phải. Bảng thuộc tính hiển thị trạng thái hoạt ảnh vào/ra.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Tín hiệu được đánh số</h3>
-<p>Các điểm kích hoạt nâng cao bản trình bày từng bước, giống như tín hiệu ánh sáng sân khấu. Mỗi tín hiệu có thể tạo hoạt ảnh cho các đối tượng vào hoặc ra, chuyển đổi các vị trí ngăn xếp hoặc thực hiện các chuỗi theo thời gian.</p>
+<div class="card-icon">🖇️</div>
+<h3>Mở các tệp bạn đã có</h3>
+<p>LớpTrong <span class="fmt">.edb</span> bảng đen và Xournal++ <span class="fmt">.xop</span> ghi chú — từ máy tính để bàn hoặc ứng dụng Xournal++ trên điện thoại — nhập trực tiếp: mỗi trang và nét vẽ trở thành đối tượng bạn có thể chỉnh sửa và tạo hoạt ảnh. PowerPoint, Keynote, Word và Markdown được đưa vào qua tính năng nhập tài liệu phổ quát.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>gói dự án .kpt</h3>
-<p>Các dự án được lưu dưới dạng kho lưu trữ ZIP (<code>.kpt</code>) chứa tất cả nội dung phương tiện, dữ liệu bố cục và cấu hình hoạt ảnh. Mở trên bất kỳ máy nào chạy Chameleon.</p>
+<h3>Một tệp, nhiều phiên bản</h3>
+<p>Một dự án được lưu dưới dạng một tệp duy nhất <span class="fmt">.capt</span> Tệp chứa toàn bộ phương tiện của bạn cùng tối đa mười dòng thời gian được đặt tên — toàn bộ bài nói, bản cắt điểm nổi bật và thứ tự Q&amp;A đều có thể nằm trong một tệp bạn gửi qua email cho đồng nghiệp.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>tọa độ logic</h3>
-<p>Giai đoạn sử dụng không gian tọa độ logic 0–10.000 độc lập với độ phân giải màn hình. Bài thuyết trình trông giống hệt nhau trên màn hình máy tính xách tay hoặc máy chiếu 4K.</p>
+<div class="card-icon">📱</div>
+<h3>Điều khiển chương trình từ điện thoại của bạn</h3>
+<p>Ứng dụng Kameleon Remote Android tự động tìm máy tính của bạn qua Wi-Fi hoặc USB — không cần nhập gì cả. Bạn nhận được hình thu nhỏ trực tiếp về chính xác những gì khán giả thấy, nút trước / sau, phát / tạm dừng / dừng, đèn laser chiếu điểm, và khả năng vẽ trực tiếp lên slide đang trình chiếu.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Hãy để căn phòng tham gia</h3>
+<p>Chuyển một slot sang chế độ khán giả và mọi người sẽ gửi hình ảnh hoặc câu trả lời bằng văn bản từ điện thoại của họ. Mỗi câu trả lời sẽ nằm trong khay chờ — bạn duyệt, giữ lại hoặc từ chối trước khi nó xuất hiện trên màn hình.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Giao cho AI xử lý — nếu bạn muốn</h3>
+<p>Đánh dấu các đoạn trên dòng thời gian là phân đoạn AI: trong lúc nghỉ, AI nhẹ nhàng dàn dựng mọi thứ đang hiển thị trên màn hình. Hoặc để AI chỉ đạo toàn bộ bài nói, như trong video ở trên. Hoàn toàn tùy chọn — ứng dụng vẫn hoạt động đầy đủ mà không cần tính năng này.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Hiển thị đúng trên mọi màn hình</h3>
+<p>Sân khấu tự điều chỉnh theo màn hình hiển thị, vì vậy một bài thuyết trình được tạo trên laptop sẽ trông giống hệt trên máy chiếu 4K. Không bị tràn bố cục, không bất ngờ trong phòng.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Kiểm soát thiết bị di động và ngang hàng</h2>
-<p>Chạy người thuyết trình từ điện thoại của bạn; để học sinh đẩy nội dung từ của họ</p>
+<h2>Hoạt động với Chameleon Classroom</h2>
+<p>Hai ứng dụng chia sẻ một định dạng tệp và một trình phát</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Cầu di động Android</h4>
-<p>Cầu di động Chameleon (WebSocket) chuyển tiếp các lệnh rạp hát từ bất kỳ thiết bị Android nào. Điều khiển <strong>stack_next/prev/phát/tạm dừng/dừng</strong>, đẩy các vị trí hình ảnh hoặc văn bản vào một ngăn xếp và xem trạng thái ngăn xếp được phát sóng trong thời gian thực.</p>
+<h4>Cùng một công cụ nhập</h4>
+<p>các <span class="fmt">.edb</span> Và <span class="fmt">.xop</span> nhập hoạt động giống hệt trong Chameleon Classroom, vì vậy tài liệu bài học di chuyển giữa hai ứng dụng mà không thay đổi.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Đệ trình ngang hàng</h4>
-<p>Học sinh đẩy hình ảnh hoặc văn bản vào ngăn xếp ở Chế độ sân khấu từ điện thoại của họ. Bài gửi xuất hiện trong dải hình thu nhỏ với đường viền nhấp nháy màu cam. Người trình bày có thể <strong>phê duyệt, giữ, từ chối hoặc thúc đẩy</strong> từng cái trước khi nó xuất hiện trực tiếp trên màn hình.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Bảng vẽ dùng chung</h4>
-<p>Có thể điều khiển canvas tự do cộng tác từ cầu di động — <strong>draw_Stroke / xóa / hoàn tác</strong>. Lý tưởng để chú thích các slide, động não hoặc các câu đố trực tiếp.</p>
+<h4>Trình phát tích hợp</h4>
+<p>Lớp học chạy Kameleon Presenter ở bảng dưới ở chế độ chỉ phát — trình chiếu <span class="fmt">.capt</span> bài học trực tiếp mà không cần rời khỏi lớp học.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Gương điện thoại ADB &amp; chụp PPT</h4>
-<p><strong>ADBĐiện ThoạiHộp</strong> truyền trực tiếp màn hình Android trực tiếp lên sân khấu thông qua ADB. <strong>PPTGươngHộp</strong> chụp cửa sổ PowerPoint — trình bày các tài liệu hiện có của bạn bên trong Kameleon mà không cần chuyển đổi.</p>
+<h4>AI trong phần trò chuyện bài học</h4>
+<p>Lớp học thêm một người tham gia trò chuyện AI mà bạn gọi như bất kỳ học sinh nào khác. <strong>Gửi đến AI</strong> Nút trên cả ứng dụng máy tính để bàn và Android sẽ đưa nó vào cuộc trò chuyện bất cứ khi nào bạn muốn.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>Ảnh chụp màn hình</h2>
+<p>Kameleon Presenter — ghi trực tiếp</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">Màn hình 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">Màn hình 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">Màn hình 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">Màn hình 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">Màn hình 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">Màn hình 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">Màn hình 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Làm cho bài thuyết trình của bạn trở nên sống động</h3>
-<p>Hãy liên hệ với chúng tôi để thảo luận về giấy phép hoặc sắp xếp buổi trình diễn trực tiếp về Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">Yêu cầu bản demo</a>
+<h3>Dùng thử Kameleon Presenter</h3>
+<p>Được bán dưới dạng giấy phép máy tính để bàn một lần cho Linux, Windows và macOS. <strong>Giá cuối cùng đang được thiết lập ngay bây giờ</strong> — đặt lịch demo và chúng tôi sẽ gửi kèm ngày ra mắt.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Đặt lịch demo</a>
+<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Tải Hướng dẫn sử dụng (PDF)</a>
 <a class="btn" href="../index.html">← Quay lại tổng quan</a>
 </div>
 </div>
@@ -216,7 +173,7 @@ Your browser does not support HTML5 video.
 <a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
 <a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Được xây dựng bởi Marcos hay còn gọi là stetemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Được xây dựng bởi Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

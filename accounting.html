@@ -3,29 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UK Accounting — Chameleon AI</title>
+<title>Accounting — Chameleon AI</title>
 <link href="style.css" rel="stylesheet"/>
 <style>
-    .vat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
-    }
-    .vat-code {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow);
-    }
-    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
-    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .ledger-sample {
       background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
-      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
-      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: .8rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0; line-height: 1.7;
     }
     .ledger-sample .dr { color: #f87171; }
     .ledger-sample .cr { color: #4ade80; }
     .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+    .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+    .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Chameleon Accounting is in active development. It prepares your figures — you or your accountant file them. Pricing and availability are still being finalised — <a href="contact.html">book a demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
@@ -38,7 +39,6 @@
 <a href="services.html">Web Services</a>
 <a class="active" href="accounting.html">Accounting</a>
 <a href="technician.html">PC Technician</a>
-
 <a href="classroom.html">Classroom</a>
 <a href="contact.html">Contact</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🌐 EN ▾</button><div class="lang-menu"><a href="ar/accounting.html">🇸🇦 AR — العربية</a><a href="cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/accounting.html">🇩🇪 DE — Deutsch</a><a href="el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="es/accounting.html">🇪🇸 ES — Español</a><a href="fr/accounting.html">🇫🇷 FR — Français</a><a href="hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="id/accounting.html">🇮🇩 ID — Indonesia</a><a href="it/accounting.html">🇮🇹 IT — Italiano</a><a href="ja/accounting.html">🇯🇵 JA — 日本語</a><a href="ko/accounting.html">🇰🇷 KO — 한국어</a><a href="pl/accounting.html">🇵🇱 PL — Polski</a><a href="pt/accounting.html">🇵🇹 PT — Português</a><a href="ro/accounting.html">🇷🇴 RO — Română</a><a href="ru/accounting.html">🇷🇺 RU — Русский</a><a href="sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="uk/accounting.html">🇺🇦 UK — Українська</a><a href="vi/accounting.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/accounting.html">🇨🇳 ZH — 中文</a></div></div></div>
@@ -46,65 +46,76 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📊</div>
-<h1>UK Accounting</h1>
-<p class="sub">Double-entry bookkeeping, VAT tracking, Profit &amp; Loss, Balance Sheet — all in a local SQLite ledger targeting HMRC Making Tax Digital.</p>
+<h1>Accounting</h1>
+<p class="sub">Double-entry books for a UK small company — VAT, Profit &amp; Loss, Balance Sheet and Making Tax Digital VAT returns, in a ledger that lives on your own machine.</p>
 <div class="hero-badges">
-<span class="badge">🇬🇧 UK Chart of Accounts</span>
-<span class="badge">📋 MTD-ready</span>
-<span class="badge">🔒 Local SQLite</span>
-<span class="badge">🤖 AI-parseable JSON output</span>
+<span class="badge">🇬🇧 UK chart of accounts built in</span>
+<span class="badge">📋 MTD VAT return format</span>
+<span class="badge">🧾 HMRC Notice 700 invoices</span>
+<span class="badge">🔒 Local file, works offline</span>
+<span class="badge">🤖 Ask the AI about your numbers</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Double-Entry Ledger</h2>
-<p>Every transaction balanced to the penny — debits always equal credits</p>
+<h2>Every entry balances</h2>
+<p>Proper double-entry — debits equal credits, to the penny</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date        │ Account                  │ Debit (£) │ Credit (£) │ VAT</span>
-────────────┼──────────────────────────┼───────────┼────────────┼────
-2026-04-01  │ 4000 Sales Revenue       │           │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01  │ 2200 VAT Control         │           │    <span class="cr">240.00</span>  │
-2026-04-01  │ 1100 Trade Debtors       │ <span class="dr">1,440.00</span>  │            │
-────────────┼──────────────────────────┼───────────┼────────────┼────
-2026-04-05  │ 6100 Office Expenses     │   <span class="dr">85.00</span>   │            │ S20
-2026-04-05  │ 2200 VAT Control         │   <span class="dr">17.00</span>   │            │
-2026-04-05  │ 1200 Bank Current        │           │    <span class="cr">102.00</span>  │
-  </div>
+<span class="hd">Date         Account                    Debit (£)   Credit (£)   VAT</span><br/>
+2026-04-01   4000 Sales Revenue                       <span class="cr">1,200.00</span>   S20<br/>
+2026-04-01   2200 VAT Control                           <span class="cr">240.00</span><br/>
+2026-04-01   1100 Trade Debtors          <span class="dr">1,440.00</span><br/>
+<br/>
+2026-04-05   6100 Office Expenses          <span class="dr">85.00</span>                S20<br/>
+2026-04-05   2200 VAT Control              <span class="dr">17.00</span><br/>
+2026-04-05   1200 Bank Current                          <span class="cr">102.00</span>
+</div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
-<h3>UK Chart of Accounts</h3>
-<p>Standard UK account codes out of the box — assets, liabilities, equity, income and expenses mapped to HMRC categories. Extend with custom accounts as needed.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗄️</div>
-<h3>SQLite ledger</h3>
-<p>All data stored in <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Runs completely offline. Multiple company support — switch between entities with a command flag.</p>
-</div>
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>UK tax year</h3>
-<p>Year-end correctly set to 5 April (UK fiscal year 6 Apr – 5 Apr). P&amp;L and VAT reports automatically span the correct period without manual date adjustment.</p>
+<h3>UK chart of accounts, ready to go</h3>
+<p>Standard UK account codes out of the box, mapped to HMRC categories — assets, liabilities, equity, income, expenses. Add your own accounts whenever you need them.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
-<h3>Forensic anomaly scan</h3>
-<p>Run <code>--forensic</code> to detect unbalanced entries, duplicate references, VAT mismatches and other irregularities. Results printed as structured JSON for AI review.</p>
+<h3>It checks its own working</h3>
+<p>A forensic scan flags anything that doesn't add up — unbalanced entries, duplicate references, VAT mismatches — before it reaches a report.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Knows the UK tax year</h3>
+<p>Year-end is 6 April to 5 April. Profit &amp; Loss and VAT reports cover the right period automatically — no manual date wrangling.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>MTD-shaped VAT returns</h3>
+<p>The VAT summary comes out box by box in the HMRC Making Tax Digital format: Box 1 output tax, Box 4 input tax, Box 6 net sales, Box 7 net purchases.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>The reports you actually file</h3>
+<p>Profit &amp; Loss, Balance Sheet, VAT Return Summary — each broken down by account code. The Balance Sheet also confirms the books are whole: assets equal liabilities plus equity.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Invoices that pass</h3>
+<p>Every invoice carries all the fields HMRC Notice 700 requires — sequential number, both VAT numbers, dates of invoice and supply, itemised lines with per-line VAT, net and VAT subtotals. Print it, save a PDF, or push it to your phone. Set your company details once.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Your books stay yours</h3>
+<p>The whole ledger is a single file on your computer. It works with no internet. Run several companies side by side and switch between them with one flag.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>AI-readable output</h3>
-<p>All reports output structured JSON to stdout so the Chameleon AI can parse, summarise and advise on your financial position in natural language.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>WebSocket bridge</h3>
-<p>The accounting WebSocket bridge (<code>acct_ws_bridge.py</code>) exposes ledger queries to the mobile companion and external dashboards over your Tailscale network.</p>
+<h3>Ask about your position</h3>
+<p>Every report also comes out as structured data the Chameleon AI can read — so you can ask, in plain English, how the quarter looks or where the VAT went.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>VAT Codes Supported</h2>
+<h2>VAT codes</h2>
+<p>The rates a UK small business needs</p>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Standard rate 20%</p></div>
@@ -114,99 +125,30 @@
 <div class="vat-code"><div class="vc">O</div><p>Out of scope</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Reports</h2>
+<h2>Receipts come to you</h2>
+<p>From the phone, and from the road</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📈</div>
+<div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Profit &amp; Loss</h4>
-<p>Income vs expenses for the period. Sales, cost of goods, gross profit, operating expenses, net profit — all broken down by account code. Run with <code>--report pl</code>.</p>
+<h4>From the Companion app</h4>
+<p>Photograph a receipt in the <a href="companion.html">Chameleon Companion</a> phone app and it arrives on the desktop as a draft ledger entry for you to confirm.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">⚖️</div>
+<div class="strip-icon">🚛</div>
 <div class="strip-body">
-<h4>Balance Sheet</h4>
-<p>Assets, liabilities and equity at a point in time. Confirms double-entry integrity — assets must equal liabilities plus equity. Run with <code>--report bs</code>.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>VAT Return Summary</h4>
-<p>Box-by-box VAT figures matching the HMRC MTD VAT return format: Box 1 (output tax), Box 4 (input tax), Box 6 (net sales), Box 7 (net purchases). Run with <code>--report vat</code>.</p>
+<h4>From Logistics 4×4</h4>
+<p>Drivers' fuel and expense receipts flow from the <a href="logistics4x4.html">Logistics 4×4</a> app straight into the same ledger.</p>
 </div>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Invoicing</h2>
-<p>HMRC Notice 700-compliant invoices — printed, saved as PDF or pushed to your phone in one click</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>UK-compliant invoice fields</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Nothing is missing, nothing is guessed.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏢</div>
-<div class="strip-body">
-<h4>Company Setup</h4>
-<p>Open <em>File → Invoices → Company Setup</em> to enter your registered company name, address, Companies House number, VAT number, email, phone and bank details. Settings are saved per client database in <code>company.json</code> alongside the ledger and auto-loaded whenever invoices are generated for that client.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">👥</div>
-<div class="strip-body">
-<h4>Customer contacts database</h4>
-<p>The first time you invoice a client their name, address and VAT number are saved to a contacts table inside the ledger. On subsequent invoices, typing the client name autocompletes their details — no re-entry needed. Contacts are editable at any time.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🖨️</div>
-<div class="strip-body">
-<h4>Print, PDF and send to phone</h4>
-<p>From the Invoice Manager (<em>File → Invoices…</em>) select any invoice and choose: <strong>Print</strong> (opens the OS print dialog — any printer or PDF driver), <strong>Save PDF</strong> (directly to disk via Qt's built-in PDF export), or <strong>Send to Phone</strong> (pushes the invoice HTML to the Companion app where it opens the Android print dialog — print wirelessly to any AirPrint or nearby printer).</p>
-</div>
-</div>
-</div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Date of supply</h3>
-<p>Separate "Date of supply" (time of supply) field — distinct from invoice date. Required by HMRC for VAT purposes. Defaults to today but is independently editable per invoice.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Mobile invoice printing</h3>
-<p>The Companion app can print any invoice wirelessly. Tap the print icon on any invoice row — the app fetches the HTML from the IDE, converts it to PDF on-device via the <code>printing</code> package, and opens the Android system print dialog.</p>
-</div>
-<div class="card">
-<div class="card-icon">✅</div>
-<h3>HMRC Notice 700 compliance</h3>
-<p>All 12 required fields for a full UK VAT invoice are present and populated. Reduced-rate and zero-rated lines are clearly labelled. The invoice number sequence is strictly monotone-increasing with no gaps.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>CLI Quick Reference</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Command</th><th>Description</th></tr></thead>
-<tbody>
-<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Profit &amp; Loss for current tax year</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Balance Sheet as of today</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>VAT return summary (MTD boxes)</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Anomaly &amp; integrity scan</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Full command reference</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Streamline your UK bookkeeping</h3>
-<p>Purpose-built for freelancers and small businesses operating under UK tax rules.</p>
-<a class="btn btn-solid" href="contact.html">Get in touch</a>
+<h3>Try Chameleon Accounting</h3>
+<p>Sold as a one-time desktop licence. It prepares your figures in HMRC formats — <strong>you or your accountant submit them</strong>. Final price is being set now.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="contact.html">Book a demo</a>
 <a class="btn" href="index.html">← Back to overview</a>
 </div>
 </div>
@@ -216,7 +158,7 @@
 <a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
 <a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Built by Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Built by Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

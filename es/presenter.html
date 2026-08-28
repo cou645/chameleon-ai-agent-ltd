@@ -6,36 +6,6 @@
 <title>Presentador Kameleon — Camaleón AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,9 +20,18 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter está en desarrollo activo. Las funciones que se muestran a continuación son las actuales; los precios y la disponibilidad general aún se están ultimando. <a href="../contact.html">Reserve una demostración</a> y te mantendremos informado.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleón AI</strong></a>
@@ -73,215 +52,118 @@
 <div class="hero">
 <div class="hero-icon">🎭</div>
 <h1>Presentador Camaleón</h1>
-<p class="sub">Un sistema de presentación inspirado en el teatro donde las diapositivas son un escenario, los bloques de contenido son actores y las transiciones son señales, todo controlable desde un teléfono.</p>
+<p class="sub">Presentaciones que se mueven. Añade diapositivas, PDFs, video, una pantalla de teléfono en vivo o una cámara web — anima cualquier cosa en una línea de tiempo y dirige todo el espectáculo desde tu teléfono.</p>
 <div class="hero-badges">
-<span class="badge">🎬 Metáfora del teatro</span>
-<span class="badge">📱 Control móvil</span>
-<span class="badge">✏️ Dibujo colaborativo</span>
-<span class="badge">🖥️ espejo ADB de Android</span>
-<span class="badge">📜 Líneas de tiempo de múltiples guiones</span>
-<span class="badge">🎯 Selección inteligente de objetivos</span>
-<span class="badge">✦ Bloques de etapa AI</span>
-<span class="badge">📰 Tickers horizontales y verticales</span>
-<span class="badge">🔍 Filtro de tipo Cue</span>
-<span class="badge">⇄ Reproducción de ping-pong</span>
-<span class="badge">🖱 Depuración y zoom de la línea de tiempo</span>
-<span class="badge">🗂 Menú contextual de la cómoda</span>
-<span class="badge">📂 Apilar desde carpeta</span>
-<span class="badge">🕐 Señales de la línea de tiempo de ADB</span>
-<span class="badge">🌐 Interfaz de usuario en 25 idiomas</span>
-<span class="badge">⇒ Ruta del escenario y POPI</span>
+<span class="badge">🎬 Animación de línea de tiempo</span>
+<span class="badge">📱 Teléfono remoto, sin configuración</span>
+<span class="badge">🖇 Abre archivos de ClassIn y Xournal++</span>
+<span class="badge">🙋 Envíos de la audiencia en vivo</span>
+<span class="badge">🤖 Dirección de escena opcional con IA</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Véalo en acción</h2>
-<p>Una demostración en vivo de Kameleon Presenter: escenarios, pilas, señales y control móvil</p>
+<h2>Míralo en acción</h2>
+<p>En esta grabación, una IA toma el asiento del director: anima objetos y cambia diseños en vivo, sin nadie frente al teclado. Cada control que utiliza, puedes manejarlo tú mismo desde la aplicación o desde tu teléfono.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
-Su navegador no soporta vídeo HTML5.
+Su navegador no soporta video HTML5.
 </video>
 </div>
 <div class="section-title">
-<h2>El modelo teatral</h2>
-<p>Presentaciones construidas como una producción escénica: los objetos tienen entradas, salidas y señales.</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">KameleonStack objetos en el escenario</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Pila de contenido: diapositivas de conferencias</div>
-<div class="stage-obj obj-stage">🟡 Stage Stack: envíos de estudiantes</div>
-<div class="stage-obj obj-misc">🖼️ Caja de imágenes</div>
-<div class="stage-obj obj-misc">📄 Caja PDF</div>
-<div class="stage-obj obj-misc">📱 Espejo del teléfono ADB</div>
-<div class="stage-obj obj-misc">🖥️ Espejo PPT</div>
-<div class="stage-obj obj-misc">✏️ Tablero de dibujo</div>
-<div class="stage-obj obj-misc">🎬 Caja de vídeo</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      Borde blanco = activo · Pulso naranja = envío de pares pendiente · Verde = pila de contenido · Amarillo = pila de escenario
-    </div>
+<h2>Qué puedes hacer con ello</h2>
+<p>Un escenario que compones, no una pila de diapositivas planas</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonPila</h3>
-<p>El contenedor de contenidos universal. Cada pila contiene múltiples espacios (imágenes, texto, archivos PDF, videos, HTML). Dos modos:</p>
-<ul>
-<li><strong style="color:#22c55e">Contenido</strong> — diapositivas controladas por el profesor</li>
-<li><strong style="color:#eab308">Escenario</strong> — acepta envíos enviados por pares</li>
-</ul>
-<p><strong>📂 Apilar desde carpeta</strong> — elija un directorio de archivos con prefijo numérico (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) y Kameleon construye una pila completamente escrita con un solo clic. Se admiten imágenes, vídeos, PDF, texto sin formato y HTML.</p>
+<div class="card-icon">🗂️</div>
+<h3>Pon cualquier cosa en una diapositiva</h3>
+<p>Imágenes, texto, PDFs, video, páginas web en vivo, una pantalla de teléfono Android reflejada, una transmisión de cámara web, una pizarra compartida. Cada uno es un objeto que colocas, redimensionas y mueves por separado: organiza la pantalla como quieras.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Sistema de animación</h3>
-<p>Animaciones de entrada/salida por objeto con rutas de movimiento a mano alzada. Elija un ajuste preestablecido direccional y la aplicación ingresará inmediatamente al modo de selección de objetivo: un gesto establece tanto el tipo de animación como el destino. Las rutas utilizan el suavizado Douglas-Peucker + Catmull-Rom.</p>
-<p><strong>animaciones escénicas</strong> mueve objetos mientras ya están en la pantalla. Haga clic derecho en cualquier objeto en el escenario → <strong>⇒ Animación escénica</strong> para grabar un recorrido escénico a mano alzada o elegir un <strong>MUÑECA</strong> Objetivo (Pop-Out Pop-In): el objeto se escala a cero, se teletransporta y luego regresa a la nueva posición.</p>
+<h3>Animar a lo largo de una línea de tiempo</h3>
+<p>Da a cualquier objeto una entrada, una salida o una trayectoria de movimiento dibujada a mano. Las señales numeradas avanzan el espectáculo de un compás a la vez. Un clic incorpora un plan de tiempos ya preparado para una presentación de 5 minutos, una conferencia de 50 minutos o un taller de 90 minutos.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Panel de cómoda</h3>
-<p>Área de espera fuera del escenario: cree objetos en la cómoda y obtenga una vista previa en el escenario con un doble clic. Los objetos eliminados del escenario con la tecla Eliminar reaparecen automáticamente en el Dresser.</p>
-<p><strong>Haga clic derecho en cualquier elemento de la cómoda</strong> para un menú contextual: <strong>👁 Vista previa</strong> (colocar en el centro del escenario, sin animación, para inspección de tamaño; la posición original se restaura al regresar para que la reproducción nunca se vea afectada), <strong>⧉ Duplicar</strong>, <strong>◈ Reserva</strong> (atenuar una ranura de retención), o <strong>✕ Quitar</strong>. Los objetos con una animación escénica muestran un <strong>⇒</strong> sufijo en la lista.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Señales numeradas</h3>
-<p>Los puntos de activación avanzan la presentación paso a paso, al igual que las señales de iluminación teatrales. Cada señal puede animar objetos dentro o fuera, cambiar ranuras de pila o ejecutar secuencias cronometradas.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>Bloques de escenario de IA</h3>
-<p>Pinte bandas de animación generativa directamente en la línea de tiempo, programadas para descansos o intervalos. durante un <strong>Bloque de etapa de IA</strong>, los objetos en el escenario se coreografían automáticamente en uno de cuatro patrones: <strong>órbita</strong>, <strong>serpiente</strong>, <strong>deriva aleatoria</strong>, o <strong>foco de atención</strong>. Los objetos vuelven a sus posiciones originales cuando finaliza el bloque.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>Objetos de teletipo</h3>
-<p>Desplazamiento de tickers de texto en <strong>horizontal</strong> (derecha → izquierda) y <strong>vertical</strong> (abajo → arriba) orientaciones. Se pueden ejecutar hasta 8 tickers simultáneamente, ideal para tiras de noticias de última hora, recordatorios de agenda o paneles de información de eventos. La velocidad y el texto se pueden editar en vivo.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>Filtro de tipo cue</h3>
-<p>Una barra de filtro compacta se encuentra entre los controles y la regla con un botón de alternancia por tipo de objeto: <strong>Txt · Img · ADB · PPT · PDF · Dibujar · Tick · Conn · Pila</strong>. Haga clic en cualquier combinación para aislar solo esas señales; todas las demás están ocultas. Un tinte azul tenue en la regla le recuerda que el filtro está activo. Hacer clic <strong>✕ Todos</strong> para restaurar la vista completa al instante.</p>
-<p>El <strong>⬛ Vista previa</strong> alternar lleva el filtrado un paso más allá: cuando está activo, la reproducción en sí solo activa señales para los tipos seleccionados; todo lo demás permanece estático en el escenario. El cabezal de reproducción gira <strong>ámbar</strong> mientras la vista previa está activada, para que siempre sepas que estás en una ejecución filtrada. Perfecto para ensayar un solo tipo de objeto o comprobar el tiempo de entrada ADB sin alterar el resto de la presentación.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Cabezal de reproducción con desplazamiento</h3>
-<p>La línea roja del cabezal de reproducción está fija en el centro del widget de la línea de tiempo. A medida que avanza la reproducción, la regla se desplaza hacia la izquierda debajo de ella: las pistas siguientes siempre son visibles a la derecha, las señales pasadas se desvían hacia la izquierda. Pase el cursor sobre cualquier punta de flecha de señal para ver una ventana emergente flotante grande que muestra su etiqueta completa y su marca de tiempo.</p>
-<p><strong>rueda de desplazamiento</strong> friega el cursor de reproducción (1 s por muesca). <strong>Ctrl+desplazamiento</strong> acerca o aleja la regla (rango de 20 a 200 px/s), manteniendo el control deslizante de zoom sincronizado.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>Reproducción de ping pong</h3>
-<p>Permitir <strong>⇄</strong> para invertir la dirección en cada límite en lugar de reiniciar. La línea de tiempo avanza hasta el final, luego retrocede hasta el principio y luego avanza nuevamente, indefinidamente. Las señales disparan sus <strong>acción opuesta</strong> en el pase inverso (entrar↔salir). El <strong>Animador generativo</strong> invierte la dirección del ritmo para que los patrones de órbita, serpiente y enfoque vuelvan sobre sus caminos. El cabezal de reproducción gira <strong>cian</strong> con un triángulo hacia abajo durante el viaje en reversa. Combínalo con AI Stage Blocks para exhibiciones hipnóticas en el tiempo de descanso.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>Plantillas de línea de tiempo</h3>
-<p>Aplique un marco de temporización prediseñado con un solo clic: <strong>Conferencia Magistral (20 min)</strong>, <strong>Conferencia Universitaria (50 min)</strong>, <strong>Taller (90 min)</strong>, <strong>Lanzamiento corto (5 min)</strong>, o <strong>Conferencia Medio Día (3 hrs)</strong>. Las plantillas reprograman las señales existentes o estructuran un guión vacío con marcadores etiquetados.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Líneas de tiempo de múltiples guiones</h3>
-<p>un solo <code>.kpt</code> El tanque tiene capacidad para <strong>10 guiones con nombre</strong> — tiempos de cue independientes que comparten los mismos objetos del escenario. Al cambiar de guión se vuelve a llenar la línea de tiempo al instante. Perfecto para una versión completa, un corte de aspectos destacados y un pedido de preguntas y respuestas, todo en un solo archivo.</p>
+<div class="card-icon">🖇️</div>
+<h3>Abre los archivos que ya tienes</h3>
+<p>Clase en <span class="fmt">.edb</span> pizarras y Xournal++ <span class="fmt">.xop</span> notas — desde el escritorio o la aplicación móvil Xournal++ — se importan directamente: cada página y trazo se convierte en un objeto que puedes editar y animar. PowerPoint, Keynote, Word y Markdown entran mediante importación universal de documentos.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>Paquetes de proyectos .kpt</h3>
-<p>Los proyectos se guardan como archivos ZIP (<code>.kpt</code>) que contiene todos los recursos multimedia, datos de diseño, configuraciones de animación y todos los scripts con nombre. Ábralo en cualquier máquina que ejecute Chameleon.</p>
+<h3>Un archivo, muchas versiones</h3>
+<p>Un proyecto se guarda como un solo archivo <span class="fmt">.capt</span> Archivo que contiene todos tus medios y hasta diez cronologías con nombre: la charla completa, un resumen destacado y un orden de preguntas y respuestas pueden vivir todos en un solo archivo que envías por correo a un colega.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>Coordenadas lógicas</h3>
-<p>El escenario utiliza un espacio de coordenadas lógicas de 0 a 10 000, independiente de la resolución de la pantalla. Las presentaciones se ven idénticas en la pantalla de una computadora portátil o en un proyector 4K.</p>
+<div class="card-icon">📱</div>
+<h3>Ejecuta el show desde tu teléfono</h3>
+<p>La aplicación Kameleon Remote para Android encuentra tu computadora automáticamente por Wi-Fi o USB, sin necesidad de escribir nada. Obtienes una miniatura en vivo de exactamente lo que ve el público, anterior/siguiente, reproducir/pausar/detener, un puntero láser y la capacidad de dibujar directamente sobre la diapositiva en vivo.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Deja que la sala participe</h3>
+<p>Cambia un espacio al modo audiencia y las personas envían una imagen o una respuesta escrita desde sus propios teléfonos. Cada una espera en una bandeja: tú la apruebas, la retienes o la rechazas antes de que salga en pantalla.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Entrégaselo a una IA — si quieres</h3>
+<p>Marca tramos de la línea de tiempo como segmentos de IA: durante una pausa, la IA coreografía suavemente lo que haya en pantalla. O deja que dirija toda la charla, como en el video de arriba. Totalmente opcional: la aplicación funciona completamente sin ello.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Se ve bien en cualquier pantalla</h3>
+<p>El escenario se adapta a la pantalla en la que se muestra, por lo que una presentación creada en una laptop se ve idéntica en un proyector 4K. Sin reajustes, sin sorpresas en la sala.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Control móvil y de pares</h2>
-<p>Ejecute el presentador desde su teléfono; permitir a los estudiantes enviar contenido desde el suyo</p>
+<h2>Funciona con Chameleon Classroom</h2>
+<p>Las dos aplicaciones comparten un formato de archivo y un reproductor</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Puente móvil Android</h4>
-<p>El puente móvil Chameleon (WebSocket) transmite comandos del teatro desde cualquier dispositivo Android. Control <strong>stack_next/anterior/reproducir/pausar/detener</strong>, inserte espacios de imagen o texto en una pila y vea la transmisión del estado de la pila en tiempo real.</p>
+<h4>Mismo motor de importación</h4>
+<p>El <span class="fmt">.edb</span> y <span class="fmt">.xop</span> import funciona de manera idéntica en Chameleon Classroom, por lo que el material de las lecciones se traslada entre las dos aplicaciones sin cambios.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Envíos de pares</h4>
-<p>Los estudiantes envían imágenes o texto a una pila en modo Stage desde sus teléfonos. Los envíos aparecen en la franja de miniaturas con un borde naranja intermitente. El presentador puede <strong>aprobar, mantener, rechazar o promover</strong> cada uno antes de que salga en vivo en la pantalla.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Tablero de dibujo compartido</h4>
-<p>Lienzo colaborativo a mano alzada controlable desde el puente móvil. <strong>draw_stroke / borrar / deshacer</strong>. Ideal para anotar diapositivas, realizar lluvias de ideas o realizar cuestionarios en vivo.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Flujo de trabajo de animación inteligente</h4>
-<p>Haga clic derecho en cualquier objeto, seleccione <strong>Ingresar a la izquierda</strong> (o cualquier ajuste preestablecido direccional), y la aplicación ingresa al modo de selección de objetivo al instante: un clic establece hacia dónde viaja el objeto. La grabación de una ruta de movimiento a mano alzada imprime automáticamente las señales de inicio y fin en la línea de tiempo.</p>
+<h4>Reproductor integrado</h4>
+<p>Clasroom ejecuta Kameleon Presenter en su panel inferior en modo solo presentación — presenta un <span class="fmt">.capt</span> deck dentro de una lección en vivo sin salir del aula.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Espejo de teléfono ADB y captura PPT</h4>
-<p><strong>ADBPhoneBox</strong> transmite una pantalla de Android en vivo directamente al escenario a través de ADB. <strong>PPTMirorBox</strong> captura una ventana de PowerPoint: presente sus presentaciones existentes dentro de Kameleon sin conversión.</p>
-<p><strong>🕐 Señales de la línea de tiempo de ADB</strong> — haga clic derecho en cualquier actor ADB → <em>Agregar entrada a la línea de tiempo...</em> estampar <strong>Reiniciar transmisión</strong>, <strong>Abrir URL</strong>, o <strong>Iniciar aplicación</strong> (por nombre del paquete) indica posiciones precisas del cabezal de reproducción. Las señales se activan durante la reproducción con el ritmo de la barra espaciadora y con la línea de tiempo automática.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>Inicio y configuración</h4>
-<p>Elija si Kameleon abre con el <strong>último proyecto cargado</strong> o un <strong>escenario en blanco</strong> a través del menú Configuración → Al iniciar. La preferencia se guarda en <code>~/.chameleon/kameleon_settings.json</code> y respetó cada lanzamiento.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Interfaz de 25 idiomas</h4>
-<p>Abierto <strong>Configuración → 🌐 Idioma</strong> para cambiar la interfaz de usuario de Kameleon Presenter a cualquiera de los 25 idiomas, incluidos francés, alemán, español, árabe, chino, japonés, coreano, ruso, galés, tailandés y más. Todos los menús se actualizan instantáneamente con <strong>sin reinicio</strong>. Las traducciones se obtienen en segundo plano la primera vez que se usan; el cambio es instantáneo una vez almacenado en caché.</p>
+<h4>Un AI en el chat de la lección</h4>
+<p>El aula añade un participante de chat con IA al que te diriges como a cualquier otro estudiante. <strong>Enviar a IA</strong> El botón, tanto en la aplicación de escritorio como en la de Android, lo incorpora a la conversación cuando lo desees.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>Capturas de pantalla</h2>
+<p>Kameleon Presenter — capturado en vivo</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">Pantalla 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">Pantalla 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">Pantalla 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">Pantalla 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">Pantalla 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">Pantalla 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">Pantalla 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Da vida a tus presentaciones</h3>
-<p>Contáctenos para discutir una licencia u organizar una demostración en vivo de Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">Solicitar una demostración</a>
-<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Descargar la Guía del usuario (PDF)</a>
+<h3>Prueba Kameleon Presenter</h3>
+<p>Licencia de escritorio de pago único para Linux, Windows y macOS. <strong>El precio final se está estableciendo ahora</strong> — reserva una demo y te lo enviaremos con una fecha de lanzamiento.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Reserva una demo</a>
+<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Descargar la Guía del Usuario (PDF)</a>
 <a class="btn" href="../index.html">← Volver a la descripción general</a>
 </div>
 </div>
@@ -291,7 +173,7 @@ Su navegador no soporta vídeo HTML5.
 <a href="../accounting.html">Contabilidad</a><a href="../technician.html">Técnico de PC</a>
 <a href="../classroom.html">Aula</a><a href="../contact.html">Contacto</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construido por Marcos también conocido como stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Construido por Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

@@ -6,36 +6,6 @@
 <title>カメレオン プレゼンター — カメレオン AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,20 +20,29 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  カメレオンプレゼンターは現在開発中です。以下の機能は現時点のものであり、価格と一般提供についてはまだ最終決定中です。 <a href="../contact.html">デモを予約する</a> またお知らせいたします。
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>カメレオンAI</strong></a>
 <div class="nav-links">
-<a href="../index.html">u30dbu30fcu30e0</a>
+<a href="../index.html">ホーム</a>
 <a href="../ide.html">あなたにはアイデアがあります</a>
 <a class="active" href="../presenter.html">プレゼンター</a>
 <a href="../companion.html">コンパニオンアプリ</a>
-<a href="../logistics4x4.html">物流4×4</a>
+<a href="../logistics4x4.html">物流 4×4</a>
 <a href="../services.html">ウェブサービス</a>
-<a href="../accounting.html">u7d4cu7406</a>
+<a href="../accounting.html">会計</a>
 <a href="../technician.html">パソコン技術者</a>
 <a href="../classroom.html">u6388u696d</a>
 <a href="../contact.html">接触</a>
@@ -73,225 +52,128 @@
 <div class="hero">
 <div class="hero-icon">🎭</div>
 <h1>カメレオンプレゼンター</h1>
-<p class="sub">劇場にインスピレーションを得たプレゼンテーション システム。スライドはステージ、コンテンツ ブロックはアクター、トランジションはキューであり、すべて携帯電話から制御できます。</p>
+<p class="sub">動くプレゼンテーション。スライド、PDF、動画、ライブの電話画面やウェブカメラをドロップイン — タイムラインに沿ってあらゆるものをアニメーション化し、ショー全体をスマホから操作できます。</p>
 <div class="hero-badges">
-<span class="badge">🎬 演劇のメタファー</span>
-<span class="badge">📱 モバイルコントロール</span>
-<span class="badge">✏️ 共同でお絵かき</span>
-<span class="badge">🖥️ Android ADB ミラー</span>
-<span class="badge">📜 マルチスクリプトのタイムライン</span>
-<span class="badge">🎯 スマートなターゲット選択</span>
-<span class="badge">✦ AIステージブロック</span>
-<span class="badge">📰 水平および垂直ティッカー</span>
-<span class="badge">🔍 キュータイプフィルター</span>
-<span class="badge">⇄ ピンポン再生</span>
-<span class="badge">🖱 タイムラインのスクラブとズーム</span>
-<span class="badge">🗂 ドレッサーのコンテキスト メニュー</span>
-<span class="badge">📂 フォルダーからスタック</span>
-<span class="badge">🕐 ADB タイムライン キュー</span>
-<span class="badge">🌐 25 言語の UI</span>
-<span class="badge">⇒ ステージパス＆POPI</span>
+<span class="badge">🎬 タイムラインアニメーション</span>
+<span class="badge">📱 電話リモート、セットアップ不要</span>
+<span class="badge">🖇 ClassIn &amp; Xournal++ ファイルを開く</span>
+<span class="badge">🙋 ライブ観客からの投稿</span>
+<span class="badge">🤖 オプションのAIステージディレクション</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>実際の動作を確認してください</h2>
-<p>カメレオン プレゼンターのライブ デモ - ステージ、スタック、キュー、モバイル コントロール</p>
+<h2>実行をご覧ください</h2>
+<p>この録画では、AIが監督の座に就き、オブジェクトをアニメーションさせ、レイアウトをライブで切り替えます。キーボードを操作する人は誰もいません。AIが使うすべてのコントロールは、アプリやスマートフォンから自分で操作できます。</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
-お使いのブラウザは HTML5 ビデオをサポートしていません。
+お使いのブラウザはHTML5ビデオに対応していません。
 </video>
 </div>
 <div class="section-title">
-<h2>劇場モデル</h2>
-<p>舞台作品のように構築されたプレゼンテーション — オブジェクトには入り口、出口、合図がある</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">ステージ上のカメレオンスタックオブジェクト</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 コンテンツスタック — 講義スライド</div>
-<div class="stage-obj obj-stage">🟡 Stage Stack — 学生の提出物</div>
-<div class="stage-obj obj-misc">🖼️ 画像ボックス</div>
-<div class="stage-obj obj-misc">📄 PDFボックス</div>
-<div class="stage-obj obj-misc">📱 ADB 電話ミラー</div>
-<div class="stage-obj obj-misc">🖥️PPTミラー</div>
-<div class="stage-obj obj-misc">✏️ 製図板</div>
-<div class="stage-obj obj-misc">🎬ビデオボックス</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      白い枠線 = アクティブ · オレンジ色のパルス = ピア送信保留中 · 緑色 = コンテンツ スタック · 黄色 = ステージ スタック
-    </div>
+<h2>それでできること</h2>
+<p>あなたが構成するステージ、平らなスライドの積み重ねではない</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>カメレオンスタック</h3>
-<p>ユニバーサルコンテンツコンテナ。各スタックは複数のスロット (画像、テキスト、PDF、ビデオ、HTML) を保持します。 2 つのモード:</p>
-<ul>
-<li><strong style="color:#22c55e">コンテンツ</strong> — 教師が管理するスライド</li>
-<li><strong style="color:#eab308">ステージ</strong> — ピアプッシュの送信を受け入れます</li>
-</ul>
-<p><strong>📂 フォルダーからスタック</strong> — 数字の接頭辞が付いているファイルのディレクトリを選択します (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>)、Kameleon はワンクリックで完全に型指定されたスタックを構築します。画像、ビデオ、PDF、プレーンテキスト、HTML がすべてサポートされています。</p>
+<div class="card-icon">🗂️</div>
+<h3>スライドに何かを置く</h3>
+<p>画像、テキスト、PDF、動画、ライブWebページ、ミラーリングしたAndroidの電話画面、Webカメラの映像、共有ホワイトボード。それぞれが独立したオブジェクトで、配置、サイズ変更、移動が可能です — 画面を思い通りにレイアウトできます。</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>アニメーションシステム</h3>
-<p>フリーハンド モーション パスを使用したオブジェクトごとの出入りアニメーション。方向のプリセットを選択すると、アプリはすぐにターゲット選択モードに入ります。1 つのジェスチャーでアニメーションのタイプと目的地の両方を設定します。パスは Douglas-Peucker + Catmull-Rom スムージングを使用します。</p>
-<p><strong>ステージアニメーション</strong> すでに画面上にあるオブジェクトを移動します。ステージ上のオブジェクトを右クリック→ <strong>⇒ ステージアニメーション</strong> フリーハンドのステージ パスを記録するか、 <strong>人形</strong> (ポップアウト ポップイン) ターゲット: オブジェクトはゼロにスケールされ、テレポートし、新しい位置に戻ります。</p>
+<h3>タイムラインに沿ってアニメーション</h3>
+<p>任意のオブジェクトに入口、出口、または手描きのモーションパスを設定できます。番号付きのキューが、ショーを1ビートずつ前進させます。ワンクリックで、5分のピッチ、50分の講義、90分のワークショップ用の既製のタイミングプランが挿入されます。</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>ドレッサーパネル</h3>
-<p>オフステージ待機エリア — ドレッサーでオブジェクトを作成し、ダブルクリックしてステージ上でプレビューします。 Delete キーを使用してステージから削除されたオブジェクトは、ドレッサーに自動的に再表示されます。</p>
-<p><strong>ドレッサーのアイテムを右クリックします</strong> コンテキスト メニューの場合: <strong>👁 プレビュー</strong> (ステージ中央に配置、アニメーションなし - サイズ検査用。戻ると元の位置が復元されるため、再生には影響しません)、 <strong>⧉ 重複</strong>, <strong>◈ リザーブ</strong> (保持スロットをグレー表示にする)、または <strong>✕ 削除</strong>。ステージアニメーションを備えたオブジェクトは、 <strong>⇒</strong> リスト内のサフィックス。</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>番号付きキュー</h3>
-<p>トリガー ポイントは、劇場の照明の合図と同じように、プレゼンテーションを段階的に進めます。各キューは、オブジェクトの内外をアニメートしたり、スタック スロットを切り替えたり、時間指定されたシーケンスを実行したりできます。</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>AIステージブロック</h3>
-<p>生成アニメーション バンドをタイムライン上に直接ペイントします。休憩または間隔でスケジュールを設定します。最中 <strong>AIステージブロック</strong>、ステージ上のオブジェクトは、次の 4 つのパターンのいずれかで自動的に振り付けを行います。 <strong>軌道</strong>, <strong>蛇</strong>, <strong>ランダムドリフト</strong>、 または <strong>フォーカススポットライト</strong>。ブロックが終了すると、オブジェクトは元の位置に戻ります。</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>ティッカーオブジェクト</h3>
-<p>テキストティッカーをスクロール中 <strong>水平</strong> （右→左）と <strong>垂直</strong> （下→上）の向き。最大 8 つのティッカーを同時に実行できます。ニュース速報、議題のリマインダー、イベント情報パネルに最適です。速度とテキストはライブで編集可能です。</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>キュータイプフィルター</h3>
-<p>コンパクトなフィルター バーがコントロールとルーラーの間にあり、オブジェクト タイプごとに 1 つのトグル ボタンが付いています。 <strong>Txt · Img · ADB · PPT · PDF · Draw · Tick · Conn · Stack</strong>。任意の組み合わせをクリックすると、それらのキューだけが分離され、他のキューはすべて非表示になります。ルーラー上のかすかな青色の色合いは、フィルターがアクティブであることを示します。クリック <strong>✕ すべて</strong> すぐに全体表示を復元します。</p>
-<p>の <strong>⬛ プレビュー</strong> トグルはフィルタリングをさらに 1 段階進めます。アクティブな場合、再生自体は選択したタイプのキューのみを起動し、他のすべてはステージ上で静的なままになります。再生ヘッドが回転します <strong>琥珀</strong> プレビューがオンになっている間、フィルターされた実行中であることが常にわかります。プレゼンテーションの残りの部分を妨げることなく、単一のオブジェクト タイプのリハーサルや ADB キューのタイミングのチェックに最適です。</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>スクロール再生ヘッド</h3>
-<p>赤い再生ヘッドのラインはタイムライン ウィジェットの中央に固定されます。再生が進むと、ルーラーはその下で左にスクロールします。今後のキューは常に右側に表示され、過去のキューは左側から外れていきます。キューの矢印の上にマウスを置くと、大きなフローティング ポップアップが表示され、完全なラベルとタイムスタンプが表示されます。</p>
-<p><strong>スクロールホイール</strong> 再生ヘッドをスクラブします (ノッチごとに 1 秒)。 <strong>Ctrl+スクロール</strong> ルーラーをズームイン/ズームアウトし (20 ～ 200 ピクセル/秒の範囲)、ズーム スライダーの同期を保ちます。</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>ピンポン再生</h3>
-<p>有効にする <strong>⇄</strong> 再開するのではなく、各境界で方向を反転します。タイムラインは最後まで順方向に再生され、次に最初まで逆方向に再生され、その後再び順方向に無期限に再生されます。キューが発火します <strong>反対の行動</strong> 逆パス（入場↔退場）で。の <strong>ジェネレーティブアニメーター</strong> ビートの方向を反転させて、軌道、スネーク、フォーカスのパターンがその経路をたどります。再生ヘッドが回転します <strong>シアン</strong> 後進中は下向きの三角形が表示されます。 AI ステージ ブロックと組み合わせて、催眠術のような休憩時間のディスプレイを実現します。</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>タイムラインテンプレート</h3>
-<p>事前に構築されたタイミング フレームワークをワンクリックで適用します。 <strong>カンファレンス基調講演 (20 分)</strong>, <strong>大学講義（50分）</strong>, <strong>ワークショップ（90分）</strong>, <strong>ショートピッチ（5分）</strong>、 または <strong>カンファレンス半日（3時間）</strong>。テンプレートは、既存のキューをリタイムするか、ラベル付きマーカーを使用して空のスクリプトを足場にします。</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>マルチスクリプトのタイムライン</h3>
-<p>シングル <code>.kpt</code> タンクは最大まで保持できます <strong>10 個の名前付きスクリプト</strong> — 同じステージオブジェクトを共有する独立したキュータイミング。スクリプトを切り替えると、タイムラインが即座に再設定されます。フルバージョン、ハイライトカット、Q&amp;A の順序を 1 つのファイルにまとめて保存するのに最適です。</p>
+<div class="card-icon">🖇️</div>
+<h3>既存のファイルを開く</h3>
+<p>クラスイン <span class="fmt">.edb</span> 黒板とXournal++ <span class="fmt">.xop</span> ノート（デスクトップまたはモバイルのXournal++アプリから）は直接インポートされ、すべてのページとストロークが編集・アニメーション可能なオブジェクトになります。PowerPoint、Keynote、Word、Markdownはユニバーサルドキュメントインポートを通じて取り込まれます。</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>.kpt プロジェクト バンドル</h3>
-<p>プロジェクトは ZIP アーカイブとして保存されます (<code>.kpt</code>) すべてのメディア アセット、レイアウト データ、アニメーション構成、およびすべての名前付きスクリプトが含まれます。 Chameleon を実行している任意のマシンで開きます。</p>
+<h3>1つのファイル、多くのバージョン</h3>
+<p>プロジェクトは単一のファイルとして保存されます <span class="fmt">.capt</span> メディアすべてと、名前付きタイムライン最大10本を保持するファイル——完全な講演、ハイライト版、Q&amp;Aの進行順をすべて1つのファイルにまとめて、同僚にメールで送信できます。</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>論理座標</h3>
-<p>ステージは、ディスプレイ解像度に関係なく、0 ～ 10,000 の論理座標空間を使用します。プレゼンテーションはラップトップの画面でも 4K プロジェクターでも同じように見えます。</p>
+<div class="card-icon">📱</div>
+<h3>スマホからショーを実行</h3>
+<p>Kameleon Remote Androidアプリは、Wi-FiまたはUSB経由でお使いのコンピューターを自動的に見つけます — 入力する必要はありません。観客が見ているもののライブサムネイル、前へ/次へ、再生/一時停止/停止、レーザーポインタースポットライト、そしてライブスライドに直接描画する機能が利用できます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>部屋にも参加させましょう</h3>
+<p>スロットをオーディエンスモードに切り替えると、参加者が自分のスマホから画像やテキスト回答を送信できます。各回答はトレイに表示され、スクリーンに映す前に承認・保留・却下を選べます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>AIに任せてみよう — そうしたいなら</h3>
+<p>タイムラインの一部をAIセグメントとしてマーク：休憩中、AIが画面上のものを優しく演出します。または、上のビデオのように、トーク全体をAIに任せることもできます。完全にオプション機能で、アプリはこれなしでも完全に動作します。</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>どんな画面でも正しく表示されます</h3>
+<p>ステージは表示先のディスプレイに合わせてスケールするため、ラップトップで作成したトークは4Kプロジェクターでも同じように見えます。リフローもなく、会場での驚きもありません。</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>モバイルとピアコントロール</h2>
-<p>携帯電話からプレゼンターを実行します。生徒が自分のコンテンツからコンテンツをプッシュできるようにする</p>
+<h2>Chameleon Classroomで動作します</h2>
+<p>2つのアプリはファイル形式とプレーヤーを共有しています</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Androidモバイルブリッジ</h4>
-<p>Chameleon モバイル ブリッジ (WebSocket) は、Android デバイスからの劇場コマンドを中継します。コントロール <strong>stack_next / prev / 再生 / 一時停止 / 停止</strong>、画像またはテキスト スロットをスタックにプッシュし、リアルタイムでスタック状態のブロードキャストを確認します。</p>
+<h4>同じインポートエンジン</h4>
+<p>の <span class="fmt">.edb</span> そして <span class="fmt">.xop</span> インポートはChameleon Classroomでも同様に機能するため、レッスン教材は2つのアプリ間でそのまま移動できます。</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>ピアの提出物</h4>
-<p>学生は携帯電話から画像またはテキストをステージモード スタックにプッシュします。提出物はサムネイル ストリップにオレンジ色の点滅する枠で表示されます。プレゼンターができることは、 <strong>承認、保留、拒否、または昇格</strong> 画面上でライブになる前に、それぞれを確認します。</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>共有製図板</h4>
-<p>モバイルブリッジから制御可能な共同フリーハンドキャンバス — <strong>描画ストローク / クリア / 元に戻す</strong>。スライドへの注釈付け、ブレインストーミング、ライブクイズに最適です。</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>スマートなアニメーションワークフロー</h4>
-<p>任意のオブジェクトを右クリックし、選択します <strong>左に入力してください</strong> （または任意の方向のプリセット）、アプリは即座にターゲット選択モードに入り、ワンクリックでオブジェクトの移動先を設定します。フリーハンド モーション パスを記録すると、タイムラインに開始キューと終了キューが自動的にスタンプされます。</p>
+<h4>内蔵プレイヤー</h4>
+<p>Classroomは下パネルでKameleon Presenterを再生専用モードで実行します — プレゼンテーション <span class="fmt">.capt</span> ライブレッスン中に教室を離れずにデッキを操作できます。</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>ADB 電話ミラーと PPT キャプチャ</h4>
-<p><strong>ADBフォンボックス</strong> Android のライブ画面を ADB 経由でステージに直接ストリーミングします。 <strong>PPTミラーボックス</strong> PowerPoint ウィンドウをキャプチャします。変換せずに、Kameleon 内で既存のデッキを表示します。</p>
-<p><strong>🕐 ADB タイムライン キュー</strong> — 任意の ADB アクターを右クリック → <em>キューをタイムラインに追加…</em> スタンプする <strong>ストリームの再開</strong>, <strong>URLを開く</strong>、 または <strong>アプリを起動する</strong> (パッケージ名による) 正確な再生ヘッド位置でキューを作成します。キューは、スペースバーのペースでの再生と自動タイムラインの再生の両方で起動されます。</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>起動と設定</h4>
-<p>カメレオンが開くかどうかを選択します <strong>最後にロードされたプロジェクト</strong> または <strong>ブランクステージ</strong> [設定] → [スタートアップ] メニューから。設定は次の場所に保存されます <code>~/.chameleon/kameleon_settings.json</code> そしてすべての打ち上げを尊重しました。</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>25言語のインターフェース</h4>
-<p>開ける <strong>設定 → 🌐 言語</strong> をクリックすると、Kameleon Presenter UI をフランス語、ドイツ語、スペイン語、アラビア語、中国語、日本語、韓国語、ロシア語、ウェールズ語、タイ語などを含む 25 の言語のいずれかに切り替えることができます。すべてのメニューは即座に更新されます <strong>再起動しない</strong>。翻訳は最初の使用時にバックグラウンドで取得されます。切り替えはキャッシュされると瞬時に行われます。</p>
+<h4>レッスンチャット内のAI</h4>
+<p>クラスルームでは、AIチャット参加者が追加され、他の学生と同じように話しかけることができます。 <strong>AIに送信</strong> デスクトップアプリとAndroidアプリの両方のボタンで、必要なときにいつでも会話に参加させることができます。</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>スクリーンショット</h2>
+<p>カメレオンプレゼンター — ライブ収録</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">画面1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">画面2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">画面3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">画面4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">画面5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">画面6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">画面7</div></div>
 </div>
 <div class="cta-band">
-<h3>プレゼンテーションに活気を与える</h3>
-<p>ライセンスについてご相談いただくか、Kameleon Presenter のライブ デモンストレーションを手配するには、お問い合わせください。</p>
-<a class="btn btn-solid" href="../contact.html">デモをリクエストする</a>
-<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 ユーザーガイドをダウンロード (PDF)</a>
+<h3>Kameleon Presenterを試す</h3>
+<p>Linux、Windows、macOS 用の 1 回限りのデスクトップ ライセンスとして販売されます。 <strong>最終価格を設定中です</strong> デモを予約していただければ、ローンチ日とともにお送りします。</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">デモを予約する</a>
+<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 ユーザーガイドをダウンロード（PDF）</a>
 <a class="btn" href="../index.html">← 概要に戻る</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u30dbu30fcu30e0</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
-<a href="../accounting.html">u7d4cu7406</a><a href="../technician.html">パソコン技術者</a>
+<a href="../index.html">ホーム</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a>
+<a href="../accounting.html">会計</a><a href="../technician.html">パソコン技術者</a>
 <a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Marcos 別名 Stemsee によって構築</p>
+<p>© 2026 Chameleon AI Agent Ltd · Marcos aka stemsee 制作</p>
 </footer>
 </body>
 </html>

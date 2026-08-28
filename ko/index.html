@@ -3,47 +3,28 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>카멜레온 AI — 적응형 지능 플랫폼</title>
+<title>Chameleon AI — 로컬 우선 AI 데스크톱 도구</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .feature-nav {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem; margin: 2.5rem 0;
-    }
-    .feature-nav a {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; gap: .5rem;
-      background: white; border-radius: var(--radius);
-      border: 1px solid var(--border); padding: 1.6rem 1rem;
-      text-decoration: none; color: var(--text);
-      box-shadow: var(--shadow);
-      transition: transform .2s, box-shadow .2s;
-    }
+    .feature-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 2.5rem 0; }
+    .feature-nav a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem;
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.6rem 1rem;
+      text-decoration: none; color: var(--text); box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
     .feature-nav a:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .feature-nav a .fn-icon { font-size: 2.4rem; }
     .feature-nav a strong { color: var(--brand-start); font-size: 1rem; }
     .feature-nav a span { color: var(--muted); font-size: .85rem; }
-    .intro-block {
-      background: white; border-radius: var(--radius);
-      border: 1px solid var(--border); padding: 2.5rem;
-      box-shadow: var(--shadow); margin-bottom: 2rem;
-    }
+    .intro-block { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 2.5rem; box-shadow: var(--shadow); margin-bottom: 2rem; }
     .intro-block h2 { color: var(--brand-start); margin-bottom: .8rem; }
     .intro-block p { color: var(--muted); font-size: 1.02rem; margin-bottom: .6rem; }
-    .license-row {
-      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
-    }
-    .license-pill {
-      background: #eeeeff; border: 1px solid var(--border);
-      border-radius: 50px; padding: .5rem 1.2rem;
-      font-size: .88rem; color: var(--brand-start); font-weight: 600;
-    }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
-<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
-  ⚠️ 테스트 진행 중 — 이 사이트는 활발히 개발 중입니다. 기능, 가격, 라이선스가 확정되지 않았습니다. 여기에 제시된 정보에 의존하지 마십시오.
+<div class="pre-note">
+  Chameleon AI는 활발히 개발 중입니다. 여기에 표시된 기능과 가격은 현재 진행 중인 작업이며 최종 제안이 아닙니다 — <a href="../contact.html">데모 예약하기</a> 계속 소식을 전해드리겠습니다.
 </div>
 <nav>
 <div class="nav-inner">
@@ -52,10 +33,10 @@
 <a class="active" href="../index.html">ud648</a>
 <a href="../ide.html">당신은 아이디어가 있습니다</a>
 <a href="../presenter.html">증여자</a>
-<a href="../companion.html">컴패니언 앱</a>
+<a href="../companion.html">동반자 앱</a>
 <a href="../logistics4x4.html">물류 4×4</a>
 <a href="../services.html">웹 서비스</a>
-<a href="../accounting.html">ud68cuacc4</a>
+<a href="../accounting.html">회계</a>
 <a href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a>
 <a href="../contact.html">연락하다</a>
@@ -64,153 +45,56 @@
 </nav>
 <div class="hero">
 <div class="hero-icon"><img alt="Chameleon AI" src="../icon.png" style="width:96px;height:96px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.3);"/></div>
-<h1>카멜레온 AI 플랫폼</h1>
-<p class="sub">완전한 AI 기반 데스크탑 제품군 — IDE, 발표자, 회계, 강의실 등. 프리랜서와 소규모 기업을 위해 제작되었습니다.</p>
+<h1>카멜레온 AI</h1>
+<p class="sub">로컬 우선 데스크톱 도구에 AI가 내장되어 있습니다 — 코드 편집기, 프레젠테이션 스튜디오, 교육용 교실, 영국 회계, 차량 관제 통신 등. 데이터는 내 기기에 남고, AI 키는 내 것이 유지됩니다.</p>
 <div class="hero-badges">
 <span class="badge"><span class="pulse"></span> 적극적으로 개발</span>
 <span class="badge">🇬🇧 영국 비즈니스</span>
-<span class="badge">🔒 로컬 우선/개인정보 우선</span>
+<span class="badge">🔒 로컬 우선, 프라이버시 우선</span>
 <span class="badge">🐧 리눅스 · 윈도우 · macOS</span>
 </div>
 </div>
 <div class="page">
 <div class="intro-block">
-<h2>하나의 플랫폼. 일곱 가지 학문.</h2>
-<p>Chameleon AI는 Chameleon AI Technicians Ltd를 위해 Stemsee로 알려진 Marcos가 제작한 PyQt6 데스크톱 애플리케이션입니다. 여기에는 전문 AI 코드 편집기, 극장에서 영감을 받은 프레젠테이션 시스템, 전체 영국 복식 회계, 언어 교육 비디오 강의실, P2P 네트워킹 등이 번들로 포함되어 있으며 모두 클라우드 종속성 없이 컴퓨터에서 로컬로 실행됩니다. AI IDE는 직접적인 AI 기반 코드 편집을 위해 터미널(pty)에서 실행되는 Claude Code를 통합합니다.</p>
-<p>DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot 등 AI 제공업체는 런타임 시 교체 가능합니다. 키는 절대로 장치를 떠나지 않습니다.</p>
-<div class="license-row">
-<span class="license-pill">라이센스 — 확정 보류 중</span>
-<span class="license-pill">아직 출시가 불가능함</span>
-</div>
+<h2>하나의 플랫폼, 여러 도구</h2>
+<p>Chameleon AI는 프리랜서와 소규모 비즈니스를 위한 데스크톱 제품군입니다. 각 도구는 실제 작업을 수행합니다 — 코드 작성, 강연, 수업 운영, 장부 관리, 차량대 조정 — 그리고 각각 도움이 되는 곳에 AI가 내장되어 있으며, 과시용으로 추가된 것이 아닙니다.</p>
+<p>모든 것이 사용자 자신의 기기에서 실행됩니다. 언제든지 AI 제공업체를 선택하세요 — DeepSeek, OpenAI, Anthropic, Groq, Mistral, Kimi — 또는 비용 없이 로컬에서 모델을 실행하세요. 키는 절대 기기를 떠나지 않습니다.</p>
 </div>
 <div class="section-title">
-<h2>플랫폼 살펴보기</h2>
-<p>자세히 알아보려면 기능을 클릭하세요.</p>
+<h2>도구</h2>
+<p>아무거나 클릭하면 어떤 기능인지 볼 수 있습니다</p>
 </div>
 <nav class="feature-nav">
-<a href="../ide.html">
-<span class="fn-icon">🧠</span>
-<strong>당신은 아이디어가 있습니다</strong>
-<span>음성, 차이점 보기 및 명령 브리지를 갖춘 다중 제공자 AI 코드 편집기</span>
-</a>
-<a href="../presenter.html">
-<span class="fn-icon">🎭</span>
-<strong>카멜레온 프리젠터</strong>
-<span>실시간 모바일 제어 및 공동 드로잉 기능을 갖춘 극장 메타포 슬라이드</span>
-</a>
-<a href="../companion.html">
-<span class="fn-icon">📱</span>
-<strong>컴패니언 앱</strong>
-<span>Android 브리지 — AI 채팅, P2P 비디오, 발표자 원격, 파일, 미디어 및 영수증</span>
-</a>
-<a href="../logistics4x4.html">
-<span class="fn-icon">🚛</span>
-<strong>물류 4×4</strong>
-<span>국경 간 차량 통신 — 비디오 피어 4개 + SIM 발신자 4개, 실시간 지도, 매니페스트 및 15개 언어</span>
-</a>
-<a href="../services.html">
-<span class="fn-icon">🌐</span>
-<strong>웹 서비스</strong>
-<span>AI 웹사이트 빌더, 무료 호스팅, 도메인 설정, 관리받은 편지함 및 SEO</span>
-</a>
-<a href="../accounting.html">
-<span class="fn-icon">📊</span>
-<strong>ud68cuacc4</strong>
-<span>영국 복식 원장, VAT, P&amp;L, 대차대조표 — 세금 디지털 준비</span>
-</a>
-<a href="../technician.html">
-<span class="fn-icon">🔧</span>
-<strong>AI PC 기술자</strong>
-<span>AI 안내 시스템 수리, USB 드라이버 프로파일러 및 Linux 커널 모듈 생성기</span>
-</a>
-<a href="../classroom.html">
-<span class="fn-icon">🎓</span>
-<strong>어학교실</strong>
-<span>WebRTC 비디오 교육, Tailscale mesh, Stripe/Alipay/PayPal 결제</span>
-</a>
-<a href="../contact.html">
-<span class="fn-icon">✉️</span>
-<strong>연락처 및 라이센스</strong>
-<span>연락하거나, 데모를 요청하거나, 상용 라이선스를 구매하세요.</span>
-</a>
+<a href="../ide.html"><span class="fn-icon">🧠</span><strong>당신은 아이디어가 있습니다</strong><span>AI가 코드를 읽고, 편집하고, 실행한 뒤 변경 사항(diff)을 보여주는 코드 편집기입니다.</span></a>
+<a href="../presenter.html"><span class="fn-icon">🎭</span><strong>카멜레온 프레젠터</strong><span>휴대폰에서 실행하는 라이브 소스 기반 애니메이션 프레젠테이션. ClassIn 및 Xournal++ 파일을 엽니다.</span></a>
+<a href="../companion.html"><span class="fn-icon">📱</span><strong>동반자 앱</strong><span>휴대폰 속 당신의 데스크톱 — AI 채팅, 파일, 발표자 리모컨, 그룹 영상, 영수증.</span></a>
+<a href="../logistics4x4.html"><span class="fn-icon">🚛</span><strong>물류 4×4</strong><span>일반 전화기에서의 국경 간 함대 통신 — 한 통화에 영상 4명과 전화 4명, 실시간 지도, 화물 명세서.</span></a>
+<a href="../services.html"><span class="fn-icon">🌐</span><strong>웹 서비스</strong><span>저희가 웹사이트를 구축하고, 호스팅하며, 관리해 드립니다 — 완전 대행, AI 지원 방식으로요.</span></a>
+<a href="../accounting.html"><span class="fn-icon">📊</span><strong>회계</strong><span>영국 소규모 회사를 위한 복식부기 — 부가가치세, 손익계산서, 대차대조표, MTD 신고.</span></a>
+<a href="../technician.html"><span class="fn-icon">🔧</span><strong>PC 기술자</strong><span>단계별로 Linux를 수리하고, 알 수 없는 USB 하드웨어를 드라이버로 프로파일링하는 AI.</span></a>
+<a href="../classroom.html"><span class="fn-icon">🎓</span><strong>uc218uc5c5</strong><span>언어 교육을 위한 실시간 온라인 교실 — 비디오, 화이트보드, 슬라이드 플레이어, AI 참가자.</span></a>
+<a href="../contact.html"><span class="fn-icon">✉️</span><strong>연락처 및 라이센스</strong><span>문의하시거나, 데모를 요청하시거나, 라이선스에 대한 관심을 등록하세요.</span></a>
 </nav>
 <div class="section-title" style="margin-top:3rem;">
-<h2>플랫폼 하이라이트</h2>
+<h2>그들이 공통으로 가지고 있는 것</h2>
 </div>
 <div class="cards">
-<div class="card">
-<div class="card-icon">🔒</div>
-<h3>로컬 우선 개인 정보 보호</h3>
-<p>원장, 채팅 기록, 프로젝트 파일 등 모든 데이터가 <code>~/.chameleon/</code> 당신의 컴퓨터에. 클라우드 AI 공급자를 명시적으로 선택하지 않는 한 아무 것도 타사 서버로 전송되지 않습니다.</p>
+<div class="card"><div class="card-icon">🔒</div><h3>머신에서 실행됩니다</h3><p>파일, 원장 및 채팅 기록은 컴퓨터에 저장됩니다. 클라우드 AI 제공업체를 선택하지 않는 한 어떤 정보도 제3자에게 전송되지 않습니다.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>나만의 AI 가져오기</h3><p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — 한 번의 클릭으로 전환하세요. 또는 Ollama나 LM Studio를 통해 모델을 로컬에서 무료로 실행할 수 있습니다.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>폰 컴패니언</h3><p>휴대폰에서 AI와 채팅하고, 발표자를 제어하고, 파일에 접근하고, 화상 통화에 참여하세요.</p></div>
+<div class="card"><div class="card-icon">🌐</div><h3>개인 연결</h3><p>영상과 음성이 기기 간에 직접 전송되며, 여러분의 사설 네트워크를 통해서만 이루어집니다 — 중간에 서비스가 없고, 분당 요금도 없습니다.</p></div>
+<div class="card"><div class="card-icon">🎙️</div><h3>음성 입력 및 출력</h3><p>받아쓰기로 말하면 답변을 읽어 주며, 클라우드 전사 없이 기기 내에서 처리됩니다.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>리눅스, 윈도우, macOS</h3><p>하나의 코드베이스로 세 플랫폼 모두 지원.</p></div>
 </div>
-<div class="card">
-<div class="card-icon">🔄</div>
-<h3>교체 가능한 AI 제공업체</h3>
-<p>한 번의 클릭으로 DeepSeek, OpenAI, Anthropic, Groq, Ollama, Mistral, Moonshot 등을 전환할 수 있습니다. Ollama 또는 LM Studio를 통해 비용 없이 로컬 모델을 실행하세요.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>모바일 컴패니언</h3>
-<p>WebSocket을 통한 Android 브리지는 휴대폰의 AI 채팅, 스크린샷 및 파일 업로드를 중계합니다. 발표자를 제어하고, 녹음을 실행하고, 원격으로 제출을 승인하세요.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>테일스케일 메쉬</h3>
-<p>자체 Tailscale 네트워크를 통한 P2P 비디오 및 음성. IDE에서 직접 ACL, 장치 인증 및 키를 관리하세요.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎙️</div>
-<h3>음성 입력, 음성 출력</h3>
-<p>핸즈프리 코딩을 위한 속삭임 기반 음성을 텍스트로 변환합니다. Piper TTS는 AI 응답을 소리내어 읽습니다. 코드, 문서 또는 메시지를 자연스럽게 받아쓰세요.</p>
-</div>
-<div class="card">
-<div class="card-icon">🐧</div>
-<h3>크로스 플랫폼</h3>
-<p>Linux, Windows 및 macOS에서 실행됩니다. 플랫폼별 경로, 오디오 플레이어 및 TTS 바이너리는 <em>platform_utils.py</em> — 어디에서나 하나의 코드베이스.</p>
-</div>
-</div>
-<!-- SCREENSHOTS: drop real images in here when ready
-       Suggested: ide-main.png, presenter-stage.png, android-companion.png -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>실제로 확인해보세요</h2>
-<p>스크린샷이 곧 제공될 예정입니다.</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<div class="screenshot-placeholder">
-<div class="ph-icon">🧠</div>
-<strong>당신은 아이디어가 있습니다</strong>
-<span>ide-main.png</span>
-</div>
-<div class="screenshot-caption">AI IDE — 채팅 패널, 코드 편집기, 차이점 보기</div>
-</div>
-<div class="screenshot-frame">
-<div class="screenshot-placeholder">
-<div class="ph-icon">🎭</div>
-<strong>카멜레온 프리젠터</strong>
-<span>발표자 무대.png</span>
-</div>
-<div class="screenshot-caption">Kameleon Presenter — 실시간 학생 제출물이 포함된 무대</div>
-</div>
-<div class="screenshot-frame phone">
-<div class="screenshot-placeholder phone-ratio">
-<div class="ph-icon">📱</div>
-<strong>안드로이드 앱</strong>
-<span>android-companion.png</span>
-</div>
-<div class="screenshot-caption">Android 컴패니언 — AI 채팅 및 발표자 원격</div>
-</div>
-</div>
-<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.8rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
-<h3 style="color:#92400e;margin-bottom:.6rem;">⚠️ 법적 고지 및 면책조항</h3>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">이 웹사이트는 활발한 테스트 및 개발 프로세스의 일부입니다. 콘텐츠는 AI(Claude Code, Anthropic)의 도움으로 생성되었으며 부정확하거나 불완전한 정보 또는 자리 표시자 텍스트가 포함될 수 있습니다. 이 사이트의 어떤 내용도 최종 제품 제안, 보증 또는 법적 약속을 구성하지 않습니다.</p>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">라이센스 조건은 다음과 같습니다. <strong>확정 대기 중</strong>. 이 웹사이트에서는 상업적, 개인적 또는 기타 소프트웨어 라이센스를 부여하거나 암시하지 않습니다. 여기에 표시된 정보를 바탕으로 비즈니스 결정을 내리지 마십시오.</p>
-<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 Chameleon AI Technicians Ltd. 판권 소유. 잉글랜드와 웨일즈에 등록되었습니다. 이 사이트는 정보 제공 및 테스트 목적으로만 제공됩니다.</p>
+<div style="background:#fefce8;border:1px solid #fde047;border-radius:var(--radius);padding:1.6rem 2rem;margin:2.5rem 0;box-shadow:var(--shadow);">
+<h3 style="color:#92400e;margin-bottom:.5rem;">메모</h3>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;margin-bottom:.5rem;">이 사이트는 활발한 개발 과정의 일부입니다. 일부 콘텐츠는 자리 표시자이며, 가격 및 라이선스는 아직 최종 확정되지 않았습니다. 여기의 어떤 내용도 최종 제품 제안이나 보증이 아닙니다.</p>
+<p style="color:#78350f;font-size:.92rem;line-height:1.7;">© 2026 Chameleon AI Agent Ltd (CHAMELEON-AI-AGENT LTD, 잉글랜드 및 웨일즈로 등록됨). 개발 중 정보 제공용으로 제공됩니다.</p>
 </div>
 <div class="cta-band">
-<h3>카멜레온에 관심이 있으세요?</h3>
-<p>문의하세요. 제품은 테스트 중이며 아직 출시되지 않았습니다.</p>
-<a class="btn btn-solid" href="../contact.html">연락하세요</a>
+<h3>더 자세히 보고 싶으신가요?</h3>
+<p>도구는 테스트 중이며 아직 일반 공개되지 않았습니다. 데모를 예약하시면 가격과 출시에 대해 계속 업데이트해 드리겠습니다.</p>
+<a class="btn btn-solid" href="../contact.html">데모 예약하기</a>
 <a class="btn" href="mailto:stemsee@chameleon-ai-agent-ltd.net">줄기see@chameleon-ai-agent-ltd.net</a>
 </div>
 </div>
@@ -219,12 +103,12 @@
 <a href="../index.html">ud648</a>
 <a href="../ide.html">당신은 아이디어가 있습니다</a>
 <a href="../presenter.html">증여자</a>
-<a href="../accounting.html">ud68cuacc4</a>
+<a href="../accounting.html">회계</a>
 <a href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a>
 <a href="../contact.html">연락하다</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · 라이센스 보류 중 · Marcos aka 줄기시 제작</p>
+<p>© 2026 Chameleon AI Agent Ltd · Marcos aka stemsee 제작</p>
 </footer>
 </body>
 </html>

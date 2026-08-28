@@ -3,29 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Akuntansi Inggris - Chameleon AI</title>
+<title>Akuntansi — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .vat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
-    }
-    .vat-code {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow);
-    }
-    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
-    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .ledger-sample {
       background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
-      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
-      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: .8rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0; line-height: 1.7;
     }
     .ledger-sample .dr { color: #f87171; }
     .ledger-sample .cr { color: #4ade80; }
     .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+    .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+    .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Akuntansi Chameleon sedang dalam pengembangan aktif. Ini menyiapkan angka-angka Anda — Anda atau akuntan Anda yang mengajukannya. Harga dan ketersediaan masih dalam tahap finalisasi — <a href="../contact.html">Pesan demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Bunglon AI</strong></a>
@@ -45,167 +46,109 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📊</div>
-<h1>Akuntansi Inggris</h1>
-<p class="sub">Pembukuan double-entry, pelacakan PPN, Laba &amp; Rugi, Neraca — semuanya dalam buku besar SQLite lokal yang menargetkan HMRC Membuat Pajak Digital.</p>
+<h1>Akuntansi</h1>
+<p class="sub">Pembukuan double-entry untuk perusahaan kecil di Inggris — PPN, Laba Rugi, Neraca, dan pengembalian PPN Making Tax Digital, dalam buku besar yang tersimpan di perangkat Anda sendiri.</p>
 <div class="hero-badges">
-<span class="badge">🇮🇧 Bagan Akun Inggris</span>
-<span class="badge">📋 Siap MTD</span>
-<span class="badge">🔒 SQLite Lokal</span>
-<span class="badge">🤖 Keluaran JSON yang dapat diurai AI</span>
+<span class="badge">Bagan akun UK bawaan 🇬🇧</span>
+<span class="badge">📋 Format pengembalian PPN MTD</span>
+<span class="badge">🧾 Pemberitahuan HMRC 700 faktur</span>
+<span class="badge">🔒 File lokal, berfungsi tanpa internet</span>
+<span class="badge">🤖 Tanyakan AI tentang angka-angka Anda</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Buku Besar Entri Ganda</h2>
-<p>Setiap transaksi diimbangi dengan sen — debit selalu sama dengan kredit</p>
+<h2>Setiap entri menyeimbangkan</h2>
+<p>Pembukuan ganda yang tepat — debit sama dengan kredit, hingga sen terakhir</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Tanggal │ Rekening │ Debit (£) │ Kredit (£) │ PPN</span>
-────────────┼───────────────────.
-01-04-2026 │ 4000 Pendapatan Penjualan │ │  <span class="cr">1,200.00</span>  │ S20
-01-04-2026 │ Kontrol PPN 2200 │ │    <span class="cr">240.00</span>  │
-01-04-2026 │ 1100 Debitur Perdagangan │ <span class="dr">1,440.00</span>  │ │
-────────────┼───────────────────.
-05-04-2026 │ 6100 Biaya Kantor │   <span class="dr">85.00</span>   │ │ S20
-05-04-2026 │ Kontrol PPN 2200 │   <span class="dr">17.00</span>   │ │
-05-04-2026 │ 1200 Bank Lancar │ │    <span class="cr">102.00</span>  │
-  </div>
+<span class="hd">Tanggal Akun Debit (£) Kredit (£) PPN</span><br/>
+2026-04-01 4000 Pendapatan Penjualan                       <span class="cr">1,200.00</span>   S20<br/>
+2026-04-01 2200 Kontrol PPN                           <span class="cr">240.00</span><br/>
+2026-04-01 1100 Debitur Dagang          <span class="dr">1,440.00</span><br/>
+<br/>
+2026-04-05 6100 Beban Kantor          <span class="dr">85.00</span>                S20<br/>
+2026-04-05 2200 Kontrol PPN              <span class="dr">17.00</span><br/>
+2026-04-05 1200 Bank Giro                          <span class="cr">102.00</span>
+</div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
-<h3>Bagan Akun Inggris</h3>
-<p>Kode akun standar Inggris yang unik — aset, kewajiban, ekuitas, pendapatan, dan pengeluaran yang dipetakan ke kategori HMRC. Perluas dengan akun khusus sesuai kebutuhan.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗄️</div>
-<h3>buku besar SQLite</h3>
-<p>Semua data disimpan di <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Berjalan sepenuhnya offline. Dukungan beberapa perusahaan — beralih antar entitas dengan tanda perintah.</p>
-</div>
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>tahun pajak Inggris</h3>
-<p>Akhir tahun disetel dengan benar ke 5 April (tahun fiskal Inggris 6 April – 5 April). Laporan P&amp;L dan PPN secara otomatis mencakup periode yang benar tanpa penyesuaian tanggal manual.</p>
+<h3>Bagan akun UK, siap digunakan</h3>
+<p>Kode akun standar Inggris langsung tersedia, dipetakan ke kategori HMRC — aset, liabilitas, ekuitas, pendapatan, beban. Tambahkan akun Anda sendiri kapan pun diperlukan.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
-<h3>Pemindaian anomali forensik</h3>
-<p>Berlari <code>--forensic</code> untuk mendeteksi entri yang tidak seimbang, duplikat referensi, ketidaksesuaian PPN dan penyimpangan lainnya. Hasil dicetak sebagai JSON terstruktur untuk tinjauan AI.</p>
+<h3>Ia memeriksa kerjanya sendiri</h3>
+<p>Pemindaian forensik menandai apa pun yang tidak beres — entri yang tidak seimbang, referensi duplikat, ketidakcocokan PPN — sebelum mencapai laporan.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Mengetahui tahun pajak Inggris</h3>
+<p>Akhir tahun adalah 6 April hingga 5 April. Laporan Laba Rugi dan PPN mencakup periode yang tepat secara otomatis — tanpa perlu mengatur tanggal secara manual.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Pengembalian PPN berbentuk MTD</h3>
+<p>Ringkasan PPN keluar kotak demi kotak dalam format HMRC Making Tax Digital: Kotak 1 pajak keluaran, Kotak 4 pajak masukan, Kotak 6 penjualan bersih, Kotak 7 pembelian bersih.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Laporan yang benar-benar Anda ajukan</h3>
+<p>Laba Rugi, Neraca, Ringkasan Retur PPN — masing-masing dirinci berdasarkan kode akun. Neraca juga mengonfirmasi bahwa pembukuan seimbang: aset sama dengan liabilitas ditambah ekuitas.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Faktur yang lulus</h3>
+<p>Setiap faktur memuat semua kolom yang diwajibkan oleh HMRC Notice 700 — nomor urut, kedua nomor VAT, tanggal faktur dan penyerahan, rincian baris dengan VAT per baris, subtotal neto dan VAT. Cetak, simpan sebagai PDF, atau kirim ke ponsel Anda. Atur detail perusahaan Anda sekali saja.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Buku Anda tetap milik Anda</h3>
+<p>Seluruh buku besar adalah satu file di komputer Anda. Ini berfungsi tanpa internet. Jalankan beberapa perusahaan secara berdampingan dan beralih di antara mereka dengan satu bendera.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Output yang dapat dibaca AI</h3>
-<p>Semua laporan menghasilkan JSON terstruktur hingga stdout sehingga Chameleon AI dapat menguraikan, meringkas, dan memberi saran tentang posisi keuangan Anda dalam bahasa alami.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>Jembatan WebSocket</h3>
-<p>Jembatan WebSocket akuntansi (<code>acct_ws_bridge.py</code>) memaparkan kueri buku besar ke pendamping seluler dan dasbor eksternal melalui jaringan Tailscale Anda.</p>
+<h3>Tanyakan tentang posisi Anda</h3>
+<p>Setiap laporan juga keluar sebagai data terstruktur yang dapat dibaca oleh Chameleon AI — sehingga Anda dapat bertanya, dalam bahasa Inggris sederhana, bagaimana kuartal tersebut atau ke mana PPN pergi.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Kode PPN Didukung</h2>
+<h2>Kode PPN</h2>
+<p>Tarif yang dibutuhkan oleh bisnis kecil di Inggris</p>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Tarif standar 20%</p></div>
 <div class="vat-code"><div class="vc">R5</div><p>Penurunan tarif 5%</p></div>
 <div class="vat-code"><div class="vc">Z</div><p>Nilai nol</p></div>
-<div class="vat-code"><div class="vc">E</div><p>Membebaskan</p></div>
+<div class="vat-code"><div class="vc">Hai</div><p>Membebaskan</p></div>
 <div class="vat-code"><div class="vc">HAI</div><p>Di luar jangkauan</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Laporan</h2>
+<h2>Tanda terima datang kepada Anda</h2>
+<p>Dari ponsel, dan dari jalan</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📈</div>
+<div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Untung &amp; Rugi</h4>
-<p>Pendapatan vs pengeluaran untuk periode tersebut. Penjualan, harga pokok barang, laba kotor, biaya operasional, laba bersih — semuanya dipecah berdasarkan kode akun. Jalankan dengan <code>--report pl</code>.</p>
+<h4>Dari aplikasi Companion</h4>
+<p>Memotret tanda terima di dalam <a href="../companion.html">Pendamping Chameleon</a> Aplikasi telepon dan itu tiba di desktop sebagai entri buku besar draf untuk Anda konfirmasi.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">⚖️</div>
+<div class="strip-icon">🚛</div>
 <div class="strip-body">
-<h4>Neraca</h4>
-<p>Aset, kewajiban, dan ekuitas pada suatu waktu. Mengonfirmasi integritas entri ganda — aset harus sama dengan kewajiban ditambah ekuitas. Jalankan dengan <code>--report bs</code>.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Ringkasan Pengembalian PPN</h4>
-<p>Angka PPN kotak per kotak yang sesuai dengan format pengembalian PPN MTD HMRC: Kotak 1 (pajak keluaran), Kotak 4 (pajak masukan), Kotak 6 (penjualan bersih), Kotak 7 (pembelian bersih). Jalankan dengan <code>--report vat</code>.</p>
+<h4>Dari Logistik 4×4</h4>
+<p>Penerimaan bahan bakar dan biaya pengemudi mengalir dari <a href="../logistics4x4.html">Logistik 4×4</a> aplikasi langsung ke buku besar yang sama.</p>
 </div>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Faktur</h2>
-<p>Faktur yang sesuai dengan HMRC Notice 700 — dicetak, disimpan sebagai PDF, atau dikirim ke ponsel Anda dalam satu klik</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Bidang faktur yang sesuai dengan standar Inggris</h4>
-<p>Setiap faktur mencakup semua bidang yang diwajibkan oleh HMRC Notice 700: nomor faktur berurutan yang unik, nama dan alamat pemasok, nomor pendaftaran PPN, tanggal faktur, tanggal penyediaan (waktu penyediaan), nama dan alamat klien, nomor PPN klien jika berlaku, deskripsi baris terperinci dengan jumlah dan harga satuan, tarif PPN per baris, subtotal bersih dan PPN, dan jumlah total yang harus dibayar. Tidak ada yang hilang, tidak ada yang ditebak.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏢</div>
-<div class="strip-body">
-<h4>Pengaturan Perusahaan</h4>
-<p>Membuka <em>File → Faktur → Pengaturan Perusahaan</em> untuk memasukkan nama perusahaan terdaftar Anda, alamat, nomor Rumah Perusahaan, nomor PPN, email, telepon dan rincian bank. Pengaturan disimpan per database klien di <code>company.json</code> di samping buku besar dan dimuat secara otomatis setiap kali faktur dibuat untuk klien tersebut.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">👥</div>
-<div class="strip-body">
-<h4>Basis data kontak pelanggan</h4>
-<p>Saat pertama kali Anda menagih klien, nama, alamat, dan nomor PPN mereka disimpan ke tabel kontak di dalam buku besar. Pada faktur berikutnya, mengetikkan nama klien akan melengkapi detailnya secara otomatis — tidak perlu memasukkan ulang. Kontak dapat diedit kapan saja.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🖨️</div>
-<div class="strip-body">
-<h4>Cetak, PDF dan kirim ke telepon</h4>
-<p>Dari Manajer Faktur (<em>File → Faktur…</em>) pilih faktur apa pun dan pilih: <strong>Mencetak</strong> (membuka dialog pencetakan OS — printer atau driver PDF apa pun), <strong>Simpan PDF</strong> (langsung ke disk melalui ekspor PDF bawaan Qt), atau <strong>Kirim ke Telepon</strong> (mendorong HTML faktur ke aplikasi Pendamping yang membuka dialog pencetakan Android — mencetak secara nirkabel ke AirPrint atau printer terdekat).</p>
-</div>
-</div>
-</div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Tanggal penyediaan</h3>
-<p>Pisahkan kolom "Tanggal persediaan" (waktu persediaan) — berbeda dengan tanggal faktur. Diperlukan oleh HMRC untuk keperluan PPN. Defaultnya adalah hari ini tetapi dapat diedit secara independen per faktur.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Pencetakan faktur seluler</h3>
-<p>Aplikasi Pendamping dapat mencetak faktur apa pun secara nirkabel. Ketuk ikon cetak di baris faktur mana pun — aplikasi mengambil HTML dari IDE, mengubahnya menjadi PDF di perangkat melalui <code>printing</code> paket, dan membuka dialog pencetakan sistem Android.</p>
-</div>
-<div class="card">
-<div class="card-icon">✅</div>
-<h3>Kepatuhan Pemberitahuan HMRC 700</h3>
-<p>Ke-12 bidang yang wajib diisi untuk faktur PPN Inggris lengkap sudah ada dan diisi. Garis dengan tarif rendah dan tarif nol diberi label dengan jelas. Urutan nomor faktur benar-benar meningkat secara monoton tanpa ada celah.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Referensi Cepat CLI</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Memerintah</th><th>Keterangan</th></tr></thead>
-<tbody>
-<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Laba &amp; Rugi tahun pajak berjalan</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Neraca pada hari ini</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Ringkasan pengembalian PPN (kotak MTD)</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Pemindaian anomali &amp; integritas</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Referensi perintah lengkap</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Sederhanakan pembukuan Inggris Anda</h3>
-<p>Dibuat khusus untuk pekerja lepas dan usaha kecil yang beroperasi berdasarkan peraturan pajak Inggris.</p>
-<a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
+<h3>Coba Akuntansi Chameleon</h3>
+<p>Dijual sebagai lisensi desktop sekali bayar. Ini menyiapkan figur Anda dalam format HMRC — <strong>Anda atau akuntan Anda yang mengirimkannya</strong>Harga akhir sedang ditetapkan sekarang.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Pesan demo</a>
 <a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
 </div>
 </div>
@@ -215,7 +158,7 @@
 <a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
 <a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Dibangun oleh Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Dibuat oleh Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

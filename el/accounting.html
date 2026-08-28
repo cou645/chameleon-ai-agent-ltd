@@ -3,37 +3,38 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Λογιστική του Ηνωμένου Βασιλείου — Chameleon AI</title>
+<title>Λογιστική — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .vat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
-    }
-    .vat-code {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow);
-    }
-    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
-    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .ledger-sample {
       background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
-      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
-      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: .8rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0; line-height: 1.7;
     }
     .ledger-sample .dr { color: #f87171; }
     .ledger-sample .cr { color: #4ade80; }
     .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+    .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+    .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Το Chameleon Accounting βρίσκεται σε ενεργή ανάπτυξη. Προετοιμάζει τα στοιχεία σας — εσείς ή ο λογιστής σας τα υποβάλλετε. Η τιμολόγηση και η διαθεσιμότητα εξακολουθούν να οριστικοποιούνται — <a href="../contact.html">Κλείστε ένα demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Χαμαιλέοντας AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
 <a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
 <a href="../presenter.html">Δωρητής</a>
-<a href="../companion.html">Companion App</a>
+<a href="../companion.html">Εφαρμογή Συνοδού</a>
 <a href="../logistics4x4.html">Logistics 4×4</a>
 <a href="../services.html">Υπηρεσίες Ιστού</a>
 <a class="active" href="../accounting.html">Λογιστική</a>
@@ -45,65 +46,76 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📊</div>
-<h1>Λογιστική του Ηνωμένου Βασιλείου</h1>
-<p class="sub">Διπλή λογιστική, παρακολούθηση ΦΠΑ, Κέρδη και Ζημίες, Ισολογισμός — όλα σε ένα τοπικό καθολικό SQLite που στοχεύει το HMRC Making Tax Digital.</p>
+<h1>Λογιστική</h1>
+<p class="sub">Διπλογραφικά βιβλία για μια μικρή εταιρεία στο Ηνωμένο Βασίλειο — ΦΠΑ, Κέρδη &amp; Ζημίες, Ισολογισμός και επιστροφές ΦΠΑ μέσω Making Tax Digital, σε ένα καθολικό που βρίσκεται στον δικό σας υπολογιστή.</p>
 <div class="hero-badges">
-<span class="badge">🇬🇧 Λογιστικό Σχέδιο ΗΒ</span>
-<span class="badge">📋 έτοιμο για MTD</span>
-<span class="badge">🔒 Τοπικό SQLite</span>
-<span class="badge">🤖 Έξοδος JSON με δυνατότητα ανάλυσης AI</span>
+<span class="badge">🇬🇧 Ηνωμένου Βασιλείου λογιστικό σχέδιο ενσωματωμένο</span>
+<span class="badge">📋 Μορφή επιστροφής ΦΠΑ MTD</span>
+<span class="badge">🧾 Ειδοποίηση HMRC 700 τιμολόγια</span>
+<span class="badge">🔒 Τοπικό αρχείο, λειτουργεί χωρίς σύνδεση</span>
+<span class="badge">🤖 Ρωτήστε το AI για τους αριθμούς σας</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Καθολικό Διπλής Εγγραφής</h2>
-<p>Κάθε συναλλαγή ισοσκελισμένη σε πένα - χρεώνει πάντα ίσες πιστώσεις</p>
+<h2>Κάθε εγγραφή εξισορροπεί</h2>
+<p>Σωστή διπλογραφική λογιστική — οι χρεώσεις ισούνται με τις πιστώσεις, μέχρι και το τελευταίο λεπτό</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Ημερομηνία │ Λογαριασμός │ Χρέωση (£) │ Πίστωση (£) │ ΦΠΑ</span>
-────────────┼────────── ─────┼───────────┼─────
-2026-04-01 │ 4000 έσοδα από πωλήσεις │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 ΦΠΑ Έλεγχος │ │    <span class="cr">240.00</span>  │
-2026-04-01 │ 1100 Εμπορικοί Οφειλέτες │ <span class="dr">1,440.00</span>  │ │
-────────────┼────────── ─────┼───────────┼─────
-2026-04-05 │ 6100 Έξοδα Γραφείου │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ 2200 ΦΠΑ Έλεγχος │   <span class="dr">17.00</span>   │ │
-2026-04-05 │ 1200 Τραπεζικό ρεύμα │ │    <span class="cr">102.00</span>  │
-  </div>
+<span class="hd">Ημερομηνία Λογαριασμός Χρέωση (£) Πίστωση (£) ΦΠΑ</span><br/>
+2026-04-01 4000 Έσοδα από Πωλήσεις                       <span class="cr">1,200.00</span>   S20<br/>
+2026-04-01 2200 Έλεγχος ΦΠΑ                           <span class="cr">240.00</span><br/>
+2026-04-01 1100 Εμπορικοί Οφειλέτες          <span class="dr">1,440.00</span><br/>
+<br/>
+2026-04-05 6100 Έξοδα Γραφείου          <span class="dr">85.00</span>                S20<br/>
+2026-04-05 2200 Έλεγχος ΦΠΑ              <span class="dr">17.00</span><br/>
+2026-04-05 1200 Τρέχων Τραπεζικός Λογαριασμός                          <span class="cr">102.00</span>
+</div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
-<h3>Λογιστικό Σχέδιο ΗΒ</h3>
-<p>Τυπικοί κωδικοί λογαριασμών του Ηνωμένου Βασιλείου εκτός πλαισίου — περιουσιακά στοιχεία, υποχρεώσεις, ίδια κεφάλαια, έσοδα και έξοδα αντιστοιχισμένα στις κατηγορίες HMRC. Επέκταση με προσαρμοσμένους λογαριασμούς όπως απαιτείται.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗄️</div>
-<h3>Καθολικό SQLite</h3>
-<p>Όλα τα δεδομένα είναι αποθηκευμένα σε <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Εκτελείται εντελώς εκτός σύνδεσης. Υποστήριξη πολλαπλών εταιρειών — εναλλαγή μεταξύ οντοτήτων με σημαία εντολής.</p>
-</div>
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>φορολογικό έτος στο Ηνωμένο Βασίλειο</h3>
-<p>Το τέλος έτους έχει οριστεί σωστά στις 5 Απριλίου (οικονομικό έτος 6 Απριλίου – 5 Απριλίου). Οι αναφορές P&amp;L και ΦΠΑ καλύπτουν αυτόματα τη σωστή περίοδο χωρίς μη αυτόματη προσαρμογή ημερομηνίας.</p>
+<h3>Χάρτης λογαριασμών Ηνωμένου Βασιλείου, έτοιμος για χρήση</h3>
+<p>Τυπικοί κωδικοί λογαριασμών Ηνωμένου Βασιλείου έτοιμοι για χρήση, αντιστοιχισμένοι σε κατηγορίες HMRC — ενεργητικό, παθητικό, ίδια κεφάλαια, έσοδα, έξοδα. Προσθέστε τους δικούς σας λογαριασμούς όποτε τους χρειάζεστε.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
-<h3>Ιατροδικαστική σάρωση ανωμαλιών</h3>
-<p>Τρέξιμο <code>--forensic</code> για τον εντοπισμό μη ισορροπημένων εγγραφών, διπλών αναφορών, αναντιστοιχιών ΦΠΑ και άλλων παρατυπιών. Τα αποτελέσματα εκτυπώθηκαν ως δομημένο JSON για έλεγχο τεχνητής νοημοσύνης.</p>
+<h3>Ελέγχει τη δική του λειτουργία</h3>
+<p>Μια εγκληματολογική σάρωση επισημαίνει οτιδήποτε δεν βγάζει νόημα — μη ισορροπημένες εγγραφές, διπλές αναφορές, αποκλίσεις ΦΠΑ — πριν φτάσει σε μια αναφορά.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Γνωρίζει το φορολογικό έτος του Ηνωμένου Βασιλείου</h3>
+<p>Το τέλος του έτους είναι από 6 Απριλίου έως 5 Απριλίου. Οι αναφορές Κερδών &amp; Ζημιών και ΦΠΑ καλύπτουν αυτόματα τη σωστή περίοδο — χωρίς χειροκίνητη διαχείριση ημερομηνιών.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Επιστροφές ΦΠΑ τύπου MTD</h3>
+<p>Η σύνοψη ΦΠΑ εξάγεται ανά πλαίσιο στη μορφή Making Tax Digital του HMRC: Πλαίσιο 1 φόρος εκροών, Πλαίσιο 4 φόρος εισροών, Πλαίσιο 6 καθαρές πωλήσεις, Πλαίσιο 7 καθαρές αγορές.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Οι αναφορές που πραγματικά υποβάλλετε</h3>
+<p>Κέρδη &amp; Ζημίες, Ισολογισμός, Σύνοψη Επιστροφής ΦΠΑ — το καθένα αναλυμένο ανά κωδικό λογαριασμού. Ο Ισολογισμός επίσης επιβεβαιώνει ότι τα βιβλία είναι ισοσκελισμένα: τα ενεργητικά ισούνται με τα παθητικά συν τα ίδια κεφάλαια.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Τιμολόγια που περνούν</h3>
+<p>Κάθε τιμολόγιο περιέχει όλα τα πεδία που απαιτεί η Ειδοποίηση 700 της HMRC — αύξοντα αριθμό, και τους δύο αριθμούς ΦΠΑ, ημερομηνίες τιμολογίου και παροχής, αναλυτικές γραμμές με ΦΠΑ ανά γραμμή, σύνολα καθαρής αξίας και ΦΠΑ. Εκτυπώστε το, αποθηκεύστε το ως PDF ή στείλτε το στο τηλέφωνό σας. Ορίστε τα στοιχεία της εταιρείας σας μία φορά.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Τα βιβλία σας παραμένουν δικά σας</h3>
+<p>Ολόκληρο το καθολικό είναι ένα μόνο αρχείο στον υπολογιστή σας. Λειτουργεί χωρίς διαδίκτυο. Τρέξτε πολλές εταιρείες παράλληλα και εναλλάξτε μεταξύ τους με μία σημαία.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Έξοδος αναγνώσιμη από AI</h3>
-<p>Όλες οι αναφορές εξάγουν δομημένο JSON σε stdout, ώστε το Chameleon AI να μπορεί να αναλύει, να συνοψίζει και να συμβουλεύει για την οικονομική σας θέση σε φυσική γλώσσα.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>Γέφυρα WebSocket</h3>
-<p>Η λογιστική γέφυρα WebSocket (<code>acct_ws_bridge.py</code>) εκθέτει τα ερωτήματα του καθολικού στο συνοδευτικό κινητό και στους εξωτερικούς πίνακες εργαλείων μέσω του δικτύου σας Tailscale.</p>
+<h3>Ρώτα για τη θέση σου</h3>
+<p>Κάθε αναφορά βγαίνει επίσης ως δομημένα δεδομένα που μπορεί να διαβάσει το Chameleon AI — έτσι μπορείτε να ρωτήσετε, σε απλά Αγγλικά, πώς φαίνεται το τρίμηνο ή πού πήγε ο ΦΠΑ.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Υποστηρίζονται Κωδικοί ΦΠΑ</h2>
+<h2>Κωδικοί ΦΠΑ</h2>
+<p>Τα επιτόκια που χρειάζεται μια μικρή επιχείρηση στο Ηνωμένο Βασίλειο</p>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Τυπικό ποσοστό 20%</p></div>
@@ -113,99 +125,30 @@
 <div class="vat-code"><div class="vc">Ο</div><p>Εκτός πεδίου εφαρμογής</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Αναφορές</h2>
+<h2>Οι αποδείξεις έρχονται σε εσάς</h2>
+<p>Από το τηλέφωνο και από τον δρόμο</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📈</div>
+<div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Κέρδη &amp; Ζημιά</h4>
-<p>Έσοδα έναντι εξόδων της περιόδου. Πωλήσεις, κόστος αγαθών, μικτό κέρδος, λειτουργικά έξοδα, καθαρό κέρδος — όλα κατανεμημένα ανά κωδικό λογαριασμού. Τρέξτε με <code>--report pl</code>.</p>
+<h4>Από την εφαρμογή Companion</h4>
+<p>Φωτογραφίστε μια απόδειξη στο <a href="../companion.html">Χαμαιλέων Σύντροφος</a> Η εφαρμογή τηλεφώνου και φτάνει στην επιφάνεια εργασίας ως πρόχειρη εγγραφή καθολικού για να την επιβεβαιώσετε.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">⚖️</div>
+<div class="strip-icon">🚛</div>
 <div class="strip-body">
-<h4>Ισολογισμός</h4>
-<p>Περιουσιακά στοιχεία, υποχρεώσεις και ίδια κεφάλαια σε μια χρονική στιγμή. Επιβεβαιώνει την ακεραιότητα διπλής εγγραφής — τα περιουσιακά στοιχεία πρέπει να ισούνται με τις υποχρεώσεις συν τα ίδια κεφάλαια. Τρέξτε με <code>--report bs</code>.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Περίληψη Δήλωσης ΦΠΑ</h4>
-<p>Αριθμοί ΦΠΑ ανά κουτί που αντιστοιχούν στη μορφή δήλωσης ΦΠΑ HMRC MTD: Πλαίσιο 1 (φόρος εκροών), Πλαίσιο 4 (φόρος εισροών), Πλαίσιο 6 (καθαρές πωλήσεις), Πλαίσιο 7 (καθαρές αγορές). Τρέξτε με <code>--report vat</code>.</p>
+<h4>Από Logistics 4×4</h4>
+<p>Τα αποδεικτικά καυσίμων και εξόδων των οδηγών προέρχονται από το <a href="../logistics4x4.html">Logistics 4×4</a> Η εφαρμογή απευθείας στο ίδιο καθολικό.</p>
 </div>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Τιμολόγηση</h2>
-<p>Τιμολόγια συμβατά με το HMRC Notice 700 — εκτυπώθηκαν, αποθηκεύτηκαν ως PDF ή προωθήθηκαν στο τηλέφωνό σας με ένα κλικ</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Πεδία τιμολογίων συμβατά με το Ηνωμένο Βασίλειο</h4>
-<p>Κάθε τιμολόγιο περιλαμβάνει όλα τα πεδία που απαιτούνται από την Ειδοποίηση HMRC 700: μοναδικό διαδοχικό αριθμό τιμολογίου, όνομα και διεύθυνση προμηθευτή, αριθμό μητρώου ΦΠΑ, ημερομηνία τιμολογίου, ημερομηνία παράδοσης (ώρα παράδοσης), όνομα και διεύθυνση πελάτη, αριθμό ΦΠΑ πελάτη, κατά περίπτωση, αναλυτικές περιγραφές γραμμών με ποσότητες και τιμές μονάδας, συντελεστής ΦΠΑ ανά γραμμή, καθαρό ποσό και υποσύνολα ΦΠΑ. Τίποτα δεν λείπει, τίποτα δεν μαντεύεται.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏢</div>
-<div class="strip-body">
-<h4>Εγκατάσταση εταιρείας</h4>
-<p>Ανοιχτό <em>Αρχείο → Τιμολόγια → Ρύθμιση εταιρείας</em> για να εισαγάγετε το όνομα της εγγεγραμμένης εταιρείας σας, τη διεύθυνση, τον αριθμό οικίας Εταιρειών, τον ΑΦΜ, το email, το τηλέφωνο και τα τραπεζικά στοιχεία. Οι ρυθμίσεις αποθηκεύονται ανά βάση δεδομένων πελάτη <code>company.json</code> δίπλα στο καθολικό και φορτώνεται αυτόματα κάθε φορά που δημιουργούνται τιμολόγια για αυτόν τον πελάτη.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">👥</div>
-<div class="strip-body">
-<h4>Βάση δεδομένων επαφών πελατών</h4>
-<p>Την πρώτη φορά που τιμολογείτε έναν πελάτη το όνομα, η διεύθυνση και ο ΑΦΜ του αποθηκεύονται σε έναν πίνακα επαφών μέσα στο καθολικό. Σε επόμενα τιμολόγια, η πληκτρολόγηση του ονόματος πελάτη συμπληρώνει αυτόματα τα στοιχεία του — δεν απαιτείται εκ νέου καταχώριση. Οι επαφές είναι επεξεργάσιμες ανά πάσα στιγμή.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🖨️</div>
-<div class="strip-body">
-<h4>Εκτύπωση, PDF και αποστολή στο τηλέφωνο</h4>
-<p>Από τον Διαχειριστή Τιμολογίων (<em>Αρχείο → Τιμολόγια…</em>) επιλέξτε οποιοδήποτε τιμολόγιο και επιλέξτε: <strong>Αποτύπωμα</strong> (ανοίγει το παράθυρο διαλόγου εκτύπωσης του λειτουργικού συστήματος — οποιοδήποτε πρόγραμμα οδήγησης εκτυπωτή ή PDF), <strong>Αποθήκευση PDF</strong> (απευθείας στο δίσκο μέσω της ενσωματωμένης εξαγωγής PDF του Qt), ή <strong>Αποστολή στο τηλέφωνο</strong> (σπρώχνει το HTML του τιμολογίου στην εφαρμογή Companion όπου ανοίγει το παράθυρο διαλόγου εκτύπωσης Android — εκτυπώστε ασύρματα σε οποιοδήποτε AirPrint ή κοντινό εκτυπωτή).</p>
-</div>
-</div>
-</div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Ημερομηνία προμήθειας</h3>
-<p>Ξεχωριστό πεδίο "Ημερομηνία προμήθειας" (ώρα προμήθειας) — διαφορετικό από την ημερομηνία τιμολογίου. Απαιτείται από την HMRC για σκοπούς ΦΠΑ. Προεπιλογή μέχρι σήμερα, αλλά μπορεί να επεξεργαστεί ανεξάρτητα ανά τιμολόγιο.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Εκτύπωση τιμολογίου από κινητό</h3>
-<p>Η εφαρμογή Companion μπορεί να εκτυπώσει οποιοδήποτε τιμολόγιο ασύρματα. Πατήστε το εικονίδιο εκτύπωσης σε οποιαδήποτε σειρά τιμολογίου — η εφαρμογή ανακτά το HTML από το IDE, το μετατρέπει σε PDF στη συσκευή μέσω του <code>printing</code> πακέτο και ανοίγει το παράθυρο διαλόγου εκτύπωσης συστήματος Android.</p>
-</div>
-<div class="card">
-<div class="card-icon">✅</div>
-<h3>Συμμόρφωση HMRC Notice 700</h3>
-<p>Και τα 12 υποχρεωτικά πεδία για ένα πλήρες τιμολόγιο ΦΠΑ στο ΗΒ είναι παρόντα και συμπληρωμένα. Οι γραμμές μειωμένου και μηδενικού ρυθμού επισημαίνονται με σαφήνεια. Η ακολουθία αριθμών τιμολογίου είναι αυστηρά μονότονη-αυξητική χωρίς κενά.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Γρήγορη αναφορά CLI</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Εντολή</th><th>Περιγραφή</th></tr></thead>
-<tbody>
-<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Κέρδη &amp; Ζημίες τρέχοντος φορολογικού έτους</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Ισολογισμός από σήμερα</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Περίληψη δήλωσης ΦΠΑ (πλαίσια MTD)</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Σάρωση ανωμαλίας και ακεραιότητας</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Πλήρης αναφορά εντολής</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Βελτιστοποιήστε τη λογιστική σας στο Ηνωμένο Βασίλειο</h3>
-<p>Σχεδιασμένο για ελεύθερους επαγγελματίες και μικρές επιχειρήσεις που λειτουργούν σύμφωνα με τους φορολογικούς κανόνες του Ηνωμένου Βασιλείου.</p>
-<a class="btn btn-solid" href="../contact.html">Ελάτε σε επαφή</a>
+<h3>Δοκιμάστε το Chameleon Accounting</h3>
+<p>Πωλείται ως εφάπαξ άδεια επιτραπέζιου υπολογιστή. Προετοιμάζει τα στοιχεία σας σε μορφές HMRC — <strong>Εσείς ή ο λογιστής σας τα υποβάλλετε</strong>Η τελική τιμή ορίζεται τώρα.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Κλείστε μια επίδειξη</a>
 <a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
 </div>
 </div>
@@ -215,7 +158,7 @@
 <a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
 <a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

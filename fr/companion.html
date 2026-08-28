@@ -3,107 +3,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Application Chameleon Companion — Android</title>
+<title>Application compagnon — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .channel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem; margin: 1.5rem 0;
-    }
-    .channel-card {
-      background: white; border-radius: var(--radius);
-      border: 2px solid var(--border); padding: 1.6rem;
-      box-shadow: var(--shadow); position: relative;
-    }
-    .channel-card .ch-badge {
-      position: absolute; top: 1rem; right: 1rem;
-      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
-      padding: .2rem .6rem; border-radius: 50px;
-    }
-    .ch-p2p  { border-color: #667eea; } .ch-p2p  .ch-badge { background:#ede9fe; color:#4f46e5; }
-    .ch-ide  { border-color: #22c55e; } .ch-ide  .ch-badge { background:#dcfce7; color:#15803d; }
-    .ch-media{ border-color: #f59e0b; } .ch-media .ch-badge { background:#fef3c7; color:#b45309; }
-    .ch-file { border-color: #06b6d4; } .ch-file .ch-badge { background:#cffafe; color:#0e7490; }
-    .ch-acct { border-color: #ec4899; } .ch-acct .ch-badge { background:#fce7f3; color:#be185d; }
-    .ch-vnc  { border-color: #8b5cf6; } .ch-vnc  .ch-badge { background:#ede9fe; color:#6d28d9; }
-    .channel-card h3 { color: var(--brand-start); margin: .5rem 0 .4rem; font-size: 1.05rem; }
-    .channel-card p  { color: var(--muted); font-size: .9rem; line-height: 1.6; }
-    .channel-card .ch-icon { font-size: 2rem; }
-    .phone-mockup {
-      background: #1a1a2e; border-radius: 28px; padding: 1.5rem 1rem;
-      max-width: 280px; margin: 0 auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,.4);
-      border: 3px solid #333;
-    }
-    .phone-screen {
-      background: #0f0f23; border-radius: 16px; padding: 1rem;
-      min-height: 380px;
-    }
-    .phone-header {
-      display: flex; align-items: center; gap: .5rem;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      padding-bottom: .7rem; margin-bottom: .8rem;
-    }
-    .phone-header .app-icon { font-size: 1.4rem; }
-    .phone-header span { color: #c8c8f0; font-size: .85rem; font-weight: 600; }
-    .phone-status { font-size: .65rem; color: #22c55e; margin-left: auto; }
-    .phone-msg { border-radius: 10px; padding: .5rem .8rem; margin-bottom: .5rem; font-size: .78rem; max-width: 85%; }
-    .msg-ai   { background: rgba(102,126,234,.25); color: #c8c8f0; }
-    .msg-user { background: rgba(34,197,94,.2); color: #d1fae5; margin-left: auto; }
-    .phone-channels {
-      display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .8rem;
-      padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.08);
-    }
-    .pch {
-      font-size: .65rem; padding: .2rem .5rem; border-radius: 50px;
-      font-weight: 600; letter-spacing: .04em;
-    }
-    .pch-ide   { background:rgba(34,197,94,.2);  color:#22c55e; }
-    .pch-video { background:rgba(102,126,234,.2); color:#818cf8; }
-    .pch-file  { background:rgba(6,182,212,.2);   color:#06b6d4; }
-    .pch-media { background:rgba(245,158,11,.2);  color:#f59e0b; }
-    .pch-stt   { background:rgba(236,72,153,.2);  color:#ec4899; }
-    .ws-diagram {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 1.5rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg);
-    }
-    .ws-row { display: flex; align-items: center; gap: 1rem; margin-bottom: .8rem; flex-wrap: wrap; }
-    .ws-node {
-      background: rgba(102,126,234,.2); border: 1px solid #667eea;
-      border-radius: 8px; padding: .4rem .9rem; font-size: .82rem; color: #c8c8f0;
-      white-space: nowrap;
-    }
-    .ws-arrow { color: #667eea; font-size: 1.1rem; }
-    .ws-label { font-size: .72rem; color: #8888aa; margin-top: -.4rem; padding-left: .2rem; }
-    .phone-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: .8rem;
-      margin: 1.5rem 0;
-    }
-    .phone-gallery .pshot {
-      background: #0f0f1f;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 2px solid #2a2a3e;
-      box-shadow: 0 4px 18px rgba(0,0,0,.4);
-    }
-    .phone-gallery .pshot img {
-      width: 100%; height: auto; display: block;
-    }
-    .phone-gallery .pshot-cap {
-      text-align: center;
-      font-size: .7rem;
-      color: #8888aa;
-      padding: .3rem .4rem .5rem;
-    }
-    </style>
+    .phone-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .9rem; margin: 1.5rem 0; }
+    .phone-gallery .pg-frame { border-radius: 20px; overflow: hidden; border: 3px solid #1a1a2e;
+      box-shadow: 0 12px 34px rgba(0,0,0,.32); background: #0f0f1f; }
+    .phone-gallery .pg-frame img { width: 100%; height: auto; display: block; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
-<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
-  ⚠️ TESTS EN COURS — Ce site est en développement actif. Les fonctionnalités, les prix et les licences ne sont pas finalisés.
+<div class="pre-note">
+  L'application Chameleon Companion est en développement actif et s'associe au bureau Chameleon AI. La disponibilité est encore en cours de finalisation — <a href="../contact.html">Réserver une démo</a>.
 </div>
 <nav>
 <div class="nav-inner">
@@ -112,10 +25,10 @@
 <a href="../index.html">Accueil</a>
 <a href="../ide.html">VOUS AVEZ DES IDÉES</a>
 <a href="../presenter.html">Présentateur</a>
-<a class="active" href="../companion.html">Application compagnon</a>
+<a class="active" href="../companion.html">Application Compagnon</a>
 <a href="../logistics4x4.html">Logistique 4×4</a>
 <a href="../services.html">Services Web</a>
-<a href="../accounting.html">Comptabilitu00e9</a>
+<a href="../accounting.html">Comptabilité</a>
 <a href="../technician.html">Technicien informatique</a>
 <a href="../classroom.html">Classe</a>
 <a href="../contact.html">Contact</a>
@@ -124,224 +37,106 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📱</div>
-<h1>Application compagnon caméléon</h1>
-<p class="sub">Votre téléphone Android devient un pont multicanal vers le bureau : relais de discussion IA, vidéo P2P de groupe pour plus de 4 participants, pontage d'appels SIM, contrôle à distance, accès aux fichiers, streaming multimédia et comptabilité - partout dans votre maillage Tailscale privé.</p>
+<h1>Compagnon Caméléon</h1>
+<p class="sub">Votre bureau Chameleon AI, sur votre téléphone — discutez avec son IA, contrôlez le présentateur, accédez à vos fichiers, déposez un reçu dans vos livres et rejoignez des appels vidéo de groupe, le tout sur votre propre réseau privé.</p>
 <div class="hero-badges">
-<span class="badge">🤖 Chat IA via STT/TTS</span>
-<span class="badge">📹 Vidéo P2P de groupe (4+)</span>
-<span class="badge">📞 Pont d'appel SIM</span>
+<span class="badge">🤖 Parlez à l'IA de votre bureau</span>
+<span class="badge">📹 Vidéo de groupe, jusqu'à quatre</span>
+<span class="badge">📞 Fusionner dans un appel téléphonique</span>
+<span class="badge">📂 Accédez à vos fichiers de bureau</span>
+<span class="badge">🧾 Reçu → votre registre</span>
 <span class="badge">🎭 Télécommande du présentateur</span>
-<span class="badge">🌐 Sécurisé par Tailscale</span>
-<span class="badge">🖥️ Écran / VNC</span>
 </div>
 </div>
 <div class="page">
-<!-- Phone mockup + channel diagram side by side -->
-<div class="split" style="align-items:flex-start;">
-<div>
-<div class="phone-mockup">
-<div class="phone-screen">
-<div class="phone-header">
-<div class="app-icon">🦎</div>
-<span>Compagnon Chameleon</span>
-<div class="phone-status">● Connecté</div>
+<div class="section-title">
+<h2>Ce qu'il fait</h2>
+<p>Une application, associée à votre bureau Chameleon AI</p>
 </div>
-<div class="phone-msg msg-ai">Comment puis-je aider ? Je peux voir votre IDE, vos fichiers et votre présentateur.</div>
-<div class="phone-msg msg-user">Montre-moi la dernière erreur dans le terminal.</div>
-<div class="phone-msg msg-ai">Je l'ai trouvé - ligne 47, NameError: 'config' non défini. Tu veux que je le répare ?</div>
-<div class="phone-msg msg-user">Oui, appliquez le correctif.</div>
-<div class="phone-msg msg-ai">Fait. Fichier enregistré. Le terminal affiche la sortie 0.</div>
-<div class="phone-channels">
-<span class="pch pch-ide">EDI</span>
-<span class="pch pch-video">Vidéo P2P</span>
-<span class="pch pch-file">Fichiers</span>
-<span class="pch pch-media">Mu00e9dias</span>
-<span class="pch pch-stt">STT/TTS</span>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Chat IA, par la voix</h3>
+<p>Posez une question à voix haute ; elle va à l'IA de votre bureau, et la réponse revient en continu et est lue à voix haute.</p>
 </div>
+<div class="card">
+<div class="card-icon">📹</div>
+<h3>Vidéo de groupe</h3>
+<p>Une touche appelle tout le monde en ligne. La grille s’adapte à une, deux, trois ou quatre personnes. Elle fonctionne directement entre téléphones sur votre réseau privé — pas de service vidéo, pas de facture.</p>
 </div>
+<div class="card">
+<div class="card-icon">📞</div>
+<h3>Pont de communication téléphonique</h3>
+<p>Fusionnez un appel mobile ordinaire dans l’appel vidéo de groupe, afin qu’une personne sans application ni données puisse toujours participer à la conversation.</p>
 </div>
+<div class="card">
+<div class="card-icon">🎭</div>
+<h3>Présentateur à distance</h3>
+<p>Conduire un <a href="../presenter.html">Présentateur caméléon</a> Parlez depuis votre téléphone — suivant, précédent, poussez le contenu sur la scène.</p>
 </div>
-<div>
-<div class="section-title" style="margin-top:0;">
-<h2>Architecture multicanal</h2>
-<p>Un pont WebSocket, cinq voies de communication indépendantes</p>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Mise en miroir d'écran</h3>
+<p>Voyez votre écran de bureau sur le téléphone et touchez pour le contrôler.</p>
 </div>
-<div class="ws-diagram">
-<div class="ws-row">
-<div class="ws-node">📱Application Android</div>
-<div class="ws-arrow">⟷</div>
-<div class="ws-node">Maillage de queue</div>
-<div class="ws-arrow">⟷</div>
-<div class="ws-node">🖥️ Bureau</div>
+<div class="card">
+<div class="card-icon">📂</div>
+<h3>Navigateur de fichiers</h3>
+<p>Parcourez, ouvrez, modifiez et téléversez des fichiers sur le bureau depuis n’importe où sur votre réseau.</p>
 </div>
-<div style="border-left:2px solid #667eea; margin-left:1rem; padding-left:1rem; margin-top:.8rem;">
-<div class="ws-row"><div class="ws-node pch-ide" style="background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e;">Canal IDE</div><div class="ws-label">Chat AI · commandes · captures d'écran · téléchargement de fichiers</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(102,126,234,.15);">Vidéo P2P</div><div class="ws-label">Relais WebRTC SDP/ICE · A/V à faible latence</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(6,182,212,.15);border-color:#06b6d4;color:#06b6d4;">Navigateur de fichiers</div><div class="ws-label">Lire · écrire · modifier des fichiers sur le bureau</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(245,158,11,.15);border-color:#f59e0b;color:#f59e0b;">Flux multimédia</div><div class="ws-label">NAS / DLNA · diffuser sur le téléphone</div></div>
-<div class="ws-row"><div class="ws-node" style="background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#8b5cf6;">Partage d'écran</div><div class="ws-label">Miroir de bureau de style VNC/RDP</div></div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Reçus dans les livres</h3>
+<p>Photographiez un reçu ; il va sur le bureau, l’IA rédige une écriture comptable, et vous la confirmez. Un tableau de bord à accès limité affiche les chiffres — voyez <a href="../accounting.html">Comptabilité</a>.</p>
 </div>
+<div class="card">
+<div class="card-icon">🎵</div>
+<h3>Médias</h3>
+<p>Lisez de la musique et des vidéos depuis un lecteur réseau, diffusés via le bureau.</p>
 </div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Alertes de sécurité</h3>
+<p>Si quelqu'un échoue à déverrouiller votre écran de verrouillage, vous recevez une alerte sur votre téléphone avec la photo qu'il a capturée.</p>
 </div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Canaux de communication</h2>
-<p>Chaque canal est indépendant : utilisez-en un ou tous simultanément</p>
-</div>
-<div class="channel-grid">
-<div class="channel-card ch-ide">
-<span class="ch-badge">CANAL 1</span>
-<div class="ch-icon">🧠</div>
-<h3>Canal IDE IA</h3>
-<p>Pont bidirectionnel complet vers l’IA de bureau. Envoyez des invites depuis votre téléphone, recevez des réponses en streaming. L'IA peut lire des fichiers, exécuter des commandes de terminal et appliquer des modifications de code, le tout déclenché depuis votre poche. Joignez des captures d'écran ou des photos directement à partir de votre pellicule comme contexte.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">Diffusion IA</span><span class="tag">Téléchargement de fichiers</span><span class="tag">Captures d'écran</span>
-</div>
-</div>
-<div class="channel-card ch-p2p">
-<span class="ch-badge">CANAL 2</span>
-<div class="ch-icon">📹</div>
-<h3>Vidéo et voix P2P de groupe</h3>
-<p>Vidéo et audio WebRTC entièrement maillé pour les groupes de 4 personnes ou plus : pas de serveur multimédia central, pas de facture mensuelle. Robinet <strong>Vidéo de groupe</strong> pour appeler tous les pairs en ligne en même temps. La grille s'adapte automatiquement au fur et à mesure que les participants rejoignent : 1 = plein écran, 2 = côte à côte, 3 = 2+1, 4 = 2×2, 5+ = grille d'ajustement automatique défilante. Votre flux local flotte sous forme d'image dans l'image. Le débit binaire diminue par homologue pour maintenir une qualité équilibrée quelle que soit la taille du groupe.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">WebRTC à maillage complet</span><span class="tag">Grille adaptative</span><span class="tag">Flux local PiP</span><span class="tag">Serveur de signaux Termux</span>
-</div>
-</div>
-<div class="channel-card ch-p2p" style="border-color:#0ea5e9;">
-<span class="ch-badge" style="background:#e0f2fe;color:#0369a1;">PONT SIM</span>
-<div class="ch-icon">📞</div>
-<h3>Pont d'appel SIM</h3>
-<p>Vous êtes déjà en communication cellulaire et souhaitez faire appel à un homologue P2P ? Robinet <strong>Ajouter au groupe d'appel</strong> - l'application enregistre l'appel WebRTC auprès de la pile télécom d'Android aux côtés de l'appel SIM. Android présente une option native « Fusionner les appels » ; l’accepter confie le mixage audio au matériel téléphonique. L'appel fusionné est diffusé dans le <strong>écouteur uniquement</strong> — entièrement privé, pas de haut-parleur, personne dans la pièce n'entend. Lorsque la conférence matérielle n'est pas prise en charge par l'opérateur, un pont pour casque Bluetooth achemine tout l'audio via la liaison BT SCO.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">Conférence sur le matériel</span><span class="tag">Solution de secours BT SCO</span><span class="tag">Écouteur uniquement</span><span class="tag">Service de connexion</span>
-</div>
-</div>
-<div class="channel-card ch-ide" style="border-color:#764ba2;">
-<span class="ch-badge" style="background:#ede9fe;color:#6d28d9;">CANAL 3</span>
-<div class="ch-icon">🎭</div>
-<h3>Télécommande de présentation Kameleon</h3>
-<p>Contrôlez toute la scène Kameleon depuis votre téléphone. Faites avancer les diapositives, déclenchez des signaux, insérez des images ou du texte directement dans une pile de scène, approuvez ou rejetez les soumissions des pairs et contrôlez la planche à dessin collaborative, le tout sans toucher au clavier du bureau.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">stack_next/prev</span><span class="tag">push_slot</span><span class="tag">stack_approve</span><span class="tag">draw_stroke</span>
-</div>
-</div>
-<div class="channel-card ch-vnc">
-<span class="ch-badge">CANAL 4</span>
-<div class="ch-icon">🖥️</div>
-<h3>Screen Mirror (style VNC/RDP)</h3>
-<p>Affichez et interagissez avec l'écran de votre bureau depuis le téléphone. Implémenté en tant que flux de capture d'écran léger sur le maillage Tailscale – aucun serveur VNC tiers n'est requis. Appuyez pour cliquer, faites glisser pour faire défiler. Utile pour surveiller les processus en cours ou approuver les actions d'IA à distance.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">Capture d'écran</span><span class="tag">Appuyez pour cliquer</span><span class="tag">Queue uniquement</span>
-</div>
-</div>
-<div class="channel-card ch-file">
-<span class="ch-badge">CANAL 5</span>
-<div class="ch-icon">📂</div>
-<h3>Navigateur et éditeur de fichiers distants</h3>
-<p>Parcourez votre système de fichiers de bureau depuis le téléphone. Ouvrez, lisez et modifiez des fichiers texte. Téléchargez des fichiers depuis l'appareil photo ou le stockage du téléphone directement dans un dossier de projet. Demandez à l'IDE AI de traiter le fichier téléchargé immédiatement après le transfert - par ex. "ajouter cette image à l'étape du présentateur".</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">Parcourir</span><span class="tag">Modifier</span><span class="tag">Télécharger depuis la caméra</span>
-</div>
-</div>
-<div class="channel-card ch-media">
-<span class="ch-badge">CANAL 6</span>
-<div class="ch-icon">🎵</div>
-<h3>Diffusion multimédia (NAS / DLNA)</h3>
-<p>Diffusez de la musique et des vidéos depuis un serveur NAS ou DLNA de votre réseau domestique vers le téléphone via Tailscale. Parcourez la bibliothèque multimédia, mettez les pistes en file d'attente et contrôlez la lecture : le bureau agit comme un pont entre votre serveur multimédia local et le téléphone, où que vous soyez sur le tailnet.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">DLNA</span><span class="tag">NAS</span><span class="tag">Pont de queue</span>
-</div>
-</div>
-<div class="channel-card ch-acct">
-<span class="ch-badge">CANAL 7</span>
-<div class="ch-icon">🧾</div>
-<h3>Comptabilité — Capture des reçus</h3>
-<p>Photographiez un reçu sur votre téléphone et envoyez-le directement au module de comptabilité. L'IDE AI lit l'image, extrait le montant, la date, le fournisseur et la TVA, et enregistre un projet d'écriture de journal dans le grand livre à double entrée, prêt à être révisé et publié sur le bureau.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">ROC du reçu</span><span class="tag">Projet de journal</span><span class="tag">Extraction de TVA</span>
-</div>
-</div>
-<div class="channel-card ch-p2p" style="border-color:#ec4899;">
-<span class="ch-badge" style="background:#fce7f3;color:#be185d;">CANAL 8</span>
-<div class="ch-icon">🗣️</div>
-<h3>IA vocale – Téléphone STT et TTS</h3>
-<p>Parlez à l'IDE AI depuis votre téléphone en utilisant la synthèse vocale sur l'appareil. La réponse de l'IA est renvoyée et lue à haute voix via la synthèse vocale. Assistance au codage mains libres pendant que votre ordinateur fonctionne sans surveillance : dictez un correctif, écoutez le résultat, confirmez depuis le téléphone.</p>
-<div class="tags" style="margin-top:.8rem;">
-<span class="tag">STT sur l'appareil</span><span class="tag">Lecture TTS</span><span class="tag">Mains libres</span>
-</div>
+<div class="card">
+<div class="card-icon">🔐</div>
+<h3>Comment il se connecte</h3>
+<p>Tout fonctionne sur votre propre réseau privé — votre Wi-Fi local à la maison, chiffré depuis n’importe où ailleurs. Rien ne transite par nos serveurs.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Comment il se connecte</h2>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🔐</div>
-<div class="strip-body">
-<h4>Maille sécurisée par la queue</h4>
-<p>Tous les canaux fonctionnent sur votre réseau Tailscale privé. Aucun port n’est ouvert à l’Internet public. Le téléphone doit être autorisé sur votre tailnet – tout le reste est crypté de bout en bout avec WireGuard.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🔌</div>
-<div class="strip-body">
-<h4>Pont WebSocket unique</h4>
-<p>Le bureau s'exécute <code>chameleon_mobile_bridge.py</code> en tant que thread démon dans le processus Qt. L'application téléphonique se connecte au port 8770 sur l'IP Tailscale. Une connexion persistante transporte tous les canaux sous forme de messages JSON tapés.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🤖</div>
-<div class="strip-body">
-<h4>Termux sur Android</h4>
-<p>Le serveur de signaux (<code>chameleon_signal.py</code>) peut s'exécuter directement sur le téléphone Android via Termux, faisant du téléphone à la fois un client et un nœud de signalisation. Aucun relais cloud n'est nécessaire pour les connexions homologues WebRTC au sein de votre tailnet.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📶</div>
-<div class="strip-body">
-<h4>Réseau local de secours</h4>
-<p>Lorsque Tailscale n'est pas disponible, <code>lan_video.py</code> diffuse la vidéo sur UDP (port 47732) et l'audio sur UDP (port 47733) directement sur le réseau local — mêmes canaux, pas de surcharge VPN.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>App Screenshots</h2>
-<p>Chameleon Companion — captured live on device</p>
+<h2>Captures d'écran</h2>
+<p>Chameleon Companion sur Android</p>
 </div>
 <div class="phone-gallery">
-<div class="pshot"><img src="../1CHAMELEON-COMPANION0910.png" alt="Companion app screen 1" loading="lazy"><div class="pshot-cap">Screen 1</div></div>
-<div class="pshot"><img src="../2CHAMELEON-COMPANION0951.png" alt="Companion app screen 2" loading="lazy"><div class="pshot-cap">Screen 2</div></div>
-<div class="pshot"><img src="../3CHAMELEON-COMPANION1012.png" alt="Companion app screen 3" loading="lazy"><div class="pshot-cap">Screen 3</div></div>
-<div class="pshot"><img src="../4CHAMELEON-COMPANION1041.png" alt="Companion app screen 4" loading="lazy"><div class="pshot-cap">Screen 4</div></div>
-<div class="pshot"><img src="../5CHAMELEON-COMPANION1106.png" alt="Companion app screen 5" loading="lazy"><div class="pshot-cap">Screen 5</div></div>
-<div class="pshot"><img src="../6CHAMELEON-COMPANION1127.png" alt="Companion app screen 6" loading="lazy"><div class="pshot-cap">Screen 6</div></div>
-<div class="pshot"><img src="../7CHAMELEON-COMPANION1148.png" alt="Companion app screen 7" loading="lazy"><div class="pshot-cap">Screen 7</div></div>
-<div class="pshot"><img src="../companion-assets/8CHAMELEON-COMPANION1210.png" alt="Companion app screen 8" loading="lazy"><div class="pshot-cap">Screen 8</div></div>
-<div class="pshot"><img src="../15CHAMELEON-COMPANION1552.png" alt="Companion app screen 15" loading="lazy"><div class="pshot-cap">Screen 15</div></div>
-<div class="pshot"><img src="../16CHAMELEON-COMPANION1709.png" alt="Companion app screen 16" loading="lazy"><div class="pshot-cap">Screen 16</div></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 1" loading="lazy" src="../companion-assets/1CHAMELEON-COMPANION0910.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 2" loading="lazy" src="../companion-assets/2CHAMELEON-COMPANION0951.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 3" loading="lazy" src="../companion-assets/3CHAMELEON-COMPANION1012.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 4" loading="lazy" src="../companion-assets/4CHAMELEON-COMPANION1041.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 5" loading="lazy" src="../companion-assets/5CHAMELEON-COMPANION1106.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 6" loading="lazy" src="../companion-assets/6CHAMELEON-COMPANION1127.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 7" loading="lazy" src="../companion-assets/7CHAMELEON-COMPANION1148.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 8" loading="lazy" src="../companion-assets/8CHAMELEON-COMPANION1210.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 9" loading="lazy" src="../companion-assets/15CHAMELEON-COMPANION1552.png"/></div>
+<div class="pg-frame"><img alt="Chameleon Companion screen 10" loading="lazy" src="../companion-assets/16CHAMELEON-COMPANION1709.png"/></div>
 </div>
 <div class="cta-band">
-<h3>Intéressé par l'application Companion ?</h3>
-<p>Actuellement en test — contactez-nous pour manifester votre intérêt ou demander une démo.</p>
-<a class="btn btn-solid" href="../contact.html">Entrer en contact</a>
+<h3>Obtenez l'application compagnon</h3>
+<p>Inclus avec le bureau Chameleon AI. <strong>La distribution et la disponibilité sont en cours de finalisation</strong> — réservez une démo et nous vous tiendrons au courant.</p>
+<!-- BUY BUTTON SLOT — replace with the store / download link once distribution is final -->
+<a class="btn btn-solid" href="../contact.html">Réserver une démo</a>
+<a class="btn" href="../ide.html">Voir l’IDE de bureau →</a>
 <a class="btn" href="../index.html">← Retour à l'aperçu</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="../index.html">Accueil</a><a href="../ide.html">VOUS AVEZ DES IDÉES</a><a href="../presenter.html">Présentateur</a>
-<a href="../companion.html">Application compagnon</a><a href="../logistics4x4.html">Logistique 4×4</a>
-<a href="../services.html">Services Web</a><a href="../accounting.html">Comptabilitu00e9</a>
-<a href="../technician.html">Technicien informatique</a>
+<a href="../accounting.html">Comptabilité</a><a href="../technician.html">Technicien informatique</a>
 <a href="../classroom.html">Classe</a><a href="../contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Licence en attente · Construit par Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Créé par Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

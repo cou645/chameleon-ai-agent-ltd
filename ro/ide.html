@@ -3,19 +3,46 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE — Chameleon AI</title>
+<title>Chameleon AI IDE — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  IDE-ul Chameleon AI este în dezvoltare activă. Funcțiile de mai jos sunt actuale; prețurile și disponibilitatea generală sunt încă în curs de finalizare — <a href="../contact.html">Rezervă o demonstrație</a> și vă vom ține la curent.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Cameleon AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Acasă</a>
-<a class="active" href="../ide.html">AI IDE</a>
+<a class="active" href="../ide.html">IDE AI</a>
 <a href="../presenter.html">Prezentator</a>
 <a href="../companion.html">Aplicația însoțitoare</a>
-<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../logistics4x4.html">Logistică 4×4</a>
 <a href="../services.html">Servicii Web</a>
 <a href="../accounting.html">Contabilitate</a>
 <a href="../technician.html">Tehnician PC</a>
@@ -26,230 +53,127 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE alimentat de AI</h1>
-<p class="sub">Un editor de cod PyQt6 cu funcții complete, unde AI nu doar sugerează, ci citește, scrie, rulează și verifică codul în numele tău printr-o punte de comandă structurată.</p>
+<h1>IDE cu AI Cameleon</h1>
+<p class="sub">Un editor de cod în care AI-ul face treaba — citește fișierele tale, face modificările, rulează comenzile și verifică rezultatul. Tu revizuiești și aprobi.</p>
 <div class="hero-badges">
-<span class="badge">Multi-provider AI</span>
-<span class="badge">🎙️ Intrare vocală și TTS</span>
-<span class="badge">🔀 Vedere diferită</span>
-<span class="badge">⚡ Răspunsuri în flux</span>
+<span class="badge">🧠 AI îți editează codul direct</span>
+<span class="badge">🎙️ Voce în, răspunsuri vorbite</span>
+<span class="badge">🔀 Vezi o diferență înainte să accepți</span>
+<span class="badge">🔌 Nouă furnizori de AI, schimbă oricând</span>
+<span class="badge">🔒 Rulează local, cheile rămân ale tale</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Podul de comandă AI</h2>
-<p>AI nu se limitează la chat, ci operează editorul printr-un protocol JSON structurat</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Citiți o dată, editați liber</h4>
-<p>AI citește un fișier o dată cu <strong>get_file_content</strong>, menține conținutul în context, apoi emite mai multe editări bazate pe ancoră fără a reciti între fiecare modificare. Fără călătorii dus-întors pierdute.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>replace_text bazat pe ancora</h4>
-<p>Editările fac referire la textul exact de găsit, nu numerele de rând. Numerele liniilor se schimbă pe măsură ce codul este adăugat sau eliminat - ancorele nu. Multiplu <code>replace_text</code> apelurile pot fi grupate într-un singur răspuns, toate aplicate atomic.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file pentru rescrieri complete</h4>
-<p>Pentru module noi sau rescrieri complete, AI trimite întregul conținut al fișierului într-o singură comandă. Sistemul creează automat un <code>.bak</code> backup înainte de suprascriere și deschide rezultatul într-o nouă filă editor.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Integrarea terminalelor</h4>
-<p>AI poate rula comenzi shell și poate primi rezultatul JSON înainte de a continua. Așteaptă fiecare rezultat, gestionează codurile de ieșire și distinge automat comenzile de diagnosticare, configurare, distructive și de încheiere a sesiunii.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Protectie la injectie</h4>
-<p>Tot conținutul returnat de la fișiere, terminale și pagini web este împachetat <code>[UNTRUSTED_CONTENT]</code> markere. AI este instruit să trateze totul din interior ca date – niciodată instrucțiuni – prevenind atacurile cu injectare promptă din conținutul fișierelor rău intenționate.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Caracteristici editor</h2>
+<h2>Ce o face diferită</h2>
+<p>Majoritatea editorilor AI doar sugerează. Acesta operează editorul.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Editor de cod cu mai multe file</h3>
-<p>Deschideți mai multe fișiere simultan. Fiecare filă urmărește propriul istoric de anulare, evidențierea sintaxei și contextul comenzii AI.</p>
+<div class="card-icon">🤖</div>
+<h3>AI face editările</h3>
+<p>Citește fișierul o singură dată, apoi face câte modificări precise sunt necesare fără să îl recitească. Editările vizează textul exact, nu numerele de linie, astfel încât nu deviază pe măsură ce fișierul se schimbă. Fișierele noi sunt scrise integral — cu o copie de rezervă automată a oricărui conținut înlocuit.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Rulează comenzi și citește rezultatele</h3>
+<p>AI-ul rulează comenzi shell în terminalul integrat, așteaptă fiecare rezultat, verifică codul de ieșire și decide ce să facă mai departe. Muncă reală într-un shell live — nu fragmente copiate și lipite.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Sigur implicit</h3>
+<p>Tot ce citește AI-ul dintr-un fișier, un terminal sau o pagină web este izolat ca date, niciodată ca instrucțiuni — un fișier malțios nu poate prelua controlul sesiunii. Fiecare modificare pe care o face este înregistrată cu marcaj temporal și ID de sesiune, astfel încât ai un istoric complet al celor întâmplate.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Vizualizare diferită încorporată</h3>
-<p>Un clic pentru a compara starea actuală a editorului cu ultima versiune salvată. Diferență unificată cu coduri de culori cu adăugare/eliminare evidențiere. Ieșiți din modul diff pentru a reveni la editarea completă.</p>
+<h3>Revizuiește înainte de a accepta</h3>
+<p>Un clic afișează o diferență codificată pe culori a modificărilor AI față de ultima salvare. Acceptă-le, continuă editarea sau renunță.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Streaming chat AI</h3>
-<p>Răspunsurile transmit token-cu-token în panoul de chat. Comenzile IDE sunt extrase și executate într-un thread de fundal, astfel încât interfața de utilizare rămâne receptivă pe tot parcursul.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Sistem modular prompt</h3>
-<p>Solicitările de sistem sunt fișiere de modul text simplu în <code>~/.chameleon/prompts/</code>. Stivuiți orice combinație: Tech Repair + Academic + Chat. Numărul de jetoane live și estimarea costurilor per furnizor.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Istoricul comenzilor DB</h3>
-<p>Fiecare comandă AI este conectată <code>history.db</code> cu ID-ul sesiunii, marcajul de timp și rezultatul. Pista de audit completă pentru fiecare modificare de fișier făcută de AI.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>Browser de fișiere</h3>
-<p>Panoul arborelui de proiect pentru navigare rapidă. AI folosește <code>list_project_files</code> şi <code>list_open_files</code> pentru a descoperi căi reale — nu inventează niciodată locațiile fișierelor.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Voce și vorbire</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>În șoaptă vorbire în text</h3>
-<p>Local Whisper (whisper.cpp) vă transcrie vocea în intrarea de chat. Codare hands-free — dictați întrebări, comenzi sau solicitări întregi fără a atinge tastatura.</p>
-<div class="tags"><span class="tag">şoaptă.cpp</span><span class="tag">Inferență locală</span><span class="tag">Fără cloud STT</span></div>
+<h3>Mâini libere</h3>
+<p>Dictează o întrebare sau un prompt întreg cu transcriere vocală pe dispozitiv și primește răspunsurile citite cu o voce naturală. Nimic nu ajunge la un serviciu de transcriere în cloud.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Piper text-to-speech</h3>
-<p>Răspunsurile AI sunt citite cu voce tare folosind Piper TTS — voci rapide, locale, cu sunet natural. Ideal pentru accesibilitate sau lucrul cu mâinile ocupate. Căile platformei rezolvate automat pe Linux, Windows și macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Inferență locală</span><span class="tag">Voce configurabilă</span></div>
+<div class="card-icon">🔌</div>
+<h3>Adu-ți propriul AI</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — schimbă furnizorul în mijlocul unui proiect. Rulează un model local prin Ollama sau LM Studio fără niciun cost. Claude Code rulează ca proces live chiar în terminal.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Moduri de lucru stivuibile</h3>
+<p>Activează modurile de care ai nevoie — reparare cod, scriere academică, chat simplu — și combină-le. O estimare a costurilor în timp real apare înainte de a trimite ceva.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Un editor real dedesubt</h3>
+<p>Editare cu mai multe file, cu anulare pe fiecare file și evidențiere sintactică, arbore de fișiere pentru proiect și chat în flux care menține fereastra receptivă în timp ce comenzile rulează în fundal.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Furnizori AI acceptați</h2>
+<h2>Alegeți furnizorul dvs. de AI</h2>
+<p>Contul tău, alegerea ta — în cloud sau complet pe propriul tău dispozitiv</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>Furnizor</th><th>Tip</th><th>Cost (aprox.)</th><th>Note</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>Furnizor</th><th>Unde rulează</th><th>Cost aproximativ</th></tr></thead>
 <tbody>
-<tr><td>DeepSeek</td><td>Cloud API</td><td>0,00014 USD/1K jetoane</td><td>Implicit; calitate excelentă a codului</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>Cloud API</td><td>0,0050 USD / jetoane 1K</td><td>Cel mai bun raționament general</td></tr>
-<tr><td>Antropic (Claude)</td><td>Cloud API</td><td>0,0030 USD / jetoane 1K</td><td>Puternic la editarea de context lung</td></tr>
-<tr><td>Claude Code (antropic)</td><td>Terminal / pct</td><td>Utilizarea API-ului</td><td>Se rulează ca un proces pty în interiorul terminalului IDE - codificare agentică completă într-un shell live</td></tr>
-<tr><td>Grok</td><td>Cloud API</td><td>0,00005 USD/1K jetoane</td><td>Inferență ultra-rapidă</td></tr>
-<tr><td>Mistral</td><td>Cloud API</td><td>0,00025 USD/1K jetoane</td><td>Opțiune bună găzduită în Europa</td></tr>
-<tr><td>Moonshot / Kimi</td><td>Cloud API</td><td>0,00012 USD/1K jetoane</td><td>Fereastra de context mare</td></tr>
-<tr><td>A fi</td><td>Local</td><td>Gratuit</td><td>Rulați orice model GGUF la nivel local</td></tr>
-<tr><td>LM Studio</td><td>Local</td><td>Gratuit</td><td>Inferență locală prietenoasă cu GUI</td></tr>
+<tr><td>AdâncimeCăutare <em>(implicit)</em></td><td>Cloud, contul tău</td><td>Cel mai mic — puternic la cod</td></tr>
+<tr><td>OpenAI</td><td>Cloud, contul tău</td><td>Mai mare — cel mai bun raționament general</td></tr>
+<tr><td>Antropic (Claude)</td><td>Cloud, contul tău</td><td>Mediu — puternic pe fișiere lungi</td></tr>
+<tr><td>Claude Cod</td><td>Rulează în interiorul terminalului</td><td>Utilizarea ta Anthropic</td></tr>
+<tr><td>Grok</td><td>Cloud, contul tău</td><td>Foarte scăzut — cele mai rapide răspunsuri</td></tr>
+<tr><td>Mistral</td><td>Cloud, contul tău</td><td>Scăzut — găzduit în Europa</td></tr>
+<tr><td>Ca</td><td>Cloud, contul tău</td><td>Scăzut — context foarte mare</td></tr>
+<tr><td>Ollama / LM Studio</td><td>Pe mașina ta</td><td>Gratuit</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="../Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="../Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Stația de comandă a companiei (CCS)</h2>
-<p>Rulați Chameleon IDE ca hub de birou pentru flota dvs. Logistics 4×4 - nu este nevoie de software de expediere separat</p>
+<h2>Conduce-ți afacerea și de pe acesta</h2>
+<p>Stație de comandă a companiei — IDE-ul ca hub pentru o flotă logistică 4×4</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Împingeți rutele și punctele de interes către șoferi</h4>
-<p>Trimite un <code>.gpx</code> fișier din IDE direct pe telefonul oricărui șofer prin canalul peer. Rutele se încarcă instantaneu pe harta live a șoferului. Seturile de puncte de interes autonome — opriri de combustibil, pericole, adrese de livrare — pot fi împinse independent de orice rută și pot apărea ca pini cu coduri de culoare.</p>
+<h4>Trimite rutele și opririle către șoferi</h4>
+<p>Împinge un fișier de rută direct din IDE pe telefonul șoferului — se încarcă instantaneu pe harta lor live. Seturile de puncte (stații de combustibil, pericole, adrese de livrare) pot fi trimise separat și apar ca ace codate pe culori. Fără software de dispecerizare separat.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Expediere manifest și factură</h4>
-<p>Creați un manifest de marfă sau pregătiți o factură în IDE, apoi împingeți-o peer-to-peer la telefonul șoferului. Driverul vede manifestul preîncărcat — fără scanare, fără introducere manuală. Facturile pot fi semnate pe ecran și returnate pe același canal.</p>
+<h4>Chitanțele ajung în contabilitatea ta</h4>
+<p>Aplicația de telefon Chameleon Companion fotografiază o chitanță și o trimite pe desktop, unde devine o intrare de schiță în registrul contabil — vezi <a href="../accounting.html">Contabilitate</a> şi <a href="../companion.html">aplicația Companion</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Ticker difuzat la nivelul întregii flote</h4>
-<p>Trimiteți o alertă prioritară — Urgență, Important, Instrucțiuni sau Informații — și apare simultan ca o bară de ticker pe toată lățimea pe ecranul fiecărui șofer. Biroul rămâne în deplină control asupra atenției flotei fără un apel telefonic la fiecare vehicul.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Server de semnal încorporat — fără releu cloud</h4>
-<p>Serverul de semnal Cameleon (<code>chameleon_signal.py</code>) rulează direct pe computerul de birou alături de IDE sau în interiorul Termux pe orice telefon Android din flotă. Telefoanele din flota se conectează la acesta prin Tailscale sau hotspot-ul local - fără releu terță parte, fără factură lunară de server.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC de birou care rulează Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Hub WebSocket · Comanda flotei</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Flotă conectată →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Soferul A</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Șoferul B</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Echipa de teren</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Urgență</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Prin Tailscale (la distanță) sau hotspot LAN (convoi) · Fără retransmisie cloud · E2E criptat</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Capturi de ecran</h2>
+<p>Chameleon AI IDE — capturat live</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="../ide-assets/AI-IDE-1.png"/><div class="sg-cap">Prezentare generală desktop</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="../ide-assets/AI-IDE-2.png"/><div class="sg-cap">Panou de chat + editor</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="../ide-assets/AI-IDE-3.png"/><div class="sg-cap">Vedere diferită</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="../ide-assets/AI-IDE-4.png"/><div class="sg-cap">Voce + browser de fisiere</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="../ide-assets/Chameleon1.png"/><div class="sg-cap">Terminal + istoric</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="../ide-assets/Chameleon2.png"/><div class="sg-cap">Spațiu de lucru</div></div>
 </div>
 <div class="cta-band">
-<h3>Vedeți AI IDE în acțiune</h3>
-<p>Contactează-ne pentru o demonstrație live sau pentru a discuta despre o licență pentru echipa ta.</p>
-<a class="btn btn-solid" href="../contact.html">Solicitați o demonstrație</a>
-<a class="btn" href="../logistics4x4.html">Logistica 4×4 →</a>
+<h3>Încearcă Chameleon AI IDE</h3>
+<p>Vândut ca licență desktop unică pentru Linux, Windows și macOS. <strong>Prețul final se stabilește acum</strong> — rezerva o demonstrație și ți-l vom trimite cu o dată de lansare.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Rezervă o demonstrație</a>
 <a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Acasă</a><a href="../ide.html">AI IDE</a><a href="../presenter.html">Prezentator</a>
-<a href="../logistics4x4.html">Logistica 4×4</a>
+<a href="../index.html">Acasă</a><a href="../ide.html">IDE AI</a><a href="../presenter.html">Prezentator</a>
 <a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
 <a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construit de Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Construit de Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

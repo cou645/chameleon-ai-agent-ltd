@@ -3,39 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kameleon Presenter — Chameleon AI</title>
+<title>Kameleon Παρουσιαστής — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,17 +20,26 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Το Kameleon Presenter βρίσκεται σε ενεργή ανάπτυξη. Τα χαρακτηριστικά παρακάτω είναι τα τρέχοντα· η τιμολόγηση και η γενική διαθεσιμότητα εξακολουθούν να οριστικοποιούνται — <a href="../contact.html">Κλείστε ένα demo</a> και θα σας κρατάμε ενήμερους.
+</div>
 <nav>
 <div class="nav-inner">
-<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Χαμαιλέοντας AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Σπίτι</a>
 <a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
 <a class="active" href="../presenter.html">Δωρητής</a>
-<a href="../companion.html">Companion App</a>
+<a href="../companion.html">Εφαρμογή Συνοδού</a>
 <a href="../logistics4x4.html">Logistics 4×4</a>
 <a href="../services.html">Υπηρεσίες Ιστού</a>
 <a href="../accounting.html">Λογιστική</a>
@@ -72,216 +51,119 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎭</div>
-<h1>Παρουσιαστής Chameleon</h1>
-<p class="sub">Ένα σύστημα παρουσιάσεων εμπνευσμένο από το θέατρο, όπου οι διαφάνειές σας είναι Σκηνή, τα μπλοκ περιεχομένου είναι Ηθοποιοί και οι μεταβάσεις είναι Cues — όλα ελέγχονται από ένα τηλέφωνο.</p>
+<h1>Kameleon Παρουσιαστής</h1>
+<p class="sub">Παρουσιάσεις που συγκινούν. Αποθέστε διαφάνειες, PDF, βίντεο, ζωντανή οθόνη τηλεφώνου ή κάμερα web — κάντε κίνηση σε οτιδήποτε κατά μήκος μιας γραμμής χρόνου και εκτελέστε ολόκληρη την εκπομπή από το τηλέφωνό σας.</p>
 <div class="hero-badges">
-<span class="badge">🎬 Θεατρική μεταφορά</span>
-<span class="badge">📱 Έλεγχος κινητού</span>
-<span class="badge">✏️ Συνεργατικό σχέδιο</span>
-<span class="badge">🖥️ Android ADB mirror</span>
-<span class="badge">📜 Χρονολόγια πολλαπλών σεναρίων</span>
-<span class="badge">🎯 Έξυπνη επιλογή-στόχος</span>
-<span class="badge">✦ Μπλοκ σταδίου AI</span>
-<span class="badge">📰 Οριζόντια &amp; κατακόρυφα tickers</span>
-<span class="badge">🔍 Φίλτρο τύπου Cue</span>
-<span class="badge">⇄ Αναπαραγωγή πινγκ-πονγκ</span>
-<span class="badge">🖱 Καθαρισμός και ζουμ χρονολογίου</span>
-<span class="badge">🗂 Μενού περιβάλλοντος Dresser</span>
-<span class="badge">📂 Στοίβα από Φάκελο</span>
-<span class="badge">🕐 Στοιχεία χρονοδιαγράμματος ADB</span>
-<span class="badge">🌐 Διεπαφή χρήστη 25 γλωσσών</span>
-<span class="badge">⇒ Stage Path &amp; POPI</span>
+<span class="badge">🎬 Κινούμενο χρονοδιάγραμμα</span>
+<span class="badge">📱 Τηλεχειριστήριο τηλεφώνου, χωρίς ρύθμιση</span>
+<span class="badge">🖇 Ανοίγει αρχεία ClassIn &amp; Xournal++</span>
+<span class="badge">🙋 Ζωντανές υποβολές κοινού</span>
+<span class="badge">🤖 Προαιρετική σκηνοθεσία AI</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Δείτε το στην πράξη</h2>
-<p>Μια ζωντανή επίδειξη του Kameleon Presenter — στάδια, στοίβες, συνθήματα και έλεγχος μέσω κινητού</p>
+<h2>Δείτε το να τρέχει</h2>
+<p>Σε αυτή την ηχογράφηση, ένα AI αναλαμβάνει τον ρόλο του σκηνοθέτη — ζωντανεύοντας αντικείμενα και αλλάζοντας διατάξεις σε πραγματικό χρόνο, χωρίς κανέναν στο πληκτρολόγιο. Κάθε στοιχείο ελέγχου που χρησιμοποιεί, μπορείτε να το χειριστείτε μόνοι σας από την εφαρμογή ή το τηλέφωνό σας.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
 Το πρόγραμμα περιήγησής σας δεν υποστηρίζει βίντεο HTML5.
 </video>
 </div>
 <div class="section-title">
-<h2>Το μοντέλο του θεάτρου</h2>
-<p>Παρουσιάσεις χτισμένες σαν σκηνική παραγωγή — τα αντικείμενα έχουν εισόδους, εξόδους και συνθήματα</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Kameleon Stack αντικείμενα στη σκηνή</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Στοίβα περιεχομένου — διαφάνειες διάλεξης</div>
-<div class="stage-obj obj-stage">🟡 Stack Stack — υποβολές μαθητών</div>
-<div class="stage-obj obj-misc">🖼️ ImageBox</div>
-<div class="stage-obj obj-misc">📄 PDFBox</div>
-<div class="stage-obj obj-misc">📱 ADB Phone Mirror</div>
-<div class="stage-obj obj-misc">🖥️ Καθρέφτης PPT</div>
-<div class="stage-obj obj-misc">✏️ Πίνακας ζωγραφικής</div>
-<div class="stage-obj obj-misc">🎬 VideoBox</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      Λευκό περίγραμμα = ενεργό · Πορτοκαλί παλμός = σε εκκρεμότητα υποβολής ομοτίμων · Πράσινο = στοίβα περιεχομένου · Κίτρινο = στοίβα σκηνής
-    </div>
+<h2>Τι μπορείτε να κάνετε με αυτό</h2>
+<p>Μια σκηνή που συνθέτεις, όχι μια στοίβα από επίπεδες διαφάνειες</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>KameleonStack</h3>
-<p>Το δοχείο περιεχομένου γενικής χρήσης. Κάθε στοίβα περιέχει πολλές υποδοχές (εικόνες, κείμενο, PDF, βίντεο, HTML). Δύο τρόποι λειτουργίας:</p>
-<ul>
-<li><strong style="color:#22c55e">Περιεχόμενο</strong> — διαφάνειες ελεγχόμενες από τον δάσκαλο</li>
-<li><strong style="color:#eab308">Στάδιο</strong> — δέχεται υποβολές από ομοτίμους</li>
-</ul>
-<p><strong>📂 Στοίβα από Φάκελο</strong> — επιλέξτε έναν κατάλογο αρχείων με αριθμητικό πρόθεμα (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>) και ο Kameleon δημιουργεί μια πλήρως πληκτρολογημένη στοίβα με ένα κλικ. Υποστηρίζονται εικόνες, βίντεο, PDF, απλό κείμενο και HTML.</p>
+<div class="card-icon">🗂️</div>
+<h3>Τοποθετήστε οτιδήποτε σε μια διαφάνεια</h3>
+<p>Εικόνες, κείμενο, PDF, βίντεο, ζωντανές ιστοσελίδες, καθρέφτης οθόνης Android, ροή κάμερας, κοινόχρηστος πίνακας σχεδίασης. Κάθε ένα είναι ένα αντικείμενο που τοποθετείτε, αλλάζετε μέγεθος και μετακινείτε ξεχωριστά — τακτοποιήστε την οθόνη όπως θέλετε.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Σύστημα κινούμενων σχεδίων</h3>
-<p>Είσοδος/έξοδος κινούμενων εικόνων ανά αντικείμενο με μονοπάτια κίνησης ελεύθερα. Επιλέξτε μια προεπιλογή κατεύθυνσης και η εφαρμογή μεταβαίνει αμέσως στη λειτουργία επιλογής στόχου — μια κίνηση ορίζει τόσο τον τύπο κίνησης όσο και τον προορισμό. Τα μονοπάτια χρησιμοποιούν εξομάλυνση Douglas-Peucker + Catmull-Rom.</p>
-<p><strong>Σκηνικά κινούμενα σχέδια</strong> μετακινήστε αντικείμενα ενώ βρίσκονται ήδη στην οθόνη. Κάντε δεξί κλικ σε οποιοδήποτε αντικείμενο στη σκηνή → <strong>⇒ Σκηνικά κινούμενα σχέδια</strong> για να καταγράψετε μια ελεύθερη σκηνική διαδρομή ή επιλέξτε α <strong>ΚΟΥΚΛΑ</strong> Στόχος (Pop-Out Pop-In): το αντικείμενο κλιμακώνεται στο μηδέν, τηλεμεταφέρει και μετά επανέρχεται στη νέα θέση.</p>
+<h3>Κινούμενη απεικόνιση κατά μήκος μιας χρονογραμμής</h3>
+<p>Δώστε σε οποιοδήποτε αντικείμενο μια είσοδο, μια έξοδο ή μια χειρογραφημένη διαδρομή κίνησης. Αριθμημένες ενδείξεις προχωρούν την παρουσίαση ένα βήμα τη φορά. Ένα κλικ εισάγει ένα έτοιμο σχέδιο χρονομέτρησης για μια παρουσίαση 5 λεπτών, μια διάλεξη 50 λεπτών ή ένα εργαστήριο 90 λεπτών.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Πάνελ κομοδίνου</h3>
-<p>Χώρος κράτησης εκτός σκηνής — δημιουργήστε αντικείμενα στο συρτάρι, κάντε προεπισκόπηση στη σκηνή με διπλό κλικ. Τα αντικείμενα που αφαιρούνται από τη σκηνή με το πλήκτρο Delete επανεμφανίζονται αυτόματα στο Dresser.</p>
-<p><strong>Κάντε δεξί κλικ σε οποιοδήποτε στοιχείο συρταριέρα</strong> για ένα μενού περιβάλλοντος: <strong>👁 Προεπισκόπηση</strong> (θέση στην κεντρική σκηνή, χωρίς κινούμενα σχέδια — για επιθεώρηση μεγέθους· η αρχική θέση αποκαθίσταται κατά την επιστροφή, ώστε να μην επηρεάζεται ποτέ η αναπαραγωγή), <strong>⧉ Διπλότυπο</strong>, <strong>◈ Κάντε κράτηση</strong> (γκρι μια υποδοχή συγκράτησης) ή <strong>✕ Αφαιρέστε</strong>. Αντικείμενα με σκηνικό κινούμενο σχέδιο α <strong>⇒</strong> επίθημα στη λίστα.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Αριθμημένες ενδείξεις</h3>
-<p>Τα σημεία ενεργοποίησης προωθούν την παρουσίαση βήμα-βήμα, όπως και τα θεατρικά φωτιστικά. Κάθε σύνθημα μπορεί να κινεί αντικείμενα μέσα ή έξω, να αλλάζει υποδοχές στοίβας ή να εκτελεί χρονομετρημένες ακολουθίες.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>AI Stage Blocks</h3>
-<p>Ζωγραφίστε τις ζώνες κινούμενων σχεδίων που δημιουργούνται απευθείας στη γραμμή χρόνου — προγραμματισμένες για διαλείμματα ή διαστήματα. Κατά τη διάρκεια μιας <strong>AI Stage Block</strong>, τα αντικείμενα επί σκηνής χορογραφούνται αυτόματα σε ένα από τα τέσσερα μοτίβα: <strong>τροχιά</strong>, <strong>φίδι</strong>, <strong>τυχαία μετατόπιση</strong>, ή <strong>εστίαση του προβολέα</strong>. Τα αντικείμενα επιστρέφουν στην αρχική τους θέση όταν τελειώσει το μπλοκ.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>Αντικείμενα Ticker</h3>
-<p>Κύλιση κειμένου μέσα <strong>οριζόντιος</strong> (δεξιά → αριστερά) και <strong>κατακόρυφος</strong> (κάτω → πάνω) προσανατολισμοί. Μπορούν να εκτελούνται ταυτόχρονα έως και 8 tickers — ιδανικά για λωρίδες έκτακτων ειδήσεων, υπενθυμίσεις ατζέντας ή πίνακες πληροφοριών συμβάντων. Η ταχύτητα και το κείμενο είναι επεξεργάσιμα ζωντανά.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>Φίλτρο τύπου Cue</h3>
-<p>Μια συμπαγής γραμμή φίλτρου βρίσκεται ανάμεσα στα χειριστήρια και τον χάρακα με ένα κουμπί εναλλαγής ανά τύπο αντικειμένου: <strong>Txt · Img · ADB · PPT · PDF · Σχεδίαση · Tick · Conn · Στοίβα</strong>. Κάντε κλικ σε οποιονδήποτε συνδυασμό για να απομονώσετε μόνο αυτές τις ενδείξεις — όλα τα άλλα είναι κρυμμένα. Μια αμυδρή μπλε απόχρωση στον χάρακα σας υπενθυμίζει ότι το φίλτρο είναι ενεργό. Κλικ <strong>✕ Όλα</strong> για να επαναφέρετε αμέσως την πλήρη προβολή.</p>
-<p>Ο <strong>⬛ Προεπισκόπηση</strong> Το toggle κάνει το φιλτράρισμα ένα βήμα παραπέρα: όταν είναι ενεργό, η ίδια η αναπαραγωγή ενεργοποιεί μόνο συνθήματα για τους επιλεγμένους τύπους — όλα τα άλλα παραμένουν στατικά στη σκηνή. Το playhead γυρίζει <strong>κεχριμπάρι</strong> ενώ η προεπισκόπηση είναι ενεργοποιημένη, ώστε να γνωρίζετε πάντα ότι βρίσκεστε σε μια φιλτραρισμένη εκτέλεση. Ιδανικό για πρόβες ενός μεμονωμένου τύπου αντικειμένου ή για έλεγχο του χρονισμού υπόδειξης ADB χωρίς να ενοχλείτε την υπόλοιπη παρουσίαση.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Κύλιση κεφαλής αναπαραγωγής</h3>
-<p>Η κόκκινη γραμμή της κεφαλής αναπαραγωγής είναι σταθερή στο κέντρο του γραφικού στοιχείου της γραμμής χρόνου. Καθώς η αναπαραγωγή προχωρά, ο χάρακας μετακινείται προς τα αριστερά από κάτω - οι επερχόμενες ενδείξεις είναι πάντα ορατές στα δεξιά, οι προηγούμενες ενδείξεις παρασύρονται από τα αριστερά. Τοποθετήστε το δείκτη του ποντικιού πάνω από οποιαδήποτε αιχμή βέλους για ένα μεγάλο αιωρούμενο αναδυόμενο παράθυρο που δείχνει την πλήρη ετικέτα και τη χρονική του σήμανση.</p>
-<p><strong>Τροχός κύλισης</strong> τρίβει την κεφαλή αναπαραγωγής (1 δευτερόλεπτο ανά εγκοπή). <strong>Ctrl+κύλιση</strong> κάνει μεγέθυνση/σμίκρυνση του χάρακα (εύρος 20–200 px/s), διατηρώντας το ρυθμιστικό ζουμ συγχρονισμένο.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>Αναπαραγωγή πινγκ-πονγκ</h3>
-<p>Καθιστώ ικανό <strong>⇄</strong> για να αντιστρέψετε την κατεύθυνση σε κάθε όριο αντί να κάνετε επανεκκίνηση. Η γραμμή χρόνου αναπαράγεται προς τα εμπρός μέχρι το τέλος, μετά προς τα πίσω στην αρχή και μετά πάλι προς τα εμπρός — επ' αόριστον. Τα συνθήματα πυροδοτούν τα δικά τους <strong>αντίθετη δράση</strong> στο αντίστροφο πέρασμα (enter↔exit). Ο <strong>Generative Animator</strong> αντιστρέφει την κατεύθυνση του παλμού του, ώστε τα μοτίβα τροχιάς, φιδιών και εστίασης να ακολουθούν τα μονοπάτια τους. Το playhead γυρίζει <strong>κυανό</strong> με ένα προς τα κάτω τρίγωνο κατά την αντίστροφη διαδρομή. Συνδυάστε με AI Stage Blocks για υπνωτικές οθόνες χρόνου διαλείμματος.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>Πρότυπα χρονοδιαγράμματος</h3>
-<p>Εφαρμόστε ένα προκατασκευασμένο πλαίσιο χρονισμού με ένα κλικ: <strong>Κεντρική Ομιλία Συνεδρίου (20 λεπτά)</strong>, <strong>Διάλεξη στο Πανεπιστήμιο (50 λεπτά)</strong>, <strong>Εργαστήριο (90 λεπτά)</strong>, <strong>Short Pitch (5 λεπτά)</strong>, ή <strong>Ημιημέρα συνεδρίου (3 ώρες)</strong>. Πρότυπα επαναχρονίζουν υπάρχοντα στοιχεία ή ικριώματα ένα κενό σενάριο με επισημασμένους δείκτες.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Χρονολογίες πολλαπλών σεναρίων</h3>
-<p>Ένα single <code>.kpt</code> δεξαμενή αντέχει μέχρι <strong>10 επώνυμα σενάρια</strong> — ανεξάρτητοι χρονισμοί υπόδειξης που μοιράζονται τα ίδια αντικείμενα σκηνής. Η εναλλαγή σεναρίων συμπληρώνει ξανά το χρονοδιάγραμμα αμέσως. Ιδανικό για πλήρη έκδοση, περικοπή με τις καλύτερες στιγμές και παραγγελία Q&amp;A όλα σε ένα αρχείο.</p>
+<div class="card-icon">🖇️</div>
+<h3>Ανοίξτε τα αρχεία που ήδη έχετε</h3>
+<p>ClassIn <span class="fmt">.εδβ</span> πίνακες και Xournal++ <span class="fmt">.ξοππ</span> σημειώσεις — από τον υπολογιστή ή την εφαρμογή Xournal++ για κινητά — εισάγονται απευθείας: κάθε σελίδα και πινελιά γίνεται αντικείμενο που μπορείτε να επεξεργαστείτε και να κινήσετε. Το PowerPoint, το Keynote, το Word και το Markdown εισέρχονται μέσω καθολικής εισαγωγής εγγράφων.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>Πακέτα έργων .kpt</h3>
-<p>Τα έργα αποθηκεύονται ως αρχεία ZIP (<code>.kpt</code>) που περιέχει όλα τα στοιχεία πολυμέσων, τα δεδομένα διάταξης, τις παραμέτρους κινούμενων εικόνων και όλα τα επώνυμα σενάρια. Ανοίξτε σε οποιοδήποτε μηχάνημα που λειτουργεί Chameleon.</p>
+<h3>Ένα αρχείο, πολλές εκδόσεις</h3>
+<p>Ένα έργο αποθηκεύεται ως ένα μόνο αρχείο <span class="fmt">.κπτ</span> Το αρχείο που περιέχει όλα τα μέσα σας καθώς και έως δέκα ονομασμένα χρονοδιαγράμματα — η πλήρης ομιλία, ένα απόσπασμα με τα κυριότερα σημεία και μια σειρά ερωτήσεων και απαντήσεων μπορούν όλα να βρίσκονται σε ένα αρχείο που στέλνετε με email σε έναν συνάδελφο.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>Λογικές συντεταγμένες</h3>
-<p>Η σκηνή χρησιμοποιεί έναν χώρο λογικών συντεταγμένων 0–10.000 ανεξάρτητο από την ανάλυση της οθόνης. Οι παρουσιάσεις φαίνονται πανομοιότυπες σε οθόνη φορητού υπολογιστή ή προβολέα 4K.</p>
+<div class="card-icon">📱</div>
+<h3>Εκτελέστε την εκπομπή από το τηλέφωνό σας</h3>
+<p>Η εφαρμογή Kameleon Remote για Android βρίσκει μόνη της τον υπολογιστή σας μέσω Wi-Fi ή USB — δεν χρειάζεται να πληκτρολογήσετε τίποτα. Λαμβάνετε μια ζωντανή μικρογραφία του ακριβώς ό,τι βλέπει το κοινό, προηγούμενο / επόμενο, αναπαραγωγή / παύση / διακοπή, έναν δείκτη λέιζερ και τη δυνατότητα να σχεδιάσετε απευθείας πάνω στη ζωντανή διαφάνεια.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Αφήστε το δωμάτιο να συμμετάσχει</h3>
+<p>Μετατρέψτε μια θέση σε λειτουργία κοινού και οι άνθρωποι στέλνουν μια εικόνα ή μια γραπτή απάντηση από τα δικά τους τηλέφωνα. Κάθε μία περιμένει σε ένα δίσκο — την εγκρίνετε, την κρατάτε ή την απορρίπτετε πριν εμφανιστεί στην οθόνη.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Δώσ' το σε ένα AI — αν θέλεις</h3>
+<p>Σημειώστε τμήματα της γραμμής χρόνου ως τμήματα AI: κατά τη διάρκεια ενός διαλείμματος, το AI διαμορφώνει απαλά ό,τι εμφανίζεται στην οθόνη. Ή αφήστε το να διευθύνει ολόκληρη την παρουσίαση, όπως στο βίντεο παραπάνω. Εντελώς προαιρετικό — η εφαρμογή λειτουργεί πλήρως και χωρίς αυτό.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Φαίνεται σωστά σε οποιαδήποτε οθόνη</h3>
+<p>Η σκηνή προσαρμόζεται στην οθόνη στην οποία εμφανίζεται, οπότε μια παρουσίαση που δημιουργήθηκε σε φορητό υπολογιστή φαίνεται πανομοιότυπη σε προβολέα 4K. Χωρίς αναδιάταξη, χωρίς εκπλήξεις στην αίθουσα.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Mobile &amp; Peer Control</h2>
-<p>Εκτελέστε τον παρουσιαστή από το τηλέφωνό σας. αφήστε τους μαθητές να προωθήσουν περιεχόμενο από το δικό τους</p>
+<h2>Λειτουργεί με το Chameleon Classroom</h2>
+<p>Οι δύο εφαρμογές μοιράζονται μια μορφή αρχείου και ένα πρόγραμμα αναπαραγωγής</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Android mobile bridge</h4>
-<p>Η κινητή γέφυρα Chameleon (WebSocket) αναμεταδίδει εντολές θεάτρου από οποιαδήποτε συσκευή Android. Ελεγχος <strong>stack_next / prev / play / pause / stop</strong>, ωθήστε τις υποδοχές εικόνας ή κειμένου σε μια στοίβα και δείτε την κατάσταση μετάδοσης της στοίβας σε πραγματικό χρόνο.</p>
+<h4>Ίδια μηχανή εισαγωγής</h4>
+<p>Ο <span class="fmt">.εδβ</span> και <span class="fmt">.ξοππ</span> Η εισαγωγή λειτουργεί πανομοιότυπα στο Chameleon Classroom, οπότε το εκπαιδευτικό υλικό μεταφέρεται μεταξύ των δύο εφαρμογών χωρίς αλλαγές.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Υποβολές ομοτίμων</h4>
-<p>Οι μαθητές σπρώχνουν εικόνες ή κείμενο σε μια στοίβα λειτουργίας Stage από τα τηλέφωνά τους. Οι υποβολές εμφανίζονται στη λωρίδα μικρογραφιών με ένα πορτοκαλί παλλόμενο περίγραμμα. Ο παρουσιαστής μπορεί <strong>εγκρίνει, κρατά, απορρίπτει ή προωθεί</strong> κάθε ένα πριν βγει ζωντανά στην οθόνη.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Κοινόχρηστος πίνακας σχεδίασης</h4>
-<p>Συνεργατικός ελεύθερος καμβάς ελεγχόμενος από την κινητή γέφυρα — <strong>draw_stroke / διαγραφή / αναίρεση</strong>. Ιδανικό για σχολιασμό διαφανειών, καταιγισμό ιδεών ή ζωντανά κουίζ.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Έξυπνη ροή εργασίας κινουμένων σχεδίων</h4>
-<p>Κάντε δεξί κλικ σε οποιοδήποτε αντικείμενο, επιλέξτε <strong>Εισάγετε Αριστερά</strong> (ή οποιαδήποτε προεπιλογή κατεύθυνσης) και η εφαρμογή εισέρχεται στη λειτουργία επιλογής στόχου αμέσως — με ένα κλικ ορίζεται πού ταξιδεύει το αντικείμενο. Η εγγραφή μιας διαδρομής κίνησης με ελεύθερο χέρι σφραγίζει αυτόματα ενδείξεις έναρξης και λήξης στη γραμμή χρόνου.</p>
+<h4>Ενσωματωμένο πρόγραμμα αναπαραγωγής</h4>
+<p>Η τάξη εκτελεί το Kameleon Presenter στο κάτω πλαίσιο σε λειτουργία μόνο παρουσίασης — παρουσιάστε ένα <span class="fmt">.κπτ</span> τράπουλα μέσα σε ζωντανό μάθημα χωρίς να φύγετε από την τάξη.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Καθρέφτης τηλεφώνου ADB &amp; λήψη PPT</h4>
-<p><strong>ADBPhoneBox</strong> μεταδίδει μια ζωντανή οθόνη Android απευθείας στη σκηνή μέσω ADB. <strong>PPTMirrorBox</strong> καταγράφει ένα παράθυρο PowerPoint — παρουσιάστε τα υπάρχοντα decks σας μέσα στο Kameleon χωρίς μετατροπή.</p>
-<p><strong>🕐 Στοιχεία χρονοδιαγράμματος ADB</strong> — κάντε δεξί κλικ σε οποιονδήποτε παράγοντα ADB → <em>Προσθήκη Cue στο Timeline…</em> να σφραγίσει <strong>Επανεκκινήστε τη ροή</strong>, <strong>Ανοίξτε τη διεύθυνση URL</strong>, ή <strong>Εκκινήστε την εφαρμογή</strong> (με το όνομα πακέτου) υποδείξεις σε ακριβείς θέσεις κεφαλών αναπαραγωγής. Τα συνθήματα ενεργοποιούνται κατά την αναπαραγωγή τόσο με ρυθμό διαστήματος όσο και κατά την αυτόματη αναπαραγωγή λωρίδας χρόνου.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>Εκκίνηση και ρυθμίσεις</h4>
-<p>Επιλέξτε αν το Kameleon ανοίγει με το <strong>τελευταίο έργο που φορτώθηκε</strong> ή α <strong>κενό στάδιο</strong> μέσω του μενού Ρυθμίσεις → Κατά την εκκίνηση. Η προτίμηση αποθηκεύεται σε <code>~/.chameleon/kameleon_settings.json</code> και σεβάστηκε κάθε εκτόξευση.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Διασύνδεση 25 γλωσσών</h4>
-<p>Ανοιχτό <strong>Ρυθμίσεις → 🌐 Γλώσσα</strong> για να αλλάξετε τη διεπαφή χρήστη Kameleon Presenter σε οποιαδήποτε από τις 25 γλώσσες — συμπεριλαμβανομένων των Γαλλικών, Γερμανικών, Ισπανικών, Αραβικών, Κινέζων, Ιαπωνικών, Κορεατικών, Ρωσικών, Ουαλικών, Ταϊλανδέζικων και άλλων. Όλα τα μενού ενημερώνονται άμεσα με <strong>όχι επανεκκίνηση</strong>. Οι μεταφράσεις λαμβάνονται στο παρασκήνιο κατά την πρώτη χρήση. Η εναλλαγή γίνεται άμεσα μόλις αποθηκευτεί στην κρυφή μνήμη.</p>
+<h4>Ένα AI στη συνομιλία του μαθήματος</h4>
+<p>Η τάξη προσθέτει έναν συμμετέχοντα τεχνητής νοημοσύνης στον οποίο απευθύνεστε όπως σε οποιονδήποτε άλλο μαθητή. <strong>Αποστολή στην ΤΝ</strong> Το κουμπί και στις δύο εφαρμογές, για επιτραπέζιους υπολογιστές και Android, το φέρνει στη συνομιλία όποτε το θέλετε.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>Στιγμιότυπα οθόνης</h2>
+<p>Kameleon Presenter — καταγράφηκε ζωντανά</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">Οθόνη 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">Οθόνη 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">Οθόνη 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">Οθόνη 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">Οθόνη 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">Οθόνη 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">Οθόνη 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Δώστε ζωή στις παρουσιάσεις σας</h3>
-<p>Επικοινωνήστε μαζί μας για να συζητήσουμε μια άδεια ή να κανονίσουμε μια ζωντανή επίδειξη του Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">Ζητήστε μια επίδειξη</a>
-<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Λήψη οδηγού χρήσης (PDF)</a>
+<h3>Δοκιμάστε το Kameleon Presenter</h3>
+<p>Πωλείται ως εφάπαξ άδεια επιτραπέζιου υπολογιστή για Linux, Windows και macOS. <strong>Η τελική τιμή ορίζεται τώρα</strong> — κλείστε ένα demo και θα το στείλουμε με ημερομηνία κυκλοφορίας.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Κλείστε μια επίδειξη</a>
+<a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Λήψη του Οδηγού Χρήσης (PDF)</a>
 <a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
 </div>
 </div>
@@ -291,7 +173,7 @@
 <a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
 <a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

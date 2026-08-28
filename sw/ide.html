@@ -3,10 +3,37 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE - Chameleon AI</title>
+<title>Chameleon AI IDE - Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  Chameleon AI IDE iko katika maendeleo ya kikamilifu. Vipengele vilivyo hapa chini ni vya sasa; bei na upatikanaji wa jumla bado vinakamilishwa — <a href="../contact.html">Weka muhtihitaji onyesho</a> Na tutawe kukujulisha.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
@@ -14,243 +41,139 @@
 <a href="../index.html">Nyumbani</a>
 <a class="active" href="../ide.html">UNA MAWAZO</a>
 <a href="../presenter.html">Mtoa mada</a>
-<a href="../companion.html">Programu Mwenza</a>
-<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../companion.html">Programu Tandazi</a>
+<a href="../logistics4x4.html">Usafirishaji 4×4</a>
 <a href="../services.html">Huduma za Wavuti</a>
 <a href="../accounting.html">Uhasibu</a>
 <a href="../technician.html">Mtaalamu wa Kompyuta</a>
-
 <a href="../classroom.html">Darasa</a>
 <a href="../contact.html">Wasiliana</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE Inayoendeshwa na AI</h1>
-<p class="sub">Kihariri kamili cha msimbo wa PyQt6 ambapo AI haipendekezi tu - inasoma, inaandika, inaendesha na kuthibitisha msimbo kwa niaba yako kupitia daraja la amri lililoundwa.</p>
+<h1>Chameleon AI IDE</h1>
+<p class="sub">Kihariri cha msimbo ambapo AI hufanya kazi — inasoma faili zako, inafanya mabadiliko, inaendesha amri na kuangalia matokeo. Wewe unakagua na kuidhinisha.</p>
 <div class="hero-badges">
-<span class="badge">Mtoa huduma nyingi AI</span>
-<span class="badge">🎙️ Ingizo la sauti na TTS</span>
-<span class="badge">🔀 Mtazamo tofauti</span>
-<span class="badge">⚡ Majibu ya kutiririsha</span>
+<span class="badge">🧠 AI huhariri msimbo wako moja kwa moja</span>
+<span class="badge">🎙️ Sauti ndani, majibu yanayozungumzwa</span>
+<span class="badge">🔀 Ona tofauti kabla ya kukubali</span>
+<span class="badge">🔌 Watoa huduma tisa za AI, badilisha wakati wowote</span>
+<span class="badge">🔒 Inaendesha ndani, funguo zinabaki zako</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Daraja la Amri ya AI</h2>
-<p>AI haizungumzi tu - huendesha kihariri kupitia itifaki iliyopangwa ya JSON</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Soma mara moja, hariri bila malipo</h4>
-<p>AI inasoma faili mara moja na <strong>pata_maudhui_ya_faili</strong>, hushikilia yaliyomo katika muktadha, kisha hutoa uhariri mwingi unaotegemea msingi bila kusoma tena kati ya kila badiliko. Hakuna safari za kwenda na kurudi zilizopotea.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Maandishi ya kubadilisha_yaliyo na nanga</h4>
-<p>Huhariri maandishi kamili ya marejeleo ili kupata, sio nambari za mstari. Nambari za laini hubadilika kadri msimbo unavyoongezwa au kuondolewa - nanga hazifanyi hivyo. Nyingi <code>replace_text</code> simu zinaweza kuunganishwa katika jibu moja, zote zikitumika kwa atomi.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file kwa maandishi kamili</h4>
-<p>Kwa moduli mpya au kuandika upya kamili AI hutuma yaliyomo kwenye faili nzima kwa amri moja. Mfumo huunda kiotomati a <code>.bak</code> chelezo kabla ya kubatilisha na kufungua matokeo katika kichupo kipya cha kuhariri.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Ujumuishaji wa terminal</h4>
-<p>AI inaweza kuendesha amri za shell na kupokea matokeo ya JSON kabla ya kuendelea. Inasubiri kila matokeo, inashughulikia misimbo ya kuondoka, na kutofautisha maagizo ya uchunguzi, usanidi, uharibifu na kumaliza kikao kiotomatiki.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Ulinzi wa sindano</h4>
-<p>Maudhui yote yaliyorejeshwa kutoka kwa faili, vituo na kurasa za wavuti yamefungwa <code>[UNTRUSTED_CONTENT]</code> alama. AI imeagizwa kuchukulia kila kitu ndani kama data - kamwe sio maagizo - kuzuia mashambulizi ya sindano kutoka kwa maudhui mabaya ya faili.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Vipengele vya Mhariri</h2>
+<h2>Ni nini kinaifanya kuwa tofauti</h2>
+<p>Wahariri wengi wa AI wanapendekeza. Huyu anafanya kazi ya mhariri.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Kihariri cha msimbo wa vichupo vingi</h3>
-<p>Fungua faili nyingi kwa wakati mmoja. Kila kichupo kinafuatilia historia yake ya kutendua, uangaziaji wa sintaksia na muktadha wa amri ya AI.</p>
+<div class="card-icon">🤖</div>
+<h3>AI hufanya mabadiliko</h3>
+<p>Huisoma faili mara moja, kisha hufanya mabadiliko mengi sahihi kama yanavyohitajika bila kusoma tena. Mabadiliko yanalenga maandishi halisi, si nambari za mistari, kwa hivyo hayapotee faili linapobadilika. Faili mpya huandikwa kwa ukamilifu — pamoja na nakala rudufu ya kiotomatiki ya chochote kinachobadilishwa.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Inaendesha amri na kusoma matokeo</h3>
+<p>AI inaendesha amri za shell kwenye terminal iliyojengewa ndani, inasubiri matokeo ya kila moja, inaangalia msimbo wa kutoka, na kuamua cha kufanya baadaye. Kazi halisi katika shell ya moja kwa moja — si vipande vya nakala-na-bandika.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Salama kwa chaguo-msingi</h3>
+<p>Kila kitu AI inachosoma kutoka faili, terminal, au ukurasa wa wavuti kimefungwa kama data, si kama maagizo — faili hatari haiwezi kuiba kikao. Kila mabadiliko inayofanya yanarekodiwa kwa muda na kitambulisho cha kikao, kwa hivyo una historia kamili ya kilichotokea.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Mwonekano tofauti uliojengwa ndani</h3>
-<p>Mbofyo mmoja ili kulinganisha hali ya sasa ya kihariri dhidi ya toleo la mwisho lililohifadhiwa. Tofauti iliyounganishwa iliyo na alama za rangi kwa kuongeza/ondoa kuangazia. Ondoka kwenye hali ya tofauti ili kurudi kwenye uhariri kamili.</p>
+<h3>Kagua kabla ya kukubali</h3>
+<p>Kubofya moja kunaonyesha tofauti ya rangi za mabadiliko ya AI dhidi ya uhifadhi wako wa mwisho. Kubali, endelea kuhariri, au rudi nyuma.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Kutiririsha gumzo la AI</h3>
-<p>Majibu hutiririsha tokeni-kwa-tokeni kwenye paneli ya gumzo. Amri za IDE hutolewa na kutekelezwa katika mazungumzo ya usuli ili UI iendelee kuitikia kote.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Mfumo wa haraka wa msimu</h3>
-<p>Vidokezo vya mfumo ni faili za moduli za maandishi wazi ndani <code>~/.chameleon/prompts/</code>. Weka mseto wowote: Urekebishaji wa Teknolojia + Kiakademia + Gumzo. Hesabu ya tokeni moja kwa moja na makadirio ya gharama kwa kila mtoa huduma.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Historia ya amri DB</h3>
-<p>Kila amri ya AI imeingia <code>history.db</code> na kitambulisho cha kipindi, muhuri wa saa na matokeo. Njia kamili ya ukaguzi kwa kila mabadiliko ya faili AI iliyofanywa.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>Kivinjari cha faili</h3>
-<p>Mradi wa paneli ya mti kwa urambazaji wa haraka. AI hutumia <code>list_project_files</code> na <code>list_open_files</code> kugundua njia halisi - haizuii maeneo ya faili.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Sauti &amp; Hotuba</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Kunong'ona kwa hotuba kwa maandishi</h3>
-<p>Whisper ya Ndani (whisper.cpp) hunakili sauti yako hadi kwenye ingizo la gumzo. Usimbaji bila kugusa - amuru maswali, amri au vidokezo vyote bila kugusa kibodi.</p>
-<div class="tags"><span class="tag">kunong'ona.cpp</span><span class="tag">Maoni ya ndani</span><span class="tag">Hakuna STT ya wingu</span></div>
+<h3>Bila mikono</h3>
+<p>Taja swali au kidokezo kizima kwa kutumia hotuba-kwa-maandishi ya kifaa, na usikilize majibu yakisomwa kwa sauti ya asili. Hakuna kinachotumwa kwa huduma ya unukuzi ya wavuti.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Piper maandishi-kwa-hotuba</h3>
-<p>Majibu ya AI husomwa kwa sauti kwa kutumia Piper TTS - sauti za haraka, za ndani na za asili. Inafaa kwa ufikiaji au kufanya kazi na mikono yako ulichukua. Njia za jukwaa zilitatuliwa kiatomati kwenye Linux, Windows na macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Maoni ya ndani</span><span class="tag">Sauti inayoweza kusanidiwa</span></div>
+<div class="card-icon">🔌</div>
+<h3>Leta na AI yako mwenyewe</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — badilisha mtoa huduma katikati ya mradi. Endesha modeli kwenye kompyuta yako kupitia Ollama au LM Studio bila gharama yoyote. Claude Code inaendesha kama mchakato wa moja kwa moja ndani ya terminal.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Hali za kazi zinazoweza kurundikana</h3>
+<p>Washa modes unazohitaji — ukarabati wa msimbo, uandishi wa kitaaluma, mazungumzo rahisi — na uzichanganye. Makadirio ya gharama yanayoendelea yanaonyeshwa kabla ya kutuma chochote.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Kihariri halisi chini</h3>
+<p>Uhariri wa tabo nyingi kwa kughairi kwa kila tabo na kuangazia sintaksia, mti wa faili za mradi, na gumzo la mtiririko linaloweka dirisha likiwa tendaji wakati amri zinaendeshwa nyuma.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Watoa huduma wa AI wanaoungwa mkono</h2>
+<h2>Chagua mtoa huduma wako wa AI</h2>
+<p>Akaunti yako, chaguo lako — wingu au kabisa kwenye mashine yako mwenyewe</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>Mtoa huduma</th><th>Aina</th><th>Gharama (takriban.)</th><th>Vidokezo</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>Mtoa huduma</th><th>Mahali inapoendeshwa</th><th>Makadirio ya gharama</th></tr></thead>
 <tbody>
-<tr><td>DeepSeek</td><td>API ya Wingu</td><td>$0.00014 / tokeni 1K</td><td>Chaguomsingi; ubora wa kanuni bora</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>API ya Wingu</td><td>$0.0050 / tokeni 1K</td><td>Hoja bora ya jumla</td></tr>
-<tr><td>Anthropic (Claude)</td><td>API ya Wingu</td><td>$0.0030 / tokeni 1K</td><td>Imara katika uhariri wa muktadha mrefu</td></tr>
-<tr><td>Kanuni ya Claude (Anthropic)</td><td>Kituo / pty</td><td>matumizi ya API</td><td>Hufanya kazi kama mchakato wa pty ndani ya terminal ya IDE - usimbaji kamili wa kikali katika ganda la moja kwa moja</td></tr>
-<tr><td>Grok</td><td>API ya Wingu</td><td>$0.00005 / tokeni 1K</td><td>Maoni ya haraka sana</td></tr>
-<tr><td>Mistral</td><td>API ya Wingu</td><td>$0.00025 / tokeni 1K</td><td>Chaguo nzuri la mwenyeji wa Uropa</td></tr>
-<tr><td>Picha ya mwezi / Kimi</td><td>API ya Wingu</td><td>$0.00012 / tokeni 1K</td><td>Dirisha kubwa la muktadha</td></tr>
-<tr><td>Kuwa</td><td>Ndani</td><td>Bure</td><td>Endesha muundo wowote wa GGUF ndani ya nchi</td></tr>
-<tr><td>Studio ya LM</td><td>Ndani</td><td>Bure</td><td>Maoni ya ndani yanayofaa GUI</td></tr>
+<tr><td>DeepSeek <em>(Chaguo-msingi)</em></td><td>Wingu, akaunti yako</td><td>Chini kabisa — imara katika msimbo</td></tr>
+<tr><td>OpenAI</td><td>Wingu, akaunti yako</td><td>Juu — sababu bora ya jumla</td></tr>
+<tr><td>Anthropic (Claude)</td><td>Wingu, akaunti yako</td><td>Kati — imara kwenye faili ndefu</td></tr>
+<tr><td>Msimbo wa Claude</td><td>Inaendesha ndani ya terminal</td><td>Matumizi yako ya Anthropic</td></tr>
+<tr><td>Grok</td><td>Wingu, akaunti yako</td><td>Chini sana — majibu ya haraka zaidi</td></tr>
+<tr><td>Mistral</td><td>Wingu, akaunti yako</td><td>Chini — inayohudumiwa Ulaya</td></tr>
+<tr><td>Kama</td><td>Wingu, akaunti yako</td><td>Chini — muktadui kubwa sana</td></tr>
+<tr><td>Ollama / LM Studio</td><td>Kwenye mashine yako</td><td>Bure</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="../Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="../Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Kituo cha Amri za Kampuni (CCS)</h2>
-<p>Endesha Kitambulisho cha Chameleon kama kitovu cha ofisi cha meli yako ya Logistics 4×4 - hakuna programu tofauti ya kutuma inayohitajika.</p>
+<h2>Endesha biashara yako kutoka humo pia</h2>
+<p>Kituo cha Amri cha Kampuni — IDE kama kitovu cha meli ya Logistics 4×4</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Sukuma njia &amp; POIs kwa madereva</h4>
-<p>Tuma a <code>.gpx</code> faili kutoka kwa IDE moja kwa moja hadi kwa simu ya dereva yoyote kupitia chaneli rika. Njia hupakia papo hapo kwenye ramani ya moja kwa moja ya dereva. Seti za POI zinazojitegemea - vituo vya mafuta, hatari, anwani za uwasilishaji - zinaweza kusukumwa bila njia yoyote na kuonekana kama pini zenye misimbo ya rangi.</p>
+<h4>Tuma njia na vituo kwa madereva</h4>
+<p>Sukuma faili ya njia moja kwa moja kutoka kwenye IDE hadi kwenye simu ya dereva — inapakia kwenye ramani yao ya moja kwa moja papo hapo. Seti za pointi (vituo vya mafuta, hatari, anwani za usafirishaji) zinaweza kutumwa peke yake na kuonekana kama pini zenye rangi tofauti. Hakuna programu tofauti ya usambazaji.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Dhihirisho na utumaji ankara</h4>
-<p>Unda faili ya maelezo ya shehena au tayarisha ankara katika IDE, kisha uisukumishe programu-rika-kwa-rika kwenye simu ya dereva. Dereva anaona faili ya maelezo ikiwa imepakiwa awali - hakuna kuchanganua, hakuna ingizo la mtu binafsi. Ankara zinaweza kusainiwa kwenye skrini na kurejeshwa kupitia kituo sawa.</p>
+<h4>Stakabu zinaingia katika vitabu vyako</h4>
+<p>Programu ya simu ya Chameleon Companion inapiga picha ya risiti na kuisukuma kwenye eneo-kazi, ambapo inakuwa ingizo la rasimu katika daftari la uhasibu — tazama <a href="../accounting.html">Uhasibu</a> na <a href="../companion.html">Programu ya Companion</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Matangazo ya tikiti kwa upana wa meli</h4>
-<p>Tuma arifa ya kipaumbele - Dharura, Muhimu, Maagizo au Maelezo - na inaonekana kama upau wa tiki wa upana kamili kwenye skrini ya kila dereva kwa wakati mmoja. Ofisi inakaa katika uangalizi kamili wa meli bila simu kwa kila gari.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Seva ya mawimbi iliyojengewa ndani - hakuna upeanaji wa wingu</h4>
-<p>Seva ya ishara ya Chameleon (<code>chameleon_signal.py</code>) hutumika moja kwa moja kwenye Kompyuta ya ofisini kando ya IDE, au ndani ya Termux kwenye simu yoyote ya Android kwenye meli. Simu za rununu huunganishwa nayo kupitia Tailscale au mtandao-hewa wa karibu nawe - hakuna upeanaji wa watu wengine, hakuna bili ya kila mwezi ya seva.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Kompyuta ya Ofisi inayoendesha Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Kitovu cha WebSocket · Amri ya meli</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Meli zilizounganishwa →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Dereva A</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Dereva B</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Timu ya uwanjani</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X - Dharura</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Kupitia Tailscale (mbali) au LAN hotspot (msafara) · Hakuna relay ya wingu · E2E imesimbwa kwa njia fiche</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Picha za skrini</h2>
+<p>Chameleon AI IDE — imenaswa moja kwa moja</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="../ide-assets/AI-IDE-1.png"/><div class="sg-cap">Muhtasari wa eneo-kazi</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="../ide-assets/AI-IDE-2.png"/><div class="sg-cap">Jopo la mazungumzo + kihariri</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="../ide-assets/AI-IDE-3.png"/><div class="sg-cap">Mtazamo tofauti</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="../ide-assets/AI-IDE-4.png"/><div class="sg-cap">Sauti + kivinjari cha faili</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="../ide-assets/Chameleon1.png"/><div class="sg-cap">Terminal + historia</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="../ide-assets/Chameleon2.png"/><div class="sg-cap">Nafasi ya kazi</div></div>
 </div>
 <div class="cta-band">
-<h3>Tazama AI IDE inavyofanya kazi</h3>
-<p>Wasiliana nasi kwa onyesho la moja kwa moja au kujadili leseni ya timu yako.</p>
-<a class="btn btn-solid" href="../contact.html">Omba onyesho</a>
-<a class="btn" href="../logistics4x4.html">Vifaa 4×4 →</a>
+<h3>Jaribu Chameleon AI IDE</h3>
+<p>Inauzwa kama leseni ya mara moja ya eneo-kazi kwa Linux, Windows na macOS. <strong>Bei ya mwisho inawekwa sasa hivi</strong> — weka demo na tutatuma kwa tarehe ya uzinduzi.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Weka na onyesho</a>
 <a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a>
-<a href="../logistics4x4.html">Vifaa 4×4</a>
 <a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
 <a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Imejengwa na Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Imejengwa na Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

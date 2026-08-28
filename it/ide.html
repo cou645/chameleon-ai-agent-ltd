@@ -3,10 +3,37 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IDE AI: IA camaleonte</title>
+<title>IDE IA Camaleonte — IA Camaleonte</title>
 <link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  L'IDE Chameleon AI è in sviluppo attivo. Le funzionalità di seguito sono attuali; prezzi e disponibilità generale sono ancora in fase di definizione — <a href="../contact.html">Prenota una demo</a> e ti terremo aggiornato.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>IA camaleonte</strong></a>
@@ -14,7 +41,7 @@
 <a href="../index.html">Casa</a>
 <a class="active" href="../ide.html">HAI IDEE</a>
 <a href="../presenter.html">Presentatore</a>
-<a href="../companion.html">Applicazione complementare</a>
+<a href="../companion.html">App Companion</a>
 <a href="../logistics4x4.html">Logistica 4×4</a>
 <a href="../services.html">Servizi Web</a>
 <a href="../accounting.html">Contabilità</a>
@@ -26,230 +53,127 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE basato sull'intelligenza artificiale</h1>
-<p class="sub">Un editor di codice PyQt6 completo in cui l'intelligenza artificiale non si limita a suggerire: legge, scrive, esegue e verifica il codice per tuo conto attraverso un bridge di comando strutturato.</p>
+<h1>IDE Camaleonte AI</h1>
+<p class="sub">Un editor di codice dove l'IA fa il lavoro: legge i tuoi file, apporta le modifiche, esegue i comandi e verifica il risultato. Tu rivedi e approvi.</p>
 <div class="hero-badges">
-<span class="badge">IA multi-provider</span>
-<span class="badge">🎙️ Ingresso vocale e TTS</span>
-<span class="badge">🔀 Visualizzazione differenziale</span>
-<span class="badge">⚡ Risposte in streaming</span>
+<span class="badge">🧠 L'IA modifica direttamente il tuo codice</span>
+<span class="badge">🎙️ Voce in ingresso, risposte parlate</span>
+<span class="badge">🔀 Visualizza una differenza prima di accettare</span>
+<span class="badge">🔌 Nove provider AI, cambiali in qualsiasi momento</span>
+<span class="badge">🔒 Funziona in locale, le chiavi restano tue</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Il ponte di comando dell'IA</h2>
-<p>L'intelligenza artificiale non si limita a chattare: gestisce l'editor tramite un protocollo JSON strutturato</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Leggi una volta, modifica liberamente</h4>
-<p>L'intelligenza artificiale legge un file una volta con <strong>ottieni_contenuto_file</strong>, mantiene il contenuto nel contesto, quindi apporta più modifiche basate sull'ancora senza rileggere tra una modifica e l'altra. Nessun viaggio di andata e ritorno sprecato.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Sostituisci_testo basato su ancoraggio</h4>
-<p>Le modifiche fanno riferimento al testo esatto da trovare, non ai numeri di riga. I numeri di riga cambiano man mano che il codice viene aggiunto o rimosso, gli ancoraggi no. Molteplici <code>replace_text</code> le chiamate possono essere raggruppate in un'unica risposta, tutte applicate atomicamente.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file per riscritture complete</h4>
-<p>Per nuovi moduli o riscritture complete, l'IA invia l'intero contenuto del file in un unico comando. Il sistema crea automaticamente un <code>.bak</code> backup prima di sovrascrivere e apre il risultato in una nuova scheda dell'editor.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Integrazione del terminale</h4>
-<p>L'intelligenza artificiale può eseguire comandi shell e ricevere il risultato JSON prima di continuare. Attende ciascun risultato, gestisce i codici di uscita e distingue automaticamente i comandi diagnostici, di configurazione, distruttivi e di fine sessione.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Protezione dall'iniezione</h4>
-<p>Tutto il contenuto restituito da file, terminali e pagine Web è racchiuso <code>[UNTRUSTED_CONTENT]</code> marcatori. L'intelligenza artificiale viene istruita a trattare tutto ciò che contiene come dati, mai come istruzioni, impedendo attacchi tempestivi da contenuti di file dannosi.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Funzionalità dell'editor</h2>
+<h2>Cosa lo rende diverso</h2>
+<p>La maggior parte degli editor AI suggerisce. Questo opera l'editor.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Editor di codice multischeda</h3>
-<p>Apri più file contemporaneamente. Ogni scheda tiene traccia della cronologia degli annullamenti, dell'evidenziazione della sintassi e del contesto dei comandi AI.</p>
+<div class="card-icon">🤖</div>
+<h3>L'IA apporta le modifiche</h3>
+<p>Legge il file una sola volta, poi apporta tutte le modifiche precise necessarie senza rileggerlo. Le modifiche puntano a testo esatto, non a numeri di riga, quindi non si spostano quando il file cambia. I nuovi file vengono scritti interamente, con un backup automatico di tutto ciò che sostituisce.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Esegue comandi e legge i risultati</h3>
+<p>L'AI esegue comandi shell nel terminale integrato, attende ogni risultato, controlla il codice di uscita e decide cosa fare dopo. Lavoro reale in una shell live, non frammenti copiati e incollati.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Sicuro per impostazione predefinita</h3>
+<p>Tutto ciò che l'AI legge da un file, da un terminale o da una pagina web è isolato come dati, mai come istruzioni — un file dannoso non può dirottare la sessione. Ogni modifica che apporta viene registrata con timestamp e ID di sessione, così hai una cronologia completa di ciò che è accaduto.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Vista differenziale integrata</h3>
-<p>Un clic per confrontare lo stato attuale dell'editor con l'ultima versione salvata. Diff unificato codificato a colori con aggiunta/rimozione evidenziazione. Esci dalla modalità diff per tornare alla modifica completa.</p>
+<h3>Rivedi prima di accettare</h3>
+<p>Un clic mostra una differenza codificata a colori delle modifiche dell'IA rispetto all'ultimo salvataggio. Accettale, continua a modificare o annulla.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Chat AI in streaming</h3>
-<p>Le risposte vengono trasmesse token per token nel pannello della chat. I comandi IDE vengono estratti ed eseguiti in un thread in background in modo che l'interfaccia utente rimanga sempre reattiva.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Sistema di pronto modulare</h3>
-<p>I prompt di sistema sono file di moduli di testo semplice in <code>~/.chameleon/prompts/</code>. Impila qualsiasi combinazione: Riparazione tecnica + Accademico + Chat. Conteggio dei token in tempo reale e stima dei costi per fornitore.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>DB della cronologia dei comandi</h3>
-<p>Viene registrato ogni comando dell'IA <code>history.db</code> con ID sessione, timestamp e risultato. Traccia di controllo completa per ogni modifica ai file apportata dall'intelligenza artificiale.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>Navigatore di file</h3>
-<p>Pannello dell'albero del progetto per una navigazione veloce. L'intelligenza artificiale utilizza <code>list_project_files</code> E <code>list_open_files</code> per scoprire percorsi reali: non inventa mai le posizioni dei file.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Voce e discorso</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Discorso-testo sussurrato</h3>
-<p>Local Whisper (whisper.cpp) trascrive la tua voce nell'input della chat. Codifica a mani libere: detta domande, comandi o interi suggerimenti senza toccare la tastiera.</p>
-<div class="tags"><span class="tag">sussurro.cpp</span><span class="tag">Inferenza locale</span><span class="tag">Nessuna nuvola STT</span></div>
+<h3>A mani libere</h3>
+<p>Dettate una domanda o un intero prompt con il riconoscimento vocale sul dispositivo e fate leggere le risposte con una voce naturale. Nulla viene inviato a un servizio di trascrizione cloud.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Piper sintesi vocale</h3>
-<p>Le risposte dell'intelligenza artificiale vengono lette ad alta voce utilizzando Piper TTS: voci veloci, locali e dal suono naturale. Ideale per l'accessibilità o per lavorare con le mani occupate. Percorsi della piattaforma risolti automaticamente su Linux, Windows e macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Inferenza locale</span><span class="tag">Voce configurabile</span></div>
+<div class="card-icon">🔌</div>
+<h3>Porta il tuo AI</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi: cambia fornitore nel bel mezzo di un progetto. Esegui un modello localmente tramite Ollama o LM Studio senza alcun costo. Claude Code funziona come processo live direttamente nel terminale.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Modalità di lavoro impilabili</h3>
+<p>Attiva le modalità che ti servono — riparazione del codice, scrittura accademica, chat semplice — e combinale. Una stima dei costi in tempo reale viene mostrata prima di inviare qualsiasi cosa.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Un vero editor sottostante</h3>
+<p>Modifica a più schede con undo per scheda ed evidenziazione della sintassi, albero dei file di progetto e chat in streaming che mantiene la finestra reattiva mentre i comandi vengono eseguiti in background.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Provider di intelligenza artificiale supportati</h2>
+<h2>Scegli il tuo provider AI</h2>
+<p>Il tuo account, la tua scelta: cloud o interamente sulla tua macchina</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>Fornitore</th><th>Tipo</th><th>Costo (circa)</th><th>Note</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>Fornitore</th><th>Dove viene eseguito</th><th>Costo approssimativo</th></tr></thead>
 <tbody>
-<tr><td>DeepSeek</td><td>API cloud</td><td>$ 0,00014 / 1.000 token</td><td>Predefinito; eccellente qualità del codice</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>API cloud</td><td>$ 0,0050 / 1.000 token</td><td>Miglior ragionamento generale</td></tr>
-<tr><td>Antropico (Claude)</td><td>API cloud</td><td>$ 0,0030 / 1.000 token</td><td>Forte nell'editing a lungo contesto</td></tr>
-<tr><td>Claude Code (Antropico)</td><td>Terminale / p</td><td>Utilizzo dell'API</td><td>Viene eseguito come processo pty all'interno del terminale IDE: codifica ad agenti completa in una shell live</td></tr>
-<tr><td>Grok</td><td>API cloud</td><td>$ 0,00005 / 1.000 token</td><td>Inferenza ultraveloce</td></tr>
-<tr><td>Maestrale</td><td>API cloud</td><td>$ 0,00025 / 1.000 token</td><td>Buona opzione ospitata in Europa</td></tr>
-<tr><td>Colpo di luna / Kimi</td><td>API cloud</td><td>$ 0,00012 / 1.000 token</td><td>Finestra di contesto di grandi dimensioni</td></tr>
-<tr><td>Essere</td><td>Locale</td><td>Gratuito</td><td>Esegui qualsiasi modello GGUF localmente</td></tr>
-<tr><td>Studio LM</td><td>Locale</td><td>Gratuito</td><td>Inferenza locale intuitiva tramite GUI</td></tr>
+<tr><td>DeepSeek <em>(predefinito)</em></td><td>Cloud, il tuo account</td><td>Minimo — forte nel codice</td></tr>
+<tr><td>Apri OpenAI</td><td>Cloud, il tuo account</td><td>Più alto — miglior ragionamento generale</td></tr>
+<tr><td>Antropico (Claude)</td><td>Cloud, il tuo account</td><td>Medio — forte su file lunghi</td></tr>
+<tr><td>Codice Claudio</td><td>Viene eseguito all'interno del terminale</td><td>Il tuo utilizzo di Anthropic</td></tr>
+<tr><td>Grok</td><td>Cloud, il tuo account</td><td>Molto bassa — risposte più veloci</td></tr>
+<tr><td>Maestrale</td><td>Cloud, il tuo account</td><td>Basso — ospitato in Europa</td></tr>
+<tr><td>Come</td><td>Cloud, il tuo account</td><td>Basso — contesto molto ampio</td></tr>
+<tr><td>Ollama/LM Studio</td><td>Sul tuo computer</td><td>Gratuito</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="../Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="../Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Stazione di comando della compagnia (CCS)</h2>
-<p>Esegui l'IDE Chameleon come hub di ufficio per la tua flotta logistica 4×4: non è necessario alcun software di spedizione separato</p>
+<h2>Gestisci anche la tua attività da qui</h2>
+<p>Stazione di comando aziendale — l'IDE come hub per una flotta logistica 4×4</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Invia percorsi e PDI agli autisti</h4>
-<p>Invia un <code>.gpx</code> file dall'IDE direttamente al telefono di qualsiasi conducente tramite il canale peer. I percorsi vengono caricati istantaneamente sulla mappa live del conducente. I set di POI autonomi (fermate di rifornimento, pericoli, indirizzi di consegna) possono essere spostati indipendentemente da qualsiasi percorso e visualizzati come segnaposti codificati a colori.</p>
+<h4>Invia percorsi e fermate agli autisti</h4>
+<p>Invia un file di percorso direttamente dall'IDE al telefono del conducente: viene caricato sulla loro mappa live all'istante. I set di punti (fermate per carburante, pericoli, indirizzi di consegna) possono essere inviati singolarmente e vengono visualizzati come spilli colorati. Nessun software di dispacciamento separato.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Invio manifesto e fattura</h4>
-<p>Crea un manifesto del carico o prepara una fattura nell'IDE, quindi invialo in modalità peer-to-peer al telefono dell'autista. L'autista vede il manifest precaricato: nessuna scansione, nessun inserimento manuale. Le fatture possono essere firmate sullo schermo e restituite tramite lo stesso canale.</p>
+<h4>Le ricevute finiscono nei tuoi registri contabili</h4>
+<p>L'app telefonica Chameleon Companion fotografa una ricevuta e la invia al desktop, dove diventa una bozza di voce nel registro contabile — vedi <a href="../accounting.html">Contabilità</a> E <a href="../companion.html">l'app Companion</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Trasmissione del ticker a livello di flotta</h4>
-<p>Invia un avviso prioritario (Emergenza, Importante, Istruzioni o Informazioni) e questo verrà visualizzato simultaneamente come una barra a tutta larghezza sullo schermo di ogni conducente. L'ufficio mantiene il pieno controllo dell'attenzione della flotta senza una telefonata a ciascun veicolo.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Server di segnale integrato: nessun inoltro cloud</h4>
-<p>Il server di segnale Chameleon (<code>chameleon_signal.py</code>) viene eseguito direttamente sul PC dell'ufficio insieme all'IDE o all'interno di Termux su qualsiasi telefono Android della flotta. I telefoni della flotta si collegano ad esso tramite Tailscale o l'hotspot locale: nessun relè di terze parti, nessuna fattura mensile del server.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC da ufficio con IDE Chameleon</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Hub WebSocket · Comando flotta</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Flotta connessa →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Autista A</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Autista B</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Squadra sul campo</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Emergenza</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Tramite Tailscale (remoto) o hotspot LAN (convoglio) · Nessun inoltro cloud · Crittografia E2E</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Schermate</h2>
+<p>Chameleon AI IDE — catturato dal vivo</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="../ide-assets/AI-IDE-1.png"/><div class="sg-cap">Panoramica del desktop</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="../ide-assets/AI-IDE-2.png"/><div class="sg-cap">Pannello chat + editor</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="../ide-assets/AI-IDE-3.png"/><div class="sg-cap">Visualizzazione differenziale</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="../ide-assets/AI-IDE-4.png"/><div class="sg-cap">Voce + browser file</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="../ide-assets/Chameleon1.png"/><div class="sg-cap">Terminale + cronologia</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="../ide-assets/Chameleon2.png"/><div class="sg-cap">Area di lavoro</div></div>
 </div>
 <div class="cta-band">
-<h3>Guarda l'IDE AI in azione</h3>
-<p>Contattaci per una demo dal vivo o per discutere una licenza per il tuo team.</p>
-<a class="btn btn-solid" href="../contact.html">Richiedi una demo</a>
-<a class="btn" href="../logistics4x4.html">Logistica 4×4 →</a>
+<h3>Prova Chameleon AI IDE</h3>
+<p>Venduto come licenza desktop una tantum per Linux, Windows e macOS. <strong>Il prezzo finale viene impostato ora</strong> — prenota una demo e te lo invieremo con una data di lancio.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Prenota una demo</a>
 <a class="btn" href="../index.html">← Torna alla panoramica</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
 <a href="../index.html">Casa</a><a href="../ide.html">HAI IDEE</a><a href="../presenter.html">Presentatore</a>
-<a href="../logistics4x4.html">Logistica 4×4</a>
 <a href="../accounting.html">Contabilità</a><a href="../technician.html">Tecnico informatico</a>
 <a href="../classroom.html">Aula</a><a href="../contact.html">Contatto</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Costruito da Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Creato da Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

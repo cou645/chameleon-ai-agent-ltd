@@ -3,253 +3,177 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE — Хамелеон AI</title>
+<title>Chameleon AI IDE — Хамелеон AI</title>
 <link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  IDE Chameleon AI находится в активной разработке. Приведённые ниже функции актуальны; цены и общая доступность ещё уточняются — <a href="../contact.html">Записаться на демо</a> и мы будем держать вас в курсе.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
 <div class="nav-links">
-<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../index.html">Главная</a>
 <a class="active" href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
 <a href="../presenter.html">Ведущий</a>
-<a href="../companion.html">Сопутствующее приложение</a>
-<a href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../companion.html">Приложение-компаньон</a>
+<a href="../logistics4x4.html">Логистика 4×4</a>
 <a href="../services.html">Веб-службы</a>
-<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a>
+<a href="../accounting.html">Бухгалтерия</a>
 <a href="../technician.html">ПК-техник</a>
-<a href="../classroom.html">u041au043bu0430u0441u0441</a>
+<a href="../classroom.html">Класс</a>
 <a href="../contact.html">Контакт</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE на базе искусственного интеллекта</h1>
-<p class="sub">Полнофункциональный редактор кода PyQt6, в котором ИИ не просто подсказывает — он читает, записывает, запускает и проверяет код от вашего имени через структурированный командный мост.</p>
+<h1>Хамелеон ИИ IDE</h1>
+<p class="sub">Редактор кода, где ИИ делает всю работу — читает ваши файлы, вносит правки, выполняет команды и проверяет результат. Вы просматриваете и одобряете.</p>
 <div class="hero-badges">
-<span class="badge">Мультипровайдерный ИИ</span>
-<span class="badge">🎙️ Голосовой ввод и TTS</span>
-<span class="badge">🔀 Просмотр различий</span>
-<span class="badge">⚡ Потоковое вещание ответов</span>
+<span class="badge">🧠 ИИ напрямую редактирует ваш код</span>
+<span class="badge">🎙️ Голосовой ввод, устные ответы</span>
+<span class="badge">🔀 Просмотрите различия перед принятием</span>
+<span class="badge">🔌 Девять AI-провайдеров, меняйте в любое время</span>
+<span class="badge">🔒 Работает локально, ключи остаются у вас</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Командный мостик ИИ</h2>
-<p>ИИ не просто общается — он управляет редактором через структурированный протокол JSON.</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Прочтите один раз, редактируйте свободно</h4>
-<p>ИИ читает файл один раз с помощью <strong>get_file_content</strong>, удерживает содержимое в контексте, а затем выполняет несколько изменений на основе привязки без повторного чтения между каждым изменением. Никаких бесполезных поездок туда и обратно.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>replace_text на основе привязки</h4>
-<p>Редактирует точный текст ссылки, а не номера строк. Номера строк меняются по мере добавления или удаления кода, а привязки — нет. Несколько <code>replace_text</code> вызовы могут быть объединены в один ответ, причем все они применяются атомарно.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file для полной перезаписи</h4>
-<p>Для новых модулей или полной перезаписи ИИ отправляет все содержимое файла одной командой. Система автоматически создает <code>.bak</code> резервное копирование перед перезаписью и открывает результат в новой вкладке редактора.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Интеграция терминала</h4>
-<p>ИИ может запускать команды оболочки и получать результат JSON, прежде чем продолжить. Он ожидает каждого результата, обрабатывает коды выхода и автоматически различает команды диагностики, настройки, разрушения и завершения сеанса.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Защита от инъекций</h4>
-<p>Весь контент, возвращаемый из файлов, терминалов и веб-страниц, упакован в <code>[UNTRUSTED_CONTENT]</code> маркеры. ИИ поручено рассматривать все внутри как данные, а не инструкции, предотвращая атаки с быстрым внедрением вредоносного содержимого файла.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Возможности редактора</h2>
+<h2>Что делает его другим</h2>
+<p>Большинство ИИ-редакторов предлагают. Этот управляет редактором.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Редактор кода с несколькими вкладками</h3>
-<p>Открытие нескольких файлов одновременно. Каждая вкладка отслеживает собственную историю отмены, подсветку синтаксиса и контекст команд AI.</p>
+<div class="card-icon">🤖</div>
+<h3>ИИ вносит правки</h3>
+<p>Он читает файл один раз, а затем вносит столько точных изменений, сколько нужно, без повторного чтения. Правки нацелены на точный текст, а не на номера строк, поэтому они не смещаются при изменении файла. Новые файлы записываются целиком — с автоматическим резервным копированием всего, что он заменяет.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Он выполняет команды и читает результаты</h3>
+<p>ИИ выполняет команды оболочки во встроенном терминале, ожидает каждый результат, проверяет код завершения и решает, что делать дальше. Реальная работа в живой оболочке — а не копирование и вставка фрагментов.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Безопасно по умолчанию</h3>
+<p>Всё, что ИИ читает из файла, терминала или веб-страницы, изолируется как данные, а не как инструкции — вредоносный файл не может захватить сессию. Каждое его изменение записывается с меткой времени и идентификатором сессии, поэтому у вас есть полная история произошедшего.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Встроенный просмотр различий</h3>
-<p>Один щелчок мыши, чтобы сравнить текущее состояние редактора с последней сохраненной версией. Унифицированные различия с цветовой кодировкой и возможностью добавления/удаления выделения. Выйдите из режима сравнения, чтобы вернуться к полному редактированию.</p>
+<h3>Проверьте перед принятием</h3>
+<p>Один клик показывает цветную разницу между изменениями ИИ и вашим последним сохранением. Примите их, продолжайте редактировать или отмените.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Потоковое чат с искусственным интеллектом</h3>
-<p>Ответы по токену передаются на панель чата. Команды IDE извлекаются и выполняются в фоновом потоке, поэтому пользовательский интерфейс остается отзывчивым на протяжении всего процесса.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Модульная система подсказок</h3>
-<p>Системные подсказки представляют собой текстовые файлы модулей в <code>~/.chameleon/prompts/</code>. Сложите любую комбинацию: Техремонт + Академический + Чат. Подсчет токенов в реальном времени и оценка стоимости для каждого поставщика.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>БД истории команд</h3>
-<p>Каждая команда AI записывается в систему. <code>history.db</code> с идентификатором сеанса, меткой времени и результатом. Полный контрольный журнал для каждого изменения файла, внесенного ИИ.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>Браузер файлов</h3>
-<p>Панель дерева проекта для быстрой навигации. ИИ использует <code>list_project_files</code> и <code>list_open_files</code> чтобы обнаружить реальные пути — он никогда не изобретает расположение файлов.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Голос и речь</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Преобразование речи в текст</h3>
-<p>Local Whisper (whisper.cpp) записывает ваш голос во вводимые данные в чате. Программирование без помощи рук — диктуйте вопросы, команды или целые подсказки, не касаясь клавиатуры.</p>
-<div class="tags"><span class="tag">шепот.cpp</span><span class="tag">Локальный вывод</span><span class="tag">Нет облака STT</span></div>
+<h3>Громкая связь</h3>
+<p>Продиктуйте вопрос или целый запрос с помощью встроенного распознавания речи на устройстве, и получите ответы, озвученные естественным голосом. Ничего не отправляется в облачный сервис транскрибации.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Преобразование текста в речь Piper</h3>
-<p>Ответы ИИ зачитываются вслух с помощью Piper TTS — быстрых, локальных и естественно звучащих голосов. Идеально подходит для доступности или работы с занятыми руками. Пути к платформе разрешаются автоматически в Linux, Windows и macOS.</p>
-<div class="tags"><span class="tag">Пайпер ТТС</span><span class="tag">Локальный вывод</span><span class="tag">Настраиваемый голос</span></div>
+<div class="card-icon">🔌</div>
+<h3>Используйте свой собственный ИИ</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — меняйте провайдера прямо в середине проекта. Запускайте модель локально через Ollama или LM Studio совершенно бесплатно. Claude Code работает как живой процесс прямо в терминале.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Складываемые режимы работы</h3>
+<p>Включите нужные режимы — исправление кода, академическое письмо, обычный чат — и комбинируйте их. Оценка стоимости в реальном времени отображается до отправки.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Настоящий редактор внутри</h3>
+<p>Многооконное редактирование с отменой для каждой вкладки и подсветкой синтаксиса, деревом файлов проекта и потоковым чатом, который сохраняет окно отзывчивым, пока команды выполняются в фоне.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Поддерживаемые поставщики ИИ</h2>
+<h2>Выберите вашего AI-провайдера</h2>
+<p>Ваш аккаунт, ваш выбор — облако или полностью на вашей собственной машине</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>Поставщик</th><th>Тип</th><th>Стоимость (приблизительно)</th><th>u041fu0440u0438u043cu0435u0447u0430u043du0438u044f</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>Поставщик</th><th>Где это работает</th><th>Ориентировочная стоимость</th></tr></thead>
 <tbody>
-<tr><td>ДипСик</td><td>Облачный API</td><td>0,00014 доллара США / 1 тыс. токенов</td><td>По умолчанию; отличное качество кода</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>Облачный API</td><td>0,0050 доллара США / 1 тыс. токенов</td><td>Лучшее общее рассуждение</td></tr>
-<tr><td>Антропный (Клод)</td><td>Облачный API</td><td>0,0030 доллара США / 1 тыс. токенов</td><td>Сильный в редактировании длинного контекста</td></tr>
-<tr><td>Клод Код (Антропный)</td><td>Терминал/пти</td><td>Использование API</td><td>Запускается как процесс pty внутри терминала IDE — полное агентское кодирование в живой оболочке.</td></tr>
-<tr><td>Грок</td><td>Облачный API</td><td>0,00005 доллара США / 1 тыс. токенов</td><td>Сверхбыстрый вывод</td></tr>
-<tr><td>Мистраль</td><td>Облачный API</td><td>0,00025 доллара США / 1 тыс. токенов</td><td>Хороший вариант с размещением в Европе</td></tr>
-<tr><td>Муншот / Кими</td><td>Облачный API</td><td>0,00012 доллара США / 1 тыс. токенов</td><td>Большое контекстное окно</td></tr>
-<tr><td>Быть</td><td>Местный</td><td>Бесплатно</td><td>Запустите любую модель GGUF локально.</td></tr>
-<tr><td>ЛМ Студия</td><td>Местный</td><td>Бесплатно</td><td>Локальный вывод с поддержкой графического интерфейса</td></tr>
+<tr><td>ДипСик <em>(по умолчанию)</em></td><td>Облако, ваш аккаунт</td><td>Низкий — силён в коде</td></tr>
+<tr><td>ОткрытьAI</td><td>Облако, ваш аккаунт</td><td>Выше — лучшее общее рассуждение</td></tr>
+<tr><td>Антропный (Клод)</td><td>Облако, ваш аккаунт</td><td>Средний — сильный на длинных файлах</td></tr>
+<tr><td>Код Claude</td><td>Запускается в терминале</td><td>Ваше использование Anthropic</td></tr>
+<tr><td>Грок</td><td>Облако, ваш аккаунт</td><td>Очень низкая — самые быстрые ответы</td></tr>
+<tr><td>Мистраль</td><td>Облако, ваш аккаунт</td><td>Низкий — размещено в Европе</td></tr>
+<tr><td>Кими</td><td>Облако, ваш аккаунт</td><td>Низкий — очень большой контекст</td></tr>
+<tr><td>Оллама / LM Studio</td><td>На вашем компьютере</td><td>Бесплатно</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="../Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="../Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Командный пункт роты (CCS)</h2>
-<p>Запустите Chameleon IDE в качестве офисного центра для вашего парка логистических автомобилей 4×4 — отдельное программное обеспечение для диспетчеризации не требуется.</p>
+<h2>Ведите свой бизнес и с него тоже</h2>
+<p>Командный центр компании — IDE как центр для логистического парка 4×4</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Отправляйте маршруты и POI водителям</h4>
-<p>Отправить <code>.gpx</code> файл из IDE непосредственно на телефон любого водителя по одноранговому каналу. Маршруты мгновенно загружаются на живую карту водителя. Автономные наборы POI — остановки заправки, опасности, адреса доставки — можно перемещать независимо от любого маршрута и отображать в виде меток с цветовой кодировкой.</p>
+<h4>Отправить маршруты и остановки водителям</h4>
+<p>Отправляйте файл маршрута прямо из IDE на телефон водителя — он мгновенно загружается на их живую карту. Наборы точек (заправки, опасности, адреса доставки) можно отправлять отдельно, и они отображаются в виде цветных меток. Никакого отдельного диспетчерского ПО.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Отправка манифеста и счета-фактуры</h4>
-<p>Создайте грузовой манифест или подготовьте счет-фактуру в IDE, а затем отправьте его по одноранговой сети на телефон водителя. Драйвер видит предварительно загруженный манифест — без сканирования и ручного ввода. Счета-фактуры можно подписывать на экране и возвращать по тому же каналу.</p>
+<h4>Чеки попадают в вашу бухгалтерию</h4>
+<p>Приложение Chameleon Companion на телефоне фотографирует чек и отправляет его на рабочий стол, где он становится черновиком записи в бухгалтерской книге — см. <a href="../accounting.html">Бухгалтерия</a> и <a href="../companion.html">приложение Companion</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Тикерная трансляция всего флота</h4>
-<p>Отправьте приоритетное оповещение — «Экстренное», «Важное», «Инструкции» или «Информация» — и оно одновременно появится в виде бегущей строки во всю ширину на экране каждого водителя. Офис полностью контролирует внимание автопарка без телефонного звонка к каждому автомобилю.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Встроенный сервер сигналов — без облачного ретранслятора</h4>
-<p>Сервер сигналов Хамелеон (<code>chameleon_signal.py</code>) работает непосредственно на офисном ПК вместе с IDE или внутри Termux на любом телефоне Android в парке. Телефоны парка подключаются к нему через Tailscale или локальную точку доступа — без сторонних ретрансляторов и без ежемесячных счетов за сервер.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">Офисный компьютер под управлением Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Хаб WebSocket · Командование флотом</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Подключенный автопарк →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Водитель А</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Водитель Б</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Полевая команда</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Чрезвычайная ситуация</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Через Tailscale (удаленно) или точку доступа локальной сети (конвой) · Без облачной ретрансляции · Зашифровано E2E</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Скриншоты</h2>
+<p>Chameleon AI IDE — захвачено вживую</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="../ide-assets/AI-IDE-1.png"/><div class="sg-cap">Обзор рабочего стола</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="../ide-assets/AI-IDE-2.png"/><div class="sg-cap">Панель чата + редактор</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="../ide-assets/AI-IDE-3.png"/><div class="sg-cap">Просмотр различий</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="../ide-assets/AI-IDE-4.png"/><div class="sg-cap">Голос + файловый браузер</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="../ide-assets/Chameleon1.png"/><div class="sg-cap">Терминал + история</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="../ide-assets/Chameleon2.png"/><div class="sg-cap">Рабочая область</div></div>
 </div>
 <div class="cta-band">
-<h3>Посмотрите AI IDE в действии</h3>
-<p>Свяжитесь с нами, чтобы получить живую демонстрацию или обсудить лицензию для вашей команды.</p>
-<a class="btn btn-solid" href="../contact.html">Запросить демо-версию</a>
-<a class="btn" href="../logistics4x4.html">Логистика 4х4 →</a>
+<h3>Попробуйте Chameleon AI IDE</h3>
+<p>Продаётся как разовая лицензия для настольного компьютера на Linux, Windows и macOS. <strong>Итоговая цена устанавливается сейчас</strong> — забронируйте демо, и мы отправим его с датой запуска.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Записаться на демо</a>
 <a class="btn" href="../index.html">← Вернуться к обзору</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
-<a href="../logistics4x4.html">Логистика 4х4</a>
-<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a><a href="../technician.html">ПК-техник</a>
-<a href="../classroom.html">u041au043bu0430u0441u0441</a><a href="../contact.html">Контакт</a>
+<a href="../index.html">Главная</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
+<a href="../accounting.html">Бухгалтерия</a><a href="../technician.html">ПК-техник</a>
+<a href="../classroom.html">Класс</a><a href="../contact.html">Контакт</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Создано Маркосом, также известным как Stemsee.</p>
+<p>© 2026 Chameleon AI Agent Ltd · Создано Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

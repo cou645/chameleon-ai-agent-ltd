@@ -3,36 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>KI-PC-Techniker – Chameleon AI</title>
+<title>PC-Techniker — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .path-card {
-      border-radius: var(--radius); padding: 1.5rem;
-      border: 2px solid; box-shadow: var(--shadow);
-      background: white;
-    }
-    .path-a { border-color: #22c55e; }
-    .path-b { border-color: #3b82f6; }
-    .path-c { border-color: #f59e0b; }
-    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-    .path-a .path-label { color: #22c55e; }
-    .path-b .path-label { color: #3b82f6; }
-    .path-c .path-label { color: #f59e0b; }
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card { border-radius: var(--radius); padding: 1.5rem; border: 2px solid; box-shadow: var(--shadow); background: var(--card-bg); }
+    .path-a { border-color: #22c55e; } .path-b { border-color: #3b82f6; } .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.1rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #16a34a; } .path-b .path-label { color: #2563eb; } .path-c .path-label { color: #d97706; }
     .path-card h4 { margin-bottom: .4rem; color: var(--text); }
     .path-card p { color: var(--muted); font-size: .9rem; }
-    .terminal-block {
-      background: #0f0f1a; border-radius: var(--radius);
-      padding: 1.5rem; font-family: 'Courier New', monospace;
-      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
-      box-shadow: var(--shadow-lg); overflow-x: auto;
-    }
-    .terminal-block .cmd { color: #67e8f9; }
-    .terminal-block .out { color: #86efac; }
-    .terminal-block .comment { color: #6b7280; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  AI PC Technician befindet sich in der aktiven Entwicklung und wurde für Benutzer entwickelt, die sich mit einer Linux-Befehlszeile auskennen. Preise und Verfügbarkeit werden noch finalisiert — <a href="../contact.html">Demo buchen</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Chamäleon-KI</strong></a>
@@ -52,121 +40,78 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>KI-PC-Techniker</h1>
-<p class="sub">KI-gesteuerte Systemdiagnose und -reparatur – plus ein USB-Geräteprofiler, der Hardwareprotokolle zurückentwickelt und automatisch Linux-Kerneltreiber generiert.</p>
+<h1>PC-Techniker</h1>
+<p class="sub">KI, die ein Linux-System Schritt für Schritt diagnostiziert und repariert – und ein USB-Profiler, der das Protokoll eines unbekannten Geräts ermittelt und Ihnen einen Treiber schreibt.</p>
 <div class="hero-badges">
-<span class="badge">🔬 Hardware-Profilerstellung</span>
-<span class="badge">🐧 Kernel-Modulgenerierung</span>
-<span class="badge">🌐 Fernbedienung über Tailscale</span>
-<span class="badge">⚡ ARM-Cross-Kompilierung</span>
+<span class="badge">🔬 Profiliert unbekannte USB-Hardware</span>
+<span class="badge">🐧 Erzeugt einen Linux-Treiber</span>
+<span class="badge">🩺 Diagnosen stellen, bevor etwas passiert</span>
+<span class="badge">🌐 Repariert Maschinen über Tailscale</span>
+<span class="badge">🥧 Cross-Kompilierung für Raspberry Pi</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>KI-gesteuerte Systemreparatur</h2>
-<p>Die KI folgt einem strukturierten chirurgischen Protokoll – diagnostizieren Sie vor der Berührung und überprüfen Sie bei jedem Schritt</p>
+<h2>KI-gesteuerte Reparatur</h2>
+<p>Ein festes Protokoll – Diagnose vor der Berührung, Überprüfung bei jedem Schritt</p>
 </div>
-<div class="terminal-block">
-<span class="comment"># Chameleon AI-Diagnosesequenz</span>
-<span class="cmd">$ lsusb -v | Kopf -80</span>
-<span class="out">Bus 002 Gerät 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$ dmesg | Schwanz -30</span>
-<span class="out">[12.445] r8152 2-1:1.0 eth1: umbenannt von eth0</span>
-<span class="cmd">$ lsmod | grep r8152</span>
-<span class="out">r8152 94208 0</span>
-<span class="cmd">$ modinfo r8152 | grep-Version</span>
-<span class="out">Version: v1.12.13</span>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🩺</div>
+<h3>Zuerst diagnostizieren, dann berühren</h3>
+<p>Die KI geht eine festgelegte Reihenfolge durch – Hardware, Kernel, Treiber, Netzwerk, Speicher –, führt jeweils eine Prüfung durch und liest das Ergebnis, bevor sie über den nächsten Schritt entscheidet. Es werden keine Schritte übersprungen und keine Annahmen getroffen.</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🔍</div>
-<div class="strip-body">
-<h4>Strukturierter Diagnoseablauf</h4>
-<p>Hardware → Kernelstatus → Treiberstatus → Netzwerk → Speicher. Die KI führt jeden Schritt aus, liest das JSON-Ergebnis und entscheidet dann über die nächste Aktion. Es werden niemals Schritte übersprungen oder Annahmen getroffen.</p>
+<div class="card">
+<div class="card-icon">🔧</div>
+<h3>Zuerst die am wenigsten gefährliche Lösung</h3>
+<p>Laden Sie ein Modul neu oder starten Sie einen Dienst neu, bevor Sie etwas riskanteres unternehmen. Erstellen Sie einen Snapshot der Konfiguration, bevor eine Änderung vorgenommen wird, die Auswirkungen haben könnte. Bestätigen Sie nach jedem Schritt, dass es funktioniert hat.</p>
 </div>
+<div class="card">
+<div class="card-icon">⏱️</div>
+<h3>Überlebt einen Neustart</h3>
+<p>Bei jedem Fix, der einen Neustart erfordert, wird zuerst ein Fortsetzungsskript erstellt, damit die KI genau dort weitermacht, wo sie aufgehört hat, wenn die Maschine zurückkommt.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🏥</div>
-<div class="strip-body">
-<h4>Chirurgisches Reparaturprotokoll</h4>
-<p>Zuerst zerstörungsfrei (Modul neu laden, Dienst neu starten). Vor dem Risiko bestehen bleiben (Snapshot-Konfiguration). Überprüfen Sie bei jedem Schritt. Jede Aktion, die einen Neustart erfordert, löst einen Dead Man's Switch aus, der einen setzt <code>@reboot</code> Skript automatisch fortsetzen.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Fernreparatur über Tailscale</h4>
-<p>Diagnostizieren und reparieren Sie Maschinen überall in Ihrem Tailscale-Netz. Die KI gibt über die Terminalbrücke Befehle an den Remote-Rechner aus, liest die Ergebnisse und fährt fort – sogar über Neustarts hinweg mithilfe des Checkpoint-/Resume-Systems.</p>
-</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Reparieren Sie Maschinen, an denen Sie nicht sitzen</h3>
+<p>Diagnostizieren und reparieren Sie alles in Ihrem Tailscale-Netzwerk. Die KI führt Befehle auf dem Remote-Computer aus, liest die Ergebnisse und fährt fort – auch nach Neustarts.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>USB-Treiberporter</h2>
-<p>Profilieren Sie ein beliebiges USB-Gerät → analysieren Sie dessen Protokoll → generieren Sie einen einbaufertigen Linux-Treiber</p>
+<p>Schließen Sie ein unbekanntes Gerät an → erfassen Sie, wie es spricht → besorgen Sie sich einen Linux-Treiber</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔬</div>
+<div class="strip-body">
+<h4>30-Sekunden-Profil</h4>
+<p>Schließen Sie das Gerät an und führen Sie eine kurze Aufnahme durch. Der Profiler zeichnet auf, wie er tatsächlich kommuniziert – dieses Profil steuert alles, was folgt. Anschließend wählt es eine von drei Routen aus, je nachdem, wie individuell das Gerät ist:</p>
+</div>
+</div>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
-<div class="path-label">Weg A</div>
-<h4>Standardprotokolle</h4>
-<p>Keine Anbieterseiten gefunden. Erzeugt udev-Regeln + Modprobe-Konfiguration. <strong>Keine Kompilierung erforderlich.</strong> Funktioniert mit HID, CDC, Massenspeicher und anderen Standardklassen.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+<div class="path-label">Standard</div>
+<h4>Bekannte Geräteklasse</h4>
+<p>Tastaturen, serielle Adapter, Speicher und andere Standardtypen. Sie erhalten udev-Regeln und eine Modprobe-Konfiguration – nichts zum Kompilieren.</p>
 </div>
 <div class="path-card path-b">
-<div class="path-label">Weg B</div>
-<h4>Teilweises Herstellerprotokoll</h4>
-<p>Anbieterseiten erkannt (≤2). Erzeugt einen Hidraw/Uhid-Userspace-Daemon oder ein ALSA-Plugin. Läuft im Benutzerbereich – keine Kernel-Kompilierung erforderlich.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">Hidraw</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">ALSA-Plugin</span></div>
+<div class="path-label">Teilweise kundenspezifisch</div>
+<h4>Ein herstellerspezifisches Protokoll</h4>
+<p>Sie erhalten ein kleines Userspace-Programm oder ein Audio-Plugin, das das Protokoll des Geräts spricht. Läuft immer noch im Benutzerbereich – kein Kernel-Build.</p>
 </div>
 <div class="path-card path-c">
-<div class="path-label">Weg C</div>
-<h4>Proprietäres Protokoll</h4>
-<p>Vollständig benutzerdefiniertes Protokoll. Erzeugt ein vollständiges Kernelmodul mit DKMS-Paketierung und ARM-Cross-Compile-Unterstützung für Raspberry Pi 3, 4 und 5.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Kernelmodul</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">ARM</span></div>
-</div>
-</div>
-<div class="section-title" style="margin-top:2rem;">
-<h2>Profiler-Workflow</h2>
-</div>
-<div class="terminal-block">
-<span class="comment"># Schritt 1 – Profil des Geräts (30-Sekunden-Aufnahme)</span>
-<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
-<span class="out">Profilierung von USB 1234:5678 für 30 Sekunden...
-Schrieb ~/.chameleon/drivers/1234_5678/profile.json</span>
-<span class="comment"># Schritt 2 – Generieren Sie den Treiber</span>
-<span class="cmd">$ python3 device_porter.py --latest</span>
-<span class="out">Ausgewählter Pfad: C (proprietär, 3 Anbieterseiten)
-Generiert: /tmp/driver_1234_5678/
-  ├── chamäleon_1234_5678.c
-  ├── Makefile (cross-aarch64, cross-armv7)
-  ├── install.sh
-  ├── test_device.sh
-  └──analysis.json</span>
-<span class="comment"># Schritt 3 – installieren</span>
-<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
-<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
-<span class="out">PASS – Gerät /dev/chameleon0 reagiert korrekt</span>
-</div>
-<div class="cards">
-<div class="card">
-<div class="card-icon">🖥️</div>
-<h3>Plattformübergreifende Erfassungs-Backends</h3>
-<p>ETW unter Windows, IOKit unter macOS, usbmon unter Linux. Erstellen Sie ein Profil auf jedem Betriebssystem und generieren Sie daraus einen Linux-Treiber <code>profile.json</code>.</p>
-</div>
-<div class="card">
-<div class="card-icon">🍓</div>
-<h3>Raspberry Pi-Cross-Kompilierung</h3>
-<p>Makefile-Ziele <code>cross-aarch64</code> (Pi 4/5) und <code>cross-armv7</code> (Pi 3) sind automatisch in Pfad C enthalten. Erstellen Sie auf x86 und stellen Sie es auf ARM bereit.</p>
-</div>
-<div class="card">
-<div class="card-icon">📦</div>
-<h3>DKMS-Verpackung</h3>
-<p>Pfad-C-Treiber sind für DKMS gepackt, sodass sie Kernel-Upgrades ohne manuelle Neukompilierung überstehen. Die KI-Rezensionen <code>analysis.json</code> und fordert zur Eingabe aller verbleibenden TODO-Stubs auf.</p>
+<div class="path-label">Proprietär</div>
+<h4>Vollständig benutzerdefiniertes Protokoll</h4>
+<p>Sie erhalten ein vollständiges Kernel-Modul, DKMS-gepackt, damit es Kernel-Updates übersteht, und für Raspberry Pi 3, 4 und 5 kreuzkompiliert.</p>
 </div>
 </div>
 <div class="cta-band">
-<h3>Repariere das Unreparierbare</h3>
-<p>Ganz gleich, ob es sich um eine Kernel-Panic, ein totes USB-Gerät oder ein proprietäres Peripheriegerät ohne Linux-Unterstützung handelt – Chameleon AI PC Technician ist für Sie da.</p>
-<a class="btn btn-solid" href="../contact.html">Nehmen Sie Kontakt auf</a>
+<h3>Versuchen Sie es mit AI PC Technician</h3>
+<p>Wird als einmalige Desktop-Lizenz für Linux verkauft. <strong>Der endgültige Preis wird jetzt festgelegt</strong> — Buchen Sie eine Demo und wir senden es mit einem Starttermin.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Demo buchen</a>
 <a class="btn" href="../index.html">← Zurück zur Übersicht</a>
 </div>
 </div>
@@ -176,7 +121,7 @@ Generiert: /tmp/driver_1234_5678/
 <a href="../accounting.html">Buchhaltung</a><a href="../technician.html">PC-Techniker</a>
 <a href="../classroom.html">Unterricht</a><a href="../contact.html">Kontakt</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Gebaut von Marcos alias stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Erstellt von Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

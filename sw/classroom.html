@@ -3,35 +3,28 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Darasa la Lugha — Kinyonga AI</title>
+<title>Darasa la Chameleon — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .payment-logos { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .pay-pill {
-      border-radius: 50px; padding: .5rem 1.2rem;
-      border: 1px solid var(--border); background: white;
-      font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
-      display: flex; align-items: center; gap: .4rem;
-    }
-    .classroom-grid {
-      background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
+    .classroom-grid { background: #1a1a2e; border-radius: var(--radius); padding: 2rem;
       box-shadow: var(--shadow-lg); margin: 1.5rem 0;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem;
-    }
-    .student-tile {
-      background: rgba(102,126,234,.2); border: 1px solid #667eea;
-      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0;
-      font-size: .82rem;
-    }
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .8rem; }
+    .student-tile { background: rgba(102,126,234,.2); border: 1px solid #667eea;
+      border-radius: 10px; padding: 1rem; text-align: center; color: #c8c8f0; font-size: .82rem; }
     .student-tile .av { font-size: 1.8rem; margin-bottom: .4rem; }
     .student-tile .status { font-size: .7rem; opacity: .6; margin-top: .2rem; }
-    .teacher-tile {
-      background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35));
-      border: 2px solid #764ba2;
-    }
+    .teacher-tile { background: linear-gradient(135deg, rgba(102,126,234,.35), rgba(118,75,162,.35)); border: 2px solid #764ba2; }
+    .pay-pill { border-radius: 50px; padding: .5rem 1.2rem; border: 1px solid var(--border);
+      background: var(--card-bg); font-weight: 600; font-size: .9rem; box-shadow: var(--shadow);
+      display: inline-flex; align-items: center; gap: .4rem; margin: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Darasa la Chameleon liko katika maendeleo ya kazi. Vipengele vilivyo hapa chini ni vya sasa; bei na upatikanaji bado vinakamilishwa — <a href="../contact.html">Weka muhtihitaji onyesho</a> Na tutawe kukujulisha.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
@@ -39,8 +32,8 @@
 <a href="../index.html">Nyumbani</a>
 <a href="../ide.html">UNA MAWAZO</a>
 <a href="../presenter.html">Mtoa mada</a>
-<a href="../companion.html">Programu Mwenza</a>
-<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../companion.html">Programu Tandazi</a>
+<a href="../logistics4x4.html">Usafirishaji 4×4</a>
 <a href="../services.html">Huduma za Wavuti</a>
 <a href="../accounting.html">Uhasibu</a>
 <a href="../technician.html">Mtaalamu wa Kompyuta</a>
@@ -51,178 +44,94 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🎓</div>
-<h1>Darasa la Lugha</h1>
-<p class="sub">Masomo ya video ya moja kwa moja ya WebRTC yenye miunganisho ya P2P inayolindwa na Tailsscale, malipo jumuishi na Mtangazaji wa Kameleon - yote katika programu moja.</p>
+<h1>Darasa la Chameleon</h1>
+<p class="sub">Darasa la mtandaoni la moja kwa moja lililoundwa kwa ajili ya kufundisha lugha — video ya kikundi, ubao mweupe unaochora juu ya hati yoyote, kicheza slaidi, na AI unayoweza kumleta darasani kama mwanafunzi mwingine.</p>
 <div class="hero-badges">
-<span class="badge">📹 Video ya WebRTC</span>
-<span class="badge">🌐 Matundu ya mikia</span>
+<span class="badge">📹 Masomo ya video ya kikundi</span>
+<span class="badge">✏️ Whiteboard juu ya PDF au picha yoyote</span>
+<span class="badge">🎭 Kicheza cha slaidi kilichojengewa ndani</span>
+<span class="badge">🤖 Mshiriki wa somo la AI</span>
 <span class="badge">💳 Mstari · Alipay · PayPal</span>
-<span class="badge">🔐 Uandikishaji DB</span>
+<span class="badge">🔒 Faragha, kwa kila mtu mmoja hadi mwingine</span>
 </div>
 </div>
 <div class="page">
-<!-- Classroom mockup -->
-<div class="classroom-grid">
-<div class="student-tile teacher-tile">
-<div class="av">👩‍🏫</div>
-<div>Mwalimu</div>
-<div class="status">● Ishi</div>
-</div>
-<div class="student-tile">
-<div class="av">🧑</div>
-<div>Mwanafunzi A</div>
-<div class="status">● Imeunganishwa</div>
-</div>
-<div class="student-tile">
-<div class="av">👩</div>
-<div>Mwanafunzi B</div>
-<div class="status">● Imeunganishwa</div>
-</div>
-<div class="student-tile">
-<div class="av">🧒</div>
-<div>Mwanafunzi C</div>
-<div class="status">○ Inajiunga...</div>
-</div>
-<div class="student-tile">
-<div class="av">👦</div>
-<div>Mwanafunzi D</div>
-<div class="status">● Imeunganishwa</div>
-</div>
-<div class="student-tile">
-<div class="av">👩‍💼</div>
-<div>Mwanafunzi E</div>
-<div class="status">● Imeunganishwa</div>
-</div>
-<div class="student-tile">
-<div class="av">🧑‍🎓</div>
-<div>Mwanafunzi F</div>
-<div class="status">○ Inajiunga...</div>
-</div>
-</div>
 <div class="section-title">
-<h2>Masomo ya Video ya Moja kwa Moja</h2>
+<h2>Somo zima, zote kwenye dirisha moja</h2>
+<p>Ubao wa maandishi, kicheza slaidi, ukuta wa video na gumzo — hakuna kubadilisha programu katikati ya darasa</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📹</div>
-<div class="strip-body">
-<h4>Video ya kikundi cha WebRTC - washiriki 4+</h4>
-<p>Video na sauti ya WebRTC ya hali ya chini ya wavu kamili kwa vikundi vya watu 4 au zaidi - hakuna seva kuu ya media, hakuna gharama ya kila mwezi. Seva ya ishara ya Chameleon (<code>chameleon_signal.py</code>) hushughulikia upeanaji wa SDP na ICE (bandari 8766) na hutumika kwenye Termux kwenye Android pia. Programu ya Companion huonyesha gridi ya kubadilika ambayo hukua kiotomatiki wanafunzi wanapojiunga: 1 = skrini nzima, 2 = kando-kando, 3 = 2+1, 4 = 2×2, 5+ = gridi ya kutoshea kiotomatiki inayoweza kusogezwa — huku mpasho wa ndani wa mwalimu kila wakati ukiwa kwenye picha-ndani.</p>
+<div class="classroom-grid">
+<div class="student-tile teacher-tile"><div class="av">👩‍🏫</div>Mwalimu<div class="status">● Ishi</div></div>
+<div class="student-tile"><div class="av">🧑</div>Mwanafunzi A<div class="status">● Imeunganishwa</div></div>
+<div class="student-tile"><div class="av">👩</div>Mwanafunzi B<div class="status">● Imeunganishwa</div></div>
+<div class="student-tile"><div class="av">🧒</div>Mwanafunzi C<div class="status">○ Inajiunga...</div></div>
+<div class="student-tile"><div class="av">👦</div>Mwanafunzi D<div class="status">● Imeunganishwa</div></div>
+<div class="student-tile"><div class="av">👩‍💼</div>Mwanafunzi E<div class="status">● Imeunganishwa</div></div>
 </div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">✏️</div>
+<h3>Ubao juu ya hati yoyote</h3>
+<p>Chora na kutoa maoni juu ya PDF ya moja kwa moja, picha, au ClassIn <strong>.edb</strong> Ubao au Xournal++ <strong>.xop</strong> Faili. Kiolesura cha simulizi huweka sauti yako na kalamu yako pamoja, ili wanafunzi wafuate zote mbili.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🔐</div>
-<div class="strip-body">
-<h4>Viunganishi vilivyolindwa kwa kiwango cha mkia</h4>
-<p>Wenzake wote huunganishwa kupitia wavu wako wa Tailscale - hakuna IP ya umma, hakuna usambazaji wa mlango. IDE inadhibiti ACL, uidhinishaji wa kifaa na utengenezaji wa ufunguo wa auth bila kuondoka kwenye programu.</p>
+<div class="card">
+<div class="card-icon">🎭</div>
+<h3>Kicheza cha slaidi katika chumba</h3>
+<p>Jopo la chini ni jengo lililojengwa ndani <a href="../presenter.html">Kameleon Mtangazaji</a>, cheza-pekee — endesha yako <strong>.nahodha</strong> Staha ndani ya somo bila kulitoka.</p>
 </div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Ukuta wa video na jukwaa</h3>
+<p>Kila mwanafunzi ni kigae. Mlete yeyote jukwaani ili kuwalenga wanafunzi wote kwake — kwa usomaji, kusahihisha, au kuigiza.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🎭</div>
-<div class="strip-body">
-<h4>Mtangazaji wa Kameleon aliyejumuishwa</h4>
-<p>Fundisha kwa hatua kamili ya Kameleon wakati wa somo lako. Wanafunzi wanaweza kusukuma majibu, michoro na picha moja kwa moja kwenye rafu ya Hali ya Jukwaa - wastani na kuonyesha katika wakati halisi bila kubadili programu.</p>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>AI katika somo</h3>
+<p>Mshiriki wa AI anakaa kwenye gumzo. A <strong>Tuma kwa AI</strong> kitufe — kwenye programu ya mwalimu na kwenye simu ya kila mwanafunzi — kinaivuta ili kupata ufafanuzi, sentensi ya mfano, na ukaguzi wa haraka.</p>
 </div>
+<div class="card">
+<div class="card-icon">🗣️</div>
+<h3>Mazoezi ya matamshi</h3>
+<p>Wijeti cha matamshi kilichojengewa ndani kwa ajili ya kufanya mazoezi ya sauti na maneno.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🗣️</div>
-<div class="strip-body">
-<h4>Wijeti ya matamshi</h4>
-<p>Wijeti ya kufundisha matamshi iliyojengwa ndani (<code>pronunciation_widget.py</code>) yenye maoni ya kiwango cha fonimu — bora kwa ufundishaji wa lugha pale ambapo utamkaji sahihi ni muhimu.</p>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Muunganisho wa kibinafsi, hakuna bili ya video</h3>
+<p>Video hupitia moja kwa moja kati ya washiriki kupitia mtandao wako wa kibinafsi — hakuna huduma ya video ya mtu wa tatu wala malipo ya kila dakika. Inarudi kwenye video ya mtandao wa ndani wakati wote wako katika jengo moja.</p>
 </div>
+<div class="card">
+<div class="card-icon">📇</div>
+<h3>Usajili na malipo</h3>
+<p>Rekodi ya usajili hufuatilia nani yuko darasa gani. Chukua malipo kwa kutumia Stripe, Alipay au PayPal.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Njia mbadala ya video ya LAN</h4>
-<p>Wakati Tailscale haipatikani, <code>lan_video.py</code> hutiririsha video kupitia UDP (bandari 47732), sauti kupitia UDP (bandari 47733) na hutofautiana shirikishi kwenye WebSocket (bandari 47731) - zote kwenye mtandao wa ndani.</p>
-</div>
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Wanafunzi wanajiunga kutoka kwenye simu zao</h3>
+<p>Wanafunzi wanaunganisha kupitia programu ya kusindikiza ya Chameleon Classroom kwenye Android — video, mazungumzo, na hiyo hiyo <strong>Tuma kwa AI</strong> Kitufe.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Telecom &amp; SIM Call Bridge</h2>
-<p>Unganisha simu za programu na simu halisi za SIM kwenye mazungumzo moja ya njia nyingi - moja kwa moja kutoka kwa programu ya Mwenzi</p>
+<h2>Chukua malipo</h2>
+<p>Mbinu ambazo wanafunzi wako tayari wanazitumia</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📞</div>
-<div class="strip-body">
-<h4>Aina mbili za simu - mazungumzo moja</h4>
-<p>Programu ya Companion inasaidia njia mbili za simu zinazofanana: an <strong>Simu ya Programu</strong> (WebRTC, peer-to-peer over Tailscale, bila malipo) na a <strong>Simu ya SIM</strong> (mtandao wa kawaida wa rununu, nambari yoyote ya simu). Unaweza kuwa kwenye simu ya WebRTC na mwenzako <em>na</em> wakati huo huo piga simu ya SIM kwa wahusika wengine, kisha wakutane pamoja kwa mazungumzo ya njia nyingi - bila kuacha programu.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📊</div>
-<div class="strip-body">
-<h4>Upau wa hali ya mawasiliano ya simu</h4>
-<p>Upau wa hali unaoendelea katika sehemu ya juu ya programu ya Companion huonyesha hali ya moja kwa moja ya vituo vyote viwili: bila kufanya kitu, kupiga simu, kupiga simu au kunyamazishwa. Kuangalia mara moja tu kutakuambia ni simu zipi zinazotumika. Kila kituo kina vidhibiti huru vya kunyamazisha na kuzima — kuzima simu ya SIM hakukati simu ya programu, na kinyume chake.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🔀</div>
-<div class="strip-body">
-<h4>Mtiririko wa somo la njia nyingi</h4>
-<p>Inafaa kwa masomo ya lugha: mweke mwanafunzi kwenye simu ya programu ya WebRTC, kisha piga spika asili kwenye SIM kwa mazungumzo ya moja kwa moja ya ulimwengu halisi. Pande zote tatu zinaweza kusikia kila mmoja. Mwalimu hudhibiti kupitia programu huku Kameleon Presenter akiendelea kutumia IDE.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🔴</div>
-<div class="strip-body">
-<h4>Sheria ya kurekodi simu za Uingereza - wahusika wote lazima waarifiwe</h4>
-<p>Chini ya RIPA 2000 na Kanuni za Mawasiliano (Mazoezi halali ya Biashara), mhusika anayerekodi simu anaweza kufanya hivyo bila idhini ya mhusika mwingine kwa matumizi yake halali - lakini ili kurekodi kurekodiwe. <strong>inaruhusiwa mahakamani</strong> pande zote lazima zifahamishwe kabla ya kurekodi kuanza. Programu ya Companion inaonyesha maarufu <strong>🔴 KUREKODI</strong> bendera kwa washiriki wote waliounganishwa wakati wowote kurekodi kunatumika. Kwa wanaopiga SIM, arifa ya mdomo inahitajika mwanzoni mwa simu. Data ya sauti ni data ya kibinafsi chini ya GDPR na lazima ishughulikiwe ipasavyo.</p>
-</div>
-</div>
+<div style="text-align:center;">
+<span class="pay-pill">💳 Mchirizi</span>
+<span class="pay-pill">🅰️ Alipay</span>
+<span class="pay-pill">🅿️ PayPal</span>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Malipo na Uandikishaji</h2>
-<p>Kubali malipo kutoka kwa wanafunzi duniani kote kabla ya kutoa ufikiaji wa somo</p>
+<h2>Picha za skrini</h2>
+<p>Chameleon Classroom — imenaswa moja kwa moja</p>
 </div>
-<div class="payment-logos">
-<div class="pay-pill">💳 Mchirizi <span style="color:var(--muted);font-weight:400">(GBP msingi)</span></div>
-<div class="pay-pill">🟦 Alipay <span style="color:var(--muted);font-weight:400">(Wanafunzi wa China)</span></div>
-<div class="pay-pill">🅿️ PayPal <span style="color:var(--muted);font-weight:400">(rudi nyuma)</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin:1.5rem 0;">
+<div style="border-radius:12px;overflow:hidden;border:1px solid #2a2a3e;box-shadow:0 4px 18px rgba(0,0,0,.4);background:#0f0f1f;"><img alt="Chameleon Classroom screenshot 1" loading="lazy" src="../classroom-assets/xscreenshot-20260628T103112.png" style="width:100%;height:auto;display:block;"/></div>
+<div style="border-radius:12px;overflow:hidden;border:1px solid #2a2a3e;box-shadow:0 4px 18px rgba(0,0,0,.4);background:#0f0f1f;"><img alt="Chameleon Classroom screenshot 2" loading="lazy" src="../classroom-assets/xscreenshot-20260628T103127.png" style="width:100%;height:auto;display:block;"/></div>
 </div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📚</div>
-<h3>Kozi na uandikishaji DB</h3>
-<p>Kozi na uandikishaji wa wanafunzi uliohifadhiwa ndani <code>~/.chameleon/courses.db</code>. AI inaweza kuunda kozi, kuorodhesha waliojiandikisha, kuangalia hali ya malipo na kubatilisha ufikiaji - yote kupitia amri za IDE.</p>
-</div>
-<div class="card">
-<div class="card-icon">💰</div>
-<h3>Msaada wa sarafu nyingi</h3>
-<p>Stripe hushughulikia malipo ya GBP kutoka Uingereza na wanafunzi wa kimataifa. Alipay inalenga wanafunzi wa China wanaolipa katika CNY. PayPal hutoa mrejesho wa jumla na ufikiaji mpana wa nchi.</p>
-</div>
-<div class="card">
-<div class="card-icon">📸</div>
-<h3>Malipo ya picha ya skrini ya WeChat</h3>
-<p>Kwa wanafunzi wasio na idhini ya kufikia kadi, kubali picha za skrini za uthibitisho wa malipo ya WeChat Pay. AI husoma picha, kutoa kiasi na marejeleo, na kuweka kumbukumbu za malipo ya kibinafsi dhidi ya uandikishaji.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔗</div>
-<h3>Viungo vya malipo</h3>
-<p>Tengeneza viungo vya malipo vinavyopangishwa na Stripe kwa kozi yoyote. Shiriki kiungo - mwanafunzi hulipa - uandikishaji unaundwa kiotomatiki. Hakuna ukurasa wa kulipa wa kuunda au mwenyeji.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Rejea ya Amri ya Malipo</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Amri ya AI</th><th>Maelezo</th></tr></thead>
-<tbody>
-<tr><td><code>payment_create_course</code></td><td>Unda kozi mpya yenye bei, kichwa na maelezo</td></tr>
-<tr><td><code>payment_links</code></td><td>Tengeneza kiungo cha malipo cha Stripe kwa kozi</td></tr>
-<tr><td><code>payment_status</code></td><td>Angalia malipo ya mwanafunzi na hali ya kujiandikisha</td></tr>
-<tr><td><code>payment_enrol</code></td><td>Jiandikishe mwanafunzi mwenyewe (k.m. baada ya malipo ya pesa taslimu)</td></tr>
-<tr><td><code>payment_revoke</code></td><td>Ondoa ufikiaji wa uandikishaji wa mwanafunzi</td></tr>
-<tr><td><code>payment_unpaid</code></td><td>Orodhesha wanafunzi wote walio na salio bora</td></tr>
-<tr><td><code>payment_screenshot</code></td><td>Ingia kwenye picha ya skrini ya WeChat Pay kama uthibitisho wa malipo</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Zindua shule yako ya lugha ya mtandaoni</h3>
-<p>Kila kitu unachohitaji - video, slaidi, malipo na uandikishaji - katika programu moja ya mezani.</p>
-<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<h3>Jaribu Chameleon Classroom</h3>
+<p>Inauzwa kama leseni kwa kila mwalimu. <strong>Bei ya mwisho inawekwa sasa hivi</strong> — weka demo na tutatuma kwa tarehe ya uzinduzi.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Weka na onyesho</a>
 <a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
 </div>
 </div>
@@ -232,7 +141,7 @@
 <a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
 <a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Imejengwa na Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Imejengwa na Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

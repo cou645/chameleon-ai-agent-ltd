@@ -3,36 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Tecnico PC AI: Chameleon AI</title>
+<title>Tecnico PC — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .path-card {
-      border-radius: var(--radius); padding: 1.5rem;
-      border: 2px solid; box-shadow: var(--shadow);
-      background: white;
-    }
-    .path-a { border-color: #22c55e; }
-    .path-b { border-color: #3b82f6; }
-    .path-c { border-color: #f59e0b; }
-    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-    .path-a .path-label { color: #22c55e; }
-    .path-b .path-label { color: #3b82f6; }
-    .path-c .path-label { color: #f59e0b; }
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card { border-radius: var(--radius); padding: 1.5rem; border: 2px solid; box-shadow: var(--shadow); background: var(--card-bg); }
+    .path-a { border-color: #22c55e; } .path-b { border-color: #3b82f6; } .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.1rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #16a34a; } .path-b .path-label { color: #2563eb; } .path-c .path-label { color: #d97706; }
     .path-card h4 { margin-bottom: .4rem; color: var(--text); }
     .path-card p { color: var(--muted); font-size: .9rem; }
-    .terminal-block {
-      background: #0f0f1a; border-radius: var(--radius);
-      padding: 1.5rem; font-family: 'Courier New', monospace;
-      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
-      box-shadow: var(--shadow-lg); overflow-x: auto;
-    }
-    .terminal-block .cmd { color: #67e8f9; }
-    .terminal-block .out { color: #86efac; }
-    .terminal-block .comment { color: #6b7280; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Tecnico PC AI è in fase di sviluppo attivo ed è pensato per persone a proprio agio con la riga di comando di Linux. Prezzi e disponibilità sono ancora in fase di definizione — <a href="../contact.html">Prenota una demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>IA camaleonte</strong></a>
@@ -40,7 +28,7 @@
 <a href="../index.html">Casa</a>
 <a href="../ide.html">HAI IDEE</a>
 <a href="../presenter.html">Presentatore</a>
-<a href="../companion.html">Applicazione complementare</a>
+<a href="../companion.html">App Companion</a>
 <a href="../logistics4x4.html">Logistica 4×4</a>
 <a href="../services.html">Servizi Web</a>
 <a href="../accounting.html">Contabilità</a>
@@ -52,121 +40,78 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>Tecnico PC AI</h1>
-<p class="sub">Diagnosi e riparazione del sistema guidate dall'intelligenza artificiale, oltre a un profiler del dispositivo USB che esegue il reverse engineering dei protocolli hardware e genera automaticamente i driver del kernel Linux.</p>
+<h1>Tecnico informatico</h1>
+<p class="sub">Un'intelligenza artificiale che diagnostica e ripara un sistema Linux un passo alla volta — e un profiler USB che ricava il protocollo di un dispositivo sconosciuto e ti scrive un driver.</p>
 <div class="hero-badges">
-<span class="badge">🔬 Profilazione hardware</span>
-<span class="badge">🐧 Generazione del modulo kernel</span>
-<span class="badge">🌐 Remoto tramite Tailscale</span>
-<span class="badge">⚡ Compilazione incrociata ARM</span>
+<span class="badge">🔬 Profili hardware USB sconosciuti</span>
+<span class="badge">🐧 Genera un driver Linux</span>
+<span class="badge">🩺 Diagnosi prima che tocchi qualsiasi cosa</span>
+<span class="badge">🌐 Ripara macchine tramite Tailscale</span>
+<span class="badge">🥧 Compila in modo incrociato per Raspberry Pi</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Riparazione del sistema guidata dall'intelligenza artificiale</h2>
-<p>L'intelligenza artificiale segue un protocollo chirurgico strutturato: diagnosticare prima di toccare, verificare ad ogni passaggio</p>
+<h2>Riparazione guidata dall'IA</h2>
+<p>Un protocollo fisso — diagnosi prima di toccare, verifica a ogni passo</p>
 </div>
-<div class="terminal-block">
-<span class="comment"># Sequenza di diagnosi Chameleon AI</span>
-<span class="cmd">$ lsusb -v | testa -80</span>
-<span class="out">Bus 002 Dispositivo 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$dmesg | coda -30</span>
-<span class="out">[12.445] r8152 2-1:1.0 eth1: rinominato da eth0</span>
-<span class="cmd">$ lsmod | grepr8152</span>
-<span class="out">r8152942080</span>
-<span class="cmd">$modinfo r8152 | versione grep</span>
-<span class="out">versione: v1.12.13</span>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🩺</div>
+<h3>Diagnosi prima, tocca dopo</h3>
+<p>L'AI lavora seguendo un ordine prestabilito — hardware, kernel, driver, rete, storage — eseguendo un controllo alla volta e leggendo il risultato prima di decidere la mossa successiva. Non salta passaggi né fa supposizioni.</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🔍</div>
-<div class="strip-body">
-<h4>Sequenza diagnostica strutturata</h4>
-<p>Hardware → stato del kernel → stato del driver → rete → archiviazione. L'IA esegue ogni passaggio, legge il risultato JSON, quindi decide l'azione successiva. Non salta mai passaggi né fa supposizioni.</p>
+<div class="card">
+<div class="card-icon">🔧</div>
+<h3>Correzione meno pericolosa per prima</h3>
+<p>Ricarica un modulo o riavvia un servizio prima di qualsiasi operazione più rischiosa. Crea uno snapshot della configurazione prima di una modifica che potrebbe causare problemi. Verifica che tutto funzioni dopo ogni passaggio.</p>
 </div>
+<div class="card">
+<div class="card-icon">⏱️</div>
+<h3>Sopravvive a un riavvio</h3>
+<p>Qualsiasi correzione che richiede un riavvio imposta prima uno script di ripresa, così l'AI riprende esattamente da dove si era interrotta quando la macchina torna attiva.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🏥</div>
-<div class="strip-body">
-<h4>Protocollo di riparazione chirurgica</h4>
-<p>Innanzitutto non distruttivo (ricarica il modulo, riavvia il servizio). Persistenza prima del rischio (configurazione istantanea). Verificare ad ogni passaggio. Ogni azione che richiede il riavvio attiva un Dead Man's Switch che imposta a <code>@reboot</code> riprendere lo script automaticamente.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Riparazione remota tramite Tailscale</h4>
-<p>Diagnostica e ripara le macchine ovunque sulla rete Tailscale. L'intelligenza artificiale invia comandi alla macchina remota tramite il terminal bridge, legge i risultati e continua, anche dopo i riavvii utilizzando il sistema checkpoint/resume.</p>
-</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Ripara le macchine a cui non sei seduto</h3>
+<p>Diagnostica e ripara qualsiasi cosa sulla tua rete Tailscale. L'IA esegue comandi sulla macchina remota, legge i risultati e prosegue — anche attraverso i riavvii.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Porta driver USB</h2>
-<p>Profila qualsiasi dispositivo USB → analizza il suo protocollo → genera un driver Linux pronto per l'installazione</p>
+<p>Collega un dispositivo sconosciuto → cattura come comunica → ottieni un driver Linux</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔬</div>
+<div class="strip-body">
+<h4>Profilo di 30 secondi</h4>
+<p>Collega il dispositivo ed esegui una breve acquisizione. Il profiler registra come comunica effettivamente: quel profilo guida tutto ciò che segue. Poi sceglie una delle tre strade, in base a quanto il dispositivo si rivela personalizzato:</p>
+</div>
+</div>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
-<div class="path-label">Sentiero A</div>
-<h4>Protocolli standard</h4>
-<p>Nessuna pagina del venditore trovata. Genera regole udev + configurazione modprobe. <strong>Nessuna compilazione richiesta.</strong> Funziona con HID, CDC, archiviazione di massa e altre classi standard.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+<div class="path-label">Standard</div>
+<h4>Classe di dispositivo conosciuta</h4>
+<p>Tastiere, adattatori seriali, storage e altri tipi standard. Ottieni le regole udev e una configurazione modprobe — niente da compilare.</p>
 </div>
 <div class="path-card path-b">
-<div class="path-label">Sentiero B</div>
-<h4>Protocollo fornitore parziale</h4>
-<p>Pagine del fornitore rilevate (≤2). Genera un demone dello spazio utente hidraw/uhid o un plugin ALSA. Funziona nello spazio utente: non è necessaria la compilazione del kernel.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">nascondi</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Plug-in ALSA</span></div>
+<div class="path-label">Parte personalizzata</div>
+<h4>Alcuni protocolli specifici del fornitore</h4>
+<p>Ottieni un piccolo programma in spazio utente o un plugin audio che parla il protocollo del dispositivo. Funziona comunque in spazio utente — nessuna compilazione del kernel.</p>
 </div>
 <div class="path-card path-c">
-<div class="path-label">Sentiero C</div>
-<h4>Protocollo proprietario</h4>
-<p>Protocollo completamente personalizzato. Genera un modulo kernel completo con packaging DKMS e supporto di compilazione incrociata ARM per Raspberry Pi 3, 4 e 5.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Modulo del kernel</span><span class="tag" style="background:#fef3c7;color:#b45309">DKM</span><span class="tag" style="background:#fef3c7;color:#b45309">BRACCIO</span></div>
-</div>
-</div>
-<div class="section-title" style="margin-top:2rem;">
-<h2>Flusso di lavoro del profilatore</h2>
-</div>
-<div class="terminal-block">
-<span class="comment"># Passaggio 1: profila il dispositivo (acquisizione di 30 secondi)</span>
-<span class="cmd">$ python3 dispositivo_profiler.py --vid 0x1234 --pid 0x5678 --capture 30</span>
-<span class="out">Profilatura USB 1234:5678 per 30s...
-Ho scritto ~/.chameleon/drivers/1234_5678/profile.json</span>
-<span class="comment"># Passaggio 2: genera il driver</span>
-<span class="cmd">$ python3 dispositivo_porter.py --latest</span>
-<span class="out">Percorso selezionato: C (proprietario, 3 pagine del fornitore)
-Generato: /tmp/driver_1234_5678/
-  ├── camaleonte_1234_5678.c
-  ├── Makefile (cross-aarch64, cross-armv7)
-  ├── install.sh
-  ├── test_device.sh
-  └── analisi.json</span>
-<span class="comment"># Passaggio 3: installazione</span>
-<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
-<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
-<span class="out">PASS: il dispositivo /dev/chameleon0 risponde correttamente</span>
-</div>
-<div class="cards">
-<div class="card">
-<div class="card-icon">🖥️</div>
-<h3>Backend di acquisizione multipiattaforma</h3>
-<p>ETW su Windows, IOKit su macOS, usbmon su Linux. Profila il profilo su qualsiasi sistema operativo e genera un driver Linux dal risultato <code>profile.json</code>.</p>
-</div>
-<div class="card">
-<div class="card-icon">🍓</div>
-<h3>Compilazione incrociata di Raspberry Pi</h3>
-<p>Obiettivi del makefile <code>cross-aarch64</code> (Tav. 4/5) e <code>cross-armv7</code> (Pi 3) sono inclusi automaticamente nel percorso C. Compila su x86 e distribuisci su ARM.</p>
-</div>
-<div class="card">
-<div class="card-icon">📦</div>
-<h3>Confezione DKMS</h3>
-<p>I driver del percorso C sono pacchettizzati per DKMS in modo che sopravvivano agli aggiornamenti del kernel senza ricompilazione manuale. Le revisioni dell'IA <code>analysis.json</code> e richiede eventuali stub TODO rimanenti.</p>
+<div class="path-label">Proprietario</div>
+<h4>Protocollo completamente personalizzato</h4>
+<p>Ottieni un modulo kernel completo, impacchettato con DKMS così sopravvive agli aggiornamenti del kernel, e cross-compilato per Raspberry Pi 3, 4 e 5.</p>
 </div>
 </div>
 <div class="cta-band">
-<h3>Risolvi l'irrisolvibile</h3>
-<p>Che si tratti di un kernel panico, di un dispositivo USB guasto o di una periferica proprietaria senza supporto Linux, Chameleon AI PC Technician è al tuo fianco.</p>
-<a class="btn btn-solid" href="../contact.html">Mettiti in contatto</a>
+<h3>Prova il Tecnico PC con IA</h3>
+<p>Venduto come licenza desktop una tantum per Linux. <strong>Il prezzo finale è in fase di impostazione ora</strong> — prenota una demo e te lo invieremo con una data di lancio.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Prenota una demo</a>
 <a class="btn" href="../index.html">← Torna alla panoramica</a>
 </div>
 </div>
@@ -176,7 +121,7 @@ Generato: /tmp/driver_1234_5678/
 <a href="../accounting.html">Contabilità</a><a href="../technician.html">Tecnico informatico</a>
 <a href="../classroom.html">Aula</a><a href="../contact.html">Contatto</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Costruito da Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Creato da Marcos alias stemsee</p>
 </footer>
 </body>
 </html>

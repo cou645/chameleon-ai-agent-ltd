@@ -6,76 +6,27 @@
 <title>Gwasanaethau Gwe — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .service-tier {
-      background: white; border-radius: var(--radius);
-      border: 2px solid var(--border); padding: 2rem;
-      box-shadow: var(--shadow); margin-bottom: 1.5rem;
-      position: relative; overflow: hidden;
-    }
-    .service-tier::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    }
-    .tier-build::before  { background: linear-gradient(90deg, #667eea, #764ba2); }
-    .tier-domain::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
-    .tier-host::before   { background: linear-gradient(90deg, #22c55e, #16a34a); }
-    .tier-manage::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
-    .tier-growth::before { background: linear-gradient(90deg, #ec4899, #db2777); }
-    .service-tier h2 { color: var(--brand-start); margin-bottom: .4rem; }
-    .service-tier .tier-sub { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
-    .deliverable-list {
-      list-style: none; padding: 0; margin: 0 0 1rem;
-    }
-    .deliverable-list li {
-      padding: .35rem 0; color: var(--text);
-      font-size: .93rem; display: flex; gap: .6rem; align-items: flex-start;
-    }
-    .deliverable-list li::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
-    .deliverable-list li.planned::before { content: '◎'; color: #f59e0b; }
-    .workflow-steps {
-      background: #f8f8ff; border-radius: 10px; padding: 1.2rem 1.4rem;
-      margin-top: 1rem; border-left: 3px solid var(--brand-start);
-    }
-    .workflow-steps h4 { color: var(--brand-start); margin-bottom: .6rem; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
-    .wf-step {
-      display: flex; gap: .8rem; align-items: flex-start;
-      padding: .3rem 0; font-size: .88rem; color: var(--muted);
-    }
-    .wf-num {
-      background: var(--brand-start); color: white; border-radius: 50%;
-      width: 1.3rem; height: 1.3rem; display: flex; align-items: center; justify-content: center;
-      font-size: .7rem; font-weight: 700; flex-shrink: 0; margin-top: .05rem;
-    }
-    .pain-fix {
-      background: #fefce8; border: 1px solid #fde047; border-radius: 8px;
-      padding: .8rem 1rem; margin-top: .8rem; font-size: .85rem;
-      display: flex; gap: .6rem; align-items: flex-start;
-    }
-    .pain-fix strong { color: #92400e; }
-    .pain-fix span   { color: #78350f; }
-    .host-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem; margin-top: 1rem;
-    }
-    .host-option {
-      background: white; border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.2rem; box-shadow: var(--shadow); text-align: center;
-    }
-    .host-option .ho-icon { font-size: 1.8rem; margin-bottom: .4rem; }
-    .host-option h4 { color: var(--brand-start); font-size: .95rem; margin-bottom: .3rem; }
-    .host-option p  { color: var(--muted); font-size: .82rem; }
-    .host-option .ho-cost { font-weight: 700; color: #16a34a; font-size: .88rem; margin-top: .4rem; }
-    .suggest-box {
-      background: linear-gradient(135deg, #667eea11, #764ba211);
-      border: 1px dashed var(--brand-start); border-radius: var(--radius);
-      padding: 1.5rem 1.8rem; margin-top: 1.2rem;
-    }
-    .suggest-box h4 { color: var(--brand-start); margin-bottom: .6rem; }
-    .suggest-box p  { color: var(--muted); font-size: .9rem; }
+    .svc { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 1.8rem 2rem; box-shadow: var(--shadow); margin-bottom: 1.2rem; }
+    .svc .svc-n { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted); }
+    .svc h3 { color: var(--brand-start); margin: .3rem 0 .5rem; font-size: 1.15rem; }
+    .svc p { color: var(--muted); font-size: .95rem; }
+    .svc ul { color: var(--muted); font-size: .9rem; margin: .7rem 0 0; padding-left: 1.2rem; }
+    .svc ul li { margin-bottom: .25rem; }
+    .journey { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .journey .j { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.3rem; box-shadow: var(--shadow); }
+    .journey .j .jn { font-weight: 800; color: var(--brand-start); font-size: 1.4rem; }
+    .journey .j h4 { margin: .3rem 0 .3rem; color: var(--text); font-size: .98rem; }
+    .journey .j p { color: var(--muted); font-size: .85rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
-<div style="background:#b91c1c;color:white;text-align:center;padding:.6rem 1rem;font-size:.93rem;font-weight:600;letter-spacing:.02em;">
-  ⚠️ PROFI AR Y CYNNYDD - Mae'r wefan hon yn cael ei datblygu ar hyn o bryd. Nid yw nodweddion, prisiau a thrwyddedu wedi'u pennu'n derfynol.
+<div class="pre-note">
+  Mae Web Services yn wasanaeth sydd wedi'i wneud i chi, nid yn lawrlwytho cynnyrch - ac mae'n dal i gael ei ddatblygu. <a href="../contact.html">Cysylltwch</a> i drafod yr hyn sydd ei angen arnoch.
 </div>
 <nav>
 <div class="nav-inner">
@@ -96,177 +47,61 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🌐</div>
-<h1>Gwasanaethau Gwe AI</h1>
-<p class="sub">O sero i wefan fyw, broffesiynol - wedi'i hadeiladu gan AI o'ch ffeiliau prosiect, yn cael ei chynnal am ddim, ac yn cael ei rheoli'n barhaus. Nid oes angen profiad dylunio gwe.</p>
+<h1>Gwasanaethau Gwe</h1>
+<p class="sub">O ddim byd i wefan fyw, broffesiynol - wedi'i hadeiladu ar eich cyfer o'ch deunydd eich hun, wedi'i bwyntio at eich parth, yn cael ei chynnal am ddim bob mis, ac yn derbyn gofal unwaith y bydd ar ben.</p>
 <div class="hero-badges">
-<span class="badge">🤖 AI wedi'i adeiladu o'ch ffeiliau</span>
-<span class="badge">🆓 Opsiynau cynnal am ddim</span>
-<span class="badge">🌍 Parth personol</span>
-<span class="badge">📧 Blwch derbyn wedi'i reoli</span>
-<span class="badge">🇬🇧 Gwasanaeth DU</span>
+<span class="badge">🏗️ Wedi'i adeiladu ar eich cyfer chi, nid templed</span>
+<span class="badge">🔗 Parth wedi'i osod yn iawn</span>
+<span class="badge">🖥️ Cynhelir am ddim</span>
+<span class="badge">📬 Ymholiadau wedi'u trin</span>
+<span class="badge">📈 Canfyddadwy wrth chwilio</span>
 </div>
 </div>
 <div class="page">
-<!-- ── SERVICE 1: WEBSITE BUILD ─────────────────────────────────────── -->
-<div class="service-tier tier-build">
-<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-start);margin-bottom:.3rem;">GWASANAETH 1</div>
-<h2>🏗️ AI Adeiladwr Gwefan</h2>
-<p class="tier-sub">Mae'r AI yn darllen ffeiliau, dogfennau a disgrifiadau eich prosiect - yna'n adeiladu gwefan aml-dudalen gyflawn o'r dechrau. Dim templedi, dim llusgo a gollwng. Gwefan go iawn sy'n deillio o'r hyn rydych chi'n ei wneud mewn gwirionedd.</p>
-<div class="responsive-split" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-<div>
-<strong style="color:var(--text);font-size:.9rem;">Yr hyn a ddarparwn</strong>
-<ul class="deliverable-list" style="margin-top:.5rem;">
-<li>Gwefan aml-dudalen: Cartref, Amdanom, Nodweddion, Cyswllt</li>
-<li>Cynnwys sy'n deillio o'ch ffeiliau prosiect a'ch dogfennau</li>
-<li>Eich brandio: lliwiau, logo, dewisiadau arddull</li>
-<li>Cynllun symudol-ymatebol</li>
-<li>Dalfannau sgrinlun a chyfryngau - yn cael eu disodli pan yn barod</li>
-<li>Ymwadiad cyfreithiol a baner brofi tra'n cael eu datblygu</li>
-<li>Preifatrwydd yn gyntaf - dim tracwyr, dim sgriptiau trydydd parti</li>
-<li class="planned">Adran blog / newyddion gyda diweddariadau wedi'u hysgrifennu gan AI</li>
-<li class="planned">Fersiynau aml-iaith</li>
+<div class="svc">
+<div class="svc-n">Gwasanaeth 1</div>
+<h3>🏗️ Rydyn ni'n adeiladu'r safle</h3>
+<p>O'ch ffeiliau prosiect, dogfennau a sgwrs fer, rydyn ni'n adeiladu gwefan aml-dudalen gyflawn - nid templed, gwefan go iawn am yr hyn rydych chi'n ei wneud mewn gwirionedd. Eich lliwiau a'ch logo, parod ar gyfer ffonau symudol, a phreifatrwydd yn gyntaf heb unrhyw dracwyr na sgriptiau trydydd parti. Un rownd o adborth, yna'ch un chi ydyw: yr holl ffeiliau a'r parth, dim cloi i mewn.</p>
+<ul>
+<li>Cartref, Amdanom, Nodweddion, Cyswllt - ynghyd â blog os ydych chi eisiau un</li>
+<li>Cynnwys wedi'i dynnu o'ch dogfennau eich hun</li>
+<li>Dalfannau cyfryngau rydych chi'n cyfnewid pan yn barod</li>
+<li>Fersiynau wedi'u cyfieithu os oes eu hangen arnoch chi</li>
 </ul>
 </div>
-<div>
-<div class="workflow-steps">
-<h4>Sut mae'n gweithio</h4>
-<div class="wf-step"><div class="wf-num">1</div><div>Rydych chi'n rhannu ffolder eich prosiect neu ddisgrifiad ysgrifenedig - mae'r AI yn darllen popeth ac yn gofyn cwestiynau eglurhaol</div></div>
-<div class="wf-step"><div class="wf-num">2</div><div>Rydych chi'n dewis lliwiau, arddull a pha dudalennau sydd eu hangen arnoch chi (sgwrs 5 munud)</div></div>
-<div class="wf-step"><div class="wf-num">3</div><div>Mae AI yn adeiladu'r wefan lawn yn lleol - rydych chi'n ei rhagolwg ar unwaith</div></div>
-<div class="wf-step"><div class="wf-num">4</div><div>Un rownd o adborth → AI yn cymhwyso newidiadau → safle yn barod i'w gyhoeddi</div></div>
-<div class="wf-step"><div class="wf-num">5</div><div>Hand-off: chi sy'n berchen ar y ffeiliau, y repo a'r parth - dim cloi i mewn</div></div>
+<div class="svc">
+<div class="svc-n">Gwasanaeth 2</div>
+<h3>🔗 Rydyn ni'n sefydlu'ch parth</h3>
+<p>Mae'r rhan ddryslyd - mewngofnodi cofrestrydd, gosodiadau technegol y parth, yr aros i newidiadau ddod i rym - yn cael ei drin i chi lle mae'r cofrestrydd yn caniatáu hynny, neu'n cael ei rhoi i chi fel rhestr union gopi-gludo gydag esboniad plaen o bob cofnod cyn i chi gyffwrdd ag unrhyw beth. Rydym yn cadarnhau bod y clo clap (tystysgrif ddiogel) yn fyw cyn i ni ei alw'n gyflawn.</p>
 </div>
+<div class="svc">
+<div class="svc-n">Gwasanaeth 3</div>
+<h3>🖥️ Rydyn ni'n ei gynnal</h3>
+<p>Yn fyw am gost fisol sero ar GitHub Pages, Cloudflare Pages, Netlify neu Vercel — neu ei weini'n uniongyrchol o'ch peiriant eich hun os yw'n well gennych ei gadw'n fewnol. Rydym yn gwneud y cyhoeddiad cyntaf ac yn gadael un gorchymyn i chi — neu un frawddeg i'r Chameleon AI — ar gyfer pob diweddariad ar ôl hynny.</p>
 </div>
+<div class="svc">
+<div class="svc-n">Gwasanaeth 4</div>
+<h3>📬 Rydyn ni'n cadw llygad arno</h3>
+<p>Unwaith y bydd yn fyw, mae'r AI yn darllen ymholiadau sy'n dod i mewn, yn drafftio atebion i'w cymeradwyo, yn casglu'r hyn sydd ei angen arnoch o bob dennyn, ac yn anfon crynodeb wythnosol atoch - ymwelwyr, ymholiadau, ac unrhyw beth brys yn cael ei fflagio ar unwaith. Pob tennyn wedi'i olrhain o'r e-bost cyntaf i'r llofnod.</p>
 </div>
+<div class="svc">
+<div class="svc-n">Gwasanaeth 5</div>
+<h3>📈 Rydyn ni'n ei wneud yn hawdd ei ddarganfod</h3>
+<p>Tagiau chwilio a data strwythuredig ar bob tudalen, map gwefan sy'n cael ei gadw'n gyfredol, cyflwyniad i Google a Bing, dadansoddeg sy'n parchu preifatrwydd heb unrhyw faner cwci, ac erthyglau wedi'u hysgrifennu gan AI i dynnu traffig chwilio i mewn. Dim gwariant ar hysbysebion, dim arian cadw asiantaeth.</p>
 </div>
-<!-- ── SERVICE 2: DOMAIN ─────────────────────────────────────────────── -->
-<div class="service-tier tier-domain">
-<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#0891b2;margin-bottom:.3rem;">GWASANAETH 2</div>
-<h2>🌍 Ffurfweddiad Enw Parth</h2>
-<p class="tier-sub">Cyfluniad DNS yw'r rhan y mae'r rhan fwyaf o bobl yn ei chael yn ddryslyd - mewngofnodi cofrestrydd, mathau o gofnodion, amseroedd aros lluosogi. Mae'r AI yn ei drin yn uniongyrchol lle bo modd ac yn darparu union ganllawiau cam wrth gam ym mhobman arall.</p>
-<ul class="deliverable-list">
-<li>Nodwch eich cofrestrydd yn awtomatig neu drwy holiadur byr</li>
-<li>Cynhyrchwch yr union gofnodion DNS sydd eu hangen (A, AAAA, CNAME) mewn tabl copi-gludo</li>
-<li>Darparu cyfarwyddiadau sy'n benodol i'r cofrestrydd - Squarespace, GoDaddy, Namecheap, Cloudflare, 123-reg a mwy</li>
-<li>Esboniad Saesneg clir o bob math o gofnod cyn cyffwrdd ag unrhyw beth</li>
-<li>Gosodwch barth arferiad trwy GitHub Pages API - dim cofnod ffurflen â llaw</li>
-<li>Monitro lluosogi DNS a chadarnhau cyhoeddi tystysgrif HTTPS</li>
-<li class="planned">Awtomatiaeth llawn ar gyfer cofrestryddion sy'n darparu API (Cloudflare, Namecheap)</li>
-</ul>
-<div class="pain-fix">
-<span>⚠️</span>
-<div><strong>Pam mae hyn yn bwysig:</strong> <span>Yn ein profion ein hunain, cyfluniad parth a achosodd y dryswch mwyaf - roedd parth wedi mudo'n dawel o Google Domains i Squarespace heb unrhyw ailgyfeiriad amlwg, ac roedd y mathau o gofnodion DNS (A, AAAA, CNAME) yn gwbl anghyfarwydd. Mae'r AI nawr yn gofyn i'ch cofrestrydd ymlaen llaw ac yn rhoi cyfarwyddiadau nad oes angen unrhyw wybodaeth DNS flaenorol arnynt.</span></div>
-</div>
-</div>
-<!-- ── SERVICE 3: HOSTING ─────────────────────────────────────────────── -->
-<div class="service-tier tier-host">
-<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#16a34a;margin-bottom:.3rem;">GWASANAETH 3</div>
-<h2>🖥️ Gwesteio Gosod a Defnyddio</h2>
-<p class="tier-sub">Sicrhewch fod eich gwefan yn fyw am ddim cost fisol - neu hunangynhaliwch hi ar eich peiriant eich hun dros Tailscale. Mae'r AI yn delio â setup, yn defnyddio yn gyntaf ac yn dysgu'r gorchymyn sengl sydd ei angen ar gyfer pob diweddariad yn y dyfodol.</p>
-<div class="host-grid">
-<div class="host-option">
-<div class="ho-icon">🐙</div>
-<h4>Tudalennau GitHub</h4>
-<p>Static site hosted from a GitHub repository. Parth personol, HTTPS, CDN byd-eang. Wedi'i reoli'n llawn gan y sgript defnyddio AI.</p>
-<div class="ho-cost">Am ddim am byth</div>
-</div>
-<div class="host-option">
-<div class="ho-icon">🌐</div>
-<h4>Tudalennau Cloudflare</h4>
-<p>CDN byd-eang cyflym gyda haen rydd hael. Mae AI yn trin cysylltiad repo ac yn defnyddio bachau. Dewis arall da os ydych chi eisoes yn defnyddio Cloudflare DNS.</p>
-<div class="ho-cost">Haen am ddim ar gael</div>
-</div>
-<div class="host-option">
-<div class="ho-icon">🔺</div>
-<h4>Netlify / Vercel</h4>
-<p>Defnydd un clic o repo git. HTTPS awtomatig, URLs rhagolwg fesul cangen. Mae AI yn ffurfweddu'r gosodiadau adeiladu.</p>
-<div class="ho-cost">Haen am ddim ar gael</div>
-</div>
-<div class="host-option">
-<div class="ho-icon">🔒</div>
-<h4>Tailscale Hunan-gynhaliol</h4>
-<p>Gweinwch eich gwefan o'ch peiriant eich hun dros Tailscale Funnel - mynediad cyhoeddus i'r rhyngrwyd heb unrhyw ddibyniaeth ar y cwmwl. Rheolaeth lawn.</p>
-<div class="ho-cost">Am ddim (eich caledwedd)</div>
-</div>
-</div>
-<div class="workflow-steps" style="margin-top:1.2rem;">
-<h4>Defnydd parhaus</h4>
-<div class="wf-step"><div class="wf-num">→</div><div>Bob tro y byddwch chi'n diweddaru'r wefan, mae un gorchymyn yn ei gwthio'n fyw: <code>python3 github_pages.py deploy "what changed"</code></div></div>
-<div class="wf-step"><div class="wf-num">→</div><div>Neu dywedwch <em>"defnyddio'r wefan"</em> yn y sgwrs Chameleon AI - mae'r DRhA yn ei wneud yn awtomatig trwy'r <code>gh_deploy</code> gweithredu pont orchymyn</div></div>
-</div>
-</div>
-<!-- ── SERVICE 4: MANAGED ─────────────────────────────────────────────── -->
-<div class="service-tier tier-manage">
-<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#d97706;margin-bottom:.3rem;">GWASANAETH 4</div>
-<h2>📬 AI Rheoli Presenoldeb Gwe</h2>
-<p class="tier-sub">Unwaith y bydd eich gwefan yn fyw, mae'r asiant AI yn ei fonitro a'i reoli - darllen e-byst ymholiadau, drafftio ymatebion, casglu manylion cleientiaid, cynhyrchu adroddiadau a thynnu sylw at unrhyw beth sydd angen eich sylw.</p>
-<ul class="deliverable-list">
-<li>Darllen a brysbennu cyflwyniadau ac e-byst ffurflenni cyswllt sy'n dod i mewn</li>
-<li>Drafftiwch atebion personol ar gyfer eich adolygiad cyn eu hanfon</li>
-<li>Casglwch fanylion cleient - cas defnyddio, cyfrif sedd, OS, gofynion - trwy ddilyniant strwythuredig</li>
-<li>Adroddiad wythnosol: ymwelwyr, ymholiadau, trosiadau, ymatebion rhagorol</li>
-<li>Baner negeseuon brys (ceisiadau demo, ymholiadau trwydded fasnachol) ar unwaith</li>
-<li class="planned">Ymateb yn awtomatig i gwestiynau cyffredin gan ddefnyddio sylfaen wybodaeth a adeiladwyd o gynnwys eich gwefan</li>
-<li class="planned">Log cyswllt ar ffurf CRM: pob cyfeiriad wedi'i olrhain o'r e-bost cyntaf i'r drwydded wedi'i lofnodi</li>
-</ul>
-</div>
-<!-- ── SERVICE 5: GROWTH ─────────────────────────────────────────────── -->
-<div class="service-tier tier-growth">
-<div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:#db2777;margin-bottom:.3rem;">GWASANAETH 5</div>
-<h2>📈 Gwelededd a Thwf</h2>
-<p class="tier-sub">Cael hyd i - peiriannau chwilio, cyfeiriaduron a rhwydweithiau proffesiynol. Mae'r AI yn trin y gwaith sylfaenol SEO technegol ac yn eich helpu i adeiladu presenoldeb credadwy ar-lein heb hysbysebu â thâl.</p>
-<ul class="deliverable-list">
-<li>Tagiau meta SEO, Graff Agored a marcio Cerdyn Twitter ar bob tudalen</li>
-<li>sitemap.xml a robots.txt wedi'u cynhyrchu a'u cadw'n gyfredol</li>
-<li>Data strwythuredig Schema.org (Sefydliad, Cynnyrch, ContactPoint)</li>
-<li>Cyflwyno i Consol Chwilio Google ac Offer Gwefeistr Bing</li>
-<li>Dadansoddeg sy'n parchu preifatrwydd - credadwy neu Umami hunangynhaliol (nid oes angen baner cwci)</li>
-<li class="planned">Postiadau blog wedi'u hysgrifennu gan AI ac astudiaethau achos i yrru traffig chwilio organig</li>
-<li class="planned">Aliniad proffil LinkedIn / GitHub â chynnwys gwefan</li>
-</ul>
-<div class="suggest-box">
-<h4>Pam mai Gwasanaeth 5 yw hwn</h4>
-<p>Nid yw safle na all neb ddod o hyd iddo yn fawr o werth. Mae gwasanaethau 1–4 yn adeiladu ac yn rhedeg y safle. Mae gwasanaeth 5 yn ei gwneud yn hawdd ei ddarganfod. Mae SEO, data strwythuredig a dadansoddeg i gyd yn awtomataidd gan AI - nid oes angen cadw asiantaeth barhaus.</p>
-</div>
-</div>
-<!-- ── WORKFLOW SUMMARY ───────────────────────────────────────────────── -->
 <div class="section-title" style="margin-top:3rem;">
-<h2>Taith y cleient — dechrau i orffen</h2>
-<p>Ymgysylltiad nodweddiadol: un sesiwn i'w hadeiladu, yr un diwrnod i fynd yn fyw</p>
+<h2>Dechrau i orffen</h2>
+<p>Fel arfer un sesiwn i'w hadeiladu, yr un diwrnod i fynd yn fyw</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">💬</div>
-<div class="strip-body">
-<h4>1 · Galwad darganfod (15 munud)</h4>
-<p>Holiadur AI: enw busnes, disgrifiad, cofrestrydd, enw defnyddiwr GitHub, dewisiadau lliw, tudalennau sydd eu hangen. Nid oes angen gwybodaeth flaenorol ar y we - mae pob cwestiwn yn Saesneg clir gydag enghreifftiau.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏗️</div>
-<div class="strip-body">
-<h4>2 · Adeiladu (yr un sesiwn)</h4>
-<p>Mae AI yn darllen ffeiliau prosiect ac yn adeiladu'r wefan lawn. Rydych chi'n ei ragweld yn lleol trwy ddolen Tailscale Funnel - nid oes angen gweinydd. One round of feedback, then it's ready.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🚀</div>
-<div class="strip-body">
-<h4>3 · Cyhoeddi (dan arweiniad 30 munud)</h4>
-<p>Mae AI yn creu'r repo GitHub ac yn gwthio'r wefan. Yn darparu union gyfarwyddiadau DNS cam wrth gam eich cofrestrydd. Yn monitro lluosogi - yn cadarnhau HTTPS yn fyw. Yr un diwrnod yn y rhan fwyaf o achosion.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📬</div>
-<div class="strip-body">
-<h4>4 · Trosglwyddo + rheolaeth barhaus</h4>
-<p>Rydych chi'n derbyn taflen dwyllo un dudalen: sut i ddiweddaru'r wefan (un gorchymyn), sut i ychwanegu cynnwys, sut i ddarllen yr adroddiad wythnosol. Mae asiant AI yn monitro o'r diwrnod cyntaf.</p>
-</div>
-</div>
+<div class="journey">
+<div class="j"><div class="jn">1</div><h4>Galwad darganfod · 15 munud</h4><p>Holiadur mewn Saesneg clir — enw busnes, beth rydych chi'n ei wneud, eich cofrestrydd, dewisiadau lliw, tudalennau sydd eu hangen. Nid oes angen gwybodaeth we.</p></div>
+<div class="j"><div class="jn">2</div><h4>Adeiladu · yr un sesiwn</h4><p>Mae'r AI yn darllen eich ffeiliau ac yn adeiladu'r wefan lawn. Rydych chi'n ei ragolygu ar ddolen breifat - nid oes angen gweinydd. Un rownd o adborth ac mae'n barod.</p></div>
+<div class="j"><div class="jn">3</div><h4>Cyhoeddi · ~ 30 munud dan arweiniad</h4><p>Rydyn ni'n rhoi'r wefan ar-lein, yn rhoi'r union gamau i chi bwyntio'ch parth ato, a'i wylio'n mynd yn fyw - yr un diwrnod fel arfer.</p></div>
+<div class="j"><div class="jn">4</div><h4>Trosglwyddo + parhaus</h4><p>Taflen dwyllo un dudalen: sut i ddiweddaru'r wefan, sut i ychwanegu cynnwys, sut i ddarllen yr adroddiad wythnosol. Mae'r AI yn ei wylio o'r diwrnod cyntaf.</p></div>
 </div>
 <div class="cta-band">
-<h3>Diddordeb mewn Gwasanaethau Gwe AI?</h3>
-<p>Gwasanaeth yn cael ei ddatblygu - cysylltwch â ni i gofrestru diddordeb neu drafod eich gofynion.</p>
+<h3>Diddordeb?</h3>
+<p>Mae hwn yn wasanaeth wedi'i wneud i chi - mae prisio yn dibynnu ar gwmpas. Dywedwch wrthym beth sydd ei angen arnoch a byddwn yn dod yn ôl gyda dyfynbris.</p>
 <a class="btn btn-solid" href="../contact.html">Cysylltwch</a>
 <a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
 </div>
@@ -274,12 +109,10 @@
 <footer>
 <div class="foot-links">
 <a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a>
-<a href="../companion.html">Ap Cydymaith</a>
-<a href="../logistics4x4.html">Logisteg 4×4</a><a href="../services.html">Gwasanaethau Gwe</a>
 <a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
 <a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Trwyddedu yn yr arfaeth · Adeiladwyd gan Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Wedi'i adeiladu gan Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

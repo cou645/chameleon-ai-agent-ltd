@@ -3,18 +3,45 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI IDE – Camaleão AI</title>
+<title>Camaleão AI IDE — Camaleão AI</title>
 <link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .provider-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .92rem;
+      background: var(--card-bg); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .provider-table th { background: linear-gradient(135deg, var(--brand-start), var(--brand-end)); color: #fff;
+      text-align: left; padding: .7rem 1rem; font-weight: 600; }
+    .provider-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .provider-table tr:last-child td { border-bottom: none; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+  </style>
 </head>
 <body>
+<div class="pre-note">
+  O IDE Chameleon AI está em desenvolvimento ativo. Os recursos abaixo são atuais; preços e disponibilidade geral ainda estão sendo finalizados — <a href="../contact.html">Agende uma demonstração</a> e manteremos você informado.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleão AI</strong></a>
 <div class="nav-links">
-<a href="../index.html">Inu00edcio</a>
+<a href="../index.html">Início</a>
 <a class="active" href="../ide.html">VOCÊ TEM IDEIAS</a>
 <a href="../presenter.html">Apresentador</a>
-<a href="../companion.html">Aplicativo complementar</a>
+<a href="../companion.html">Aplicativo Companheiro</a>
 <a href="../logistics4x4.html">Logística 4×4</a>
 <a href="../services.html">Serviços Web</a>
 <a href="../accounting.html">Contabilidade</a>
@@ -26,230 +53,127 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">🧠</div>
-<h1>IDE alimentado por IA</h1>
-<p class="sub">Um editor de código PyQt6 completo onde a IA não apenas sugere – ela lê, escreve, executa e verifica o código em seu nome por meio de uma ponte de comando estruturada.</p>
+<h1>Camaleão AI IDE</h1>
+<p class="sub">Um editor de código onde a IA faz o trabalho — ela lê seus arquivos, faz as edições, executa os comandos e verifica o resultado. Você revisa e aprova.</p>
 <div class="hero-badges">
-<span class="badge">IA multiprovedor</span>
-<span class="badge">🎙️ Entrada de voz e TTS</span>
-<span class="badge">🔀 Visualização de diferenças</span>
-<span class="badge">⚡ Transmissão de respostas</span>
+<span class="badge">🧠 A IA edita seu código diretamente</span>
+<span class="badge">🎙️ Voz para entrada, respostas faladas</span>
+<span class="badge">🔀 Veja uma diff antes de aceitar</span>
+<span class="badge">🔌 Nove provedores de IA, troque quando quiser</span>
+<span class="badge">🔒 Executa localmente, suas chaves permanecem com você</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>A ponte de comando da IA</h2>
-<p>A IA não apenas conversa – ela opera o editor por meio de um protocolo JSON estruturado</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">📖</div>
-<div class="strip-body">
-<h4>Leia uma vez, edite livremente</h4>
-<p>A IA lê um arquivo uma vez com <strong>get_file_content</strong>, mantém o conteúdo no contexto e, em seguida, emite várias edições baseadas em âncoras sem reler entre cada alteração. Não há viagens de ida e volta desperdiçadas.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>replace_text baseado em âncora</h4>
-<p>Edita o texto exato de referência a ser localizado, não os números de linha. Os números das linhas mudam à medida que o código é adicionado ou removido – as âncoras não. Múltiplo <code>replace_text</code> as chamadas podem ser agrupadas em uma única resposta, todas aplicadas atomicamente.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📝</div>
-<div class="strip-body">
-<h4>write_file para reescritas completas</h4>
-<p>Para novos módulos ou reescritas completas, a IA envia todo o conteúdo do arquivo em um comando. O sistema cria automaticamente um <code>.bak</code> backup antes de substituir e abre o resultado em uma nova guia do editor.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">💻</div>
-<div class="strip-body">
-<h4>Integração de terminais</h4>
-<p>A IA pode executar comandos shell e receber o resultado JSON antes de continuar. Ele aguarda cada resultado, lida com códigos de saída e distingue automaticamente comandos de diagnóstico, configuração, destrutivos e de encerramento de sessão.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🛡️</div>
-<div class="strip-body">
-<h4>Proteção de injeção</h4>
-<p>Todo o conteúdo retornado de arquivos, terminais e páginas da web é empacotado em <code>[UNTRUSTED_CONTENT]</code> marcadores. A IA é instruída a tratar tudo dentro como dados – nunca instruções – evitando ataques de injeção imediata de conteúdo de arquivo malicioso.</p>
-</div>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Recursos do editor</h2>
+<h2>O que o torna diferente</h2>
+<p>A maioria dos editores de IA sugere. Este opera o editor.</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">🗂️</div>
-<h3>Editor de código com várias guias</h3>
-<p>Abra vários arquivos simultaneamente. Cada guia rastreia seu próprio histórico de desfazer, destaque de sintaxe e contexto de comando de IA.</p>
+<div class="card-icon">🤖</div>
+<h3>A IA faz as edições</h3>
+<p>Lê um arquivo uma vez e, em seguida, faz quantas alterações precisas forem necessárias sem reler. As edições visam texto exato, não números de linha, para que não se desviem conforme o arquivo muda. Novos arquivos são gravados por completo — com um backup automático de tudo o que substitui.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Ele executa comandos e lê os resultados.</h3>
+<p>A IA executa comandos shell no terminal integrado, aguarda cada resultado, verifica o código de saída e decide o que fazer em seguida. Trabalho real em um shell ativo — não trechos copiados e colados.</p>
+</div>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Seguro por padrão</h3>
+<p>Tudo o que a IA lê de um arquivo, terminal ou página web é isolado como dados, nunca como instruções — um arquivo malicioso não pode sequestrar a sessão. Cada alteração feita é registrada com carimbo de data e hora e ID da sessão, então você tem um histórico completo do que aconteceu.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔀</div>
-<h3>Visualização de diferenças integrada</h3>
-<p>Um clique para comparar o estado atual do editor com a última versão salva. Diferença unificada codificada por cores com destaque para adicionar/remover. Saia do modo diff para retornar à edição completa.</p>
+<h3>Revise antes de aceitar</h3>
+<p>Um clique mostra um diff codificado por cores das alterações da IA em relação ao seu último salvamento. Aceite-as, continue editando ou desfaça.</p>
 </div>
-<div class="card">
-<div class="card-icon">💬</div>
-<h3>Streaming de bate-papo com IA</h3>
-<p>As respostas são transmitidas token por token para o painel de bate-papo. Os comandos IDE são extraídos e executados em um thread em segundo plano para que a IU permaneça responsiva o tempo todo.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Sistema modular de alerta</h3>
-<p>Os prompts do sistema são arquivos de módulo de texto simples em <code>~/.chameleon/prompts/</code>. Empilhe qualquer combinação: Reparo Técnico + Acadêmico + Bate-papo. Contagem de tokens ativos e estimativa de custo por provedor.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Banco de dados de histórico de comandos</h3>
-<p>Cada comando AI é registrado em <code>history.db</code> com ID da sessão, carimbo de data/hora e resultado. Trilha de auditoria completa para cada alteração de arquivo feita pela IA.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌳</div>
-<h3>Navegador de arquivos</h3>
-<p>Painel da árvore do projeto para navegação rápida. A IA usa <code>list_project_files</code> e <code>list_open_files</code> para descobrir caminhos reais — ele nunca inventa localizações de arquivos.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Voz e fala</h2>
-</div>
-<div class="split">
 <div class="card">
 <div class="card-icon">🎙️</div>
-<h3>Sussurrar fala para texto</h3>
-<p>Local Whisper (whisper.cpp) transcreve sua voz na entrada do chat. Codificação mãos-livres – dite perguntas, comandos ou instruções inteiras sem tocar no teclado.</p>
-<div class="tags"><span class="tag">sussurro.cpp</span><span class="tag">Inferência local</span><span class="tag">Sem nuvem STT</span></div>
+<h3>Viva-voz</h3>
+<p>Dite uma pergunta ou um prompt completo com conversão de fala em texto no dispositivo, e ouça as respostas em uma voz natural. Nada vai para um serviço de transcrição em nuvem.</p>
 </div>
 <div class="card">
-<div class="card-icon">🔊</div>
-<h3>Conversão de texto para fala Piper</h3>
-<p>As respostas de IA são lidas em voz alta usando Piper TTS – vozes rápidas, locais e com som natural. Ideal para acessibilidade ou trabalho com as mãos ocupadas. Caminhos de plataforma resolvidos automaticamente em Linux, Windows e macOS.</p>
-<div class="tags"><span class="tag">Piper TTS</span><span class="tag">Inferência local</span><span class="tag">Voz configurável</span></div>
+<div class="card-icon">🔌</div>
+<h3>Traga sua própria IA</h3>
+<p>DeepSeek, OpenAI, Claude, Groq, Mistral, Kimi — troque de provedor no meio de um projeto. Execute um modelo localmente via Ollama ou LM Studio sem nenhum custo. O Claude Code roda como um processo ao vivo diretamente no terminal.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧩</div>
+<h3>Modos de trabalho empilháveis</h3>
+<p>Ative os modos que você precisa — correção de código, escrita acadêmica, chat simples — e combine-os. Uma estimativa de custo em tempo real aparece antes de você enviar qualquer coisa.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Um editor real por baixo</h3>
+<p>Edição em múltiplas abas com desfazer por aba e realce de sintaxe, árvore de arquivos do projeto e chat em streaming que mantém a janela responsiva enquanto comandos são executados em segundo plano.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Provedores de IA suportados</h2>
+<h2>Escolha seu provedor de IA</h2>
+<p>Sua conta, sua escolha — na nuvem ou totalmente na sua própria máquina</p>
 </div>
-<table class="spec-table">
-<thead><tr><th>Provedor</th><th>Tipo</th><th>Custo (aprox.)</th><th>Notas</th></tr></thead>
+<table class="provider-table">
+<thead><tr><th>Provedor</th><th>Onde é executado</th><th>Custo aproximado</th></tr></thead>
 <tbody>
-<tr><td>DeepSeek</td><td>API de nuvem</td><td>US$ 0,00014/1 mil tokens</td><td>Padrão; excelente qualidade de código</td></tr>
-<tr><td>OpenAI (GPT-4o)</td><td>API de nuvem</td><td>US$ 0,0050/1 mil tokens</td><td>Melhor raciocínio geral</td></tr>
-<tr><td>Antrópico (Claude)</td><td>API de nuvem</td><td>US$ 0,0030/1 mil tokens</td><td>Forte em edição de contexto longo</td></tr>
-<tr><td>Código Claude (Antrópico)</td><td>Terminal / unidade</td><td>Uso de API</td><td>Executa como um processo pty dentro do terminal IDE — codificação de agente completa em um live shell</td></tr>
-<tr><td>Grok</td><td>API de nuvem</td><td>US$ 0,00005/1 mil tokens</td><td>Inferência ultrarrápida</td></tr>
-<tr><td>Mistral</td><td>API de nuvem</td><td>US$ 0,00025/1 mil tokens</td><td>Boa opção hospedada na Europa</td></tr>
-<tr><td>Moonshot/Kimi</td><td>API de nuvem</td><td>US$ 0,00012/1 mil tokens</td><td>Grande janela de contexto</td></tr>
-<tr><td>Ser</td><td>Local</td><td>Livre</td><td>Execute qualquer modelo GGUF localmente</td></tr>
-<tr><td>Estúdio LM</td><td>Local</td><td>Livre</td><td>Inferência local amigável à GUI</td></tr>
+<tr><td>Profundo <em>(padrão)</em></td><td>Nuvem, a sua conta</td><td>Mais baixo — forte em código</td></tr>
+<tr><td>Abra a IA</td><td>Nuvem, a sua conta</td><td>Superior — melhor raciocínio geral</td></tr>
+<tr><td>Antrópico (Claude)</td><td>Nuvem, a sua conta</td><td>Médio — forte em arquivos longos</td></tr>
+<tr><td>Código Claude</td><td>Executa dentro do terminal</td><td>Seu uso da Anthropic</td></tr>
+<tr><td>Grok</td><td>Nuvem, a sua conta</td><td>Muito baixa — respostas mais rápidas</td></tr>
+<tr><td>Mistral</td><td>Nuvem, a sua conta</td><td>Baixo — hospedado na Europa</td></tr>
+<tr><td>Como</td><td>Nuvem, a sua conta</td><td>Baixo — contexto muito grande</td></tr>
+<tr><td>Ollama/LM Studio</td><td>Na sua máquina</td><td>Livre</td></tr>
 </tbody>
 </table>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Chameleon AI IDE — in action</p>
-</div>
-<div class="screenshots">
-<div class="screenshot-frame">
-<img src="../Chameleon1.png" alt="Chameleon AI IDE overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Chameleon AI IDE — full desktop overview</div>
-</div>
-<div class="screenshot-frame">
-<img src="../Chameleon2.png" alt="Chameleon AI IDE multi-provider" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Multi-provider AI with live chat and code panel</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-1.png" alt="AI IDE chat and editor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">AI chat panel with streaming responses alongside code editor</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-2.png" alt="AI IDE diff view" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Built-in diff view — colour-coded before/after AI code edits</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-3.png" alt="AI IDE voice and file browser" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Voice STT input, Piper TTS and integrated file browser</div>
-</div>
-<div class="screenshot-frame">
-<img src="../AI-IDE-4.png" alt="AI IDE terminal and command log" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;">
-<div class="screenshot-caption">Terminal integration and full AI command audit log</div>
-</div>
-</div>
-<!-- ── Company Command Station ─────────────────────────────────────── -->
-<div class="section-title" style="margin-top:3rem;">
-<h2>Estação de Comando da Companhia (CCS)</h2>
-<p>Execute o Chameleon IDE como o hub de escritório para sua frota Logística 4×4 — não é necessário software de despacho separado</p>
+<h2>Execute o seu negócio a partir dele também</h2>
+<p>Estação de comando da empresa — o IDE como hub para uma frota logística 4×4</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">🗺</div>
+<div class="strip-icon">🗺️</div>
 <div class="strip-body">
-<h4>Enviar rotas e POIs aos motoristas</h4>
-<p>Envie um <code>.gpx</code> arquivo do IDE diretamente para o telefone de qualquer driver através do canal peer. As rotas são carregadas instantaneamente no mapa ao vivo do motorista. Conjuntos de POI independentes – paradas para abastecimento de combustível, perigos, endereços de entrega – podem ser enviados independentemente de qualquer rota e aparecem como pinos codificados por cores.</p>
+<h4>Enviar rotas e paradas para motoristas</h4>
+<p>Envie um arquivo de rota diretamente da IDE para o celular do motorista — ele carrega no mapa ao vivo instantaneamente. Conjuntos de pontos (paradas de combustível, perigos, endereços de entrega) podem ser enviados separadamente e aparecem como pinos codificados por cores. Sem software de despacho separado.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">📦</div>
+<div class="strip-icon">🧾</div>
 <div class="strip-body">
-<h4>Envio de manifesto e fatura</h4>
-<p>Crie um manifesto de carga ou prepare uma fatura no IDE e, em seguida, envie-a ponto a ponto para o telefone do motorista. O driver vê o manifesto pré-carregado — sem verificação, sem entrada manual. As faturas podem ser assinadas na tela e devolvidas pelo mesmo canal.</p>
+<h4>Os recibos chegam aos seus livros</h4>
+<p>O aplicativo de telefone Chameleon Companion fotografa um recibo e o envia para o desktop, onde se torna um rascunho de lançamento no livro contábil — veja <a href="../accounting.html">Contabilidade</a> e <a href="../companion.html">o aplicativo Companion</a>.</p>
 </div>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🚨</div>
-<div class="strip-body">
-<h4>Transmissão de ticker para toda a frota</h4>
-<p>Envie um alerta de prioridade – Emergência, Importante, Instruções ou Informações – e ele aparecerá como uma barra de largura total na tela de cada motorista simultaneamente. O escritório mantém total controle da atenção da frota sem precisar ligar para cada veículo.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">📡</div>
-<div class="strip-body">
-<h4>Servidor de sinal integrado — sem retransmissão na nuvem</h4>
-<p>O servidor de sinal Chameleon (<code>chameleon_signal.py</code>) é executado diretamente no PC do escritório junto com o IDE ou dentro do Termux em qualquer telefone Android da frota. Os telefones da frota se conectam a ele pelo Tailscale ou pelo ponto de acesso local – sem retransmissão de terceiros, sem conta mensal do servidor.</p>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,#0b0f1a,#111827);border-radius:var(--radius);padding:1.8rem 2rem;margin:1.5rem 0;border:1px solid rgba(255,255,255,.08);">
-<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-<span style="font-size:2rem;">🏢</span>
-<div>
-<div style="color:#e2e8f0;font-weight:700;font-size:1rem;">PC de escritório executando Chameleon IDE</div>
-<div style="color:#64748b;font-size:.82rem;">chameleon_signal.py · Hub WebSocket · Comando de frota</div>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
-<span style="color:#94a3b8;font-size:.83rem;">Frota conectada →</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚛 Motorista A</span>
-<span style="background:rgba(34,197,94,.15);border:1px solid #22c55e44;color:#22c55e;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚚 Motorista B</span>
-<span style="background:rgba(14,165,233,.15);border:1px solid #0ea5e944;color:#38bdf8;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🧭 Equipe de campo</span>
-<span style="background:rgba(245,158,11,.15);border:1px solid #f59e0b44;color:#f59e0b;border-radius:50px;padding:.2rem .7rem;font-size:.78rem;font-weight:600;">🚨 X — Emergência</span>
-</div>
-<div style="color:#475569;font-size:.77rem;margin-top:.9rem;">Via Tailscale (remoto) ou ponto de acesso LAN (comboio) · Sem retransmissão na nuvem · Criptografado E2E</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Fleet App Screenshot</h2>
-<p>Logistics 4×4 companion app — on device</p>
+<h2>Capturas de tela</h2>
+<p>Chameleon AI IDE — capturado ao vivo</p>
 </div>
-<div class="phone-gallery">
+<div class="screenshot-gallery">
+<div class="sg-frame"><img alt="Chameleon AI IDE — full desktop overview" loading="lazy" src="../ide-assets/AI-IDE-1.png"/><div class="sg-cap">Visão geral da área de trabalho</div></div>
+<div class="sg-frame"><img alt="AI chat panel alongside the code editor" loading="lazy" src="../ide-assets/AI-IDE-2.png"/><div class="sg-cap">Painel de chat + editor</div></div>
+<div class="sg-frame"><img alt="Built-in colour-coded diff view" loading="lazy" src="../ide-assets/AI-IDE-3.png"/><div class="sg-cap">Visualização de diferenças</div></div>
+<div class="sg-frame"><img alt="Voice input, text-to-speech and file browser" loading="lazy" src="../ide-assets/AI-IDE-4.png"/><div class="sg-cap">Voz + navegador de arquivos</div></div>
+<div class="sg-frame"><img alt="Terminal integration and AI command history" loading="lazy" src="../ide-assets/Chameleon1.png"/><div class="sg-cap">Terminal + histórico</div></div>
+<div class="sg-frame"><img alt="Chameleon AI IDE workspace" loading="lazy" src="../ide-assets/Chameleon2.png"/><div class="sg-cap">Espaço de trabalho</div></div>
 </div>
 <div class="cta-band">
-<h3>Veja o AI IDE em ação</h3>
-<p>Contate-nos para uma demonstração ao vivo ou para discutir uma licença para sua equipe.</p>
-<a class="btn btn-solid" href="../contact.html">Solicite uma demonstração</a>
-<a class="btn" href="../logistics4x4.html">Logística 4×4 →</a>
+<h3>Experimente o Chameleon AI IDE</h3>
+<p>Vendido como uma licença única de desktop para Linux, Windows e macOS. <strong>O preço final está sendo definido agora</strong> — agende uma demonstração e enviaremos com uma data de lançamento.</p>
+<!-- BUY BUTTON SLOT — replace with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Agende uma demonstração</a>
 <a class="btn" href="../index.html">← Voltar à visão geral</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">Inu00edcio</a><a href="../ide.html">VOCÊ TEM IDEIAS</a><a href="../presenter.html">Apresentador</a>
-<a href="../logistics4x4.html">Logística 4×4</a>
+<a href="../index.html">Início</a><a href="../ide.html">VOCÊ TEM IDEIAS</a><a href="../presenter.html">Apresentador</a>
 <a href="../accounting.html">Contabilidade</a><a href="../technician.html">Técnico de informática</a>
 <a href="../classroom.html">Aula</a><a href="../contact.html">Contato</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Construído por Marcos, também conhecido como stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Construído por Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

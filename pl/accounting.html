@@ -3,29 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Księgowość w Wielkiej Brytanii — Chameleon AI</title>
+<title>Księgowość — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .vat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .8rem;
-    }
-    .vat-code {
-      background: white; border: 1px solid var(--border); border-radius: 10px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow);
-    }
-    .vat-code .vc { font-size: 1.5rem; font-weight: 700; color: var(--brand-start); }
-    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .ledger-sample {
       background: #1a1a2e; border-radius: var(--radius); padding: 1.5rem;
-      font-family: 'Courier New', monospace; font-size: .82rem; color: #c8c8f0;
-      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: .8rem; color: #c8c8f0;
+      overflow-x: auto; box-shadow: var(--shadow-lg); margin: 1.5rem 0; line-height: 1.7;
     }
     .ledger-sample .dr { color: #f87171; }
     .ledger-sample .cr { color: #4ade80; }
     .ledger-sample .hd { color: #a78bfa; font-weight: bold; }
+    .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
+    .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Księgowość Chameleon jest w trakcie aktywnego rozwoju. Przygotowuje Twoje dane — Ty lub Twój księgowy je składacie. Ceny i dostępność są wciąż finalizowane — <a href="../contact.html">Zarezerwuj demo</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Sztuczna inteligencja kameleona</strong></a>
@@ -45,65 +46,76 @@
 </nav>
 <div class="hero">
 <div class="hero-icon">📊</div>
-<h1>Księgowość w Wielkiej Brytanii</h1>
-<p class="sub">Księgowość z podwójnym zapisem, śledzenie podatku VAT, zyski i straty, bilans — wszystko w lokalnej księdze SQLite przeznaczonej dla HMRC Making Tax Digital.</p>
+<h1>Księgowość</h1>
+<p class="sub">Księgi podwójnego zapisu dla małej brytyjskiej firmy — VAT, rachunek zysków i strat, bilans oraz deklaracje VAT zgodne z Making Tax Digital, w księdze przechowywanej na Twoim własnym komputerze.</p>
 <div class="hero-badges">
-<span class="badge">🇬🇧 Brytyjski plan kont</span>
-<span class="badge">📋 Gotowy na MTD</span>
-<span class="badge">🔒 Lokalny SQLite</span>
-<span class="badge">🤖 Dane wyjściowe JSON analizowane przez AI</span>
+<span class="badge">Wbudowany brytyjski plan kont 🇬🇧</span>
+<span class="badge">📋Format deklaracji VAT MTD</span>
+<span class="badge">🧾 Faktury zgodne z notą HMRC 700</span>
+<span class="badge">🔒 Plik lokalny, działa offline</span>
+<span class="badge">🤖 Zapytaj AI o swoje liczby</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Księga Podwójna</h2>
-<p>Każda transakcja zbilansowana co do grosza – obciążenia są zawsze równe kredytom</p>
+<h2>Każde saldo wpisu jest zrównoważone</h2>
+<p>Prawidłowa księgowość podwójna — debety równe kredytom, co do grosza</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Data │ Konto │ Obciążenie (£) │ Kredyt (£) │ VAT</span>
-────────────┼───────────────────── ─────┼───────────┼────────────┼────
-2026-04-01 │ 4000 Przychody ze sprzedaży │ │  <span class="cr">1,200.00</span>  │ S20
-2026-04-01 │ 2200 Kontrola VAT │ │    <span class="cr">240.00</span>  │
-2026-04-01 │ 1100 Dłużników handlowych │ <span class="dr">1,440.00</span>  │ │
-────────────┼───────────────────── ─────┼───────────┼────────────┼────
-2026-04-05 │ 6100 Wydatki biurowe │   <span class="dr">85.00</span>   │ │ S20
-2026-04-05 │ Kontrola VAT 2200 │   <span class="dr">17.00</span>   │ │
-2026-04-05 │ 1200 Prąd banku │ │    <span class="cr">102.00</span>  │
-  </div>
+<span class="hd">Data Konto Winien (£) Ma (£) VAT</span><br/>
+2026-04-01 4000 Przychody ze sprzedaży                       <span class="cr">1,200.00</span>   S20<br/>
+2026-04-01 2200 Kontrola VAT                           <span class="cr">240.00</span><br/>
+2026-04-01 1100 Należności handlowe          <span class="dr">1,440.00</span><br/>
+<br/>
+2026-04-05 6100 Wydatki biurowe          <span class="dr">85.00</span>                S20<br/>
+2026-04-05 2200 Kontrola VAT              <span class="dr">17.00</span><br/>
+2026-04-05 1200 Rachunek bieżący                          <span class="cr">102.00</span>
+</div>
 <div class="cards">
 <div class="card">
 <div class="card-icon">📚</div>
-<h3>Brytyjski plan kont</h3>
-<p>Standardowe kody kont w Wielkiej Brytanii — aktywa, pasywa, kapitał własny, dochody i wydatki mapowane na kategorie HMRC. W razie potrzeby rozszerz o konta niestandardowe.</p>
-</div>
-<div class="card">
-<div class="card-icon">🗄️</div>
-<h3>Księga SQLite</h3>
-<p>Wszystkie dane zapisane w <code>~/.chameleon/accounting/&lt;company&gt;/ledger.db</code>. Działa całkowicie offline. Obsługa wielu firm — przełączaj się między jednostkami za pomocą flagi polecenia.</p>
-</div>
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Rok podatkowy w Wielkiej Brytanii</h3>
-<p>Koniec roku prawidłowo ustawiony na 5 kwietnia (rok podatkowy w Wielkiej Brytanii 6 kwietnia – 5 kwietnia). Raporty zysków i strat oraz VAT automatycznie obejmują właściwy okres bez ręcznej korekty daty.</p>
+<h3>Wielka Brytania plan kont, gotowy do użycia</h3>
+<p>Standardowe brytyjskie kody kont od razu po wyjęciu z pudełka, zmapowane do kategorii HMRC — aktywa, zobowiązania, kapitał własny, przychody, koszty. Dodawaj własne konta, kiedy tylko ich potrzebujesz.</p>
 </div>
 <div class="card">
 <div class="card-icon">🔍</div>
-<h3>Skanowanie anomalii kryminalistycznych</h3>
-<p>Uruchomić <code>--forensic</code> w celu wykrycia niezbilansowanych zapisów, zduplikowanych referencji, rozbieżności w podatku VAT i innych nieprawidłowości. Wyniki wydrukowane jako ustrukturyzowany JSON do przeglądu AI.</p>
+<h3>Sprawdza własne działanie</h3>
+<p>Skanowanie kryminalistyczne oznacza wszystko, co się nie zgadza — niezbilansowane wpisy, zduplikowane odniesienia, niezgodności VAT — zanim trafi do raportu.</p>
+</div>
+<div class="card">
+<div class="card-icon">📅</div>
+<h3>Zna brytyjski rok podatkowy</h3>
+<p>Koniec roku to 6 kwietnia do 5 kwietnia. Raporty Profit &amp; Loss i VAT automatycznie obejmują właściwy okres — bez ręcznego manipulowania datami.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Zwrot VAT w formacie MTD</h3>
+<p>Podsumowanie VAT jest wyświetlane pole po polu w formacie HMRC Making Tax Digital: Pole 1 podatek należny, Pole 4 podatek naliczony, Pole 6 sprzedaż netto, Pole 7 zakupy netto.</p>
+</div>
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Raporty, które faktycznie składasz</h3>
+<p>Zysk i strata, bilans, podsumowanie deklaracji VAT — każde zestawione według kodów kont. Bilans potwierdza również, że księgi są spójne: aktywa równają się pasywom powiększonym o kapitał własny.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧾</div>
+<h3>Faktury, które przechodzą</h3>
+<p>Każda faktura zawiera wszystkie pola wymagane w Powiadomieniu HMRC 700 — numer kolejny, oba numery VAT, daty faktury i dostawy, szczegółowe wiersze zawierające podatek VAT w poszczególnych wierszach, sumy częściowe netto i VAT. Wydrukuj, zapisz plik PDF lub prześlij do telefonu. Ustaw dane swojej firmy raz.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Twoje książki pozostają twoje</h3>
+<p>Cały rejestr to pojedynczy plik na Twoim komputerze. Działa bez internetu. Prowadź kilka firm obok siebie i przełączaj się między nimi jednym parametrem.</p>
 </div>
 <div class="card">
 <div class="card-icon">🤖</div>
-<h3>Dane wyjściowe czytelne dla AI</h3>
-<p>Wszystkie raporty wysyłają dane w formacie JSON na standardowe wyjście, dzięki czemu Chameleon AI może analizować, podsumowywać i doradzać w zakresie Twojej sytuacji finansowej w języku naturalnym.</p>
-</div>
-<div class="card">
-<div class="card-icon">🌐</div>
-<h3>Mostek WebSocket</h3>
-<p>Most księgowy WebSocket (<code>acct_ws_bridge.py</code>) udostępnia zapytania księgi towarzyszowi mobilnemu i zewnętrznym panelom kontrolnym za pośrednictwem sieci Tailscale.</p>
+<h3>Zapytaj o swoją pozycję</h3>
+<p>Każdy raport jest również dostępny jako dane strukturalne, które Chameleon AI może odczytać — dzięki czemu możesz zapytać, w prostym języku angielskim, jak wygląda kwartał lub gdzie podział się VAT.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Obsługiwane kody VAT</h2>
+<h2>Kody VAT</h2>
+<p>Stawki, których potrzebuje mała brytyjska firma</p>
 </div>
 <div class="vat-grid">
 <div class="vat-code"><div class="vc">S20</div><p>Stawka standardowa 20%</p></div>
@@ -113,99 +125,30 @@
 <div class="vat-code"><div class="vc">O</div><p>Poza zakresem</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Raporty</h2>
+<h2>Paragony przychodzą do Ciebie</h2>
+<p>Z telefonu i z drogi</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📈</div>
+<div class="strip-icon">📱</div>
 <div class="strip-body">
-<h4>Zyski i straty</h4>
-<p>Dochody vs wydatki za dany okres. Sprzedaż, koszt towarów, zysk brutto, koszty operacyjne, zysk netto – wszystko w podziale według kodu konta. Biegnij z <code>--report pl</code>.</p>
+<h4>Z aplikacji Towarzysz</h4>
+<p>Zrób zdjęcie paragonu w <a href="../companion.html">Towarzysz Chameleon</a> Aplikacja telefoniczna i pojawia się na pulpicie jako wersja robocza wpisu księgowego do potwierdzenia.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">⚖️</div>
+<div class="strip-icon">🚛</div>
 <div class="strip-body">
-<h4>Bilans</h4>
-<p>Aktywa, pasywa i kapitał własny w danym momencie. Potwierdza uczciwość podwójnego zapisu – aktywa muszą równać się pasywom i kapitałem własnym. Biegnij z <code>--report bs</code>.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Podsumowanie zwrotu podatku VAT</h4>
-<p>Dane dotyczące podatku VAT według poszczególnych pól zgodne z formatem deklaracji VAT HMRC MTD: Pole 1 (podatek należny), Pole 4 (podatek naliczony), Pole 6 (sprzedaż netto), Pole 7 (zakupy netto). Biegnij z <code>--report vat</code>.</p>
+<h4>Z Logistyki 4×4</h4>
+<p>Przepływ paragonów za paliwo i wydatki kierowców z <a href="../logistics4x4.html">Logistyka 4×4</a> aplikacja bezpośrednio do tego samego rejestru.</p>
 </div>
 </div>
 </div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Fakturowanie</h2>
-<p>Faktury zgodne z HMRC Notice 700 — drukowane, zapisywane w formacie PDF lub przesyłane do telefonu jednym kliknięciem</p>
-</div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🧾</div>
-<div class="strip-body">
-<h4>Pola faktury zgodne z normami brytyjskimi</h4>
-<p>Every invoice includes all fields required by HMRC Notice 700: unique sequential invoice number, supplier name and address, VAT registration number, invoice date, date of supply (time of supply), client name and address, client VAT number where applicable, itemised line descriptions with quantities and unit prices, VAT rate per line, net and VAT subtotals, and total amount due. Niczego nie brakuje, niczego się nie domyśla.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🏢</div>
-<div class="strip-body">
-<h4>Konfiguracja firmy</h4>
-<p>Otwarte <em>Plik → Faktury → Konfiguracja firmy</em> aby wprowadzić zarejestrowaną nazwę firmy, adres, numer Companies House, numer VAT, adres e-mail, numer telefonu i dane bankowe. Ustawienia są zapisywane w bazie danych klienta w <code>company.json</code> obok księgi i ładowane automatycznie za każdym razem, gdy generowane są faktury dla tego klienta.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">👥</div>
-<div class="strip-body">
-<h4>Baza kontaktów klientów</h4>
-<p>Kiedy po raz pierwszy wystawiasz fakturę klientowi, jego imię i nazwisko, adres i numer VAT są zapisywane w tabeli kontaktów w księdze. Na kolejnych fakturach wpisanie nazwy klienta powoduje automatyczne uzupełnienie danych — nie jest konieczne ponowne wprowadzanie danych. Kontakty można edytować w dowolnym momencie.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🖨️</div>
-<div class="strip-body">
-<h4>Wydrukuj, PDF i wyślij na telefon</h4>
-<p>Z Menedżera faktur (<em>Plik → Faktury…</em>) wybierz dowolną fakturę i wybierz: <strong>Wydrukować</strong> (otwiera okno drukowania systemu operacyjnego — dowolna drukarka lub sterownik PDF), <strong>Zapisz PDF</strong> (bezpośrednio na dysk poprzez wbudowany eksport Qt do formatu PDF), lub <strong>Wyślij na telefon</strong> (przesyła kod HTML faktury do aplikacji Companion, gdzie otwiera okno dialogowe drukowania w systemie Android — drukuj bezprzewodowo na dowolnej AirPrint lub pobliskiej drukarce).</p>
-</div>
-</div>
-</div>
-<div class="cards" style="margin-top:1.5rem;">
-<div class="card">
-<div class="card-icon">📅</div>
-<h3>Data dostawy</h3>
-<p>Oddzielne pole „Data dostawy” (czas dostawy) – odrębne od daty faktury. Wymagane przez HMRC do celów podatku VAT. Wartość domyślna obowiązuje na dzień dzisiejszy, ale można ją niezależnie edytować dla każdej faktury.</p>
-</div>
-<div class="card">
-<div class="card-icon">📱</div>
-<h3>Mobilne drukowanie faktur</h3>
-<p>Aplikacja Companion umożliwia bezprzewodowe wydrukowanie dowolnej faktury. Stuknij ikonę drukowania w dowolnym wierszu faktury — aplikacja pobiera kod HTML z IDE, konwertuje go do formatu PDF na urządzeniu za pośrednictwem <code>printing</code> pakiet i otwiera okno dialogowe drukowania systemu Android.</p>
-</div>
-<div class="card">
-<div class="card-icon">✅</div>
-<h3>Zgodność z zawiadomieniem HMRC 700</h3>
-<p>Wszystkie 12 wymaganych pól dla pełnej faktury VAT w Wielkiej Brytanii jest obecnych i wypełnionych. Linie o stawce obniżonej i o stawce zerowej są wyraźnie oznaczone. Sekwencja numerów faktur jest ściśle jednostajna i nie zawiera przerw.</p>
-</div>
-</div>
-<div class="section-title" style="margin-top:3rem;">
-<h2>Skrócona instrukcja CLI</h2>
-</div>
-<table class="spec-table">
-<thead><tr><th>Rozkaz</th><th>Opis</th></tr></thead>
-<tbody>
-<tr><td><code>python3 chameleon_accounting.py --report pl</code></td><td>Zyski i straty za bieżący rok podatkowy</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report bs</code></td><td>Bilans na dzień dzisiejszy</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --report vat</code></td><td>Podsumowanie deklaracji VAT (pola MTD)</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --forensic</code></td><td>Skanowanie anomalii i integralności</td></tr>
-<tr><td><code>python3 chameleon_accounting.py --help</code></td><td>Pełne odniesienie do poleceń</td></tr>
-</tbody>
-</table>
 <div class="cta-band">
-<h3>Usprawnij księgowość w Wielkiej Brytanii</h3>
-<p>Stworzony specjalnie dla freelancerów i małych firm działających zgodnie z brytyjskimi przepisami podatkowymi.</p>
-<a class="btn btn-solid" href="../contact.html">Skontaktuj się</a>
+<h3>Wypróbuj księgowość Chameleon</h3>
+<p>Sprzedawane jako jednorazowa licencja na komputer stacjonarny. Przygotowuje Twoje zestawienia w formatach HMRC — <strong>Ty lub Twój księgowy je składasz</strong>Finalna cena jest teraz ustalana.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Zarezerwuj demo</a>
 <a class="btn" href="../index.html">← Powrót do przeglądu</a>
 </div>
 </div>
@@ -215,7 +158,7 @@
 <a href="../accounting.html">Księgowość</a><a href="../technician.html">Technik komputerowy</a>
 <a href="../classroom.html">Klasa</a><a href="../contact.html">Kontakt</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Zbudowany przez Marcosa aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Stworzone przez Marcosa aka stemsee</p>
 </footer>
 </body>
 </html>

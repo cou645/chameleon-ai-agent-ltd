@@ -6,36 +6,6 @@
 <title>Ведущий Камелеона — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .stage-demo {
-      background: #1a1a2e; border-radius: var(--radius);
-      padding: 2rem; margin: 2rem 0; color: #e0e0ff;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
-    .stage-demo::before {
-      content: 'STAGE'; position: absolute; top: .7rem; right: 1rem;
-      font-size: .7rem; letter-spacing: .15em; opacity: .35;
-    }
-    .stage-objects { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .stage-obj {
-      border-radius: 8px; padding: .7rem 1rem; font-size: .85rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .obj-content { background: rgba(34,197,94,.15); border: 1px solid #22c55e; }
-    .obj-stage   { background: rgba(234,179,8,.12);  border: 1px solid #eab308; }
-    .obj-misc    { background: rgba(102,126,234,.2); border: 1px solid #667eea; }
-    .thumbnail-strip {
-      display: flex; gap: .5rem; margin-top: 1.5rem; overflow-x: auto; padding-bottom: .5rem;
-    }
-    .thumb {
-      width: 72px; height: 48px; border-radius: 6px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .thumb-active { border: 2px solid white; }
-    .thumb-content { background: rgba(34,197,94,.25); border: 1px solid #22c55e; }
-    .thumb-stage   { background: rgba(234,179,8,.2);  border: 1px solid #eab308; }
-    .thumb-pending { border: 2px solid #f97316; animation: pulse 1.5s infinite; }
-  </style>
-  <style>
     .screenshot-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,22 +20,31 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
+    .fmt { font-weight: 600; color: var(--brand-start); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Kameleon Presenter находится в активной разработке. Ниже перечислены текущие функции; цены и общая доступность всё ещё уточняются — <a href="../contact.html">Записаться на демо</a> и мы будем держать вас в курсе.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон ИИ</strong></a>
 <div class="nav-links">
-<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a>
+<a href="../index.html">Главная</a>
 <a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
 <a class="active" href="../presenter.html">Ведущий</a>
-<a href="../companion.html">Сопутствующее приложение</a>
-<a href="../logistics4x4.html">Логистика 4х4</a>
+<a href="../companion.html">Приложение-компаньон</a>
+<a href="../logistics4x4.html">Логистика 4×4</a>
 <a href="../services.html">Веб-службы</a>
-<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a>
+<a href="../accounting.html">Бухгалтерия</a>
 <a href="../technician.html">ПК-техник</a>
-<a href="../classroom.html">u041au043bu0430u0441u0441</a>
+<a href="../classroom.html">Класс</a>
 <a href="../contact.html">Контакт</a>
 <div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
@@ -73,225 +52,128 @@
 <div class="hero">
 <div class="hero-icon">🎭</div>
 <h1>Ведущий Хамелеон</h1>
-<p class="sub">Система презентаций, вдохновленная театром, где ваши слайды — это сцена, ваши блоки контента — это актеры, а переходы — это сигналы — всем этим можно управлять с телефона.</p>
+<p class="sub">Презентации, которые двигаются. Добавляйте слайды, PDF, видео, живой экран телефона или веб-камеру — анимируйте что угодно по таймлайну и управляйте всем шоу с телефона.</p>
 <div class="hero-badges">
-<span class="badge">🎬Театральная метафора</span>
-<span class="badge">📱 Мобильное управление</span>
-<span class="badge">✏️ Совместное рисование</span>
-<span class="badge">🖥️ Зеркало Android ADB</span>
-<span class="badge">📜 Временные шкалы с несколькими сценариями</span>
-<span class="badge">🎯 Умный выбор цели</span>
-<span class="badge">✦ Блоки сцены ИИ</span>
-<span class="badge">📰 Горизонтальные и вертикальные тикеры</span>
-<span class="badge">🔍 Фильтр типа сигнала</span>
-<span class="badge">⇄ Воспроизведение пинг-понга</span>
-<span class="badge">🖱 Прокрутка и масштабирование временной шкалы</span>
-<span class="badge">🗂 Контекстное меню комода</span>
-<span class="badge">📂 Стек из папки</span>
-<span class="badge">🕐 Временная шкала АБР</span>
-<span class="badge">🌐 Пользовательский интерфейс на 25 языках</span>
-<span class="badge">⇒ Путь к этапу и POPI</span>
+<span class="badge">🎬 Анимация временной шкалы</span>
+<span class="badge">📱 Телефон как пульт, без настройки</span>
+<span class="badge">🖇 Открывает файлы ClassIn и Xournal++</span>
+<span class="badge">🙋 Живые заявки от аудитории</span>
+<span class="badge">🤖 Дополнительная режиссура с помощью искусственного интеллекта</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Посмотрите это в действии</h2>
-<p>Живая демо-версия Kameleon Presenter — сцены, стеки, сигналы и мобильное управление</p>
+<h2>Смотрите, как это работает</h2>
+<p>В этой записи ИИ занимает место режиссёра — анимирует объекты и переключает макеты вживую, без участия человека за клавиатурой. Каждым элементом управления, который он использует, вы можете управлять сами из приложения или с телефона.</p>
 </div>
-<div style="max-width:860px;margin:0 auto 2.5rem;">
+<div style="max-width:860px;margin:0 auto 3rem;">
 <video controls="" preload="metadata" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);background:#000;">
 <source src="../presenter-assets/kameleon-demo.mp4" type="video/mp4"/>
-Ваш браузер не поддерживает видео HTML5.
+Ваш браузер не поддерживает HTML5 видео.
 </video>
 </div>
 <div class="section-title">
-<h2>Модель театра</h2>
-<p>Презентации построены как сценическая постановка — у объектов есть входы, выходы и подсказки.</p>
-</div>
-<!-- Live stage mockup -->
-<div class="stage-demo">
-<div style="font-size:.8rem;opacity:.5;margin-bottom:.5rem;">Объекты KameleonStack на сцене</div>
-<div class="stage-objects">
-<div class="stage-obj obj-content">🟢 Content Stack — слайды лекций</div>
-<div class="stage-obj obj-stage">🟡 Stage Stack — работы учащихся</div>
-<div class="stage-obj obj-misc">🖼️ Имиджбокс</div>
-<div class="stage-obj obj-misc">📄 PDFBox</div>
-<div class="stage-obj obj-misc">📱 Зеркало телефона ADB</div>
-<div class="stage-obj obj-misc">🖥️ Зеркало PPT</div>
-<div class="stage-obj obj-misc">✏️ Доска для рисования</div>
-<div class="stage-obj obj-misc">🎬 ВидеоБокс</div>
-</div>
-<div class="thumbnail-strip">
-<div class="thumb thumb-active thumb-content">🖼️</div>
-<div class="thumb thumb-content">📊</div>
-<div class="thumb thumb-pending">⏳</div>
-<div class="thumb thumb-stage">✍️</div>
-<div class="thumb thumb-content">📋</div>
-</div>
-<div style="font-size:.75rem;opacity:.45;margin-top:.8rem;">
-      Белая рамка = активна · Оранжевый импульс = ожидающая отправка от партнера · Зеленая = стек контента · Желтый = стек стадий
-    </div>
+<h2>Что вы можете с этим делать</h2>
+<p>Сцена, которую вы создаете, а не набор плоских слайдов</p>
 </div>
 <div class="cards">
 <div class="card">
-<div class="card-icon">📦</div>
-<h3>КамелеонСтек</h3>
-<p>Универсальный контейнер контента. Каждая стопка содержит несколько слотов (изображения, текст, PDF-файлы, видео, HTML). Два режима:</p>
-<ul>
-<li><strong style="color:#22c55e">Содержание</strong> — слайды под контролем преподавателя</li>
-<li><strong style="color:#eab308">Этап</strong> - принимает материалы, предложенные коллегами</li>
-</ul>
-<p><strong>📂 Стек из папки</strong> — выберите каталог файлов с числовым префиксом (<code>01-intro.png</code>, <code>02-demo.mp4</code>, <code>03-notes.txt</code>), а Kameleon создает полностью типизированный стек за один клик. Поддерживаются изображения, видео, PDF, обычный текст и HTML.</p>
+<div class="card-icon">🗂️</div>
+<h3>Поместите что-либо на слайд</h3>
+<p>Изображения, текст, PDF-файлы, видео, живые веб-страницы, зеркальный экран Android-телефона, трансляция с веб-камеры, общая доска для рисования. Каждый из них — объект, который вы размещаете, изменяете в размере и перемещаете отдельно — настройте экран так, как вам удобно.</p>
 </div>
 <div class="card">
 <div class="card-icon">🎬</div>
-<h3>Система анимации</h3>
-<p>Анимация входа/выхода для каждого объекта с путями движения от руки. Выберите предустановку направления, и приложение немедленно перейдет в режим выбора цели — одним жестом задается тип анимации и пункт назначения. В путях используется сглаживание Дугласа-Пейкера + Катмулла-Рома.</p>
-<p><strong>Сценическая анимация</strong> перемещать объекты, пока они уже находятся на экране. Щелкните правой кнопкой мыши любой объект на сцене → <strong>⇒ Сценическая анимация</strong> чтобы записать путь сцены от руки или выбрать <strong>КУКЛА</strong> Цель (Pop-Out Pop-In): объект масштабируется до нуля, телепортируется, а затем возвращается в новое положение.</p>
+<h3>Анимировать по временной шкале</h3>
+<p>Дайте любому объекту вход, выход или нарисованную от руки траекторию движения. Нумерованные подсказки продвигают шоу вперёд на один такт за раз. Один клик добавляет готовый план тайминга для 5-минутной презентации, 50-минутной лекции или 90-минутного воркшопа.</p>
 </div>
 <div class="card">
-<div class="card-icon">🗃️</div>
-<h3>Панель комода</h3>
-<p>Зона хранения за сценой — создавайте объекты в комоде и просматривайте их на сцене двойным щелчком мыши. Объекты, удаленные со сцены с помощью клавиши «Удалить», автоматически появляются в Комоде.</p>
-<p><strong>Щелкните правой кнопкой мыши любой предмет комода.</strong> для контекстного меню: <strong>👁 Предварительный просмотр</strong> (поместите в центре сцены, без анимации — для проверки размера; исходное положение восстанавливается при возврате, поэтому воспроизведение не влияет), <strong>⧉ Дублировать</strong>, <strong>◈ Резерв</strong> (выделите слот для хранения серым цветом) или <strong>✕ Удалить</strong>. Объекты со сценической анимацией показывают <strong>⇒</strong> суффикс в списке.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔢</div>
-<h3>Пронумерованные сигналы</h3>
-<p>Триггерные точки шаг за шагом продвигают презентацию, как световые сигналы в театре. Каждый сигнал может анимировать объекты, переключать слоты стека или выполнять временные последовательности.</p>
-</div>
-<div class="card">
-<div class="card-icon">✦</div>
-<h3>Блоки сцены AI</h3>
-<p>Рисуйте полосы генеративной анимации прямо на временной шкале — с запланированными перерывами или интервалами. Во время <strong>Блок сцены AI</strong>, объекты на сцене автоматически хореографируются по одному из четырех шаблонов: <strong>орбита</strong>, <strong>змея</strong>, <strong>случайный дрейф</strong>, или <strong>фокус прожектора</strong>. Объекты возвращаются в исходное положение, когда блок заканчивается.</p>
-</div>
-<div class="card">
-<div class="card-icon">📰</div>
-<h3>Тикерные объекты</h3>
-<p>Прокрутка текстовых бегущих строк <strong>горизонтальный</strong> (справа → слева) и <strong>вертикальный</strong> (вниз → вверх). Одновременно может работать до 8 тикеров — идеально для лент последних новостей, напоминаний о повестке дня или информационных панелей о событиях. Скорость и текст можно редактировать в реальном времени.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔍</div>
-<h3>Фильтр типа сигнала</h3>
-<p>Компактная панель фильтров расположена между элементами управления и линейкой с одной кнопкой переключения для каждого типа объекта: <strong>Txt · Img · ADB · PPT · PDF · Draw · Tick · Conn · Stack</strong>. Щелкните любую комбинацию, чтобы изолировать только эти сигналы — все остальные будут скрыты. Слабый синий оттенок линейки напоминает вам, что фильтр активен. Нажмите <strong>✕ Все</strong> чтобы мгновенно восстановить полный вид.</p>
-<p>The <strong>⬛ Предварительный просмотр</strong> toggle продвигает фильтрацию на шаг дальше: когда оно активно, само воспроизведение запускает сигналы только для выбранных типов — все остальное остается статичным на сцене. Полоса воспроизведения поворачивается <strong>янтарь</strong> пока предварительный просмотр включен, поэтому вы всегда знаете, что находитесь в фильтрованном прогоне. Идеально подходит для репетиции одного типа объекта или проверки синхронизации сигнала ADB, не нарушая остальную часть презентации.</p>
-</div>
-<div class="card">
-<div class="card-icon">🎬</div>
-<h3>Прокрутка курсора воспроизведения</h3>
-<p>Красная линия курсора воспроизведения зафиксирована в центре виджета временной шкалы. По мере продвижения воспроизведения линейка прокручивается под ней влево — предстоящие реплики всегда видны справа, прошлые реплики смещаются влево. Наведите указатель мыши на любую стрелку, чтобы увидеть большое плавающее всплывающее окно с полной меткой и меткой времени.</p>
-<p><strong>Колесо прокрутки</strong> очищает курсор воспроизведения (1 с на шаг). <strong>Ctrl+прокрутка</strong> увеличивает или уменьшает масштаб линейки (диапазон 20–200 пикселей/с), сохраняя синхронизацию ползунка масштабирования.</p>
-</div>
-<div class="card">
-<div class="card-icon">⇄</div>
-<h3>Воспроизведение пинг-понга</h3>
-<p>Давать возможность <strong>⇄</strong> менять направление на каждой границе вместо перезапуска. Временная шкала воспроизводится вперед до конца, затем назад до начала, затем снова вперед — до бесконечности. Кии стреляют <strong>противоположное действие</strong> на обратном проходе (вход↔выход). <strong>ГенеративныйАниматор</strong> меняет направление движения на противоположное, поэтому орбита, змея и фокус повторяют свои траектории. Полоса воспроизведения поворачивается <strong>голубой</strong> с нисходящим треугольником во время обратного хода. В сочетании с блоками AI Stage Blocks для гипнотических представлений во время перерыва.</p>
-</div>
-<div class="card">
-<div class="card-icon">📋</div>
-<h3>Шаблоны временной шкалы</h3>
-<p>Примените готовую структуру синхронизации в один клик: <strong>Основной доклад конференции (20 минут)</strong>, <strong>Университетская лекция (50 мин)</strong>, <strong>Мастер-класс (90 мин)</strong>, <strong>Короткая презентация (5 минут)</strong>, или <strong>Конференция полдня (3 часа)</strong>. Шаблоны изменяют время существующих реплик или создают пустой сценарий с помеченными маркерами.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h3>Временные рамки с несколькими сценариями</h3>
-<p>Одиночный <code>.kpt</code> танк выдерживает до <strong>10 именованных скриптов</strong> — независимые тайминги реплик, использующие одни и те же объекты сцены. Переключение сценариев мгновенно обновляет временную шкалу. Идеально подходит для полной версии, отрывков из основных моментов и вопросов и ответов в одном файле.</p>
+<div class="card-icon">🖇️</div>
+<h3>Откройте файлы, которые у вас уже есть</h3>
+<p>КлассВход <span class="fmt">.эдб</span> классные доски и Xournal++ <span class="fmt">.xop</span> заметки — с рабочего стола или мобильного приложения Xournal++ — импортируются напрямую: каждая страница и штрих становятся объектом, который можно редактировать и анимировать. PowerPoint, Keynote, Word и Markdown импортируются через универсальный импорт документов.</p>
 </div>
 <div class="card">
 <div class="card-icon">💾</div>
-<h3>Пакеты проектов .kpt</h3>
-<p>Проекты сохраняются в виде ZIP-архивов (<code>.kpt</code>), содержащий все медиаресурсы, данные макета, конфигурации анимации и все именованные сценарии. Открыть на любой машине под управлением Chameleon.</p>
+<h3>Один файл, много версий</h3>
+<p>Проект сохраняется как единый файл <span class="fmt">.кпт</span> Файл, содержащий все ваши медиафайлы и до десяти именованных таймлайнов — полное выступление, нарезка основных моментов и порядок сессии вопросов и ответов могут храниться в одном файле, который вы отправляете коллеге по электронной почте.</p>
 </div>
 <div class="card">
-<div class="card-icon">📐</div>
-<h3>Логические координаты</h3>
-<p>Сцена использует пространство логических координат от 0 до 10 000 независимо от разрешения экрана. Презентации выглядят одинаково на экране ноутбука или проекторе 4K.</p>
+<div class="card-icon">📱</div>
+<h3>Запустите шоу с телефона</h3>
+<p>Приложение Kameleon Remote для Android само находит ваш компьютер через Wi-Fi или USB — ничего вводить не нужно. Вы получаете живой эскиз того, что видит аудитория, кнопки «назад» / «вперёд», «воспроизвести» / «пауза» / «стоп», лазерную указку-подсветку и возможность рисовать прямо на живом слайде.</p>
+</div>
+<div class="card">
+<div class="card-icon">🙋</div>
+<h3>Позвольте комнате принять участие</h3>
+<p>Переключите слот в режим аудитории, и люди будут отправлять изображение или письменный ответ со своих телефонов. Каждый ответ ожидает в лотке — вы одобряете, удерживаете или отклоняете его, прежде чем он появится на экране.</p>
+</div>
+<div class="card">
+<div class="card-icon">🤖</div>
+<h3>Передайте это ИИ — если хотите</h3>
+<p>Отметьте участки таймлайна как ИИ-сегменты: во время перерыва ИИ мягко управляет тем, что на экране. Или позвольте ему вести всю презентацию, как в видео выше. Полностью опционально — приложение работает и без этого.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖥️</div>
+<h3>Выглядит правильно на любом экране</h3>
+<p>Сцена масштабируется под дисплей, на который попадает, поэтому презентация, созданная на ноутбуке, выглядит одинаково на 4K-проекторе. Никакого переформатирования, никаких сюрпризов в зале.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Мобильный и одноранговый контроль</h2>
-<p>Запустите презентатор со своего телефона; позволить учащимся выгружать контент из своих</p>
+<h2>Работает с Chameleon Classroom</h2>
+<p>Два приложения используют общий формат файлов и плеер.</p>
 </div>
 <div class="strip">
 <div class="strip-item">
-<div class="strip-icon">📱</div>
+<div class="strip-icon">🖇️</div>
 <div class="strip-body">
-<h4>Мобильный мост Android</h4>
-<p>Мобильный мост Chameleon (WebSocket) передает команды театра с любого устройства Android. Контроль <strong>stack_next/prev/play/pause/stop</strong>, помещайте изображения или текстовые слоты в стек и просматривайте трансляцию состояния стека в режиме реального времени.</p>
+<h4>Тот же механизм импорта</h4>
+<p>Перевод <span class="fmt">.эдб</span> и <span class="fmt">.xop</span> Импорт работает идентично в Chameleon Classroom, поэтому учебные материалы переносятся между двумя приложениями без изменений.</p>
 </div>
 </div>
 <div class="strip-item">
-<div class="strip-icon">🙋</div>
+<div class="strip-icon">▶️</div>
 <div class="strip-body">
-<h4>Представления коллег</h4>
-<p>Учащиеся помещают изображения или текст в стек в режиме Stage со своих телефонов. Отправленные материалы отображаются на полосе миниатюр с пульсирующей оранжевой рамкой. Ведущий может <strong>одобрять, удерживать, отклонять или продвигать</strong> каждый из них, прежде чем он выйдет на экран.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">✏️</div>
-<div class="strip-body">
-<h4>Общая доска для рисования</h4>
-<p>Совместное полотно от руки, управляемое с мобильного моста — <strong>draw_stroke/очистить/отменить</strong>. Идеально подходит для аннотирования слайдов, мозгового штурма или живых викторин.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🎯</div>
-<div class="strip-body">
-<h4>Умный рабочий процесс анимации</h4>
-<p>Щелкните правой кнопкой мыши любой объект, выберите <strong>Ввод слева</strong> (или любую предустановку направления), и приложение мгновенно переходит в режим выбора цели — один щелчок устанавливает, куда движется объект. При записи траектории движения от руки автоматически отмечаются начальные и конечные метки на временной шкале.</p>
+<h4>Встроенный плеер</h4>
+<p>Классная комната запускает Kameleon Presenter в нижней панели в режиме только для показа — презентуйте <span class="fmt">.кпт</span> дек внутри живого урока, не покидая класс.</p>
 </div>
 </div>
 <div class="strip-item">
 <div class="strip-icon">🤖</div>
 <div class="strip-body">
-<h4>Зеркало телефона ADB и захват PPT</h4>
-<p><strong>ADBPhoneBox</strong> транслирует живой экран Android прямо на сцену через ADB. <strong>PPTЗеркалоBox</strong> захватывает окно PowerPoint — представьте существующие колоды внутри Kameleon без конвертации.</p>
-<p><strong>🕐 Временная шкала АБР</strong> — щелкните правой кнопкой мыши любого актера ADB → <em>Добавить реплику на временную шкалу…</em> штамповать <strong>Перезапустить поток</strong>, <strong>Открыть URL-адрес</strong>, или <strong>Запустить приложение</strong> (по имени пакета) указывает точное положение курсора воспроизведения. Сигналы срабатывают как при воспроизведении с темпом пробела, так и при автоматическом воспроизведении по временной шкале.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">⚙️</div>
-<div class="strip-body">
-<h4>Запуск и настройки</h4>
-<p>Выберите, будет ли Камелеон открываться с <strong>последний загруженный проект</strong> или <strong>пустая сцена</strong> через меню «Настройки» → «При запуске». Предпочтение сохраняется в <code>~/.chameleon/kameleon_settings.json</code> и уважал каждый запуск.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>25-язычный интерфейс</h4>
-<p>Открыть <strong>Настройки → 🌐 Язык</strong> переключить пользовательский интерфейс Kameleon Presenter на любой из 25 языков, включая французский, немецкий, испанский, арабский, китайский, японский, корейский, русский, валлийский, тайский и другие. Все меню обновляются мгновенно с помощью <strong>нет перезапуска</strong>. Переводы загружаются в фоновом режиме при первом использовании; переключение происходит мгновенно после кэширования.</p>
+<h4>ИИ в чате урока</h4>
+<p>Классрум добавляет ИИ-участника чата, к которому вы обращаетесь как к любому другому ученику. <strong>Отправить в ИИ</strong> Кнопка как в настольном приложении, так и в приложении для Android вызывает его в разговор, когда вам это нужно.</p>
 </div>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
-<h2>Screenshots</h2>
-<p>Kameleon Presenter — captured live</p>
+<h2>Скриншоты</h2>
+<p>Kameleon Presenter — записано вживую</p>
 </div>
 <div class="screenshot-gallery" id="presenter-gallery">
-<div class="sg-frame"><img src="../presenter-assets/1-presenter.png" alt="Kameleon Presenter screenshot 1" loading="lazy"><div class="sg-cap">Screen 1</div></div>
-<div class="sg-frame"><img src="../presenter-assets/2-presenter.png" alt="Kameleon Presenter screenshot 2" loading="lazy"><div class="sg-cap">Screen 2</div></div>
-<div class="sg-frame"><img src="../presenter-assets/3-presenter.png" alt="Kameleon Presenter screenshot 3" loading="lazy"><div class="sg-cap">Screen 3</div></div>
-<div class="sg-frame"><img src="../presenter-assets/4-presenter.png" alt="Kameleon Presenter screenshot 4" loading="lazy"><div class="sg-cap">Screen 4</div></div>
-<div class="sg-frame"><img src="../presenter-assets/5-presenter.png" alt="Kameleon Presenter screenshot 5" loading="lazy"><div class="sg-cap">Screen 5</div></div>
-<div class="sg-frame"><img src="../presenter-assets/6-presenter.png" alt="Kameleon Presenter screenshot 6" loading="lazy"><div class="sg-cap">Screen 6</div></div>
-<div class="sg-frame"><img src="../presenter-assets/7-presenter.png" alt="Kameleon Presenter screenshot 7" loading="lazy"><div class="sg-cap">Screen 7</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 1" loading="lazy" src="../presenter-assets/1-presenter.png"/><div class="sg-cap">Экран 1</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 2" loading="lazy" src="../presenter-assets/2-presenter.png"/><div class="sg-cap">Экран 2</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 3" loading="lazy" src="../presenter-assets/3-presenter.png"/><div class="sg-cap">Экран 3</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 4" loading="lazy" src="../presenter-assets/4-presenter.png"/><div class="sg-cap">Экран 4</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 5" loading="lazy" src="../presenter-assets/5-presenter.png"/><div class="sg-cap">Экран 5</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 6" loading="lazy" src="../presenter-assets/6-presenter.png"/><div class="sg-cap">Экран 6</div></div>
+<div class="sg-frame"><img alt="Kameleon Presenter screenshot 7" loading="lazy" src="../presenter-assets/7-presenter.png"/><div class="sg-cap">Экран 7</div></div>
 </div>
 <div class="cta-band">
-<h3>Оживите свои презентации</h3>
-<p>Свяжитесь с нами, чтобы обсудить лицензию или организовать живую демонстрацию Kameleon Presenter.</p>
-<a class="btn btn-solid" href="../contact.html">Запросить демо-версию</a>
+<h3>Попробуйте Kameleon Presenter</h3>
+<p>Продаётся как разовая лицензия для настольного компьютера на Linux, Windows и macOS. <strong>Итоговая цена устанавливается сейчас</strong> — забронируйте демо, и мы отправим его с датой запуска.</p>
+<!-- BUY BUTTON SLOT — replace this comment with the Lemon Squeezy / Gumroad / Stripe buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Записаться на демо</a>
 <a class="btn" download="" href="../docs/Kameleon_Presenter_User_Guide.pdf">📄 Скачать руководство пользователя (PDF)</a>
 <a class="btn" href="../index.html">← Вернуться к обзору</a>
 </div>
 </div>
 <footer>
 <div class="foot-links">
-<a href="../index.html">u0413u043bu0430u0432u043du0430u044f</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
-<a href="../accounting.html">u0411u0443u0445u0433u0430u043bu0442u0435u0440u0438u044f</a><a href="../technician.html">ПК-техник</a>
-<a href="../classroom.html">u041au043bu0430u0441u0441</a><a href="../contact.html">Контакт</a>
+<a href="../index.html">Главная</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a>
+<a href="../accounting.html">Бухгалтерия</a><a href="../technician.html">ПК-техник</a>
+<a href="../classroom.html">Класс</a><a href="../contact.html">Контакт</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Создано Маркосом, также известным как Stemsee.</p>
+<p>© 2026 Chameleon AI Agent Ltd · Создано Marcos aka stemsee</p>
 </footer>
 </body>
 </html>

@@ -3,36 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI PC Technician — Chameleon AI</title>
+<title>Fundi wa PC — Chameleon AI</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
-    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .path-card {
-      border-radius: var(--radius); padding: 1.5rem;
-      border: 2px solid; box-shadow: var(--shadow);
-      background: white;
-    }
-    .path-a { border-color: #22c55e; }
-    .path-b { border-color: #3b82f6; }
-    .path-c { border-color: #f59e0b; }
-    .path-label { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-    .path-a .path-label { color: #22c55e; }
-    .path-b .path-label { color: #3b82f6; }
-    .path-c .path-label { color: #f59e0b; }
+    .path-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .path-card { border-radius: var(--radius); padding: 1.5rem; border: 2px solid; box-shadow: var(--shadow); background: var(--card-bg); }
+    .path-a { border-color: #22c55e; } .path-b { border-color: #3b82f6; } .path-c { border-color: #f59e0b; }
+    .path-label { font-size: 1.1rem; font-weight: 800; margin-bottom: .5rem; }
+    .path-a .path-label { color: #16a34a; } .path-b .path-label { color: #2563eb; } .path-c .path-label { color: #d97706; }
     .path-card h4 { margin-bottom: .4rem; color: var(--text); }
     .path-card p { color: var(--muted); font-size: .9rem; }
-    .terminal-block {
-      background: #0f0f1a; border-radius: var(--radius);
-      padding: 1.5rem; font-family: 'Courier New', monospace;
-      font-size: .82rem; color: #a0f0a0; margin: 1.5rem 0;
-      box-shadow: var(--shadow-lg); overflow-x: auto;
-    }
-    .terminal-block .cmd { color: #67e8f9; }
-    .terminal-block .out { color: #86efac; }
-    .terminal-block .comment { color: #6b7280; }
+    .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
+      text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<div class="pre-note">
+  Mtaalamu wa PC wa AI bado anafanyia kazi maendeleo, na amejengwa kwa ajili ya watu wanaostarehe na mstari wa amri wa Linux. Bei na upatikanaji bado unakamilishwa — <a href="../contact.html">Weka muhtihitaji onyesho</a>.
+</div>
 <nav>
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Kinyonga AI</strong></a>
@@ -40,134 +28,90 @@
 <a href="../index.html">Nyumbani</a>
 <a href="../ide.html">UNA MAWAZO</a>
 <a href="../presenter.html">Mtoa mada</a>
-<a href="../companion.html">Programu Mwenza</a>
-<a href="../logistics4x4.html">Vifaa 4×4</a>
+<a href="../companion.html">Programu Tandazi</a>
+<a href="../logistics4x4.html">Usafirishaji 4×4</a>
 <a href="../services.html">Huduma za Wavuti</a>
 <a href="../accounting.html">Uhasibu</a>
 <a class="active" href="../technician.html">Mtaalamu wa Kompyuta</a>
-
 <a href="../classroom.html">Darasa</a>
 <a href="../contact.html">Wasiliana</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../technician.html">🌐 EN — English</a><a href="../ar/technician.html">🇸🇦 AR — العربية</a><a href="../cy/technician.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/technician.html">🇩🇪 DE — Deutsch</a><a href="../el/technician.html">🇬🇷 EL — Ελληνικά</a><a href="../es/technician.html">🇪🇸 ES — Español</a><a href="../fr/technician.html">🇫🇷 FR — Français</a><a href="../hi/technician.html">🇮🇳 HI — हिन्दी</a><a href="../id/technician.html">🇮🇩 ID — Indonesia</a><a href="../it/technician.html">🇮🇹 IT — Italiano</a><a href="../ja/technician.html">🇯🇵 JA — 日本語</a><a href="../ko/technician.html">🇰🇷 KO — 한국어</a><a href="../pl/technician.html">🇵🇱 PL — Polski</a><a href="../pt/technician.html">🇵🇹 PT — Português</a><a href="../ro/technician.html">🇷🇴 RO — Română</a><a href="../ru/technician.html">🇷🇺 RU — Русский</a><a href="../uk/technician.html">🇺🇦 UK — Українська</a><a href="../vi/technician.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/technician.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
 <div class="hero-icon">🔧</div>
-<h1>AI PC Fundi</h1>
-<p class="sub">Utambuzi na ukarabati wa mfumo unaoongozwa na AI - pamoja na kiweka wasifu wa kifaa cha USB ambacho hubadilisha itifaki za maunzi ya uhandisi na kutengeneza viendesha kernel za Linux kiotomatiki.</p>
+<h1>Mtaalamu wa Kompyuta</h1>
+<p class="sub">AI inayotambua na kurekebisha mfumo wa Linux hatua kwa hatua — na kichunguzi cha USB kinachofafanua itifaki ya kifaa kisichojulikana na kukuandikia kiendeshaji.</p>
 <div class="hero-badges">
-<span class="badge">🔬 Uwekaji wasifu wa maunzi</span>
-<span class="badge">🐧 Uzalishaji wa moduli ya Kernel</span>
-<span class="badge">🌐 Umbali wa mbali kupitia Tailscale</span>
-<span class="badge">⚡ Mkusanyiko tofauti wa ARM</span>
+<span class="badge">🔬 Profaili za vifaa visivyojulikana vya USB</span>
+<span class="badge">🐧 Hutengeneza kiendeshi cha Linux</span>
+<span class="badge">🩺 Utambuzi kabla ya kugusa chochote</span>
+<span class="badge">🌐 Hutengeneza mashine kupitia Tailscale</span>
+<span class="badge">🥧 Inaundana kwa Raspberry Pi</span>
 </div>
 </div>
 <div class="page">
 <div class="section-title">
-<h2>Urekebishaji wa Mfumo Unaoongozwa na AI</h2>
-<p>AI inafuata itifaki ya upasuaji iliyopangwa - tambua kabla ya kugusa, thibitisha kwa kila hatua</p>
+<h2>Urekaji wa kukarabati kwa mwongozo wa AI</h2>
+<p>Itifaki isiyobadilika — gundua kabla ya kugusa, thibitisha katika kila hatua</p>
 </div>
-<div class="terminal-block">
-<span class="comment"># Mlolongo wa utambuzi wa Chameleon AI</span>
-<span class="cmd">$ lsusb -v | kichwa -80</span>
-<span class="out">Basi 002 Kifaa 003: ID 0bda:8153 Realtek USB 10/100/1000 LAN</span>
-<span class="cmd">$ dmesg | mkia -30</span>
-<span class="out">[12.445] r8152 2-1:1.0 eth1: imepewa jina kutoka eth0</span>
-<span class="cmd">$ lsmod | grep r8152</span>
-<span class="out">r8152 94208 0</span>
-<span class="cmd">$ modinfo r8152 | toleo la grep</span>
-<span class="out">toleo: v1.12.13</span>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🩺</div>
+<h3>Tambua kwanza, gusa baadaye</h3>
+<p>AI inafanya kazi kwa mpangilio maalum — vifaa, kernel, viendeshaji, mtandao, hifadhi — ikifanya ukaguzi mmoja kwa wakati na kusoma matokeo kabla ya kuamua hatua inayofuata. Hairukii hatua wala kufanya mawazo.</p>
 </div>
-<div class="strip">
-<div class="strip-item">
-<div class="strip-icon">🔍</div>
-<div class="strip-body">
-<h4>Mlolongo wa utambuzi uliowekwa</h4>
-<p>Maunzi → hali ya kernel → hali ya dereva → mtandao → hifadhi. AI huendesha kila hatua, husoma matokeo ya JSON, kisha huamua hatua inayofuata. Hairuki hatua kamwe au kufanya dhana.</p>
+<div class="card">
+<div class="card-icon">🔧</div>
+<h3>Suluhisho salama zaidi kwanza</h3>
+<p>Pakia moduli au anzisha upya huduma kabla ya hatua yoyote hatari zaidi. Chukua picha ya usanidi kabla ya mabadiliko yanayoweza kuleta madhara. Thibitisha kuwa imefanya kazi baada ya kila hatua.</p>
 </div>
+<div class="card">
+<div class="card-icon">⏱️</div>
+<h3>Hunusurika baada ya kuwashwa upya</h3>
+<p>Kila kirekebisho kinachohitaji kuanzishwa upya huweka hati ya kuendelea kwanza, ili AI iendelee hasa pale ilipoacha wakati mashine inaporudi.</p>
 </div>
-<div class="strip-item">
-<div class="strip-icon">🏥</div>
-<div class="strip-body">
-<h4>Itifaki ya ukarabati wa upasuaji</h4>
-<p>Sio uharibifu kwanza (pakia upya moduli, anzisha upya huduma). Endelea kabla ya hatari (usanidi wa picha). Thibitisha kwa kila hatua. Kila kitendo kinachohitaji kuwashwa upya huanzisha Swichi ya Mtu Aliyekufa ambayo huweka a <code>@reboot</code> anzisha hati kiotomatiki.</p>
-</div>
-</div>
-<div class="strip-item">
-<div class="strip-icon">🌐</div>
-<div class="strip-body">
-<h4>Urekebishaji wa mbali juu ya Tailscale</h4>
-<p>Tambua na urekebishe mashine popote kwenye matundu yako ya Tailscale. AI hutoa amri kwenye mashine ya mbali kupitia daraja la kituo, husoma matokeo na kuendelea - hata kwenye kuwasha upya kwa kutumia mfumo wa ukaguzi/uanzishaji upya.</p>
-</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Tengeneza mashine ambazo huketi kwenye</h3>
+<p>Tatambua na kurekebisha chochote kwenye mtandao wako wa Tailscale. AI inaendesha amri kwenye mashine ya mbali, inasoma matokeo na inaendelea — ikijumuisha kwenye kuwashwa upya.</p>
 </div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Mlango wa Dereva wa USB</h2>
-<p>Wasifu kifaa chochote cha USB → changanua itifaki yake → toa kiendesha Linux kilicho tayari kusakinishwa</p>
+<p>Chomeza kifaa kisichojulikana → kamata jinsi kinavyozungumza → pata kiendeshaji cha Linux</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🔬</div>
+<div class="strip-body">
+<h4>Wasifu wa sekunde 30</h4>
+<p>Chomeza kifaa na ufanye ukamataji mfupi. Kichunguzi kinarekodi jinsi kinavyowasiliana — maelezo hayo yanaongoza kila kitu kinachofuata. Kisha huchagua moja kati ya njia tatu, kulingana na jinsi kifaa kilivyo maalum:</p>
+</div>
+</div>
 </div>
 <div class="path-cards">
 <div class="path-card path-a">
-<div class="path-label">Njia ya A</div>
-<h4>Itifaki za kawaida</h4>
-<p>Hakuna kurasa za muuzaji zilizopatikana. Inazalisha sheria za udev + usanidi wa modprobe. <strong>Hakuna mkusanyiko unaohitajika.</strong> Inafanya kazi na HID, CDC, uhifadhi wa wingi na madarasa mengine ya kawaida.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dcfce7;color:#16a34a">udev</span><span class="tag" style="background:#dcfce7;color:#16a34a">modprobe</span></div>
+<div class="path-label">Kawaida</div>
+<h4>Kategoria inayojulikana ya kifaa</h4>
+<p>Kibodi, adapta za mfululizo, hifadhi na aina nyingine za kawaida. Unapata sheria za udev na usanidi wa modprobe — hakuna cha kukusanya.</p>
 </div>
 <div class="path-card path-b">
-<div class="path-label">Njia ya B</div>
-<h4>Itifaki ya muuzaji wa sehemu</h4>
-<p>Kurasa za muuzaji zimegunduliwa (≤2). Huzalisha daemoni ya nafasi ya mtumiaji iliyofichwa/uhid au programu-jalizi ya ALSA. Hufanya kazi katika nafasi ya mtumiaji - hakuna mkusanyiko wa kernel unaohitajika.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#dbeafe;color:#1d4ed8">kujificha</span><span class="tag" style="background:#dbeafe;color:#1d4ed8">Programu-jalizi ya ALSA</span></div>
+<div class="path-label">Sehemu-maalum</div>
+<h4>Itifaki maalum vya muuzaji</h4>
+<p>Unapata programu ndogo ya userspace au programu-jalizi ya sauti inayozungumza itifaki ya kifaa. Bado inaendesha katika userspace — hakuna ujenzi wa kernel.</p>
 </div>
 <div class="path-card path-c">
-<div class="path-label">Njia ya C</div>
-<h4>Itifaki ya umiliki</h4>
-<p>Itifaki maalum kabisa. Huzalisha moduli kamili ya kernel na kifungashio cha DKMS na usaidizi wa mkusanyiko wa ARM kwa Raspberry Pi 3, 4 na 5.</p>
-<div class="tags" style="margin-top:.8rem;"><span class="tag" style="background:#fef3c7;color:#b45309">Moduli ya Kernel</span><span class="tag" style="background:#fef3c7;color:#b45309">DKMS</span><span class="tag" style="background:#fef3c7;color:#b45309">ARM</span></div>
-</div>
-</div>
-<div class="section-title" style="margin-top:2rem;">
-<h2>Mtiririko wa kazi wa Profaili</h2>
-</div>
-<div class="terminal-block">
-<span class="comment"># Hatua ya 1 - wasifu kifaa (kukamata kwa sekunde 30)</span>
-<span class="cmd">$ python3 device_profiler.py --vid 0x1234 --pid 0x5678 --kamata 30</span>
-<span class="out">Inaweka wasifu USB 1234:5678 kwa miaka 30...
-Aliandika ~/.chameleon/drivers/1234_5678/profile.json</span>
-<span class="comment"># Hatua ya 2 - toa kiendeshi</span>
-<span class="cmd">$ python3 device_porter.py --karibuni</span>
-<span class="out">Njia iliyochaguliwa: C (wamiliki, kurasa 3 za muuzaji)
-Imetolewa: /tmp/driver_1234_5678/
-  ├── kinyonga_1234_5678.c
-  ├── Makefile (cross-arch64, cross-armv7)
-  ├── install.sh
-  ├── test_device.sh
-  └── uchambuzi.json</span>
-<span class="comment"># Hatua ya 3 - sakinisha</span>
-<span class="cmd">$ sudo bash /tmp/driver_1234_5678/install.sh</span>
-<span class="cmd">$ bash /tmp/driver_1234_5678/test_device.sh</span>
-<span class="out">PASS — kifaa /dev/chameleon0 hujibu kwa usahihi</span>
-</div>
-<div class="cards">
-<div class="card">
-<div class="card-icon">🖥️</div>
-<h3>Nyuma za kunasa jukwaa</h3>
-<p>ETW kwenye Windows, IOKit kwenye macOS, usbmon kwenye Linux. Profaili kwenye OS yoyote na utengeneze kiendeshi cha Linux kutoka kwa matokeo <code>profile.json</code>.</p>
-</div>
-<div class="card">
-<div class="card-icon">🍓</div>
-<h3>Raspberry Pi msalaba-kukusanya</h3>
-<p>Malengo ya kutengeneza faili <code>cross-aarch64</code> (Pi 4/5) na <code>cross-armv7</code> (Pi 3) imejumuishwa kiotomatiki kwenye Njia C. Jenga kwenye x86 na upeleke kwenye ARM.</p>
-</div>
-<div class="card">
-<div class="card-icon">📦</div>
-<h3>Ufungaji wa DKMS</h3>
-<p>Viendeshi vya Njia C huwekwa kwa ajili ya DKMS ili waweze kustahimili uboreshaji wa kernel bila urejeshaji wa mikono. Mapitio ya AI <code>analysis.json</code> na vidokezo kwa vijiti vyovyote vya TODO vilivyosalia.</p>
+<div class="path-label">Wamiliki</div>
+<h4>Itifaki maalum kabisa</h4>
+<p>Unapata moduli kamili ya kernel, iliyofungashwa kwa DKMS ili iendelee kufanya kazi baada ya sasisho za kernel, na iliyotengenezwa kwa ushirikiano wa mifumo tofauti kwa Raspberry Pi 3, 4 na 5.</p>
 </div>
 </div>
 <div class="cta-band">
-<h3>Rekebisha isiyoweza kurekebishwa</h3>
-<p>Iwe ni hofu ya punje, kifaa cha USB kilichokufa au kifaa cha pembeni kinachomilikiwa bila usaidizi wa Linux - Fundi wa Kompyuta wa Chameleon AI amekushughulikia.</p>
-<a class="btn btn-solid" href="../contact.html">Wasiliana</a>
+<h3>Jaribu AI PC Technician</h3>
+<p>Inauzwa kama leseni ya mezani ya mara moja kwa Linux. <strong>Bei ya mwisho inawekwa sasa</strong> — weka demo na tutatuma kwa tarehe ya uzinduzi.</p>
+<!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
+<a class="btn btn-solid" href="../contact.html">Weka na onyesho</a>
 <a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
 </div>
 </div>
@@ -177,7 +121,7 @@ Imetolewa: /tmp/driver_1234_5678/
 <a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
 <a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a>
 </div>
-<p>© 2026 Chameleon AI Technicians Ltd · Imejengwa na Marcos aka stemsee</p>
+<p>© 2026 Chameleon AI Agent Ltd · Imejengwa na Marcos aka stemsee</p>
 </footer>
 </body>
 </html>
