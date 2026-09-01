@@ -25,7 +25,7 @@
 </head>
 <body>
 <div class="pre-note">
-  Chameleon Accounting is in active development. It prepares your figures — you or your accountant file them. Pricing and availability are still being finalised — <a href="contact.html">contact us about licensing</a>.
+  Chameleon Accounting is in active development. It prepares and files your figures; you or your accountant remain responsible for them. Pricing and availability are still being finalised — <a href="contact.html">contact us about licensing</a>.
 </div>
 <nav>
 <div class="nav-inner">
@@ -47,13 +47,13 @@
 <div class="hero">
 <div class="hero-icon">📊</div>
 <h1>Accounting</h1>
-<p class="sub">Double-entry books for a UK small company — VAT, Profit &amp; Loss, Balance Sheet and Making Tax Digital VAT returns, in a ledger that lives on your own machine.</p>
+<p class="sub">Double-entry books for a UK small company — VAT, Profit &amp; Loss, Balance Sheet, Making Tax Digital VAT returns filed straight to HMRC, and Open Banking bank feeds, in a ledger that lives on your own machine.</p>
 <div class="hero-badges">
 <span class="badge">🇬🇧 UK chart of accounts built in</span>
-<span class="badge">📋 MTD VAT return format</span>
+<span class="badge">📤 Files VAT to HMRC (MTD)</span>
+<span class="badge">🏦 Open Banking bank feeds</span>
 <span class="badge">🧾 HMRC Notice 700 invoices</span>
 <span class="badge">🔒 Local file, works offline</span>
-<span class="badge">🤖 Ask the AI about your numbers</span>
 </div>
 </div>
 <div class="page">
@@ -62,14 +62,14 @@
 <p>Proper double-entry — debits equal credits, to the penny</p>
 </div>
 <div class="ledger-sample">
-<span class="hd">Date         Account                    Debit (£)   Credit (£)   VAT</span><br/>
-2026-04-01   4000 Sales Revenue                       <span class="cr">1,200.00</span>   S20<br/>
-2026-04-01   2200 VAT Control                           <span class="cr">240.00</span><br/>
-2026-04-01   1100 Trade Debtors          <span class="dr">1,440.00</span><br/>
+<span class="hd">Date         Account                      Debit (£)   Credit (£)   VAT</span><br/>
+2026-04-01   4130 Services: AI Consulting              <span class="cr">1,200.00</span>   S20<br/>
+2026-04-01   2210 VAT Control Account                    <span class="cr">240.00</span><br/>
+2026-04-01   1200 Accounts Receivable       <span class="dr">1,440.00</span><br/>
 <br/>
-2026-04-05   6100 Office Expenses          <span class="dr">85.00</span>                S20<br/>
-2026-04-05   2200 VAT Control              <span class="dr">17.00</span><br/>
-2026-04-05   1200 Bank Current                          <span class="cr">102.00</span>
+2026-04-05   7100 Rent &amp; Rates              <span class="dr">85.00</span>                S20<br/>
+2026-04-05   2210 VAT Control Account        <span class="dr">17.00</span><br/>
+2026-04-05   1100 Bank: Current Account                  <span class="cr">102.00</span>
 </div>
 <div class="cards">
 <div class="card">
@@ -88,9 +88,9 @@
 <p>Year-end is 6 April to 5 April. Profit &amp; Loss and VAT reports cover the right period automatically — no manual date wrangling.</p>
 </div>
 <div class="card">
-<div class="card-icon">🧾</div>
-<h3>MTD-shaped VAT returns</h3>
-<p>The VAT summary comes out box by box in the HMRC Making Tax Digital format: Box 1 output tax, Box 4 input tax, Box 6 net sales, Box 7 net purchases.</p>
+<div class="card-icon">📤</div>
+<h3>Files your VAT return to HMRC</h3>
+<p>Full Making Tax Digital for VAT: it reads your open obligations from HMRC, builds the nine-box return from the ledger, submits it, and retrieves the confirmation, your VAT liabilities and your payments — with HMRC's fraud-prevention headers. It won't let you file the same period twice.</p>
 </div>
 <div class="card">
 <div class="card-icon">📈</div>
@@ -108,6 +108,21 @@
 <p>The whole ledger is a single file on your computer. It works with no internet. Run several companies side by side and switch between them with one flag.</p>
 </div>
 <div class="card">
+<div class="card-icon">🏦</div>
+<h3>Open Banking bank feeds</h3>
+<p>Connect a bank account through a regulated Open Banking provider — GoCardless Bank Account Data or TrueLayer — and transactions arrive automatically. The connection runs on your machine; your bank data and credentials never pass through us.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>Reconciles against the feed</h3>
+<p>It matches each bank line to what's already in the books — by reference, by amount and date, or by payee — then shows what's left: transactions to post, and ledger entries the bank hasn't cleared. Re-importing never double-posts.</p>
+</div>
+<div class="card">
+<div class="card-icon">🪪</div>
+<h3>Checks the VAT and company numbers</h3>
+<p>Validates a UK VAT number's check digits before it ever reaches HMRC, and looks up a company's registered name, status and office on the Companies House register.</p>
+</div>
+<div class="card">
 <div class="card-icon">🤖</div>
 <h3>Ask about your position</h3>
 <p>Every report also comes out as structured data the Chameleon AI can read — so you can ask, in plain English, how the quarter looks or where the VAT went.</p>
@@ -123,6 +138,33 @@
 <div class="vat-code"><div class="vc">Z</div><p>Zero-rated</p></div>
 <div class="vat-code"><div class="vc">E</div><p>Exempt</p></div>
 <div class="vat-code"><div class="vc">O</div><p>Out of scope</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>From bank feed to HMRC</h2>
+<p>The quarterly VAT cycle, end to end</p>
+</div>
+<div class="strip">
+<div class="strip-item">
+<div class="strip-icon">🏦</div>
+<div class="strip-body">
+<h4>1 · Pull the transactions</h4>
+<p>The Open Banking feed brings in the quarter's bank transactions; CSV and OFX statement imports work too, and receipts arrive from the phone. Reconciliation matches them against invoices and expenses already entered.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">🧮</div>
+<div class="strip-body">
+<h4>2 · Build and check the return</h4>
+<p>The nine-box VAT return is calculated from the ledger. A forensic scan and an arithmetic check run first; you review the figures.</p>
+</div>
+</div>
+<div class="strip-item">
+<div class="strip-icon">📤</div>
+<div class="strip-body">
+<h4>3 · File with HMRC</h4>
+<p>It authenticates with HMRC once, reads your open obligation, submits the return with the required fraud-prevention headers, and stores HMRC's receipt, your liabilities and your payments. It refuses to file a period that's already been filed.</p>
+</div>
+</div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Receipts come to you</h2>
@@ -146,9 +188,10 @@
 </div>
 <div class="cta-band">
 <h3>Chameleon Accounting</h3>
-<p>Sold as a one-time desktop licence. It prepares your figures in HMRC formats — <strong>you or your accountant submit them</strong>. Final price is being set now.</p>
+<p>Sold as a desktop licence. It prepares the figures from your ledger and files them to HMRC — <strong>you, or your accountant, remain responsible for the numbers and for reviewing every return before it is sent</strong>. It is a software tool, not tax advice. Final price is being set now.</p>
 <!-- BUY BUTTON SLOT — replace with the buy link once the price is final -->
 <a class="btn btn-solid" href="contact.html">Contact us</a>
+<a class="btn" href="docs/Chameleon_Accounting_User_Guide.pdf">📄 User Guide (PDF)</a>
 <a class="btn" href="index.html">← Back to overview</a>
 </div>
 </div>

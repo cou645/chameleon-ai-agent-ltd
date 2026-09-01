@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Chameleon Accounting — User Guide</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  body { font-family: "Liberation Serif", "Times New Roman", serif; font-size: 11pt;
+         line-height: 1.45; color: #1a1a1a; }
+  h1 { font-size: 22pt; margin: 0 0 4pt; }
+  h2 { font-size: 15pt; margin: 20pt 0 6pt; border-bottom: 1px solid #999; padding-bottom: 2pt;
+       page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 12pt 0 4pt; page-break-after: avoid; }
+  p, li { margin: 4pt 0; }
+  code, pre, kbd { font-family: "Liberation Mono", "Courier New", monospace; font-size: 9.5pt; }
+  pre { background: #f2f2f5; border: 1px solid #ddd; padding: 6pt 8pt; white-space: pre-wrap;
+        word-wrap: break-word; page-break-inside: avoid; }
+  kbd { background: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 0 3px; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0; font-size: 10pt;
+          page-break-inside: avoid; }
+  th, td { border: 1px solid #bbb; padding: 4pt 6pt; text-align: left; vertical-align: top; }
+  th { background: #ececf2; }
+  .lead { color: #444; }
+  .note { background: #fff8e6; border: 1px solid #e6cf87; padding: 6pt 8pt; margin: 8pt 0; }
+  .cover { text-align: center; margin-top: 60mm; }
+  .cover h1 { font-size: 30pt; }
+  .cover p { font-size: 12pt; color: #555; }
+  .toc a { text-decoration: none; color: #1a1a1a; }
+  .pb { page-break-before: always; }
+  footer { margin-top: 24pt; border-top: 1px solid #ccc; padding-top: 6pt; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>Chameleon Accounting</h1>
+  <p>User Guide</p>
+  <p>UK double-entry bookkeeping, Making Tax Digital for VAT, and Open Banking bank feeds</p>
+  <p>&nbsp;</p>
+  <p>Version 2.0 &nbsp;·&nbsp; September 2026</p>
+  <p>CHAMELEON-AI-AGENT LTD &nbsp;·&nbsp; Company No. 17147789 (England &amp; Wales)</p>
+</div>
+
+<div class="pb"></div>
+<h2>Contents</h2>
+<ol class="toc">
+  <li>About this guide</li>
+  <li>Installing and running</li>
+  <li>Where your data lives</li>
+  <li>Companies</li>
+  <li>The ledger and chart of accounts</li>
+  <li>Recording transactions</li>
+  <li>Open Banking bank feeds</li>
+  <li>Bank reconciliation</li>
+  <li>Reports</li>
+  <li>Invoices</li>
+  <li>VAT and Making Tax Digital</li>
+  <li>Identity checks</li>
+  <li>Multiple devices and licensing</li>
+  <li>Security and backups</li>
+  <li>Command reference</li>
+  <li>Support</li>
+</ol>
+
+<div class="pb"></div>
+<h2>1. About this guide</h2>
+<p class="lead">Chameleon Accounting is desktop software for keeping the books of a UK small company or a self-employed business: a double-entry ledger, a UK chart of accounts, VAT tracking, Profit &amp; Loss and Balance Sheet reports, HMRC-format invoices, Making Tax Digital (MTD) VAT filing, and Open Banking bank feeds.</p>
+<p>It runs on your own computer. Your ledger is a single file on your disk. Data leaves your machine only when you tell the software to contact a third party — HMRC when you file a return, or your chosen Open Banking provider when you sync a bank account — and in each case it goes directly from your device to that party.</p>
+<div class="note"><strong>Not tax advice.</strong> Chameleon Accounting is a tool. You, and where applicable your accountant, remain solely responsible for the accuracy, completeness and timeliness of your records and returns, and for reviewing every figure before it is submitted to HMRC. The software does not verify or guarantee acceptance of any submission. See the Terms &amp; Conditions at chameleon-ai-agent-ltd.net/terms.html.</p></div>
+<p>Commands in this guide are shown for the command-line tool, <code>chameleon_accounting.py</code>. The desktop application exposes the same features through its Accounting tab. Every command prints a JSON result.</p>
+
+<h2>2. Installing and running</h2>
+<p>Chameleon Accounting ships as part of the Chameleon AI desktop suite for Linux, Windows and macOS. Once installed, the accounting tool is run as:</p>
+<pre>python3 chameleon_accounting.py --help</pre>
+<p>The first run creates the ledger and seeds the UK chart of accounts automatically. Try:</p>
+<pre>python3 chameleon_accounting.py --list-accounts
+python3 chameleon_accounting.py --report bs</pre>
+
+<h2>3. Where your data lives</h2>
+<p>Everything is under <code>~/.chameleon/accounting/</code>:</p>
+<table>
+<tr><th>Path</th><th>Contents</th></tr>
+<tr><td><code>&lt;company&gt;/ledger.db</code></td><td>The double-entry ledger (SQLite).</td></tr>
+<tr><td><code>&lt;company&gt;/company.json</code></td><td>Your company details for invoices and reports.</td></tr>
+<tr><td><code>&lt;company&gt;/hmrc_token.json</code></td><td>HMRC OAuth tokens (created after you authorise).</td></tr>
+<tr><td><code>&lt;company&gt;/device_id</code></td><td>A stable identifier for this device.</td></tr>
+<tr><td><code>&lt;company&gt;/gocardless_bankdata_*.json</code>, <code>truelayer_*.json</code></td><td>Open Banking tokens and link state.</td></tr>
+<tr><td><code>api_keys.env</code></td><td>Your API credentials (mode 600, never committed to version control).</td></tr>
+<tr><td><code>default_company</code></td><td>Which company slug to use when <code>--company</code> is not given.</td></tr>
+</table>
+<p>Credentials are read from <code>~/.chameleon/accounting/api_keys.env</code> (one <code>KEY=VALUE</code> per line) or from environment variables of the same name.</p>
+
+<h2>4. Companies</h2>
+<p>The software is multi-company: one ledger per business, each in its own directory. Select a company with <code>--company &lt;slug&gt;</code>, set the default once, or use an environment variable:</p>
+<pre>python3 chameleon_accounting.py --set-default-company acme_ltd
+export CHAMELEON_ACCOUNTING_COMPANY=acme_ltd     # overrides the default</pre>
+<p>Put the company's legal details in <code>&lt;company&gt;/company.json</code> so they appear on invoices and reports:</p>
+<pre>{
+  "name": "ACME LTD",
+  "company_number": "12345678",
+  "address_line1": "1 High Street", "city": "London", "postcode": "EC1A 1AA",
+  "country": "United Kingdom",
+  "vat_number": "GB123456789",
+  "email": "accounts@acme.example", "website": "https://acme.example",
+  "bank_name": "", "sort_code": "", "account_number": "",
+  "payment_terms_days": 30
+}</pre>
+
+<h2>5. The ledger and chart of accounts</h2>
+<p>A standard UK chart of accounts is seeded on first run — assets (1xxx), liabilities (2xxx), equity (3xxx), income (4xxx), expenses (5xxx–8xxx). Key codes:</p>
+<table>
+<tr><th>Code</th><th>Account</th></tr>
+<tr><td>1100</td><td>Bank: Current Account</td></tr>
+<tr><td>1200</td><td>Accounts Receivable</td></tr>
+<tr><td>2100</td><td>Accounts Payable</td></tr>
+<tr><td>2210</td><td>VAT Control Account</td></tr>
+<tr><td>4100–4700</td><td>Income (services, product sales, subscriptions, other)</td></tr>
+<tr><td>5100–8xxx</td><td>Expenses (subcontractors, hardware, cloud, salaries, rent, …)</td></tr>
+</table>
+<pre>python3 chameleon_accounting.py --list-accounts</pre>
+<p>Every transaction is validated on entry: total debits must equal total credits to the penny, or it is rejected.</p>
+
+<h2>6. Recording transactions</h2>
+
+<h3>6.1 Manual entries</h3>
+<p>Use <code>--entry</code> with a pipe-delimited string: <code>DATE|DESCRIPTION|MEMO|DEBIT_ACCT|CREDIT_ACCT|AMOUNT[|VAT_CODE]</code>.</p>
+<pre>python3 chameleon_accounting.py --entry \
+  "2026-04-05|Rent|April office rent|7100|1100|102.00|S20"</pre>
+<p>VAT codes: <kbd>S20</kbd> standard 20%, <kbd>R5</kbd> reduced 5%, <kbd>Z</kbd> zero-rated, <kbd>E</kbd> exempt, <kbd>O</kbd> outside scope, <kbd>EC</kbd> reverse charge.</p>
+
+<h3>6.2 Bank statement CSV import</h3>
+<p>The importer auto-detects the layout. Recognised formats include Barclays, HSBC, Lloyds and Monzo business exports, Xero and Wave, PayPal, and generic debit/credit or single-amount CSVs. A file is hashed on import, so the same statement cannot be imported twice.</p>
+<pre>python3 chameleon_accounting.py --import-csv statement.csv --bank-account 1100</pre>
+
+<h3>6.3 OFX / QBO / QFX import</h3>
+<pre>python3 chameleon_accounting.py --import-ofx statement.ofx --bank-account 1100</pre>
+<p>Transactions are de-duplicated by their <code>FITID</code>.</p>
+
+<h3>6.4 Payment processors</h3>
+<p>Pull settled transactions from a payment processor's API using your own keys:</p>
+<pre>python3 chameleon_accounting.py --gateway-key STRIPE_SECRET_KEY sk_live_...
+python3 chameleon_accounting.py --gateway-sync stripe --from 2026-04-01 --to 2026-06-30</pre>
+<p>Supported: <code>stripe</code>, <code>paypal</code>, <code>wise</code>, <code>gocardless</code> (Direct Debit), <code>alipay</code>, <code>wechat</code>. Run <code>--gateway-setup</code> for the exact key names each needs. Transactions are de-duplicated by the processor's transaction id.</p>
+
+<h2>7. Open Banking bank feeds</h2>
+<p>Connect a real bank account and let transactions flow in automatically. The connection is made through a <strong>regulated Open Banking provider</strong> — an FCA-authorised Account Information Service Provider (AISP). Two are supported:</p>
+<ul>
+<li><strong>GoCardless Bank Account Data</strong> (formerly Nordigen) — free tier, ~90 days of history, a few pulls per account per day.</li>
+<li><strong>TrueLayer</strong> — Data API; sandbox free, live is paid.</li>
+</ul>
+<div class="note">The bank connection runs entirely on your device. Your bank data and bank login are handled by you and the AISP under the AISP's own terms; CHAMELEON-AI-AGENT LTD never receives, stores or has access to them. Open Banking consents expire (typically after 90 days); re-run the link step to renew.</div>
+
+<h3>7.1 Choosing a provider</h3>
+<p>Set the provider per command with <code>--ob-provider {gocardless|truelayer}</code>, or once with <code>OB_PROVIDER=</code> in <code>api_keys.env</code>. Default is <code>gocardless</code>.</p>
+
+<h3>7.2 GoCardless Bank Account Data</h3>
+<p>Create a free account at <code>bankaccountdata.gocardless.com</code>, then in <code>api_keys.env</code>:</p>
+<pre>GOCARDLESS_BANKDATA_SECRET_ID=...
+GOCARDLESS_BANKDATA_SECRET_KEY=...</pre>
+
+<h3>7.3 TrueLayer</h3>
+<p>Create an application in the TrueLayer console (<code>console.truelayer.com</code>), register a redirect URI, then:</p>
+<pre>TRUELAYER_CLIENT_ID=...
+TRUELAYER_CLIENT_SECRET=...
+TRUELAYER_SANDBOX=1        # optional: use the free sandbox environment</pre>
+
+<h3>7.4 Linking a bank</h3>
+<pre># 1. list banks
+python3 chameleon_accounting.py --ob-institutions gb
+
+# 2. start the link
+#    GoCardless: pass the institution id.  TrueLayer: omit it.
+python3 chameleon_accounting.py --ob-link SANDBOXFINANCE_SFIN0000
+#    -> open the "link" URL in a browser and authenticate with your bank
+
+# 3. finish the link
+#    GoCardless: pass the requisition id.  TrueLayer: pass the ?code= value.
+python3 chameleon_accounting.py --ob-poll &lt;requisition-id-or-code&gt;
+
+# 4. confirm
+python3 chameleon_accounting.py --ob-accounts</pre>
+
+<h3>7.5 Importing transactions</h3>
+<pre>python3 chameleon_accounting.py --ob-import --from 2026-04-01 --to 2026-06-30</pre>
+<p>Options: <code>--ob-account &lt;id&gt;</code> to limit to one account, <code>--ob-ledger-account &lt;code&gt;</code> to post to a bank account other than 1100. With no dates, the last 90 days are used. Lines are de-duplicated by the bank's own transaction id.</p>
+
+<h2>8. Bank reconciliation</h2>
+<p>Reconciliation checks that the transactions on your ledger's bank account agree with the bank, and matches each bank line to what is already recorded so nothing is double-counted.</p>
+
+<h3>8.1 Against the Open Banking feed</h3>
+<pre>python3 chameleon_accounting.py --ob-reconcile --from 2026-04-01 --to 2026-06-30</pre>
+<p>This is a dry run — nothing is written. It reports:</p>
+<ul>
+<li><strong>matched</strong> — bank lines already in the ledger, with how they were matched;</li>
+<li><strong>unmatched_bank</strong> — bank lines not yet posted (run <code>--ob-import</code> to add them);</li>
+<li><strong>unmatched_ledger</strong> — ledger entries the bank has not cleared (timing differences);</li>
+<li>the bank's own balance vs the ledger balance, and whether they agree.</li>
+</ul>
+<p>Match types, best first: <em>reference</em> (a shared reference or invoice number), <em>exact</em> (same amount and date), <em>fuzzy_date</em> (same amount, within a few days), <em>fuzzy_text</em> (same amount, close date, similar payee). Widen or narrow the date tolerance with <code>--ob-reconcile-window DAYS</code> (default 4).</p>
+<p>To import only the genuinely-new lines and skip anything already in the books:</p>
+<pre>python3 chameleon_accounting.py --ob-import --ob-reconcile --from 2026-04-01 --to 2026-06-30</pre>
+
+<h3>8.2 Against a downloaded statement</h3>
+<pre>python3 chameleon_accounting.py --reconcile-bank --account 1100 \
+  --bank-file statement.csv --statement-balance 12345.67</pre>
+
+<h2>9. Reports</h2>
+<pre>python3 chameleon_accounting.py --report pl     # Profit &amp; Loss
+python3 chameleon_accounting.py --report bs     # Balance Sheet
+python3 chameleon_accounting.py --report vat    # VAT return summary (9 boxes)
+python3 chameleon_accounting.py --report txn    # Transaction list
+python3 chameleon_accounting.py --forensic      # anomaly scan</pre>
+<p>Date range: <code>--from</code> / <code>--to</code>, or <code>--year 2026</code>, or <code>--tax-year 2026</code> (UK 6 April – 5 April). The Balance Sheet also confirms assets = liabilities + equity. Every report is also emitted as structured JSON.</p>
+
+<h2>10. Invoices</h2>
+<pre>python3 chameleon_accounting.py --invoice new --client "ACME Ltd" \
+  --amount 1200.00 --vat S20 --description "AI consulting — April"
+python3 chameleon_accounting.py --invoice-list
+python3 chameleon_accounting.py --invoice-pay INV-0001</pre>
+<p>Invoices carry every field HMRC Notice 700 requires: a unique sequential number, both VAT numbers, invoice and supply dates, itemised lines with per-line VAT, and net/VAT/gross subtotals. They render as HTML you can print or save as PDF. Company details come from <code>company.json</code>.</p>
+
+<h2>11. VAT and Making Tax Digital</h2>
+<p>Chameleon Accounting files VAT returns directly to HMRC under Making Tax Digital, and retrieves your obligations, liabilities and payments.</p>
+
+<h3>11.1 One-time setup</h3>
+<ol>
+<li>Register at <code>developer.service.hmrc.gov.uk</code> and create an application named, e.g., <em>Chameleon Accounting</em>. Subscribe it to <strong>VAT (MTD)</strong> (production and sandbox), <strong>Create Test User</strong> (sandbox) and <strong>Test Fraud Prevention Headers</strong> (sandbox).</li>
+<li>Put the credentials in <code>api_keys.env</code>:
+<pre>python3 chameleon_accounting.py --gateway-key HMRC_CLIENT_ID &lt;client-id&gt;
+python3 chameleon_accounting.py --gateway-key HMRC_CLIENT_SECRET &lt;client-secret&gt;
+python3 chameleon_accounting.py --gateway-key HMRC_VRN &lt;your-9-digit-VRN&gt;</pre></li>
+</ol>
+
+<h3>11.2 Test in the sandbox first</h3>
+<pre># create a sandbox test business (writes its test VRN to api_keys.env)
+python3 chameleon_accounting.py --hmrc-create-test-user --hmrc-sandbox
+
+# check the fraud-prevention headers are valid
+python3 chameleon_accounting.py --hmrc-check-fraud-headers</pre>
+<p>The <code>--hmrc-scenario NAME</code> flag drives HMRC's sandbox test scenarios (e.g. <code>QUARTERLY_ONE_MET</code>, <code>MULTIPLE_LIABILITIES</code>, <code>MULTIPLE_PAYMENTS</code>).</p>
+
+<h3>11.3 Authorise</h3>
+<pre>python3 chameleon_accounting.py --hmrc-auth --hmrc-sandbox
+#   -> open the auth_url, sign in, approve, copy the code shown
+python3 chameleon_accounting.py --hmrc-exchange-code &lt;code&gt; --hmrc-sandbox</pre>
+<p>Access lasts about 4 hours and is refreshed automatically; the underlying consent lasts 18 months.</p>
+
+<h3>11.4 The quarterly cycle</h3>
+<pre># what needs filing
+python3 chameleon_accounting.py --hmrc-obligations --hmrc-sandbox \
+  --from 2026-01-01 --to 2026-12-31
+
+# build the return from the ledger and review it
+python3 chameleon_accounting.py --hmrc-prepare --hmrc-sandbox \
+  --from 2026-04-01 --to 2026-06-30
+
+# dry run (no submission)
+python3 chameleon_accounting.py --hmrc-submit --hmrc-sandbox \
+  --period-key 26A2 --from 2026-04-01 --to 2026-06-30
+
+# file it for real
+python3 chameleon_accounting.py --hmrc-submit --hmrc-sandbox --hmrc-finalize \
+  --period-key 26A2 --from 2026-04-01 --to 2026-06-30
+
+# afterwards
+python3 chameleon_accounting.py --hmrc-return      --hmrc-sandbox --period-key 26A2
+python3 chameleon_accounting.py --hmrc-liabilities --hmrc-sandbox --from 2026-01-01 --to 2026-12-31
+python3 chameleon_accounting.py --hmrc-payments    --hmrc-sandbox --from 2026-01-01 --to 2026-12-31</pre>
+<div class="note"><strong>You cannot file a period twice.</strong> If this ledger has already filed the period, the software blocks the submission before it reaches HMRC and tells you the form-bundle number of the earlier filing. Override only if you are certain it is a different filing, with <code>--hmrc-force</code>. Once accepted by HMRC, a VAT return cannot be amended — corrections are made in the next period.</div>
+
+<h3>11.5 Fraud-prevention headers</h3>
+<p>HMRC requires every MTD request to carry <code>Gov-Client-*</code> / <code>Gov-Vendor-*</code> headers that identify the device and connection. Chameleon Accounting generates these from your system (a persistent device id, local IP addresses and their timestamp, MAC addresses, timezone, screen size where available). Validate them against HMRC's checker with <code>--hmrc-check-fraud-headers</code>.</p>
+
+<h3>11.6 Going live</h3>
+<p>Once HMRC has granted production credentials, replace <code>HMRC_CLIENT_ID</code> / <code>HMRC_CLIENT_SECRET</code> in <code>api_keys.env</code> with the production pair, set your real <code>HMRC_VRN</code>, and drop <code>--hmrc-sandbox</code> from every command.</p>
+
+<h2>12. Identity checks</h2>
+<pre># UK VAT number: format + check digits (modulus-97 and the 9755 variant)
+python3 chameleon_accounting.py --validate-vrn "GB 123 4567 89"
+
+# Companies House: registered name, status, office
+python3 chameleon_accounting.py --companies-house 12345678</pre>
+<p>The Companies House lookup needs a free API key from <code>developer.company-information.service.gov.uk</code> in <code>api_keys.env</code> as <code>COMPANIES_HOUSE_API_KEY</code>. Use a key from a <em>Live</em> application for real companies; a <em>Test</em> key works only against the sandbox (<code>--companies-house-sandbox</code>). Neither check proves legal identity — that rests with HMRC's VAT register and the MTD authorisation.</p>
+
+<h2>13. Multiple devices and licensing</h2>
+<p>A licence covers one desktop and one phone, paired together as a seat (typically by scanning a QR code shown by the desktop app). Additional devices may connect and sync as secondary binds. One device at a time is expected to hold MTD filing authority for a set of books; others may view, edit and sync.</p>
+<div class="note">No warranty is offered for data loss, conflicting edits or duplicate/missed filings arising from running the software, or syncing the same books, across more than one device. Review the device log where multiple devices are in use.</div>
+<pre>python3 chameleon_accounting.py --device-log 20
+python3 chameleon_accounting.py --device-log-event sync_pull --device-kind phone</pre>
+<p>Every MTD submission attempt — successful or blocked — is written to this log with the device id.</p>
+
+<h2>14. Security and backups</h2>
+<ul>
+<li><code>api_keys.env</code> and token files are set to mode 600. Keep them off shared drives and out of version control.</li>
+<li>Back up the whole <code>~/.chameleon/accounting/</code> directory regularly. The ledger is a single SQLite file per company.</li>
+<li>HMRC and Open Banking tokens live only on your device. Revoke Open Banking access at any time through your bank or the AISP; revoke HMRC access in your HMRC online account.</li>
+</ul>
+
+<h2>15. Command reference</h2>
+<table>
+<tr><th>Command</th><th>Purpose</th></tr>
+<tr><td><code>--list-accounts</code></td><td>Show the chart of accounts</td></tr>
+<tr><td><code>--entry "…"</code></td><td>Post a manual journal entry</td></tr>
+<tr><td><code>--import-csv FILE</code> / <code>--import-ofx FILE</code></td><td>Import a bank statement</td></tr>
+<tr><td><code>--gateway-sync NAME</code></td><td>Pull from a payment processor</td></tr>
+<tr><td><code>--ob-provider</code>, <code>--ob-institutions</code>, <code>--ob-link</code>, <code>--ob-poll</code>, <code>--ob-accounts</code></td><td>Set up an Open Banking bank feed</td></tr>
+<tr><td><code>--ob-import</code> [<code>--ob-reconcile</code>]</td><td>Import bank-feed transactions (optionally skipping matched)</td></tr>
+<tr><td><code>--ob-reconcile</code></td><td>Reconciliation report (dry run)</td></tr>
+<tr><td><code>--reconcile-bank --bank-file … --statement-balance …</code></td><td>Reconcile against a downloaded statement</td></tr>
+<tr><td><code>--report pl|bs|vat|txn</code>, <code>--forensic</code></td><td>Reports</td></tr>
+<tr><td><code>--invoice</code>, <code>--invoice-pay</code>, <code>--invoice-list</code></td><td>Invoicing</td></tr>
+<tr><td><code>--hmrc-auth</code>, <code>--hmrc-exchange-code</code></td><td>Authorise with HMRC</td></tr>
+<tr><td><code>--hmrc-obligations</code>, <code>--hmrc-prepare</code>, <code>--hmrc-submit</code> [<code>--hmrc-finalize</code>], <code>--hmrc-return</code></td><td>File a VAT return</td></tr>
+<tr><td><code>--hmrc-liabilities</code>, <code>--hmrc-payments</code></td><td>Retrieve VAT liabilities / payments</td></tr>
+<tr><td><code>--hmrc-check-fraud-headers</code></td><td>Validate fraud-prevention headers</td></tr>
+<tr><td><code>--hmrc-create-test-user</code>, <code>--hmrc-scenario</code>, <code>--hmrc-sandbox</code></td><td>Sandbox testing</td></tr>
+<tr><td><code>--validate-vrn</code>, <code>--companies-house</code></td><td>Identity checks</td></tr>
+<tr><td><code>--company</code>, <code>--set-default-company</code></td><td>Select / set the company</td></tr>
+<tr><td><code>--device-log</code>, <code>--device-log-event</code></td><td>Device &amp; sync audit log</td></tr>
+</table>
+
+<h2>16. Support</h2>
+<p>Support covers the software itself — installation, configuration, syncing and features. It is not bookkeeping, accountancy or tax advice, and we do not review your figures or returns.</p>
+<p>Contact: <code>stemsee@chameleon-ai-agent-ltd.net</code></p>
+
+<footer>
+© 2026 CHAMELEON-AI-AGENT LTD, company no. 17147789, registered in England &amp; Wales.
+Registered office: 3rd Floor, 86-90 Paul Street, London, EC2A 4NE, United Kingdom.
+This guide describes software in active development; commands and behaviour may change.
+</footer>
+
+</body>
+</html>
