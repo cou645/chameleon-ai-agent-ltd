@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex"/>
+<title>HMRC authorisation — Chameleon Accounting</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+  .cb { max-width: 560px; margin: 4rem auto; padding: 2rem 2.2rem;
+        background: var(--card-bg); border: 1px solid var(--border);
+        border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+  .cb h1 { color: var(--brand-start); font-size: 1.4rem; margin-bottom: .6rem; }
+  .cb p { color: var(--muted); font-size: .95rem; }
+  .code-box { font-family: 'IBM Plex Mono','Courier New',monospace; font-size: 1.05rem;
+        word-break: break-all; background: #1a1a2e; color: #c8c8f0;
+        border-radius: 10px; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+  .cb button { background: var(--brand-start); color: #fff; border: 0; border-radius: 50px;
+        padding: .6rem 1.4rem; font-size: .95rem; font-weight: 600; cursor: pointer; }
+  .cb button:hover { background: var(--brand-mid); }
+  .err { color: #b91c1c; }
+  .ok  { color: #15803d; font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="cb">
+  <h1>Chameleon Accounting</h1>
+  <div id="body"><p>Reading the response from HMRC…</p></div>
+</div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var code = q.get('code'), err = q.get('error'), desc = q.get('error_description');
+  var b = document.getElementById('body');
+  if (err) {
+    b.innerHTML = '<p class="err"><strong>HMRC returned an error:</strong> ' +
+      encodeURIComponent(err) + (desc ? ' — ' + desc : '') + '</p>' +
+      '<p>Close this tab and start the authorisation again.</p>';
+    return;
+  }
+  if (!code) {
+    b.innerHTML = '<p>No authorisation code in the URL. Open this page only via ' +
+      'the HMRC consent flow started by Chameleon Accounting.</p>';
+    return;
+  }
+  b.innerHTML =
+    '<p>Authorisation granted. Copy this code back into Chameleon Accounting:</p>' +
+    '<div class="code-box" id="c">' + code.replace(/[<>&"]/g, '') + '</div>' +
+    '<button id="cp">Copy code</button>' +
+    '<p class="ok" id="s"></p>' +
+    '<p style="margin-top:1rem;">Then run<br>' +
+    '<code>chameleon_accounting.py --hmrc-exchange-code &lt;code&gt; --hmrc-sandbox</code></p>';
+  document.getElementById('cp').onclick = function () {
+    var t = document.getElementById('c').textContent;
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject())
+      .then(function () { document.getElementById('s').textContent = 'Copied.'; })
+      .catch(function () { document.getElementById('s').textContent = 'Select the code above and copy it manually.'; });
+  };
+})();
+</script>
+</body>
+</html>
