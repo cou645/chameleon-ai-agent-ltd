@@ -1,0 +1,190 @@
+{
+  "nodes": [
+    {
+      "id": "companion_assets_16chameleon_companion1709_help_user_guide_screen",
+      "label": "Chameleon Companion Help & User Guide Screen (Quick Start)",
+      "file_type": "image",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "Android app screenshot: in-app Help & User Guide with tabbed navigation (Quick Start / Full Guide). Dark theme, card-based layout with color-coded sections: red warning card for prerequisites, neutral card for app description, blue card for first-time setup. Numbered step lists guide the user through network setup."
+    },
+    {
+      "id": "companion_assets_16chameleon_companion1709_chameleon_companion_app",
+      "label": "Chameleon Companion (Android app)",
+      "file_type": "concept",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "Android phone app that connects to the Chameleon AI Technician IDE on a PC. Provides remote AI chat, terminal control, screen viewing, peer video calls, and classroom features over a private Tailscale network."
+    },
+    {
+      "id": "companion_assets_16chameleon_companion1709_tailscale_mesh_vpn",
+      "label": "Tailscale Private Mesh VPN Requirement",
+      "file_type": "rationale",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Chameleon Companion REQUIRES a private mesh VPN; without it nothing will connect. Tailscale is the primary choice, with Headscale (self-hosted), ZeroTier, WireGuard, or LAN-only (same WiFi) listed as alternatives. All devices must sign in with the same account.",
+      "description": "Hard prerequisite: install Tailscale on PC and all phones, sign in with the same account on all devices."
+    },
+    {
+      "id": "companion_assets_16chameleon_companion1709_acl_device_tags",
+      "label": "Tailscale ACL Device Tags (chameleon-ide / companion-app)",
+      "file_type": "rationale",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Access control is tag-based: the PC is tagged chameleon-ide, phones are tagged companion-app, and the ACL must allow companion-app -> chameleon-ide on tcp:* and udp:*. This scopes connectivity to only the intended device roles.",
+      "description": "In Tailscale Admin, tag the PC chameleon-ide and phones companion-app; verify ACL allows companion-app to reach chameleon-ide over TCP and UDP."
+    },
+    {
+      "id": "companion_assets_16chameleon_companion1709_chameleon_ide",
+      "label": "Chameleon AI Technician IDE (PC)",
+      "file_type": "concept",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "Desktop IDE running on the PC that the Companion app connects to for remote AI chat, terminal control, and screen viewing."
+    },
+    {
+      "id": "companion_assets_16chameleon_companion1709_chameleon_signal_server",
+      "label": "chameleon_signal.py Signal Server",
+      "file_type": "concept",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "Signalling server started on the PC with 'python3 ~/chameleon/chameleon_signal.py &' as part of first-time setup; required before opening Chameleon Companion on the phone."
+    },
+    {
+      "id": "companion_assets_16chameleon_companion1709_first_time_setup_flow",
+      "label": "Companion First Time Setup Flow",
+      "file_type": "concept",
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "Ordered setup sequence: 1) install Tailscale on phone and PC and join the same network, 2) start Chameleon IDE on the PC, 3) start chameleon_signal.py on the PC, 4) open Chameleon Companion on the phone."
+    }
+  ],
+  "edges": [
+    {
+      "source": "companion_assets_16chameleon_companion1709_help_user_guide_screen",
+      "target": "companion_assets_16chameleon_companion1709_chameleon_companion_app",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_help_user_guide_screen",
+      "target": "companion_assets_16chameleon_companion1709_first_time_setup_flow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_chameleon_companion_app",
+      "target": "companion_assets_16chameleon_companion1709_chameleon_ide",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_tailscale_mesh_vpn",
+      "target": "companion_assets_16chameleon_companion1709_chameleon_companion_app",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_acl_device_tags",
+      "target": "companion_assets_16chameleon_companion1709_tailscale_mesh_vpn",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_first_time_setup_flow",
+      "target": "companion_assets_16chameleon_companion1709_chameleon_signal_server",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_first_time_setup_flow",
+      "target": "companion_assets_16chameleon_companion1709_tailscale_mesh_vpn",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "companion_assets_16chameleon_companion1709_chameleon_signal_server",
+      "target": "companion_assets_16chameleon_companion1709_chameleon_ide",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "companion_first_time_setup_participants",
+      "label": "Companion First-Time Setup Participants",
+      "nodes": [
+        "companion_assets_16chameleon_companion1709_tailscale_mesh_vpn",
+        "companion_assets_16chameleon_companion1709_chameleon_ide",
+        "companion_assets_16chameleon_companion1709_chameleon_signal_server",
+        "companion_assets_16chameleon_companion1709_chameleon_companion_app"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/mnt/sda2/website/companion-assets/16CHAMELEON-COMPANION1709.png"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
