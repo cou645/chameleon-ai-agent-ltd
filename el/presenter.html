@@ -20,7 +20,7 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
-    .fmt { font-weight: 600; color: var(--brand-start); }
+    .fmt { font-weight: 600; color: var(--brand-text); }
     .pre-note {
       background: #fffaf0; border: 1px solid #f6d68a;
       color: #7a5312; text-align: center;
@@ -29,10 +29,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Το Kameleon Presenter βρίσκεται σε ενεργή ανάπτυξη. Τα χαρακτηριστικά παρακάτω είναι τα τρέχοντα· η τιμολόγηση και η γενική διαθεσιμότητα εξακολουθούν να οριστικοποιούνται — <a href="../contact.html">Κλείστε ένα demo</a> και θα σας κρατάμε ενήμερους.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Χαμαιλέοντας AI</strong></a>
 <div class="nav-links">
@@ -46,7 +47,7 @@
 <a href="../technician.html">Τεχνικός Η/Υ</a>
 <a href="../classroom.html">Αίθουσα διδασκαλίας</a>
 <a href="../contact.html">Επαφή</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -61,7 +62,7 @@
 <span class="badge">🤖 Προαιρετική σκηνοθεσία AI</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>Δείτε το να τρέχει</h2>
 <p>Σε αυτή την ηχογράφηση, ένα AI αναλαμβάνει τον ρόλο του σκηνοθέτη — ζωντανεύοντας αντικείμενα και αλλάζοντας διατάξεις σε πραγματικό χρόνο, χωρίς κανέναν στο πληκτρολόγιο. Κάθε στοιχείο ελέγχου που χρησιμοποιεί, μπορείτε να το χειριστείτε μόνοι σας από την εφαρμογή ή το τηλέφωνό σας.</p>

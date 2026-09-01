@@ -20,7 +20,7 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
-    .fmt { font-weight: 600; color: var(--brand-start); }
+    .fmt { font-weight: 600; color: var(--brand-text); }
     .pre-note {
       background: #fffaf0; border: 1px solid #f6d68a;
       color: #7a5312; text-align: center;
@@ -29,10 +29,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Презентер Kameleon перебуває в активній розробці. Наведені нижче функції є актуальними; ціни та загальна доступність ще уточнюються — <a href="../contact.html">Забронювати демо</a> і ми будемо тримати вас у курсі.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
 <div class="nav-links">
@@ -46,7 +47,7 @@
 <a href="../technician.html">Технік ПК</a>
 <a href="../classroom.html">Класна кімната</a>
 <a href="../contact.html">контакт</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -61,7 +62,7 @@
 <span class="badge">🤖 Необов'язкова режисура ШІ</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>Дивіться, як це працює</h2>
 <p>У цьому записі ШІ сідає в крісло режисера — анімує об’єкти та перемикає макети наживо, без жодного натискання клавіш. Кожен елемент керування, який він використовує, ви можете керувати самостійно з застосунку або з телефона.</p>

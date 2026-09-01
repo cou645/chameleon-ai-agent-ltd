@@ -31,7 +31,7 @@
       background: #f8f7ff; border-radius: var(--radius);
       border: 2px solid var(--border); padding: 1.5rem 1.8rem; margin-bottom: 2rem;
     }
-    .how-it-works h3 { color: var(--brand-start); margin-bottom: .8rem; }
+    .how-it-works h3 { color: var(--brand-text); margin-bottom: .8rem; }
 
     .code-block {
       background: #1e1e2e; color: #cdd6f4;
@@ -125,7 +125,7 @@
     .code-table tr:hover td { background: #fafaff; }
     .code-cell {
       font-family: monospace; font-weight: 900; font-size: .95rem;
-      color: var(--brand-start); white-space: nowrap;
+      color: var(--brand-text); white-space: nowrap;
     }
     .code-table td:last-child { color: var(--muted); }
     /* Critical codes */
@@ -147,7 +147,7 @@
     .qref-table tr:last-child td { border-bottom: none; }
     .qref-table tr:hover td { background: #fafaff; }
     .qref-table td:first-child { font-weight: 600; color: var(--text); }
-    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-start); font-weight: 700; }
+    .qref-table td:not(:first-child) { font-family: monospace; color: var(--brand-text); font-weight: 700; }
 
     /* ── METHANE note ────────────────────────────────────────────── */
     .protocol-note {
@@ -174,17 +174,18 @@
   </style>
 </head>
 <body>
-<nav>
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Camaleão AI</strong></a>
 <div class="nav-links">
 <a href="../index.html">Início</a>
 <a class="active" href="../logistics4x4.html">Logística 4×4</a>
 <a href="../contact.html">Contato</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇵🇹 PT ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇵🇹 PT ▾</button><div class="lang-menu"><a href="../codes.html">🌐 EN — English</a><a href="../ar/codes.html">🇸🇦 AR — العربية</a><a href="../cy/codes.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/codes.html">🇩🇪 DE — Deutsch</a><a href="../el/codes.html">🇬🇷 EL — Ελληνικά</a><a href="../es/codes.html">🇪🇸 ES — Español</a><a href="../fr/codes.html">🇫🇷 FR — Français</a><a href="../hi/codes.html">🇮🇳 HI — हिन्दी</a><a href="../id/codes.html">🇮🇩 ID — Indonesia</a><a href="../it/codes.html">🇮🇹 IT — Italiano</a><a href="../ja/codes.html">🇯🇵 JA — 日本語</a><a href="../ko/codes.html">🇰🇷 KO — 한국어</a><a href="../pl/codes.html">🇵🇱 PL — Polski</a><a href="../ro/codes.html">🇷🇴 RO — Română</a><a href="../ru/codes.html">🇷🇺 RU — Русский</a><a href="../sw/codes.html">🇰🇪 SW — Kiswahili</a><a href="../uk/codes.html">🇺🇦 UK — Українська</a><a href="../vi/codes.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/codes.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
-<div class="page">
+<div class="page" id="main" role="main">
 <!-- ── Document header ─────────────────────────────────────── -->
 <div class="doc-header">
 <h1>🛡 Referência do código de comunicações de campo</h1>
@@ -196,7 +197,7 @@
 <div class="action-strip no-print">
 <p>Salve esta página como PDF usando a função Imprimir do seu navegador — <strong>Arquivo → Imprimir → Salvar como PDF</strong>. Mantenha uma cópia em seu telefone para referência off-line.</p>
 <button class="btn-print" onclick="window.print()">🖨 Imprimir/Salvar como PDF</button>
-<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-start);">← Voltar para Logística 4×4</a>
+<a class="btn-print" href="../logistics4x4.html" style="background:rgba(102,126,234,.15);color:var(--brand-text);">← Voltar para Logística 4×4</a>
 </div>
 <!-- ── How codes work ──────────────────────────────────────── -->
 <div class="how-it-works">

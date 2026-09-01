@@ -31,10 +31,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   بيئة تطوير Chameleon AI IDE قيد التطوير النشط. الميزات أدناه حالية؛ لا يزال التسعير والتوفر العام قيد الإنهاء — <a href="../contact.html">احجز عرضًا توضيحيًا</a> وسنبقيك على اطلاع.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>شاميليون AI</strong></a>
 <div class="nav-links">
@@ -48,7 +49,7 @@
 <a href="../technician.html">فني كمبيوتر</a>
 <a href="../classroom.html">الفصل الدراسي</a>
 <a href="../contact.html">اتصال</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../hi/ide.html">🇮🇳 HI — हिन्दी</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -63,7 +64,7 @@
 <span class="badge">🔒 يعمل محليًا، وتبقى المفاتيح ملكًا لك</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>ما الذي يجعلها مختلفة</h2>
 <p>يقترح معظم محرري الذكاء الاصطناعي. هذا واحد يشغل المحرر.</p>

@@ -31,10 +31,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Chameleon AI IDE सक्रिय विकास में है। नीचे दी गई विशेषताएं वर्तमान हैं; मूल्य निर्धारण और सामान्य उपलब्धता अभी भी अंतिम रूप दी जा रही हैं — <a href="../contact.html">डेमो बुक करें</a> और हम आपको अपडेट करते रहेंगे।
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>कैमेलियन एआई</strong></a>
 <div class="nav-links">
@@ -48,7 +49,7 @@
 <a href="../technician.html">पीसी तकनीशियन</a>
 <a href="../classroom.html">कक्षा</a>
 <a href="../contact.html">संपर्क</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../ide.html">🌐 EN — English</a><a href="../ar/ide.html">🇸🇦 AR — العربية</a><a href="../cy/ide.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/ide.html">🇩🇪 DE — Deutsch</a><a href="../el/ide.html">🇬🇷 EL — Ελληνικά</a><a href="../es/ide.html">🇪🇸 ES — Español</a><a href="../fr/ide.html">🇫🇷 FR — Français</a><a href="../id/ide.html">🇮🇩 ID — Indonesia</a><a href="../it/ide.html">🇮🇹 IT — Italiano</a><a href="../ja/ide.html">🇯🇵 JA — 日本語</a><a href="../ko/ide.html">🇰🇷 KO — 한국어</a><a href="../pl/ide.html">🇵🇱 PL — Polski</a><a href="../pt/ide.html">🇵🇹 PT — Português</a><a href="../ro/ide.html">🇷🇴 RO — Română</a><a href="../ru/ide.html">🇷🇺 RU — Русский</a><a href="../sw/ide.html">🇰🇪 SW — Kiswahili</a><a href="../uk/ide.html">🇺🇦 UK — Українська</a><a href="../vi/ide.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/ide.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -63,7 +64,7 @@
 <span class="badge">🔒 स्थानीय रूप से चलता है, कुंजियाँ आपके पास रहती हैं</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>क्या चीज़ इसे अलग बनाती है</h2>
 <p>अधिकांश AI एडिटर सुझाव देते हैं। यह एडिटर को संचालित करता है।</p>

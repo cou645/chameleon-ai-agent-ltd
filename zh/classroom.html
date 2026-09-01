@@ -22,10 +22,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Chameleon 课堂正在积极开发中。以下功能是当前的；定价和可用性仍在最终确定中 — <a href="../contact.html">预订演示</a> 我们会持续向您通报最新进展。
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>变色龙人工智能</strong></a>
 <div class="nav-links">
@@ -39,7 +40,7 @@
 <a href="../technician.html">电脑技术员</a>
 <a class="active" href="../classroom.html">课堂</a>
 <a href="../contact.html">接触</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../classroom.html">🌐 EN — English</a><a href="../ar/classroom.html">🇸🇦 AR — العربية</a><a href="../cy/classroom.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/classroom.html">🇩🇪 DE — Deutsch</a><a href="../el/classroom.html">🇬🇷 EL — Ελληνικά</a><a href="../es/classroom.html">🇪🇸 ES — Español</a><a href="../fr/classroom.html">🇫🇷 FR — Français</a><a href="../hi/classroom.html">🇮🇳 HI — हिन्दी</a><a href="../id/classroom.html">🇮🇩 ID — Indonesia</a><a href="../it/classroom.html">🇮🇹 IT — Italiano</a><a href="../ja/classroom.html">🇯🇵 JA — 日本語</a><a href="../ko/classroom.html">🇰🇷 KO — 한국어</a><a href="../pl/classroom.html">🇵🇱 PL — Polski</a><a href="../pt/classroom.html">🇵🇹 PT — Português</a><a href="../ro/classroom.html">🇷🇴 RO — Română</a><a href="../ru/classroom.html">🇷🇺 RU — Русский</a><a href="../sw/classroom.html">🇰🇪 SW — Kiswahili</a><a href="../uk/classroom.html">🇺🇦 UK — Українська</a><a href="../vi/classroom.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -55,7 +56,7 @@
 <span class="badge">🔒 私密，点对点</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>课程，全部在一个窗口中</h2>
 <p>白板、幻灯片播放器、视频墙和聊天——上课中途无需切换应用</p>

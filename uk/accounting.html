@@ -17,17 +17,18 @@
     .vat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: 1.5rem 0; }
     .vat-code { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
       padding: 1rem; text-align: center; box-shadow: var(--shadow); }
-    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-start); }
+    .vat-code .vc { font-size: 1.4rem; font-weight: 700; color: var(--brand-text); }
     .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
       text-align: center; padding: .6rem 1rem; font-size: .9rem; }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Бухгалтерія Chameleon перебуває в активній розробці. Вона готує ваші цифри — а ви або ваш бухгалтер подаєте їх. Ціни та доступність ще уточнюються — <a href="../contact.html">Забронювати демо</a>.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>Хамелеон А.І</strong></a>
 <div class="nav-links">
@@ -41,7 +42,7 @@
 <a href="../technician.html">Технік ПК</a>
 <a href="../classroom.html">Класна кімната</a>
 <a href="../contact.html">контакт</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../accounting.html">🌐 EN — English</a><a href="../ar/accounting.html">🇸🇦 AR — العربية</a><a href="../cy/accounting.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/accounting.html">🇩🇪 DE — Deutsch</a><a href="../el/accounting.html">🇬🇷 EL — Ελληνικά</a><a href="../es/accounting.html">🇪🇸 ES — Español</a><a href="../fr/accounting.html">🇫🇷 FR — Français</a><a href="../hi/accounting.html">🇮🇳 HI — हिन्दी</a><a href="../id/accounting.html">🇮🇩 ID — Indonesia</a><a href="../it/accounting.html">🇮🇹 IT — Italiano</a><a href="../ja/accounting.html">🇯🇵 JA — 日本語</a><a href="../ko/accounting.html">🇰🇷 KO — 한국어</a><a href="../pl/accounting.html">🇵🇱 PL — Polski</a><a href="../pt/accounting.html">🇵🇹 PT — Português</a><a href="../ro/accounting.html">🇷🇴 RO — Română</a><a href="../ru/accounting.html">🇷🇺 RU — Русский</a><a href="../sw/accounting.html">🇰🇪 SW — Kiswahili</a><a href="../vi/accounting.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/accounting.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -56,7 +57,7 @@
 <span class="badge">🤖 Запитайте AI про ваші числа</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>Кожен запис збалансовано</h2>
 <p>Правильна подвійна бухгалтерія — дебет дорівнює кредиту, до копійки</p>

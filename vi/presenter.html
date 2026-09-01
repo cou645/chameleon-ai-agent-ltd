@@ -20,7 +20,7 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
-    .fmt { font-weight: 600; color: var(--brand-start); }
+    .fmt { font-weight: 600; color: var(--brand-text); }
     .pre-note {
       background: #fffaf0; border: 1px solid #f6d68a;
       color: #7a5312; text-align: center;
@@ -29,10 +29,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Kameleon Presenter đang trong quá trình phát triển tích cực. Các tính năng dưới đây là hiện tại; giá cả và tính khả dụng chung vẫn đang được hoàn thiện — <a href="../contact.html">Đặt lịch demo</a> và chúng tôi sẽ cập nhật cho bạn.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>AI tắc kè hoa</strong></a>
 <div class="nav-links">
@@ -46,7 +47,7 @@
 <a href="../technician.html">Kỹ thuật viên PC</a>
 <a href="../classroom.html">lớp học</a>
 <a href="../contact.html">Liên hệ</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -61,7 +62,7 @@
 <span class="badge">🤖 Hướng dẫn sân khấu AI tùy chọn</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>Xem nó chạy</h2>
 <p>Trong bản ghi này, một AI đảm nhận vai trò đạo diễn — làm chuyển động các đối tượng và chuyển đổi bố cục trực tiếp, không cần ai ngồi trước bàn phím. Mọi điều khiển mà nó sử dụng, bạn đều có thể tự thao tác từ ứng dụng hoặc điện thoại của mình.</p>

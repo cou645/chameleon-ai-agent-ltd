@@ -20,7 +20,7 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
-    .fmt { font-weight: 600; color: var(--brand-start); }
+    .fmt { font-weight: 600; color: var(--brand-text); }
     .pre-note {
       background: #fffaf0; border: 1px solid #f6d68a;
       color: #7a5312; text-align: center;
@@ -29,10 +29,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   카멜레온 프레젠터는 활발히 개발 중입니다. 아래 기능은 현재 기준이며, 가격 및 일반 공개 여부는 아직 확정되지 않았습니다. <a href="../contact.html">데모 예약하기</a> 계속 소식을 전해드리겠습니다.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>카멜레온 AI</strong></a>
 <div class="nav-links">
@@ -46,7 +47,7 @@
 <a href="../technician.html">PC 기술자</a>
 <a href="../classroom.html">uc218uc5c5</a>
 <a href="../contact.html">연락하다</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇰🇷 KO ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../it/presenter.html">🇮🇹 IT — Italiano</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -61,7 +62,7 @@
 <span class="badge">🤖 선택적 AI 무대 지시</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>실행되는 모습을 보세요</h2>
 <p>이 녹음에서는 AI가 감독 역할을 맡아 — 누구도 키보드를 만지지 않은 채 객체를 애니메이션하고 레이아웃을 실시간으로 전환합니다. AI가 사용하는 모든 컨트롤은 앱이나 휴대폰에서 직접 조작할 수 있습니다.</p>

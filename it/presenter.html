@@ -20,7 +20,7 @@
       text-align: center; font-size: .75rem; color: #8888aa;
       padding: .4rem .6rem .6rem;
     }
-    .fmt { font-weight: 600; color: var(--brand-start); }
+    .fmt { font-weight: 600; color: var(--brand-text); }
     .pre-note {
       background: #fffaf0; border: 1px solid #f6d68a;
       color: #7a5312; text-align: center;
@@ -29,10 +29,11 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="pre-note">
   Kameleon Presenter è in fase di sviluppo attivo. Le funzionalità di seguito sono attuali; prezzi e disponibilità generale sono ancora in fase di definizione — <a href="../contact.html">Prenota una demo</a> e ti terremo aggiornato.
 </div>
-<nav>
+<nav aria-label="Primary">
 <div class="nav-inner">
 <a class="nav-brand" href="../index.html"><img alt="Chameleon AI logo" src="../icon.png"/><strong>IA camaleonte</strong></a>
 <div class="nav-links">
@@ -46,7 +47,7 @@
 <a href="../technician.html">Tecnico informatico</a>
 <a href="../classroom.html">Aula</a>
 <a href="../contact.html">Contatto</a>
-<div class="lang-switcher"><button class="lang-btn" onclick="this.parentElement.classList.toggle('open')">🇮🇹 IT ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🇮🇹 IT ▾</button><div class="lang-menu"><a href="../presenter.html">🌐 EN — English</a><a href="../ar/presenter.html">🇸🇦 AR — العربية</a><a href="../cy/presenter.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/presenter.html">🇩🇪 DE — Deutsch</a><a href="../el/presenter.html">🇬🇷 EL — Ελληνικά</a><a href="../es/presenter.html">🇪🇸 ES — Español</a><a href="../fr/presenter.html">🇫🇷 FR — Français</a><a href="../hi/presenter.html">🇮🇳 HI — हिन्दी</a><a href="../id/presenter.html">🇮🇩 ID — Indonesia</a><a href="../ja/presenter.html">🇯🇵 JA — 日本語</a><a href="../ko/presenter.html">🇰🇷 KO — 한국어</a><a href="../pl/presenter.html">🇵🇱 PL — Polski</a><a href="../pt/presenter.html">🇵🇹 PT — Português</a><a href="../ro/presenter.html">🇷🇴 RO — Română</a><a href="../ru/presenter.html">🇷🇺 RU — Русский</a><a href="../sw/presenter.html">🇰🇪 SW — Kiswahili</a><a href="../uk/presenter.html">🇺🇦 UK — Українська</a><a href="../vi/presenter.html">🇻🇳 VI — Tiếng Việt</a><a href="../zh/presenter.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -61,7 +62,7 @@
 <span class="badge">🤖 Regia facoltativa dell'IA</span>
 </div>
 </div>
-<div class="page">
+<div class="page" id="main" role="main">
 <div class="section-title">
 <h2>Guarda come funziona</h2>
 <p>In questa registrazione un'IA prende il posto del regista: anima gli oggetti e cambia i layout in tempo reale, senza nessuno alla tastiera. Ogni controllo che usa, puoi gestirlo tu stesso dall'app o dal tuo telefono.</p>
