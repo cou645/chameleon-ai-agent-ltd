@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security &amp; vulnerability disclosure — Chameleon AI</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    .legal { max-width: 860px; margin: 0 auto; }
+    .legal .card { padding: 2.2rem 2.4rem; }
+    .legal h2 { color: var(--brand-text); font-size: 1.35rem; margin: 2rem 0 .6rem; }
+    .legal h2:first-of-type { margin-top: 0; }
+    .legal h3 { color: var(--text); font-size: 1.05rem; margin: 1.2rem 0 .4rem; }
+    .legal p, .legal li { color: var(--muted); font-size: .96rem; }
+    .legal ul, .legal ol { margin: .4rem 0 .8rem 1.3rem; }
+    .legal li { margin-bottom: .35rem; }
+    .legal .meta { font-size: .85rem; color: var(--muted); margin-top: .3rem; }
+    .legal a { color: var(--brand-text); }
+    .legal code, .legal pre { background: #f3f2fb; border: 1px solid #e0ddf3;
+      border-radius: 4px; font-size: .88rem; }
+    .legal code { padding: .08rem .3rem; }
+    .legal pre { padding: .8rem 1rem; overflow-x: auto; }
+    .legal pre code { background: none; border: 0; padding: 0; }
+    .contact-box { background: #f3f2fb; border: 1px solid #e0ddf3; border-radius: 8px;
+      padding: 1rem 1.2rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+<div class="nav-inner">
+<a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="ide.html">AI IDE</a>
+<a href="presenter.html">Presenter</a>
+<a href="companion.html">Companion App</a>
+<a href="logistics4x4.html">Logistics 4×4</a>
+<a href="services.html">Web Services</a>
+<a href="accounting.html">Accounting</a>
+<a href="technician.html">PC Technician</a>
+<a href="classroom.html">Classroom</a>
+<a href="contact.html">Contact</a>
+<div class="lang-switcher"><button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)">🌐 EN ▾</button><div class="lang-menu"><a href="ar/index.html">🇸🇦 AR — العربية</a><a href="cy/index.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/index.html">🇩🇪 DE — Deutsch</a><a href="el/index.html">🇬🇷 EL — Ελληνικά</a><a href="es/index.html">🇪🇸 ES — Español</a><a href="fr/index.html">🇫🇷 FR — Français</a><a href="hi/index.html">🇮🇳 HI — हिन्दी</a><a href="id/index.html">🇮🇩 ID — Indonesia</a><a href="it/index.html">🇮🇹 IT — Italiano</a><a href="ja/index.html">🇯🇵 JA — 日本語</a><a href="ko/index.html">🇰🇷 KO — 한국어</a><a href="pl/index.html">🇵🇱 PL — Polski</a><a href="pt/index.html">🇵🇹 PT — Português</a><a href="ro/index.html">🇷🇴 RO — Română</a><a href="ru/index.html">🇷🇺 RU — Русский</a><a href="sw/index.html">🇰🇪 SW — Kiswahili</a><a href="uk/index.html">🇺🇦 UK — Українська</a><a href="vi/index.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/index.html">🇨🇳 ZH — 中文</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🔐</div>
+<h1>Security &amp; vulnerability disclosure</h1>
+<p class="sub">How to report a security problem in the Chameleon AI website or the Chameleon Accounting software, and what we do about it.</p>
+<div class="hero-badges">
+<span class="badge">📇 security.txt (RFC 9116)</span>
+<span class="badge">🖊️ Signed releases (Ed25519)</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="legal">
+<div class="card">
+
+<p class="meta"><strong>Published:</strong> 2 September 2026 &nbsp;·&nbsp; <strong>Last reviewed:</strong> 2 September 2026</p>
+
+<h2>1. Reporting a vulnerability</h2>
+<p>Email <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a>. Please do not post security problems in a public forum or a support ticket before we have had a chance to fix them.</p>
+<p>Tell us:</p>
+<ul>
+<li>what the issue is and where — the website page, or the software component / version (<code>chameleon_accounting.py --version</code>);</li>
+<li>how to reproduce it: steps, a proof of concept, or a short script;</li>
+<li>what impact you think it has.</li>
+</ul>
+<p>If you need to send us something sensitive and want it encrypted, ask in a first email and we will arrange a secure channel.</p>
+
+<h2>2. What you can expect from us</h2>
+<ul>
+<li>an acknowledgement within <strong>3 working days</strong>;</li>
+<li>an assessment, a severity, and a target fix date, with progress updates;</li>
+<li>coordinated disclosure: we aim to release a fix within <strong>90 days</strong> and will credit you by name in the release notes if you would like that;</li>
+<li>there is no paid bug bounty — we recognise reporters in the release notes.</li>
+</ul>
+
+<h2>3. Safe harbour</h2>
+<p>We will not pursue or support legal action against anyone who tests in good faith and within this policy. That means: only against your own installation and your own test data; without accessing, altering or deleting anyone else's data; without degrading the service for others; and without social engineering or physical attacks. If you come across personal data, stop and tell us.</p>
+
+<h2>4. Out of scope</h2>
+<ul>
+<li>Third-party services the software connects to — HMRC, GoCardless, TrueLayer, Companies House. Report those to the provider.</li>
+<li>Volumetric denial-of-service testing.</li>
+<li>Automated-scanner output with no demonstrated impact.</li>
+<li>Missing hardening headers on the marketing site with no working exploit.</li>
+</ul>
+
+<h2>5. How the software is protected</h2>
+<ul>
+<li><strong>Data stays on your device.</strong> The ledger, the HMRC OAuth tokens and your API credentials are stored locally and are never routed through us.</li>
+<li><strong>Signed updates.</strong> The release manifest and download archives are signed with an Ed25519 key. The software verifies the signature offline against a built-in public key and ignores anything that does not verify. You choose when to upgrade; nothing is installed automatically. The public key is at <a href="/.well-known/chameleon-accounting-release.pub">/.well-known/chameleon-accounting-release.pub</a>.</li>
+<li><strong>Local hardening check.</strong> <code>chameleon_accounting.py --security-check</code> audits file permissions, token age, the TLS trust store and the OAuth configuration on the machine; <code>--security-check --fix</code> tightens what it can.</li>
+<li><strong>Standard TLS.</strong> Connections use the operating system's certificate store. We do not pin certificates.</li>
+</ul>
+
+<h2>6. If we have a security incident</h2>
+<p>If we become aware of a breach affecting personal or customer data, or the security of the Making Tax Digital service or HMRC credentials, then within <strong>72 hours</strong> of becoming aware we will:</p>
+<ol>
+<li>contain it — isolate the affected system, preserve evidence, revoke exposed credentials;</li>
+<li>notify <strong>HMRC</strong> by logging a ticket at <a href="https://developer.service.hmrc.gov.uk/devhub-support/tickets" rel="noopener" target="_blank">developer.service.hmrc.gov.uk/devhub-support/tickets</a>, with a named breach contact and a direct telephone number;</li>
+<li>notify the <strong>Information Commissioner's Office</strong> where the breach involves personal data and meets the risk threshold, via <a href="https://ico.org.uk/for-organisations/report-a-breach/" rel="noopener" target="_blank">ico.org.uk/for-organisations/report-a-breach</a>;</li>
+<li>notify affected customers without undue delay where the risk to them is high, explaining what happened and what to do;</li>
+<li>publish a fix and a release note.</li>
+</ol>
+<p>See our <a href="privacy.html">Privacy Policy</a> for how we handle personal data.</p>
+
+<h2>7. Machine-readable contact</h2>
+<p>This policy is also advertised at <a href="/.well-known/security.txt">/.well-known/security.txt</a> in the format defined by <a href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener" target="_blank">RFC 9116</a>.</p>
+<div class="contact-box">
+<p style="margin:.2rem 0;"><strong>Security contact:</strong> <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a></p>
+<p style="margin:.2rem 0;"><strong>Published by:</strong> CHAMELEON-AI-AGENT LTD, company no. 17147789, 3rd Floor, 86–90 Paul Street, London EC2A 4NE.</p>
+</div>
+
+<p class="meta" style="margin-top:1.6rem;">See also our <a href="privacy.html">Privacy Policy</a>, <a href="terms.html">Terms &amp; Conditions</a> and <a href="accessibility.html">Accessibility statement</a>.</p>
+
+</div>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a>
+<a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+<a href="classroom.html">Classroom</a><a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a><a href="security.html">Security</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Built by Marcos aka stemsee</p>
+</footer>
+</body>
+</html>
