@@ -57,7 +57,7 @@
 <div class="legal">
 <div class="card">
 
-<p class="meta"><strong>Published:</strong> 2 September 2026 &nbsp;·&nbsp; <strong>Last reviewed:</strong> 2 September 2026</p>
+<p class="meta"><strong>Published:</strong> 2 September 2026 &nbsp;·&nbsp; <strong>Last reviewed:</strong> 5 September 2026</p>
 
 <h2>1. Reporting a vulnerability</h2>
 <p>Email <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a>. Please do not post security problems in a public forum or a support ticket before we have had a chance to fix them.</p>
@@ -96,7 +96,17 @@
 <li><strong>Standard TLS.</strong> Connections use the operating system's certificate store. We do not pin certificates.</li>
 </ul>
 
-<h2>6. If we have a security incident</h2>
+<h2>6. AI features and your data</h2>
+<p>AI features are optional, bring-your-own-key, and send data from your device directly to the AI provider you choose (Terms &amp; Conditions §9). We are sometimes asked why we don't instead disguise the figures mathematically before sending them — for example doubling every amount and halving the AI's answer — so nothing real ever leaves the device. We looked at this and it doesn't hold up:</p>
+<ul>
+<li>A fixed scaling factor preserves every ratio in the data. UK VAT is 20% of net sales; double both figures and the 20% relationship still holds exactly, so the shape of the data — and often the scaling factor itself — is recoverable from the request alone. It is obfuscation, not encryption, with no real security margin.</li>
+<li>It does nothing for the parts of a document that are text, not numbers — supplier names, descriptions, references — which are usually the more sensitive part.</li>
+<li>It undermines the reason to use AI at all: a model's judgement about what's "a large transaction" or unusual for a business is calibrated on real-world magnitudes, so scaling either breaks that judgement or is silently reversed by the model inferring the true scale from context.</li>
+<li>Computing on genuinely encrypted data without decrypting it is a real field (homomorphic encryption / secure multiparty computation) — but it does not exist today for "send encrypted figures to a commercial AI model and get a coherent answer". We won't advertise a protection we can't actually provide.</li>
+</ul>
+<p>So we say plainly instead: if you use an AI feature, your data is sent to and may be retained by the provider you chose, under their policy. The only architecture that is genuinely zero-transfer is a model that runs entirely on your own device, which is on our roadmap as an alternative, not a replacement, for bring-your-own-key.</p>
+
+<h2>7. If we have a security incident</h2>
 <p>If we become aware of a breach affecting personal or customer data, or the security of the Making Tax Digital service or HMRC credentials, then within <strong>72 hours</strong> of becoming aware we will:</p>
 <ol>
 <li>contain it — isolate the affected system, preserve evidence, revoke exposed credentials;</li>
@@ -107,7 +117,7 @@
 </ol>
 <p>See our <a href="privacy.html">Privacy Policy</a> for how we handle personal data.</p>
 
-<h2>7. Machine-readable contact</h2>
+<h2>8. Machine-readable contact</h2>
 <p>This policy is also advertised at <a href="/.well-known/security.txt">/.well-known/security.txt</a> in the format defined by <a href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener" target="_blank">RFC 9116</a>.</p>
 <div class="contact-box">
 <p style="margin:.2rem 0;"><strong>Security contact:</strong> <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a></p>
