@@ -74,11 +74,12 @@ NO_TRANSLATE_PAGES = {
     "accessibility.html", "hmrc-callback.html",
 }
 
-# Brand / product names — never translated, even if a stale cache entry
-# exists. A string is skipped entirely when removing every protected name
-# leaves it with no letters left (e.g. "Chameleon AI"); a string that still
-# has words after that ("Chameleon Companion screen 1") is translated, and
-# passing the same list as HASHTEXT_EXCLUDE keeps the name intact inside it.
+# Brand / product names. A string that is *only* brand names (+ punctuation)
+# is never sent to translate (is_protected). A string with real words around
+# a brand ("Chameleon Companion screen 1") IS translated, but a result that
+# dropped the brand verbatim is rejected in favour of the English source
+# (brands_kept) — so a name is never mistranslated, at the cost of the odd
+# alt string staying English until a translation that keeps the name lands.
 PROTECT = (
     "Chameleon AI Agent Ltd", "Chameleon Accounting", "Chameleon AI Agent",
     "Chameleon AI", "Chameleon Companion", "Chameleon Classroom",
@@ -344,12 +345,6 @@ def cmd_seed_batch(langs: list, strings_per_call: int, tile_langs: int, jobs: in
         return
 
     import tempfile, os
-    # Protect brand names inside longer strings too (kept intact, surrounding
-    # words still translated). Merge with any HASHTEXT_EXCLUDE already set.
-    env = dict(os.environ)
-    existing = [t for t in env.get("HASHTEXT_EXCLUDE", "").split(",") if t.strip()]
-    env["HASHTEXT_EXCLUDE"] = ",".join(dict.fromkeys(existing + list(PROTECT)))
-
     fd, path = tempfile.mkstemp(prefix="ht-batch-", suffix=".txt", dir=str(SITE_ROOT))
     try:
         with os.fdopen(fd, "w") as fh:
@@ -365,7 +360,7 @@ def cmd_seed_batch(langs: list, strings_per_call: int, tile_langs: int, jobs: in
             cmd += ["--tile-langs", str(tile_langs)]
         print("  " + " ".join(cmd))
         # stream progress straight through; no timeout (batch is the long part)
-        rc = subprocess.run(cmd, env=env).returncode
+        rc = subprocess.run(cmd).returncode
         if rc != 0:
             print(f"  [warn] hashtext --batch exited {rc}")
     finally:
