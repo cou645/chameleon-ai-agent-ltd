@@ -64,6 +64,16 @@ SKIP_TAGS = {"style", "script", "code", "pre", "noscript"}
 # text (protocol codes, single letters) is not worth sending to the translator.
 SEED_SKIP_PAGES = {"codes.html"}
 
+# Legal / policy pages: the English text is authoritative and a machine
+# mistranslation of a legal term is a liability, so these are NOT translated.
+# They keep their hand-authored switcher (which points at the translated
+# HOMEPAGE, not a non-existent translated copy of themselves) and the script
+# leaves them untouched entirely.
+NO_TRANSLATE_PAGES = {
+    "terms.html", "privacy.html", "security.html",
+    "accessibility.html", "hmrc-callback.html",
+}
+
 LANG_SWITCHER_CSS = """
 /* ── Language switcher ── */
 .lang-switcher { position: relative; flex-shrink: 0; margin-left: .4rem; }
@@ -191,9 +201,16 @@ def fix_relative_paths(soup):
 # ── Language switcher HTML ───────────────────────────────────────────────────
 
 def _switcher(label: str, flag: str, items_html: str) -> str:
+    # Accessible menu button — keep in sync with the hand-authored markup on the
+    # deployed English pages: type="button" so it never submits a form, and
+    # aria-haspopup / aria-expanded so a screen reader announces the menu and
+    # its open/closed state.
+    onclick = ("var s=this.parentElement,o=s.classList.toggle('open');"
+               "this.setAttribute('aria-expanded',o)")
     return (
         '<div class="lang-switcher">'
-        f'<button class="lang-btn" onclick="this.parentElement.classList.toggle(\'open\')">'
+        f'<button class="lang-btn" type="button" aria-haspopup="true" '
+        f'aria-expanded="false" onclick="{onclick}">'
         f'{flag} {label} ▾</button>'
         f'<div class="lang-menu">{items_html}</div>'
         '</div>'
@@ -239,9 +256,16 @@ def render(soup) -> str:
 
 # ── Commands ─────────────────────────────────────────────────────────────────
 
+def _page_files() -> list:
+    """Top-level English pages the script processes (translated + English
+    switcher). Excludes the legal/policy pages entirely."""
+    return [f for f in sorted(SITE_ROOT.glob("*.html"))
+            if f.name not in NO_TRANSLATE_PAGES]
+
+
 def collect_strings() -> list:
     """Every unique canonical translatable string across all English pages."""
-    html_files = sorted(SITE_ROOT.glob("*.html"))
+    html_files = _page_files()
     seen, ordered = set(), []
     for f in html_files:
         if f.name in SEED_SKIP_PAGES:
@@ -316,7 +340,7 @@ def cmd_seed(langs: list):
 
 def cmd_build(langs: list, update_en: bool = True):
     """Generate translated HTML pages and optionally update English source pages."""
-    html_files = sorted(SITE_ROOT.glob("*.html"))
+    html_files = _page_files()
 
     # Add lang-switcher CSS to style.css (once)
     css_path = SITE_ROOT / "style.css"
