@@ -74,6 +74,33 @@ NO_TRANSLATE_PAGES = {
     "accessibility.html", "hmrc-callback.html",
 }
 
+# Brand / product names — never translated, even if a stale cache entry
+# exists. A string is skipped entirely when removing every protected name
+# leaves it with no letters left (e.g. "Chameleon AI"); a string that still
+# has words after that ("Chameleon Companion screen 1") is translated, and
+# passing the same list as HASHTEXT_EXCLUDE keeps the name intact inside it.
+PROTECT = (
+    "Chameleon AI Agent Ltd", "Chameleon Accounting", "Chameleon AI Agent",
+    "Chameleon AI", "Chameleon Companion", "Chameleon Classroom",
+    "Kameleon Presenter", "Logistics 4×4", "Logistics 4x4", "stemsee",
+    "GoCardless", "TrueLayer", "OpenAI", "Anthropic",
+)
+
+
+def is_protected(text: str) -> bool:
+    """True if `text` is nothing but brand names (+ punctuation/whitespace)."""
+    stripped = text
+    for name in PROTECT:
+        stripped = stripped.replace(name, " ")
+    return not re.search(r"[A-Za-z]", stripped)
+
+
+def brands_kept(src: str, translated: str) -> bool:
+    """Reject a translation that dropped a brand name the source spelled out
+    verbatim — catches stale cache entries made before the exclude list."""
+    return all(name not in src or name in translated for name in PROTECT)
+
+
 LANG_SWITCHER_CSS = """
 /* ── Language switcher ── */
 .lang-switcher { position: relative; flex-shrink: 0; margin-left: .4rem; }
@@ -184,7 +211,28 @@ def iter_text_nodes(soup):
         text = str(node)
         if not text.strip() or not re.search(r'[A-Za-z]', text):
             continue
+        if is_protected(canon(text)):
+            continue
         yield node
+
+
+# User-facing attribute text a screen reader / tooltip surfaces — translated
+# on the localised pages so `/de/` etc. are accessible in the target language.
+TRANSLATABLE_ATTRS = ("alt", "aria-label", "title")
+
+
+def iter_attr_values(soup):
+    """Yield (tag, attr) for translatable attribute values (image alt text,
+    ARIA labels, tooltip titles) whose value is real words."""
+    for tag in soup.find_all(True):
+        if any(getattr(p, "name", None) in SKIP_TAGS for p in (tag, *tag.parents)):
+            continue
+        for attr in TRANSLATABLE_ATTRS:
+            val = tag.get(attr)
+            if (isinstance(val, str) and val.strip()
+                    and re.search(r'[A-Za-z]', val)
+                    and not is_protected(canon(val))):
+                yield tag, attr
 
 
 # ── Path fixing ──────────────────────────────────────────────────────────────
@@ -279,6 +327,11 @@ def collect_strings() -> list:
             if c and c not in seen:
                 seen.add(c)
                 ordered.append(c)
+        for tag, attr in iter_attr_values(soup):
+            c = canon(tag[attr])
+            if c and c not in seen:
+                seen.add(c)
+                ordered.append(c)
     return ordered, len(html_files)
 
 
@@ -291,6 +344,12 @@ def cmd_seed_batch(langs: list, strings_per_call: int, tile_langs: int, jobs: in
         return
 
     import tempfile, os
+    # Protect brand names inside longer strings too (kept intact, surrounding
+    # words still translated). Merge with any HASHTEXT_EXCLUDE already set.
+    env = dict(os.environ)
+    existing = [t for t in env.get("HASHTEXT_EXCLUDE", "").split(",") if t.strip()]
+    env["HASHTEXT_EXCLUDE"] = ",".join(dict.fromkeys(existing + list(PROTECT)))
+
     fd, path = tempfile.mkstemp(prefix="ht-batch-", suffix=".txt", dir=str(SITE_ROOT))
     try:
         with os.fdopen(fd, "w") as fh:
@@ -306,7 +365,7 @@ def cmd_seed_batch(langs: list, strings_per_call: int, tile_langs: int, jobs: in
             cmd += ["--tile-langs", str(tile_langs)]
         print("  " + " ".join(cmd))
         # stream progress straight through; no timeout (batch is the long part)
-        rc = subprocess.run(cmd).returncode
+        rc = subprocess.run(cmd, env=env).returncode
         if rc != 0:
             print(f"  [warn] hashtext --batch exited {rc}")
     finally:
@@ -385,13 +444,24 @@ def cmd_build(langs: list, update_en: bool = True):
                 original = str(node)
                 key = canon(original)
                 t = cached_translation(lang, key)
-                if not t or t == key:
+                if not t or t == key or not brands_kept(key, t):
                     continue
                 lead  = original[:len(original) - len(original.lstrip())]
                 trail = original[len(original.rstrip()):]
                 node.replace_with(lead + t + trail)
                 if count_page:
                     trans += 1
+
+            # Translate user-facing attribute text (alt / aria-label / title)
+            for tag, attr in iter_attr_values(soup):
+                key = canon(tag[attr])
+                if count_page:
+                    total += 1
+                t = cached_translation(lang, key)
+                if t and t != key and brands_kept(key, t):
+                    tag[attr] = t
+                    if count_page:
+                        trans += 1
 
             # Inject language switcher
             inject_switcher(soup, switcher_for_lang(lang, html_file.name, langs))
