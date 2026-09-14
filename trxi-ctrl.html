@@ -90,6 +90,7 @@
 <thead><tr><th>Platform</th><th>Status</th><th>Why</th></tr></thead>
 <tbody>
 <tr><td>Debian Trixie</td><td class="yes">✓ Developed &amp; tested here</td><td>—</td></tr>
+<tr><td>Fatdog64 / Puppy Linux family</td><td class="yes">✓ Should work</td><td>The Layers feature detects union-fs branches under either <code>/aufs</code> (Fatdog64-derived, incl. this box) or <code>/initrd</code> (standard Puppy) automatically — the <code>/initrd</code> path is untested against a real Puppy install, based on documented conventions rather than hands-on verification</td></tr>
 <tr><td>Other X11 Linux desktops</td><td class="yes">✓ Should work</td><td>Needs BlueZ, iptables, PulseAudio/PipeWire-with-pactl-compat, and an X11 session (Wayland-only desktops aren't supported — <code>wmctrl</code>/<code>xdotool</code> need X11)</td></tr>
 <tr><td>Windows 11</td><td class="no">✗ Not supported</td><td>The gateway talks directly to Linux-only interfaces: BlueZ, iptables, ffmpeg x11grab, <code>/proc</code></td></tr>
 <tr><td>macOS</td><td class="no">✗ Not supported</td><td>Same reason — no BlueZ, no X11, no <code>/proc</code>, different firewall/audio stack entirely</td></tr>
