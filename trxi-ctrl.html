@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="pre-note">
+  TrXi-Ctrl is free and open — the phone app, the gateway it talks to, and its MCP server are all free downloads for Linux enthusiasts. It's also how we introduce people to the rest of the Chameleon AI Agent Ltd family — see our <a href="index.html">paid desktop apps</a>.
+</div>
+<nav aria-label="Primary">
+<div class="nav-inner">
+<a class="nav-brand" href="index.html"><img alt="Chameleon AI logo" src="icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="ide.html">AI IDE</a>
+<a href="presenter.html">Presenter</a>
+<a href="companion.html">Companion App</a>
+<a class="active" href="trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="chameleon-media-center.html">Media Center</a>
+<a href="logistics4x4.html">Logistics 4×4</a>
+<a href="services.html">Web Services</a>
+<a href="accounting.html">Accounting</a>
+<a href="technician.html">PC Technician</a>
+<a href="classroom.html">Classroom</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Free remote control for your Linux desktop — Bluetooth, firewall, audio, media, windows, terminal, screen share and AI chat, all from your phone. Built for Debian Trixie; works on most other X11 Linux desktops too.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Free &amp; open</span>
+<span class="badge">🐧 Linux / X11 only</span>
+<span class="badge">🔌 12 control screens</span>
+<span class="badge">🤖 MCP server included</span>
+<span class="badge">🔒 Your network, no cloud relay</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+
+<div class="section-title">
+<h2>What it does</h2>
+<p>One phone app, one gateway daemon on your desktop</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>System &amp; layers</h3><p>Live CPU/memory/thermal stats and AUFS layer toggling, straight from the desktop.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Network &amp; Wi-Fi</h3><p>Interfaces, addresses, Wi-Fi scan and connect — including Tailscale peer discovery to find your gateway automatically.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Power, discoverable/pairable, scan, pair, connect, trust, remove — full adapter control.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Firewall</h3><p>View and edit iptables rules and chains, apply presets, from your phone.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Audio</h3><p>Volume, mute, sink list — and stream the desktop's audio output to your phone's speaker over WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Media</h3><p>Real play/pause/seek/volume for <a href="chameleon-media-center.html">Chameleon Media Center</a> and MPV-based players, via mpv's own IPC socket — not just a static file listing.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows &amp; desktops</h3><p>List, focus, close, minimize, maximize, tile windows and switch virtual desktops.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Remote desktop</h3><p>Full screen share over WebRTC with touch-to-mouse and keyboard input — see and control your desktop from anywhere on your network.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>A real shell, run from your phone.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>AI chat</h3><p>Talk to whichever AI provider you've configured on the gateway — DeepSeek, OpenAI, Anthropic and more.</p></div>
+</div>
+
+<div class="section-title" style="margin-top:3rem;">
+<h2>The gateway</h2>
+<p>trixie-gateway — the desktop side, in Python</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🐍</div><h3>Plain Python daemon</h3><p>aiohttp + aiortc, no exotic dependencies. Runs standalone or as a systemd service, listening on your Tailscale/LAN address.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 REST endpoints</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> that routes to whichever AI provider you configure.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>MCP server included</h3><p><code>media_mcp_server.py</code> exposes media control (status, play, pause, seek, volume, open, browse) as MCP tools over stdio JSON-RPC — the same session data and control path the phone app uses, so an AI agent and your phone always see the same thing.</p></div>
+</div>
+
+<div class="section-title" style="margin-top:3rem;">
+<h2>Compatibility</h2>
+<p>Built for Debian Trixie — honest about where else it runs</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Platform</th><th>Status</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Developed &amp; tested here</td><td>—</td></tr>
+<tr><td>Other X11 Linux desktops</td><td class="yes">✓ Should work</td><td>Needs BlueZ, iptables, PulseAudio/PipeWire-with-pactl-compat, and an X11 session (Wayland-only desktops aren't supported — <code>wmctrl</code>/<code>xdotool</code> need X11)</td></tr>
+<tr><td>Windows 11</td><td class="no">✗ Not supported</td><td>The gateway talks directly to Linux-only interfaces: BlueZ, iptables, ffmpeg x11grab, <code>/proc</code></td></tr>
+<tr><td>macOS</td><td class="no">✗ Not supported</td><td>Same reason — no BlueZ, no X11, no <code>/proc</code>, different firewall/audio stack entirely</td></tr>
+</tbody>
+</table>
+
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Download <span class="free-badge">FREE</span></h3>
+<p>Phone app (Android) + desktop gateway. Both open, both free.</p>
+<a class="btn btn-solid" href="trxi-ctrl-assets/trxi-ctrl.apk" download>⬇ Download the APK</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">View the gateway on GitHub →</a>
+</div>
+
+<div class="section-title" style="margin-top:3rem;">
+<h2>Install the gateway</h2>
+<p>On the Debian Trixie (or compatible Linux) machine you want to control</p>
+</div>
+<div class="code-block">git clone https://github.com/cou645/trixie-gateway.git
+cd trixie-gateway
+pip install -r requirements.txt
+python3 gateway.py --port 8772
+
+# then in the phone app: Settings → Gateway URL → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772
+# or tap "Discover Peers" if you're both on the same Tailscale network</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Full install docs, including running it as a systemd service, are in the repo's <code>README.md</code>.</p>
+
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Like TrXi-Ctrl? See what else we build</h3>
+<p>TrXi-Ctrl is the free, open piece of a bigger family of desktop AI tools — a code editor, a presentation studio, UK accounting, fleet dispatch and more.</p>
+<a class="btn btn-solid" href="index.html">See all Chameleon AI apps →</a>
+<a class="btn" href="companion.html">Chameleon Companion (phone + desktop AI) →</a>
+</div>
+
+</div>
+<footer>
+<div class="foot-links">
+<a href="index.html">Home</a><a href="ide.html">AI IDE</a><a href="presenter.html">Presenter</a><a href="companion.html">Companion App</a>
+<a href="chameleon-media-center.html">Media Center</a>
+<a href="accounting.html">Accounting</a><a href="technician.html">PC Technician</a>
+<a href="classroom.html">Classroom</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a><a href="security.html">Security</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Built by Marcos aka stemsee</p>
+</footer>
+</body>
+</html>
