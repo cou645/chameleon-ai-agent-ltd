@@ -15,6 +15,20 @@
     overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
   .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
     padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
 </style>
 </head>
 <body>
@@ -96,6 +110,26 @@
 <tr><td>macOS</td><td class="no">✗ Not supported</td><td>Same reason — no BlueZ, no X11, no <code>/proc</code>, different firewall/audio stack entirely</td></tr>
 </tbody>
 </table>
+
+<div class="section-title" style="margin-top:3rem;">
+<h2>Screenshots</h2>
+<p>TrXi-Ctrl — captured live, running on real hardware</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Terminal tab running lsusb on the connected Linux desktop" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Terminal</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — System tab showing OS, kernel, CPU, load, memory and battery" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">System</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Layers tab listing AUFS union-fs branches" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Layers</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Network tab showing interfaces including a Tailscale address" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Network</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Bluetooth tab with paired devices and discoverable/pairable toggles" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Firewall tab with iptables chain and presets" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Firewall</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Audio tab with output volume, sinks and a Bluetooth MIDI controller" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Audio</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Media tab controlling an active Chameleon Media Center session in real time" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Media control</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Windows tab listing and tiling open desktop windows" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Windows</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Desktop tab, full remote screen share with left/right click" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Remote desktop</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — AI Chat tab talking to a configured provider" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">AI chat</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Settings tab discovering gateways on the Tailscale network" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Gateway discovery</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Settings tab with an AI provider key configured and app info" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AI provider setup</div></div>
+</div>
 
 <div class="cta-band" style="margin-top:2.5rem;">
 <h3>Download <span class="free-badge">FREE</span></h3>
