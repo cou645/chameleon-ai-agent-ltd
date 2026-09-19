@@ -11,6 +11,7 @@
   .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
   .yes { color: #1a8a4a; font-weight: 600; }
   .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
   .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
     overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
   .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
@@ -88,10 +89,10 @@
 
 <div class="section-title" style="margin-top:3rem;">
 <h2>The gateway</h2>
-<p>trixie-gateway — the desktop side, in Python</p>
+<p>trixie-gateway — the desktop side, a single self-contained binary</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">🐍</div><h3>Plain Python daemon</h3><p>aiohttp + aiortc, no exotic dependencies. Runs standalone or as a systemd service, listening on your Tailscale/LAN address.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>One binary, no Python needed</h3><p>Download a single self-contained executable — no Python, pip or venv on the machine. Built on aiohttp + aiortc, and the source is still on GitHub if you'd rather run it from Python. Runs standalone or as a systemd service, listening on your Tailscale/LAN address.</p></div>
 <div class="card"><div class="card-icon">🔌</div><h3>~120 REST endpoints</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> that routes to whichever AI provider you configure.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>MCP server included</h3><p><code>media_mcp_server.py</code> exposes media control (status, play, pause, seek, volume, open, browse) as MCP tools over stdio JSON-RPC — the same session data and control path the phone app uses, so an AI agent and your phone always see the same thing.</p></div>
 </div>
@@ -106,8 +107,8 @@
 <tr><td>Debian Trixie</td><td class="yes">✓ Developed &amp; tested here</td><td>—</td></tr>
 <tr><td>Fatdog64 / Puppy Linux family</td><td class="yes">✓ Should work</td><td>The Layers feature detects union-fs branches under either <code>/aufs</code> (Fatdog64-derived, incl. this box) or <code>/initrd</code> (standard Puppy) automatically — the <code>/initrd</code> path is untested against a real Puppy install, based on documented conventions rather than hands-on verification</td></tr>
 <tr><td>Other X11 Linux desktops</td><td class="yes">✓ Should work</td><td>Needs BlueZ, iptables, PulseAudio/PipeWire-with-pactl-compat, and an X11 session (Wayland-only desktops aren't supported — <code>wmctrl</code>/<code>xdotool</code> need X11)</td></tr>
-<tr><td>Windows 11</td><td class="no">✗ Not supported</td><td>The gateway talks directly to Linux-only interfaces: BlueZ, iptables, ffmpeg x11grab, <code>/proc</code></td></tr>
-<tr><td>macOS</td><td class="no">✗ Not supported</td><td>Same reason — no BlueZ, no X11, no <code>/proc</code>, different firewall/audio stack entirely</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Experimental test build</td><td>Screen share, mouse/keyboard, window list, volume and terminal are implemented for Windows. The binary builds and starts in automated CI, but has <strong>not yet been run on a real Windows machine</strong> — expect rough edges. Bluetooth, firewall, layers, brightness, network and Media Center remain Linux-only and answer <code>501</code></td></tr>
+<tr><td>macOS (Intel &amp; Apple Silicon)</td><td class="test">🧪 Experimental test build</td><td>Same feature set as Windows, using Quartz, AVFoundation and <code>osascript</code>. Builds and starts in CI for both architectures but is <strong>untested on real Macs</strong>. The app is unsigned, and macOS will ask for Screen Recording and Accessibility permission</td></tr>
 </tbody>
 </table>
 
@@ -135,6 +136,8 @@
 <h3>Download <span class="free-badge">FREE</span></h3>
 <p>Phone app (Android) + desktop gateway. Both open, both free.</p>
 <a class="btn btn-solid" href="trxi-ctrl-assets/trxi-ctrl.apk" download>⬇ Download the APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway for Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Windows &amp; macOS test builds 🧪</a>
 <a class="btn" href="https://github.com/cou645/trixie-gateway">View the gateway on GitHub →</a>
 </div>
 
@@ -142,14 +145,15 @@
 <h2>Install the gateway</h2>
 <p>On the Debian Trixie (or compatible Linux) machine you want to control</p>
 </div>
-<div class="code-block">git clone https://github.com/cou645/trixie-gateway.git
-cd trixie-gateway
-pip install -r requirements.txt
-python3 gateway.py --port 8772
+<div class="code-block"># Linux — standalone binary, nothing else to install
+curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz
+tar -xzf trixie-gateway-linux-x86_64.tar.gz
+./trixie-gateway --port 8772
 
 # then in the phone app: Settings → Gateway URL → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772
 # or tap "Discover Peers" if you're both on the same Tailscale network</div>
-<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Full install docs, including running it as a systemd service, are in the repo's <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Prefer Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, then <code>pip install -r requirements.txt</code> and <code>python3 gateway.py --port 8772</code>. Full install docs, including running it as a systemd service, are in the repo's <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows &amp; macOS test builds</strong> are on the <a href="https://github.com/cou645/trixie-gateway/releases">releases page</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). They are unsigned, so Windows SmartScreen will say "unknown publisher" (More info → Run anyway) and macOS will block the first launch (right-click → Open). Please report what breaks.</p>
 
 <div class="cta-band" style="margin-top:3rem;">
 <h3>Like TrXi-Ctrl? See what else we build</h3>
