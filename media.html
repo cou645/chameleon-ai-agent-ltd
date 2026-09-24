@@ -49,13 +49,15 @@
 <div class="hero">
 <div class="hero-icon">🎬</div>
 <h1>Chameleon Media Center</h1>
-<p class="sub">A full desktop media studio built on mpv — playback, playlists, live streaming, DVB-T/T2 TV, DVD/Blu-ray/CD, Bluetooth &amp; USB audio routing, sound effects, a visualizer, a video editor, an equalizer, and triple Android phone mirroring, in one app.</p>
+<p class="sub">A full desktop media studio built on mpv — playback, playlists, live streaming, DVB-T/T2 TV, DVD/Blu-ray/CD, Bluetooth &amp; USB audio routing, sound effects, a visualizer, a video editor, an equalizer, virtual webcams, and multi-phone Android mirroring, in one app.</p>
 <div class="hero-badges">
 <span class="badge">🎞️ mpv-powered playback</span>
 <span class="badge">📡 Live DVB-T/T2/C/S/ATSC TV</span>
 <span class="badge">💿 DVD · Blu-ray · CD</span>
 <span class="badge">🔵 Bluetooth Tx/Rx + USB turntable/mixer input</span>
-<span class="badge">📱📱📱 Three phones mirrored at once</span>
+<span class="badge">📱 Up to 16 phones mirrored at once</span>
+<span class="badge">📷 Virtual webcam + 4-corner PiP</span>
+<span class="badge">📡 Stream to browsers, YouTube, Twitch &amp; more</span>
 <span class="badge">🤏 Pinch/scroll zoom on each phone</span>
 <span class="badge">🤖 MCP server included</span>
 </div>
@@ -64,20 +66,24 @@
 
 <div class="section-title">
 <h2>What's inside</h2>
-<p>Fourteen tabs, one media engine</p>
+<p>Thirteen tabs, one media engine</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">🎞️</div><h3>Video panel</h3><p>Playback powered by mpv — wide format support, smooth seeking, a one-click fullscreen toggle (or F11), automatic recovery if the player process ever dies unexpectedly, and it remembers whichever audio output device you last picked across restarts instead of resetting to a default. A low-latency webcam picture-in-picture overlay toggles live over whatever's playing.</p></div>
-<div class="card"><div class="card-icon">📃</div><h3>Playlist</h3><p>Drag-and-drop reordering, queue management, quick access to what's next.</p></div>
+<div class="card"><div class="card-icon">🎞️</div><h3>Video panel</h3><p>Playback powered by mpv — wide format support, smooth seeking, a one-click fullscreen toggle (or F11), automatic recovery if the player process ever dies unexpectedly, and it remembers whichever audio output device you last picked across restarts instead of resetting to a default. A low-latency picture-in-picture overlay puts up to four cameras — the built-in webcam or any phone — in the corners of whatever's playing. Record a playing stream, or download what's playing, with one key.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Playlist</h3><p>Drag-and-drop reordering, queue management, playlist import and save, and restore a deleted playlist from the trash.</p></div>
 <div class="card"><div class="card-icon">📡</div><h3>DVB TV</h3><p>Scan and watch real digital TV — DVB-T/T2, DVB-C, DVB-S/S2 and ATSC — straight from a USB or PCI tuner.</p></div>
 <div class="card"><div class="card-icon">💿</div><h3>DVD / CD / Blu-ray</h3><p>Detects what's in the optical drive automatically and plays DVD-Video, Blu-ray or Audio CD tracks — no separate disc software needed.</p></div>
 <div class="card"><div class="card-icon">🔵</div><h3>BT/USB audio</h3><p>Route playback to one or several Bluetooth speakers at once (PulseAudio combine-sink), flip the adapter into receive mode so the PC itself becomes a Bluetooth speaker, or loop in <em>any</em> other PulseAudio capture source — a USB turntable, MiniDisc deck, DJ mixer/controller, or audio interface — straight into playback and the Visualizer, all from one Input Sources checklist.</p></div>
-<div class="card"><div class="card-icon">📱📱📱</div><h3>ADB Phone — three at once</h3><p>Three independent panels side by side — mirror and control three Android phones simultaneously, each with its own screen, audio routing and input. Pinch (this box has a touchscreen) or scroll-wheel to zoom into any phone's screen, Shift+drag to pan. Tap, swipe and type directly with mouse, stylus, touch or your physical keyboard — a persistent per-device shell keeps every input real-time instead of paying a fresh connection cost per keystroke. One-click "Connect Wireless" switches a USB-connected phone to adb-over-wifi automatically.</p></div>
-<div class="card"><div class="card-icon">📡</div><h3>Live Stream</h3><p>Pull in a live stream alongside a built-in Sound Effects board for on-the-fly audio cues.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADB Phone — up to 16 at once</h3><p>A grid of 1–16 independent panels in as many columns as you like — mirror and control that many Android phones simultaneously, each with its own screen, audio routing and input. Pinch (this box has a touchscreen) or scroll-wheel to zoom into any phone's screen, Shift+drag to pan. Tap, swipe and type directly with mouse, stylus, touch or your physical keyboard — a persistent per-device shell keeps every input real-time instead of paying a fresh connection cost per keystroke. One-click "Connect Wireless" switches a USB-connected phone to adb-over-wifi automatically, or pair over Wi-Fi by scanning the phone's pairing QR code. Push and pull files to any phone, and a dozing phone is woken before streaming starts.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Virtual cameras</h3><p>A "CMC PC Webcam" device that any video-call app, browser or OBS can pick — feed it the built-in camera or any connected phone's camera, and switch sources mid-call without the app losing the device. Each phone panel also gets its own virtual camera.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Live Stream</h3><p>Stream a camera or the video panel to any browser on your LAN or Tailscale (HLS player page) plus a low-latency feed for TrXi-Ctrl, VLC or mpv — many viewers from one encode — or push it to YouTube Live, Facebook Live, Twitch, WeChat Channels or any RTMP server.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Share &amp; discover</h3><p>CMCs on the same network find each other automatically, and a group code shares your playlist — local files included — with other CMCs.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Sound Effects</h3><p>A soundboard for on-the-fly audio cues while you play or stream.</p></div>
 <div class="card"><div class="card-icon">🌈</div><h3>Visualizer</h3><p>Real-time audio-reactive visuals for anything currently playing.</p></div>
-<div class="card"><div class="card-icon">✂️</div><h3>Video editor</h3><p>Trim, cut and assemble clips without leaving the app.</p></div>
-<div class="card"><div class="card-icon">🎚️</div><h3>18-band equalizer &amp; audio/video effects</h3><p>Shape the sound to the room, or the mood — plus a dedicated video effects tab.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Video editor</h3><p>A frame-accurate clip sequencer: set In/Out frames from the player, reorder clips, add a music track (mixed under or replacing the original sound) and subtitles (burned in or as a switchable track), then export in the background.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>18-band equalizer &amp; audio/video effects</h3><p>Shape the sound to the room, or the mood, with presets you can tweak and save — plus audio effects and a dedicated video effects tab.</p></div>
 <div class="card"><div class="card-icon">✅</div><h3>Notes</h3><p>Typed or handwritten notes (stylus/touch-friendly) right alongside your media — useful for production/session notes while you work.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Lock, themes &amp; preferences</h3><p>Lock the window with a pattern (Ctrl+Alt+L), switch themes, and set your preferences — with built-in About and Help.</p></div>
 <div class="card"><div class="card-icon">📲</div><h3>Remote control</h3><p>Every play/pause/seek/volume action is exposed over mpv's own IPC socket, which <a href="trxi-ctrl.html">TrXi-Ctrl</a> — our free phone app — talks to directly for real transport control, not just a session list. Closing a session from the phone closes the whole app cleanly rather than leaving a half-dead player behind.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>MCP server</h3><p>A bundled Model Context Protocol server exposes playback status, play/pause/seek/volume/open and library browsing as tools — so an AI agent and your phone always see and control the same session.</p></div>
 </div>
