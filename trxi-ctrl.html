@@ -59,11 +59,11 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Free remote control for your Linux desktop — Bluetooth, firewall, audio, media, windows, terminal, screen share and AI chat, all from your phone. Built for Debian Trixie; works on most other X11 Linux desktops too.</p>
+<p class="sub">Free remote control for your Linux desktop — Bluetooth, firewall, audio, media, windows, terminal, screen share, shared clipboard and AI chat, all from your phone — plus, on rooted phones, a VPN hotspot and USB mass storage. Built for Debian Trixie; works on most other X11 Linux desktops too.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Free &amp; open</span>
 <span class="badge">🐧 Linux / X11 only</span>
-<span class="badge">🔌 12 control screens</span>
+<span class="badge">🔌 14 control screens (+2 on rooted phones)</span>
 <span class="badge">🤖 MCP server included</span>
 <span class="badge">🔒 Your network, no cloud relay</span>
 </div>
@@ -81,10 +81,21 @@
 <div class="card"><div class="card-icon">🛡️</div><h3>Firewall</h3><p>View and edit iptables rules and chains, apply presets, from your phone.</p></div>
 <div class="card"><div class="card-icon">🔊</div><h3>Audio</h3><p>Volume, mute, sink list — and stream the desktop's audio output to your phone's speaker over WebRTC.</p></div>
 <div class="card"><div class="card-icon">🎬</div><h3>Media</h3><p>Real play/pause/seek/volume for <a href="media.html">Chameleon Media Center</a> and MPV-based players, via mpv's own IPC socket — not just a static file listing.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Watch <a href="media.html">Chameleon Media Center</a>'s live stream on your phone — choose Low latency (MPEG-TS) or Smooth (HLS) for weaker connections — see whether it's live, its source and how many are watching, and copy a link for anyone to watch in a browser.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows &amp; desktops</h3><p>List, focus, close, minimize, maximize, tile windows and switch virtual desktops.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>Remote desktop</h3><p>Full screen share over WebRTC with touch-to-mouse and keyboard input — see and control your desktop from anywhere on your network.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Remote desktop</h3><p>Full screen share over WebRTC with touch-to-mouse and keyboard input — see and control your desktop from anywhere on your network. Fully functional: taps, drags and keystrokes you send show up on the desktop almost immediately. Any lag you notice is in the screen updates coming back from the desktop to your phone, not in your input.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Shared clipboard</h3><p>The PC is the hub: every phone pushes its clipboard there — straight into the PC's own clipboard, ready to paste — and the Clipboard screen lists each device's latest entry. Tap one to copy it to this phone. Nothing is read from or written to your phone's clipboard in the background, only when you tap.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>A real shell, run from your phone.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AI chat</h3><p>Talk to whichever AI provider you've configured on the gateway — DeepSeek, OpenAI, Anthropic and more.</p></div>
+</div>
+
+<div class="section-title" style="margin-top:3rem;">
+<h2>Rooted phones</h2>
+<p>Two extra screens appear automatically when the phone has root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>Hotspot VPN</h3><p>Share the phone's Tailscale exit node with every device on its Wi-Fi hotspot — laptops, TVs and consoles get the VPN without installing anything. Routing re-applies itself if the hotspot or Tailscale restarts, and a boot script can bring it all back after a reboot. Built for a phone left plugged in as a router: a charge limit, keep Tailscale out of battery optimisation, and Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>USB mass storage</h3><p>Plug the phone into any PC and it appears as a USB drive. Create a disk image of up to 256 GB in seconds — FAT32 (every OS reads it), ext4 (no 4 GB file limit), or a bootable GPT disk with an EFI partition so a laptop can boot from the phone — then share it read-write or read-only, or open it on the phone itself. You can also hand the phone's SD card or a USB drive to the PC. ADB stays connected while sharing.</p></div>
 </div>
 
 <div class="section-title" style="margin-top:3rem;">
