@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+<div class="pre-note">
+  Chameleon Media Center fait partie de la famille de bureau Chameleon AI. La distribution et la disponibilité sont en cours de finalisation — <a href="../contact.html">contactez-nous pour les licences</a>. Il est contrôlable à distance dès aujourd'hui depuis <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, notre application téléphonique gratuite.
+</div>
+<nav aria-label="Principal">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Accueil</a>
+<a href="../ide.html">VOUS AVEZ DES IDÉES</a>
+<a href="../presenter.html">Présentateur</a>
+<a href="../companion.html">Application Compagnon</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Centre multimédia</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Services Web</a>
+<a href="../accounting.html">Comptabilité</a>
+<a href="../technician.html">Technicien informatique</a>
+<a href="../classroom.html">Classe</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇫🇷 FR ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Un studio multimédia de bureau complet construit sur mpv — lecture, listes de lecture, recherche YouTube et Bilibili avec cache de visionnage, diffusion en direct, TV DVB-T/T2, DVD/Blu-ray/CD, routage audio Bluetooth et USB, effets sonores, un visualiseur, un éditeur vidéo, un égaliseur, des webcams virtuelles et une mise en miroir Android multi-téléphones, dans une seule application.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Lecture propulsée par mpv</span>
+<span class="badge">🔎 Recherche YouTube et Bilibili + cache de visionnage</span>
+<span class="badge">📡 TV en direct DVB-T/T2/C/S/ATSC</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + entrée platine vinyle/mixeur USB</span>
+<span class="badge">📱 Jusqu'à 16 téléphones reflétés simultanément</span>
+<span class="badge">📷 Webcam virtuelle + PiP aux 4 coins</span>
+<span class="badge">📡 Diffusez vers les navigateurs, YouTube, Twitch et plus</span>
+<span class="badge">🤏 Zoom par pincement/défilement sur chaque téléphone</span>
+<span class="badge">🤖 Serveur MCP inclus</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Ce qu'il y a à l'intérieur</h2>
+<p>Treize onglets, un moteur multimédia</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Panneau vidéo</h3><p>Lecture propulsée par mpv — large prise en charge des formats, navigation fluide, un bouton plein écran en un clic (ou F11), récupération automatique si le processus du lecteur meurt de façon inattendue, et il se souvient du dernier périphérique de sortie audio choisi entre les redémarrages au lieu de revenir à un périphérique par défaut. Une superposition image dans l'image à faible latence place jusqu'à quatre caméras — la webcam intégrée ou n'importe quel téléphone — dans les coins de ce qui est en cours de lecture. Enregistrez un flux en cours de lecture, ou téléchargez ce qui est en cours de lecture, avec une seule touche.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Liste de lecture</h3><p>Réorganisation par glisser-déposer, gestion de la file d'attente, importation et sauvegarde de listes de lecture, et restauration d'une liste de lecture supprimée depuis la corbeille. Ajoutez un seul fichier ou un dossier entier, sous-dossiers inclus. Les entrées dont le fichier est absent — un lecteur USB non branché, une vidéo en cache que vous avez nettoyée — apparaissent en grisé jusqu'à son retour, et une vidéo nettoyée se retélécharge d'un double-clic.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Recherche et cache de visionnage</h3><p>Recherchez sur YouTube ou Bilibili, listez les dernières vidéos d'un créateur TikTok, ou collez un lien TikTok, Instagram, Facebook, Snapchat Spotlight ou Douyin. Mettez les résultats en file dans une liste de visionnage numérotée sous la liste de lecture. Tout ce que vous regardez est conservé sur le disque au fur et à mesure — pas de téléchargement séparé — ainsi la prochaine lecture se fait depuis la copie locale, et une vidéo partiellement regardée indique combien est enregistré et complète le reste la prochaine fois. Déplacez les vidéos enregistrées vers la liste de lecture principale, et choisissez celles à conserver ou supprimer à la fermeture de l'application. Les cookies de navigateur optionnels franchissent « confirmez que vous n'êtes pas un robot » et les murs de connexion.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>TV DVB</h3><p>Scannez et regardez la vraie télévision numérique — DVB-T/T2, DVB-C, DVB-S/S2 et ATSC — directement depuis un tuner USB ou PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD/CD/Blu-ray</h3><p>Détecte automatiquement ce qui se trouve dans le lecteur optique et lit les DVD-Video, Blu-ray ou pistes Audio CD — aucun logiciel de disque séparé nécessaire.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Audio BT/USB</h3><p>Acheminez la lecture vers une ou plusieurs enceintes Bluetooth à la fois (PulseAudio combine-sink), basculez l'adaptateur en mode réception pour que le PC lui-même devienne une enceinte Bluetooth, ou intégrez <em>n'importe quelle</em> autre source de capture PulseAudio — une platine vinyle USB, une platine MiniDisc, une table de mixage/manette DJ ou une interface audio — directement dans la lecture et le Visualizer, le tout depuis une seule liste Input Sources.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Téléphone ADB — jusqu'à 16 à la fois</h3><p>Une grille de 1 à 16 panneaux indépendants répartis en autant de colonnes que vous voulez — reflétez et contrôlez autant de téléphones Android simultanément, chacun avec son propre écran, routage audio et entrée. Pincez (cette zone a un écran tactile) ou utilisez la molette pour zoomer sur l'écran de n'importe quel téléphone, Maj+glisser pour vous déplacer. Touchez, balayez et tapez directement avec la souris, le stylet, le tactile ou votre clavier physique — un shell persistant par appareil maintient chaque entrée en temps réel au lieu de payer un nouveau coût de connexion à chaque frappe. Un clic sur « Connect Wireless » bascule automatiquement un téléphone connecté en USB vers adb-over-wifi, ou associez-vous en Wi-Fi en scannant le QR code d'appairage du téléphone. Envoyez et récupérez des fichiers vers n'importe quel téléphone, et un téléphone en veille est réveillé avant le début du streaming.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Caméras virtuelles</h3><p>Un périphérique « CMC PC Webcam » que toute application d'appel vidéo, navigateur ou OBS peut sélectionner — alimentez-le avec la caméra intégrée ou la caméra de n'importe quel téléphone connecté, et changez de source en pleine appel sans que l'application perde le périphérique. Chaque panneau de téléphone dispose aussi de sa propre caméra virtuelle.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Diffusion en direct</h3><p>Diffusez une caméra ou le panneau vidéo vers n'importe quel navigateur de votre LAN ou Tailscale (page de lecteur HLS) ainsi qu'un flux à faible latence pour TrXi-Ctrl, VLC ou mpv — de nombreux spectateurs à partir d'un seul encodage — ou poussez-le vers YouTube Live, Facebook Live, Twitch, WeChat Channels ou n'importe quel serveur RTMP.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Partager et découvrir</h3><p>Les CMC sur le même réseau se trouvent automatiquement, et un code de groupe partage votre playlist — fichiers locaux inclus — avec d'autres CMC.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Effets sonores</h3><p>Un soundboard pour des repères audio à la volée pendant que vous jouez ou streamez.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Visualiseur</h3><p>Visuels réactifs à l'audio en temps réel pour tout ce qui est en cours de lecture.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Éditeur vidéo</h3><p>Un séquenceur de clips précis à l'image près : définissez les images d'entrée/sortie depuis le lecteur, réorganisez les clips, ajoutez une piste musicale (mixée en dessous ou remplaçant le son original) et des sous-titres (incrustés ou comme piste commutable), puis exportez en arrière-plan.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Égaliseur 18 bandes et effets audio/vidéo</h3><p>Façonnez le son pour la pièce, ou l'ambiance, avec des préréglages que vous pouvez ajuster et enregistrer — plus des effets audio et un onglet dédié aux effets vidéo.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Remarques</h3><p>Notes tapées ou manuscrites (compatibles stylet/tactile) juste à côté de vos médias — utiles pour les notes de production/session pendant que vous travaillez.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Verrouillage, thèmes et préférences</h3><p>Verrouillez la fenêtre avec un motif (Ctrl+Alt+L), changez de thème et définissez vos préférences — avec About et Help intégrés.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Télécommande</h3><p>Chaque action lecture/pause/recherche/volume est exposée via le propre socket IPC de mpv, auquel <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — notre application téléphonique gratuite — parle directement pour un vrai contrôle de transport, pas seulement une liste de sessions. Fermer une session depuis le téléphone ferme proprement toute l'application au lieu de laisser un lecteur à moitié mort.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Serveur MCP</h3><p>Un serveur Model Context Protocol intégré expose l'état de lecture, lecture/pause/recherche/volume/ouverture et la navigation dans la bibliothèque en tant qu'outils — ainsi un agent IA et votre téléphone voient et contrôlent toujours la même session.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Bâti sur des fondations ouvertes</h2>
+<p>Application de bureau PySide6 (Qt), moteur de lecture mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>Une interface de bureau native et réactive — faisant partie de la même pile Python/Qt que le reste des applications de bureau Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Moteur mpv</h3><p>Intégré via l'incorporation de fenêtre propre à mpv et le socket JSON IPC — le même moteur de lecture fiable et largement utilisé derrière de nombreux outils multimédias Linux, avec libdvdnav/libdvdread/libcdio/libbluray déjà liés pour la lecture de disques.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Routage audio natif PulseAudio</h3><p>La sortie multi-appareils utilise le module-combine-sink propre à PulseAudio ; toute source de capture — réception Bluetooth ou périphérique audio USB — est bouclée via module-loopback, en vérifiant d'abord si la politique Bluetooth propre à PulseAudio a déjà configuré le routage plutôt que de la contrer.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Captures d'écran</h2>
+<p>Chameleon Media Center — capturé en direct</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet Recherche avec des résultats YouTube, une vidéo en cours de lecture et la liste de suivi sous la liste de lecture affichant une vidéo mise en cache" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Recherche et liste de suivi</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — deux téléphones Android mis en miroir côte à côte dans l'onglet ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Double miroir de téléphone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet de recherche des chaînes TV DVB" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">TV DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet audio Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Émission/réception Bluetooth</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — égaliseur 18 bandes" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Égaliseur 18 bandes</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — lecture YouTube avec une superposition de visualiseur de spectre réactif à l'audio en direct" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Superposition de visualiseur</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — skin pastel alternatif, lecteur inactif avec une grande liste de lecture chargée" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Habillage alternatif</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — deux téléphones Android mis en miroir sur toute la largeur côte à côte, l'un affichant son écran d'accueil, l'autre son tiroir d'applications" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Miroir double pleine largeur</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet ADB Phone avec la colonne de commande complète à 16 boutons : appareil photo, Bluetooth, point d'accès, Wi-Fi, transfert de fichiers et plus encore" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Colonne de contrôle complet du téléphone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — trois téléphones Android mis en miroir simultanément, chacun exécutant l'application de télécommande TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Miroir triple de téléphones</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — webcam intégrée dans un coin en incrustation sur une vidéo en cours de lecture, avec deux téléphones mis en miroir en dessous" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Image dans l'image de la webcam</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tableau d'effets sonores avec douze déclencheurs en un clic et des sons personnalisés, sur une vidéo en cours de lecture" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Tableau des effets sonores</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — égaliseur 18 bandes avec le préréglage R&amp;B appliqué pendant la lecture" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Préréglages de l'égaliseur</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet Effets audio : amplification, boost des basses et des aigus, compresseur, réduction du bruit, chorus, réverbération et delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Effets audio</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet Live Stream configuré pour diffuser vers YouTube Live via RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Diffuser sur YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — onglet Notes listant les pages PDF importées à côté de la vidéo en cours de lecture" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Remarques</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — deux téléphones mis en miroir avec leurs colonnes de commande complètes pendant la lecture d'une vidéo" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Commandes du téléphone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — un téléphone mis en miroir dans l'onglet Téléphone ADB avec les commandes Retour, Accueil, Récents et saisie" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Miroir d'un seul téléphone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — visualiseur de spectre et le menu Fichier, dans le skin pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Menu Visualiseur et Fichier</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Obtenir Chameleon Media Center</h3>
+<p>Inclus avec le bureau Chameleon AI. <strong>La distribution et la disponibilité sont en cours de finalisation</strong> — contactez-nous pour les prix actuels et la disponibilité.</p>
+<a class="btn btn-solid" href="../contact.html">Contactez-nous</a>
+<a class="btn" href="../trxi-ctrl.html">Contrôlez-le depuis votre téléphone avec TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Retour à l'aperçu</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Commentaires</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Accueil</a><a href="../ide.html">VOUS AVEZ DES IDÉES</a><a href="../presenter.html">Présentateur</a><a href="../companion.html">Application Compagnon</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Comptabilité</a><a href="../technician.html">Technicien informatique</a>
+<a href="../classroom.html">Classe</a><a href="../contact.html">Contact</a><a href="../privacy.html">Confidentialité</a><a href="../terms.html">Conditions</a><a href="../accessibility.html">Accessibilité</a><a href="../security.html">Sécurité</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Créé par Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

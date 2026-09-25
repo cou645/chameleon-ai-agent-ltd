@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Ruka hadi maudhui makuu</a>
+<div class="pre-note">
+  TrXi-Ctrl ni bure na wazi — programu ya simu, lango inayowasiliana nayo, na seva yake ya MCP zote ni vipakuliwa vya bure kwa wapenda Linux. Pia ni jinsi tunavyowatambulisha watu kwa familia nyingine ya Chameleon AI Agent Ltd — tazama <a href="../index.html">programu za desktop zinazolipiwa</a>.
+</div>
+<nav aria-label="Msingi">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Nembo ya Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Tandazi</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Kituo cha Vyombo vya Habari</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Udhibiti wa mbali bila malipo kwa desktop yako ya Linux — Bluetooth, firewall, sauti, midia, madirisha, terminal, kushiriki skrini, clipboard inayoshirikiwa na soga ya AI, yote kutoka kwa simu yako — pamoja na, kwenye simu zilizorootiwa, hotspot ya VPN na hifadhi kubwa ya USB. Imeundwa kwa Debian Trixie; inafanya kazi pia kwenye desktop nyingi nyingine za Linux X11.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Bila malipo na wazi</span>
+<span class="badge">🐧 Linux / X11 pekee</span>
+<span class="badge">🔌 Skrini 14 za udhibiti (+2 kwenye simu zilizorootiwa)</span>
+<span class="badge">🤖 Seva ya MCP imejumuishwa</span>
+<span class="badge">🔒 Mtandao wako, hakuna relay ya wingu</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Inafanya nini</h2>
+<p>Programu moja ya simu, daemon moja ya lango kwenye desktop yako</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Mfumo na tabaka</h3><p>Takwimu za moja kwa moja za CPU/kumbukumbu/joto na kubadilisha tabaka za AUFS, moja kwa moja kutoka kwa desktop.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Mtandao na Wi-Fi</h3><p>Miingiliano, anwani, kuchanganua na kuunganisha Wi-Fi — ikiwa ni pamoja na ugunduzi wa rika wa Tailscale ili kupata lango lako kiotomatiki.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Nishati, inaonekana/inayoweza kuoanishwa, changanua, oanisha, unganisha, amini, ondoa — udhibiti kamili wa adapta.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Firewall</h3><p>Tazama na uhariri sheria na minyororo ya iptables, tumia preset, kutoka kwa simu yako.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Sauti</h3><p>Sauti, ukimya, orodha ya sink — na tuma sauti ya kompyuta kwenye spika ya simu yako kupitia WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Vyombo vya habari</h3><p>Play/pause/seek/volume halisi kwa <a href="../media.html">Chameleon Media Center</a> na vicheza vyenye msingi wa MPV, kupitia soketi ya IPC ya mpv yenyewe — sio tu orodha tuli ya faili.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Moja</h3><p>Tazama <a href="../media.html">Chameleon Media Center</a>mtiririko wa moja kwa moja kwenye simu yako — chagua Low latency (MPEG-TS) au Smooth (HLS) kwa miunganisho hafifu — ona kama ni moja kwa moja, chanzo chake na wangapi wanatazama, na nakili kiungo ili mtu yeyote atazame kwenye kivinjari.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows na kompyuta za mezani</h3><p>Orodhesha, weka mwelekeo, funga, punguza, panua, panga madirisha na badilisha kompyuta za mezani pepe.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Kompyuta ya mezani ya mbali</h3><p>Kushiriki skrini kamili kupitia WebRTC kwa kugusa-kuwa-mouse na ingizo la kibodi — ona na dhibiti kompyuta yako ya mezani kutoka mahali popote kwenye mtandao wako. Inafanya kazi kikamilifu: miguso, kuvuta na mibonyezo ya kibodi unayotuma huonekana kwenye kompyuta ya mezani karibu mara moja. Ucheleweshaji wowote unaouona uko kwenye masasisho ya skrini yanayotoka kwenye kompyuta ya mezani kuja kwenye simu yako, sio kwenye ingizo lako.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Ubao wa kunakili unaoshirikiwa</h3><p>PC ni kitovu: kila simu inasukuma ubao wake wa kunakili huko — moja kwa moja kwenye ubao wa kunakili wa PC yenyewe, tayari kubandika — na skrini ya Clipboard inaorodhesha ingizo la hivi karibuni la kila kifaa. Gusa moja ili kuinakili kwenye simu hii. Hakuna kinachosomwa kutoka au kuandikwa kwenye ubao wa kunakili wa simu yako chinichini, isipokuwa unapogusa.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Kituo</h3><p>Shell halisi, inayoendeshwa kutoka simu yako.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Gumzo la AI</h3><p>Zungumza na mtoa huduma yeyote wa AI uliyemweka kwenye lango — DeepSeek, OpenAI, Anthropic na zaidi.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Simu zenye root</h2>
+<p>Skrini mbili za ziada zinaonekana kiotomatiki wakati simu ina root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN ya hotspot</h3><p>Shiriki nodi ya kutoka ya Tailscale ya simu na kila kifaa kwenye hotspot yake ya Wi-Fi — kompyuta za mkononi, TV na konsoli zinapata VPN bila kusakinisha chochote. Uelekezaji hujitumia tena kiotomatiki ikiwa hotspot au Tailscale itaanza upya, na script ya kuwasha inaweza kurudisha kila kitu baada ya kuwasha upya. Imeundwa kwa simu iliyoachwa imeunganishwa kama router: kikomo cha kuchaji, weka Tailscale nje ya uboreshaji wa betri, na Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Hifadhi ya USB</h3><p>Chomeka simu kwenye PC yoyote na itaonekana kama kiendeshi cha USB. Unda picha ya diski ya hadi 256 GB kwa sekunde — FAT32 (kila OS inaisoma), ext4 (hakuna kikomo cha faili cha 4 GB), au diski ya GPT inayoweza kuwashwa na kizigeu cha EFI ili kompyuta ya mkononi iweze kuwasha kutoka kwa simu — kisha ishiriki kwa kusoma-kuandika au kusoma-tu, au ifungue kwenye simu yenyewe. Unaweza pia kukabidhi kadi ya SD ya simu au kiendeshi cha USB kwa PC. ADB inabaki imeunganishwa wakati wa kushiriki.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Lango</h2>
+<p>trixie-gateway — upande wa desktop, faili moja ya binary inayojitosheleza</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Faili moja ya binary, hakuna Python inayohitajika</h3><p>Pakua faili moja ya utekelezaji inayojitosheleza — hakuna Python, pip au venv kwenye mashine. Imejengwa kwa aiohttp + aiortc, na chanzo bado kiko kwenye GitHub ikiwa ungependa kuiendesha kutoka Python. Inaendesha yenyewe au kama huduma ya systemd, ikisikiliza kwenye anwani yako ya Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 endpoints za REST</h3><p>Kila kipengele cha programu ya simu hapo juu, pamoja na kinachooana na OpenAI <code>/v1/chat/completions</code> ambacho huelekeza kwa mtoa huduma yeyote wa AI unaomweka.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Seva ya MCP imejumuishwa</h3><p><code>media_mcp_server.py</code> inaonyesha udhibiti wa midia (hali, cheza, simamisha, tafuta, sauti, fungua, vinjari) kama zana za MCP kupitia stdio JSON-RPC — data sawa ya kipindi na njia ya udhibiti inayotumiwa na programu ya simu, hivyo wakala wa AI na simu yako huona kitu kimoja kila wakati.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Uoanifu</h2>
+<p>Imeundwa kwa Debian Trixie — wazi kuhusu mahali pengine inapofanya kazi</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Jukwaa</th><th>Hali</th><th>Kwa nini</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Ilitengenezwa na kujaribiwa hapa</td><td>—</td></tr>
+<tr><td>Familia ya Fatdog64 / Puppy Linux</td><td class="yes">✓ Inapaswa kufanya kazi</td><td>Kipengele cha Layers hutambua matawi ya union-fs kiotomatiki chini ya ama <code>/aufs</code> (inayotokana na Fatdog64, ikijumuisha mashine hii) au <code>/initrd</code> (Puppy ya kawaida) — <code>/initrd</code> njia hii haijajaribiwa dhidi ya usakinishaji halisi wa Puppy, inategemea kanuni zilizoandikwa badala ya uthibitisho wa vitendo</td></tr>
+<tr><td>Desktop nyingine za X11 Linux</td><td class="yes">✓ Inapaswa kufanya kazi</td><td>Inahitaji BlueZ, iptables, PulseAudio/PipeWire yenye uoanifu wa pactl, na kipindi cha X11 (desktop za Wayland pekee hazitumiki — <code>wmctrl</code>/<code>xdotool</code> inahitaji X11)</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Build ya jaribio la majaribio</td><td>Kushiriki skrini, kipanya/kibodi, orodha ya madirisha, sauti na terminal vimetekelezwa kwa Windows. Faili binary hujengwa na kuanza katika CI otomatiki, lakini <strong>bado haijaendeshwa kwenye mashine halisi ya Windows</strong> — tarajia makali magumu. Bluetooth, firewall, tabaka, mwangaza, mtandao na Media Center hubaki kwa Linux pekee na hujibu <code>501</code></td></tr>
+<tr><td>macOS (Intel na Apple Silicon)</td><td class="test">🧪 Build ya jaribio la majaribio</td><td>Seti sawa ya vipengele kama Windows, kwa kutumia Quartz, AVFoundation na <code>osascript</code>. Hujengwa na kuanza katika CI kwa usanifu wote wawili lakini <strong>haijajaribiwa kwenye Mac halisi</strong>. Programu haijatiwa sahihi, na macOS itaomba ruhusa ya Kurekodi Skrini na Ufikivu</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Picha za skrini</h2>
+<p>TrXi-Ctrl — imenasa moja kwa moja, inaendesha kwenye maunzi halisi</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Terminal kinachoendesha lsusb kwenye kompyuta ya Linux iliyounganishwa" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Kituo</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha System kinachoonyesha OS, kernel, CPU, mzigo, kumbukumbu na betri" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Mfumo</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Layers kinachoorodhesha matawi ya AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Tabaka</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Network kinachoonyesha violesura ikiwemo anwani ya Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Mtandao</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Bluetooth chenye vifaa vilivyooanishwa na vivyombo vya kuonekana/kuoanishwa" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Firewall chenye mnyororo wa iptables na mipangilio tayari" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Firewall</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Audio chenye sauti ya pato, sinks na kidhibiti cha MIDI cha Bluetooth" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Sauti</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Media kinachodhibiti kipindi hai cha Chameleon Media Center kwa wakati halisi" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Udhibiti wa midia</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Windows kinachoorodhesha na kupanga madirisha ya kompyuta yaliyofunguliwa" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Windows</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Kichupo cha Desktop, ushirikiano kamili wa skrini kwa mbali kwa kubofya kushoto/kulia" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Kompyuta ya mezani ya mbali</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — kichupo cha AI Chat kinachozungumza na mtoa huduma aliyesanidiwa" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Gumzo la AI</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — kichupo cha Mipangilio kinachogundua lango kwenye mtandao wa Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Ugunduzi wa lango</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — kichupo cha Mipangilio chenye ufunguo wa mtoa huduma wa AI uliosanidiwa na maelezo ya programu" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Usanidi wa mtoa huduma wa AI</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Pakua <span class="free-badge">BURE</span></h3>
+<p>Programu ya simu (Android) + lango la kompyuta. Zote mbili wazi, zote mbili bure.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Pakua APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Lango la Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Matoleo ya majaribio ya Windows na macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Tazama lango kwenye GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sakinisha lango</h2>
+<p>Kwenye mashine ya Debian Trixie (au Linux inayooana) unayotaka kudhibiti</p>
+</div>
+<div class="code-block"># Linux — faili pekee la binary, hakuna kingine cha kusakinisha curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # kisha kwenye programu ya simu: Mipangilio → URL ya Lango → http://&lt;ip-ya-tailscale-au-LAN-ya-mashine-hii&gt;:8772 # au gusa "Discover Peers" ikiwa nyote wawili mko kwenye mtandao mmoja wa Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Unapendelea Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, kisha <code>pip install -r requirements.txt</code> na <code>python3 gateway.py --port 8772</code>. Nyaraka kamili za usakinishaji, ikiwa ni pamoja na kuiendesha kama huduma ya systemd, ziko kwenye hazina ya <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Matoleo ya majaribio ya Windows na macOS</strong> yako kwenye <a href="https://github.com/cou645/trixie-gateway/releases">ukurasa wa matoleo</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Hazijatiwa sahihi, kwa hivyo Windows SmartScreen itasema "mchapishaji asiyejulikana" (Maelezo zaidi → Endesha hata hivyo) na macOS itazuia uzinduzi wa kwanza (bofya kulia → Fungua). Tafadhali ripoti kinachovunjika.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Unapenda TrXi-Ctrl? Tazama kile kingine tunachojenga</h3>
+<p>TrXi-Ctrl ni sehemu ya bure na huria ya familia kubwa ya zana za AI za kompyuta — kihariri cha msimbo, studio ya mawasilisho, uhasibu wa Uingereza, usambazaji wa magari na zaidi.</p>
+<a class="btn btn-solid" href="../index.html">Tazama programu zote za Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (AI ya simu + kompyuta) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Maoni</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a><a href="../companion.html">Programu Tandazi</a>
+<a href="../media.html">Kituo cha Vyombo vya Habari</a>
+<a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a><a href="../privacy.html">Faragha</a><a href="../terms.html">Masharti</a><a href="../accessibility.html">Ufikivu</a><a href="../security.html">Usalama</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

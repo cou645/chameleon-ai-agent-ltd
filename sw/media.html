@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Ruka hadi maudhui makuu</a>
+<div class="pre-note">
+  Chameleon Media Center ni sehemu ya familia ya kompyuta ya Chameleon AI. Usambazaji na upatikanaji unakamilishwa — <a href="../contact.html">wasiliana nasi kuhusu leseni</a>. Inaweza kudhibitiwa kwa mbali leo kutoka <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, programu yetu ya simu ya bure.
+</div>
+<nav aria-label="Msingi">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Nembo ya Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Nyumbani</a>
+<a href="../ide.html">UNA MAWAZO</a>
+<a href="../presenter.html">Mtoa mada</a>
+<a href="../companion.html">Programu Tandazi</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Kituo cha Vyombo vya Habari</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Huduma za Wavuti</a>
+<a href="../accounting.html">Uhasibu</a>
+<a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../classroom.html">Darasa</a>
+<a href="../contact.html">Wasiliana</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇰🇪 SW ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Studio kamili ya midia ya kompyuta iliyojengwa juu ya mpv — uchezaji, orodha za kucheza, utafutaji wa YouTube na Bilibili na akiba ya kutazama unapotazama, utiririshaji wa moja kwa moja, TV ya DVB-T/T2, DVD/Blu-ray/CD, uelekezaji wa sauti wa Bluetooth na USB, athari za sauti, kionyeshi, kihariri cha video, kusawazisha sauti, kamera za wavuti pepe na uakisi wa Android wa simu nyingi, katika programu moja.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Uchezaji unaotumia mpv</span>
+<span class="badge">🔎 Utafutaji wa YouTube na Bilibili + akiba ya kutazama</span>
+<span class="badge">📡 TV ya Moja kwa Moja DVB-T/T2/C/S/ATSC</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + ingizo la USB turntable/miksa</span>
+<span class="badge">📱 Hadi simu 16 kuakisiwa kwa wakati mmoja</span>
+<span class="badge">📷 Webcam pepe + PiP ya pembe 4</span>
+<span class="badge">📡 Tuma kwa vivinjari, YouTube, Twitch na zaidi</span>
+<span class="badge">🤏 Kuza kwa kubana/kusogeza kwenye kila simu</span>
+<span class="badge">🤖 Seva ya MCP imejumuishwa</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Kilicho ndani</h2>
+<p>Tabo kumi na tatu, injini moja ya midia</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Paneli ya video</h3><p>Uchezaji unaendeshwa na mpv — usaidizi mpana wa miundo, kusogeza laini, kitufe cha skrini nzima kwa mbofyo mmoja (au F11), urejeshaji wa kiotomatiki ikiwa mchakato wa kichezaji utakufa bila kutarajia, na hukumbuka kifaa cha kutoa sauti ulichochagua mwisho kati ya kuanzisha upya badala ya kurejea kwa chaguo-msingi. Kifuniko cha picha-kwa-picha chenye ucheleweshaji mdogo huweka hadi kamera nne — webcam iliyojengwa au simu yoyote — kwenye pembe za chochote kinachochezwa. Rekodi mtiririko unaochezwa, au pakua kinachochezwa, kwa kitufe kimoja.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Orodha ya kucheza</h3><p>Kupanga upya kwa kuburuta-na-kuacha, usimamizi wa foleni, kuagiza na kuhifadhi orodha ya kucheza, na kurejesha orodha ya kucheza iliyofutwa kutoka kwenye pipa la taka. Ongeza faili moja au folda nzima, ikijumuisha folda ndogo. Maingizo ambayo faili yake haipo — kiendeshi cha USB ambacho hakijaunganishwa, video iliyohifadhiwa kwenye kashe uliyoisafisha — hupauka hadi irudi, na video iliyosafishwa hupakuliwa tena kwa mbofyo mara mbili.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Utafutaji na kashe ya kutazama</h3><p>Tafuta YouTube au Bilibili, orodhesha video za hivi punde za muundaji wa TikTok, au bandika kiungo cha TikTok, Instagram, Facebook, Snapchat Spotlight au Douyin. Matokeo hupangwa kwenye foleni katika orodha ya kutazama yenye namba chini ya orodha ya kucheza. Chochote unachotazama huhifadhiwa kwenye diski unapokitazama — bila kupakua tofauti — kwa hivyo kutazama kunakofuata huchezwa kutoka nakala ya ndani, na video iliyotazamwa kwa sehemu huonyesha ni kiasi gani kimehifadhiwa na hujaza kilichobaki wakati ujao. Hamisha video zilizohifadhiwa kwenye orodha kuu ya kucheza, na chagua zipi za kuhifadhi au kufuta unapofunga programu. Vidakuzi vya kivinjari vya hiari hupita "thibitisha kuwa wewe si roboti" na vizuizi vya kuingia.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>TV ya DVB</h3><p>Changanua na utazame TV halisi ya kidijitali — DVB-T/T2, DVB-C, DVB-S/S2 na ATSC — moja kwa moja kutoka kwa kipokea cha USB au PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD / CD / Blu-ray</h3><p>Hutambua kilicho kwenye kiendeshi cha macho kiotomatiki na hucheza DVD-Video, Blu-ray au nyimbo za Audio CD — hakuna programu tofauti ya diski inayohitajika.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Sauti ya BT/USB</h3><p>Elekeza uchezaji kwa spika moja au kadhaa za Bluetooth kwa wakati mmoja (PulseAudio combine-sink), geuza adapta kuwa hali ya kupokea ili kompyuta yenyewe iwe spika ya Bluetooth, au unganisha <em>yoyote</em> chanzo kingine cha kunasa cha PulseAudio — kicheza rekodi cha USB, kifaa cha MiniDisc, mchanganyaji/kidhibiti cha DJ, au kiolesura cha sauti — moja kwa moja kwenye uchezaji na Visualizer, yote kutoka kwenye orodha moja ya Vyanzo vya Ingizo.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Simu ya ADB — hadi 16 kwa wakati mmoja</h3><p>Gridi ya paneli 1–16 huru katika safu wima nyingi upendavyo — akisi na dhibiti simu za Android nyingi hivyo kwa wakati mmoja, kila moja ikiwa na skrini yake, uelekezaji wa sauti na ingizo lake. Bana (kisanduku hiki kina skrini ya kugusa) au tumia gurudumu la kusogeza kukuza skrini ya simu yoyote, Shift+buruta kusogeza. Gusa, telezesha na andika moja kwa moja kwa kipanya, kalamu, kugusa au kibodi yako halisi — shell ya kudumu kwa kila kifaa huweka kila ingizo kuwa la wakati halisi badala ya kulipa gharama mpya ya muunganisho kwa kila mibofyo. "Unganisha Bila Waya" kwa mbofyo mmoja hubadilisha simu iliyounganishwa kwa USB kuwa adb-over-wifi kiotomatiki, au oanisha kwa Wi-Fi kwa kuchanganua msimbo wa QR wa kuoanisha wa simu. Sukuma na vuta faili kwa simu yoyote, na simu iliyolala huamshwa kabla ya utiririshaji kuanza.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Kamera pepe</h3><p>Kifaa cha "CMC PC Webcam" ambacho programu yoyote ya simu ya video, kivinjari au OBS inaweza kuchagua — kiwekee kamera iliyojengwa ndani au kamera ya simu yoyote iliyounganishwa, na ubadilishe vyanzo katikati ya simu bila programu kupoteza kifaa. Kila paneli ya simu pia hupata kamera yake pepe.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Utiririshaji wa Moja kwa Moja</h3><p>Tiririsha kamera au paneli ya video kwa kivinjari chochote kwenye LAN yako au Tailscale (ukurasa wa kicheza HLS) pamoja na mtiririko wa ucheleweshaji mdogo kwa TrXi-Ctrl, VLC au mpv — watazamaji wengi kutoka usimbaji mmoja — au isukume kwa YouTube Live, Facebook Live, Twitch, WeChat Channels au seva yoyote ya RTMP.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Shiriki na gundua</h3><p>CMC zilizo kwenye mtandao mmoja hupatana kiotomatiki, na msimbo wa kikundi hushiriki orodha yako ya kucheza — ikiwa ni pamoja na faili za ndani — na CMC nyingine.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Athari za Sauti</h3><p>Ubao wa sauti kwa ishara za sauti za papo hapo unapocheza au kutiririsha.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Kionyeshi</h3><p>Mionekano inayoitikia sauti kwa wakati halisi kwa chochote kinachochezwa sasa.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Kihariri cha video</h3><p>Kipanga mfululizo wa klip kinacholingana na fremu: weka fremu za In/Out kutoka kwa kichezaji, panga upya klip, ongeza wimbo wa muziki (uliochanganywa chini ya au kuchukua nafasi ya sauti asili) na manukuu (yaliyochomwa ndani au kama wimbo unaobadilishwa), kisha hamisha kwa chinichini.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Kisawazisha sauti cha bendi 18 &amp; athari za sauti/video</h3><p>Umba sauti kulingana na chumba, au hisia, kwa preset unazoweza kurekebisha na kuhifadhi — pamoja na athari za sauti na kichupo maalum cha athari za video.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Vidokezo</h3><p>Madokezo yaliyoandikwa kwa chapa au kwa mkono (yanayofaa kalamu/kugusa) kando ya midia yako — muhimu kwa madokezo ya utengenezaji/kikao unapofanya kazi.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Kufuli, mandhari &amp; mapendeleo</h3><p>Funga dirisha kwa mchoro (Ctrl+Alt+L), badilisha mandhari, na weka mapendeleo yako — pamoja na About na Help zilizojengwa ndani.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Kidhibiti cha mbali</h3><p>Kila kitendo cha kucheza/kusimamisha/kuruka/kiasi cha sauti kinaonyeshwa kupitia soketi ya IPC ya mpv yenyewe, ambayo <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — programu yetu ya simu ya bure — huwasiliana nayo moja kwa moja kwa udhibiti halisi wa usafirishaji, sio tu orodha ya vikao. Kufunga kikao kutoka kwa simu hufunga programu yote kwa usafi badala ya kuacha kichezaji nusu-kufa.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Seva ya MCP</h3><p>Seva ya Model Context Protocol iliyojumuishwa inaonyesha hali ya uchezaji, play/pause/seek/volume/open na kuvinjari maktaba kama zana — hivyo wakala wa AI na simu yako daima wanaona na kudhibiti kipindi kimoja.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Imejengwa juu ya misingi ya wazi</h2>
+<p>Programu ya mezani ya PySide6 (Qt), injini ya uchezaji ya mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>Kiolesura cha mezani asilia na kinachojibika — sehemu ya mkusanyiko huo wa Python/Qt kama programu nyingine za mezani za Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>injini ya mpv</h3><p>Imepachikwa kupitia upachikaji wa dirisha wa mpv wenyewe na soketi ya JSON IPC — injini hiyo hiyo ya uchezaji inayotegemewa na inayotumika sana nyuma ya zana nyingi za midia za Linux, huku libdvdnav/libdvdread/libcdio/libbluray zikiwa zimeunganishwa tayari kwa uchezaji wa diski.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Uelekezaji wa sauti asilia wa PulseAudio</h3><p>Matokeo ya vifaa vingi hutumia module-combine-sink ya PulseAudio yenyewe; chanzo chochote cha kunasa — upokeaji wa Bluetooth au kifaa cha sauti cha USB — huzungushwa kupitia module-loopback, kikichunguza kwanza uelekezaji ambao sera ya Bluetooth ya PulseAudio yenyewe imeweka tayari badala ya kupigana nao.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Picha za skrini</h2>
+<p>Chameleon Media Center — kunasa moja kwa moja</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — Kichupo cha utafutaji chenye matokeo ya YouTube, video inayocheza, na orodha ya kutazama chini ya orodha ya kucheza inayoonyesha video iliyohifadhiwa" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Tafuta na orodha ya kutazama</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — simu mbili za Android zinaakisiwa kando kando kwenye kichupo cha ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Uakisi wa simu mbili</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha kuchanganua chaneli za DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">TV ya DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha sauti cha Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Kutuma/Kupokea</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kiekiza cha bendi 18" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Kisawazisha cha bendi 18</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — uchezaji wa YouTube na kifuniko cha kionyeshi wigo kinachoitikia sauti moja kwa moja" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Uwekaji juu wa kionyeshi</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — skini mbadala ya pastel, kichezaji kisichotumika chenye orodha kubwa ya kucheza iliyopakiwa" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Mandhari mbadala</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — simu mbili za Android zilizoakisiwa upana kamili kando kando, moja ikionyesha skrini yake ya nyumbani, nyingine droo yake ya programu" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Uakisi wa pande mbili wa upana kamili</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha ADB Phone chenye safu kamili ya vitufe 16 vya kudhibiti: kamera, Bluetooth, hotspot, Wi-Fi, uhamishaji faili na zaidi" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Safu kamili ya vidhibiti vya simu</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — simu tatu za Android zilizoakisiwa kwa wakati mmoja, kila moja ikiendesha programu ya udhibiti wa mbali TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Uakisi wa simu tatu</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kamera ya wavuti iliyojengwa ndani kwenye kona ya picha-katika-picha juu ya video inayochezwa, na simu mbili zilizoakisiwa chini" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Picha-kwa-picha ya kamera ya wavuti</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ubao wa Athari za Sauti wenye ishara kumi na mbili za mbofyo mmoja na sauti maalum, juu ya video inayochezwa" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Bodi ya Athari za Sauti</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kiekiza cha bendi 18 chenye preset ya R&amp;B iliyotumika wakati wa uchezaji" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Mipangilio ya kikaguo</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha Athari za Sauti: ukuzaji, kuongeza besi na treble, kikandamizaji, kupunguza kelele, chorus, reverb na delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Athari za sauti</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha Live Stream kilichowekwa kusukuma kwa YouTube Live kupitia RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Tuma moja kwa moja kwa YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kichupo cha Vidokezo kinachoorodhesha kurasa za PDF zilizoingizwa kando ya video inayochezwa" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Vidokezo</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — simu mbili zilizoakisiwa na safu zake kamili za kudhibiti wakati video inachezwa" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Vidhibiti vya simu</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — simu iliyoakisiwa kwenye kichupo cha ADB Phone chenye vidhibiti vya Rudi, Nyumbani, Za Hivi Karibuni na uandishi" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Uakisi wa simu moja</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — kionyeshi cha wigo na menyu ya Faili, katika mandhari ya pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Menyu ya Kionyeshi na Faili</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Pata Chameleon Media Center</h3>
+<p>Imojumuishwa na eneo-kazi la Chameleon AI. <strong>Usambazaji na upatikanaji unakamilishwa</strong> — wasiliana nasi kwa bei na upatikanaji wa sasa.</p>
+<a class="btn btn-solid" href="../contact.html">Wasiliana nasi</a>
+<a class="btn" href="../trxi-ctrl.html">Idhibiti kutoka kwa simu yako kwa TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Rudi kwa muhtasari</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Maoni</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Nyumbani</a><a href="../ide.html">UNA MAWAZO</a><a href="../presenter.html">Mtoa mada</a><a href="../companion.html">Programu Tandazi</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Uhasibu</a><a href="../technician.html">Mtaalamu wa Kompyuta</a>
+<a href="../classroom.html">Darasa</a><a href="../contact.html">Wasiliana</a><a href="../privacy.html">Faragha</a><a href="../terms.html">Masharti</a><a href="../accessibility.html">Ufikivu</a><a href="../security.html">Usalama</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Imejengwa na Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

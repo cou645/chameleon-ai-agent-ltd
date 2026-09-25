@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Langsung ke konten utama</a>
+<div class="pre-note">
+  Chameleon Media Center adalah bagian dari keluarga desktop Chameleon AI. Distribusi dan ketersediaan sedang diselesaikan — <a href="../contact.html">hubungi kami tentang lisensi</a>. Saat ini dapat dikendalikan dari jarak jauh dari <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, aplikasi ponsel gratis kami.
+</div>
+<nav aria-label="Utama">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Pusat Media</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Layanan Web</a>
+<a href="../accounting.html">Akuntansi</a>
+<a href="../technician.html">Teknisi PC</a>
+<a href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Studio media desktop lengkap yang dibangun di atas mpv — pemutaran, daftar putar, pencarian YouTube &amp; Bilibili dengan cache tonton-sambil-jalan, streaming langsung, TV DVB-T/T2, DVD/Blu-ray/CD, perutean audio Bluetooth &amp; USB, efek suara, visualizer, editor video, ekualiser, webcam virtual, dan mirroring Android multi-ponsel, dalam satu aplikasi.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Pemutaran bertenaga mpv</span>
+<span class="badge">🔎 Pencarian YouTube &amp; Bilibili + cache tontonan</span>
+<span class="badge">📡 TV DVB-T/T2/C/S/ATSC Langsung</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + input turntable/mixer USB</span>
+<span class="badge">📱 Hingga 16 ponsel dicerminkan sekaligus</span>
+<span class="badge">📷 Webcam virtual + PiP 4 sudut</span>
+<span class="badge">📡 Streaming ke browser, YouTube, Twitch &amp; lainnya</span>
+<span class="badge">🤏 Zoom cubit/gulir pada setiap ponsel</span>
+<span class="badge">🤖 Server MCP disertakan</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Apa isinya</h2>
+<p>Tiga belas tab, satu mesin media</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Panel video</h3><p>Pemutaran didukung oleh mpv — dukungan format luas, pencarian mulus, tombol layar penuh sekali klik (atau F11), pemulihan otomatis jika proses pemutar mati secara tak terduga, dan mengingat perangkat keluaran audio terakhir yang Anda pilih di antara mulai ulang alih-alih mengatur ulang ke default. Overlay picture-in-picture latensi rendah menempatkan hingga empat kamera — webcam bawaan atau ponsel apa pun — di sudut apa pun yang sedang diputar. Rekam aliran yang sedang diputar, atau unduh apa yang sedang diputar, dengan satu tombol.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Daftar putar</h3><p>Pengurutan ulang seret-dan-lepas, manajemen antrean, impor dan simpan daftar putar, dan pulihkan daftar putar yang dihapus dari tempat sampah. Tambahkan satu file atau seluruh folder, termasuk subfolder. Entri yang filenya tidak ada — drive USB yang tidak terpasang, video cache yang Anda bersihkan — berwarna abu-abu hingga kembali, dan video yang dibersihkan akan diunduh ulang dengan klik ganda.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Pencarian &amp; cache tontonan</h3><p>Cari di YouTube atau Bilibili, daftar video terbaru kreator TikTok, atau tempel tautan TikTok, Instagram, Facebook, Snapchat Spotlight, atau Douyin. Hasil diantrekan dalam daftar tontonan bernomor di bawah daftar putar. Apa pun yang Anda tonton disimpan di disk saat Anda menontonnya — tanpa unduhan terpisah — sehingga tontonan berikutnya diputar dari salinan lokal, dan video yang baru ditonton sebagian menunjukkan berapa banyak yang tersimpan dan melengkapi sisanya lain kali. Pindahkan video yang disimpan ke daftar putar utama, dan pilih mana yang disimpan atau dihapus saat Anda menutup aplikasi. Cookie browser opsional melewati "konfirmasi Anda bukan bot" dan dinding masuk.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>TV DVB</h3><p>Pindai dan tonton TV digital sungguhan — DVB-T/T2, DVB-C, DVB-S/S2, dan ATSC — langsung dari tuner USB atau PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD/CD/Blu-ray</h3><p>Mendeteksi isi drive optik secara otomatis dan memutar DVD-Video, Blu-ray, atau trek Audio CD — tidak perlu perangkat lunak disk terpisah.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Audio BT/USB</h3><p>Arahkan pemutaran ke satu atau beberapa speaker Bluetooth sekaligus (PulseAudio combine-sink), ubah adaptor ke mode terima agar PC sendiri menjadi speaker Bluetooth, atau sambungkan <em>apa pun</em> sumber tangkapan PulseAudio lainnya — pemutar piringan USB, dek MiniDisc, mixer/kontroler DJ, atau antarmuka audio — langsung ke pemutaran dan Visualizer, semuanya dari satu daftar Sumber Input.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Ponsel ADB — hingga 16 sekaligus</h3><p>Kisi 1–16 panel independen dalam kolom sebanyak yang Anda suka — cerminkan dan kendalikan sebanyak itu ponsel Android secara bersamaan, masing-masing dengan layar, perutean audio, dan inputnya sendiri. Cubit (kotak ini memiliki layar sentuh) atau gulir roda untuk memperbesar layar ponsel mana pun, Shift+seret untuk menggeser. Ketuk, geser, dan ketik langsung dengan mouse, stylus, sentuhan, atau keyboard fisik Anda — shell per perangkat yang persisten menjaga setiap input tetap real-time alih-alih membayar biaya koneksi baru untuk setiap penekanan tombol. "Sambungkan Nirkabel" sekali klik mengalihkan ponsel yang terhubung USB ke adb-over-wifi secara otomatis, atau pasangkan melalui Wi-Fi dengan memindai kode QR pemasangan ponsel. Dorong dan tarik file ke ponsel mana pun, dan ponsel yang tertidur dibangunkan sebelum streaming dimulai.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Kamera virtual</h3><p>Perangkat "CMC PC Webcam" yang dapat dipilih oleh aplikasi panggilan video, browser, atau OBS mana pun — beri umpan kamera bawaan atau kamera ponsel mana pun yang terhubung, dan ganti sumber di tengah panggilan tanpa aplikasi kehilangan perangkat. Setiap panel ponsel juga mendapat kamera virtualnya sendiri.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Siaran Langsung</h3><p>Streaming kamera atau panel video ke browser mana pun di LAN atau Tailscale Anda (halaman pemutar HLS) plus umpan latensi rendah untuk TrXi-Ctrl, VLC, atau mpv — banyak penonton dari satu pengodean — atau dorong ke YouTube Live, Facebook Live, Twitch, WeChat Channels, atau server RTMP mana pun.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Bagikan &amp; temukan</h3><p>CMC di jaringan yang sama menemukan satu sama lain secara otomatis, dan kode grup membagikan daftar putar Anda — termasuk file lokal — dengan CMC lain.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Efek Suara</h3><p>Papan suara untuk isyarat audio secara langsung saat Anda bermain atau streaming.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Visualisator</h3><p>Visual reaktif audio waktu nyata untuk apa pun yang sedang diputar.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Editor video</h3><p>Sequencer klip yang akurat per frame: atur frame In/Out dari pemutar, susun ulang klip, tambahkan trek musik (dicampur di bawah atau menggantikan suara asli) dan subtitle (dibakar atau sebagai trek yang dapat dialihkan), lalu ekspor di latar belakang.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Ekualiser 18-band &amp; efek audio/video</h3><p>Bentuk suara sesuai ruangan, atau suasana hati, dengan preset yang dapat Anda sesuaikan dan simpan — plus efek audio dan tab efek video khusus.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Catatan</h3><p>Catatan yang diketik atau ditulis tangan (ramah stylus/sentuh) tepat di samping media Anda — berguna untuk catatan produksi/sesi saat Anda bekerja.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Kunci, tema &amp; preferensi</h3><p>Kunci jendela dengan pola (Ctrl+Alt+L), ganti tema, dan atur preferensi Anda — dengan About dan Help bawaan.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Kontrol jarak jauh</h3><p>Setiap tindakan putar/jeda/cari/volume tersedia melalui soket IPC milik mpv sendiri, yang <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — aplikasi ponsel gratis kami — terhubung langsung untuk kontrol pemutaran sungguhan, bukan sekadar daftar sesi. Menutup sesi dari ponsel akan menutup seluruh aplikasi dengan bersih alih-alih meninggalkan pemutar setengah mati.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Server MCP</h3><p>Server Model Context Protocol yang dibundel mengekspos status pemutaran, play/pause/seek/volume/open, dan penjelajahan pustaka sebagai alat — sehingga agen AI dan ponsel Anda selalu melihat dan mengendalikan sesi yang sama.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Dibangun di atas fondasi terbuka</h2>
+<p>Aplikasi desktop PySide6 (Qt), mesin pemutaran mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>UI desktop asli yang responsif — bagian dari tumpukan Python/Qt yang sama dengan aplikasi desktop Chameleon AI lainnya.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>mesin mpv</h3><p>Disematkan melalui penyematan jendela mpv sendiri dan soket JSON IPC — mesin pemutaran andal yang sama, yang banyak digunakan di balik banyak alat media Linux, dengan libdvdnav/libdvdread/libcdio/libbluray sudah ditautkan untuk pemutaran disk.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Perutean audio asli PulseAudio</h3><p>Output multi-perangkat menggunakan module-combine-sink milik PulseAudio sendiri; sumber tangkapan apa pun — penerimaan Bluetooth atau perangkat audio USB — masuk melalui module-loopback, memeriksa terlebih dahulu perutean yang sudah disiapkan oleh kebijakan Bluetooth PulseAudio sendiri daripada melawannya.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Tangkapan layar</h2>
+<p>Chameleon Media Center — tangkapan langsung</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — Tab pencarian dengan hasil YouTube, video yang diputar, dan daftar tonton di bawah playlist yang menampilkan video yang di-cache" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Pencarian &amp; daftar tontonan</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dua ponsel Android dicerminkan berdampingan di tab ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Pencerminan ponsel ganda</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab pemindaian saluran DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">TV DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab audio Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ekualiser 18-band" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Ekualiser 18-band</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — pemutaran YouTube dengan overlay visualisator spektrum reaktif audio langsung" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Overlay visualizer</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — skin pastel alternatif, pemutar idle dengan daftar putar besar yang dimuat" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Skin alternatif</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dua ponsel Android dicerminkan lebar penuh berdampingan, satu menampilkan layar beranda, yang lain laci aplikasinya" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Pencerminan ganda lebar penuh</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab ADB Phone dengan kolom kontrol 16 tombol lengkap: kamera, Bluetooth, hotspot, Wi-Fi, transfer file, dan lainnya" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Kolom kontrol ponsel penuh</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tiga ponsel Android dicerminkan sekaligus, masing-masing menjalankan aplikasi kontrol jarak jauh TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Pencerminan tiga ponsel</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — webcam bawaan di sudut picture-in-picture di atas video yang diputar, dengan dua ponsel dicerminkan di bawahnya" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Gambar-dalam-gambar webcam</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — papan Efek Suara dengan dua belas isyarat sekali klik dan suara kustom, di atas video yang diputar" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Papan Efek Suara</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ekualiser 18-band dengan preset R&amp;B diterapkan selama pemutaran" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Preset equalizer</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Efek Audio: amplifikasi, boost bass dan treble, kompresor, pengurangan noise, chorus, reverb, dan delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Efek audio</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Live Stream yang disiapkan untuk mendorong ke YouTube Live melalui RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Streaming ke YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Catatan yang mencantumkan halaman PDF yang diimpor di samping video yang diputar" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Catatan</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dua ponsel dicerminkan dengan kolom kontrol lengkapnya saat video diputar" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Kontrol ponsel</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ponsel yang dicerminkan di tab ADB Phone dengan kontrol Kembali, Beranda, Terbaru, dan pengetikan" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Pencerminan satu ponsel</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — visualisator spektrum dan menu File, dalam skin pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Menu Visualizer &amp; File</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Dapatkan Chameleon Media Center</h3>
+<p>Termasuk dengan desktop Chameleon AI. <strong>Distribusi dan ketersediaan sedang difinalisasi</strong> — hubungi kami untuk harga dan ketersediaan saat ini.</p>
+<a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
+<a class="btn" href="../trxi-ctrl.html">Kendalikan dari ponsel Anda dengan TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Komentar</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a><a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
+<a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a><a href="../privacy.html">Privasi</a><a href="../terms.html">Syarat</a><a href="../accessibility.html">Aksesibilitas</a><a href="../security.html">Keamanan</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Dibuat oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

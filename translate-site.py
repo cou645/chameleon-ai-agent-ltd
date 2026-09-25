@@ -82,9 +82,10 @@ NO_TRANSLATE_PAGES = {
 # alt string staying English until a translation that keeps the name lands.
 PROTECT = (
     "Chameleon AI Agent Ltd", "Chameleon Accounting", "Chameleon AI Agent",
-    "Chameleon AI", "Chameleon Companion", "Chameleon Classroom",
+    "Chameleon AI", "Chameleon Companion", "Chameleon Classroom", "Chameleon Media Center",
     "Kameleon Presenter", "Logistics 4×4", "Logistics 4x4", "stemsee",
-    "GoCardless", "TrueLayer", "OpenAI", "Anthropic",
+    "GoCardless", "TrueLayer", "OpenAI", "Anthropic", "TrXi-Ctrl",
+    
 )
 
 

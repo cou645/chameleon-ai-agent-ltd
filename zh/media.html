@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<div class="pre-note">
+  Chameleon Media Center 是 Chameleon AI 桌面系列的一部分。分发和可用性正在最终确定—— <a href="../contact.html">联系我们了解许可事宜</a>。它目前可通过 <a href="../trxi-ctrl.html">TrXi-Ctrl</a>（我们免费的手机应用）进行远程控制。
+</div>
+<nav aria-label="主要">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI 标志" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">伴侣应用</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">媒体中心</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">基于 mpv 构建的完整桌面媒体工作室——播放、播放列表、带随看随缓存功能的 YouTube 和 Bilibili 搜索、直播、DVB-T/T2 电视、DVD/Blu-ray/CD、蓝牙和 USB 音频路由、音效、可视化器、视频编辑器、均衡器、虚拟网络摄像头以及多手机 Android 投屏，集于一个应用中。</p>
+<div class="hero-badges">
+<span class="badge">🎞️ 由 mpv 驱动的播放</span>
+<span class="badge">🔎 YouTube 和 Bilibili 搜索 + 观看缓存</span>
+<span class="badge">📡 实时 DVB-T/T2/C/S/ATSC 电视</span>
+<span class="badge">💿 DVD · 蓝光 · CD</span>
+<span class="badge">🔵 蓝牙发送/接收 + USB 唱机/混音器输入</span>
+<span class="badge">📱 最多同时投屏 16 部手机</span>
+<span class="badge">📷 虚拟摄像头 + 四角画中画</span>
+<span class="badge">📡 推流到浏览器、YouTube、Twitch 等</span>
+<span class="badge">🤏 在每部手机上捏合/滚动缩放</span>
+<span class="badge">🤖 包含 MCP 服务器</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>内含功能</h2>
+<p>十三个标签页，一个媒体引擎</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>视频面板</h3><p>播放由 mpv 驱动 — 支持多种格式、流畅跳转、一键全屏切换（或 F11）、播放器进程意外终止时自动恢复，并且会记住你上次选择的音频输出设备，重启后不会重置为默认值。低延迟画中画叠加可将最多四个摄像头 — 内置摄像头或任意手机 — 放在正在播放内容的四角。一键录制正在播放的流，或下载正在播放的内容。</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>播放列表</h3><p>拖放重新排序、队列管理、播放列表导入和保存，以及从回收站恢复已删除的播放列表。可添加单个文件或整个文件夹（含子文件夹）。文件不存在的条目 — 未插入的 USB 驱动器、你已清理的缓存视频 — 会变灰直到文件恢复，而已清理的视频双击即可重新下载。</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>搜索与观看缓存</h3><p>搜索 YouTube 或哔哩哔哩，列出 TikTok 创作者的最新视频，或粘贴 TikTok、Instagram、Facebook、Snapchat Spotlight 或抖音链接。结果会排队到播放列表下方的编号观看列表中。你观看的任何内容都会在观看时保存到磁盘 — 无需单独下载 — 因此下次观看会从本地副本播放，部分观看的视频会显示已保存的进度，并在下次补齐剩余部分。将已保存的视频移到主播放列表，并在关闭应用时选择保留或删除哪些视频。可选的浏览器 cookie 可绕过“确认你不是机器人”和登录墙。</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>DVB 电视</h3><p>扫描并观看真正的数字电视 — DVB-T/T2、DVB-C、DVB-S/S2 和 ATSC — 直接来自 USB 或 PCI 调谐器。</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD / CD / 蓝光</h3><p>自动检测光驱中的内容并播放 DVD-Video、蓝光或音频 CD 曲目 — 无需单独的碟片软件。</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>BT/USB 音频</h3><p>将播放路由到一个或多个蓝牙扬声器（PulseAudio combine-sink），将适配器切换为接收模式，使 PC 本身成为蓝牙扬声器，或接入 <em>任何</em> 其他 PulseAudio 采集源 — USB 唱机、MiniDisc 播放器、DJ 混音器/控制器或音频接口 — 直接进入播放和可视化器，全部通过一个输入源清单完成。</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADB 手机 — 最多同时 16 台</h3><p>一个由 1–16 个独立面板组成的网格，列数随您喜欢 — 同时镜像和控制这么多 Android 手机，每台都有自己的屏幕、音频路由和输入。双指捏合（此设备有触摸屏）或滚轮可缩放任意手机屏幕，Shift+拖动可平移。直接用鼠标、触控笔、触摸或物理键盘点击、滑动和输入 — 每台设备的持久 shell 让每次输入都实时进行，而不必为每次按键付出新的连接开销。一键“无线连接”会自动将 USB 连接的手机切换为 adb-over-wifi，或通过扫描手机的配对二维码进行 Wi-Fi 配对。向任意手机推送和拉取文件，休眠的手机在开始串流前会被唤醒。</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>虚拟摄像头</h3><p>一个“CMC PC Webcam”设备，任何视频通话应用、浏览器或 OBS 都可以选择 — 向它提供内置摄像头或任何已连接手机的摄像头，并在通话中切换源而不会让应用丢失设备。每个手机面板也都有自己的虚拟摄像头。</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>直播</h3><p>将摄像头或视频面板串流到您局域网或 Tailscale 上的任何浏览器（HLS 播放器页面），并为 TrXi-Ctrl、VLC 或 mpv 提供低延迟流 — 一次编码即可供众多观看者 — 或推送到 YouTube Live、Facebook Live、Twitch、微信视频号或任何 RTMP 服务器。</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>分享与发现</h3><p>同一网络上的 CMC 会自动找到彼此，群组代码可将您的播放列表 — 包括本地文件 — 分享给其他 CMC。</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>音效</h3><p>用于在游戏或直播时即时播放音频提示的音板。</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>可视化器</h3><p>为当前播放的任何内容提供实时音频响应视觉效果。</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>视频编辑器</h3><p>帧精确的片段序列器：从播放器设置入点/出点帧，重新排列片段，添加音乐轨道（混音在原始声音之下或替换原始声音）和字幕（烧录或作为可切换轨道），然后在后台导出。</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>18 段均衡器与音频/视频效果</h3><p>用可调整并保存的预设让声音适应房间或氛围——外加音频效果和专门的视频效果选项卡。</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>笔记</h3><p>在媒体旁边直接输入或手写笔记（支持触控笔/触摸）——适合在工作时记录制作/会话笔记。</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>锁定、主题与偏好设置</h3><p>用图案锁定窗口（Ctrl+Alt+L），切换主题并设置偏好——内置“关于”和“帮助”。</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>远程控制</h3><p>每个播放/暂停/跳转/音量操作都通过 mpv 自带的 IPC 套接字公开， <a href="../trxi-ctrl.html">TrXi-Ctrl</a> ——我们的免费手机应用——直接与其通信，实现真正的播放控制，而不仅仅是会话列表。从手机关闭会话会干净地关闭整个应用，而不是留下一个半死不活的播放器。</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>MCP 服务器</h3><p>捆绑的 Model Context Protocol 服务器将播放状态、播放/暂停/跳转/音量/打开和媒体库浏览作为工具公开——因此 AI 代理和您的手机始终看到并控制同一个会话。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>建立在开放基础之上</h2>
+<p>PySide6 (Qt) 桌面应用，mpv 播放引擎</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>原生、响应迅速的桌面 UI——与其余 Chameleon AI 桌面应用属于同一个 Python/Qt 技术栈。</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>mpv 引擎</h3><p>通过 mpv 自有的窗口嵌入和 JSON IPC 套接字嵌入——这是许多 Linux 媒体工具背后同样可靠、广泛使用的播放引擎，并且已链接 libdvdnav/libdvdread/libcdio/libbluray 以支持光盘播放。</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>原生 PulseAudio 音频路由</h3><p>多设备输出使用 PulseAudio 自有的 module-combine-sink；任何采集源——蓝牙接收或 USB 音频设备——都通过 module-loopback 环回接入，先检查 PulseAudio 自身蓝牙策略已设置好的路由，而不是与之对抗。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>截图</h2>
+<p>Chameleon Media Center — 实时捕获</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — 搜索标签页显示 YouTube 结果、正在播放的视频，以及播放列表下方的观看列表显示一个已缓存的视频" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">搜索和观看列表</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 两台 Android 手机在 ADB Phone 标签页中并排镜像" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">双手机镜像</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — DVB 电视频道扫描选项卡" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVB 电视</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — DVD/CD/蓝光选项卡" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD·CD·蓝光</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 蓝牙发送/接收音频选项卡" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">蓝牙 Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 18 段均衡器" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">18 段均衡器</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — YouTube 播放，带有实时音频反应频谱可视化叠加层" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">可视化叠加层</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 备用柔和皮肤，空闲播放器加载了大型播放列表" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">备用皮肤</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 两部 Android 手机全宽并排镜像，一部显示主屏幕，另一部显示应用抽屉" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">全宽双镜像</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ADB 手机选项卡，带有完整的 16 按钮控制列：相机、蓝牙、热点、Wi-Fi、文件传输等" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">完整手机控制栏</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 三部 Android 手机同时镜像，每部都运行 TrXi-Ctrl 遥控应用" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">三台手机镜像</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 内置网络摄像头以画中画角落显示在播放视频上方，下方镜像两部手机" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">网络摄像头画中画</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 音效板，带有十二个一键提示音和自定义声音，覆盖在播放视频上" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">音效面板</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 18 段均衡器，播放期间应用了 R&amp;B 预设" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">均衡器预设</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 音频效果选项卡：放大、低音和高音增强、压缩器、降噪、合唱、混响和延迟" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">音频效果</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 直播选项卡，设置为通过 RTMPS 推流到 YouTube Live" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">串流到 YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 笔记选项卡，在播放视频旁边列出导入的 PDF 页面" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">笔记</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 两部手机镜像并显示其完整控制列，同时播放视频" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">手机控制</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 在 ADB Phone 标签页中镜像的手机，带有返回、主页、最近任务和输入控件" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">单台手机镜像</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 柔和皮肤下的频谱可视化器和文件菜单" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">可视化工具与文件菜单</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>获取 Chameleon Media Center</h3>
+<p>包含在 Chameleon AI 桌面中。 <strong>分发和可用性正在最终确定中</strong> — 请联系我们获取当前定价和可用性。</p>
+<a class="btn btn-solid" href="../contact.html">联系我们</a>
+<a class="btn" href="../trxi-ctrl.html">用 TrXi-Ctrl 从手机控制它 →</a>
+<a class="btn" href="../index.html">← 返回概述</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>评论</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a><a href="../companion.html">伴侣应用</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../classroom.html">课堂</a><a href="../contact.html">接触</a><a href="../privacy.html">隐私</a><a href="../terms.html">条款</a><a href="../accessibility.html">无障碍</a><a href="../security.html">安全</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · 由 Marcos aka stemsee 构建</p>
+</footer>
+</body>
+</html>

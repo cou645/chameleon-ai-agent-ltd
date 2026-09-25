@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+<div class="pre-note">
+  TrXi-Ctrlは無料でオープンです — スマートフォンアプリ、それが通信するゲートウェイ、そのMCPサーバーはすべてLinux愛好家向けの無料ダウンロードです。また、これはChameleon AI Agent Ltdファミリーの他の製品を紹介する方法でもあります — ご覧ください <a href="../index.html">有料デスクトップアプリ</a>.
+</div>
+<nav aria-label="プライマリ">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI ロゴ" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ホーム</a>
+<a href="../ide.html">あなたにはアイデアがあります</a>
+<a href="../presenter.html">プレゼンター</a>
+<a href="../companion.html">コンパニオンアプリ</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">メディアセンター</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">ウェブサービス</a>
+<a href="../accounting.html">会計</a>
+<a href="../technician.html">パソコン技術者</a>
+<a href="../classroom.html">u6388u696d</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Linuxデスクトップ用の無料リモートコントロール — Bluetooth、ファイアウォール、オーディオ、メディア、ウィンドウ、ターミナル、画面共有、共有クリップボード、AIチャットを、すべてスマートフォンから — さらに、root化したスマートフォンでは、VPNホットスポットとUSBマスストレージも。Debian Trixie向けに構築。他のほとんどのX11 Linuxデスクトップでも動作します。</p>
+<div class="hero-badges">
+<span class="badge">🆓 無料でオープン</span>
+<span class="badge">🐧 Linux / X11のみ</span>
+<span class="badge">🔌 14のコントロール画面（root化したスマートフォンでは+2）</span>
+<span class="badge">🤖 MCP サーバー同梱</span>
+<span class="badge">🔒 あなたのネットワーク、クラウドリレーなし</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>動作内容</h2>
+<p>スマートフォンアプリ1つ、デスクトップ上のゲートウェイデーモン1つ</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>システムとレイヤー</h3><p>ライブCPU/メモリ/温度統計とAUFSレイヤーの切り替えを、デスクトップから直接。</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>ネットワークとWi-Fi</h3><p>インターフェース、アドレス、Wi-Fiスキャンと接続 — Tailscaleピア検出によるゲートウェイの自動検出も含む。</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>ブルートゥース</h3><p>電源、検出可能/ペアリング可能、スキャン、ペアリング、接続、信頼、削除 — アダプターの完全制御。</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>ファイアウォール</h3><p>iptablesのルールとチェーンを表示・編集し、プリセットを適用、スマートフォンから。</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>オーディオ</h3><p>音量、ミュート、シンク一覧 — そしてデスクトップの音声出力をWebRTC経由でスマートフォンのスピーカーにストリーミング。</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>u30e1u30c7u30a3u30a2</h3><p>本物の再生/一時停止/シーク/音量： <a href="../media.html">Chameleon Media Center</a> およびMPVベースのプレーヤー向け。mpv自身のIPCソケット経由 — 単なる静的なファイル一覧ではありません。</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMCライブ</h3><p>視聴 <a href="../media.html">Chameleon Media Center</a>のライブストリームをスマートフォンで — 弱い接続には低遅延（MPEG-TS）またはスムーズ（HLS）を選択 — ライブかどうか、ソース、視聴者数を確認し、誰でもブラウザで視聴できるリンクをコピーできます。</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windowsとデスクトップ</h3><p>ウィンドウの一覧表示、フォーカス、閉じる、最小化、最大化、タイル表示、仮想デスクトップの切り替え。</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>リモートデスクトップ</h3><p>WebRTCによる全画面共有とタッチ・トゥ・マウスおよびキーボード入力 — ネットワーク上のどこからでもデスクトップを表示・操作できます。完全に機能します：送信したタップ、ドラッグ、キー入力はほぼ即座にデスクトップに反映されます。気づく遅延は、デスクトップからスマートフォンに戻ってくる画面更新によるもので、入力によるものではありません。</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>共有クリップボード</h3><p>PCがハブです：各スマートフォンはクリップボードをそこへ送信します — PC自身のクリップボードに直接、貼り付け可能な状態で — そしてクリップボード画面には各デバイスの最新エントリが一覧表示されます。1つをタップするとこのスマートフォンにコピーされます。バックグラウンドでスマートフォンのクリップボードから読み取ったり書き込んだりすることはなく、タップしたときだけ行います。</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>ターミナル</h3><p>スマートフォンから実行する本物のシェル。</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>AIチャット</h3><p>ゲートウェイで設定した任意のAIプロバイダーと会話 — DeepSeek、OpenAI、Anthropicなど。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>root化されたスマートフォン</h2>
+<p>スマートフォンがroot化（Magisk）されていると、2つの追加画面が自動的に表示されます</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>ホットスポットVPN</h3><p>スマートフォンのTailscale出口ノードを、そのWi-Fiホットスポット上のすべてのデバイスと共有します — ノートPC、テレビ、ゲーム機は何もインストールせずにVPNを利用できます。ホットスポットまたはTailscaleが再起動するとルーティングは自動的に再適用され、起動スクリプトで再起動後にすべてを復元できます。ルーターとして接続したままにするスマートフォン向けに設計：充電制限、Tailscaleをバッテリー最適化から除外、常時接続VPN。</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>USBマスストレージ</h3><p>スマートフォンを任意のPCに接続するとUSBドライブとして表示されます。最大256 GBのディスクイメージを数秒で作成 — FAT32（すべてのOSが読み取り可能）、ext4（4 GBのファイル制限なし）、またはEFIパーティション付きの起動可能なGPTディスクでノートPCがスマートフォンから起動可能 — その後、読み書きまたは読み取り専用で共有するか、スマートフォン自体で開きます。スマートフォンのSDカードやUSBドライブをPCに渡すこともできます。共有中もADBは接続されたままです。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>ゲートウェイ</h2>
+<p>trixie-gateway — デスクトップ側、単一の自己完結型バイナリ</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>単一バイナリ、Python不要</h3><p>単一の自己完結型実行ファイルをダウンロード — マシンにPython、pip、venvは不要。aiohttp + aiortcで構築されており、Pythonから実行したい場合のためにソースは今もGitHubにあります。単独で、またはsystemdサービスとして実行され、Tailscale/LANアドレスで待ち受けます。</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>約120のRESTエンドポイント</h3><p>上記のすべてのスマートフォンアプリ機能に加え、OpenAI互換の <code>/v1/chat/completions</code> 設定した任意のAIプロバイダーにルーティングします。</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>MCPサーバー同梱</h3><p><code>media_mcp_server.py</code> メディア制御（ステータス、再生、一時停止、シーク、音量、開く、閲覧）をstdio JSON-RPC経由のMCPツールとして公開します — スマートフォンアプリが使用するのと同じセッションデータと制御パスなので、AIエージェントとスマートフォンは常に同じものを見ます。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>互換性</h2>
+<p>Debian Trixie 向けに構築 — 他でどこで動作するかについて正直に</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>プラットフォーム</th><th>ステータス</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td>Debian トリクシー</td><td class="yes">✓ ここで開発・テスト済み</td><td>—</td></tr>
+<tr><td>Fatdog64 / Puppy Linux ファミリー</td><td class="yes">✓ 動作するはず</td><td>Layers 機能はどちらの下でも union-fs ブランチを検出します <code>/aufs</code> （Fatdog64 派生、このマシンを含む）または <code>/initrd</code> （標準 Puppy）を自動的に — <code>/initrd</code> パスは実際の Puppy インストールに対してテストされておらず、実地検証ではなく文書化された慣例に基づいています</td></tr>
+<tr><td>その他の X11 Linux デスクトップ</td><td class="yes">✓ 動作するはず</td><td>BlueZ、iptables、PulseAudio/PipeWire（pactl 互換）、および X11 セッションが必要です（Wayland のみのデスクトップはサポートされていません — <code>wmctrl</code>/<code>xdotool</code> X11 が必要）</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 実験的なテストビルド</td><td>画面共有、マウス/キーボード、ウィンドウ一覧、音量、ターミナルは Windows 向けに実装されています。バイナリは自動 CI でビルドおよび起動しますが、 <strong>実際の Windows マシンではまだ実行されていません</strong> — 粗削りな部分を想定してください。Bluetooth、ファイアウォール、レイヤー、明るさ、ネットワーク、Media Center は Linux 専用のままで、応答します <code>501</code></td></tr>
+<tr><td>macOS (インテルおよび Apple シリコン)</td><td class="test">🧪 実験的なテストビルド</td><td>Windows と同じ機能セットで、Quartz、AVFoundation、および <code>osascript</code>を使用します。両方のアーキテクチャで CI でビルドおよび起動しますが、 <strong>実際の Mac では未テストです</strong>。アプリは署名されておらず、macOS は画面収録とアクセシビリティの許可を求めます</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>スクリーンショット</h2>
+<p>TrXi-Ctrl — ライブでキャプチャ、実機で動作中</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — 接続された Linux デスクトップで lsusb を実行するターミナルタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">ターミナル</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — OS、カーネル、CPU、負荷、メモリ、バッテリーを表示するシステムタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">システム</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — AUFS union-fs ブランチを一覧表示するレイヤータブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">レイヤー</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tailscale アドレスを含むインターフェースを表示するネットワークタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">ネットワーク</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — ペアリング済みデバイスと検出可能/ペアリング可能トグルを備えた Bluetooth タブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">ブルートゥース</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — iptables チェーンとプリセットを備えたファイアウォールタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">ファイアウォール</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 出力音量、シンク、Bluetooth MIDI コントローラーを備えたオーディオタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">オーディオ</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — アクティブな Chameleon Media Center セッションをリアルタイムで制御するメディアタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">メディアコントロール</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 開いているデスクトップウィンドウを一覧表示してタイル表示するウィンドウタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">窓</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 左/右クリックによる完全なリモート画面共有のデスクトップタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">リモートデスクトップ</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 設定済みプロバイダーと通信するAIチャットタブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">AIチャット</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tailscaleネットワーク上のゲートウェイを検出する設定タブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">ゲートウェイ検出</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — AIプロバイダーキーが設定された設定タブとアプリ情報" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AIプロバイダーの設定</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>ダウンロード <span class="free-badge">無料</span></h3>
+<p>スマホアプリ（Android）+ デスクトップゲートウェイ。どちらもオープン、どちらも無料。</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ APKをダウンロード</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux用ゲートウェイ</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Windows &amp; macOS テストビルド 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">GitHubでゲートウェイを見る →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>ゲートウェイをインストール</h2>
+<p>制御したいDebian Trixie（または互換Linux）マシン上で</p>
+</div>
+<div class="code-block"># Linux — スタンドアロンバイナリ、他にインストールするものはありません curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # その後スマホアプリで: 設定 → ゲートウェイURL → http://&lt;このマシンのTailscaleまたはLANのIP&gt;:8772 # または、両方が同じTailscaleネットワーク上にいる場合は「ピアを検出」をタップ</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Pythonの方がいい？ <code>git clone https://github.com/cou645/trixie-gateway.git</code>、次に <code>pip install -r requirements.txt</code> そして <code>python3 gateway.py --port 8772</code>。systemdサービスとしての実行を含む完全なインストールドキュメントは、リポジトリの <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows &amp; macOS テストビルド</strong> はこちら <a href="https://github.com/cou645/trixie-gateway/releases">リリースページ</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>)。これらは署名されていないため、Windows SmartScreen は「不明な発行元」と表示し（詳細情報 → 実行）、macOS は初回起動をブロックします（右クリック → 開く）。不具合があれば報告してください。</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>TrXi-Ctrl を気に入りましたか？他に何を作っているか見てみましょう</h3>
+<p>TrXi-Ctrl は、デスクトップ AI ツールのより大きなファミリーの無料でオープンな一部です — コードエディター、プレゼンスタジオ、英国会計、フリート配車など。</p>
+<a class="btn btn-solid" href="../index.html">すべての Chameleon AI アプリを見る →</a>
+<a class="btn" href="../companion.html">Chameleon Companion（スマホ + デスクトップ AI）→</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>コメント</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ホーム</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a><a href="../companion.html">コンパニオンアプリ</a>
+<a href="../media.html">メディアセンター</a>
+<a href="../accounting.html">会計</a><a href="../technician.html">パソコン技術者</a>
+<a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a><a href="../privacy.html">プライバシー</a><a href="../terms.html">規約</a><a href="../accessibility.html">アクセシビリティ</a><a href="../security.html">安全</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Marcos aka stemsee 制作</p>
+</footer>
+</body>
+</html>

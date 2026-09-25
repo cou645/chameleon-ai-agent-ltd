@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">मुख्य सामग्री पर जाएँ</a>
+<div class="pre-note">
+  Chameleon Media Center, Chameleon AI डेस्कटॉप परिवार का हिस्सा है। वितरण और उपलब्धता को अंतिम रूप दिया जा रहा है — <a href="../contact.html">लाइसेंसिंग के बारे में हमसे संपर्क करें</a>। इसे आज रिमोट से नियंत्रित किया जा सकता है <a href="../trxi-ctrl.html">TrXi-Ctrl</a>से, हमारे मुफ़्त फ़ोन ऐप से।
+</div>
+<nav aria-label="प्राथमिक">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI लोगो" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">होम</a>
+<a href="../ide.html">आपके पास विचार हैं</a>
+<a href="../presenter.html">प्रस्तुतकर्ता</a>
+<a href="../companion.html">साथी ऐप</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">मीडिया सेंटर</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">वेब सेवाएं</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a>
+<a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../classroom.html">कक्षा</a>
+<a href="../contact.html">संपर्क</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇮🇳 HI ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">mpv पर बना एक पूर्ण डेस्कटॉप मीडिया स्टूडियो — प्लेबैक, प्लेलिस्ट, watch-as-you-go कैश के साथ YouTube और Bilibili खोज, लाइव स्ट्रीमिंग, DVB-T/T2 TV, DVD/Blu-ray/CD, Bluetooth और USB ऑडियो रूटिंग, साउंड इफ़ेक्ट, एक विज़ुअलाइज़र, एक वीडियो एडिटर, एक इक्वलाइज़र, वर्चुअल वेबकैम, और मल्टी-फ़ोन Android मिररिंग, एक ही ऐप में।</p>
+<div class="hero-badges">
+<span class="badge">🎞️ mpv-संचालित प्लेबैक</span>
+<span class="badge">🔎 YouTube और Bilibili खोज + वॉच कैश</span>
+<span class="badge">📡 लाइव DVB-T/T2/C/S/ATSC TV</span>
+<span class="badge">💿 डीवीडी · ब्लू-रे · सीडी</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + USB टर्नटेबल/मिक्सर इनपुट</span>
+<span class="badge">📱 एक साथ 16 फ़ोन तक मिरर किए जा सकते हैं</span>
+<span class="badge">📷 वर्चुअल वेबकैम + 4-कोने PiP</span>
+<span class="badge">📡 ब्राउज़र, YouTube, Twitch और अधिक पर स्ट्रीम करें</span>
+<span class="badge">🤏 हर फ़ोन पर पिंच/स्क्रॉल ज़ूम</span>
+<span class="badge">🤖 MCP सर्वर शामिल</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>अंदर क्या है</h2>
+<p>तेरह टैब, एक मीडिया इंजन</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>वीडियो पैनल</h3><p>mpv द्वारा संचालित प्लेबैक — व्यापक फ़ॉर्मैट समर्थन, सहज सीकिंग, एक-क्लिक फ़ुलस्क्रीन टॉगल (या F11), प्लेयर प्रोसेस के अचानक बंद होने पर स्वचालित रिकवरी, और यह रीस्टार्ट के बीच आपके द्वारा आख़िरी बार चुने गए ऑडियो आउटपुट डिवाइस को याद रखता है, डिफ़ॉल्ट पर रीसेट नहीं करता। एक कम-लेटेंसी पिक्चर-इन-पिक्चर ओवरले चार कैमरों तक — बिल्ट-इन वेबकैम या कोई भी फ़ोन — को जो भी चल रहा हो उसके कोनों में रखता है। एक की से चल रही स्ट्रीम रिकॉर्ड करें, या जो चल रहा है उसे डाउनलोड करें।</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>प्लेलिस्ट</h3><p>ड्रैग-एंड-ड्रॉप पुनर्क्रमण, क्यू प्रबंधन, प्लेलिस्ट आयात और सहेजें, और ट्रैश से हटाई गई प्लेलिस्ट बहाल करें। एक फ़ाइल या पूरा फ़ोल्डर जोड़ें, सबफ़ोल्डर सहित। जिन प्रविष्टियों की फ़ाइल मौजूद नहीं है — एक USB ड्राइव जो प्लग इन नहीं है, एक कैश किया गया वीडियो जिसे आपने साफ़ किया — वे वापस आने तक धूसर दिखती हैं, और साफ़ किया गया वीडियो डबल-क्लिक पर फिर से डाउनलोड हो जाता है।</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>खोज और वॉच कैश</h3><p>YouTube या Bilibili खोजें, किसी TikTok क्रिएटर के नवीनतम वीडियो सूचीबद्ध करें, या TikTok, Instagram, Facebook, Snapchat Spotlight या Douyin लिंक पेस्ट करें। परिणामों को प्लेलिस्ट के नीचे एक क्रमांकित वॉच लिस्ट में क्यू करें। आप जो भी देखते हैं वह देखते समय डिस्क पर रखा जाता है — कोई अलग डाउनलोड नहीं — इसलिए अगली बार स्थानीय कॉपी से चलता है, और आधा देखा गया वीडियो दिखाता है कि कितना सहेजा गया है और अगली बार बाकी भर देता है। सहेजे गए वीडियो को मुख्य प्लेलिस्ट में ले जाएँ, और ऐप बंद करते समय चुनें कि कौन-से रखने या हटाने हैं। वैकल्पिक ब्राउज़र कुकीज़ "पुष्टि करें कि आप बॉट नहीं हैं" और साइन-इन दीवारों को पार कर लेती हैं।</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>DVB टीवी</h3><p>असली डिजिटल टीवी स्कैन करें और देखें — DVB-T/T2, DVB-C, DVB-S/S2 और ATSC — सीधे USB या PCI ट्यूनर से।</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>डीवीडी/सीडी/ब्लू-रे</h3><p>ऑप्टिकल ड्राइव में क्या है यह अपने आप पहचानता है और DVD-Video, Blu-ray या Audio CD ट्रैक चलाता है — किसी अलग डिस्क सॉफ़्टवेयर की ज़रूरत नहीं।</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>BT/USB ऑडियो</h3><p>प्लेबैक को एक या एक साथ कई Bluetooth स्पीकर पर भेजें (PulseAudio combine-sink), अडैप्टर को रिसीव मोड में बदलें ताकि PC खुद एक Bluetooth स्पीकर बन जाए, या जोड़ें <em>कोई भी</em> अन्य PulseAudio कैप्चर स्रोत — एक USB टर्नटेबल, MiniDisc डेक, DJ मिक्सर/कंट्रोलर, या ऑडियो इंटरफ़ेस — सीधे प्लेबैक और Visualizer में, सब एक ही Input Sources चेकलिस्ट से।</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADB फ़ोन — एक साथ 16 तक</h3><p>1–16 स्वतंत्र पैनलों का ग्रिड, जितने चाहें उतने कॉलम में — उतने ही Android फ़ोन एक साथ मिरर और नियंत्रित करें, हर एक की अपनी स्क्रीन, ऑडियो रूटिंग और इनपुट के साथ। किसी भी फ़ोन की स्क्रीन में ज़ूम करने के लिए पिंच करें (इस बॉक्स में टचस्क्रीन है) या स्क्रॉल-व्हील, पैन करने के लिए Shift+ड्रैग। माउस, स्टाइलस, टच या अपने फ़िज़िकल कीबोर्ड से सीधे टैप, स्वाइप और टाइप करें — प्रति-डिवाइस एक स्थायी शेल हर इनपुट को रीयल-टाइम रखता है, बजाय हर कीस्ट्रोक पर नई कनेक्शन लागत चुकाने के। एक-क्लिक "Connect Wireless" USB से जुड़े फ़ोन को अपने आप adb-over-wifi पर स्विच कर देता है, या फ़ोन का पेयरिंग QR कोड स्कैन करके Wi-Fi पर पेयर करें। किसी भी फ़ोन पर फ़ाइलें पुश और पुल करें, और स्ट्रीमिंग शुरू होने से पहले सोया हुआ फ़ोन जगा दिया जाता है।</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>वर्चुअल कैमरे</h3><p>एक "CMC PC Webcam" डिवाइस जिसे कोई भी वीडियो-कॉल ऐप, ब्राउज़र या OBS चुन सकता है — इसे बिल्ट-इन कैमरा या किसी भी जुड़े फ़ोन का कैमरा दें, और कॉल के बीच में स्रोत बदलें बिना ऐप का डिवाइस खोए। हर फ़ोन पैनल को भी अपना वर्चुअल कैमरा मिलता है।</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>लाइव स्ट्रीम</h3><p>किसी कैमरे या वीडियो पैनल को अपने LAN या Tailscale पर किसी भी ब्राउज़र में स्ट्रीम करें (HLS प्लेयर पेज) साथ ही TrXi-Ctrl, VLC या mpv के लिए कम-लेटेंसी फ़ीड — एक एनकोड से कई दर्शक — या इसे YouTube Live, Facebook Live, Twitch, WeChat Channels या किसी भी RTMP सर्वर पर पुश करें।</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>साझा करें और खोजें</h3><p>एक ही नेटवर्क पर मौजूद CMC एक-दूसरे को अपने आप ढूँढ लेते हैं, और एक ग्रुप कोड आपकी प्लेलिस्ट — स्थानीय फ़ाइलों सहित — अन्य CMC के साथ साझा करता है।</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>ध्वनि प्रभाव</h3><p>खेलते या स्ट्रीम करते समय तत्काल ऑडियो संकेतों के लिए एक साउंडबोर्ड।</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>विज़ुअलाइज़र</h3><p>वर्तमान में चल रही किसी भी चीज़ के लिए रीयल-टाइम ऑडियो-प्रतिक्रियाशील विज़ुअल।</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>वीडियो संपादक</h3><p>फ़्रेम-सटीक क्लिप सीक्वेंसर: प्लेयर से In/Out फ़्रेम सेट करें, क्लिप को पुनः क्रमित करें, एक संगीत ट्रैक जोड़ें (मूल ध्वनि के नीचे मिक्स या उसकी जगह) और उपशीर्षक (बर्न-इन या स्विच करने योग्य ट्रैक के रूप में), फिर पृष्ठभूमि में निर्यात करें।</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>18-बैंड इक्वलाइज़र और ऑडियो/वीडियो प्रभाव</h3><p>प्रीसेट के साथ ध्वनि को कमरे या मूड के अनुसार ढालें जिन्हें आप बदल और सहेज सकते हैं — साथ ही ऑडियो प्रभाव और एक समर्पित वीडियो प्रभाव टैब।</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>नोट्स</h3><p>आपके मीडिया के ठीक बगल में टाइप किए गए या हस्तलिखित नोट्स (स्टाइलस/टच-अनुकूल) — काम करते समय प्रोडक्शन/सेशन नोट्स के लिए उपयोगी।</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>लॉक, थीम और प्राथमिकताएँ</h3><p>पैटर्न से विंडो लॉक करें (Ctrl+Alt+L), थीम बदलें, और अपनी प्राथमिकताएँ सेट करें — अंतर्निहित About और Help के साथ।</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>रिमोट नियंत्रण</h3><p>प्रत्येक प्ले/पॉज़/सीक/वॉल्यूम क्रिया mpv के अपने IPC सॉकेट पर उजागर होती है, जिससे <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — हमारा मुफ़्त फ़ोन ऐप — सीधे बात करता है वास्तविक ट्रांसपोर्ट नियंत्रण के लिए, न कि केवल एक सेशन सूची। फ़ोन से सेशन बंद करने पर पूरा ऐप साफ़-सुथरे ढंग से बंद हो जाता है बजाय आधा-मरा प्लेयर छोड़ने के।</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>MCP सर्वर</h3><p>एक बंडल किया गया Model Context Protocol सर्वर प्लेबैक स्थिति, प्ले/पॉज़/सीक/वॉल्यूम/खोलें और लाइब्रेरी ब्राउज़िंग को टूल के रूप में उजागर करता है — ताकि एक AI एजेंट और आपका फ़ोन हमेशा एक ही सत्र देखें और नियंत्रित करें।</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>खुली नींव पर बनाया गया</h2>
+<p>PySide6 (Qt) डेस्कटॉप ऐप, mpv प्लेबैक इंजन</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>पायसाइड6 / क्यूटी</h3><p>एक नेटिव, रिस्पॉन्सिव डेस्कटॉप UI — बाकी Chameleon AI डेस्कटॉप ऐप्स की तरह उसी Python/Qt स्टैक का हिस्सा।</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>mpv इंजन</h3><p>mpv की अपनी विंडो-एम्बेडिंग और JSON IPC सॉकेट के ज़रिए एम्बेड किया गया — कई Linux मीडिया टूल्स के पीछे वही भरोसेमंद, व्यापक रूप से इस्तेमाल किया जाने वाला प्लेबैक इंजन, जिसमें डिस्क प्लेबैक के लिए libdvdnav/libdvdread/libcdio/libbluray पहले से लिंक हैं।</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>PulseAudio-नेटिव ऑडियो रूटिंग</h3><p>मल्टी-डिवाइस आउटपुट PulseAudio के अपने module-combine-sink का उपयोग करता है; कोई भी कैप्चर स्रोत — Bluetooth रिसीव या USB ऑडियो डिवाइस — module-loopback के ज़रिए लूप होता है, और पहले यह जाँचता है कि PulseAudio की अपनी Bluetooth नीति ने रूटिंग पहले ही सेट कर दी है या नहीं, बजाय उससे टकराने के।</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>स्क्रीनशॉट</h2>
+<p>Chameleon Media Center — लाइव कैप्चर</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — YouTube परिणामों के साथ खोज टैब, एक वीडियो चल रहा है, और प्लेलिस्ट के नीचे वॉच लिस्ट एक कैश किया गया वीडियो दिखा रही है" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">खोज और वॉच लिस्ट</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ADB Phone टैब में दो Android फ़ोन साथ-साथ मिरर किए गए" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">दोहरी फ़ोन मिररिंग</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — DVB TV चैनल स्कैन टैब" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVB टीवी</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — DVD/CD/Blu-ray टैब" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">डीवीडी · सीडी · ब्लू-रे</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — Bluetooth Tx/Rx ऑडियो टैब" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">ब्लूटूथ टीएक्स/आरएक्स</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 18-बैंड इक्वलाइज़र" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">18-बैंड इक्वलाइज़र</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — लाइव ऑडियो-रिएक्टिव स्पेक्ट्रम विज़ुअलाइज़र ओवरले के साथ YouTube प्लेबैक" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">विज़ुअलाइज़र ओवरले</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — वैकल्पिक पेस्टल स्किन, बड़ी प्लेलिस्ट लोड किए हुए निष्क्रिय प्लेयर" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">वैकल्पिक स्किन</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — दो Android फ़ोन पूरी चौड़ाई में साथ-साथ मिरर किए गए, एक अपनी होम स्क्रीन दिखा रहा है, दूसरा अपना ऐप ड्रॉअर" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">पूर्ण-चौड़ाई दोहरी मिररिंग</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — पूरे 16-बटन कंट्रोल कॉलम के साथ ADB Phone टैब: कैमरा, Bluetooth, हॉटस्पॉट, Wi-Fi, फ़ाइल ट्रांसफ़र और बहुत कुछ" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">पूर्ण फ़ोन नियंत्रण कॉलम</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — तीन Android फ़ोन एक साथ मिरर किए गए, प्रत्येक पर TrXi-Ctrl रिमोट कंट्रोल ऐप चल रहा है" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">तिहरी फ़ोन मिररिंग</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — चल रहे वीडियो के ऊपर पिक्चर-इन-पिक्चर कोने में अंतर्निहित वेबकैम, नीचे दो फ़ोन मिरर किए गए" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">वेबकैम पिक्चर-इन-पिक्चर</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — चल रहे वीडियो के ऊपर बारह वन-क्लिक क्यूज़ और कस्टम साउंड के साथ साउंड इफ़ेक्ट्स बोर्ड" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">साउंड इफ़ेक्ट बोर्ड</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — प्लेबैक के दौरान R&amp;B प्रीसेट लागू किए हुए 18-बैंड इक्वलाइज़र" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">इक्वलाइज़र प्रीसेट</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ऑडियो इफ़ेक्ट्स टैब: एम्प्लिफ़िकेशन, बास और ट्रेबल बूस्ट, कंप्रेसर, नॉइज़ रिडक्शन, कोरस, रीवर्ब और डिले" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">ऑडियो इफ़ेक्ट</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — RTMPS के ज़रिए YouTube Live पर पुश करने के लिए सेट किया गया Live Stream टैब" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">YouTube Live पर स्ट्रीम करें</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — चल रहे वीडियो के बगल में आयातित PDF पेजों की सूची देने वाला Notes टैब" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">नोट्स</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — वीडियो चलते समय अपने पूरे कंट्रोल कॉलम के साथ दो फ़ोन मिरर किए गए" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">फ़ोन नियंत्रण</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ADB Phone टैब में मिरर किया गया फ़ोन, Back, Home, Recents और टाइपिंग नियंत्रणों के साथ" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">एकल फ़ोन मिररिंग</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — स्पेक्ट्रम विज़ुअलाइज़र और File मेनू, पेस्टल स्किन में" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">विज़ुअलाइज़र और फ़ाइल मेनू</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Chameleon Media Center प्राप्त करें</h3>
+<p>Chameleon AI डेस्कटॉप के साथ शामिल। <strong>वितरण और उपलब्धता अंतिम रूप दी जा रही है</strong> — वर्तमान मूल्य निर्धारण और उपलब्धता के लिए हमसे संपर्क करें।</p>
+<a class="btn btn-solid" href="../contact.html">संपर्क करें</a>
+<a class="btn" href="../trxi-ctrl.html">TrXi-Ctrl → के साथ इसे अपने फ़ोन से नियंत्रित करें</a>
+<a class="btn" href="../index.html">← सिंहावलोकन पर वापस जाएँ</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>टिप्पणियाँ</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">होम</a><a href="../ide.html">आपके पास विचार हैं</a><a href="../presenter.html">प्रस्तुतकर्ता</a><a href="../companion.html">साथी ऐप</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">u0932u0947u0916u093e</a><a href="../technician.html">पीसी तकनीशियन</a>
+<a href="../classroom.html">कक्षा</a><a href="../contact.html">संपर्क</a><a href="../privacy.html">गोपनीयता</a><a href="../terms.html">शर्तें</a><a href="../accessibility.html">पहुंच</a><a href="../security.html">सुरक्षा</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · मार्कोस उर्फ stemsee द्वारा निर्मित</p>
+</footer>
+</body>
+</html>

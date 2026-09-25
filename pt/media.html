@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Ir para o conteúdo principal</a>
+<div class="pre-note">
+  O Chameleon Media Center faz parte da família de desktop Chameleon AI. A distribuição e a disponibilidade estão a ser finalizadas — <a href="../contact.html">fale conosco sobre licenciamento</a>. Hoje é controlável remotamente a partir de <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, a nossa aplicação gratuita para telemóvel.
+</div>
+<nav aria-label="Primário">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logotipo do Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Início</a>
+<a href="../ide.html">VOCÊ TEM IDEIAS</a>
+<a href="../presenter.html">Apresentador</a>
+<a href="../companion.html">Aplicativo Companheiro</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Central de Mídia</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Serviços Web</a>
+<a href="../accounting.html">Contabilidade</a>
+<a href="../technician.html">Técnico de informática</a>
+<a href="../classroom.html">Aula</a>
+<a href="../contact.html">Contato</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇵🇹 PT ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Um estúdio de media de desktop completo construído sobre mpv — reprodução, listas de reprodução, pesquisa no YouTube e Bilibili com cache de visualização, streaming ao vivo, TV DVB-T/T2, DVD/Blu-ray/CD, encaminhamento de áudio Bluetooth e USB, efeitos sonoros, um visualizador, um editor de vídeo, um equalizador, webcams virtuais e espelhamento Android multi-telemóvel, numa só aplicação.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Reprodução com tecnologia mpv</span>
+<span class="badge">🔎 Pesquisa YouTube e Bilibili + cache de visualização</span>
+<span class="badge">📡 TV ao vivo DVB-T/T2/C/S/ATSC</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + entrada de toca-discos/mixer USB</span>
+<span class="badge">📱 Até 16 telefones espelhados ao mesmo tempo</span>
+<span class="badge">📷 Webcam virtual + PiP nos 4 cantos</span>
+<span class="badge">📡 Transmita para navegadores, YouTube, Twitch e mais</span>
+<span class="badge">🤏 Zoom por pinça/rolagem em cada telefone</span>
+<span class="badge">🤖 Servidor MCP incluído</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>O que há dentro</h2>
+<p>Treze abas, um motor de mídia</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Painel de vídeo</h3><p>Reprodução com tecnologia mpv — amplo suporte a formatos, busca suave, um botão de tela cheia com um clique (ou F11), recuperação automática se o processo do player morrer inesperadamente, e ele lembra o dispositivo de saída de áudio escolhido por último entre reinicializações em vez de redefinir para um padrão. Uma sobreposição de picture-in-picture de baixa latência coloca até quatro câmeras — a webcam integrada ou qualquer telefone — nos cantos do que estiver reproduzindo. Grave um stream em reprodução, ou baixe o que está reproduzindo, com uma tecla.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Lista de reprodução</h3><p>Reordenação por arrastar e soltar, gerenciamento de fila, importação e salvamento de playlists, e restauração de uma playlist excluída da lixeira. Adicione um único arquivo ou uma pasta inteira, incluindo subpastas. Entradas cujo arquivo não está lá — uma unidade USB que não está conectada, um vídeo em cache que você limpou — ficam cinzas até voltar, e um vídeo limpo é baixado novamente com um duplo clique.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Busca e cache de exibição</h3><p>Pesquise no YouTube ou Bilibili, liste os vídeos mais recentes de um criador do TikTok, ou cole um link do TikTok, Instagram, Facebook, Snapchat Spotlight ou Douyin. Coloque os resultados em uma lista de exibição numerada abaixo da playlist. Tudo o que você assiste é mantido no disco enquanto assiste — sem download separado — então a próxima exibição reproduz da cópia local, e um vídeo parcialmente assistido mostra quanto está salvo e completa o restante na próxima vez. Mova os vídeos salvos para a playlist principal, e escolha quais manter ou excluir ao fechar o app. Cookies opcionais do navegador superam "confirme que você não é um bot" e paredes de login.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>TV DVB</h3><p>Digitalize e assista TV digital real — DVB-T/T2, DVB-C, DVB-S/S2 e ATSC — diretamente de um sintonizador USB ou PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD/CD/Blu-ray</h3><p>Detecta automaticamente o que está na unidade óptica e reproduz faixas de DVD-Vídeo, Blu-ray ou CD de áudio — sem necessidade de software de disco separado.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Áudio Bluetooth/USB</h3><p>Direcione a reprodução para um ou vários alto-falantes Bluetooth ao mesmo tempo (coletor combinado PulseAudio), coloque o adaptador no modo de recepção para que o próprio PC se torne um alto-falante Bluetooth ou faça loop in <em>qualquer</em> outra fonte de captura PulseAudio — um toca-discos USB, deck MiniDisc, mixer/controlador de DJ ou interface de áudio — diretamente na reprodução e no Visualizador, tudo a partir de uma lista de verificação de fontes de entrada.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Telefone ADB – até 16 ao mesmo tempo</h3><p>Uma grade de 1 a 16 painéis independentes em quantas colunas você desejar — espelhe e controle vários telefones Android simultaneamente, cada um com sua própria tela, roteamento de áudio e entrada. Aperte (esta caixa tem uma tela sensível ao toque) ou role a roda para ampliar a tela de qualquer telefone, Shift + arraste para deslocar. Toque, deslize e digite diretamente com o mouse, a caneta, o toque ou o teclado físico – um shell persistente por dispositivo mantém cada entrada em tempo real, em vez de pagar um novo custo de conexão por pressionamento de tecla. "Conectar sem fio" com um clique muda um telefone conectado por USB para adb-over-wi-fi automaticamente ou emparelha por Wi-Fi digitalizando o código QR de emparelhamento do telefone. Envie e extraia arquivos para qualquer telefone e um telefone sonolento será acordado antes do início da transmissão.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Câmeras virtuais</h3><p>Um dispositivo "CMC PC Webcam" que qualquer aplicativo de videochamada, navegador ou OBS pode escolher - alimente-o com a câmera embutida ou com a câmera de qualquer telefone conectado e troque de fonte no meio da chamada sem que o aplicativo perca o dispositivo. Cada painel do telefone também recebe sua própria câmera virtual.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Transmissão ao vivo</h3><p>Transmita uma câmera ou painel de vídeo para qualquer navegador em sua LAN ou Tailscale (página do player HLS), além de um feed de baixa latência para TrXi-Ctrl, VLC ou mpv – muitos visualizadores de uma codificação – ou envie-o para YouTube Live, Facebook Live, Twitch, canais WeChat ou qualquer servidor RTMP.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Compartilhe e descubra</h3><p>CMCs na mesma rede se encontram automaticamente e um código de grupo compartilha sua lista de reprodução – arquivos locais incluídos – com outros CMCs.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Efeitos sonoros</h3><p>Um soundboard para sinais de áudio em tempo real enquanto você joga ou transmite.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Visualizador</h3><p>Visuais reativos ao áudio em tempo real para qualquer coisa que esteja tocando no momento.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Editor de vídeo</h3><p>Um sequenciador de clipes com precisão de quadro: defina quadros de entrada/saída a partir do player, reordene clipes, adicione uma faixa de música (mixada por baixo ou substituindo o som original) e legendas (incorporadas ou como faixa alternável), depois exporte em segundo plano.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Equalizador de 18 bandas e efeitos de áudio/vídeo</h3><p>Modele o som para o ambiente, ou o clima, com predefinições que você pode ajustar e salvar — além de efeitos de áudio e uma aba dedicada a efeitos de vídeo.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Notas</h3><p>Notas digitadas ou manuscritas (compatíveis com caneta/touch) bem ao lado da sua mídia — úteis para notas de produção/sessão enquanto você trabalha.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Bloqueio, temas e preferências</h3><p>Bloqueie a janela com um padrão (Ctrl+Alt+L), troque de tema e defina suas preferências — com About e Help integrados.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Controle remoto</h3><p>Cada ação de reproduzir/pausar/avançar/volume é exposta pelo próprio socket IPC do mpv, com o qual <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — nosso app gratuito para celular — se comunica diretamente para controle de transporte real, não apenas uma lista de sessões. Fechar uma sessão pelo celular fecha o app inteiro de forma limpa, em vez de deixar um player meio morto para trás.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Servidor MCP</h3><p>Um servidor Model Context Protocol integrado expõe o estado de reprodução, reproduzir/pausar/avançar/volume/abrir e a navegação da biblioteca como ferramentas — para que um agente de IA e o seu telefone vejam e controlem sempre a mesma sessão.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Construído sobre bases abertas</h2>
+<p>Aplicação de ambiente de trabalho PySide6 (Qt), motor de reprodução mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6/Qt</h3><p>Uma interface de ambiente de trabalho nativa e responsiva — parte do mesmo stack Python/Qt que o resto das aplicações de ambiente de trabalho Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Motor mpv</h3><p>Integrado através da própria incorporação de janelas do mpv e do socket JSON IPC — o mesmo motor de reprodução fiável e amplamente utilizado por trás de muitas ferramentas multimédia Linux, com libdvdnav/libdvdread/libcdio/libbluray já ligadas para reprodução de discos.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Encaminhamento de áudio nativo PulseAudio</h3><p>A saída multi-dispositivo usa o module-combine-sink do próprio PulseAudio; qualquer fonte de captura — receção Bluetooth ou um dispositivo de áudio USB — é encaminhada via module-loopback, verificando primeiro se a própria política Bluetooth do PulseAudio já configurou o encaminhamento em vez de lutar contra ela.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Capturas de tela</h2>
+<p>Chameleon Media Center — capturado ao vivo</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — aba Pesquisar com resultados do YouTube, um vídeo em reprodução e a lista de observação sob a playlist mostrando um vídeo em cache" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Pesquisa e lista de acompanhamento</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dois telefones Android espelhados lado a lado na aba ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Duplicação de telefone dupla</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba de varredura de canais de TV DVB" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">TV DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba de áudio Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — equalizador de 18 bandas" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Equalizador de 18 bandas</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — reprodução do YouTube com uma sobreposição de visualizador de espectro reativo ao áudio ao vivo" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Sobreposição de visualizador</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — skin pastel alternativo, player inativo com uma grande lista de reprodução carregada" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Skin alternativo</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dois telefones Android espelhados em largura total lado a lado, um mostrando sua tela inicial, o outro sua gaveta de aplicativos" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Espelhamento duplo em largura total</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba ADB Phone com a coluna de controle completa de 16 botões: câmera, Bluetooth, hotspot, Wi-Fi, transferência de arquivos e mais" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Coluna de controle total do telefone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — três telefones Android espelhados ao mesmo tempo, cada um executando o aplicativo de controle remoto TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Espelhamento triplo de telefones</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — webcam integrada em um canto de picture-in-picture sobre um vídeo em reprodução, com dois telefones espelhados abaixo" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Picture-in-picture da webcam</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — painel de efeitos sonoros com doze cues de um clique e sons personalizados, sobre um vídeo em reprodução" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Painel de efeitos sonoros</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — equalizador de 18 bandas com o preset R&amp;B aplicado durante a reprodução" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Predefinições do equalizador</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba de efeitos de áudio: amplificação, reforço de graves e agudos, compressor, redução de ruído, chorus, reverb e delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Efeitos de áudio</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba de transmissão ao vivo configurada para transmitir ao YouTube Live via RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Transmitir para o YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — aba de notas listando páginas PDF importadas ao lado do vídeo em reprodução" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Notas</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dois telefones espelhados com suas colunas de controle completas enquanto um vídeo é reproduzido" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Controles do telefone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — um telefone espelhado na aba Telefone ADB com controles de Voltar, Início, Recentes e digitação" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Espelhamento de um único telefone</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — visualizador de espectro e o menu Arquivo, no skin pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Menu Visualizador e Arquivo</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Obter o Chameleon Media Center</h3>
+<p>Incluído com o desktop Chameleon AI. <strong>A distribuição e a disponibilidade estão sendo finalizadas</strong> — contacte-nos para preços e disponibilidade atuais.</p>
+<a class="btn btn-solid" href="../contact.html">Contacte-nos</a>
+<a class="btn" href="../trxi-ctrl.html">Controle-o pelo seu telefone com o TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Voltar à visão geral</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Comentários</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Início</a><a href="../ide.html">VOCÊ TEM IDEIAS</a><a href="../presenter.html">Apresentador</a><a href="../companion.html">Aplicativo Companheiro</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Contabilidade</a><a href="../technician.html">Técnico de informática</a>
+<a href="../classroom.html">Aula</a><a href="../contact.html">Contato</a><a href="../privacy.html">Privacidade</a><a href="../terms.html">Termos</a><a href="../accessibility.html">Acessibilidade</a><a href="../security.html">Segurança</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Construído por Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

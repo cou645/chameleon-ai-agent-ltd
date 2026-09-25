@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти до основного вмісту</a>
+<div class="pre-note">
+  Chameleon Media Center є частиною сімейства настільних програм Chameleon AI. Розповсюдження та доступність ще доопрацьовуються — <a href="../contact.html">зв'яжіться з нами щодо ліцензування</a>. Сьогодні ним можна керувати віддалено з <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, нашого безкоштовного мобільного застосунку.
+</div>
+<nav aria-label="Основний">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Логотип Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">додому</a>
+<a href="../ide.html">У ВАС Є ІДЕЇ</a>
+<a href="../presenter.html">Ведучий</a>
+<a href="../companion.html">Додаток-компаньйон</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Медіацентр</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Веб-сервіси</a>
+<a href="../accounting.html">Бухгалтерський облік</a>
+<a href="../technician.html">Технік ПК</a>
+<a href="../classroom.html">Класна кімната</a>
+<a href="../contact.html">контакт</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇺🇦 UK ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Повноцінна настільна медіастудія на базі mpv — відтворення, плейлисти, пошук у YouTube і Bilibili з кешем під час перегляду, прямі трансляції, ТБ DVB-T/T2, DVD/Blu-ray/CD, маршрутизація звуку Bluetooth і USB, звукові ефекти, візуалізатор, відеоредактор, еквалайзер, віртуальні вебкамери та дзеркалювання Android із кількох телефонів — в одному застосунку.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Відтворення на базі mpv</span>
+<span class="badge">🔎 Пошук у YouTube і Bilibili + кеш перегляду</span>
+<span class="badge">📡 Прямий ефір DVB-T/T2/C/S/ATSC ТБ</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + вхід для USB-програвача/мікшера</span>
+<span class="badge">📱 До 16 телефонів із дзеркалюванням одночасно</span>
+<span class="badge">📷 Віртуальна вебкамера + PiP по 4 кутах</span>
+<span class="badge">📡 Трансляція в браузери, YouTube, Twitch та інші</span>
+<span class="badge">🤏 Масштабування жестом/прокруткою на кожному телефоні</span>
+<span class="badge">🤖 Включено сервер MCP</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Що всередині</h2>
+<p>Тринадцять вкладок, один медіадвижок</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Панель відео</h3><p>Відтворення на базі mpv — широка підтримка форматів, плавне перемотування, перемикання на повний екран одним кліком (або F11), автоматичне відновлення, якщо процес плеєра несподівано завершиться, і він запам'ятовує останній вибраний вами пристрій виведення звуку між перезапусками, а не скидається до типового. Накладення «картинка в картинці» з низькою затримкою розміщує до чотирьох камер — вбудовану вебкамеру або будь-який телефон — по кутах того, що відтворюється. Запишіть потік, що відтворюється, або завантажте те, що відтворюється, однією клавішею.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Список відтворення</h3><p>Перевпорядкування перетягуванням, керування чергою, імпорт і збереження списку відтворення, а також відновлення видаленого списку відтворення з кошика. Додайте один файл або цілу теку, включно з підтеками. Записи, файл яких відсутній — USB-носій не підключено, кешоване відео ви очистили — сіріють, доки він не повернеться, а очищене відео повторно завантажується подвійним кліком.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Пошук і кеш перегляду</h3><p>Шукайте на YouTube або Bilibili, перегляньте останні відео автора TikTok або вставте посилання TikTok, Instagram, Facebook, Snapchat Spotlight чи Douyin. Результати ставляться в чергу в пронумерованому списку перегляду під списком відтворення. Усе, що ви дивитеся, зберігається на диску під час перегляду — без окремого завантаження — тож наступний перегляд відтворюється з локальної копії, а частково переглянуте відео показує, скільки збережено, і дозаповнюється наступного разу. Переміщуйте збережені відео до головного списку відтворення та вибирайте, які з них залишити чи видалити під час закриття застосунку. Необов'язкові файли cookie браузера допомагають обійти «підтвердьте, що ви не робот» і стіни входу.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>DVB ТБ</h3><p>Скануйте та дивіться справжнє цифрове ТБ — DVB-T/T2, DVB-C, DVB-S/S2 і ATSC — прямо з USB- або PCI-тюнера.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD/CD/Blu-ray</h3><p>Автоматично визначає вміст оптичного приводу та відтворює DVD-Video, Blu-ray або аудіо-CD — окреме програмне забезпечення для дисків не потрібне.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>BT/USB аудіо</h3><p>Спрямовуйте відтворення на один або кілька Bluetooth-динаміків одночасно (PulseAudio combine-sink), перемкніть адаптер у режим приймання, щоб сам ПК став Bluetooth-динаміком, або підключіть <em>будь-яке</em> інше джерело захоплення PulseAudio — USB-програвач вінілу, MiniDisc-дека, DJ-мікшер/контролер або аудіоінтерфейс — прямо у відтворення та візуалізатор, усе з одного списку джерел входу.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADB Телефон — до 16 одночасно</h3><p>Сітка з 1–16 незалежних панелей у будь-якій кількості стовпців — дзеркальте та керуйте такою кількістю Android-телефонів одночасно, кожен зі своїм екраном, аудіомаршрутизацією та введенням. Зведіть пальці (цей блок має сенсорний екран) або використайте колесо прокрутки, щоб збільшити екран будь-якого телефону, Shift+перетягування для панорамування. Торкайтеся, свайпайте та друкуйте безпосередньо мишею, стилусом, дотиком або фізичною клавіатурою — постійна оболонка для кожного пристрою зберігає кожне введення в реальному часі замість витрат на нове з'єднання для кожного натискання клавіші. «Підключити бездротово» одним кліком автоматично перемикає телефон, підключений через USB, на adb-over-wifi, або спарте через Wi-Fi, відсканувавши QR-код сполучення телефону. Передавайте файли на будь-який телефон і з нього, а сплячий телефон пробуджується перед початком трансляції.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Віртуальні камери</h3><p>Пристрій «CMC PC Webcam», який може вибрати будь-який застосунок для відеодзвінків, браузер або OBS — подайте на нього вбудовану камеру або камеру будь-якого підключеного телефону та перемикайте джерела під час дзвінка, не втрачаючи пристрій у застосунку. Кожна панель телефону також отримує власну віртуальну камеру.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Пряма трансляція</h3><p>Транслюйте камеру або відеопанель у будь-який браузер у вашій локальній мережі чи Tailscale (сторінка HLS-плеєра) плюс потік із низькою затримкою для TrXi-Ctrl, VLC або mpv — багато глядачів з одного кодування — або надсилайте його на YouTube Live, Facebook Live, Twitch, WeChat Channels чи будь-який RTMP-сервер.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Обмін і виявлення</h3><p>CMC в одній мережі знаходять одне одного автоматично, а код групи ділиться вашим плейлистом — включно з локальними файлами — з іншими CMC.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Звукові ефекти</h3><p>Звукова панель для миттєвих звукових сигналів під час гри або стріму.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Візуалізатор</h3><p>Візуалізація в реальному часі, що реагує на звук, для всього, що зараз відтворюється.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Відеоредактор</h3><p>Покадровий секвенсор кліпів: задавайте кадри In/Out із плеєра, змінюйте порядок кліпів, додавайте музичну доріжку (зміксовану під оригінальним звуком або замість нього) та субтитри (вбудовані або як перемикана доріжка), потім експортуйте у фоні.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>18-смуговий еквалайзер і аудіо/відео ефекти</h3><p>Налаштуйте звук під приміщення або настрій за допомогою пресетів, які можна змінювати й зберігати — плюс аудіоефекти та окрема вкладка відеоефектів.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Примітки</h3><p>Друковані або рукописні нотатки (зручні для стилуса/дотику) прямо поруч із вашими медіа — корисно для робочих/сесійних нотаток під час роботи.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Блокування, теми й налаштування</h3><p>Блокуйте вікно за допомогою візерунка (Ctrl+Alt+L), перемикайте теми та задавайте налаштування — із вбудованими розділами «Про програму» та «Довідка».</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Пульт дистанційного керування</h3><p>Кожна дія відтворення/паузи/перемотування/гучності доступна через власний IPC-сокет mpv, з яким <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — наш безкоштовний мобільний застосунок — з'єднується напряму для справжнього керування відтворенням, а не лише списку сесій. Закриття сесії з телефона коректно закриває весь застосунок, а не залишає напівживий плеєр.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Сервер MCP</h3><p>Вбудований сервер Model Context Protocol надає статус відтворення, play/pause/seek/volume/open і перегляд бібліотеки як інструменти — тож ШІ-агент і ваш телефон завжди бачать і керують однією й тією ж сесією.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Побудовано на відкритих основах</h2>
+<p>Настільний застосунок PySide6 (Qt), рушій відтворення mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>Нативний, чутливий настільний інтерфейс — частина того самого стеку Python/Qt, що й решта настільних застосунків Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>рушій mpv</h3><p>Вбудовано через власне вбудовування вікна mpv і сокет JSON IPC — той самий надійний, широко використовуваний рушій відтворення, що стоїть за багатьма медіаінструментами Linux, з уже підключеними libdvdnav/libdvdread/libcdio/libbluray для відтворення дисків.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Аудіомаршрутизація на основі PulseAudio</h3><p>Виведення на кілька пристроїв використовує власний module-combine-sink PulseAudio; будь-яке джерело захоплення — Bluetooth-прийом або USB-аудіопристрій — зациклюється через module-loopback, спершу перевіряючи маршрутизацію, яку вже налаштувала власна політика Bluetooth PulseAudio, замість того щоб боротися з нею.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Скріншоти</h2>
+<p>Chameleon Media Center — захоплення наживо</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка пошуку з результатами YouTube, відтворюваним відео та списком перегляду під плейлистом, що показує кешоване відео" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Пошук і список перегляду</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — два Android-телефони, дзеркалені поруч на вкладці ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Подвійне дзеркалювання телефона</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка сканування каналів DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVB ТБ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка аудіо Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 18-смуговий еквалайзер" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">18-смуговий еквалайзер</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — відтворення YouTube з накладенням живого аудіореактивного спектрального візуалізатора" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Накладення візуалізатора</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — альтернативна пастельна тема, простоюючий плеєр із завантаженим великим списком відтворення" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Альтернативна тема</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — два Android-телефони, дзеркалені на всю ширину поруч: один показує домашній екран, інший — шухляду застосунків" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Повноширинне подвійне дзеркалювання</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка ADB Phone з повною колонкою з 16 кнопок керування: камера, Bluetooth, точка доступу, Wi-Fi, передавання файлів та інше" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Повноцінна колонка керування телефоном</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — три Android-телефони, дзеркалені одночасно, кожен запускає застосунок дистанційного керування TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Потрійне дзеркалювання телефону</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вбудована вебкамера в куті «картинка в картинці» поверх відтворюваного відео, з двома дзеркаленими телефонами нижче" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Картинка в картинці з вебкамери</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — панель звукових ефектів із дванадцятьма сигналами в один клік і власними звуками поверх відтворюваного відео" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Панель звукових ефектів</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 18-смуговий еквалайзер із застосованим пресетом R&amp;B під час відтворення" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Пресети еквалайзера</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка аудіоефектів: підсилення, буст басів і високих частот, компресор, шумозаглушення, хорус, реверберація та затримка" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Аудіоефекти</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка Live Stream, налаштована для трансляції на YouTube Live через RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Трансляція на YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — вкладка нотаток зі списком імпортованих сторінок PDF поруч із відтворюваним відео" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Примітки</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — два телефони, дзеркалені з їхніми повними колонками керування, під час відтворення відео" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Керування телефоном</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — телефон, відображений на вкладці ADB Phone, з елементами керування «Назад», «Домівка», «Нещодавні» та введенням тексту" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Одиночне дзеркалювання телефону</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — візуалізатор спектра та меню «Файл» у пастельній темі" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Меню візуалізатора та файлів</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Отримати Chameleon Media Center</h3>
+<p>Входить до складу робочого столу Chameleon AI. <strong>Розповсюдження та доступність завершуються</strong> — зв'яжіться з нами для отримання поточних цін та наявності.</p>
+<a class="btn btn-solid" href="../contact.html">Зв'яжіться з нами</a>
+<a class="btn" href="../trxi-ctrl.html">Керуйте ним зі свого телефону за допомогою TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Повернутися до огляду</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Коментарі</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">додому</a><a href="../ide.html">У ВАС Є ІДЕЇ</a><a href="../presenter.html">Ведучий</a><a href="../companion.html">Додаток-компаньйон</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Бухгалтерський облік</a><a href="../technician.html">Технік ПК</a>
+<a href="../classroom.html">Класна кімната</a><a href="../contact.html">контакт</a><a href="../privacy.html">Конфіденційність</a><a href="../terms.html">Умови</a><a href="../accessibility.html">Доступність</a><a href="../security.html">Безпека</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Створено Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

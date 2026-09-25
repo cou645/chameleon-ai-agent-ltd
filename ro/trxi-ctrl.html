@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Salt la conținutul principal</a>
+<div class="pre-note">
+  TrXi-Ctrl este gratuit și deschis — aplicația pentru telefon, gateway-ul cu care comunică și serverul său MCP sunt toate descărcări gratuite pentru pasionații de Linux. Este și modul în care le prezentăm oamenilor restul familiei Chameleon AI Agent Ltd — vezi <a href="../index.html">aplicații desktop plătite</a>.
+</div>
+<nav aria-label="Principal">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">IDE AI</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Centru media</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Control de la distanță gratuit pentru desktopul tău Linux — Bluetooth, firewall, audio, media, ferestre, terminal, partajare ecran, clipboard partajat și chat AI, toate de pe telefonul tău — plus, pe telefoanele rootate, hotspot VPN și stocare de masă USB. Creat pentru Debian Trixie; funcționează și pe majoritatea celorlalte desktopuri Linux X11.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Gratuit și open</span>
+<span class="badge">🐧 Doar Linux / X11</span>
+<span class="badge">🔌 14 ecrane de control (+2 pe telefoanele rootate)</span>
+<span class="badge">🤖 Server MCP inclus</span>
+<span class="badge">🔒 Rețeaua ta, fără relay cloud</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Ce face</h2>
+<p>O aplicație pe telefon, un daemon gateway pe desktopul tău</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Sistem și straturi</h3><p>Statistici live CPU/memorie/termice și comutarea straturilor AUFS, direct de pe desktop.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Rețea și Wi-Fi</h3><p>Interfețe, adrese, scanare și conectare Wi-Fi — inclusiv descoperirea peerilor Tailscale pentru a-ți găsi automat gateway-ul.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Alimentare, detectabil/împerechebil, scanare, împerechere, conectare, încredere, eliminare — control complet al adaptorului.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Paravan de protecție</h3><p>Vizualizează și editează regulile și lanțurile iptables, aplică presetări, de pe telefonul tău.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Audio</h3><p>Volum, mut, listă sink — și transmite ieșirea audio a desktopului către difuzorul telefonului tău prin WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Media</h3><p>Play/pause/seek/volume real pentru <a href="../media.html">Chameleon Media Center</a> și playere bazate pe MPV, prin propriul socket IPC al mpv — nu doar o listă statică de fișiere.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Urmărește <a href="../media.html">Chameleon Media Center</a>transmisia live pe telefonul tău — alege Low latency (MPEG-TS) sau Smooth (HLS) pentru conexiuni slabe — vezi dacă este live, sursa sa și câți urmăresc, și copiază un link pentru ca oricine să poată urmări într-un browser.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows și desktopuri</h3><p>Listează, focalizează, închide, minimizează, maximizează, aranjează ferestrele în mozaic și comută desktopurile virtuale.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Desktop la distanță</h3><p>Partajare completă de ecran prin WebRTC cu atingere-în-mouse și introducere de la tastatură — vezi și controlează-ți desktopul de oriunde din rețeaua ta. Complet funcțional: atingările, tragerile și apăsările de taste pe care le trimiți apar pe desktop aproape imediat. Orice întârziere pe care o observi este în actualizările ecranului care vin de la desktop la telefonul tău, nu în introducerea ta.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Clipboard partajat</h3><p>PC-ul este hubul: fiecare telefon își trimite clipboardul acolo — direct în clipboardul propriu al PC-ului, gata de lipit — iar ecranul Clipboard listează cea mai recentă intrare a fiecărui dispozitiv. Atinge una pentru a o copia pe acest telefon. Nimic nu este citit sau scris în clipboardul telefonului tău în fundal, doar când atingi.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Un shell real, rulat de pe telefonul tău.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Chat AI</h3><p>Vorbește cu orice furnizor AI pe care l-ai configurat pe gateway — DeepSeek, OpenAI, Anthropic și altele.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Telefoane cu root</h2>
+<p>Două ecrane suplimentare apar automat când telefonul are root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN hotspot</h3><p>Partajează nodul de ieșire Tailscale al telefonului cu fiecare dispozitiv din hotspotul său Wi-Fi — laptopurile, televizoarele și consolele primesc VPN-ul fără să instaleze nimic. Rutarea se reaplică automat dacă hotspotul sau Tailscale repornește, iar un script de boot poate readuce totul după o repornire. Creat pentru un telefon lăsat conectat ca router: limită de încărcare, ține Tailscale în afara optimizării bateriei și Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Stocare de masă USB</h3><p>Conectează telefonul la orice PC și acesta apare ca unitate USB. Creează o imagine de disc de până la 256 GB în câteva secunde — FAT32 (citită de orice sistem de operare), ext4 (fără limita de fișier de 4 GB) sau un disc GPT bootabil cu partiție EFI, astfel încât un laptop să poată porni de pe telefon — apoi partajeaz-o cu citire-scriere sau doar citire, sau deschide-o pe telefonul însuși. Poți, de asemenea, să predai PC-ului cardul SD al telefonului sau o unitate USB. ADB rămâne conectat în timpul partajării.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Gateway-ul</h2>
+<p>trixie-gateway — partea de desktop, un singur binar autonom</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Un singur binar, fără Python necesar</h3><p>Descarcă un singur executabil autonom — fără Python, pip sau venv pe mașină. Construit pe aiohttp + aiortc, iar sursa este încă pe GitHub dacă preferi să îl rulezi din Python. Rulează independent sau ca serviciu systemd, ascultând pe adresa ta Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 de endpoint-uri REST</h3><p>Fiecare funcție a aplicației de telefon de mai sus, plus unul compatibil cu OpenAI <code>/v1/chat/completions</code> care rutează către orice furnizor AI pe care îl configurezi.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Server MCP inclus</h3><p><code>media_mcp_server.py</code> expune controlul media (stare, redare, pauză, căutare, volum, deschidere, navigare) ca instrumente MCP prin stdio JSON-RPC — aceleași date de sesiune și cale de control pe care le folosește aplicația de telefon, astfel încât un agent AI și telefonul tău văd mereu același lucru.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Compatibilitate</h2>
+<p>Creat pentru Debian Trixie — sincer despre unde altundeva rulează</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Platformă</th><th>Stare</th><th>De ce</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Dezvoltat și testat aici</td><td>—</td></tr>
+<tr><td>Familia Fatdog64 / Puppy Linux</td><td class="yes">✓ Ar trebui să funcționeze</td><td>Funcția Layers detectează automat ramuri union-fs sub fie <code>/aufs</code> (derivat din Fatdog64, inclusiv această mașină) fie <code>/initrd</code> (Puppy standard) — <code>/initrd</code> calea nu este testată pe o instalare reală Puppy, bazată pe convenții documentate mai degrabă decât pe verificare practică</td></tr>
+<tr><td>Alte desktopuri X11 Linux</td><td class="yes">✓ Ar trebui să funcționeze</td><td>Necesită BlueZ, iptables, PulseAudio/PipeWire cu compatibilitate pactl și o sesiune X11 (desktopurile doar Wayland nu sunt acceptate — <code>wmctrl</code>/<code>xdotool</code> necesită X11)</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Build de test experimental</td><td>Partajarea ecranului, mouse-ul/tastatura, lista ferestrelor, volumul și terminalul sunt implementate pentru Windows. Binarele se compilează și pornesc în CI automatizat, dar au <strong>nu a fost încă rulat pe o mașină Windows reală</strong> — așteptați-vă la imperfecțiuni. Bluetooth, firewall, straturile, luminozitatea, rețeaua și Media Center rămân doar pentru Linux și răspund <code>501</code></td></tr>
+<tr><td>macOS (Intel și Apple Silicon)</td><td class="test">🧪 Build de test experimental</td><td>Același set de funcții ca Windows, folosind Quartz, AVFoundation și <code>osascript</code>. Se compilează și pornește în CI pentru ambele arhitecturi, dar este <strong>netestat pe Mac-uri reale</strong>. Aplicația este nesemnată, iar macOS va solicita permisiunea de Înregistrare a ecranului și Accesibilitate</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Capturi de ecran</h2>
+<p>TrXi-Ctrl — capturat live, rulează pe hardware real</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Terminal care rulează lsusb pe desktopul Linux conectat" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Terminal</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila System care arată OS, kernel, CPU, încărcare, memorie și baterie" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Sistem</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Layers care listează ramurile AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Straturi</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Network care arată interfețele, inclusiv o adresă Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Rețea</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Bluetooth cu dispozitive împerecheate și comutatoare de detectabilitate/împerechere" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Firewall cu lanț iptables și presetări" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Paravan de protecție</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Audio cu volum de ieșire, sink-uri și un controller MIDI Bluetooth" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Audio</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Media care controlează o sesiune activă Chameleon Media Center în timp real" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Control media</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Windows care listează și aranjează în mozaic ferestrele desktop deschise" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Ferestre</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Fila Desktop, partajare completă de ecran la distanță cu clic stânga/dreapta" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Desktop la distanță</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — fila AI Chat care comunică cu un furnizor configurat" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Chat AI</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — fila Setări care descoperă gateway-uri în rețeaua Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Descoperire gateway</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — fila Setări cu o cheie de furnizor AI configurată și informații despre aplicație" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Configurare furnizor AI</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Descarcă <span class="free-badge">GRATUIT</span></h3>
+<p>Aplicație pentru telefon (Android) + gateway pentru desktop. Ambele deschise, ambele gratuite.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Descarcă APK-ul</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway pentru Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Versiuni de test pentru Windows și macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Vezi gateway-ul pe GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Instalează gateway-ul</h2>
+<p>Pe mașina Debian Trixie (sau Linux compatibil) pe care vrei să o controlezi</p>
+</div>
+<div class="code-block"># Linux — binar autonom, nimic altceva de instalat curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # apoi în aplicația de telefon: Setări → URL gateway → http://&lt;ip-tailscale-sau-LAN-al-acestei-mașini&gt;:8772 # sau apasă "Discover Peers" dacă sunteți amândoi în aceeași rețea Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Preferi Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, apoi <code>pip install -r requirements.txt</code> şi <code>python3 gateway.py --port 8772</code>. Documentația completă de instalare, inclusiv rularea ca serviciu systemd, se află în depozitul <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Versiuni de test pentru Windows și macOS</strong> sunt pe <a href="https://github.com/cou645/trixie-gateway/releases">pagina de versiuni</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Nu sunt semnate, așa că Windows SmartScreen va spune "editor necunoscut" (Mai multe informații → Rulează oricum), iar macOS va bloca prima lansare (clic dreapta → Deschide). Te rugăm să raportezi ce se strică.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Îți place TrXi-Ctrl? Vezi ce altceva construim</h3>
+<p>TrXi-Ctrl este partea gratuită și open a unei familii mai mari de instrumente AI pentru desktop — un editor de cod, un studio de prezentări, contabilitate UK, dispecerat de flote și altele.</p>
+<a class="btn btn-solid" href="../index.html">Vezi toate aplicațiile Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (AI pentru telefon + desktop) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Comentarii</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a><a href="../ide.html">IDE AI</a><a href="../presenter.html">Prezentator</a><a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../media.html">Centru media</a>
+<a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
+<a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a><a href="../privacy.html">Confidențialitate</a><a href="../terms.html">Termeni</a><a href="../accessibility.html">Accesibilitate</a><a href="../security.html">Securitate</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Construit de Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

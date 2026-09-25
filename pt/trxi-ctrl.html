@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Ir para o conteúdo principal</a>
+<div class="pre-note">
+  O TrXi-Ctrl é gratuito e aberto — o aplicativo de telefone, o gateway com o qual ele se comunica e seu servidor MCP são todos downloads gratuitos para entusiastas de Linux. Também é assim que apresentamos as pessoas ao restante da família Chameleon AI Agent Ltd — veja nosso <a href="../index.html">apps de desktop pagos</a>.
+</div>
+<nav aria-label="Primário">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logotipo do Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Início</a>
+<a href="../ide.html">VOCÊ TEM IDEIAS</a>
+<a href="../presenter.html">Apresentador</a>
+<a href="../companion.html">Aplicativo Companheiro</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Central de Mídia</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Serviços Web</a>
+<a href="../accounting.html">Contabilidade</a>
+<a href="../technician.html">Técnico de informática</a>
+<a href="../classroom.html">Aula</a>
+<a href="../contact.html">Contato</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇵🇹 PT ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Controle remoto gratuito para o seu desktop Linux — Bluetooth, firewall, áudio, mídia, janelas, terminal, compartilhamento de tela, área de transferência compartilhada e chat com IA, tudo pelo seu telefone — além disso, em telefones com root, um hotspot VPN e armazenamento em massa USB. Feito para Debian Trixie; funciona na maioria dos outros desktops Linux X11 também.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Gratuito e aberto</span>
+<span class="badge">🐧 Apenas Linux / X11</span>
+<span class="badge">🔌 14 telas de controle (+2 em telefones com root)</span>
+<span class="badge">🤖 Servidor MCP incluído</span>
+<span class="badge">🔒 Sua rede, sem relay na nuvem</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>O que ele faz</h2>
+<p>Um app de telefone, um daemon de gateway no seu desktop</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Sistema e camadas</h3><p>Estatísticas ao vivo de CPU/memória/térmicas e alternância de camadas AUFS, direto do desktop.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Rede e Wi-Fi</h3><p>Interfaces, endereços, varredura e conexão Wi-Fi — incluindo descoberta de pares Tailscale para encontrar seu gateway automaticamente.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Energia, detectável/pareável, varredura, pareamento, conexão, confiança, remoção — controle total do adaptador.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Firewall</h3><p>Visualize e edite regras e cadeias do iptables, aplique predefinições, pelo seu telefone.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Áudio</h3><p>Volume, mudo, lista de sinks — e transmita a saída de áudio do desktop para o alto-falante do seu telefone via WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Mídia</h3><p>Reprodução/pausa/busca/volume reais para <a href="../media.html">Chameleon Media Center</a> e players baseados em MPV, através do próprio socket IPC do mpv — não apenas uma listagem estática de arquivos.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC ao vivo</h3><p>Assista <a href="../media.html">Chameleon Media Center</a>à transmissão ao vivo no seu telefone — escolha Baixa latência (MPEG-TS) ou Suave (HLS) para conexões mais fracas — veja se está ao vivo, sua fonte e quantos estão assistindo, e copie um link para qualquer pessoa assistir em um navegador.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows e desktops</h3><p>Liste, focalize, feche, minimize, maximize, organize janelas em mosaico e alterne entre desktops virtuais.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Área de trabalho remota</h3><p>Compartilhamento de tela inteira via WebRTC com entrada de toque-para-mouse e teclado — veja e controle seu desktop de qualquer lugar da sua rede. Totalmente funcional: toques, arrastos e teclas que você envia aparecem no desktop quase imediatamente. Qualquer atraso que você note está nas atualizações de tela que voltam do desktop para o seu telefone, não na sua entrada.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Área de transferência compartilhada</h3><p>O PC é o hub: cada telefone envia sua área de transferência para lá — direto na área de transferência do próprio PC, pronta para colar — e a tela Área de transferência lista a entrada mais recente de cada dispositivo. Toque em uma para copiá-la para este telefone. Nada é lido ou gravado na área de transferência do seu telefone em segundo plano, apenas quando você toca.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>terminal</h3><p>Um shell de verdade, executado do seu telefone.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Chat de IA</h3><p>Converse com qualquer provedor de IA que você configurou no gateway — DeepSeek, OpenAI, Anthropic e mais.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Telefones com root</h2>
+<p>Duas telas extras aparecem automaticamente quando o telefone tem root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN de hotspot</h3><p>Compartilhe o nó de saída do Tailscale do telefone com todos os dispositivos no seu hotspot Wi-Fi — laptops, TVs e consoles obtêm a VPN sem instalar nada. O roteamento se reaplica automaticamente se o hotspot ou o Tailscale reiniciar, e um script de inicialização pode restaurar tudo após uma reinicialização. Feito para um telefone deixado conectado como roteador: um limite de carga, manter o Tailscale fora da otimização de bateria e VPN sempre ativa.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Armazenamento em massa USB</h3><p>Conecte o telefone a qualquer PC e ele aparece como uma unidade USB. Crie uma imagem de disco de até 256 GB em segundos — FAT32 (todo sistema operacional a lê), ext4 (sem limite de arquivo de 4 GB), ou um disco GPT inicializável com uma partição EFI para que um laptop possa inicializar a partir do telefone — depois compartilhe-a em leitura-escrita ou somente leitura, ou abra-a no próprio telefone. Você também pode entregar o cartão SD do telefone ou uma unidade USB ao PC. O ADB permanece conectado durante o compartilhamento.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>O gateway</h2>
+<p>trixie-gateway — o lado desktop, um único binário autocontido</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Um único binário, sem necessidade de Python</h3><p>Baixe um único executável autocontido — sem Python, pip ou venv na máquina. Baseado em aiohttp + aiortc, e o código-fonte ainda está no GitHub se você preferir executá-lo a partir do Python. Roda de forma independente ou como serviço systemd, escutando no seu endereço Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 endpoints REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> compatível com OpenAI que roteia para qualquer provedor de IA que você configurar.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Servidor MCP incluído</h3><p><code>media_mcp_server.py</code> expõe o controle de mídia (status, reproduzir, pausar, avançar, volume, abrir, navegar) como ferramentas MCP via stdio JSON-RPC — os mesmos dados de sessão e caminho de controle que o aplicativo do telefone usa, então um agente de IA e seu telefone sempre veem a mesma coisa.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Compatibilidade</h2>
+<p>Criado para Debian Trixie — honesto sobre onde mais ele roda</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Plataforma</th><th>Status</th><th>Por quê</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Desenvolvido e testado aqui</td><td>—</td></tr>
+<tr><td>Família Fatdog64 / Puppy Linux</td><td class="yes">✓ Deve funcionar</td><td>O recurso Layers detecta ramificações union-fs sob qualquer um dos dois <code>/aufs</code> (derivado do Fatdog64, incl. esta máquina) ou <code>/initrd</code> (Puppy padrão) automaticamente — o <code>/initrd</code> caminho não foi testado contra uma instalação real do Puppy, baseado em convenções documentadas em vez de verificação prática</td></tr>
+<tr><td>Outros desktops Linux X11</td><td class="yes">✓ Deve funcionar</td><td>Precisa de BlueZ, iptables, PulseAudio/PipeWire-com-compatibilidade-pactl e uma sessão X11 (desktops somente Wayland não são suportados — <code>wmctrl</code>/<code>xdotool</code> precisam de X11)</td></tr>
+<tr><td>Janelas 11</td><td class="test">🧪 Compilação de teste experimental</td><td>Partilha de ecrã, rato/teclado, lista de janelas, volume e terminal estão implementados para Windows. O binário compila e inicia em CI automatizado, mas <strong>ainda não foi executado numa máquina Windows real</strong> — espere arestas. Bluetooth, firewall, camadas, brilho, rede e Media Center permanecem exclusivos do Linux e respondem <code>501</code></td></tr>
+<tr><td>macOS (Intel e Apple Silicon)</td><td class="test">🧪 Compilação de teste experimental</td><td>O mesmo conjunto de funcionalidades do Windows, usando Quartz, AVFoundation e <code>osascript</code>. Compila e inicia em CI para ambas as arquiteturas mas está <strong>não testado em Macs reais</strong>. A aplicação não está assinada, e o macOS pedirá permissão de Gravação de Ecrã e Acessibilidade</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Capturas de tela</h2>
+<p>TrXi-Ctrl — capturado ao vivo, a correr em hardware real</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Terminal executando lsusb no desktop Linux conectado" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">terminal</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Sistema mostrando SO, kernel, CPU, carga, memória e bateria" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Sistema</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Camadas listando os ramos do AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Camadas</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Rede mostrando interfaces, incluindo um endereço Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Rede</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Bluetooth com dispositivos emparelhados e alternadores de detectável/emparelhável" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Firewall com cadeia iptables e predefinições" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Firewall</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Áudio com volume de saída, sinks e um controlador MIDI Bluetooth" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Áudio</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Mídia controlando uma sessão ativa do Chameleon Media Center em tempo real" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Controlo de multimédia</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Janelas listando e organizando em mosaico as janelas abertas do desktop" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Janelas</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba Desktop, compartilhamento de tela remota completo com clique esquerdo/direito" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Área de trabalho remota</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba de chat com IA conversando com um provedor configurado" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Chat de IA</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba de configurações descobrindo gateways na rede Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Descoberta de gateway</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Aba de configurações com uma chave de provedor de IA configurada e informações do app" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Configuração do provedor de IA</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Baixar <span class="free-badge">GRÁTIS</span></h3>
+<p>App para celular (Android) + gateway para desktop. Ambos abertos, ambos gratuitos.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Baixar o APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway para Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Builds de teste para Windows e macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Ver o gateway no GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Instalar o gateway</h2>
+<p>Na máquina Debian Trixie (ou Linux compatível) que você quer controlar</p>
+</div>
+<div class="code-block"># Linux — binário autônomo, nada mais para instalar curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # depois no app do celular: Configurações → URL do gateway → http://&lt;IP Tailscale ou LAN desta máquina&gt;:8772 # ou toque em "Descobrir peers" se vocês dois estiverem na mesma rede Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Prefere Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, depois <code>pip install -r requirements.txt</code> e <code>python3 gateway.py --port 8772</code>. A documentação completa de instalação, incluindo a execução como serviço systemd, está no repositório <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Builds de teste para Windows e macOS</strong> estão no <a href="https://github.com/cou645/trixie-gateway/releases">página de lançamentos</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Eles não são assinados, então o Windows SmartScreen dirá "editor desconhecido" (Mais informações → Executar mesmo assim) e o macOS bloqueará a primeira inicialização (clique com o botão direito → Abrir). Informe o que quebra.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Gostou do TrXi-Ctrl? Veja o que mais criamos</h3>
+<p>O TrXi-Ctrl é a parte gratuita e aberta de uma família maior de ferramentas de IA para desktop — um editor de código, um estúdio de apresentações, contabilidade do Reino Unido, despacho de frotas e muito mais.</p>
+<a class="btn btn-solid" href="../index.html">Ver todos os aplicativos Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (IA para telefone + desktop) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Comentários</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Início</a><a href="../ide.html">VOCÊ TEM IDEIAS</a><a href="../presenter.html">Apresentador</a><a href="../companion.html">Aplicativo Companheiro</a>
+<a href="../media.html">Central de Mídia</a>
+<a href="../accounting.html">Contabilidade</a><a href="../technician.html">Técnico de informática</a>
+<a href="../classroom.html">Aula</a><a href="../contact.html">Contato</a><a href="../privacy.html">Privacidade</a><a href="../terms.html">Termos</a><a href="../accessibility.html">Acessibilidade</a><a href="../security.html">Segurança</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Construído por Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Langsung ke konten utama</a>
+<div class="pre-note">
+  TrXi-Ctrl gratis dan terbuka — aplikasi ponsel, gateway yang dihubunginya, dan server MCP-nya semuanya unduhan gratis untuk penggemar Linux. Ini juga cara kami memperkenalkan orang pada keluarga Chameleon AI Agent Ltd lainnya — lihat <a href="../index.html">aplikasi desktop berbayar</a>.
+</div>
+<nav aria-label="Utama">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Rumah</a>
+<a href="../ide.html">ANDA PUNYA IDE</a>
+<a href="../presenter.html">Pembawa acara</a>
+<a href="../companion.html">Aplikasi Pendamping</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Pusat Media</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Layanan Web</a>
+<a href="../accounting.html">Akuntansi</a>
+<a href="../technician.html">Teknisi PC</a>
+<a href="../classroom.html">Kelas</a>
+<a href="../contact.html">Kontak</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇮🇩 ID ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Kontrol jarak jauh gratis untuk desktop Linux Anda — Bluetooth, firewall, audio, media, jendela, terminal, berbagi layar, clipboard bersama, dan obrolan AI, semua dari ponsel Anda — plus, di ponsel yang di-root, hotspot VPN dan penyimpanan massal USB. Dibuat untuk Debian Trixie; berfungsi di sebagian besar desktop Linux X11 lainnya juga.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Gratis &amp; terbuka</span>
+<span class="badge">🐧 Hanya Linux / X11</span>
+<span class="badge">🔌 14 layar kontrol (+2 di ponsel yang di-root)</span>
+<span class="badge">🤖 Server MCP disertakan</span>
+<span class="badge">🔒 Jaringan Anda, tanpa relay cloud</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Apa yang dilakukannya</h2>
+<p>Satu aplikasi ponsel, satu daemon gateway di desktop Anda</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Sistem &amp; lapisan</h3><p>Statistik CPU/memori/termal langsung dan pengalihan lapisan AUFS, langsung dari desktop.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Jaringan &amp; Wi-Fi</h3><p>Antarmuka, alamat, pemindaian dan koneksi Wi-Fi — termasuk penemuan peer Tailscale untuk menemukan gateway Anda secara otomatis.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Daya, dapat ditemukan/dipasangkan, pindai, pasangkan, sambungkan, percayai, hapus — kontrol adaptor penuh.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>tembok api</h3><p>Lihat dan edit aturan dan rantai iptables, terapkan preset, dari ponsel Anda.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Audio</h3><p>Volume, mute, daftar sink — dan streaming output audio desktop ke speaker ponsel Anda melalui WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Media</h3><p>Play/pause/seek/volume sungguhan untuk <a href="../media.html">Chameleon Media Center</a> dan pemutar berbasis MPV, melalui soket IPC milik mpv sendiri — bukan sekadar daftar file statis.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Langsung</h3><p>Tonton <a href="../media.html">Chameleon Media Center</a>siaran langsung di ponsel Anda — pilih Low latency (MPEG-TS) atau Smooth (HLS) untuk koneksi lemah — lihat apakah sedang live, sumbernya dan berapa banyak yang menonton, dan salin tautan agar siapa pun dapat menonton di browser.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows &amp; desktop</h3><p>Daftar, fokus, tutup, perkecil, perbesar, susun jendela dan ganti desktop virtual.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Desktop jarak jauh</h3><p>Berbagi layar penuh melalui WebRTC dengan sentuh-ke-mouse dan input keyboard — lihat dan kendalikan desktop Anda dari mana saja di jaringan Anda. Berfungsi penuh: ketukan, seret, dan ketukan tombol yang Anda kirim muncul di desktop hampir seketika. Keterlambatan yang Anda perhatikan ada pada pembaruan layar yang datang dari desktop ke ponsel Anda, bukan pada input Anda.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Papan klip bersama</h3><p>PC adalah hub: setiap ponsel mendorong papan klipnya ke sana — langsung ke papan klip PC sendiri, siap ditempel — dan layar Clipboard mencantumkan entri terbaru setiap perangkat. Ketuk satu untuk menyalinnya ke ponsel ini. Tidak ada yang dibaca dari atau ditulis ke papan klip ponsel Anda di latar belakang, hanya saat Anda mengetuk.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Shell sungguhan, dijalankan dari ponsel Anda.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Obrolan AI</h3><p>Bicaralah dengan penyedia AI mana pun yang telah Anda konfigurasi di gateway — DeepSeek, OpenAI, Anthropic dan lainnya.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ponsel yang di-root</h2>
+<p>Dua layar tambahan muncul otomatis saat ponsel memiliki root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN hotspot</h3><p>Bagikan node keluar Tailscale ponsel ke setiap perangkat di hotspot Wi-Fi-nya — laptop, TV, dan konsol mendapatkan VPN tanpa menginstal apa pun. Perutean diterapkan ulang secara otomatis jika hotspot atau Tailscale restart, dan skrip boot dapat memulihkan semuanya setelah reboot. Dibuat untuk ponsel yang dibiarkan terpasang sebagai router: batas pengisian daya, jaga Tailscale dari optimasi baterai, dan Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Penyimpanan massal USB</h3><p>Colokkan ponsel ke PC mana pun dan ponsel muncul sebagai drive USB. Buat image disk hingga 256 GB dalam hitungan detik — FAT32 (dibaca semua OS), ext4 (tanpa batas file 4 GB), atau disk GPT yang dapat di-boot dengan partisi EFI sehingga laptop dapat boot dari ponsel — lalu bagikan sebagai baca-tulis atau hanya-baca, atau buka di ponsel itu sendiri. Anda juga dapat menyerahkan kartu SD ponsel atau drive USB ke PC. ADB tetap terhubung selama berbagi.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Gerbang</h2>
+<p>trixie-gateway — sisi desktop, satu biner mandiri</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Satu biner, tanpa perlu Python</h3><p>Unduh satu executable mandiri — tanpa Python, pip, atau venv di mesin. Dibangun di atas aiohttp + aiortc, dan sumbernya masih ada di GitHub jika Anda lebih suka menjalankannya dari Python. Berjalan mandiri atau sebagai layanan systemd, mendengarkan di alamat Tailscale/LAN Anda.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 endpoint REST</h3><p>Setiap fitur aplikasi ponsel di atas, plus yang kompatibel dengan OpenAI <code>/v1/chat/completions</code> yang merutekan ke penyedia AI mana pun yang Anda konfigurasikan.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Server MCP disertakan</h3><p><code>media_mcp_server.py</code> mengekspos kontrol media (status, putar, jeda, cari, volume, buka, jelajah) sebagai alat MCP melalui stdio JSON-RPC — data sesi dan jalur kontrol yang sama dengan yang digunakan aplikasi ponsel, sehingga agen AI dan ponsel Anda selalu melihat hal yang sama.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Kompatibilitas</h2>
+<p>Dibuat untuk Debian Trixie — jujur tentang di mana lagi ia berjalan</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Platform</th><th>Status</th><th>Alasan</th></tr></thead>
+<tbody>
+<tr><td>Trixie Debian</td><td class="yes">✓ Dikembangkan &amp; diuji di sini</td><td>—</td></tr>
+<tr><td>Keluarga Fatdog64 / Puppy Linux</td><td class="yes">✓ Seharusnya berfungsi</td><td>Fitur Layers mendeteksi cabang union-fs secara otomatis di bawah salah satu <code>/aufs</code> (turunan Fatdog64, termasuk mesin ini) atau <code>/initrd</code> (Puppy standar) — <code>/initrd</code> jalur ini belum diuji terhadap instalasi Puppy nyata, berdasarkan konvensi yang didokumentasikan alih-alih verifikasi langsung</td></tr>
+<tr><td>Desktop Linux X11 lainnya</td><td class="yes">✓ Seharusnya berfungsi</td><td>Memerlukan BlueZ, iptables, PulseAudio/PipeWire dengan kompatibilitas pactl, dan sesi X11 (desktop hanya Wayland tidak didukung — <code>wmctrl</code>/<code>xdotool</code> memerlukan X11)</td></tr>
+<tr><td>jendela 11</td><td class="test">🧪 Build pengujian eksperimental</td><td>Berbagi layar, mouse/keyboard, daftar jendela, volume, dan terminal diimplementasikan untuk Windows. Biner dibuat dan dimulai di CI otomatis, tetapi telah <strong>belum dijalankan pada mesin Windows sungguhan</strong> — perkirakan masih kasar. Bluetooth, firewall, lapisan, kecerahan, jaringan, dan Media Center tetap hanya untuk Linux dan menjawab <code>501</code></td></tr>
+<tr><td>macOS (Intel &amp; Apple Silikon)</td><td class="test">🧪 Build pengujian eksperimental</td><td>Set fitur yang sama dengan Windows, menggunakan Quartz, AVFoundation, dan <code>osascript</code>. Dibuat dan dimulai di CI untuk kedua arsitektur tetapi <strong>belum diuji pada Mac sungguhan</strong>. Aplikasi tidak ditandatangani, dan macOS akan meminta izin Perekaman Layar dan Aksesibilitas</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Tangkapan layar</h2>
+<p>TrXi-Ctrl — ditangkap langsung, berjalan pada perangkat keras sungguhan</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Terminal menjalankan lsusb pada desktop Linux yang terhubung" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Terminal</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab System menampilkan OS, kernel, CPU, beban, memori, dan baterai" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Sistem</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Layers mencantumkan cabang AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Lapisan</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Network menampilkan antarmuka termasuk alamat Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Jaringan</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Bluetooth dengan perangkat yang dipasangkan dan tombol dapat ditemukan/dipasangkan" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Firewall dengan rantai iptables dan preset" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">tembok api</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Audio dengan volume keluaran, sink, dan pengontrol MIDI Bluetooth" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Audio</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Media mengendalikan sesi Chameleon Media Center yang aktif secara real time" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Kontrol media</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Windows mencantumkan dan menyusun jendela desktop yang terbuka" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">jendela</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Desktop, berbagi layar jarak jauh penuh dengan klik kiri/kanan" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Desktop jarak jauh</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — tab AI Chat yang berbicara dengan penyedia yang dikonfigurasi" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Obrolan AI</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — tab Setelan yang menemukan gateway di jaringan Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Penemuan gateway</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — tab Setelan dengan kunci penyedia AI yang dikonfigurasi dan info aplikasi" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Penyiapan penyedia AI</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Unduh <span class="free-badge">GRATIS</span></h3>
+<p>Aplikasi ponsel (Android) + gateway desktop. Keduanya terbuka, keduanya gratis.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Unduh APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway untuk Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Build uji Windows &amp; macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Lihat gateway di GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Instal gateway</h2>
+<p>Di mesin Debian Trixie (atau Linux yang kompatibel) yang ingin Anda kendalikan</p>
+</div>
+<div class="code-block"># Linux — biner mandiri, tidak ada lagi yang perlu diinstal curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # lalu di aplikasi ponsel: Pengaturan → URL Gateway → http://&lt;ip-tailscale-atau-LAN-mesin-ini&gt;:8772 # atau ketuk "Discover Peers" jika Anda berdua berada di jaringan Tailscale yang sama</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Lebih suka Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, lalu <code>pip install -r requirements.txt</code> Dan <code>python3 gateway.py --port 8772</code>. Dokumentasi instalasi lengkap, termasuk menjalankannya sebagai layanan systemd, ada di repositori <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Build uji Windows &amp; macOS</strong> ada di <a href="https://github.com/cou645/trixie-gateway/releases">halaman rilis</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Aplikasi ini tidak ditandatangani, jadi Windows SmartScreen akan mengatakan "penerbit tidak dikenal" (Info selengkapnya → Jalankan saja) dan macOS akan memblokir peluncuran pertama (klik kanan → Buka). Harap laporkan apa yang rusak.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Suka TrXi-Ctrl? Lihat apa lagi yang kami buat</h3>
+<p>TrXi-Ctrl adalah bagian gratis dan terbuka dari keluarga besar alat AI desktop — editor kode, studio presentasi, akuntansi Inggris, pengiriman armada, dan lainnya.</p>
+<a class="btn btn-solid" href="../index.html">Lihat semua aplikasi Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (AI ponsel + desktop) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Komentar</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Rumah</a><a href="../ide.html">ANDA PUNYA IDE</a><a href="../presenter.html">Pembawa acara</a><a href="../companion.html">Aplikasi Pendamping</a>
+<a href="../media.html">Pusat Media</a>
+<a href="../accounting.html">Akuntansi</a><a href="../technician.html">Teknisi PC</a>
+<a href="../classroom.html">Kelas</a><a href="../contact.html">Kontak</a><a href="../privacy.html">Privasi</a><a href="../terms.html">Syarat</a><a href="../accessibility.html">Aksesibilitas</a><a href="../security.html">Keamanan</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Dibuat oleh Marcos alias stemsee</p>
+</footer>
+</body>
+</html>

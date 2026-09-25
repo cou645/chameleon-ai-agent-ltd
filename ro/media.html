@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Salt la conținutul principal</a>
+<div class="pre-note">
+  Chameleon Media Center face parte din familia de desktop Chameleon AI. Distribuția și disponibilitatea sunt în curs de finalizare — <a href="../contact.html">contactați-ne pentru licențiere</a>. Astăzi poate fi controlat de la distanță din <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, aplicația noastră gratuită de telefon.
+</div>
+<nav aria-label="Principal">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Acasă</a>
+<a href="../ide.html">IDE AI</a>
+<a href="../presenter.html">Prezentator</a>
+<a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Centru media</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Servicii Web</a>
+<a href="../accounting.html">Contabilitate</a>
+<a href="../technician.html">Tehnician PC</a>
+<a href="../classroom.html">Sala de clasă</a>
+<a href="../contact.html">Contact</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇷🇴 RO ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Un studio media desktop complet construit pe mpv — redare, liste de redare, căutare YouTube și Bilibili cu cache de vizionare pe măsură, streaming live, TV DVB-T/T2, DVD/Blu-ray/CD, rutare audio Bluetooth și USB, efecte sonore, vizualizator, editor video, egalizator, camere web virtuale și oglindire Android de pe mai multe telefoane, într-o singură aplicație.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Redare bazată pe mpv</span>
+<span class="badge">🔎 Căutare YouTube și Bilibili + cache de vizionare</span>
+<span class="badge">📡 TV live DVB-T/T2/C/S/ATSC</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + intrare USB pick-up/mixer</span>
+<span class="badge">📱 Până la 16 telefoane oglindite simultan</span>
+<span class="badge">📷 Webcam virtual + PiP în 4 colțuri</span>
+<span class="badge">📡 Streaming către browsere, YouTube, Twitch și altele</span>
+<span class="badge">🤏 Zoom prin ciupire/derulare pe fiecare telefon</span>
+<span class="badge">🤖 Server MCP inclus</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Ce conține</h2>
+<p>Treisprezece file, un singur motor media</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Panou video</h3><p>Redarea este susținută de mpv — suport larg pentru formate, derulare fluidă, comutare pe ecran complet cu un singur clic (sau F11), recuperare automată dacă procesul playerului se închide neașteptat și reține ultimul dispozitiv de ieșire audio pe care l-ai ales între reporniri, în loc să revină la o valoare implicită. O suprapunere picture-in-picture cu latență redusă plasează până la patru camere — webcam-ul integrat sau orice telefon — în colțurile a ceea ce se redă. Înregistrează un flux care se redă sau descarcă ceea ce se redă, cu o singură tastă.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Listă de redare</h3><p>Reordonare prin tragere și plasare, gestionarea cozii, importul și salvarea listei de redare și restaurarea unei liste de redare șterse din coș. Adaugă un singur fișier sau un întreg folder, inclusiv subfoldere. Intrările cărora le lipsește fișierul — un stick USB care nu este conectat, un videoclip din cache pe care l-ai curățat — apar estompate până când revine, iar un videoclip curățat se descarcă din nou cu dublu clic.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Căutare și cache de vizionare</h3><p>Caută pe YouTube sau Bilibili, listează cele mai recente videoclipuri ale unui creator TikTok sau lipește un link TikTok, Instagram, Facebook, Snapchat Spotlight sau Douyin. Rezultatele se pun în coadă într-o listă de vizionare numerotată sub lista de redare. Orice vizionezi este păstrat pe disc pe măsură ce îl vizionezi — fără descărcare separată — astfel încât următoarea vizionare se redă din copia locală, iar un videoclip vizionat parțial arată cât este salvat și completează restul data viitoare. Mută videoclipurile salvate în lista de redare principală și alege pe care să le păstrezi sau să le ștergi când închizi aplicația. Cookie-urile opționale de browser trec de „confirmă că nu ești un robot” și de zidurile de autentificare.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>TV DVB</h3><p>Scanați și urmăriți televiziune digitală reală — DVB-T/T2, DVB-C, DVB-S/S2 și ATSC — direct de la un tuner USB sau PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD/CD/Blu-ray</h3><p>Detectează automat ce se află în unitatea optică și redă DVD-Video, Blu-ray sau piste Audio CD — nu este nevoie de software separat pentru discuri.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Audio BT/USB</h3><p>Direcționați redarea către unul sau mai multe difuzoare Bluetooth simultan (PulseAudio combine-sink), comutați adaptorul în modul de recepție astfel încât PC-ul însuși să devină difuzor Bluetooth, sau conectați <em>oricare</em> altă sursă de captură PulseAudio — un pick-up USB, un deck MiniDisc, un mixer/controller DJ sau o interfață audio — direct în redare și Visualizer, toate dintr-o singură listă de surse de intrare.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Telefon ADB — până la 16 simultan</h3><p>O grilă de 1–16 panouri independente în câte coloane doriți — oglindiți și controlați atâtea telefoane Android simultan, fiecare cu propriul ecran, rutare audio și intrare. Ciupiți (această casetă are ecran tactil) sau folosiți rotița de derulare pentru a mări ecranul oricărui telefon, Shift+tras pentru a deplasa. Atingeți, glisați și tastați direct cu mouse-ul, stylusul, atingerea sau tastatura fizică — un shell persistent per dispozitiv menține fiecare intrare în timp real în loc să plătească un cost nou de conexiune pentru fiecare tastă apăsată. „Conectare wireless” cu un singur clic comută automat un telefon conectat prin USB la adb-over-wifi, sau împerecheați prin Wi-Fi scanând codul QR de împerechere al telefonului. Trimiteți și primiți fișiere către orice telefon, iar un telefon adormit este trezit înainte de începerea streamingului.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Camere virtuale</h3><p>Un dispozitiv „CMC PC Webcam” pe care orice aplicație de apel video, browser sau OBS îl poate alege — alimentați-l cu camera integrată sau cu camera oricărui telefon conectat și schimbați sursele în timpul apelului fără ca aplicația să piardă dispozitivul. Fiecare panou de telefon primește și propria cameră virtuală.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Transmisie live</h3><p>Transmiteți o cameră sau panoul video către orice browser din LAN-ul sau Tailscale-ul dvs. (pagină player HLS) plus un flux cu latență redusă pentru TrXi-Ctrl, VLC sau mpv — mulți spectatori dintr-o singură codare — sau împingeți-l către YouTube Live, Facebook Live, Twitch, WeChat Channels sau orice server RTMP.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Partajare și descoperire</h3><p>CMC-urile din aceeași rețea se găsesc automat, iar un cod de grup partajează lista dvs. de redare — inclusiv fișierele locale — cu alte CMC-uri.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Efecte sonore</h3><p>Un soundboard pentru indicii audio rapide în timp ce joci sau streamuiești.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Vizualizator</h3><p>Vizualuri reactive la audio în timp real pentru orice se redă în acel moment.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Editor video</h3><p>Un sequencer de clipuri precis la cadru: setați cadrele In/Out din player, reordonați clipurile, adăugați o piesă muzicală (mixată sub sau înlocuind sunetul original) și subtitrări (integrate sau ca pistă comutabilă), apoi exportați în fundal.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Egalizator pe 18 benzi &amp; efecte audio/video</h3><p>Modelați sunetul pentru cameră sau pentru dispoziție, cu presetări pe care le puteți ajusta și salva — plus efecte audio și o filă dedicată de efecte video.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Note</h3><p>Notițe tastate sau scrise de mână (prietenoase cu stylus/atingere) chiar lângă media dvs. — utile pentru notițe de producție/sesiune în timp ce lucrați.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Blocare, teme &amp; preferințe</h3><p>Blocați fereastra cu un model (Ctrl+Alt+L), schimbați teme și setați preferințele — cu About și Help incluse.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Telecomandă</h3><p>Fiecare acțiune de redare/pauză/derulare/volum este expusă prin propriul socket IPC al mpv, cu care <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — aplicația noastră gratuită pentru telefon — comunică direct pentru control real al redării, nu doar o listă de sesiuni. Închiderea unei sesiuni de pe telefon închide întreaga aplicație curat, în loc să lase în urmă un player pe jumătate mort.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Server MCP</h3><p>Un server Model Context Protocol inclus expune starea redării, play/pause/seek/volume/open și navigarea bibliotecii ca instrumente — astfel încât un agent AI și telefonul tău văd și controlează întotdeauna aceeași sesiune.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Construit pe fundații deschise</h2>
+<p>Aplicație desktop PySide6 (Qt), motor de redare mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>O interfață desktop nativă și receptivă — parte din același stack Python/Qt ca restul aplicațiilor desktop Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>motor mpv</h3><p>Integrat prin propriul mecanism de încorporare a ferestrei mpv și socketul JSON IPC — același motor de redare fiabil și larg utilizat din spatele multor instrumente media Linux, cu libdvdnav/libdvdread/libcdio/libbluray deja legate pentru redarea discurilor.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Rutare audio nativă PulseAudio</h3><p>Ieșirea pe mai multe dispozitive folosește propriul module-combine-sink al PulseAudio; orice sursă de captură — recepție Bluetooth sau un dispozitiv audio USB — se conectează prin module-loopback, verificând mai întâi rutarea deja configurată de propria politică Bluetooth a PulseAudio în loc să se lupte cu ea.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Capturi de ecran</h2>
+<p>Chameleon Media Center — captură live</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — fila de căutare cu rezultate YouTube, un videoclip care rulează și lista de vizionare de sub playlist care afișează un videoclip din cache" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Căutare și listă de vizionare</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — două telefoane Android oglindite unul lângă altul în fila ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Oglindire duală a telefonului</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila de scanare a canalelor DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">TV DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila audio Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — egalizator cu 18 benzi" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Egalizator cu 18 benzi</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — redare YouTube cu suprapunere de vizualizator spectral reactiv la audio în timp real" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Suprapunere vizualizator</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — temă pastel alternativă, player inactiv cu o listă de redare mare încărcată" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Temă alternativă</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — două telefoane Android oglindite pe toată lățimea unul lângă altul, unul afișând ecranul principal, celălalt sertarul de aplicații" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Oglindire dublă pe toată lățimea</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila ADB Phone cu coloana completă de 16 butoane de control: cameră, Bluetooth, hotspot, Wi-Fi, transfer de fișiere și altele" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Coloană completă de control al telefonului</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — trei telefoane Android oglindite simultan, fiecare rulând aplicația de control de la distanță TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Oglindire triplă a telefonului</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — cameră web integrată într-un colț picture-in-picture peste un videoclip redat, cu două telefoane oglindite dedesubt" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Imagine-în-imagine de la webcam</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — panou de efecte sonore cu douăsprezece sunete cu un singur clic și sunete personalizate, peste un videoclip redat" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Panou de efecte sonore</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — egalizator cu 18 benzi cu presetul R&amp;B aplicat în timpul redării" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Presetări egalizator</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila Efecte audio: amplificare, boost de bas și înalte, compresor, reducere de zgomot, chorus, reverb și delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Efecte audio</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila Live Stream configurată pentru a transmite pe YouTube Live prin RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Transmite pe YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — fila Note care listează paginile PDF importate lângă videoclipul redat" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Note</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — două telefoane oglindite cu coloanele lor complete de control în timp ce rulează un videoclip" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Controale telefon</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — un telefon oglindit în fila ADB Phone cu controale Înapoi, Acasă, Recente și tastare" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Oglindire a unui singur telefon</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — vizualizator de spectru și meniul Fișier, în tema pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Meniul Visualizer &amp; Fișiere</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Obține Chameleon Media Center</h3>
+<p>Inclus cu desktopul Chameleon AI. <strong>Distribuția și disponibilitatea sunt în curs de finalizare</strong> — contactați-ne pentru prețurile și disponibilitatea actuale.</p>
+<a class="btn btn-solid" href="../contact.html">Contactați-ne</a>
+<a class="btn" href="../trxi-ctrl.html">Controlează-l de pe telefonul tău cu TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Comentarii</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Acasă</a><a href="../ide.html">IDE AI</a><a href="../presenter.html">Prezentator</a><a href="../companion.html">Aplicația însoțitoare</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Contabilitate</a><a href="../technician.html">Tehnician PC</a>
+<a href="../classroom.html">Sala de clasă</a><a href="../contact.html">Contact</a><a href="../privacy.html">Confidențialitate</a><a href="../terms.html">Termeni</a><a href="../accessibility.html">Accesibilitate</a><a href="../security.html">Securitate</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Construit de Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

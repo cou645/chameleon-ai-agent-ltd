@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+<div class="pre-note">
+  TrXi-Ctrl — бесплатный и открытый: приложение для телефона, шлюз, с которым оно взаимодействует, и его сервер MCP — всё это бесплатные загрузки для энтузиастов Linux. Так мы также знакомим людей с остальной семьёй Chameleon AI Agent Ltd — смотрите наш <a href="../index.html">платные настольные приложения</a>.
+</div>
+<nav aria-label="Основной">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Логотип Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Главная</a>
+<a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a>
+<a href="../presenter.html">Ведущий</a>
+<a href="../companion.html">Приложение-компаньон</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Медиацентр</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Веб-службы</a>
+<a href="../accounting.html">Бухгалтерия</a>
+<a href="../technician.html">ПК-техник</a>
+<a href="../classroom.html">Класс</a>
+<a href="../contact.html">Контакт</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇷🇺 RU ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Бесплатное удалённое управление вашим рабочим столом Linux — Bluetooth, брандмауэр, аудио, медиа, окна, терминал, общий доступ к экрану, общий буфер обмена и чат с ИИ, всё с вашего телефона — плюс на рутированных телефонах VPN-хотспот и USB-накопитель. Создано для Debian Trixie; работает и на большинстве других рабочих столов Linux с X11.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Бесплатно и с открытым кодом</span>
+<span class="badge">🐧 Только Linux / X11</span>
+<span class="badge">🔌 14 экранов управления (+2 на рутированных телефонах)</span>
+<span class="badge">🤖 Включён MCP-сервер</span>
+<span class="badge">🔒 Ваша сеть, без облачного ретранслятора</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Что это делает</h2>
+<p>Одно приложение на телефоне, один демон-шлюз на вашем рабочем столе</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Система и слои</h3><p>Живая статистика ЦП/памяти/температуры и переключение слоёв AUFS прямо с рабочего стола.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Сеть и Wi-Fi</h3><p>Интерфейсы, адреса, сканирование и подключение Wi-Fi — включая обнаружение узлов Tailscale для автоматического поиска вашего шлюза.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Питание, режим обнаружения/сопряжения, сканирование, сопряжение, подключение, доверие, удаление — полный контроль над адаптером.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Брандмауэр</h3><p>Просматривайте и редактируйте правила и цепочки iptables, применяйте пресеты с вашего телефона.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Аудио</h3><p>Громкость, mute, список sink — и трансляция аудиовыхода рабочего стола на динамик вашего телефона через WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Медиа</h3><p>Настоящие play/pause/seek/volume для <a href="../media.html">Chameleon Media Center</a> и плееров на базе MPV, через собственный IPC-сокет mpv — а не просто статический список файлов.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Смотрите <a href="../media.html">Chameleon Media Center</a>прямой эфир на вашем телефоне — выберите Low latency (MPEG-TS) или Smooth (HLS) для слабых соединений — узнайте, идёт ли эфир, его источник и сколько зрителей, и скопируйте ссылку, чтобы любой мог смотреть в браузере.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows и рабочие столы</h3><p>Список, фокус, закрытие, сворачивание, разворачивание, мозаика окон и переключение виртуальных рабочих столов.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Удалённый рабочий стол</h3><p>Полный обмен экраном через WebRTC с управлением касанием-как-мышью и вводом с клавиатуры — смотрите и управляйте рабочим столом откуда угодно в вашей сети. Полностью функционально: касания, перетаскивания и нажатия клавиш, которые вы отправляете, появляются на рабочем столе почти мгновенно. Любая заметная задержка — в обновлениях экрана, идущих от рабочего стола к вашему телефону, а не в вашем вводе.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Общий буфер обмена</h3><p>ПК — это хаб: каждый телефон отправляет свой буфер обмена туда — прямо в собственный буфер обмена ПК, готовый к вставке — а экран Clipboard перечисляет последнюю запись каждого устройства. Нажмите на одну, чтобы скопировать её на этот телефон. В фоновом режиме ничего не читается и не записывается в буфер обмена вашего телефона, только когда вы нажимаете.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Терминал</h3><p>Настоящая оболочка, запускаемая с вашего телефона.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>AI-чат</h3><p>Общайтесь с любым AI-провайдером, настроенным на шлюзе — DeepSeek, OpenAI, Anthropic и другими.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Рутованные телефоны</h2>
+<p>Два дополнительных экрана появляются автоматически, когда на телефоне есть root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN для точки доступа</h3><p>Поделитесь выходным узлом Tailscale телефона со всеми устройствами в его Wi-Fi точке доступа — ноутбуки, телевизоры и консоли получают VPN без установки чего-либо. Маршрутизация восстанавливается автоматически при перезапуске точки доступа или Tailscale, а загрузочный скрипт может вернуть всё после перезагрузки. Создано для телефона, оставленного подключённым в качестве роутера: ограничение заряда, исключение Tailscale из оптимизации батареи и Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>USB-накопитель</h3><p>Подключите телефон к любому ПК, и он появится как USB-диск. Создайте образ диска до 256 ГБ за секунды — FAT32 (читается любой ОС), ext4 (без ограничения файлов в 4 ГБ) или загрузочный GPT-диск с разделом EFI, чтобы ноутбук мог загрузиться с телефона — затем поделитесь им для чтения-записи или только для чтения, либо откройте его на самом телефоне. Вы также можете передать ПК SD-карту телефона или USB-накопитель. ADB остаётся подключённым во время обмена.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Шлюз</h2>
+<p>trixie-gateway — сторона рабочего стола, единый самодостаточный бинарный файл</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Один бинарный файл, Python не нужен</h3><p>Скачайте единый самодостаточный исполняемый файл — без Python, pip или venv на машине. Построен на aiohttp + aiortc, а исходный код по-прежнему на GitHub, если вы предпочитаете запускать из Python. Работает автономно или как служба systemd, прослушивая ваш адрес Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 REST-эндпоинтов</h3><p>Все функции телефонного приложения выше, плюс совместимый с OpenAI <code>/v1/chat/completions</code> который маршрутизирует к любому настроенному вами AI-провайдеру.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>MCP-сервер включён</h3><p><code>media_mcp_server.py</code> предоставляет управление медиа (статус, воспроизведение, пауза, перемотка, громкость, открытие, просмотр) как инструменты MCP через stdio JSON-RPC — те же данные сессии и путь управления, что использует телефонное приложение, поэтому AI-агент и ваш телефон всегда видят одно и то же.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Совместимость</h2>
+<p>Создано для Debian Trixie — честно о том, где ещё это работает</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Платформа</th><th>Статус</th><th>Почему</th></tr></thead>
+<tbody>
+<tr><td>Дебиан Трикси</td><td class="yes">✓ Разработано и протестировано здесь</td><td>—</td></tr>
+<tr><td>Семейство Fatdog64 / Puppy Linux</td><td class="yes">✓ Должно работать</td><td>Функция Layers автоматически определяет ветки union-fs под <code>/aufs</code> (производный от Fatdog64, включая эту машину) или <code>/initrd</code> (стандартный Puppy) — <code>/initrd</code> путь не проверен на реальной установке Puppy, основан на документированных соглашениях, а не на практической проверке</td></tr>
+<tr><td>Другие рабочие столы X11 Linux</td><td class="yes">✓ Должно работать</td><td>Требуются BlueZ, iptables, PulseAudio/PipeWire с совместимостью pactl и сеанс X11 (рабочие столы только с Wayland не поддерживаются — <code>wmctrl</code>/<code>xdotool</code> требуется X11)</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Экспериментальная тестовая сборка</td><td>Демонстрация экрана, мышь/клавиатура, список окон, громкость и терминал реализованы для Windows. Бинарный файл собирается и запускается в автоматизированном CI, но ещё <strong>не запускался на реальной машине с Windows</strong> — ожидайте шероховатостей. Bluetooth, брандмауэр, слои, яркость, сеть и Media Center остаются только для Linux и отвечают <code>501</code></td></tr>
+<tr><td>macOS (Intel и Apple Silicon)</td><td class="test">🧪 Экспериментальная тестовая сборка</td><td>Тот же набор функций, что и в Windows, с использованием Quartz, AVFoundation и <code>osascript</code>. Собирается и запускается в CI для обеих архитектур, но <strong>не тестировался на реальных Mac</strong>. Приложение не подписано, и macOS запросит разрешения на запись экрана и универсальный доступ</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Скриншоты</h2>
+<p>TrXi-Ctrl — захвачено вживую, работает на реальном оборудовании</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Терминал» с запуском lsusb на подключённом Linux-компьютере" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Терминал</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Система» с ОС, ядром, ЦП, нагрузкой, памятью и батареей" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Система</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Слои» со списком ветвей AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Слои</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Сеть» с интерфейсами, включая адрес Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Сеть</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Bluetooth» с сопряжёнными устройствами и переключателями обнаруживаемости/сопряжения" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Брандмауэр» с цепочкой iptables и пресетами" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Брандмауэр</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Аудио» с громкостью вывода, аудиоустройствами и Bluetooth MIDI-контроллером" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Аудио</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Медиа» с управлением активной сессией Chameleon Media Center в реальном времени" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Управление медиа</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Окна» со списком и мозаикой открытых окон рабочего стола" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Окна</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Рабочий стол», полный удалённый доступ к экрану с левым/правым кликом" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Удалённый рабочий стол</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка AI Chat, общающаяся с настроенным провайдером" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">AI-чат</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Настройки», обнаруживающая шлюзы в сети Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Обнаружение шлюза</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Настройки» с настроенным ключом AI-провайдера и информацией о приложении" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Настройка поставщика ИИ</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Скачать <span class="free-badge">БЕСПЛАТНО</span></h3>
+<p>Мобильное приложение (Android) + шлюз для ПК. Оба открыты, оба бесплатны.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Скачать APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Шлюз для Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Тестовые сборки для Windows и macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Посмотреть шлюз на GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Установите шлюз</h2>
+<p>На машине с Debian Trixie (или совместимым Linux), которой вы хотите управлять</p>
+</div>
+<div class="code-block"># Linux — автономный бинарный файл, больше ничего устанавливать не нужно curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # затем в мобильном приложении: Настройки → URL шлюза → http://&lt;tailscale-или-LAN-IP-этой-машины&gt;:8772 # или нажмите "Discover Peers", если вы оба в одной сети Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Предпочитаете Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, затем <code>pip install -r requirements.txt</code> и <code>python3 gateway.py --port 8772</code>. Полная документация по установке, включая запуск в качестве службы systemd, находится в разделе репозитория <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Тестовые сборки для Windows и macOS</strong> находятся на <a href="https://github.com/cou645/trixie-gateway/releases">страница релизов</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Они не подписаны, поэтому Windows SmartScreen скажет "неизвестный издатель" (Подробнее → Выполнить в любом случае), а macOS заблокирует первый запуск (правый клик → Открыть). Пожалуйста, сообщите, что не работает.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Нравится TrXi-Ctrl? Посмотрите, что ещё мы создаём</h3>
+<p>TrXi-Ctrl — это бесплатная, открытая часть большого семейства настольных ИИ-инструментов — редактор кода, студия презентаций, бухгалтерия для Великобритании, диспетчеризация автопарка и многое другое.</p>
+<a class="btn btn-solid" href="../index.html">Посмотреть все приложения Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (ИИ для телефона и компьютера) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Комментарии</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Главная</a><a href="../ide.html">У ВАС ЕСТЬ ИДЕИ</a><a href="../presenter.html">Ведущий</a><a href="../companion.html">Приложение-компаньон</a>
+<a href="../media.html">Медиацентр</a>
+<a href="../accounting.html">Бухгалтерия</a><a href="../technician.html">ПК-техник</a>
+<a href="../classroom.html">Класс</a><a href="../contact.html">Контакт</a><a href="../privacy.html">Конфиденциальность</a><a href="../terms.html">Условия</a><a href="../accessibility.html">Доступность</a><a href="../security.html">Безопасность</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Создано Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

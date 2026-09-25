@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Neidio i'r prif gynnwys</a>
+<div class="pre-note">
+  Mae Chameleon Media Center yn rhan o deulu bwrdd gwaith Chameleon AI. Mae dosbarthiad ac argaeledd yn cael eu cwblhau — <a href="../contact.html">cysylltwch â ni am drwyddedu</a>. Mae'n bell-reoladwy heddiw o <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, ein ap ffôn am ddim.
+</div>
+<nav aria-label="Cynradd">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Canolfan Gyfryngau</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Gwasanaethau Gwe</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Stiwdio gyfryngau bwrdd gwaith lawn wedi'i hadeiladu ar mpv — chwarae, rhestrau chwarae, chwilio YouTube a Bilibili gyda chache wrth-wylio, ffrydio byw, teledu DVB-T/T2, DVD/Blu-ray/CD, llwybro sain Bluetooth a USB, effeithiau sain, gweledydd, golygydd fideo, ecwaleiddiwr, gwe-gamerâu rhithwir, ac adlewyrchu Android aml-ffôn, mewn un ap.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Chwarae wedi'i bweru gan mpv</span>
+<span class="badge">🔎 Chwilio YouTube a Bilibili + cache gwylio</span>
+<span class="badge">📡 Teledu DVB-T/T2/C/S/ATSC Byw</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + mewnbwn trofwrdd/cymysgydd USB</span>
+<span class="badge">📱 Hyd at 16 ffôn yn cael eu drychogi ar unwaith</span>
+<span class="badge">📷 Gwe-gamera rhithwir + PiP 4-cornel</span>
+<span class="badge">📡 Ffrydio i borwyr, YouTube, Twitch a mwy</span>
+<span class="badge">🤏 Chwyddo pinsio/sgrol ar bob ffôn</span>
+<span class="badge">🤖 Gweinydd MCP wedi'i gynnwys</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Beth sydd y tu mewn</h2>
+<p>Tair tab ar ddeg, un peiriant cyfryngau</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Panel fideo</h3><p>Chwarae wedi'i bweru gan mpv — cefnogaeth fformat eang, chwilio llyfn, togl sgrin lawn un clic (neu F11), adferiad awtomatig os bydd proses y chwaraewr yn marw'n annisgwyl, ac mae'n cofio pa ddyfais allbwn sain y gwnaethoch ei dewis ddiwethaf ar draws ailgychwyn yn lle ailosod i'r rhagosodedig. Mae troshaen llun-mewn-llun oedi isel yn rhoi hyd at bedair camera — y gwe-gamera adeiledig neu unrhyw ffôn — yng nghorneli beth bynnag sy'n chwarae. Recordiwch ffrwd sy'n chwarae, neu lawrlwythwch yr hyn sy'n chwarae, gydag un allwedd.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Rhestr chwarae</h3><p>Ail-drefnu drwy lusgo a gollwng, rheoli ciw, mewnforio a chadw rhestrau chwarae, ac adfer rhestr chwarae wedi'i dileu o'r bin. Ychwanegwch un ffeil neu ffolder cyfan, gan gynnwys is-ffolderi. Mae cofnodion nad yw eu ffeil yno — gyriant USB nad yw wedi'i blygio i mewn, fideo wedi'i storio yr ydych wedi'i lanhau — yn llwydo nes ei fod yn ôl, ac mae fideo wedi'i lanhau yn ail-lawrlwytho gyda chlic dwbl.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Chwilio a storfa gwylio</h3><p>Chwiliwch YouTube neu Bilibili, rhestru fideos diweddaraf crëwr TikTok, neu gludwch ddolen TikTok, Instagram, Facebook, Snapchat Spotlight neu Douyin. Ciwiwch ganlyniadau mewn rhestr wylio wedi'i rhifo o dan y rhestr chwarae. Mae unrhyw beth rydych yn ei wylio yn cael ei gadw ar y disg wrth i chi wylio — dim lawrlwytho ar wahân — felly bydd y wylfa nesaf yn chwarae o'r copi lleol, ac mae fideo a wylir yn rhannol yn dangos faint sydd wedi'i gadw ac yn llenwi'r gweddill y tro nesaf. Symudwch fideos wedi'u cadw i'r brif restr chwarae, a dewiswch pa rai i'w cadw neu eu dileu pan fyddwch yn cau'r ap. Mae cwcis porwr dewisol yn mynd heibio "cadarnhewch nad ydych yn bot" a waliau mewngofnodi.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Teledu DVB</h3><p>Sganiwch a gwyliwch deledu digidol go iawn — DVB-T/T2, DVB-C, DVB-S/S2 ac ATSC — yn syth o diwner USB neu PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD / CD / Blu-ray</h3><p>Yn canfod beth sydd yn y gyriant optegol yn awtomatig ac yn chwarae DVD-Video, Blu-ray neu draciau Audio CD — does dim angen meddalwedd disg ar wahân.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Sain BT/USB</h3><p>Anfonwch y chwarae i un neu sawl siaradwr Bluetooth ar unwaith (PulseAudio combine-sink), trowch yr addasydd i fodd derbyn fel bod y PC ei hun yn dod yn siaradwr Bluetooth, neu dolen i mewn <em>unrhyw</em> ffynhonnell dal PulseAudio arall — trofwrdd USB, dec MiniDisc, cymysgydd/rheolydd DJ, neu ryngwyneb sain — yn syth i'r chwarae a'r Visualizer, i gyd o un rhestr wirio Input Sources.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Ffôn ADB — hyd at 16 ar unwaith</h3><p>Grid o 1–16 panel annibynnol mewn cymaint o golofnau ag y dymunwch — drychwch a rheolwch gynifer o ffonau Android ar yr un pryd, pob un â'i sgrin, ei lwybr sain a'i fewnbwn ei hun. Pinsiwch (mae gan y blwch hwn sgrin gyffwrdd) neu defnyddiwch olwyn sgrolio i chwyddo i mewn i sgrin unrhyw ffôn, Shift+llusgo i symud. Tapiwch, swipiwch a theipiwch yn uniongyrchol â llygoden, stylus, cyffyrddiad neu'ch bysellfwrdd corfforol — mae plisgyn parhaus fesul dyfais yn cadw pob mewnbwn yn amser real yn lle talu cost cysylltiad newydd am bob gwasgiad bysell. Mae "Connect Wireless" un clic yn newid ffôn sydd wedi'i chysylltu â USB i adb-over-wifi yn awtomatig, neu parwch dros Wi-Fi trwy sganio cod QR paru'r ffôn. Gwthiwch a thynnwch ffeiliau i unrhyw ffôn, ac mae ffôn sy'n cysgu yn cael ei ddeffro cyn i'r ffrydio ddechrau.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Camerâu rhithwir</h3><p>Dyfais "CMC PC Webcam" y gall unrhyw ap galwadau fideo, porwr neu OBS ei dewis — bwydwch y camera adeiledig neu gamera unrhyw ffôn cysylltiedig iddo, a newidiwch ffynonellau yng nghanol galwad heb i'r ap golli'r ddyfais. Mae pob panel ffôn hefyd yn cael ei gamera rhithwir ei hun.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Ffrydio Byw</h3><p>Ffrydiwch gamera neu'r panel fideo i unrhyw borwr ar eich LAN neu Tailscale (tudalen chwaraewr HLS) ynghyd â ffrwd oedi isel ar gyfer TrXi-Ctrl, VLC neu mpv — llawer o wylwyr o un amgodio — neu gwthiwch i YouTube Live, Facebook Live, Twitch, WeChat Channels neu unrhyw weinydd RTMP.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Rhannu a darganfod</h3><p>Mae CMCs ar yr un rhwydwaith yn dod o hyd i'w gilydd yn awtomatig, ac mae cod grŵp yn rhannu eich rhestr chwarae — gan gynnwys ffeiliau lleol — â CMCs eraill.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Effeithiau Sain</h3><p>Bwrdd sain ar gyfer ciwiau sain ar y pryd wrth i chi chwarae neu ffrydio.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Gweledydd</h3><p>Delweddau gweledol sy'n ymateb i sain mewn amser real ar gyfer unrhyw beth sy'n chwarae ar hyn o bryd.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Golygydd fideo</h3><p>Dilyniannydd clipiau sy'n gywir o ran ffrâm: gosodwch ffrâm Mewn/Allan o'r chwaraewr, aildrefnwch glipiau, ychwanegwch drac cerddoriaeth (wedi'i gymysgu o dan neu'n disodli'r sain wreiddiol) ac is-deitlau (wedi'u llosgi i mewn neu fel trac y gellir ei newid), yna allforiwch yn y cefndir.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Ecwaleiddiwr 18-band ac effeithiau sain/fideo</h3><p>Siapwch y sain i'r ystafell, neu'r naws, gyda rhagosodiadau y gallwch eu haddasu a'u cadw — ynghyd ag effeithiau sain a thab effeithiau fideo pwrpasol.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Nodiadau</h3><p>Nodiadau wedi'u teipio neu wedi'u hysgrifennu â llaw (sy'n gyfeillgar i steilus/cyffwrdd) yn union wrth ymyl eich cyfryngau — yn ddefnyddiol ar gyfer nodiadau cynhyrchu/sesiwn wrth i chi weithio.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Cloi, themâu a dewisiadau</h3><p>Clowch y ffenestr gyda phatrwm (Ctrl+Alt+L), newidiwch themâu, a gosodwch eich dewisiadau — gydag About a Help wedi'u hymgorffori.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Rheolaeth o bell</h3><p>Mae pob gweithred chwarae/seibio/chwilio/cyfaint yn cael ei datgelu dros soced IPC mpv ei hun, y mae <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — ein hap ffôn am ddim — yn siarad ag ef yn uniongyrchol ar gyfer rheolaeth cludo go iawn, nid dim ond rhestr sesiynau. Mae cau sesiwn o'r ffôn yn cau'r ap cyfan yn lân yn hytrach na gadael chwaraewr hanner-marw ar ôl.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Gweinydd MCP</h3><p>Mae gweinydd Model Context Protocol wedi'i blygu yn datgelu statws chwarae, chwarae/oedi/chwilio/lefel sain/agor a phori'r llyfrgell fel offerynnau — felly mae asiant AI a'ch ffôn bob amser yn gweld ac yn rheoli'r un sesiwn.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Wedi'i adeiladu ar seiliau agored</h2>
+<p>Ap bwrdd gwaith PySide6 (Qt), peiriant chwarae mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>Rhyngwyneb bwrdd gwaith brodorol ac ymatebol — yn rhan o'r un pentwr Python/Qt â gweddill apiau bwrdd gwaith Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Peiriant mpv</h3><p>Wedi'i fewnosod trwy fewnosod ffenestri mpv ei hun a soced JSON IPC — yr un peiriant chwarae dibynadwy a ddefnyddir yn eang y tu ôl i lawer o offer cyfryngau Linux, gyda libdvdnav/libdvdread/libcdio/libbluray eisoes wedi'u cysylltu ar gyfer chwarae disgiau.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Llwybro sain brodorol PulseAudio</h3><p>Mae allbwn aml-ddyfais yn defnyddio module-combine-sink PulseAudio ei hun; mae unrhyw ffynhonnell gipio — derbyn Bluetooth neu ddyfais sain USB — yn dolen trwy module-loopback, gan wirio'n gyntaf a yw polisi Bluetooth PulseAudio ei hun eisoes wedi gosod y llwybro yn hytrach na brwydro yn ei erbyn.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sgrinluniau</h2>
+<p>Chameleon Media Center — byw wedi'i gipio</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — Tab chwilio gyda chanlyniadau YouTube, fideo yn chwarae, a'r rhestr wylio o dan y rhestr chwarae yn dangos fideo wedi'i storio" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Chwilio a rhestr gwylio</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dau ffôn Android yn cael eu drychogi ochr yn ochr yn y tab ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Drych ffôn deuol</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab sganio sianeli DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">Teledu DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab sain Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ecwaleiddiwr 18-band" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Ecwaleiddiwr 18-band</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — chwarae YouTube gyda haen delweddydd sbectrwm ymatebol i sain fyw" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Troshaen gweledydd</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — croen pastel arall, chwaraewr segur gyda rhestr chwarae fawr wedi'i llwytho" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Croen amgen</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dau ffôn Android wedi'u drychogi ar led llawn ochr yn ochr, un yn dangos ei sgrin gartref, y llall ei drôr apiau" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Drych deuol lled llawn</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab ADB Phone gyda'r golofn reoli 16 botwm lawn: camera, Bluetooth, hotspot, Wi-Fi, trosglwyddo ffeiliau a mwy" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Colofn rheoli ffôn llawn</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tri ffôn Android wedi'u drychogi ar unwaith, pob un yn rhedeg yr ap rheoli o bell TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Drych tri ffôn</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — gwe-gamera adeiledig mewn cornel llun-mewn-llun dros fideo sy'n chwarae, gyda dau ffôn wedi'u drychogi oddi tano" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Llun-mewn-llun gwe-gamera</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — bwrdd Effeithiau Sain gyda deuddeg ciw un clic a synau personol, dros fideo sy'n chwarae" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Bwrdd Effeithiau Sain</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ecwaleiddiwr 18-band gyda'r rhagosodiad R&amp;B wedi'i gymhwyso yn ystod chwarae" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Rhagosodiadau hafalydd</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Effeithiau Sain: chwyddo, hwb bas a threbl, cywasgydd, lleihau sŵn, corws, adlais ac oedi" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Effeithiau sain</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Ffrydio Byw wedi'i osod i wthio i YouTube Live dros RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Ffrydio i YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Nodiadau yn rhestru tudalennau PDF wedi'u mewnforio wrth ymyl y fideo sy'n chwarae" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Nodiadau</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — dau ffôn wedi'u drychogi gyda'u colofnau rheoli llawn tra bod fideo yn chwarae" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Rheolyddion ffôn</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ffôn wedi'i drychogi yn y tab Ffôn ADB gyda rheolyddion Back, Home, Recents a theipio" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Drych un ffôn</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — gweledydd sbectrwm a'r ddewislen File, yn y croen pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Dewislen Visualizer a Ffeil</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Cael Chameleon Media Center</h3>
+<p>Wedi'i gynnwys gyda'r bwrdd gwaith Chameleon AI. <strong>Mae dosbarthiad ac argaeledd yn cael eu cwblhau</strong> — cysylltwch â ni am brisio ac argaeledd cyfredol.</p>
+<a class="btn btn-solid" href="../contact.html">Cysylltwch â ni</a>
+<a class="btn" href="../trxi-ctrl.html">Rheolwch ef o'ch ffôn gyda TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sylwadau</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a><a href="../companion.html">Ap Cydymaith</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
+<a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a><a href="../privacy.html">Preifatrwydd</a><a href="../terms.html">Telerau</a><a href="../accessibility.html">Hygyrchedd</a><a href="../security.html">Diogelwch</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Wedi'i adeiladu gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<div class="pre-note">
+  TrXi-Ctrl 是免费且开源的——手机应用、它所通信的网关及其 MCP 服务器都是面向 Linux 爱好者的免费下载。这也是我们向大家介绍 Chameleon AI Agent Ltd 家族其他成员的方式——请查看我们的 <a href="../index.html">付费桌面应用</a>.
+</div>
+<nav aria-label="主要">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI 标志" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">家</a>
+<a href="../ide.html">你有想法</a>
+<a href="../presenter.html">主持人</a>
+<a href="../companion.html">伴侣应用</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">媒体中心</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">网络服务</a>
+<a href="../accounting.html">会计</a>
+<a href="../technician.html">电脑技术员</a>
+<a href="../classroom.html">课堂</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇨🇳 ZH ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">免费远程控制您的 Linux 桌面 — 蓝牙、防火墙、音频、媒体、窗口、终端、屏幕共享、共享剪贴板和 AI 聊天，全部通过手机操作 — 此外，在已 root 的手机上还支持 VPN 热点和 USB 大容量存储。专为 Debian Trixie 打造；也适用于大多数其他 X11 Linux 桌面。</p>
+<div class="hero-badges">
+<span class="badge">🆓 免费且开源</span>
+<span class="badge">🐧 仅限 Linux / X11</span>
+<span class="badge">🔌 14 个控制屏幕（已 root 手机额外 +2）</span>
+<span class="badge">🤖 包含 MCP 服务器</span>
+<span class="badge">🔒 您的网络，无云中继</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>它的作用</h2>
+<p>一个手机应用，桌面上一个网关守护进程</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>系统与层</h3><p>实时 CPU/内存/温度统计和 AUFS 层切换，直接在桌面上操作。</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>网络与 Wi-Fi</h3><p>接口、地址、Wi-Fi 扫描和连接 — 包括 Tailscale 对等节点发现，自动找到您的网关。</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>蓝牙</h3><p>电源、可发现/可配对、扫描、配对、连接、信任、移除 — 完整的适配器控制。</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>防火墙</h3><p>通过手机查看和编辑 iptables 规则和链，应用预设。</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>音频</h3><p>音量、静音、接收器列表 — 并通过 WebRTC 将桌面音频输出串流到您手机的扬声器。</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>媒体</h3><p>真正的播放/暂停/跳转/音量，适用于 <a href="../media.html">Chameleon Media Center</a> 以及基于 MPV 的播放器，通过 mpv 自带的 IPC 套接字 — 而不仅仅是静态文件列表。</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC直播</h3><p>观看 <a href="../media.html">Chameleon Media Center</a>在您手机上的直播 — 为较弱连接选择低延迟 (MPEG-TS) 或流畅 (HLS) — 查看是否正在直播、其来源和观看人数，并复制链接让任何人都能在浏览器中观看。</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows 与桌面</h3><p>列出、聚焦、关闭、最小化、最大化、平铺窗口以及切换虚拟桌面。</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>远程桌面</h3><p>通过 WebRTC 进行全屏共享，支持触摸转鼠标和键盘输入 — 在您网络中的任何地方查看和控制您的桌面。功能完整：您发送的点击、拖动和按键几乎立即显示在桌面上。您注意到的任何延迟都在从桌面返回手机的屏幕更新中，而不是在您的输入中。</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>共享剪贴板</h3><p>PC 是枢纽：每部手机将其剪贴板推送到那里 — 直接进入 PC 自己的剪贴板，随时可粘贴 — 而剪贴板屏幕会列出每台设备的最新条目。点击一个即可复制到本手机。后台不会读取或写入您手机的剪贴板，仅在您点击时才会。</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>终端</h3><p>真正的 shell，从您的手机运行。</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>AI 聊天</h3><p>与您在网关上配置的任何 AI 提供商交谈 — DeepSeek、OpenAI、Anthropic 等。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>已 Root 的手机</h2>
+<p>当手机具有 root（Magisk）时，会自动出现两个额外屏幕</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>热点 VPN</h3><p>将手机的 Tailscale 出口节点共享给其 Wi-Fi 热点上的每台设备——笔记本电脑、电视和游戏机无需安装任何东西即可获得 VPN。如果热点或 Tailscale 重启，路由会自动重新应用，启动脚本可以在重启后恢复一切。专为作为路由器长期插电的手机而设计：充电限制、让 Tailscale 免于电池优化，以及始终开启的 VPN。</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>USB 大容量存储</h3><p>将手机插入任何 PC，它就会显示为 USB 驱动器。几秒钟内创建最大 256 GB 的磁盘映像——FAT32（所有操作系统都能读取）、ext4（无 4 GB 文件限制），或带有 EFI 分区的可启动 GPT 磁盘，以便笔记本电脑可以从手机启动——然后以读写或只读方式共享，或直接在手机上打开。你也可以将手机的 SD 卡或 USB 驱动器交给 PC。共享期间 ADB 保持连接。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>网关</h2>
+<p>trixie-gateway — 桌面端，单个自包含二进制文件</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>单个二进制文件，无需 Python</h3><p>下载单个自包含可执行文件——机器上无需 Python、pip 或 venv。基于 aiohttp + aiortc 构建，如果你更愿意从 Python 运行，源代码仍在 GitHub 上。可独立运行或作为 systemd 服务运行，监听你的 Tailscale/LAN 地址。</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>约 120 个 REST 端点</h3><p>上述所有手机应用功能，外加一个兼容 OpenAI 的 <code>/v1/chat/completions</code> 可路由到你配置的任何 AI 提供商。</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>包含 MCP 服务器</h3><p><code>media_mcp_server.py</code> 通过 stdio JSON-RPC 将媒体控制（状态、播放、暂停、跳转、音量、打开、浏览）作为 MCP 工具公开——与手机应用使用相同的会话数据和控制路径，因此 AI 代理和你的手机始终看到相同的内容。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>兼容性</h2>
+<p>专为 Debian Trixie 打造 — 坦诚说明还能在哪里运行</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>平台</th><th>状态</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>Debian 特里克西</td><td class="yes">✓ 在此开发和测试</td><td>—</td></tr>
+<tr><td>Fatdog64 / Puppy Linux 系列</td><td class="yes">✓ 应该可以运行</td><td>Layers 功能会自动检测以下任一项下的 union-fs 分支 <code>/aufs</code> （源自 Fatdog64，包括这台机器）或 <code>/initrd</code> （标准 Puppy）— <code>/initrd</code> 该路径尚未针对真实的 Puppy 安装进行测试，基于文档化的惯例而非实际验证</td></tr>
+<tr><td>其他 X11 Linux 桌面</td><td class="yes">✓ 应该可以运行</td><td>需要 BlueZ、iptables、PulseAudio/PipeWire（带 pactl 兼容）、以及 X11 会话（不支持仅 Wayland 的桌面 — <code>wmctrl</code>/<code>xdotool</code> 需要 X11）</td></tr>
+<tr><td>视窗11</td><td class="test">🧪 实验性测试版本</td><td>屏幕共享、鼠标/键盘、窗口列表、音量和终端已在 Windows 上实现。该二进制文件可在自动化 CI 中构建并启动，但 <strong>尚未在真实的 Windows 机器上运行过</strong> ——预计会有粗糙之处。蓝牙、防火墙、图层、亮度、网络和 Media Center 仍仅限 Linux，并会响应 <code>501</code></td></tr>
+<tr><td>macOS（Intel 和 Apple Silicon）</td><td class="test">🧪 实验性测试版本</td><td>与 Windows 相同的功能集，使用 Quartz、AVFoundation 和 <code>osascript</code>。可在 CI 中为两种架构构建并启动，但 <strong>未在真实 Mac 上测试过</strong>。该应用未签名，macOS 将请求屏幕录制和辅助功能权限</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>截图</h2>
+<p>TrXi-Ctrl — 实时捕获，在真实硬件上运行</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — 终端标签页，在连接的 Linux 桌面上运行 lsusb" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">终端</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 系统标签页，显示操作系统、内核、CPU、负载、内存和电池" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">系统</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 层标签页，列出 AUFS union-fs 分支" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">图层</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 网络标签页，显示包括 Tailscale 地址在内的接口" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">网络</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 蓝牙标签页，包含已配对设备以及可发现/可配对开关" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">蓝牙</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 防火墙标签页，包含 iptables 链和预设" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">防火墙</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 音频标签页，包含输出音量、音频接收器和蓝牙 MIDI 控制器" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">音频</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 媒体标签页，实时控制活动的 Chameleon Media Center 会话" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">媒体控制</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 窗口标签页，列出并平铺打开的桌面窗口" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">视窗</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 桌面标签页，支持左键/右键点击的完整远程屏幕共享" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">远程桌面</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — AI 聊天标签页，正在与已配置的提供商对话" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">AI 聊天</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 设置标签页，正在 Tailscale 网络上发现网关" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">网关发现</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — 已配置 AI 提供商密钥并显示应用信息的设置标签页" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AI 提供商设置</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>下载 <span class="free-badge">免费</span></h3>
+<p>手机应用（Android）+ 桌面网关。两者均开源，均免费。</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ 下载 APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux 网关</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Windows 和 macOS 测试版 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">在 GitHub 上查看网关 →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>安装网关</h2>
+<p>在您想要控制的 Debian Trixie（或兼容 Linux）机器上</p>
+</div>
+<div class="code-block"># Linux — 独立二进制文件，无需安装其他任何东西 curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # 然后在手机应用中：设置 → 网关 URL → http://&lt;此机器的-tailscale-或局域网-IP&gt;:8772 # 或者如果您们都在同一个 Tailscale 网络中，点击 "Discover Peers"</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">更喜欢 Python？ <code>git clone https://github.com/cou645/trixie-gateway.git</code>，然后 <code>pip install -r requirements.txt</code> 和 <code>python3 gateway.py --port 8772</code>。完整的安装文档，包括将其作为 systemd 服务运行，都在仓库的 <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows 和 macOS 测试版</strong> 位于 <a href="https://github.com/cou645/trixie-gateway/releases">发布页面</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). 它们未签名，因此 Windows SmartScreen 会提示“未知发布者”（更多信息 → 仍要运行），而 macOS 会阻止首次启动（右键点击 → 打开）。请报告哪些地方出问题。</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>喜欢 TrXi-Ctrl？看看我们还构建了什么</h3>
+<p>TrXi-Ctrl 是更大的桌面 AI 工具家族中免费、开源的一部分——包括代码编辑器、演示工作室、英国会计、车队调度等。</p>
+<a class="btn btn-solid" href="../index.html">查看所有 Chameleon AI 应用 →</a>
+<a class="btn" href="../companion.html">Chameleon Companion（手机 + 桌面 AI）→</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>评论</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">家</a><a href="../ide.html">你有想法</a><a href="../presenter.html">主持人</a><a href="../companion.html">伴侣应用</a>
+<a href="../media.html">媒体中心</a>
+<a href="../accounting.html">会计</a><a href="../technician.html">电脑技术员</a>
+<a href="../classroom.html">课堂</a><a href="../contact.html">接触</a><a href="../privacy.html">隐私</a><a href="../terms.html">条款</a><a href="../accessibility.html">无障碍</a><a href="../security.html">安全</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · 由 Marcos aka stemsee 构建</p>
+</footer>
+</body>
+</html>

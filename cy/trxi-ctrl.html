@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="cy">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Neidio i'r prif gynnwys</a>
+<div class="pre-note">
+  Mae TrXi-Ctrl yn rhad ac am ddim ac yn agored — mae'r ap ffôn, y porth y mae'n siarad ag ef, a'i weinydd MCP i gyd yn lawrlwythiadau rhad ac am ddim i frwdfrydwyr Linux. Dyma hefyd sut rydyn ni'n cyflwyno pobl i weddill teulu Chameleon AI Agent Ltd — gweler ein <a href="../index.html">apiau bwrdd gwaith taledig</a>.
+</div>
+<nav aria-label="Cynradd">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Cartref</a>
+<a href="../ide.html">MAE GENNYCH SYNIADAU</a>
+<a href="../presenter.html">Cyflwynydd</a>
+<a href="../companion.html">Ap Cydymaith</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Canolfan Gyfryngau</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Gwasanaethau Gwe</a>
+<a href="../accounting.html">Cyfrifeg</a>
+<a href="../technician.html">Technegydd PC</a>
+<a href="../classroom.html">Dosbarth</a>
+<a href="../contact.html">Cysylltwch</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Rheolaeth bell am ddim ar gyfer eich bwrdd gwaith Linux — Bluetooth, mur cadarn, sain, cyfryngau, ffenestri, terfynell, rhannu sgrin, clipfwrdd a rennir a sgwrs AI, i gyd o'ch ffôn — ynghyd â, ar ffonau gwreiddiedig, hotspot VPN a storfa dorfol USB. Wedi'i adeiladu ar gyfer Debian Trixie; yn gweithio ar y rhan fwyaf o byrddau gwaith Linux X11 eraill hefyd.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Am ddim ac agored</span>
+<span class="badge">🐧 Linux / X11 yn unig</span>
+<span class="badge">🔌 14 sgrin reoli (+2 ar ffonau gwreiddiedig)</span>
+<span class="badge">🤖 Gweinydd MCP wedi'i gynnwys</span>
+<span class="badge">🔒 Eich rhwydwaith, dim cyfryngydd cwmwl</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Beth mae'n ei wneud</h2>
+<p>Un ap ffôn, un daemon porth ar eich bwrdd gwaith</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>System a haenau</h3><p>Ystadegau CPU/cof/thermol byw a thoglo haenau AUFS, yn syth o'r bwrdd gwaith.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Rhwydwaith a Wi-Fi</h3><p>Rhyngwynebau, cyfeiriadau, sganio a chysylltu Wi-Fi — gan gynnwys darganfod cymheiriaid Tailscale i ddod o hyd i'ch porth yn awtomatig.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Pŵer, darganfyddadwy/paru, sganio, paru, cysylltu, ymddiried, dileu — rheolaeth addasydd lawn.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Mur cadarn</h3><p>Gweld a golygu rheolau a chadwyni iptables, cymhwyso rhagosodiadau, o'ch ffôn.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Sain</h3><p>Cyfaint, tawelu, rhestr sinc — a ffrydio allbwn sain y bwrdd gwaith i seinydd eich ffôn dros WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Cyfryngau</h3><p>Chwarae/oedi/chwilio/cyfaint go iawn ar gyfer <a href="../media.html">Chameleon Media Center</a> a chwaraewyr sy'n seiliedig ar MPV, trwy soced IPC mpv ei hun — nid rhestr ffeiliau statig yn unig.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Gwyliwch <a href="../media.html">Chameleon Media Center</a>ffrwd fyw ar eich ffôn — dewiswch Oedi Isel (MPEG-TS) neu Lyfn (HLS) ar gyfer cysylltiadau gwannach — gweler a yw'n fyw, ei ffynhonnell a faint sy'n gwylio, a chopïwch ddolen i unrhyw un ei gwylio mewn porwr.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows a byrddau gwaith</h3><p>Rhestru, ffocysu, cau, lleihau, mwyhau, teilsio ffenestri a newid byrddau gwaith rhithwir.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Bwrdd gwaith o bell</h3><p>Rhannu sgrin lawn dros WebRTC gyda chyffwrdd-i-lygoden a mewnbwn bysellfwrdd — gweld a rheoli eich bwrdd gwaith o unrhyw le ar eich rhwydwaith. Yn gwbl weithredol: mae tapiau, llusgiadau a churiadau bysellau a anfonwch yn ymddangos ar y bwrdd gwaith bron ar unwaith. Mae unrhyw oedi a welwch yn y diweddariadau sgrin sy'n dod yn ôl o'r bwrdd gwaith i'ch ffôn, nid yn eich mewnbwn.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Clipfwrdd a rennir</h3><p>Y PC yw'r canolbwynt: mae pob ffôn yn gwthio ei glipfwrdd yno — yn syth i glipfwrdd y PC ei hun, yn barod i'w bastio — ac mae sgrin y Clipfwrdd yn rhestru diweddaraf pob dyfais. Tapiwch un i'w gopïo i'r ffôn hwn. Ni ddarllenir nac ysgrifennir unrhyw beth i glipfwrdd eich ffôn yn y cefndir, dim ond pan dapiwch.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Terfynell</h3><p>Cragen go iawn, yn rhedeg o'ch ffôn.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Sgwrs AI</h3><p>Siaradwch ag unrhyw ddarparwr AI a ffurfweddwyd gennych ar y porth — DeepSeek, OpenAI, Anthropic a mwy.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ffonau wedi'u gwreiddio</h2>
+<p>Mae dau sgrin ychwanegol yn ymddangos yn awtomatig pan fo'r ffôn wedi'i wreiddio (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN Pwynt Poeth</h3><p>Rhannwch nod gadael Tailscale y ffôn â phob dyfais ar ei bwynt poeth Wi-Fi — mae gliniaduron, setiau teledu a chonsolau'n cael y VPN heb osod unrhyw beth. Mae'r llwybro'n ailymgeisio'i hun os bydd y pwynt poeth neu Tailscale yn ailgychwyn, a gall sgript cychwyn ddod â phopeth yn ôl ar ôl ailgychwyn. Wedi'i adeiladu ar gyfer ffôn sy'n cael ei adael yn y plwg fel llwybrydd: terfyn gwefru, cadw Tailscale allan o optimeiddio batri, a VPN Bob-amser.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Storfa dorfol USB</h3><p>Plygiwch y ffôn i unrhyw PC ac mae'n ymddangos fel gyriant USB. Crëwch ddelwedd disg hyd at 256 GB mewn eiliadau — FAT32 (mae pob OS yn ei darllen), ext4 (dim terfyn ffeil 4 GB), neu ddisg GPT y gellir cychwyn ohoni gyda phartisiwn EFI fel y gall gliniadur gychwyn o'r ffôn — yna ei rhannu'n ddarllen-ysgrifennu neu'n ddarllen-yn-unig, neu ei hagor ar y ffôn ei hun. Gallwch hefyd roi cerdyn SD y ffôn neu yriant USB i'r PC. Mae ADB yn aros yn gysylltiedig wrth rannu.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Y porth</h2>
+<p>trixie-gateway — yr ochr bwrdd gwaith, un deuaidd hunangynhwysol</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Un deuaidd, dim angen Python</h3><p>Lawrlwythwch un ffeil weithredadwy hunangynhwysol — dim Python, pip na venv ar y peiriant. Wedi'i adeiladu ar aiohttp + aiortc, ac mae'r ffynhonnell dal ar GitHub os byddai'n well gennych ei redeg o Python. Yn rhedeg yn annibynnol neu fel gwasanaeth systemd, yn gwrando ar eich cyfeiriad Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 o bwyntiau terfyn REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> sy'n llwybro i ba bynnag ddarparwr AI bynnag a ffurfweddwch.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Gweinydd MCP wedi'i gynnwys</h3><p><code>media_mcp_server.py</code> yn datgelu rheolaeth cyfryngau (statws, chwarae, oedi, chwilio, cyfaint, agor, pori) fel offerynnau MCP dros stdio JSON-RPC — yr un data sesiwn a llwybr rheoli ag y mae'r ap ffôn yn ei ddefnyddio, felly mae asiant AI a'ch ffôn bob amser yn gweld yr un peth.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Cydnawsedd</h2>
+<p>Wedi'i adeiladu ar gyfer Debian Trixie — yn onest am ble arall y mae'n rhedeg</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Platfform</th><th>Statws</th><th>Pam</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Wedi'i ddatblygu a'i brofi yma</td><td>—</td></tr>
+<tr><td>Teulu Fatdog64 / Puppy Linux</td><td class="yes">✓ Dylai weithio</td><td>Mae'r nodwedd Layers yn canfod canghennau union-fs o dan y naill neu'r llall <code>/aufs</code> (sy'n deillio o Fatdog64, gan gynnwys y blwch hwn) neu <code>/initrd</code> (Puppy safonol) yn awtomatig — mae'r llwybr <code>/initrd</code> heb ei brofi yn erbyn gosodiad Puppy go iawn, yn seiliedig ar gonfensiynau wedi'u dogfennu yn hytrach na gwirio â llaw</td></tr>
+<tr><td>Byrddau gwaith Linux X11 eraill</td><td class="yes">✓ Dylai weithio</td><td>Angen BlueZ, iptables, PulseAudio/PipeWire-gyda-chydnawsedd-pactl, a sesiwn X11 (nid yw byrddau gwaith Wayland-yn-unig yn cael eu cefnogi — <code>wmctrl</code>/<code>xdotool</code> angen X11)</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Adeilad prawf arbrofol</td><td>Mae rhannu sgrin, llygoden/bysellfwrdd, rhestr ffenestri, cyfaint a therfynell wedi'u gweithredu ar gyfer Windows. Mae'r deuaidd yn adeiladu ac yn cychwyn yn CI awtomatig, ond mae <strong>heb ei redeg ar beiriant Windows go iawn eto</strong> — disgwyliwch ymylon garw. Mae Bluetooth, mur tân, haenau, disgleirdeb, rhwydwaith a Media Center yn parhau i fod yn Linux-yn-unig ac yn ateb <code>501</code></td></tr>
+<tr><td>macOS (Intel ac Apple Silicon)</td><td class="test">🧪 Adeilad prawf arbrofol</td><td>Yr un set nodweddion â Windows, gan ddefnyddio Quartz, AVFoundation a <code>osascript</code>. Yn adeiladu ac yn cychwyn yn CI ar gyfer y ddwy bensaernïaeth ond mae'n <strong>heb ei brofi ar Macs go iawn</strong>. Mae'r ap heb ei lofnodi, a bydd macOS yn gofyn am ganiatâd Recordio Sgrin a Hygyrchedd</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sgrinluniau</h2>
+<p>TrXi-Ctrl — wedi'i ddal yn fyw, yn rhedeg ar galedwedd go iawn</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Terminal yn rhedeg lsusb ar y pen-desg Linux cysylltiedig" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Terfynell</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab System yn dangos OS, cnewyllyn, CPU, llwyth, cof a batri" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">System</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Haenau yn rhestru canghennau AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Haenau</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Rhwydwaith yn dangos rhyngwynebau gan gynnwys cyfeiriad Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Rhwydwaith</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Bluetooth gyda dyfeisiau wedi'u paru a thogloedd darganfyddadwy/paradwy" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Mur Tân gyda chadwyn iptables a rhagosodiadau" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Mur cadarn</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Sain gyda chyfaint allbwn, sinciau a rheolydd MIDI Bluetooth" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Sain</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Cyfryngau yn rheoli sesiwn Chameleon Media Center weithredol mewn amser real" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Rheoli cyfryngau</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Ffenestri yn rhestru ac yn teilsio ffenestri pen-desg agored" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Ffenestri</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Pen-desg, rhannu sgrin o bell yn llawn gyda chlic chwith/dde" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Bwrdd gwaith o bell</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Sgwrs AI yn siarad â darparwr wedi'i ffurfweddu" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Sgwrs AI</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Gosodiadau yn darganfod pyrth ar rwydwaith Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Darganfod porth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Gosodiadau gydag allwedd darparwr AI wedi'i ffurfweddu a gwybodaeth am yr ap" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Gosodiad darparwr AI</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Lawrlwytho <span class="free-badge">AM DDIM</span></h3>
+<p>Ap ffôn (Android) + porth bwrdd gwaith. Mae'r ddau ar agor, mae'r ddau yn rhad ac am ddim.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Lawrlwytho'r APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Porth ar gyfer Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Adeliadau prawf Windows a macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Gweld y porth ar GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Gosod y porth</h2>
+<p>Ar y peiriant Debian Trixie (neu Linux cydnaws) rydych am ei reoli</p>
+</div>
+<div class="code-block"># Linux — deuaidd annibynnol, dim byd arall i'w osod curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # yna yn yr ap ffôn: Gosodiadau → URL y Porth → http://&lt;IP Tailscale-neu-LAN y peiriant hwn&gt;:8772 # neu tapiwch "Darganfod Cymheiriaid" os ydych eich dau ar yr un rhwydwaith Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Yn well gennych Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, yna <code>pip install -r requirements.txt</code> a <code>python3 gateway.py --port 8772</code>. Mae dogfennau gosod llawn, gan gynnwys ei redeg fel gwasanaeth systemd, yn y storfa <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Adeliadau prawf Windows a macOS</strong> ar gael ar y <a href="https://github.com/cou645/trixie-gateway/releases">tudalen rhyddhau</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Nid ydynt wedi'u llofnodi, felly bydd Windows SmartScreen yn dweud "cyhoeddwr anhysbys" (Rhagor o wybodaeth → Rhedeg beth bynnag) a bydd macOS yn rhwystro'r lansiad cyntaf (clic-dde → Agor). Rhowch wybod beth sy'n torri.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Yn hoffi TrXi-Ctrl? Gweler beth arall rydym yn ei adeiladu</h3>
+<p>Mae TrXi-Ctrl yn rhan rhad ac am ddim, agored o deulu mwy o offer AI pen-desg — golygydd cod, stiwdio cyflwyniadau, cyfrifyddu'r DU, anfon fflyd a mwy.</p>
+<a class="btn btn-solid" href="../index.html">Gweler holl apiau Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (AI ffôn + pen-desg) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sylwadau</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Cartref</a><a href="../ide.html">MAE GENNYCH SYNIADAU</a><a href="../presenter.html">Cyflwynydd</a><a href="../companion.html">Ap Cydymaith</a>
+<a href="../media.html">Canolfan Gyfryngau</a>
+<a href="../accounting.html">Cyfrifeg</a><a href="../technician.html">Technegydd PC</a>
+<a href="../classroom.html">Dosbarth</a><a href="../contact.html">Cysylltwch</a><a href="../privacy.html">Preifatrwydd</a><a href="../terms.html">Telerau</a><a href="../accessibility.html">Hygyrchedd</a><a href="../security.html">Diogelwch</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Wedi'i adeiladu gan Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Μετάβαση στο κύριο περιεχόμενο</a>
+<div class="pre-note">
+  Το TrXi-Ctrl είναι δωρεάν και ανοιχτό — η εφαρμογή για τηλέφωνο, η πύλη με την οποία επικοινωνεί και ο διακομιστής MCP της είναι όλα δωρεάν λήψεις για λάτρεις του Linux. Είναι επίσης ο τρόπος με τον οποίο συστήνουμε τον κόσμο στην υπόλοιπη οικογένεια της Chameleon AI Agent Ltd — δείτε το <a href="../index.html">επί πληρωμή εφαρμογές desktop</a>.
+</div>
+<nav aria-label="Κύριο">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Λογότυπο Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Συνοδευτική εφαρμογή</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Κέντρο πολυμέσων</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="../vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Δωρεάν απομακρυσμένος έλεγχος για το Linux desktop σας — Bluetooth, firewall, ήχος, πολυμέσα, παράθυρα, τερματικό, κοινή χρήση οθόνης, κοινόχρηστο πρόχειρο και συνομιλία AI, όλα από το τηλέφωνό σας — συν, σε rooted τηλέφωνα, hotspot VPN και μαζική αποθήκευση USB. Φτιαγμένο για Debian Trixie· λειτουργεί και στα περισσότερα άλλα X11 Linux desktop.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Δωρεάν &amp; ανοιχτό</span>
+<span class="badge">🐧 Μόνο Linux / X11</span>
+<span class="badge">🔌 14 οθόνες ελέγχου (+2 σε rooted τηλέφωνα)</span>
+<span class="badge">🤖 Περιλαμβάνεται διακομιστής MCP</span>
+<span class="badge">🔒 Το δίκτυό σας, χωρίς cloud relay</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Τι κάνει</h2>
+<p>Μία εφαρμογή τηλεφώνου, ένας daemon πύλης στο desktop σας</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Σύστημα &amp; επίπεδα</h3><p>Ζωντανά στατιστικά CPU/μνήμης/θερμοκρασίας και εναλλαγή επιπέδων AUFS, απευθείας από το desktop.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Δίκτυο &amp; Wi-Fi</h3><p>Διεπαφές, διευθύνσεις, σάρωση και σύνδεση Wi-Fi — συμπεριλαμβανομένης της ανακάλυψης peer Tailscale για αυτόματη εύρεση της πύλης σας.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Ισχύς, ανιχνεύσιμο/ζευγαρώσιμο, σάρωση, ζευγάρωμα, σύνδεση, εμπιστοσύνη, αφαίρεση — πλήρης έλεγχος προσαρμογέα.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Τείχος προστασίας</h3><p>Προβολή και επεξεργασία κανόνων και αλυσίδων iptables, εφαρμογή προεπιλογών, από το τηλέφωνό σας.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Ήχος</h3><p>Ένταση, σίγαση, λίστα sink — και μετάδοση της εξόδου ήχου της επιφάνειας εργασίας στο ηχείο του τηλεφώνου σας μέσω WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Μέσα ενημέρωσης</h3><p>Πραγματικό play/pause/seek/volume για <a href="../media.html">Chameleon Media Center</a> και προγράμματα αναπαραγωγής βασισμένα σε MPV, μέσω του δικού του IPC socket του mpv — όχι απλώς μια στατική λίστα αρχείων.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Παρακολουθήστε <a href="../media.html">Chameleon Media Center</a>τη ζωντανή ροή στο τηλέφωνό σας — επιλέξτε Low latency (MPEG-TS) ή Smooth (HLS) για ασθενέστερες συνδέσεις — δείτε αν είναι ζωντανή, την πηγή της και πόσοι παρακολουθούν, και αντιγράψτε έναν σύνδεσμο για να παρακολουθήσει οποιοσδήποτε σε ένα πρόγραμμα περιήγησης.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows και επιφάνειες εργασίας</h3><p>Λίστα, εστίαση, κλείσιμο, ελαχιστοποίηση, μεγιστοποίηση, παράθεση παραθύρων και εναλλαγή εικονικών επιφανειών εργασίας.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Απομακρυσμένη επιφάνεια εργασίας</h3><p>Πλήρης κοινή χρήση οθόνης μέσω WebRTC με αφή-σε-ποντίκι και εισαγωγή πληκτρολογίου — δείτε και ελέγξτε την επιφάνεια εργασίας σας από οπουδήποτε στο δίκτυό σας. Πλήρως λειτουργικό: τα πατήματα, τα συρσίματα και τα πληκτρολογήματα που στέλνετε εμφανίζονται στην επιφάνεια εργασίας σχεδόν αμέσως. Οποιαδήποτε καθυστέρηση παρατηρείτε είναι στις ενημερώσεις οθόνης που έρχονται από την επιφάνεια εργασίας στο τηλέφωνό σας, όχι στην εισαγωγή σας.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Κοινόχρηστο πρόχειρο</h3><p>Ο υπολογιστής είναι ο κόμβος: κάθε τηλέφωνο στέλνει το πρόχειρό του εκεί — απευθείας στο πρόχειρο του ίδιου του υπολογιστή, έτοιμο για επικόλληση — και η οθόνη Clipboard εμφανίζει την τελευταία καταχώρηση κάθε συσκευής. Πατήστε μία για να την αντιγράψετε σε αυτό το τηλέφωνο. Τίποτα δεν διαβάζεται ή γράφεται στο πρόχειρο του τηλεφώνου σας στο παρασκήνιο, μόνο όταν πατάτε.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Τερματικό</h3><p>Ένα πραγματικό shell, που εκτελείται από το τηλέφωνό σας.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Συνομιλία AI</h3><p>Μιλήστε με όποιον πάροχο AI έχετε ρυθμίσει στην πύλη — DeepSeek, OpenAI, Anthropic και άλλα.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Rooted τηλέφωνα</h2>
+<p>Δύο επιπλέον οθόνες εμφανίζονται αυτόματα όταν το τηλέφωνο έχει root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN hotspot</h3><p>Μοιραστείτε τον κόμβο εξόδου Tailscale του τηλεφώνου με κάθε συσκευή στο Wi-Fi hotspot του — φορητοί υπολογιστές, τηλεοράσεις και κονσόλες αποκτούν το VPN χωρίς να εγκαταστήσουν τίποτα. Η δρομολόγηση επανεφαρμόζεται αυτόματα αν το hotspot ή το Tailscale επανεκκινηθεί, και ένα script εκκίνησης μπορεί να τα επαναφέρει όλα μετά από επανεκκίνηση. Σχεδιασμένο για τηλέφωνο που μένει συνδεδεμένο ως router: όριο φόρτισης, διατήρηση του Tailscale εκτός βελτιστοποίησης μπαταρίας και Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Αποθήκευση USB</h3><p>Συνδέστε το τηλέφωνο σε οποιονδήποτε υπολογιστή και εμφανίζεται ως μονάδα USB. Δημιουργήστε ένα image δίσκου έως 256 GB σε δευτερόλεπτα — FAT32 (το διαβάζει κάθε λειτουργικό σύστημα), ext4 (χωρίς όριο αρχείου 4 GB), ή έναν εκκινήσιμο δίσκο GPT με partition EFI ώστε ένας φορητός να μπορεί να εκκινήσει από το τηλέφωνο — και μετά μοιραστείτε το με δυνατότητα ανάγνωσης-εγγραφής ή μόνο ανάγνωσης, ή ανοίξτε το στο ίδιο το τηλέφωνο. Μπορείτε επίσης να δώσετε την κάρτα SD του τηλεφώνου ή μια μονάδα USB στον υπολογιστή. Το ADB παραμένει συνδεδεμένο κατά τη διάρκεια του διαμοιρασμού.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Η πύλη</h2>
+<p>trixie-gateway — η πλευρά του desktop, ένα αυτοτελές εκτελέσιμο</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Ένα εκτελέσιμο, χωρίς ανάγκη Python</h3><p>Κατεβάστε ένα αυτοτελές εκτελέσιμο — χωρίς Python, pip ή venv στο μηχάνημα. Βασισμένο σε aiohttp + aiortc, και ο πηγαίος κώδικας είναι ακόμα στο GitHub αν προτιμάτε να το εκτελέσετε από Python. Εκτελείται αυτόνομα ή ως υπηρεσία systemd, ακούγοντας στη διεύθυνση Tailscale/LAN σας.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 καταληκτικά σημεία REST</h3><p>Κάθε λειτουργία της εφαρμογής τηλεφώνου παραπάνω, συν ένα συμβατό με OpenAI <code>/v1/chat/completions</code> που δρομολογεί σε όποιον πάροχο AI διαμορφώσετε.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Περιλαμβάνεται διακομιστής MCP</h3><p><code>media_mcp_server.py</code> εκθέτει τον έλεγχο πολυμέσων (κατάσταση, αναπαραγωγή, παύση, αναζήτηση, ένταση, άνοιγμα, περιήγηση) ως εργαλεία MCP μέσω stdio JSON-RPC — τα ίδια δεδομένα συνεδρίας και διαδρομή ελέγχου που χρησιμοποιεί η εφαρμογή τηλεφώνου, ώστε ένας πράκτορας AI και το τηλέφωνό σας να βλέπουν πάντα το ίδιο πράγμα.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Συμβατότητα</h2>
+<p>Κατασκευασμένο για Debian Trixie — ειλικρινείς για το πού αλλού εκτελείται</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Πλατφόρμα</th><th>Κατάσταση</th><th>Γιατί</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Αναπτύχθηκε και δοκιμάστηκε εδώ</td><td>—</td></tr>
+<tr><td>Οικογένεια Fatdog64 / Puppy Linux</td><td class="yes">✓ Θα πρέπει να λειτουργεί</td><td>Η λειτουργία Layers ανιχνεύει αυτόματα κλάδους union-fs κάτω από είτε <code>/aufs</code> (παράγωγο του Fatdog64, συμπεριλαμβανομένου αυτού του μηχανήματος) ή <code>/initrd</code> (τυπικό Puppy) — <code>/initrd</code> η διαδρομή δεν έχει δοκιμαστεί σε πραγματική εγκατάσταση Puppy, βασίζεται σε τεκμηριωμένες συμβάσεις και όχι σε πρακτική επαλήθευση</td></tr>
+<tr><td>Άλλα περιβάλλοντα επιφάνειας εργασίας X11 Linux</td><td class="yes">✓ Θα πρέπει να λειτουργεί</td><td>Απαιτεί BlueZ, iptables, PulseAudio/PipeWire με συμβατότητα pactl και συνεδρία X11 (περιβάλλοντα μόνο Wayland δεν υποστηρίζονται — <code>wmctrl</code>/<code>xdotool</code> απαιτείται X11)</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Πειραματική δοκιμαστική έκδοση</td><td>Η κοινή χρήση οθόνης, το ποντίκι/πληκτρολόγιο, η λίστα παραθύρων, η ένταση και το τερματικό έχουν υλοποιηθεί για Windows. Το δυαδικό αρχείο δημιουργείται και εκκινεί σε αυτοματοποιημένο CI, αλλά έχει <strong>δεν έχει ακόμη εκτελεστεί σε πραγματικό μηχάνημα Windows</strong> — περιμένετε τραχιές άκρες. Το Bluetooth, το τείχος προστασίας, τα επίπεδα, η φωτεινότητα, το δίκτυο και το Media Center παραμένουν μόνο για Linux και απαντούν <code>501</code></td></tr>
+<tr><td>macOS (Intel &amp; Apple Silicon)</td><td class="test">🧪 Πειραματική δοκιμαστική έκδοση</td><td>Ίδιο σύνολο λειτουργιών με τα Windows, χρησιμοποιώντας Quartz, AVFoundation και <code>osascript</code>. Δημιουργείται και εκκινεί σε CI για ambas τις αρχιτεκτονικές, αλλά είναι <strong>μη δοκιμασμένο σε πραγματικά Mac</strong>. Η εφαρμογή είναι ανυπόγραφη και το macOS θα ζητήσει άδεια Εγγραφής Οθόνης και Προσβασιμότητας</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Στιγμιότυπα οθόνης</h2>
+<p>TrXi-Ctrl — καταγεγραμμένο ζωντανά, εκτελείται σε πραγματικό υλικό</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Terminal που εκτελεί lsusb στον συνδεδεμένο Linux υπολογιστή" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Τερματικό</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα System που δείχνει λειτουργικό σύστημα, πυρήνα, CPU, φόρτο, μνήμη και μπαταρία" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Σύστημα</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Layers που απαριθμεί κλάδους AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Επίπεδα</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Network που δείχνει διεπαφές, συμπεριλαμβανομένης μιας διεύθυνσης Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Δίκτυο</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Bluetooth με ζευγαρωμένες συσκευές και διακόπτες ανιχνευσιμότητας/ζευγαρώματος" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Firewall με αλυσίδα iptables και προεπιλογές" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Τείχος προστασίας</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Audio με ένταση εξόδου, sinks και έναν Bluetooth MIDI controller" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Ήχος</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Media που ελέγχει μια ενεργή συνεδρία Chameleon Media Center σε πραγματικό χρόνο" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Έλεγχος πολυμέσων</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Windows που απαριθμεί και τοποθετεί σε πλακίδια τα ανοιχτά παράθυρα της επιφάνειας εργασίας" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">Παράθυρα</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Καρτέλα Desktop, πλήρης απομακρυσμένη κοινή χρήση οθόνης με αριστερό/δεξί κλικ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Απομακρυσμένη επιφάνεια εργασίας</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — καρτέλα AI Chat που συνομιλεί με έναν διαμορφωμένο πάροχο" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Συνομιλία AI</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — καρτέλα Ρυθμίσεις που ανακαλύπτει πύλες στο δίκτυο Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Ανακάλυψη πύλης</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — καρτέλα Ρυθμίσεις με διαμορφωμένο κλειδί παρόχου AI και πληροφορίες εφαρμογής" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Ρύθμιση παρόχου AI</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Λήψη <span class="free-badge">ΔΩΡΕΑΝ</span></h3>
+<p>Εφαρμογή τηλεφώνου (Android) + πύλη για υπολογιστή. Και τα δύο ανοιχτά, και τα δύο δωρεάν.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Λήψη του APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Πύλη για Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Δοκιμαστικές εκδόσεις για Windows &amp; macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Δείτε την πύλη στο GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Εγκαταστήστε την πύλη</h2>
+<p>Στον υπολογιστή Debian Trixie (ή συμβατό Linux) που θέλετε να ελέγξετε</p>
+</div>
+<div class="code-block"># Linux — αυτόνομο δυαδικό αρχείο, τίποτα άλλο να εγκαταστήσετε curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # στη συνέχεια στην εφαρμογή τηλεφώνου: Ρυθμίσεις → URL πύλης → http://&lt;tailscale-ή-LAN-IP-αυτού-του-υπολογιστή&gt;:8772 # ή πατήστε "Discover Peers" αν είστε και οι δύο στο ίδιο δίκτυο Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Προτιμάτε Python; <code>git clone https://github.com/cou645/trixie-gateway.git</code>, στη συνέχεια <code>pip install -r requirements.txt</code> και <code>python3 gateway.py --port 8772</code>. Πλήρης τεκμηρίωση εγκατάστασης, συμπεριλαμβανομένης της εκτέλεσης ως υπηρεσίας systemd, βρίσκεται στο αποθετήριο <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Δοκιμαστικές εκδόσεις για Windows &amp; macOS</strong> βρίσκονται στο <a href="https://github.com/cou645/trixie-gateway/releases">σελίδα εκδόσεων</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Δεν είναι υπογεγραμμένα, οπότε το Windows SmartScreen θα πει "άγνωστος εκδότης" (Περισσότερες πληροφορίες → Εκτέλεση ούτως ή άλλως) και το macOS θα αποκλείσει την πρώτη εκκίνηση (δεξί κλικ → Άνοιγμα). Παρακαλούμε αναφέρετε τι χαλάει.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Σας αρέσει το TrXi-Ctrl; Δείτε τι άλλο φτιάχνουμε</h3>
+<p>Το TrXi-Ctrl είναι το δωρεάν, ανοιχτό κομμάτι μιας μεγαλύτερης οικογένειας εργαλείων AI για υπολογιστές — ένας επεξεργαστής κώδικα, ένα στούντιο παρουσιάσεων, λογιστική ΗΒ, αποστολή στόλου και άλλα.</p>
+<a class="btn btn-solid" href="../index.html">Δείτε όλες τις εφαρμογές Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (AI για κινητό + υπολογιστή) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Σχόλια</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a><a href="../companion.html">Συνοδευτική εφαρμογή</a>
+<a href="../media.html">Κέντρο πολυμέσων</a>
+<a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a><a href="../privacy.html">Απόρρητο</a><a href="../terms.html">Όροι</a><a href="../accessibility.html">Προσβασιμότητα</a><a href="../security.html">Ασφάλεια</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

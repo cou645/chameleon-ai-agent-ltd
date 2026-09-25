@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TrXi-Ctrl — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .compat-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .92rem; }
+  .compat-table th, .compat-table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .compat-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b6b7a; }
+  .yes { color: #1a8a4a; font-weight: 600; }
+  .no  { color: #b23; font-weight: 600; }
+  .test { color: #b26a00; font-weight: 600; }
+  .code-block { background: #14141f; color: #d8d8ee; border-radius: 10px; padding: 1rem 1.2rem;
+    overflow-x: auto; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .85rem; line-height: 1.6; }
+  .free-badge { display: inline-block; background: #1a8a4a; color: #fff; font-weight: 700;
+    padding: .2rem .7rem; border-radius: 999px; font-size: .8rem; letter-spacing: .03em; }
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Chuyển đến nội dung chính</a>
+<div class="pre-note">
+  TrXi-Ctrl miễn phí và mở — ứng dụng điện thoại, cổng kết nối mà nó giao tiếp và máy chủ MCP của nó đều là các bản tải xuống miễn phí dành cho những người đam mê Linux. Đây cũng là cách chúng tôi giới thiệu mọi người với phần còn lại của gia đình Chameleon AI Agent Ltd — xem <a href="../index.html">ứng dụng máy tính trả phí</a>.
+</div>
+<nav aria-label="Chính">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a class="active" href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Trung tâm đa phương tiện</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../trxi-ctrl.html">🌐 EN — English</a><a href="../ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="../cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="../es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="../fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="../hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="../it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="../ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="../ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="../pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="../ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="../zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a><a href="../el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="../id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="../pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="../ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="../sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="../uk/trxi-ctrl.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🐧</div>
+<h1>TrXi-Ctrl</h1>
+<p class="sub">Điều khiển từ xa miễn phí cho máy tính Linux của bạn — Bluetooth, tường lửa, âm thanh, media, cửa sổ, terminal, chia sẻ màn hình, clipboard chia sẻ và trò chuyện AI, tất cả từ điện thoại của bạn — cùng với, trên điện thoại đã root, điểm phát VPN và lưu trữ USB. Được xây dựng cho Debian Trixie; cũng hoạt động trên hầu hết các máy tính Linux X11 khác.</p>
+<div class="hero-badges">
+<span class="badge">🆓 Miễn phí &amp; mở</span>
+<span class="badge">🐧 Chỉ Linux / X11</span>
+<span class="badge">🔌 14 màn hình điều khiển (+2 trên điện thoại đã root)</span>
+<span class="badge">🤖 Máy chủ MCP đi kèm</span>
+<span class="badge">🔒 Mạng của bạn, không có relay đám mây</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Chức năng</h2>
+<p>Một ứng dụng điện thoại, một daemon gateway trên máy tính của bạn</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖥️</div><h3>Hệ thống &amp; các lớp</h3><p>Thống kê CPU/bộ nhớ/nhiệt độ trực tiếp và chuyển đổi lớp AUFS, ngay từ máy tính.</p></div>
+<div class="card"><div class="card-icon">📶</div><h3>Mạng &amp; Wi-Fi</h3><p>Giao diện, địa chỉ, quét và kết nối Wi-Fi — bao gồm khám phá peer Tailscale để tự động tìm gateway của bạn.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Bluetooth</h3><p>Nguồn, có thể phát hiện/kết đôi, quét, kết đôi, kết nối, tin cậy, xóa — kiểm soát đầy đủ bộ điều hợp.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Tường lửa</h3><p>Xem và chỉnh sửa quy tắc và chuỗi iptables, áp dụng cài đặt trước, từ điện thoại của bạn.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Âm thanh</h3><p>Âm lượng, tắt tiếng, danh sách sink — và truyền phát âm thanh của máy tính đến loa điện thoại của bạn qua WebRTC.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>Phương tiện truyền thông</h3><p>Play/pause/seek/volume thực sự cho <a href="../media.html">Chameleon Media Center</a> và các trình phát dựa trên MPV, qua socket IPC của chính mpv — không chỉ là danh sách tệp tĩnh.</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>CMC trực tiếp</h3><p>Xem <a href="../media.html">Chameleon Media Center</a>luồng trực tiếp trên điện thoại của bạn — chọn Low latency (MPEG-TS) hoặc Smooth (HLS) cho kết nối yếu — xem liệu nó có đang trực tiếp không, nguồn của nó và có bao nhiêu người đang xem, và sao chép liên kết để bất kỳ ai cũng có thể xem trong trình duyệt.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows &amp; máy tính để bàn</h3><p>Liệt kê, lấy tiêu điểm, đóng, thu nhỏ, phóng to, xếp cửa sổ và chuyển đổi máy tính để bàn ảo.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Máy tính để bàn từ xa</h3><p>Chia sẻ toàn màn hình qua WebRTC với chạm-thành-chuột và nhập bàn phím — xem và điều khiển máy tính để bàn của bạn từ bất kỳ đâu trong mạng của bạn. Hoạt động đầy đủ: các lần chạm, kéo và nhấn phím bạn gửi xuất hiện trên máy tính để bàn gần như ngay lập tức. Bất kỳ độ trễ nào bạn nhận thấy đều nằm ở các cập nhật màn hình từ máy tính để bàn gửi về điện thoại của bạn, không phải ở đầu vào của bạn.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Clipboard chia sẻ</h3><p>PC là trung tâm: mỗi điện thoại đẩy clipboard của mình đến đó — thẳng vào clipboard của chính PC, sẵn sàng để dán — và màn hình Clipboard liệt kê mục mới nhất của mỗi thiết bị. Chạm vào một mục để sao chép nó vào điện thoại này. Không có gì được đọc từ hoặc ghi vào clipboard của điện thoại bạn trong nền, chỉ khi bạn chạm.</p></div>
+<div class="card"><div class="card-icon">⌨️</div><h3>Phần cuối</h3><p>Một shell thực sự, chạy từ điện thoại của bạn.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Trò chuyện AI</h3><p>Trò chuyện với bất kỳ nhà cung cấp AI nào bạn đã cấu hình trên gateway — DeepSeek, OpenAI, Anthropic và nhiều hơn nữa.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Điện thoại đã root</h2>
+<p>Hai màn hình phụ xuất hiện tự động khi điện thoại có root (Magisk)</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>VPN điểm phát</h3><p>Chia sẻ nút thoát Tailscale của điện thoại với mọi thiết bị trên điểm phát Wi-Fi của nó — laptop, TV và máy chơi game nhận được VPN mà không cần cài đặt gì. Định tuyến tự động áp dụng lại nếu điểm phát hoặc Tailscale khởi động lại, và một script khởi động có thể khôi phục tất cả sau khi khởi động lại. Được thiết kế cho điện thoại được cắm liên tục như một router: giới hạn sạc, giữ Tailscale ngoài tối ưu hóa pin và Always-on VPN.</p></div>
+<div class="card"><div class="card-icon">💾</div><h3>Lưu trữ USB</h3><p>Cắm điện thoại vào bất kỳ PC nào và nó xuất hiện như một ổ USB. Tạo ảnh đĩa lên đến 256 GB trong vài giây — FAT32 (mọi hệ điều hành đều đọc được), ext4 (không giới hạn tệp 4 GB), hoặc đĩa GPT khởi động được với phân vùng EFI để laptop có thể khởi động từ điện thoại — sau đó chia sẻ ở chế độ đọc-ghi hoặc chỉ đọc, hoặc mở nó ngay trên điện thoại. Bạn cũng có thể đưa thẻ SD của điện thoại hoặc ổ USB cho PC. ADB vẫn kết nối trong khi chia sẻ.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Cổng kết nối</h2>
+<p>trixie-gateway — phía máy tính để bàn, một tệp nhị phân tự chứa duy nhất</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">📦</div><h3>Một tệp nhị phân, không cần Python</h3><p>Tải xuống một tệp thực thi tự chứa duy nhất — không cần Python, pip hay venv trên máy. Được xây dựng trên aiohttp + aiortc, và mã nguồn vẫn có trên GitHub nếu bạn muốn chạy từ Python. Chạy độc lập hoặc như một dịch vụ systemd, lắng nghe trên địa chỉ Tailscale/LAN của bạn.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~120 điểm cuối REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> tương thích OpenAI định tuyến đến bất kỳ nhà cung cấp AI nào bạn cấu hình.</p></div>
+<div class="card"><div class="card-icon">🧩</div><h3>Máy chủ MCP được bao gồm</h3><p><code>media_mcp_server.py</code> hiển thị điều khiển phương tiện (trạng thái, phát, tạm dừng, tua, âm lượng, mở, duyệt) dưới dạng công cụ MCP qua stdio JSON-RPC — cùng dữ liệu phiên và đường điều khiển mà ứng dụng điện thoại sử dụng, nên một tác nhân AI và điện thoại của bạn luôn thấy cùng một thứ.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Tương thích</h2>
+<p>Được xây dựng cho Debian Trixie — trung thực về nơi khác nó chạy</p>
+</div>
+<table class="compat-table">
+<thead><tr><th>Nền tảng</th><th>Trạng thái</th><th>Tại sao</th></tr></thead>
+<tbody>
+<tr><td>Debian Trixie</td><td class="yes">✓ Được phát triển và kiểm thử tại đây</td><td>—</td></tr>
+<tr><td>Họ Fatdog64 / Puppy Linux</td><td class="yes">✓ Nên hoạt động</td><td>Tính năng Layers tự động phát hiện các nhánh union-fs bên dưới một trong hai <code>/aufs</code> (dẫn xuất từ Fatdog64, bao gồm máy này) hoặc <code>/initrd</code> (Puppy tiêu chuẩn) — <code>/initrd</code> đường dẫn chưa được kiểm thử trên bản cài đặt Puppy thực tế, dựa trên các quy ước được ghi lại thay vì xác minh thực hành</td></tr>
+<tr><td>Các môi trường máy tính để bàn X11 Linux khác</td><td class="yes">✓ Nên hoạt động</td><td>Cần BlueZ, iptables, PulseAudio/PipeWire với tương thích pactl và phiên X11 (máy tính để bàn chỉ Wayland không được hỗ trợ — <code>wmctrl</code>/<code>xdotool</code> cần X11)</td></tr>
+<tr><td>Windows 11</td><td class="test">🧪 Bản dựng thử nghiệm</td><td>Chia sẻ màn hình, chuột/bàn phím, danh sách cửa sổ, âm lượng và terminal được triển khai cho Windows. Tệp nhị phân được build và khởi chạy trong CI tự động, nhưng đã <strong>chưa được chạy trên máy Windows thực tế</strong> — hãy mong đợi những điểm chưa hoàn thiện. Bluetooth, tường lửa, lớp, độ sáng, mạng và Media Center vẫn chỉ dành cho Linux và trả lời <code>501</code></td></tr>
+<tr><td>macOS (Intel &amp; Apple Silicon)</td><td class="test">🧪 Bản dựng thử nghiệm</td><td>Cùng bộ tính năng như Windows, sử dụng Quartz, AVFoundation và <code>osascript</code>. Được build và khởi chạy trong CI cho cả hai kiến trúc nhưng <strong>chưa được kiểm thử trên Mac thực tế</strong>. Ứng dụng chưa được ký, và macOS sẽ yêu cầu quyền Ghi màn hình và Trợ năng</td></tr>
+</tbody>
+</table>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ảnh chụp màn hình</h2>
+<p>TrXi-Ctrl — được ghi trực tiếp, chạy trên phần cứng thực tế</p>
+</div>
+<div class="screenshot-gallery" id="trxi-gallery">
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Terminal đang chạy lsusb trên máy tính Linux được kết nối" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130111.png"/><div class="sg-cap">Phần cuối</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab System hiển thị OS, kernel, CPU, tải, bộ nhớ và pin" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130118.png"/><div class="sg-cap">Hệ thống</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Layers liệt kê các nhánh AUFS union-fs" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130127.png"/><div class="sg-cap">Lớp</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Network hiển thị các giao diện bao gồm địa chỉ Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130138.png"/><div class="sg-cap">Mạng</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Bluetooth với các thiết bị đã ghép nối và công tắc có thể phát hiện/ghép nối" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130147.png"/><div class="sg-cap">Bluetooth</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Firewall với chuỗi iptables và các cài đặt sẵn" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130156.png"/><div class="sg-cap">Tường lửa</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Audio với âm lượng đầu ra, sink và bộ điều khiển MIDI Bluetooth" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130207.png"/><div class="sg-cap">Âm thanh</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Media điều khiển phiên Chameleon Media Center đang hoạt động trong thời gian thực" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130213.png"/><div class="sg-cap">Điều khiển phương tiện</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Windows liệt kê và xếp gạch các cửa sổ máy tính đang mở" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130221.png"/><div class="sg-cap">cửa sổ</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — Tab Desktop, chia sẻ toàn màn hình từ xa với nhấp chuột trái/phải" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130251.png"/><div class="sg-cap">Máy tính để bàn từ xa</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — tab AI Chat trò chuyện với nhà cung cấp đã được cấu hình" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130312.png"/><div class="sg-cap">Trò chuyện AI</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — tab Cài đặt phát hiện các cổng kết nối trên mạng Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Khám phá cổng</div></div>
+<div class="sg-frame"><img alt="TrXi-Ctrl — tab Cài đặt với khóa nhà cung cấp AI đã được cấu hình và thông tin ứng dụng" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Thiết lập nhà cung cấp AI</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Tải xuống <span class="free-badge">MIỄN PHÍ</span></h3>
+<p>Ứng dụng điện thoại (Android) + cổng kết nối máy tính. Cả hai đều mở, cả hai đều miễn phí.</p>
+<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Tải xuống APK</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Cổng kết nối cho Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Bản thử nghiệm cho Windows &amp; macOS 🧪</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway">Xem cổng kết nối trên GitHub →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Cài đặt cổng kết nối</h2>
+<p>Trên máy Debian Trixie (hoặc Linux tương thích) mà bạn muốn điều khiển</p>
+</div>
+<div class="code-block"># Linux — tệp nhị phân độc lập, không cần cài đặt gì thêm curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # sau đó trong ứng dụng điện thoại: Cài đặt → URL cổng kết nối → http://&lt;ip-tailscale-hoặc-LAN-của-máy-này&gt;:8772 # hoặc nhấn "Discover Peers" nếu cả hai bạn cùng trong một mạng Tailscale</div>
+<p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Thích Python hơn? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, sau đó <code>pip install -r requirements.txt</code> Và <code>python3 gateway.py --port 8772</code>. Tài liệu cài đặt đầy đủ, bao gồm chạy nó như một dịch vụ systemd, có trong kho lưu trữ của <code>README.md</code>.</p>
+<p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Bản thử nghiệm cho Windows &amp; macOS</strong> có trên <a href="https://github.com/cou645/trixie-gateway/releases">trang phát hành</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Chúng không được ký, vì vậy Windows SmartScreen sẽ báo "nhà phát hành không xác định" (Thông tin thêm → Vẫn chạy) và macOS sẽ chặn lần khởi chạy đầu tiên (nhấp chuột phải → Mở). Vui lòng báo cáo những gì bị lỗi.</p>
+<div class="cta-band" style="margin-top:3rem;">
+<h3>Thích TrXi-Ctrl? Xem những gì chúng tôi còn xây dựng</h3>
+<p>TrXi-Ctrl là phần miễn phí, mã nguồn mở của một gia đình công cụ AI để bàn lớn hơn — trình soạn thảo mã, studio thuyết trình, kế toán Anh, điều phối đội xe và hơn thế nữa.</p>
+<a class="btn btn-solid" href="../index.html">Xem tất cả ứng dụng Chameleon AI →</a>
+<a class="btn" href="../companion.html">Chameleon Companion (AI cho điện thoại + máy tính) →</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Bình luận</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a><a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../media.html">Trung tâm đa phương tiện</a>
+<a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a><a href="../privacy.html">Quyền riêng tư</a><a href="../terms.html">Điều khoản</a><a href="../accessibility.html">Khả năng truy cập</a><a href="../security.html">Bảo vệ</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Được xây dựng bởi Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

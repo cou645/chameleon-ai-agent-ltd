@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Chuyển đến nội dung chính</a>
+<div class="pre-note">
+  Chameleon Media Center là một phần của dòng máy tính để bàn Chameleon AI. Việc phân phối và tính khả dụng đang được hoàn thiện — <a href="../contact.html">liên hệ với chúng tôi về việc cấp phép</a>. Hiện nay nó có thể được điều khiển từ xa từ <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, ứng dụng điện thoại miễn phí của chúng tôi.
+</div>
+<nav aria-label="Chính">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Trung tâm đa phương tiện</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Một studio truyền thông để bàn đầy đủ được xây dựng trên mpv — phát lại, danh sách phát, tìm kiếm YouTube &amp; Bilibili với bộ nhớ đệm xem-tới-đâu-lưu-tới-đó, phát trực tiếp, TV DVB-T/T2, DVD/Blu-ray/CD, định tuyến âm thanh Bluetooth &amp; USB, hiệu ứng âm thanh, trình trực quan hóa, trình chỉnh sửa video, bộ cân bằng, webcam ảo và phản chiếu Android từ nhiều điện thoại, trong một ứng dụng.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Phát lại bằng mpv</span>
+<span class="badge">🔎 Tìm kiếm YouTube &amp; Bilibili + bộ nhớ đệm xem</span>
+<span class="badge">📡 TV trực tiếp DVB-T/T2/C/S/ATSC</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + đầu vào USB bàn xoay/mixer</span>
+<span class="badge">📱 Tối đa 16 điện thoại được phản chiếu cùng lúc</span>
+<span class="badge">📷 Webcam ảo + PiP 4 góc</span>
+<span class="badge">📡 Phát trực tuyến tới trình duyệt, YouTube, Twitch và hơn thế nữa</span>
+<span class="badge">🤏 Thu phóng bằng chụm/cuộn trên từng điện thoại</span>
+<span class="badge">🤖 Máy chủ MCP đi kèm</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Bên trong có gì</h2>
+<p>Mười ba tab, một công cụ đa phương tiện</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Bảng video</h3><p>Phát lại được hỗ trợ bởi mpv — hỗ trợ nhiều định dạng, tua mượt mà, nút bật toàn màn hình một cú nhấp (hoặc F11), tự động khôi phục nếu tiến trình trình phát vô tình dừng, và ghi nhớ thiết bị xuất âm thanh bạn chọn lần cuối qua các lần khởi động lại thay vì đặt lại về mặc định. Lớp phủ hình-trong-hình độ trễ thấp đặt tối đa bốn camera — webcam tích hợp hoặc bất kỳ điện thoại nào — vào các góc của nội dung đang phát. Ghi lại luồng đang phát hoặc tải xuống nội dung đang phát, chỉ với một phím.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Danh sách phát</h3><p>Sắp xếp lại bằng kéo và thả, quản lý hàng đợi, nhập và lưu danh sách phát, và khôi phục danh sách phát đã xóa từ thùng rác. Thêm một tệp hoặc cả thư mục, bao gồm thư mục con. Các mục thiếu tệp — ổ USB chưa cắm, video đã lưu đệm mà bạn đã dọn — sẽ bị làm mờ cho đến khi có lại, và video đã dọn sẽ tải lại khi nhấp đúp.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Tìm kiếm và bộ nhớ đệm xem</h3><p>Tìm kiếm trên YouTube hoặc Bilibili, liệt kê các video mới nhất của nhà sáng tạo TikTok, hoặc dán liên kết TikTok, Instagram, Facebook, Snapchat Spotlight hay Douyin. Kết quả được xếp hàng trong danh sách xem được đánh số bên dưới danh sách phát. Bất cứ thứ gì bạn xem đều được lưu trên đĩa khi bạn xem — không cần tải xuống riêng — nên lần xem tiếp theo phát từ bản sao cục bộ, và video xem dở sẽ hiển thị mức đã lưu và điền nốt phần còn lại vào lần sau. Di chuyển video đã lưu vào danh sách phát chính, và chọn giữ hay xóa những video nào khi bạn đóng ứng dụng. Cookie trình duyệt tùy chọn giúp vượt qua "xác nhận bạn không phải robot" và tường đăng nhập.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>truyền hình DVB</h3><p>Quét và xem truyền hình kỹ thuật số thực sự — DVB-T/T2, DVB-C, DVB-S/S2 và ATSC — trực tiếp từ bộ thu USB hoặc PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD / CD / Blu-ray</h3><p>Tự động phát hiện nội dung trong ổ đĩa quang và phát DVD-Video, Blu-ray hoặc các bản nhạc Audio CD — không cần phần mềm đĩa riêng.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Âm thanh BT/USB</h3><p>Định tuyến phát lại tới một hoặc nhiều loa Bluetooth cùng lúc (PulseAudio combine-sink), chuyển bộ điều hợp sang chế độ nhận để chính PC trở thành loa Bluetooth, hoặc kết nối <em>bất kỳ</em> nguồn thu PulseAudio khác — bàn xoay USB, đầu MiniDisc, bộ trộn/tay điều khiển DJ hoặc giao diện âm thanh — trực tiếp vào phát lại và Visualizer, tất cả từ một danh sách Nguồn đầu vào.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Điện thoại ADB — tối đa 16 cùng lúc</h3><p>Một lưới gồm 1–16 bảng độc lập với số cột tùy thích — phản chiếu và điều khiển bấy nhiêu điện thoại Android cùng lúc, mỗi điện thoại có màn hình, định tuyến âm thanh và đầu vào riêng. Chụm (ô này có màn hình cảm ứng) hoặc dùng con lăn để phóng to màn hình của bất kỳ điện thoại nào, Shift+kéo để di chuyển. Nhấn, vuốt và gõ trực tiếp bằng chuột, bút cảm ứng, cảm ứng hoặc bàn phím vật lý của bạn — một shell cố định cho mỗi thiết bị giữ mọi đầu vào theo thời gian thực thay vì phải trả chi phí kết nối mới cho mỗi lần gõ phím. Nhấp một lần "Kết nối không dây" sẽ tự động chuyển điện thoại kết nối USB sang adb-over-wifi, hoặc ghép nối qua Wi-Fi bằng cách quét mã QR ghép nối của điện thoại. Đẩy và kéo tệp tới bất kỳ điện thoại nào, và điện thoại đang ngủ sẽ được đánh thức trước khi bắt đầu truyền phát.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Camera ảo</h3><p>Một thiết bị "CMC PC Webcam" mà bất kỳ ứng dụng gọi video, trình duyệt hoặc OBS nào cũng có thể chọn — cấp cho nó camera tích hợp hoặc camera của bất kỳ điện thoại nào đã kết nối, và chuyển nguồn giữa cuộc gọi mà ứng dụng không mất thiết bị. Mỗi bảng điện thoại cũng có camera ảo riêng.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Phát trực tiếp</h3><p>Truyền phát camera hoặc bảng video tới bất kỳ trình duyệt nào trên LAN hoặc Tailscale của bạn (trang trình phát HLS) cùng nguồn cấp độ trễ thấp cho TrXi-Ctrl, VLC hoặc mpv — nhiều người xem từ một lần mã hóa — hoặc đẩy lên YouTube Live, Facebook Live, Twitch, WeChat Channels hoặc bất kỳ máy chủ RTMP nào.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Chia sẻ &amp; khám phá</h3><p>Các CMC trên cùng mạng tự động tìm thấy nhau, và mã nhóm chia sẻ danh sách phát của bạn — bao gồm cả tệp cục bộ — với các CMC khác.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Hiệu ứng âm thanh</h3><p>Bảng âm thanh để phát tín hiệu âm thanh tức thì khi bạn chơi hoặc phát trực tiếp.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Trình trực quan hóa</h3><p>Hình ảnh phản ứng với âm thanh theo thời gian thực cho mọi thứ đang phát.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Trình chỉnh sửa video</h3><p>Trình sắp xếp clip chính xác đến từng khung hình: đặt khung In/Out từ trình phát, sắp xếp lại clip, thêm bản nhạc (được trộn dưới hoặc thay thế âm thanh gốc) và phụ đề (ghi cứng hoặc dưới dạng track có thể chuyển đổi), rồi xuất ở chế độ nền.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Bộ cân bằng 18 dải &amp; hiệu ứng âm thanh/video</h3><p>Định hình âm thanh theo không gian, hoặc theo tâm trạng, với các preset bạn có thể tinh chỉnh và lưu — cùng hiệu ứng âm thanh và tab hiệu ứng video riêng.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Ghi chú</h3><p>Ghi chú đánh máy hoặc viết tay (thân thiện với bút cảm ứng/cảm ứng) ngay bên cạnh media của bạn — hữu ích cho ghi chú sản xuất/phiên làm việc khi bạn làm việc.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Khóa, chủ đề &amp; tùy chọn</h3><p>Khóa cửa sổ bằng mẫu (Ctrl+Alt+L), chuyển chủ đề và đặt tùy chọn của bạn — với About và Help tích hợp.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Điều khiển từ xa</h3><p>Mọi thao tác phát/tạm dừng/tua/âm lượng đều được cung cấp qua socket IPC riêng của mpv, mà <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — ứng dụng điện thoại miễn phí của chúng tôi — kết nối trực tiếp để điều khiển phát thực sự, không chỉ là danh sách phiên. Đóng một phiên từ điện thoại sẽ đóng toàn bộ ứng dụng một cách gọn gàng thay vì để lại một trình phát nửa sống nửa chết.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Máy chủ MCP</h3><p>Máy chủ Model Context Protocol đi kèm hiển thị trạng thái phát, play/pause/seek/volume/open và duyệt thư viện dưới dạng công cụ — nhờ đó tác nhân AI và điện thoại của bạn luôn thấy và điều khiển cùng một phiên.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Được xây dựng trên nền tảng mở</h2>
+<p>Ứng dụng máy tính để bàn PySide6 (Qt), công cụ phát mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>Giao diện máy tính để bàn gốc, phản hồi nhanh — một phần của cùng ngăn xếp Python/Qt như các ứng dụng máy tính để bàn Chameleon AI khác.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>công cụ mpv</h3><p>Được nhúng qua cơ chế nhúng cửa sổ riêng của mpv và socket JSON IPC — cùng công cụ phát đáng tin cậy, được dùng rộng rãi đằng sau nhiều công cụ đa phương tiện Linux, với libdvdnav/libdvdread/libcdio/libbluray đã được liên kết sẵn để phát đĩa.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Định tuyến âm thanh gốc PulseAudio</h3><p>Đầu ra nhiều thiết bị dùng module-combine-sink riêng của PulseAudio; mọi nguồn thu — nhận Bluetooth hay thiết bị âm thanh USB — đều vòng qua module-loopback, kiểm tra trước định tuyến mà chính chính sách Bluetooth của PulseAudio đã thiết lập thay vì chống lại nó.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ảnh chụp màn hình</h2>
+<p>Chameleon Media Center — thu trực tiếp</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — Tab tìm kiếm với kết quả YouTube, video đang phát và danh sách xem bên dưới danh sách phát hiển thị video đã lưu trong bộ nhớ đệm" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Tìm kiếm &amp; danh sách xem</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — hai điện thoại Android được phản chiếu cạnh nhau trong tab ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Phản chiếu hai điện thoại</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab quét kênh DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">truyền hình DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab âm thanh Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — bộ cân bằng 18 dải" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Bộ cân bằng 18 dải</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — phát lại YouTube với lớp phủ trực quan hóa phổ phản ứng âm thanh trực tiếp" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Lớp phủ trực quan hóa</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — giao diện pastel thay thế, trình phát nhàn rỗi với danh sách phát lớn được tải" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Giao diện thay thế</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — hai điện thoại Android được phản chiếu toàn chiều rộng cạnh nhau, một chiếc hiển thị màn hình chính, chiếc kia hiển thị ngăn kéo ứng dụng" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Phản chiếu kép toàn chiều rộng</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab ADB Phone với cột điều khiển đầy đủ 16 nút: camera, Bluetooth, hotspot, Wi-Fi, truyền tệp và hơn thế nữa" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Cột điều khiển điện thoại đầy đủ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ba điện thoại Android được phản chiếu cùng lúc, mỗi chiếc chạy ứng dụng điều khiển từ xa TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Phản chiếu ba điện thoại</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — webcam tích hợp ở góc hình-trong-hình trên video đang phát, với hai điện thoại được phản chiếu bên dưới" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Hình trong hình từ webcam</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — bảng Hiệu ứng âm thanh với mười hai tín hiệu một cú nhấp và âm thanh tùy chỉnh, trên video đang phát" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Bảng hiệu ứng âm thanh</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — bộ cân bằng 18 dải với preset R&amp;B được áp dụng trong khi phát lại" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Cài đặt sẵn bộ cân bằng</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Hiệu ứng âm thanh: khuếch đại, tăng cường bass và treble, nén, giảm tiếng ồn, chorus, reverb và delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Hiệu ứng âm thanh</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Live Stream được thiết lập để đẩy lên YouTube Live qua RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Phát trực tiếp lên YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — tab Ghi chú liệt kê các trang PDF đã nhập bên cạnh video đang phát" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Ghi chú</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — hai điện thoại được phản chiếu với các cột điều khiển đầy đủ của chúng trong khi video phát" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Điều khiển điện thoại</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — điện thoại được phản chiếu trong tab ADB Phone với các điều khiển Quay lại, Trang chủ, Gần đây và nhập liệu" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Phản chiếu một điện thoại</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — trình hiển thị phổ và menu Tệp, trong giao diện pastel" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Menu Trực quan hóa &amp; Tệp</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Tải Chameleon Media Center</h3>
+<p>Được bao gồm với máy tính để bàn Chameleon AI. <strong>Đang hoàn tất phân phối và khả năng cung cấp</strong> — liên hệ với chúng tôi để biết giá và tình trạng sẵn có hiện tại.</p>
+<a class="btn btn-solid" href="../contact.html">Liên hệ với chúng tôi</a>
+<a class="btn" href="../trxi-ctrl.html">Điều khiển từ điện thoại của bạn bằng TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Quay lại tổng quan</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Bình luận</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a><a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a><a href="../privacy.html">Quyền riêng tư</a><a href="../terms.html">Điều khoản</a><a href="../accessibility.html">Khả năng truy cập</a><a href="../security.html">Bảo vệ</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Được xây dựng bởi Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

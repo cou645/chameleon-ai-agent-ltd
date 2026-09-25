@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Μετάβαση στο κύριο περιεχόμενο</a>
+<div class="pre-note">
+  Το Chameleon Media Center είναι μέρος της οικογένειας επιτραπέζιων εφαρμογών Chameleon AI. Η διανομή και η διαθεσιμότητα οριστικοποιούνται — <a href="../contact.html">επικοινωνήστε μαζί μας για άδειες χρήσης</a>. Είναι απομακρυσμένα ελεγχόμενο σήμερα από <a href="../trxi-ctrl.html">TrXi-Ctrl</a>, τη δωρεάν εφαρμογή τηλεφώνου μας.
+</div>
+<nav aria-label="Κύριο">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Λογότυπο Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a href="../companion.html">Συνοδευτική εφαρμογή</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">Κέντρο πολυμέσων</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ja/media.html">🇯🇵 JA — 日本語</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">Ένα πλήρες επιτραπέζιο στούντιο πολυμέσων βασισμένο στο mpv — αναπαραγωγή, λίστες αναπαραγωγής, αναζήτηση YouTube &amp; Bilibili με προσωρινή μνήμη παρακολούθησης, ζωντανή ροή, τηλεόραση DVB-T/T2, DVD/Blu-ray/CD, δρομολόγηση ήχου Bluetooth &amp; USB, ηχητικά εφέ, οπτικοποιητής, πρόγραμμα επεξεργασίας βίντεο, ισοσταθμιστής, εικονικές κάμερες web και καθρέφτισμα Android από πολλά τηλέφωνα, σε μία εφαρμογή.</p>
+<div class="hero-badges">
+<span class="badge">🎞️ Αναπαραγωγή με υποστήριξη mpv</span>
+<span class="badge">🔎 Αναζήτηση YouTube &amp; Bilibili + προσωρινή μνήμη παρακολούθησης</span>
+<span class="badge">📡 Ζωντανή τηλεόραση DVB-T/T2/C/S/ATSC</span>
+<span class="badge">💿 DVD · Blu-ray · CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + είσοδος USB πικάπ/μίκτη</span>
+<span class="badge">📱 Έως 16 τηλέφωνα σε προβολή ταυτόχρονα</span>
+<span class="badge">📷 Εικονική webcam + PiP σε 4 γωνίες</span>
+<span class="badge">📡 Μετάδοση σε προγράμματα περιήγησης, YouTube, Twitch και άλλα</span>
+<span class="badge">🤏 Ζουμ με τσίμπημα/κύλιση σε κάθε τηλέφωνο</span>
+<span class="badge">🤖 Περιλαμβάνεται διακομιστής MCP</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Τι περιλαμβάνει</h2>
+<p>Δεκατρείς καρτέλες, μία μηχανή πολυμέσων</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>Πάνελ βίντεο</h3><p>Η αναπαραγωγή βασίζεται στο mpv — ευρεία υποστήριξη μορφών, ομαλή αναζήτηση, εναλλαγή πλήρους οθόνης με ένα κλικ (ή F11), αυτόματη ανάκτηση αν η διεργασία του player τερματιστεί απροσδόκητα, και θυμάται την τελευταία συσκευή εξόδου ήχου που επιλέξατε μεταξύ επανεκκινήσεων αντί να επαναφέρεται σε προεπιλογή. Μια επικάλυψη εικόνας-σε-εικόνα χαμηλής καθυστέρησης τοποθετεί έως τέσσερις κάμερες — την ενσωματωμένη webcam ή οποιοδήποτε τηλέφωνο — στις γωνίες ό,τι παίζει. Καταγράψτε μια ροή που παίζει ή κατεβάστε ό,τι παίζει, με ένα πλήκτρο.</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>Λίστα αναπαραγωγής</h3><p>Αναδιάταξη με μεταφορά και απόθεση, διαχείριση ουράς, εισαγωγή και αποθήκευση λίστας αναπαραγωγής, και επαναφορά διαγραμμένης λίστας από τον κάδο. Προσθέστε ένα μεμονωμένο αρχείο ή έναν ολόκληρο φάκελο, μαζί με υποφακέλους. Οι καταχωρήσεις των οποίων το αρχείο λείπει — μια μονάδα USB που δεν είναι συνδεδεμένη, ένα αποθηκευμένο βίντεο που καθαρίσατε — γκριζάρουν μέχρι να επιστρέψει, και ένα καθαρισμένο βίντεο επαναφορτώνεται με διπλό κλικ.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>Αναζήτηση και προσωρινή μνήμη παρακολούθησης</h3><p>Αναζητήστε στο YouTube ή το Bilibili, δείτε τα τελευταία βίντεο ενός δημιουργού TikTok ή επικολλήστε έναν σύνδεσμο TikTok, Instagram, Facebook, Snapchat Spotlight ή Douyin. Τα αποτελέσματα μπαίνουν σε ουρά σε μια αριθμημένη λίστα παρακολούθησης κάτω από τη λίστα αναπαραγωγής. Ό,τι παρακολουθείτε διατηρείται στον δίσκο καθώς το παρακολουθείτε — χωρίς ξεχωριστή λήψη — ώστε η επόμενη προβολή να παίζει από το τοπικό αντίγραφο, και ένα βίντεο που παρακολουθήθηκε εν μέρει δείχνει πόσο έχει αποθηκευτεί και συμπληρώνει τα υπόλοιπα την επόμενη φορά. Μετακινήστε τα αποθηκευμένα βίντεο στην κύρια λίστα αναπαραγωγής και επιλέξτε ποια θα κρατήσετε ή θα διαγράψετε όταν κλείσετε την εφαρμογή. Τα προαιρετικά cookies του προγράμματος περιήγησης ξεπερνούν το «επιβεβαιώστε ότι δεν είστε ρομπότ» και τα τείχη σύνδεσης.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Τηλεόραση DVB</h3><p>Σαρώστε και παρακολουθήστε πραγματική ψηφιακή τηλεόραση — DVB-T/T2, DVB-C, DVB-S/S2 και ATSC — απευθείας από δέκτη USB ή PCI.</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD / CD / Blu-ray</h3><p>Ανιχνεύει αυτόματα τι υπάρχει στην οπτική μονάδα και αναπαράγει DVD-Video, Blu-ray ή κομμάτια Audio CD — δεν χρειάζεται ξεχωριστό λογισμικό δίσκων.</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>Ήχος BT/USB</h3><p>Δρομολογήστε την αναπαραγωγή σε ένα ή περισσότερα ηχεία Bluetooth ταυτόχρονα (PulseAudio combine-sink), αλλάξτε τον προσαρμογέα σε λειτουργία λήψης ώστε ο ίδιος ο υπολογιστής να γίνει ηχείο Bluetooth, ή συνδέστε <em>οποιαδήποτε</em> άλλη πηγή λήψης PulseAudio — USB πικάπ, συσκευή MiniDisc, μίκτη/χειριστήριο DJ ή κάρτα ήχου — απευθείας στην αναπαραγωγή και τον Visualizer, όλα από μία λίστα πηγών εισόδου.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>Τηλέφωνο ADB — έως 16 ταυτόχρονα</h3><p>Ένα πλέγμα 1–16 ανεξάρτητων πλαισίων σε όσες στήλες θέλετε — καθρεφτίστε και ελέγξτε τόσα Android τηλέφωνα ταυτόχρονα, το καθένα με τη δική του οθόνη, δρομολόγηση ήχου και είσοδο. Τσιμπήστε (αυτό το πλαίσιο έχει οθόνη αφής) ή χρησιμοποιήστε τον τροχό κύλισης για μεγέθυνση στην οθόνη οποιουδήποτε τηλεφώνου, Shift+σύρετε για μετατόπιση. Πατήστε, σύρετε και πληκτρολογήστε απευθείας με ποντίκι, γραφίδα, αφή ή το φυσικό σας πληκτρολόγιο — ένα μόνιμο κέλυφος ανά συσκευή κρατά κάθε είσοδο σε πραγματικό χρόνο αντί να πληρώνετε το κόστος νέας σύνδεσης για κάθε πάτημα πλήκτρου. Το «Σύνδεση ασύρματα» με ένα κλικ αλλάζει αυτόματα ένα τηλέφωνο συνδεδεμένο μέσω USB σε adb-over-wifi, ή κάντε ζεύξη μέσω Wi-Fi σαρώνοντας τον κωδικό QR ζεύξης του τηλεφώνου. Στείλτε και λάβετε αρχεία από οποιοδήποτε τηλέφωνο, και ένα τηλέφωνο σε αναμονή ξυπνά πριν ξεκινήσει η ροή.</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>Εικονικές κάμερες</h3><p>Μια συσκευή «CMC PC Webcam» που μπορεί να επιλέξει οποιαδήποτε εφαρμογή βιντεοκλήσης, πρόγραμμα περιήγησης ή το OBS — τροφοδοτήστε την με την ενσωματωμένη κάμερα ή την κάμερα οποιουδήποτε συνδεδεμένου τηλεφώνου και αλλάξτε πηγές στη μέση της κλήσης χωρίς η εφαρμογή να χάσει τη συσκευή. Κάθε πλαίσιο τηλεφώνου αποκτά επίσης τη δική του εικονική κάμερα.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>Ζωντανή ροή</h3><p>Μεταδώστε μια κάμερα ή το πλαίσιο βίντεο σε οποιοδήποτε πρόγραμμα περιήγησης στο LAN ή στο Tailscale σας (σελίδα αναπαραγωγής HLS) συν μια ροή χαμηλής καθυστέρησης για TrXi-Ctrl, VLC ή mpv — πολλοί θεατές από μία κωδικοποίηση — ή στείλτε την στο YouTube Live, Facebook Live, Twitch, WeChat Channels ή οποιονδήποτε διακομιστή RTMP.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Κοινή χρήση &amp; ανακάλυψη</h3><p>Τα CMC στο ίδιο δίκτυο βρίσκουν το ένα το άλλο αυτόματα, και ένας κωδικός ομάδας μοιράζεται τη λίστα αναπαραγωγής σας — μαζί με τοπικά αρχεία — με άλλα CMC.</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>Ηχητικά εφέ</h3><p>Ένας πίνακας ήχου για άμεσα ηχητικά σήματα ενώ παίζετε ή κάνετε stream.</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>Οπτικοποιητής</h3><p>Οπτικά εφέ σε πραγματικό χρόνο που αντιδρούν στον ήχο για ό,τι παίζει αυτή τη στιγμή.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>Επεξεργαστής βίντεο</h3><p>Ένας sequencer κλιπ με ακρίβεια καρέ: ορίστε καρέ In/Out από τον player, αναδιατάξτε κλιπ, προσθέστε μουσικό κομμάτι (μιξαρισμένο κάτω από τον αρχικό ήχο ή αντ' αυτού) και υπότιτλους (burned in ή ως εναλλασσόμενο κομμάτι), και μετά εξάγετε στο παρασκήνιο.</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>Ισοσταθμιστής 18 ζωνών &amp; εφέ ήχου/βίντεο</h3><p>Διαμορφώστε τον ήχο για τον χώρο ή τη διάθεση, με προεπιλογές που μπορείτε να προσαρμόσετε και να αποθηκεύσετε — συν εφέ ήχου και ξεχωριστή καρτέλα εφέ βίντεο.</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>Σημειώσεις</h3><p>Πληκτρολογημένες ή χειρόγραφες σημειώσεις (φιλικές για stylus/αφή) ακριβώς δίπλα στα πολυμέσα σας — χρήσιμες για σημειώσεις παραγωγής/συνεδρίας όσο εργάζεστε.</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>Κλείδωμα, θέματα &amp; προτιμήσεις</h3><p>Κλειδώστε το παράθυρο με μοτίβο (Ctrl+Alt+L), αλλάξτε θέματα και ορίστε τις προτιμήσεις σας — με ενσωματωμένα «Σχετικά» και «Βοήθεια».</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Τηλεχειριστήριο</h3><p>Κάθε ενέργεια αναπαραγωγής/παύσης/μετάβασης/έντασης εκτίθεται μέσω του ίδιου του IPC socket του mpv, με το οποίο <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — η δωρεάν εφαρμογή μας για κινητά — επικοινωνεί απευθείας για πραγματικό έλεγχο αναπαραγωγής, όχι απλώς μια λίστα συνεδριών. Το κλείσιμο μιας συνεδρίας από το κινητό κλείνει καθαρά ολόκληρη την εφαρμογή αντί να αφήνει πίσω έναν μισοπεθαμένο player.</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>Διακομιστής MCP</h3><p>Ένας ενσωματωμένος διακομιστής Model Context Protocol εκθέτει την κατάσταση αναπαραγωγής, τις λειτουργίες play/pause/seek/volume/open και την περιήγηση βιβλιοθήκης ως εργαλεία — έτσι ένας πράκτορας AI και το τηλέφωνό σας βλέπουν και ελέγχουν πάντα την ίδια συνεδρία.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Χτισμένο σε ανοιχτά θεμέλια</h2>
+<p>Εφαρμογή επιφάνειας εργασίας PySide6 (Qt), μηχανή αναπαραγωγής mpv</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>Ένα εγγενές, αποκρίσιμο περιβάλλον επιφάνειας εργασίας — μέρος της ίδιας στοίβας Python/Qt με τις υπόλοιπες εφαρμογές επιφάνειας εργασίας Chameleon AI.</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>μηχανή mpv</h3><p>Ενσωματωμένο μέσω της δικής του ενσωμάτωσης παραθύρου του mpv και υποδοχής JSON IPC — η ίδια αξιόπιστη, ευρέως χρησιμοποιούμενη μηχανή αναπαραγωγής πίσω από πολλά εργαλεία πολυμέσων Linux, με τα libdvdnav/libdvdread/libcdio/libbluray ήδη συνδεδεμένα για αναπαραγωγή δίσκων.</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>Εγγενής δρομολόγηση ήχου PulseAudio</h3><p>Η έξοδος πολλαπλών συσκευών χρησιμοποιεί το δικό του module-combine-sink του PulseAudio· οποιαδήποτε πηγή λήψης — λήψη Bluetooth ή συσκευή ήχου USB — συνδέεται μέσω module-loopback, ελέγχοντας πρώτα τη δρομολόγηση που έχει ήδη ρυθμίσει η δική του πολιτική Bluetooth του PulseAudio αντί να τη μάχεται.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Στιγμιότυπα οθόνης</h2>
+<p>Chameleon Media Center — ζωντανή λήψη</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — Καρτέλα αναζήτησης με αποτελέσματα YouTube, ένα βίντεο σε αναπαραγωγή και τη λίστα παρακολούθησης κάτω από τη λίστα αναπαραγωγής να εμφανίζει ένα αποθηκευμένο βίντεο" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">Αναζήτηση και λίστα παρακολούθησης</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — δύο τηλέφωνα Android σε παράλληλη προβολή στην καρτέλα ADB Phone" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">Διπλή προβολή τηλεφώνου</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα σάρωσης καναλιών DVB TV" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">Τηλεόραση DVB</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα DVD/CD/Blu-ray" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · Blu-ray</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα ήχου Bluetooth Tx/Rx" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth Tx/Rx</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ισοσταθμιστής 18 ζωνών" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">Ισοσταθμιστής 18 ζωνών</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — αναπαραγωγή YouTube με επικάλυψη ζωντανού οπτικοποιητή φάσματος που αντιδρά στον ήχο" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">Επικάλυψη οπτικοποιητή</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — εναλλακτικό παστέλ θέμα, αδρανής αναπαραγωγέας με φορτωμένη μεγάλη λίστα αναπαραγωγής" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">Εναλλακτικό θέμα</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — δύο τηλέφωνα Android σε καθρέφτιση πλήρους πλάτους δίπλα-δίπλα, το ένα δείχνει την αρχική οθόνη, το άλλο το συρτάρι εφαρμογών" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">Διπλή προβολή πλήρους πλάτους</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα ADB Phone με την πλήρη στήλη 16 κουμπιών ελέγχου: κάμερα, Bluetooth, hotspot, Wi-Fi, μεταφορά αρχείων και άλλα" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">Πλήρης στήλη ελέγχου τηλεφώνου</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — τρία τηλέφωνα Android σε καθρέφτιση ταυτόχρονα, το καθένα εκτελεί την εφαρμογή τηλεχειρισμού TrXi-Ctrl" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">Τριπλή προβολή τηλεφώνου</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ενσωματωμένη webcam σε γωνία picture-in-picture πάνω από αναπαραγόμενο βίντεο, με δύο τηλέφωνα σε καθρέφτιση από κάτω" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">Εικόνα-σε-εικόνα από webcam</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — πίνακας ηχητικών εφέ με δώδεκα ήχους ενός κλικ και προσαρμοσμένους ήχους, πάνω από αναπαραγόμενο βίντεο" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">Πίνακας ηχητικών εφέ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ισοσταθμιστής 18 ζωνών με εφαρμοσμένο το preset R&amp;B κατά την αναπαραγωγή" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">Προεπιλογές equalizer</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα ηχητικών εφέ: ενίσχυση, boost μπάσων και πρίμων, συμπιεστής, μείωση θορύβου, chorus, reverb και delay" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">Ηχητικά εφέ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα Live Stream ρυθμισμένη για αποστολή στο YouTube Live μέσω RTMPS" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">Μετάδοση στο YouTube Live</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — καρτέλα Notes που εμφανίζει εισαγμένες σελίδες PDF δίπλα στο αναπαραγόμενο βίντεο" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">Σημειώσεις</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — δύο τηλέφωνα σε καθρέφτιση με τις πλήρεις στήλες ελέγχου τους ενώ παίζει βίντεο" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">Χειριστήρια τηλεφώνου</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ένα τηλέφωνο που προβάλλεται στην καρτέλα ADB Phone με στοιχεία ελέγχου Πίσω, Αρχική, Πρόσφατα και πληκτρολόγησης" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">Μονή προβολή τηλεφώνου</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — οπτικοποιητής φάσματος και το μενού Αρχείο, στο παστέλ θέμα" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">Μενού Visualizer &amp; Αρχείων</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Αποκτήστε το Chameleon Media Center</h3>
+<p>Περιλαμβάνεται με τον επιτραπέζιο υπολογιστή Chameleon AI. <strong>Η διανομή και η διαθεσιμότητα οριστικοποιούνται</strong> — επικοινωνήστε μαζί μας για την τρέχουσα τιμή και διαθεσιμότητα.</p>
+<a class="btn btn-solid" href="../contact.html">Επικοινωνήστε μαζί μας</a>
+<a class="btn" href="../trxi-ctrl.html">Ελέγξτε το από το τηλέφωνό σας με το TrXi-Ctrl →</a>
+<a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Σχόλια</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a><a href="../companion.html">Συνοδευτική εφαρμογή</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a><a href="../privacy.html">Απόρρητο</a><a href="../terms.html">Όροι</a><a href="../accessibility.html">Προσβασιμότητα</a><a href="../security.html">Ασφάλεια</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Media Center — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+  .screenshot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .screenshot-gallery .sg-frame {
+    background: #0f0f1f; border-radius: 12px; overflow: hidden;
+    border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+  }
+  .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-cap {
+    text-align: center; font-size: .75rem; color: #8888aa;
+    padding: .4rem .6rem .6rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+<div class="pre-note">
+  Chameleon Media CenterはChameleon AIデスクトップファミリーの一部です。配布と提供方法は最終調整中です — <a href="../contact.html">ライセンスについてはお問い合わせください</a>。現在、リモート操作が可能です： <a href="../trxi-ctrl.html">TrXi-Ctrl</a>、私たちの無料スマホアプリから。
+</div>
+<nav aria-label="プライマリ">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Chameleon AI ロゴ" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">ホーム</a>
+<a href="../ide.html">あなたにはアイデアがあります</a>
+<a href="../presenter.html">プレゼンター</a>
+<a href="../companion.html">コンパニオンアプリ</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a class="active" href="../media.html">メディアセンター</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">ウェブサービス</a>
+<a href="../accounting.html">会計</a>
+<a href="../technician.html">パソコン技術者</a>
+<a href="../classroom.html">u6388u696d</a>
+<a href="../contact.html">接触</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇯🇵 JA ▾</button><div class="lang-menu"><a href="../media.html">🌐 EN — English</a><a href="../ar/media.html">🇸🇦 AR — العربية</a><a href="../cy/media.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/media.html">🇩🇪 DE — Deutsch</a><a href="../es/media.html">🇪🇸 ES — Español</a><a href="../fr/media.html">🇫🇷 FR — Français</a><a href="../hi/media.html">🇮🇳 HI — हिन्दी</a><a href="../it/media.html">🇮🇹 IT — Italiano</a><a href="../ko/media.html">🇰🇷 KO — 한국어</a><a href="../pt/media.html">🇵🇹 PT — Português</a><a href="../ru/media.html">🇷🇺 RU — Русский</a><a href="../zh/media.html">🇨🇳 ZH — 中文</a><a href="../el/media.html">🇬🇷 EL — Ελληνικά</a><a href="../id/media.html">🇮🇩 ID — Indonesia</a><a href="../pl/media.html">🇵🇱 PL — Polski</a><a href="../ro/media.html">🇷🇴 RO — Română</a><a href="../sw/media.html">🇰🇪 SW — Kiswahili</a><a href="../uk/media.html">🇺🇦 UK — Українська</a><a href="../vi/media.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">🎬</div>
+<h1>Chameleon Media Center</h1>
+<p class="sub">mpvを基盤にした本格的なデスクトップメディアスタジオ — 再生、プレイリスト、視聴しながらキャッシュするYouTube＆Bilibili検索、ライブストリーミング、DVB-T/T2テレビ、DVD/Blu-ray/CD、Bluetooth＆USBオーディオルーティング、サウンドエフェクト、ビジュアライザー、動画エディター、イコライザー、仮想ウェブカメラ、マルチスマホAndroidミラーリングを1つのアプリで。</p>
+<div class="hero-badges">
+<span class="badge">🎞️ mpv搭載の再生</span>
+<span class="badge">🔎 YouTube＆Bilibili検索 + 視聴キャッシュ</span>
+<span class="badge">📡 ライブ DVB-T/T2/C/S/ATSC TV</span>
+<span class="badge">💿DVD・Blu-ray・CD</span>
+<span class="badge">🔵 Bluetooth Tx/Rx + USB ターンテーブル/ミキサー入力</span>
+<span class="badge">📱 最大16台のスマホを同時にミラーリング</span>
+<span class="badge">📷 バーチャルウェブカメラ + 4隅 PiP</span>
+<span class="badge">📡 ブラウザ、YouTube、Twitch などへ配信</span>
+<span class="badge">🤏 各スマホでピンチ/スクロールズーム</span>
+<span class="badge">🤖 MCP サーバー同梱</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>中身の紹介</h2>
+<p>13のタブ、1つのメディアエンジン</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🎞️</div><h3>ビデオパネル</h3><p>mpv による再生 — 幅広いフォーマット対応、滑らかなシーク、ワンクリックの全画面切り替え（または F11）、プレイヤープロセスが予期せず終了した場合の自動復旧、そして再起動をまたいで最後に選んだオーディオ出力デバイスを記憶し、デフォルトにリセットしません。低遅延のピクチャーインピクチャーオーバーレイは、内蔵ウェブカメラや任意のスマホなど最大4台のカメラを、再生中の映像の四隅に配置します。再生中のストリームをワンキーで録画、または再生中のものをダウンロードできます。</p></div>
+<div class="card"><div class="card-icon">📃</div><h3>プレイリスト</h3><p>ドラッグ＆ドロップでの並べ替え、キューの管理、プレイリストのインポートと保存、ゴミ箱から削除済みプレイリストの復元。単一ファイルまたはフォルダ全体をサブフォルダごと追加できます。ファイルが存在しない項目 — 接続されていない USB ドライブ、整理して消したキャッシュ動画 — は戻るまでグレー表示になり、整理した動画はダブルクリックで再ダウンロードされます。</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>検索と視聴キャッシュ</h3><p>YouTube や Bilibili を検索し、TikTok クリエイターの最新動画を一覧表示し、TikTok、Instagram、Facebook、Snapchat Spotlight、Douyin のリンクを貼り付けます。結果はプレイリストの下の番号付きウォッチリストにキューします。視聴したものは視聴しながらディスクに保存されます — 別途ダウンロードは不要 — なので次回はローカルコピーから再生され、途中まで見た動画は保存済みの量を表示し、次回に残りを補完します。保存した動画をメインプレイリストに移動し、アプリを閉じるときに残すものや削除するものを選べます。オプションのブラウザ Cookie で「ロボットではないことを確認」やサインインの壁を突破できます。</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>DVBテレビ</h3><p>本物のデジタルテレビをスキャンして視聴 — DVB-T/T2、DVB-C、DVB-S/S2、ATSC — USBまたはPCIチューナーから直接。</p></div>
+<div class="card"><div class="card-icon">💿</div><h3>DVD / CD / ブルーレイ</h3><p>光学ドライブ内のメディアを自動検出し、DVD-Video、Blu-ray、Audio CDトラックを再生 — 別途ディスクソフトは不要。</p></div>
+<div class="card"><div class="card-icon">🔵</div><h3>BT/USBオーディオ</h3><p>再生を1台または複数のBluetoothスピーカーへ同時にルーティング（PulseAudio combine-sink）、アダプターを受信モードに切り替えてPC自体をBluetoothスピーカーにする、または取り込み <em>任意の</em> 他のPulseAudioキャプチャソース — USBターンテーブル、MiniDiscデッキ、DJミキサー/コントローラー、オーディオインターフェース — を再生とVisualizerへ直接。すべて1つのInput Sourcesチェックリストから。</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADBフォン — 同時に最大16台</h3><p>1〜16個の独立パネルを好きな列数で並べたグリッド — その台数のAndroidフォンを同時にミラーリング・操作でき、それぞれに専用の画面、オーディオルーティング、入力があります。ピンチ（このボックスはタッチスクリーン対応）またはスクロールホイールで任意のフォン画面をズーム、Shift+ドラッグでパン。マウス、スタイラス、タッチ、または物理キーボードで直接タップ、スワイプ、入力 — デバイスごとに持続するシェルがすべての入力をリアルタイムに保ち、キーストロークごとに新たな接続コストを払う必要はありません。ワンクリックの「Connect Wireless」でUSB接続のフォンを自動的にadb-over-wifiへ切り替え、またはフォンのペアリングQRコードをスキャンしてWi-Fiでペアリング。任意のフォンへファイルをプッシュ/プルでき、スリープ中のフォンはストリーミング開始前に起こされます。</p></div>
+<div class="card"><div class="card-icon">📷</div><h3>仮想カメラ</h3><p>あらゆるビデオ通話アプリ、ブラウザ、OBSが選択できる「CMC PC Webcam」デバイス — 内蔵カメラまたは接続された任意のフォンのカメラを入力し、通話中でもアプリがデバイスを失うことなくソースを切り替え。各フォンパネルにも専用の仮想カメラが付きます。</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>ライブストリーム</h3><p>カメラまたはビデオパネルをLANまたはTailscale上の任意のブラウザへストリーミング（HLSプレーヤーページ）し、さらにTrXi-Ctrl、VLC、mpv向けの低遅延フィードも — 1回のエンコードで多数の視聴者 — またはYouTube Live、Facebook Live、Twitch、WeChat Channels、任意のRTMPサーバーへプッシュ。</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>共有と検出</h3><p>同じネットワーク上のCMCは自動的に互いを見つけ、グループコードでプレイリスト — ローカルファイルを含む — を他のCMCと共有します。</p></div>
+<div class="card"><div class="card-icon">🔔</div><h3>サウンドエフェクト</h3><p>プレイ中や配信中に即座に使えるオーディオキュー用のサウンドボード。</p></div>
+<div class="card"><div class="card-icon">🌈</div><h3>ビジュアライザー</h3><p>現在再生中のあらゆるものに対応するリアルタイムのオーディオリアクティブビジュアル。</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>動画エディター</h3><p>フレーム単位で正確なクリップシーケンサー：プレイヤーからIn/Outフレームを設定し、クリップを並べ替え、音楽トラック（元の音声の下にミックス、または置き換え）と字幕（焼き込み、または切り替え可能なトラックとして）を追加し、バックグラウンドで書き出します。</p></div>
+<div class="card"><div class="card-icon">🎚️</div><h3>18バンドイコライザーとオーディオ/ビデオエフェクト</h3><p>調整して保存できるプリセットで、部屋や気分に合わせてサウンドを形作れます — さらにオーディオエフェクトと専用のビデオエフェクトタブも。</p></div>
+<div class="card"><div class="card-icon">✅</div><h3>ノート</h3><p>メディアのすぐ横に、入力または手書きのノート（スタイラス/タッチ対応）— 作業中の制作/セッションノートに便利です。</p></div>
+<div class="card"><div class="card-icon">🔒</div><h3>ロック、テーマ、環境設定</h3><p>パターンでウィンドウをロックし（Ctrl+Alt+L）、テーマを切り替え、環境設定を行えます — AboutとHelpを内蔵。</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>リモートコントロール</h3><p>再生/一時停止/シーク/音量のすべての操作はmpv自身のIPCソケット経由で公開されており、 <a href="../trxi-ctrl.html">TrXi-Ctrl</a> — 私たちの無料スマホアプリ — が直接通信して本物のトランスポート操作を実現します。単なるセッション一覧ではありません。スマホからセッションを閉じると、中途半端なプレイヤーを残さずアプリ全体がきれいに終了します。</p></div>
+<div class="card"><div class="card-icon">🤖</div><h3>MCPサーバー</h3><p>バンドルされた Model Context Protocol サーバーが、再生ステータス、再生/一時停止/シーク/音量/開く、ライブラリ閲覧をツールとして公開します — これにより AI エージェントとあなたのスマートフォンは常に同じセッションを認識し、操作できます。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>オープンな基盤の上に構築</h2>
+<p>PySide6 (Qt) デスクトップアプリ、mpv 再生エンジン</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🖼️</div><h3>PySide6 / Qt</h3><p>ネイティブで応答性の高いデスクトップ UI — 他の Chameleon AI デスクトップアプリと同じ Python/Qt スタックの一部です。</p></div>
+<div class="card"><div class="card-icon">🎬</div><h3>mpv エンジン</h3><p>mpv 独自のウィンドウ埋め込みと JSON IPC ソケットを介して組み込み — 多くの Linux メディアツールを支える、信頼性が高く広く使われている同じ再生エンジンで、ディスク再生用に libdvdnav/libdvdread/libcdio/libbluray があらかじめリンクされています。</p></div>
+<div class="card"><div class="card-icon">🔊</div><h3>PulseAudio ネイティブのオーディオルーティング</h3><p>マルチデバイス出力は PulseAudio 自身の module-combine-sink を使用します。Bluetooth 受信や USB オーディオデバイスなど、あらゆるキャプチャソースは module-loopback を介してループされ、PulseAudio 自身の Bluetooth ポリシーがすでにルーティングを設定しているかどうかを先に確認し、それと競合することはありません。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>スクリーンショット</h2>
+<p>Chameleon Media Center — ライブキャプチャ</p>
+</div>
+<div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><img alt="Chameleon Media Center — YouTube の結果を含む検索タブ、再生中の動画、プレイリストの下のウォッチリストにキャッシュされた動画が表示されている" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">検索とウォッチリスト</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ADB Phone タブで 2 台の Android スマートフォンが並んでミラーリングされている" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">デュアルスマートフォンミラーリング</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — DVB TVチャンネルスキャンタブ" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVBテレビ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — DVD/CD/Blu-rayタブ" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD・CD・ブルーレイ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — Bluetooth Tx/Rxオーディオタブ" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth 送受信</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 18バンドイコライザー" loading="lazy" src="../media-assets/5-media.png"/><div class="sg-cap">18バンドイコライザー</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ライブ音声に反応するスペクトラムビジュアライザーオーバーレイ付きのYouTube再生" loading="lazy" src="../media-assets/xsr-260906080827.png"/><div class="sg-cap">ビジュアライザーオーバーレイ</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 代替のパステルスキン、大きなプレイリストを読み込んだアイドル状態のプレイヤー" loading="lazy" src="../media-assets/xsr-260906081653.png"/><div class="sg-cap">代替スキン</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 2台のAndroidスマートフォンを全幅で並べてミラーリング、一方はホーム画面、もう一方はアプリドロワーを表示" loading="lazy" src="../media-assets/xsr-260915061934.png"/><div class="sg-cap">全幅デュアルミラーリング</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 16ボタンの完全なコントロール列を備えたADB Phoneタブ：カメラ、Bluetooth、ホットスポット、Wi-Fi、ファイル転送など" loading="lazy" src="../media-assets/xsr-260915071637.png"/><div class="sg-cap">フルフォンコントロール列</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 3台のAndroidスマートフォンを同時にミラーリング、それぞれがTrXi-Ctrlリモートコントロールアプリを実行中" loading="lazy" src="../media-assets/xsr-260915095938.png"/><div class="sg-cap">トリプルフォンミラーリング</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 再生中のビデオの上にピクチャーインピクチャーの隅に内蔵ウェブカメラ、下に2台のスマートフォンをミラーリング" loading="lazy" src="../media-assets/xsr-260917115010.png"/><div class="sg-cap">ウェブカメラのピクチャーインピクチャー</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 再生中のビデオの上に、12個のワンクリックキューとカスタムサウンドを備えたサウンドエフェクトボード" loading="lazy" src="../media-assets/xsr-260917114526.png"/><div class="sg-cap">サウンドエフェクトボード</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 再生中にR&amp;Bプリセットを適用した18バンドイコライザー" loading="lazy" src="../media-assets/xsr-260917114617.png"/><div class="sg-cap">イコライザープリセット</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — オーディオエフェクトタブ：増幅、低音と高音のブースト、コンプレッサー、ノイズリダクション、コーラス、リバーブ、ディレイ" loading="lazy" src="../media-assets/xsr-260917114635.png"/><div class="sg-cap">オーディオエフェクト</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — RTMPS経由でYouTube Liveに配信するように設定されたライブストリームタブ" loading="lazy" src="../media-assets/xsr-260917114848.png"/><div class="sg-cap">YouTube Live にストリーミング</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 再生中のビデオの横にインポートされたPDFページを一覧表示するノートタブ" loading="lazy" src="../media-assets/xsr-260917114825.png"/><div class="sg-cap">ノート</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ビデオ再生中に完全なコントロール列を備えた2台のスマートフォンをミラーリング" loading="lazy" src="../media-assets/xsr-260917113637.png"/><div class="sg-cap">電話のコントロール</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ADB Phoneタブにミラーリングされたスマートフォン。戻る、ホーム、最近、入力のコントロール付き" loading="lazy" src="../media-assets/xsr-260907215740.png"/><div class="sg-cap">単一電話ミラーリング</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — スペクトラムビジュアライザーとFileメニュー、パステルスキン" loading="lazy" src="../media-assets/xsr-260906115748.png"/><div class="sg-cap">ビジュアライザーとファイルメニュー</div></div>
+</div>
+<div class="cta-band" style="margin-top:2.5rem;">
+<h3>Chameleon Media Center を入手</h3>
+<p>Chameleon AIデスクトップに同梱。 <strong>配布と入手可能性は最終調整中です</strong> — 現在の価格と在庫状況についてはお問い合わせください。</p>
+<a class="btn btn-solid" href="../contact.html">お問い合わせ</a>
+<a class="btn" href="../trxi-ctrl.html">TrXi-Ctrl → でスマートフォンから操作</a>
+<a class="btn" href="../index.html">← 概要に戻る</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>コメント</h2>
+</div>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">ホーム</a><a href="../ide.html">あなたにはアイデアがあります</a><a href="../presenter.html">プレゼンター</a><a href="../companion.html">コンパニオンアプリ</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../accounting.html">会計</a><a href="../technician.html">パソコン技術者</a>
+<a href="../classroom.html">u6388u696d</a><a href="../contact.html">接触</a><a href="../privacy.html">プライバシー</a><a href="../terms.html">規約</a><a href="../accessibility.html">アクセシビリティ</a><a href="../security.html">安全</a>
+</div>
+<p>© 2026 Chameleon AI Agent Ltd · Marcos aka stemsee 制作</p>
+</footer>
+</body>
+</html>

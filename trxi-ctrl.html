@@ -53,7 +53,7 @@
 <a href="technician.html">PC Technician</a>
 <a href="classroom.html">Classroom</a>
 <a href="contact.html">Contact</a>
-</div>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🌐 EN ▾</button><div class="lang-menu"><a href="ar/trxi-ctrl.html">🇸🇦 AR — العربية</a><a href="cy/trxi-ctrl.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="de/trxi-ctrl.html">🇩🇪 DE — Deutsch</a><a href="el/trxi-ctrl.html">🇬🇷 EL — Ελληνικά</a><a href="es/trxi-ctrl.html">🇪🇸 ES — Español</a><a href="fr/trxi-ctrl.html">🇫🇷 FR — Français</a><a href="hi/trxi-ctrl.html">🇮🇳 HI — हिन्दी</a><a href="id/trxi-ctrl.html">🇮🇩 ID — Indonesia</a><a href="it/trxi-ctrl.html">🇮🇹 IT — Italiano</a><a href="ja/trxi-ctrl.html">🇯🇵 JA — 日本語</a><a href="ko/trxi-ctrl.html">🇰🇷 KO — 한국어</a><a href="pl/trxi-ctrl.html">🇵🇱 PL — Polski</a><a href="pt/trxi-ctrl.html">🇵🇹 PT — Português</a><a href="ro/trxi-ctrl.html">🇷🇴 RO — Română</a><a href="ru/trxi-ctrl.html">🇷🇺 RU — Русский</a><a href="sw/trxi-ctrl.html">🇰🇪 SW — Kiswahili</a><a href="uk/trxi-ctrl.html">🇺🇦 UK — Українська</a><a href="vi/trxi-ctrl.html">🇻🇳 VI — Tiếng Việt</a><a href="zh/trxi-ctrl.html">🇨🇳 ZH — 中文</a></div></div></div>
 </div>
 </nav>
 <div class="hero">
@@ -69,7 +69,6 @@
 </div>
 </div>
 <div class="page" id="main" role="main">
-
 <div class="section-title">
 <h2>What it does</h2>
 <p>One phone app, one gateway daemon on your desktop</p>
@@ -88,7 +87,6 @@
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>A real shell, run from your phone.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AI chat</h3><p>Talk to whichever AI provider you've configured on the gateway — DeepSeek, OpenAI, Anthropic and more.</p></div>
 </div>
-
 <div class="section-title" style="margin-top:3rem;">
 <h2>Rooted phones</h2>
 <p>Two extra screens appear automatically when the phone has root (Magisk)</p>
@@ -97,7 +95,6 @@
 <div class="card"><div class="card-icon">🔐</div><h3>Hotspot VPN</h3><p>Share the phone's Tailscale exit node with every device on its Wi-Fi hotspot — laptops, TVs and consoles get the VPN without installing anything. Routing re-applies itself if the hotspot or Tailscale restarts, and a boot script can bring it all back after a reboot. Built for a phone left plugged in as a router: a charge limit, keep Tailscale out of battery optimisation, and Always-on VPN.</p></div>
 <div class="card"><div class="card-icon">💾</div><h3>USB mass storage</h3><p>Plug the phone into any PC and it appears as a USB drive. Create a disk image of up to 256 GB in seconds — FAT32 (every OS reads it), ext4 (no 4 GB file limit), or a bootable GPT disk with an EFI partition so a laptop can boot from the phone — then share it read-write or read-only, or open it on the phone itself. You can also hand the phone's SD card or a USB drive to the PC. ADB stays connected while sharing.</p></div>
 </div>
-
 <div class="section-title" style="margin-top:3rem;">
 <h2>The gateway</h2>
 <p>trixie-gateway — the desktop side, a single self-contained binary</p>
@@ -107,7 +104,6 @@
 <div class="card"><div class="card-icon">🔌</div><h3>~120 REST endpoints</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> that routes to whichever AI provider you configure.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>MCP server included</h3><p><code>media_mcp_server.py</code> exposes media control (status, play, pause, seek, volume, open, browse) as MCP tools over stdio JSON-RPC — the same session data and control path the phone app uses, so an AI agent and your phone always see the same thing.</p></div>
 </div>
-
 <div class="section-title" style="margin-top:3rem;">
 <h2>Compatibility</h2>
 <p>Built for Debian Trixie — honest about where else it runs</p>
@@ -122,7 +118,6 @@
 <tr><td>macOS (Intel &amp; Apple Silicon)</td><td class="test">🧪 Experimental test build</td><td>Same feature set as Windows, using Quartz, AVFoundation and <code>osascript</code>. Builds and starts in CI for both architectures but is <strong>untested on real Macs</strong>. The app is unsigned, and macOS will ask for Screen Recording and Accessibility permission</td></tr>
 </tbody>
 </table>
-
 <div class="section-title" style="margin-top:3rem;">
 <h2>Screenshots</h2>
 <p>TrXi-Ctrl — captured live, running on real hardware</p>
@@ -142,16 +137,14 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — Settings tab discovering gateways on the Tailscale network" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Gateway discovery</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — Settings tab with an AI provider key configured and app info" loading="lazy" src="trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AI provider setup</div></div>
 </div>
-
 <div class="cta-band" style="margin-top:2.5rem;">
 <h3>Download <span class="free-badge">FREE</span></h3>
 <p>Phone app (Android) + desktop gateway. Both open, both free.</p>
-<a class="btn btn-solid" href="trxi-ctrl-assets/trxi-ctrl.apk" download>⬇ Download the APK</a>
+<a class="btn btn-solid" download="" href="trxi-ctrl-assets/trxi-ctrl.apk">⬇ Download the APK</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway for Linux</a>
 <a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Windows &amp; macOS test builds 🧪</a>
 <a class="btn" href="https://github.com/cou645/trixie-gateway">View the gateway on GitHub →</a>
 </div>
-
 <div class="section-title" style="margin-top:3rem;">
 <h2>Install the gateway</h2>
 <p>On the Debian Trixie (or compatible Linux) machine you want to control</p>
@@ -165,33 +158,17 @@ tar -xzf trixie-gateway-linux-x86_64.tar.gz
 # or tap "Discover Peers" if you're both on the same Tailscale network</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Prefer Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, then <code>pip install -r requirements.txt</code> and <code>python3 gateway.py --port 8772</code>. Full install docs, including running it as a systemd service, are in the repo's <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows &amp; macOS test builds</strong> are on the <a href="https://github.com/cou645/trixie-gateway/releases">releases page</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). They are unsigned, so Windows SmartScreen will say "unknown publisher" (More info → Run anyway) and macOS will block the first launch (right-click → Open). Please report what breaks.</p>
-
 <div class="cta-band" style="margin-top:3rem;">
 <h3>Like TrXi-Ctrl? See what else we build</h3>
 <p>TrXi-Ctrl is the free, open piece of a bigger family of desktop AI tools — a code editor, a presentation studio, UK accounting, fleet dispatch and more.</p>
 <a class="btn btn-solid" href="index.html">See all Chameleon AI apps →</a>
 <a class="btn" href="companion.html">Chameleon Companion (phone + desktop AI) →</a>
 </div>
-
 <div class="section-title" style="margin-top:3rem;">
 <h2>Comments</h2>
 </div>
-<script src="https://giscus.app/client.js"
-        data-repo="cou645/chameleon-ai-agent-ltd"
-        data-repo-id="R_kgDOSF3GNQ"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOSF3GNc4DFqTX"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
-
 </div>
 <footer>
 <div class="foot-links">
