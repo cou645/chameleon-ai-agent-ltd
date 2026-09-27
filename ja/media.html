@@ -16,6 +16,7 @@
     border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
   }
   .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-frame video { width: 100%; height: auto; display: block; background: #000; }
   .screenshot-gallery .sg-cap {
     text-align: center; font-size: .75rem; color: #8888aa;
     padding: .4rem .6rem .6rem;
@@ -69,19 +70,20 @@
 <p>13のタブ、1つのメディアエンジン</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">🎞️</div><h3>ビデオパネル</h3><p>mpv による再生 — 幅広いフォーマット対応、滑らかなシーク、ワンクリックの全画面切り替え（または F11）、プレイヤープロセスが予期せず終了した場合の自動復旧、そして再起動をまたいで最後に選んだオーディオ出力デバイスを記憶し、デフォルトにリセットしません。低遅延のピクチャーインピクチャーオーバーレイは、内蔵ウェブカメラや任意のスマホなど最大4台のカメラを、再生中の映像の四隅に配置します。再生中のストリームをワンキーで録画、または再生中のものをダウンロードできます。</p></div>
+<div class="card"><div class="card-icon">🎞️</div><h3>ビデオパネル</h3><p>mpvによる再生 — 幅広いフォーマット対応、スムーズなシーク、ワンクリックの全画面切り替え（またはF11）、プレイヤープロセスが予期せず終了した場合の自動復旧、そして再起動しても最後に選んだオーディオ出力デバイスを記憶し、デフォルトにリセットされません。低遅延のピクチャーインピクチャーオーバーレイは、再生中のものの四隅に最大4台のカメラ — 内蔵ウェブカメラまたは任意のスマートフォン — を配置します。再生中のストリームを録画したり、再生中のものをワンキーでダウンロードしたりできます。IntelグラフィックスではH.264、HEVC、VP9、AV1をGPUでデコードします — よりスムーズな再生と長いバッテリー寿命のためにCPUを約40%削減 — そしてGPUが処理できないものは自動的にソフトウェアにフォールバックします。</p></div>
 <div class="card"><div class="card-icon">📃</div><h3>プレイリスト</h3><p>ドラッグ＆ドロップでの並べ替え、キューの管理、プレイリストのインポートと保存、ゴミ箱から削除済みプレイリストの復元。単一ファイルまたはフォルダ全体をサブフォルダごと追加できます。ファイルが存在しない項目 — 接続されていない USB ドライブ、整理して消したキャッシュ動画 — は戻るまでグレー表示になり、整理した動画はダブルクリックで再ダウンロードされます。</p></div>
-<div class="card"><div class="card-icon">🔎</div><h3>検索と視聴キャッシュ</h3><p>YouTube や Bilibili を検索し、TikTok クリエイターの最新動画を一覧表示し、TikTok、Instagram、Facebook、Snapchat Spotlight、Douyin のリンクを貼り付けます。結果はプレイリストの下の番号付きウォッチリストにキューします。視聴したものは視聴しながらディスクに保存されます — 別途ダウンロードは不要 — なので次回はローカルコピーから再生され、途中まで見た動画は保存済みの量を表示し、次回に残りを補完します。保存した動画をメインプレイリストに移動し、アプリを閉じるときに残すものや削除するものを選べます。オプションのブラウザ Cookie で「ロボットではないことを確認」やサインインの壁を突破できます。</p></div>
+<div class="card"><div class="card-icon">🔀</div><h3>交換可能なパネル</h3><p>動画を必要な場所に配置します。表示 → 動画 ⇄ プレイリスト（Ctrl+Shift+P）は動画を右列の上部に、プレイリストを左側に移動し、そこでは折りたたんでADBスマートフォンが左列の高さをすべて使えるようにできます。動画 ⇄ ウォッチリスト（Ctrl+Shift+W）は代わりに動画をプレイリストの下に配置します。入れ替えても再生はそのまま続き、選んだレイアウトは記憶され、全画面はどのレイアウトでも機能します。</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>検索と視聴キャッシュ</h3><p>YouTubeまたはBilibiliを検索したり、TikTokクリエイターの最新動画を一覧表示したり、TikTok、Instagram、Facebook、Snapchat Spotlight、Douyinのリンクを貼り付けたりできます。結果はプレイリストの下の番号付きウォッチリストにキューイングされます。視聴したものは視聴しながらディスクに保存されます — 別途ダウンロードは不要 — なので次回の視聴はローカルコピーから再生され、途中まで視聴した動画は保存済みの量を表示し、次回に残りを補完します。保存した動画をメインプレイリストに移動し、アプリを閉じるときにどれを残すか削除するかを選べます。オプションのブラウザCookieは「ロボットではないことを確認してください」やサインインの壁を突破します。ダウンロードを縮小にチェックを入れると、完了した各ダウンロードまたは録画はGPUで最大720pのHEVCに再エンコードされます — 通常は元のサイズの約3分の1 — 結果が小さくならない場合は元を保持します。</p></div>
 <div class="card"><div class="card-icon">📡</div><h3>DVBテレビ</h3><p>本物のデジタルテレビをスキャンして視聴 — DVB-T/T2、DVB-C、DVB-S/S2、ATSC — USBまたはPCIチューナーから直接。</p></div>
 <div class="card"><div class="card-icon">💿</div><h3>DVD / CD / ブルーレイ</h3><p>光学ドライブ内のメディアを自動検出し、DVD-Video、Blu-ray、Audio CDトラックを再生 — 別途ディスクソフトは不要。</p></div>
 <div class="card"><div class="card-icon">🔵</div><h3>BT/USBオーディオ</h3><p>再生を1台または複数のBluetoothスピーカーへ同時にルーティング（PulseAudio combine-sink）、アダプターを受信モードに切り替えてPC自体をBluetoothスピーカーにする、または取り込み <em>任意の</em> 他のPulseAudioキャプチャソース — USBターンテーブル、MiniDiscデッキ、DJミキサー/コントローラー、オーディオインターフェース — を再生とVisualizerへ直接。すべて1つのInput Sourcesチェックリストから。</p></div>
-<div class="card"><div class="card-icon">📱</div><h3>ADBフォン — 同時に最大16台</h3><p>1〜16個の独立パネルを好きな列数で並べたグリッド — その台数のAndroidフォンを同時にミラーリング・操作でき、それぞれに専用の画面、オーディオルーティング、入力があります。ピンチ（このボックスはタッチスクリーン対応）またはスクロールホイールで任意のフォン画面をズーム、Shift+ドラッグでパン。マウス、スタイラス、タッチ、または物理キーボードで直接タップ、スワイプ、入力 — デバイスごとに持続するシェルがすべての入力をリアルタイムに保ち、キーストロークごとに新たな接続コストを払う必要はありません。ワンクリックの「Connect Wireless」でUSB接続のフォンを自動的にadb-over-wifiへ切り替え、またはフォンのペアリングQRコードをスキャンしてWi-Fiでペアリング。任意のフォンへファイルをプッシュ/プルでき、スリープ中のフォンはストリーミング開始前に起こされます。</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADBフォン — 同時に最大16台</h3><p>1～16個の独立したパネルを好きなだけの列数で並べたグリッド — その数のAndroidスマートフォンを同時にミラーリングして操作できます。それぞれに専用の画面、オーディオルーティング、入力があります。ピンチ（このボックスにはタッチスクリーンがあります）またはスクロールホイールで任意のスマートフォンの画面にズームインし、Shift+ドラッグでパンします。マウス、スタイラス、タッチ、または物理キーボードで直接タップ、スワイプ、入力できます — デバイスごとに持続するシェルが、キーストロークごとに新しい接続コストを払う代わりに、すべての入力をリアルタイムに保ちます。ワンクリックの「ワイヤレス接続」でUSB接続のスマートフォンを自動的にadb-over-wifiに切り替えるか、スマートフォンのペアリングQRコードをスキャンしてWi-Fiでペアリングします。任意のスマートフォンにファイルをプッシュおよびプルでき、スリープ中のスマートフォンはストリーミング開始前に起こされます。ミラーは低遅延で動作します — スマートフォンの画面は利用可能な場合はGPUでデコードおよびスケーリングされます — そして各パネルにはA/V同期コントロールがあり、スマートフォンのPCオーディオをちょうど適切なミリ秒数だけ遅らせるので、音と映像が一致します。「画面オフ」はPCから視聴および操作を続けながらスマートフォン自体のディスプレイを消灯し、アプリを閉じると各スマートフォンのオーディオと画面がきれいに通常に戻ります。</p></div>
 <div class="card"><div class="card-icon">📷</div><h3>仮想カメラ</h3><p>あらゆるビデオ通話アプリ、ブラウザ、OBSが選択できる「CMC PC Webcam」デバイス — 内蔵カメラまたは接続された任意のフォンのカメラを入力し、通話中でもアプリがデバイスを失うことなくソースを切り替え。各フォンパネルにも専用の仮想カメラが付きます。</p></div>
-<div class="card"><div class="card-icon">📡</div><h3>ライブストリーム</h3><p>カメラまたはビデオパネルをLANまたはTailscale上の任意のブラウザへストリーミング（HLSプレーヤーページ）し、さらにTrXi-Ctrl、VLC、mpv向けの低遅延フィードも — 1回のエンコードで多数の視聴者 — またはYouTube Live、Facebook Live、Twitch、WeChat Channels、任意のRTMPサーバーへプッシュ。</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>ライブストリーム</h3><p>カメラまたはビデオパネルをLANまたはTailscale上の任意のブラウザにストリーミング（HLSプレーヤーページ）し、さらにTrXi-Ctrl、VLC、mpv用の低遅延フィードも提供 — 1回のエンコードから多数の視聴者 — またはYouTube Live、Facebook Live、Twitch、WeChat Channels、任意のRTMPサーバーにプッシュします。Intelグラフィックスでは、ストリームはCPUではなくGPUでエンコードされます。</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>共有と検出</h3><p>同じネットワーク上のCMCは自動的に互いを見つけ、グループコードでプレイリスト — ローカルファイルを含む — を他のCMCと共有します。</p></div>
 <div class="card"><div class="card-icon">🔔</div><h3>サウンドエフェクト</h3><p>プレイ中や配信中に即座に使えるオーディオキュー用のサウンドボード。</p></div>
 <div class="card"><div class="card-icon">🌈</div><h3>ビジュアライザー</h3><p>現在再生中のあらゆるものに対応するリアルタイムのオーディオリアクティブビジュアル。</p></div>
-<div class="card"><div class="card-icon">✂️</div><h3>動画エディター</h3><p>フレーム単位で正確なクリップシーケンサー：プレイヤーからIn/Outフレームを設定し、クリップを並べ替え、音楽トラック（元の音声の下にミックス、または置き換え）と字幕（焼き込み、または切り替え可能なトラックとして）を追加し、バックグラウンドで書き出します。</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>動画エディター</h3><p>フレーム精度のクリップシーケンサー：プレーヤーからIn/Outフレームを設定し、クリップを並べ替え、音楽トラック（元の音声の下にミックスまたは置き換え）と字幕（焼き込みまたは切り替え可能なトラックとして）を追加し、バックグラウンドでエクスポート — 利用可能な場合はGPUのハードウェアエンコーダーで。</p></div>
 <div class="card"><div class="card-icon">🎚️</div><h3>18バンドイコライザーとオーディオ/ビデオエフェクト</h3><p>調整して保存できるプリセットで、部屋や気分に合わせてサウンドを形作れます — さらにオーディオエフェクトと専用のビデオエフェクトタブも。</p></div>
 <div class="card"><div class="card-icon">✅</div><h3>ノート</h3><p>メディアのすぐ横に、入力または手書きのノート（スタイラス/タッチ対応）— 作業中の制作/セッションノートに便利です。</p></div>
 <div class="card"><div class="card-icon">🔒</div><h3>ロック、テーマ、環境設定</h3><p>パターンでウィンドウをロックし（Ctrl+Alt+L）、テーマを切り替え、環境設定を行えます — AboutとHelpを内蔵。</p></div>
@@ -102,8 +104,10 @@
 <p>Chameleon Media Center — ライブキャプチャ</p>
 </div>
 <div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><video aria-label="Chameleon Media Center — ビデオ ⇄ プレイリストレイアウト: 左側にフルハイトでミラーリングされた2台のAndroidスマートフォン、スマートフォンごとのA/V同期は200 msと150 msに設定、右上で再生中のビデオとその下にウォッチリスト" controls="" muted="" playsinline="" poster="media-assets/cmc-swap-av-sync-poster.jpg" preload="metadata"><source src="../media-assets/cmc-swap-av-sync.mp4" type="video/mp4"/></video><div class="sg-cap">スマートフォンごとのA/V同期付きビデオ ⇄ プレイリストレイアウト（ビデオ）</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — YouTube の結果を含む検索タブ、再生中の動画、プレイリストの下のウォッチリストにキャッシュされた動画が表示されている" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">検索とウォッチリスト</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — ADB Phone タブで 2 台の Android スマートフォンが並んでミラーリングされている" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">デュアルスマートフォンミラーリング</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — ライトテーマ、左上で再生中のビデオ、その下に2台のスマートフォンがミラーリングされたADB Phoneタブとデバイスを待機している3つ目のパネル、右側にプレイリスト" loading="lazy" src="../media-assets/xsr-260917102058.png"/><div class="sg-cap">3つのスマートフォンパネル</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — DVB TVチャンネルスキャンタブ" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVBテレビ</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — DVD/CD/Blu-rayタブ" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD・CD・ブルーレイ</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — Bluetooth Tx/Rxオーディオタブ" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">Bluetooth 送受信</div></div>

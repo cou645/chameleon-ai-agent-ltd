@@ -16,6 +16,7 @@
     border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
   }
   .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-frame video { width: 100%; height: auto; display: block; background: #000; }
   .screenshot-gallery .sg-cap {
     text-align: center; font-size: .75rem; color: #8888aa;
     padding: .4rem .6rem .6rem;
@@ -69,19 +70,20 @@
 <p>13개의 탭, 하나의 미디어 엔진</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">🎞️</div><h3>비디오 패널</h3><p>mpv 기반 재생 — 폭넓은 포맷 지원, 부드러운 탐색, 원클릭 전체 화면 전환(또는 F11), 플레이어 프로세스가 예기치 않게 종료되면 자동 복구, 그리고 재시작 간에 마지막으로 선택한 오디오 출력 장치를 기억해 기본값으로 재설정하지 않습니다. 저지연 PIP 오버레이는 내장 웹캠이나 모든 휴대폰 등 최대 4대의 카메라를 재생 중인 화면 모서리에 배치합니다. 재생 중인 스트림을 키 하나로 녹화하거나 재생 중인 것을 다운로드하세요.</p></div>
+<div class="card"><div class="card-icon">🎞️</div><h3>비디오 패널</h3><p>mpv로 구동되는 재생 — 폭넓은 형식 지원, 부드러운 탐색, 원클릭 전체 화면 전환(또는 F11), 플레이어 프로세스가 예기치 않게 종료되면 자동 복구, 그리고 재시작해도 기본값으로 재설정되지 않고 마지막으로 선택한 오디오 출력 장치를 기억합니다. 저지연 PIP 오버레이는 재생 중인 화면의 모서리에 최대 4대의 카메라 — 내장 웹캠 또는 모든 휴대폰 — 를 배치합니다. 재생 중인 스트림을 녹화하거나 재생 중인 것을 키 하나로 다운로드할 수 있습니다. Intel 그래픽에서는 H.264, HEVC, VP9, AV1을 GPU에서 디코딩합니다 — 더 부드러운 재생과 더 긴 배터리 수명을 위해 CPU를 약 40% 절감 — 그리고 GPU가 처리할 수 없는 것은 자동으로 소프트웨어로 폴백합니다.</p></div>
 <div class="card"><div class="card-icon">📃</div><h3>재생목록</h3><p>드래그 앤 드롭 재정렬, 대기열 관리, 재생목록 가져오기 및 저장, 휴지통에서 삭제된 재생목록 복원. 단일 파일 또는 하위 폴더를 포함한 전체 폴더를 추가하세요. 파일이 없는 항목 — 연결되지 않은 USB 드라이브, 정리한 캐시된 동영상 — 은 돌아올 때까지 회색으로 표시되며, 정리한 동영상은 더블 클릭으로 다시 다운로드됩니다.</p></div>
-<div class="card"><div class="card-icon">🔎</div><h3>검색 및 시청 캐시</h3><p>YouTube 또는 Bilibili를 검색하고, TikTok 크리에이터의 최신 동영상을 나열하거나, TikTok, Instagram, Facebook, Snapchat Spotlight 또는 Douyin 링크를 붙여넣으세요. 결과는 재생목록 아래의 번호가 매겨진 시청 목록에 대기시킵니다. 시청하는 모든 것은 시청하는 동안 디스크에 저장됩니다 — 별도 다운로드 없음 — 따라서 다음 시청은 로컬 복사본에서 재생되고, 일부 시청한 동영상은 저장된 양을 표시하고 다음에 나머지를 채웁니다. 저장된 동영상을 메인 재생목록으로 이동하고, 앱을 닫을 때 유지하거나 삭제할 항목을 선택하세요. 선택적 브라우저 쿠키로 "로봇이 아님을 확인" 및 로그인 장벽을 통과할 수 있습니다.</p></div>
+<div class="card"><div class="card-icon">🔀</div><h3>교체 가능한 패널</h3><p>비디오를 필요한 곳에 배치하세요. 보기 → 비디오 ⇄ 재생목록(Ctrl+Shift+P)은 비디오를 오른쪽 열 상단으로, 재생목록을 왼쪽으로 이동하며, 왼쪽에서는 접을 수 있어 ADB 휴대폰이 왼쪽 열의 전체 높이를 사용할 수 있습니다. 비디오 ⇄ 시청 목록(Ctrl+Shift+W)은 대신 비디오를 재생목록 아래에 배치합니다. 교체 중에도 재생이 그대로 이어지고, 선택한 레이아웃이 기억되며, 전체 화면은 모든 레이아웃에서 작동합니다.</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>검색 및 시청 캐시</h3><p>YouTube 또는 Bilibili를 검색하거나, TikTok 크리에이터의 최신 동영상을 나열하거나, TikTok, Instagram, Facebook, Snapchat Spotlight 또는 Douyin 링크를 붙여넣으세요. 결과는 재생목록 아래의 번호가 매겨진 시청 목록에 대기열로 추가됩니다. 시청하는 모든 것은 시청하는 동안 디스크에 저장됩니다 — 별도 다운로드 없음 — 따라서 다음 시청은 로컬 복사본에서 재생되고, 일부 시청한 동영상은 저장된 양을 표시하고 다음 번에 나머지를 채웁니다. 저장된 동영상을 메인 재생목록으로 이동하고, 앱을 닫을 때 보관하거나 삭제할 동영상을 선택하세요. 선택적 브라우저 쿠키는 "봇이 아님을 확인하세요"와 로그인 장벽을 통과합니다. 다운로드 축소를 체크하면 완료된 각 다운로드 또는 녹화가 GPU에서 최대 720p의 HEVC로 재인코딩됩니다 — 일반적으로 원본 크기의 약 3분의 1 — 결과가 더 작지 않으면 원본을 유지합니다.</p></div>
 <div class="card"><div class="card-icon">📡</div><h3>DVB TV</h3><p>실제 디지털 TV를 스캔하고 시청하세요 — DVB-T/T2, DVB-C, DVB-S/S2 및 ATSC — USB 또는 PCI 튜너에서 바로.</p></div>
 <div class="card"><div class="card-icon">💿</div><h3>DVD/CD/블루레이</h3><p>광학 드라이브에 있는 미디어를 자동으로 감지하고 DVD-Video, Blu-ray 또는 Audio CD 트랙을 재생합니다 — 별도의 디스크 소프트웨어가 필요 없습니다.</p></div>
 <div class="card"><div class="card-icon">🔵</div><h3>BT/USB 오디오</h3><p>재생을 한 대 또는 여러 대의 Bluetooth 스피커로 동시에 라우팅하고(PulseAudio combine-sink), 어댑터를 수신 모드로 전환해 PC 자체가 Bluetooth 스피커가 되게 하거나, 연결하세요 <em>모든</em> 다른 PulseAudio 캡처 소스 — USB 턴테이블, MiniDisc 데크, DJ 믹서/컨트롤러 또는 오디오 인터페이스 — 를 재생과 Visualizer에 바로 연결합니다. 모두 하나의 Input Sources 체크리스트에서.</p></div>
-<div class="card"><div class="card-icon">📱</div><h3>ADB 폰 — 동시에 최대 16대</h3><p>원하는 만큼의 열로 배치된 1–16개의 독립 패널 그리드 — 그만큼의 Android 폰을 동시에 미러링하고 제어하며, 각각 자체 화면, 오디오 라우팅 및 입력을 가집니다. 핀치(이 박스는 터치스크린입니다) 또는 스크롤 휠로 아무 폰의 화면을 확대하고, Shift+드래그로 이동하세요. 마우스, 스타일러스, 터치 또는 실제 키보드로 직접 탭, 스와이프, 입력하세요 — 기기별로 지속되는 셸이 모든 입력을 실시간으로 유지하므로 키 입력마다 새 연결 비용을 치를 필요가 없습니다. 원클릭 "Connect Wireless"는 USB로 연결된 폰을 자동으로 adb-over-wifi로 전환하거나, 폰의 페어링 QR 코드를 스캔해 Wi-Fi로 페어링합니다. 아무 폰에나 파일을 푸시 및 풀할 수 있으며, 절전 중인 폰은 스트리밍 시작 전에 깨웁니다.</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADB 폰 — 동시에 최대 16대</h3><p>원하는 만큼의 열에 1~16개의 독립 패널로 구성된 그리드 — 그만큼의 Android 휴대폰을 동시에 미러링하고 제어하며, 각각 자체 화면, 오디오 라우팅 및 입력을 가집니다. 핀치(이 박스에는 터치스크린이 있습니다) 또는 스크롤 휠로 어떤 휴대폰의 화면이든 확대하고, Shift+드래그로 이동하세요. 마우스, 스타일러스, 터치 또는 실제 키보드로 직접 탭, 스와이프, 입력하세요 — 기기별로 지속되는 셸이 키 입력마다 새로운 연결 비용을 치르는 대신 모든 입력을 실시간으로 유지합니다. 원클릭 "무선 연결"은 USB로 연결된 휴대폰을 자동으로 adb-over-wifi로 전환하거나, 휴대폰의 페어링 QR 코드를 스캔하여 Wi-Fi로 페어링합니다. 어떤 휴대폰으로든 파일을 푸시 및 풀할 수 있으며, 절전 중인 휴대폰은 스트리밍이 시작되기 전에 깨어납니다. 미러는 낮은 지연으로 실행됩니다 — 휴대폰 화면은 사용 가능한 경우 GPU에서 디코딩 및 스케일링됩니다 — 그리고 각 패널에는 휴대폰의 PC 오디오를 정확히 적절한 밀리초만큼 지연시키는 A/V 동기화 컨트롤이 있어 소리와 화면이 일치합니다. "화면 끄기"는 PC에서 계속 보고 제어하는 동안 휴대폰 자체 디스플레이를 꺼두고, 앱을 닫으면 모든 휴대폰의 오디오와 화면이 깔끔하게 정상으로 돌아옵니다.</p></div>
 <div class="card"><div class="card-icon">📷</div><h3>가상 카메라</h3><p>모든 화상 통화 앱, 브라우저 또는 OBS가 선택할 수 있는 "CMC PC Webcam" 장치 — 내장 카메라나 연결된 아무 폰의 카메라를 입력하고, 통화 중에도 앱이 장치를 잃지 않고 소스를 전환하세요. 각 폰 패널에도 자체 가상 카메라가 제공됩니다.</p></div>
-<div class="card"><div class="card-icon">📡</div><h3>라이브 스트림</h3><p>카메라 또는 비디오 패널을 LAN 또는 Tailscale의 모든 브라우저로 스트리밍하고(HLS 플레이어 페이지), TrXi-Ctrl, VLC 또는 mpv용 저지연 피드도 제공합니다 — 한 번의 인코딩으로 여러 시청자 — 또는 YouTube Live, Facebook Live, Twitch, WeChat Channels 또는 모든 RTMP 서버로 푸시하세요.</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>라이브 스트림</h3><p>카메라 또는 비디오 패널을 LAN 또는 Tailscale의 모든 브라우저로 스트리밍(HLS 플레이어 페이지)하고 TrXi-Ctrl, VLC 또는 mpv용 저지연 피드도 제공 — 한 번의 인코딩으로 많은 시청자 — 또는 YouTube Live, Facebook Live, Twitch, WeChat Channels 또는 모든 RTMP 서버로 푸시하세요. Intel 그래픽에서는 스트림이 CPU 대신 GPU에서 인코딩됩니다.</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>공유 및 검색</h3><p>같은 네트워크의 CMC는 서로를 자동으로 찾고, 그룹 코드로 재생목록 — 로컬 파일 포함 — 을 다른 CMC와 공유합니다.</p></div>
 <div class="card"><div class="card-icon">🔔</div><h3>사운드 효과</h3><p>플레이하거나 스트리밍하는 동안 즉석 오디오 큐를 위한 사운드보드.</p></div>
 <div class="card"><div class="card-icon">🌈</div><h3>시각화 도구</h3><p>현재 재생 중인 모든 것에 대한 실시간 오디오 반응형 비주얼.</p></div>
-<div class="card"><div class="card-icon">✂️</div><h3>비디오 편집기</h3><p>프레임 단위로 정확한 클립 시퀀서: 플레이어에서 In/Out 프레임을 설정하고, 클립을 재정렬하고, 음악 트랙(원본 사운드 아래에 믹스하거나 대체)과 자막(구워 넣거나 전환 가능한 트랙으로)을 추가한 다음 백그라운드에서 내보내세요.</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>비디오 편집기</h3><p>프레임 정확한 클립 시퀀서: 플레이어에서 In/Out 프레임을 설정하고, 클립을 재정렬하고, 음악 트랙(원본 사운드 아래에 믹스하거나 대체)과 자막(번인 또는 전환 가능한 트랙으로)을 추가한 다음 백그라운드에서 내보내기 — 사용 가능한 경우 GPU의 하드웨어 인코더에서.</p></div>
 <div class="card"><div class="card-icon">🎚️</div><h3>18밴드 이퀄라이저 및 오디오/비디오 효과</h3><p>조정하고 저장할 수 있는 프리셋으로 공간이나 분위기에 맞게 사운드를 다듬으세요 — 오디오 효과와 전용 비디오 효과 탭도 함께 제공됩니다.</p></div>
 <div class="card"><div class="card-icon">✅</div><h3>ucc38uace0</h3><p>미디어 바로 옆에 입력하거나 손으로 쓴 노트(스타일러스/터치 지원) — 작업 중 제작/세션 노트에 유용합니다.</p></div>
 <div class="card"><div class="card-icon">🔒</div><h3>잠금, 테마 및 환경설정</h3><p>패턴으로 창을 잠그고(Ctrl+Alt+L), 테마를 전환하고, 환경설정을 지정하세요 — About과 Help가 내장되어 있습니다.</p></div>
@@ -102,8 +104,10 @@
 <p>Chameleon Media Center — 라이브 캡처</p>
 </div>
 <div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><video aria-label="Chameleon Media Center — 비디오 ⇄ 재생목록 레이아웃: 왼쪽에 전체 높이로 미러링된 두 대의 Android 휴대폰, 휴대폰별 A/V 동기화가 200ms 및 150ms로 설정됨, 오른쪽 상단에 재생 중인 비디오와 그 아래에 시청 목록" controls="" muted="" playsinline="" poster="media-assets/cmc-swap-av-sync-poster.jpg" preload="metadata"><source src="../media-assets/cmc-swap-av-sync.mp4" type="video/mp4"/></video><div class="sg-cap">휴대폰별 A/V 동기화가 있는 비디오 ⇄ 재생목록 레이아웃(비디오)</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — YouTube 결과가 있는 검색 탭, 재생 중인 동영상, 재생목록 아래의 시청 목록에 캐시된 동영상이 표시됨" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">검색 및 시청 목록</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — ADB Phone 탭에서 두 대의 Android 폰이 나란히 미러링됨" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">듀얼 폰 미러링</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 라이트 테마, 왼쪽 상단에 재생 중인 비디오, 아래에 두 대의 휴대폰이 미러링된 ADB Phone 탭과 기기를 기다리는 세 번째 패널, 오른쪽에 재생목록" loading="lazy" src="../media-assets/xsr-260917102058.png"/><div class="sg-cap">세 개의 휴대폰 패널</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — DVB TV 채널 스캔 탭" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVB TV</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — DVD/CD/Blu-ray 탭" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD · CD · 블루레이</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — Bluetooth Tx/Rx 오디오 탭" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">블루투스 송신/수신</div></div>

@@ -16,6 +16,7 @@
     border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
   }
   .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+  .screenshot-gallery .sg-frame video { width: 100%; height: auto; display: block; background: #000; }
   .screenshot-gallery .sg-cap {
     text-align: center; font-size: .75rem; color: #8888aa;
     padding: .4rem .6rem .6rem;
@@ -69,19 +70,20 @@
 <p>十三个标签页，一个媒体引擎</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">🎞️</div><h3>视频面板</h3><p>播放由 mpv 驱动 — 支持多种格式、流畅跳转、一键全屏切换（或 F11）、播放器进程意外终止时自动恢复，并且会记住你上次选择的音频输出设备，重启后不会重置为默认值。低延迟画中画叠加可将最多四个摄像头 — 内置摄像头或任意手机 — 放在正在播放内容的四角。一键录制正在播放的流，或下载正在播放的内容。</p></div>
+<div class="card"><div class="card-icon">🎞️</div><h3>视频面板</h3><p>由 mpv 提供播放支持——广泛的格式支持、流畅的跳转、一键全屏切换（或 F11）、播放器进程意外终止时自动恢复，并且会记住你上次选择的音频输出设备，重启后不会重置为默认值。低延迟画中画叠加层可将最多四个摄像头——内置网络摄像头或任意手机——放置在正在播放内容的角落。一键录制正在播放的流，或下载正在播放的内容。在 Intel 显卡上，它会在 GPU 上解码 H.264、HEVC、VP9 和 AV1——CPU 占用约减少 40%，播放更流畅、电池续航更长——对于 GPU 无法处理的格式会自动回退到软件解码。</p></div>
 <div class="card"><div class="card-icon">📃</div><h3>播放列表</h3><p>拖放重新排序、队列管理、播放列表导入和保存，以及从回收站恢复已删除的播放列表。可添加单个文件或整个文件夹（含子文件夹）。文件不存在的条目 — 未插入的 USB 驱动器、你已清理的缓存视频 — 会变灰直到文件恢复，而已清理的视频双击即可重新下载。</p></div>
-<div class="card"><div class="card-icon">🔎</div><h3>搜索与观看缓存</h3><p>搜索 YouTube 或哔哩哔哩，列出 TikTok 创作者的最新视频，或粘贴 TikTok、Instagram、Facebook、Snapchat Spotlight 或抖音链接。结果会排队到播放列表下方的编号观看列表中。你观看的任何内容都会在观看时保存到磁盘 — 无需单独下载 — 因此下次观看会从本地副本播放，部分观看的视频会显示已保存的进度，并在下次补齐剩余部分。将已保存的视频移到主播放列表，并在关闭应用时选择保留或删除哪些视频。可选的浏览器 cookie 可绕过“确认你不是机器人”和登录墙。</p></div>
+<div class="card"><div class="card-icon">🔀</div><h3>可互换面板</h3><p>把视频放到你需要的位置。视图 → 视频 ⇄ 播放列表（Ctrl+Shift+P）将视频移到右列的顶部，并将播放列表移到左侧，在那里可以折叠，让 ADB 手机获得左列的全部高度；视频 ⇄ 观看列表（Ctrl+Shift+W）则将视频放在播放列表下方。切换过程中播放会继续进行，你选择的布局会被记住，并且全屏在所有布局中都可用。</p></div>
+<div class="card"><div class="card-icon">🔎</div><h3>搜索与观看缓存</h3><p>搜索 YouTube 或 Bilibili，列出 TikTok 创作者的最新视频，或粘贴 TikTok、Instagram、Facebook、Snapchat Spotlight 或抖音链接。将结果排队到播放列表下方的编号观看列表中。你观看的任何内容都会在观看时保存到磁盘——无需单独下载——因此下次观看会从本地副本播放，部分观看的视频会显示已保存的进度，并在下次补齐剩余部分。将已保存的视频移到主播放列表，并在关闭应用时选择要保留或删除哪些视频。可选的浏览器 cookie 可绕过“确认你不是机器人”和登录墙。勾选“压缩下载”后，每个完成的下载或录制都会在 GPU 上重新编码为最高 720p 的 HEVC——通常约为原始大小的三分之一——如果结果不会更小则保留原始文件。</p></div>
 <div class="card"><div class="card-icon">📡</div><h3>DVB 电视</h3><p>扫描并观看真正的数字电视 — DVB-T/T2、DVB-C、DVB-S/S2 和 ATSC — 直接来自 USB 或 PCI 调谐器。</p></div>
 <div class="card"><div class="card-icon">💿</div><h3>DVD / CD / 蓝光</h3><p>自动检测光驱中的内容并播放 DVD-Video、蓝光或音频 CD 曲目 — 无需单独的碟片软件。</p></div>
 <div class="card"><div class="card-icon">🔵</div><h3>BT/USB 音频</h3><p>将播放路由到一个或多个蓝牙扬声器（PulseAudio combine-sink），将适配器切换为接收模式，使 PC 本身成为蓝牙扬声器，或接入 <em>任何</em> 其他 PulseAudio 采集源 — USB 唱机、MiniDisc 播放器、DJ 混音器/控制器或音频接口 — 直接进入播放和可视化器，全部通过一个输入源清单完成。</p></div>
-<div class="card"><div class="card-icon">📱</div><h3>ADB 手机 — 最多同时 16 台</h3><p>一个由 1–16 个独立面板组成的网格，列数随您喜欢 — 同时镜像和控制这么多 Android 手机，每台都有自己的屏幕、音频路由和输入。双指捏合（此设备有触摸屏）或滚轮可缩放任意手机屏幕，Shift+拖动可平移。直接用鼠标、触控笔、触摸或物理键盘点击、滑动和输入 — 每台设备的持久 shell 让每次输入都实时进行，而不必为每次按键付出新的连接开销。一键“无线连接”会自动将 USB 连接的手机切换为 adb-over-wifi，或通过扫描手机的配对二维码进行 Wi-Fi 配对。向任意手机推送和拉取文件，休眠的手机在开始串流前会被唤醒。</p></div>
+<div class="card"><div class="card-icon">📱</div><h3>ADB 手机 — 最多同时 16 台</h3><p>一个由 1–16 个独立面板组成的网格，列数随你喜好——可同时镜像和控制同样数量的 Android 手机，每台都有自己的屏幕、音频路由和输入。双指捏合（此设备有触摸屏）或滚轮可放大任意手机的屏幕，Shift+拖动可平移。直接用鼠标、触控笔、触摸或物理键盘进行点击、滑动和输入——每台设备持久的 shell 让每次输入都实时进行，而不必为每次按键付出新建连接的开销。一键“无线连接”会自动将 USB 连接的手机切换到 adb-over-wifi，或通过扫描手机的配对二维码进行 Wi-Fi 配对。向任意手机推送和拉取文件，休眠的手机会在开始串流前被唤醒。镜像以低延迟运行——手机的屏幕在可用时于 GPU 上解码和缩放——并且每个面板都有 A/V 同步控制，可将手机的 PC 音频延迟恰到好处的毫秒数，使声音和画面同步。息屏会在你继续从 PC 观看和控制手机时关闭手机自身的显示，关闭应用会干净地将每台手机的音视频恢复正常。</p></div>
 <div class="card"><div class="card-icon">📷</div><h3>虚拟摄像头</h3><p>一个“CMC PC Webcam”设备，任何视频通话应用、浏览器或 OBS 都可以选择 — 向它提供内置摄像头或任何已连接手机的摄像头，并在通话中切换源而不会让应用丢失设备。每个手机面板也都有自己的虚拟摄像头。</p></div>
-<div class="card"><div class="card-icon">📡</div><h3>直播</h3><p>将摄像头或视频面板串流到您局域网或 Tailscale 上的任何浏览器（HLS 播放器页面），并为 TrXi-Ctrl、VLC 或 mpv 提供低延迟流 — 一次编码即可供众多观看者 — 或推送到 YouTube Live、Facebook Live、Twitch、微信视频号或任何 RTMP 服务器。</p></div>
+<div class="card"><div class="card-icon">📡</div><h3>直播</h3><p>将摄像头或视频面板串流到局域网或 Tailscale 上的任意浏览器（HLS 播放器页面），并为 TrXi-Ctrl、VLC 或 mpv 提供低延迟流——一次编码即可供众多观看者——或将其推送到 YouTube Live、Facebook Live、Twitch、微信视频号或任意 RTMP 服务器。在 Intel 显卡上，流会在 GPU 上编码而不是 CPU。</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>分享与发现</h3><p>同一网络上的 CMC 会自动找到彼此，群组代码可将您的播放列表 — 包括本地文件 — 分享给其他 CMC。</p></div>
 <div class="card"><div class="card-icon">🔔</div><h3>音效</h3><p>用于在游戏或直播时即时播放音频提示的音板。</p></div>
 <div class="card"><div class="card-icon">🌈</div><h3>可视化器</h3><p>为当前播放的任何内容提供实时音频响应视觉效果。</p></div>
-<div class="card"><div class="card-icon">✂️</div><h3>视频编辑器</h3><p>帧精确的片段序列器：从播放器设置入点/出点帧，重新排列片段，添加音乐轨道（混音在原始声音之下或替换原始声音）和字幕（烧录或作为可切换轨道），然后在后台导出。</p></div>
+<div class="card"><div class="card-icon">✂️</div><h3>视频编辑器</h3><p>帧精确的片段序列器：从播放器设置入点/出点帧，重新排列片段，添加音乐轨道（混音在原始声音之下或替换原始声音）和字幕（烧录或作为可切换轨道），然后在后台导出——在可用时使用 GPU 的硬件编码器。</p></div>
 <div class="card"><div class="card-icon">🎚️</div><h3>18 段均衡器与音频/视频效果</h3><p>用可调整并保存的预设让声音适应房间或氛围——外加音频效果和专门的视频效果选项卡。</p></div>
 <div class="card"><div class="card-icon">✅</div><h3>笔记</h3><p>在媒体旁边直接输入或手写笔记（支持触控笔/触摸）——适合在工作时记录制作/会话笔记。</p></div>
 <div class="card"><div class="card-icon">🔒</div><h3>锁定、主题与偏好设置</h3><p>用图案锁定窗口（Ctrl+Alt+L），切换主题并设置偏好——内置“关于”和“帮助”。</p></div>
@@ -102,8 +104,10 @@
 <p>Chameleon Media Center — 实时捕获</p>
 </div>
 <div class="screenshot-gallery" id="media-gallery">
+<div class="sg-frame"><video aria-label="Chameleon Media Center — 视频 ⇄ 播放列表布局：左侧以全高镜像显示两部 Android 手机，每部手机的 A/V 同步分别设为 200 毫秒和 150 毫秒，右上角播放视频，其下方为观看列表" controls="" muted="" playsinline="" poster="media-assets/cmc-swap-av-sync-poster.jpg" preload="metadata"><source src="../media-assets/cmc-swap-av-sync.mp4" type="video/mp4"/></video><div class="sg-cap">视频 ⇄ 播放列表布局，支持每部手机的 A/V 同步（视频）</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — 搜索标签页显示 YouTube 结果、正在播放的视频，以及播放列表下方的观看列表显示一个已缓存的视频" loading="lazy" src="../media-assets/xsr-260925195130.png"/><div class="sg-cap">搜索和观看列表</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — 两台 Android 手机在 ADB Phone 标签页中并排镜像" loading="lazy" src="../media-assets/1-media.png"/><div class="sg-cap">双手机镜像</div></div>
+<div class="sg-frame"><img alt="Chameleon Media Center — 浅色主题，左上角播放视频，下方为 ADB Phone 标签页，其中镜像显示两部手机，第三个面板等待设备接入，右侧为播放列表" loading="lazy" src="../media-assets/xsr-260917102058.png"/><div class="sg-cap">三个手机面板</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — DVB 电视频道扫描选项卡" loading="lazy" src="../media-assets/2-media.png"/><div class="sg-cap">DVB 电视</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — DVD/CD/蓝光选项卡" loading="lazy" src="../media-assets/3-media.png"/><div class="sg-cap">DVD·CD·蓝光</div></div>
 <div class="sg-frame"><img alt="Chameleon Media Center — 蓝牙发送/接收音频选项卡" loading="lazy" src="../media-assets/4-media.png"/><div class="sg-cap">蓝牙 Tx/Rx</div></div>
