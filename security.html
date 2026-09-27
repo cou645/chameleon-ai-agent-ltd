@@ -59,7 +59,7 @@
 <div class="legal">
 <div class="card">
 
-<p class="meta"><strong>Published:</strong> 2 September 2026 &nbsp;·&nbsp; <strong>Last reviewed:</strong> 5 September 2026</p>
+<p class="meta"><strong>Published:</strong> 2 September 2026 &nbsp;·&nbsp; <strong>Last reviewed:</strong> 27 September 2026</p>
 
 <h2>1. Reporting a vulnerability</h2>
 <p>Email <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a>. Please do not post security problems in a public forum or a support ticket before we have had a chance to fix them.</p>
@@ -95,7 +95,9 @@
 <li><strong>Data stays on your device.</strong> The ledger, the HMRC OAuth tokens and your API credentials are stored locally and are never routed through us.</li>
 <li><strong>Signed updates.</strong> The release manifest and download archives are signed with an Ed25519 key. The software verifies the signature offline against a built-in public key and ignores anything that does not verify. You choose when to upgrade; nothing is installed automatically. The public key is at <a href="/.well-known/chameleon-accounting-release.pub">/.well-known/chameleon-accounting-release.pub</a>.</li>
 <li><strong>Local hardening check.</strong> <code>chameleon_accounting.py --security-check</code> audits file permissions, token age, the TLS trust store and the OAuth configuration on the machine; <code>--security-check --fix</code> tightens what it can.</li>
-<li><strong>Standard TLS.</strong> Connections use the operating system's certificate store. We do not pin certificates.</li>
+<li><strong>Standard TLS to online services.</strong> Connections to HMRC, banks and AI providers use the operating system's certificate store.</li>
+<li><strong>Encrypted phone-to-desktop links.</strong> Your phone connects to your desktop over TLS with a per-install certificate that the phone pins by fingerprint, or over Tailscale (WireGuard). Unencrypted connections on the local network are refused unless you turn them on.</li>
+<li><strong>Credentials.</strong> API keys are kept in one key file on your device that only you can read, and never in our source code. Sign-in patterns are stored only as salted, deliberately slow hashes, and repeated wrong attempts lock out.</li>
 </ul>
 
 <h2>6. AI features and your data</h2>
@@ -119,7 +121,10 @@
 </ol>
 <p>See our <a href="privacy.html">Privacy Policy</a> for how we handle personal data.</p>
 
-<h2>8. Machine-readable contact</h2>
+<h2>8. How we manage information security</h2>
+<p>Our security controls are aligned with the Annex A controls of ISO/IEC 27001:2022 that apply to a small software publisher: access control and authentication, protection of credentials, cryptography, secure development, vulnerability management and incident response. The policy is owned by the company director and reviewed every year and after any incident. We are <strong>not certified</strong> to ISO/IEC 27001 and do not claim to be.</p>
+
+<h2>9. Machine-readable contact</h2>
 <p>This policy is also advertised at <a href="/.well-known/security.txt">/.well-known/security.txt</a> in the format defined by <a href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener" target="_blank">RFC 9116</a>.</p>
 <div class="contact-box">
 <p style="margin:.2rem 0;"><strong>Security contact:</strong> <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a></p>

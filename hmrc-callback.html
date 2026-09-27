@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="robots" content="noindex"/>
+<meta name="referrer" content="no-referrer"/>
 <title>HMRC authorisation — Chameleon Accounting</title>
 <link href="style.css" rel="stylesheet"/>
 <style>
@@ -30,32 +31,57 @@
 </div>
 <script>
 (function () {
+  // Everything taken from the URL is inserted with textContent only — never
+  // innerHTML — so a crafted link cannot inject markup or script into this
+  // page (the error_description parameter used to be inserted as HTML).
   var q = new URLSearchParams(location.search);
-  var code = q.get('code'), err = q.get('error'), desc = q.get('error_description');
+  var code = q.get('code'), state = q.get('state');
+  var err = q.get('error'), desc = q.get('error_description');
   var b = document.getElementById('body');
+  function el(tag, text, cls) {
+    var e = document.createElement(tag);
+    if (text) e.textContent = text;
+    if (cls) e.className = cls;
+    return e;
+  }
+  b.textContent = '';
   if (err) {
-    b.innerHTML = '<p class="err"><strong>HMRC returned an error:</strong> ' +
-      encodeURIComponent(err) + (desc ? ' — ' + desc : '') + '</p>' +
-      '<p>Close this tab and start the authorisation again.</p>';
+    var p = el('p', null, 'err');
+    p.appendChild(el('strong', 'HMRC returned an error: '));
+    p.appendChild(document.createTextNode(err + (desc ? ' — ' + desc : '')));
+    b.appendChild(p);
+    b.appendChild(el('p', 'Close this tab and start the authorisation again.'));
     return;
   }
   if (!code) {
-    b.innerHTML = '<p>No authorisation code in the URL. Open this page only via ' +
-      'the HMRC consent flow started by Chameleon Accounting.</p>';
+    b.appendChild(el('p', 'No authorisation code in the URL. Open this page only via ' +
+      'the HMRC consent flow started by Chameleon Accounting.'));
     return;
   }
-  b.innerHTML =
-    '<p>Authorisation granted. Copy this code back into Chameleon Accounting:</p>' +
-    '<div class="code-box" id="c">' + code.replace(/[<>&"]/g, '') + '</div>' +
-    '<button id="cp">Copy code</button>' +
-    '<p class="ok" id="s"></p>' +
-    '<p style="margin-top:1rem;">Then run<br>' +
-    '<code>chameleon_accounting.py --hmrc-exchange-code &lt;code&gt; --hmrc-sandbox</code></p>';
-  document.getElementById('cp').onclick = function () {
-    var t = document.getElementById('c').textContent;
-    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject())
-      .then(function () { document.getElementById('s').textContent = 'Copied.'; })
-      .catch(function () { document.getElementById('s').textContent = 'Select the code above and copy it manually.'; });
+  // The software checks the OAuth "state" as well as the code, so what the
+  // user copies is this page's full address (it carries both).
+  var full = location.href;
+  b.appendChild(el('p', 'Authorisation granted. Copy this address back into ' +
+    'Chameleon Accounting (it contains the code and the security check value):'));
+  var box = el('div', full, 'code-box'); box.id = 'c';
+  b.appendChild(box);
+  var btn = el('button', 'Copy'); btn.id = 'cp';
+  b.appendChild(btn);
+  var status = el('p', null, 'ok'); status.id = 's';
+  b.appendChild(status);
+  if (!state) {
+    b.appendChild(el('p', 'This address has no "state" value — the software ' +
+      'will refuse it. Start the authorisation again from Chameleon Accounting.', 'err'));
+  }
+  var hint = el('p', 'In the app, paste it into the HMRC connection box. ' +
+    'From the command line, run (keep the quotes):');
+  hint.style.marginTop = '1rem';
+  b.appendChild(hint);
+  b.appendChild(el('code', "chameleon_accounting.py --hmrc-exchange-code '<address>' --hmrc-sandbox"));
+  btn.onclick = function () {
+    (navigator.clipboard ? navigator.clipboard.writeText(full) : Promise.reject())
+      .then(function () { status.textContent = 'Copied.'; })
+      .catch(function () { status.textContent = 'Select the address above and copy it manually.'; });
   };
 })();
 </script>
