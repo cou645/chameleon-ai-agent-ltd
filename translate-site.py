@@ -176,10 +176,22 @@ def _cache_dirs() -> list:
     return [Path(d) for d in dirs]
 
 
+# Corrections made in CBN (Open website…): {lang: {english: {"t": ..}}}.
+# Read before the cache, so a lost or refreshed cache can't undo them.
+try:
+    OVERRIDES = json.loads((SITE_ROOT / "translation-overrides.json")
+                           .read_text(encoding="utf-8"))
+except (OSError, ValueError):
+    OVERRIDES = {}
+
+
 def cached_translation(lang: str, canon_text: str):
     """Read a base translation straight from the hashtext flat-file cache — no
     subprocess. Handles gzip-compressed and styled-JSON entries. Returns the
     translation string, or None on a miss."""
+    o = OVERRIDES.get(lang, {}).get(canon_text)
+    if o:
+        return o["t"]
     h = hashlib.md5(canon_text.encode("utf-8")).hexdigest()
     for d in _cache_dirs():
         p = d / lang / f"{h}.hashtext"
