@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Book64 Narrator — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .fmt { font-weight: 600; color: var(--brand-text); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">تخطي إلى المحتوى الرئيسي</a>
+<div class="pre-note">
+  Chameleon Book64 Narrator is in active development. The features below are current; pricing and general availability are still being finalised — <a href="../contact.html">اتصل بنا بشأن الترخيص</a>.
+</div>
+<nav aria-label="أساسي">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="شعار Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">بيت</a>
+<a href="../ide.html">لديك أفكار</a>
+<a href="../presenter.html">مقدم</a>
+<a class="active" href="../book64.html">Book64 Narrator</a>
+<a href="../companion.html">التطبيق المصاحب</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">مركز الوسائط</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">خدمات الويب</a>
+<a href="../accounting.html">محاسبة</a>
+<a href="../technician.html">فني كمبيوتر</a>
+<a href="../classroom.html">الفصل الدراسي</a>
+<a href="../contact.html">اتصال</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇸🇦 AR ▾</button><div class="lang-menu"><a href="../book64.html">🌐 EN — English</a><a href="../cy/book64.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/book64.html">🇩🇪 DE — Deutsch</a><a href="../es/book64.html">🇪🇸 ES — Español</a><a href="../fr/book64.html">🇫🇷 FR — Français</a><a href="../hi/book64.html">🇮🇳 HI — हिन्दी</a><a href="../it/book64.html">🇮🇹 IT — Italiano</a><a href="../ja/book64.html">🇯🇵 JA — 日本語</a><a href="../ko/book64.html">🇰🇷 KO — 한국어</a><a href="../pt/book64.html">🇵🇹 PT — Português</a><a href="../ru/book64.html">🇷🇺 RU — Русский</a><a href="../zh/book64.html">🇨🇳 ZH — 中文</a><a href="../el/book64.html">🇬🇷 EL — Ελληνικά</a><a href="../id/book64.html">🇮🇩 ID — Indonesia</a><a href="../pl/book64.html">🇵🇱 PL — Polski</a><a href="../ro/book64.html">🇷🇴 RO — Română</a><a href="../sw/book64.html">🇰🇪 SW — Kiswahili</a><a href="../uk/book64.html">🇺🇦 UK — Українська</a><a href="../vi/book64.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📖</div>
+<h1>Chameleon Book64 Narrator</h1>
+<p class="sub">أداة لإنشاء ملفات ePub ورف كتب شخصي آمن ومفهرس — مع سرد صوتي يقرأ بالكلمة أو العبارة أو الجملة أو الفئة النحوية أو بصوت واحد متدفق.</p>
+<div class="hero-badges">
+<span class="badge">🔊 سرد صوتي</span>
+<span class="badge">🌐 لغتان جنبًا إلى جنب</span>
+<span class="badge">📚 يستورد ويصدّر ePub</span>
+<span class="badge">🖨 طباعة وPDF</span>
+<span class="badge">🔒 صفحات محمية بكلمة مرور</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>ما يمكنك القيام به معها</h2>
+<p>اقرأ واستمع واكتب وتعلّم — في كتاب مفهرس واحد</p>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>اسمع كل صفحة</h3>
+<p>يقرأ الراوي بصوت عالٍ بأصوات طبيعية دون اتصال ويبرز النص أثناء القراءة. اختر طريقة التقدم: كلمة بكلمة، أو عبارة، أو جملة، أو قراءة متدفقة — أو حسب الفئة النحوية، مع إبراز الأفعال أو الأسماء أو الصفات.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗣️</div>
+<h3>مثالي لممارسة اللغة</h3>
+<p>أبطئ الجملة، وكرر عبارة واحدة، وتابع القواعد بالألوان، واستمع إلى المقطع نفسه بلغة ثانية. اسأل مدرّس الذكاء الاصطناعي المدمج عن أي كلمة أو سطر في الصفحة — نصًا أو صوتًا.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>لغتان بالتوازي</h3>
+<p>احتفظ بترجمة بجانب كل صفحة واعرضها فوق النص الأصلي، آية بآية أو فقرة بفقرة. يضيء السطر المطابق باللغة الأخرى أثناء القراءة أو الاستماع.</p>
+</div>
+<div class="card">
+<div class="card-icon">📝</div>
+<h3>اكتب كتبك الخاصة</h3>
+<p>مدخلات مفهرسة للوصفات والملاحظات وكلمات الأغاني والمجموعات الشعرية والمواد الدراسية والمزيد. نسّق باستخدام شريط أدوات مألوف، وجمّع الصفحات في أقسام، وأعطِ كل مدخل عنوانًا وأيقونة وتعليقًا.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>كتب قصيرة أو طويلة</h3>
+<p>احفظ كتابًا مفهرسًا قصيرًا <span class="fmt">.Sbook64</span> أو طويلًا <span class="fmt">.Lbook64</span>. الكتاب بأكمله ملف واحد يمكنك نسخه أو نسخه احتياطيًا أو إرساله — والصور المضمّنة تنتقل داخله.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖼️</div>
+<h3>الصور المضمّنة</h3>
+<p>أفلت الصور مباشرةً في الصفحة؛ فهي تُخزَّن داخل الكتاب. احزمها في الملف للإرسال، أو فُكّ ضغطها إلى مجلد للتحرير السريع.</p>
+</div>
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>ePub داخل، ePub خارج</h3>
+<p>استورد ePub (وكذلك Word وOpenDocument وHTML وMarkdown والنص) وستصبح كل فصل صفحة قابلة للتحرير. صدّر كتابك — أو إحدى ترجماته فقط — ككتاب إلكتروني ePub 3 مع جدول محتويات، أو اطبعه واحفظه بصيغة PDF.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>ابحث في الرف بأكمله</h3>
+<p>اعثر على الكلمات والعبارات في كتاب أو في مكتبتك بأكملها دون فتح كل واحد منها — حتى عبر اللغات، فيمكن لبحث بالإنجليزية أن يجد المقطع المطابق في ترجمة.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>رفّ خاص</h3>
+<p>اقفل الصفحات الفردية بكلمة مرور؛ لا تُصدَّر الصفحات المقفلة أو تُطبع أبدًا. تبقى كتبك على حاسوبك الخاص.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>مريح للقراءة</h3>
+<p>اختر من بين ثمانية عشر مظهرًا، بما في ذلك الفاتح والداكن عاليا التباين. قابل للاستخدام بالكامل من لوحة المفاتيح ومع قارئات الشاشة.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>لقطات الشاشة</h2>
+<p>Chameleon Book64 Narrator — تم التقاطه مباشرةً</p>
+</div>
+<div class="screenshot-gallery" id="book64-gallery">
+<div class="sg-frame"><img alt="الإنجليزية والصينية معروضتان بالتوازي، والآية المقروءة مميزة في كلتيهما" loading="lazy" src="../book64-assets/1-cbn.png"/><div class="sg-cap">لغتان بالتوازي</div></div>
+<div class="sg-frame"><img alt="صفحة ملونة حسب الفئة النحوية" loading="lazy" src="../book64-assets/2-cbn.png"/><div class="sg-cap">القواعد بالألوان</div></div>
+<div class="sg-frame"><img alt="نتائج البحث عبر كتاب كامل" loading="lazy" src="../book64-assets/3-cbn.png"/><div class="sg-cap">ابحث في الكتاب بأكمله</div></div>
+<div class="sg-frame"><img alt="القارئ في سمة داكنة" loading="lazy" src="../book64-assets/4-cbn.png"/><div class="sg-cap">المظهر الداكن</div></div>
+</div>
+<div class="cta-band">
+<h3>Chameleon Book64 Narrator</h3>
+<p>يعمل على Linux اليوم. <strong>يتم تحديد الأسعار الآن</strong> — اتصل بنا للتحقق من التوفر.</p>
+<a class="btn btn-solid" href="../contact.html">اتصل بنا</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">بيت</a><a href="../ide.html">لديك أفكار</a><a href="../presenter.html">مقدم</a>
+<a href="../accounting.html">محاسبة</a><a href="../technician.html">فني كمبيوتر</a>
+<a href="../classroom.html">الفصل الدراسي</a><a href="../contact.html">اتصال</a><a href="../privacy.html">الخصوصية</a><a href="../terms.html">الشروط</a><a href="../accessibility.html">إمكانية الوصول</a><a href="../security.html">حماية</a>
+</div>
+<p class="ai-notice">كُتب وتُرجم بواسطة الذكاء الاصطناعي.</p>
+<p>© 2026 Chameleon AI Agent Ltd · Built by Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Book64 Narrator — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .fmt { font-weight: 600; color: var(--brand-text); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Chuyển đến nội dung chính</a>
+<div class="pre-note">
+  Chameleon Book64 Narrator đang được phát triển tích cực. Các tính năng dưới đây là hiện tại; giá cả và tính khả dụng chung vẫn đang được hoàn thiện — <a href="../contact.html">liên hệ với chúng tôi về việc cấp phép</a>.
+</div>
+<nav aria-label="Chính">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Logo Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Trang chủ</a>
+<a href="../ide.html">BẠN CÓ Ý TƯỞNG</a>
+<a href="../presenter.html">Người trình bày</a>
+<a class="active" href="../book64.html">Book64 Narrator</a>
+<a href="../companion.html">Ứng dụng đồng hành</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Trung tâm đa phương tiện</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Dịch vụ web</a>
+<a href="../accounting.html">Kế toán</a>
+<a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../classroom.html">lớp học</a>
+<a href="../contact.html">Liên hệ</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇻🇳 VI ▾</button><div class="lang-menu"><a href="../book64.html">🌐 EN — English</a><a href="../ar/book64.html">🇸🇦 AR — العربية</a><a href="../cy/book64.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/book64.html">🇩🇪 DE — Deutsch</a><a href="../es/book64.html">🇪🇸 ES — Español</a><a href="../fr/book64.html">🇫🇷 FR — Français</a><a href="../hi/book64.html">🇮🇳 HI — हिन्दी</a><a href="../it/book64.html">🇮🇹 IT — Italiano</a><a href="../ja/book64.html">🇯🇵 JA — 日本語</a><a href="../ko/book64.html">🇰🇷 KO — 한국어</a><a href="../pt/book64.html">🇵🇹 PT — Português</a><a href="../ru/book64.html">🇷🇺 RU — Русский</a><a href="../zh/book64.html">🇨🇳 ZH — 中文</a><a href="../el/book64.html">🇬🇷 EL — Ελληνικά</a><a href="../id/book64.html">🇮🇩 ID — Indonesia</a><a href="../pl/book64.html">🇵🇱 PL — Polski</a><a href="../ro/book64.html">🇷🇴 RO — Română</a><a href="../sw/book64.html">🇰🇪 SW — Kiswahili</a><a href="../uk/book64.html">🇺🇦 UK — Українська</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📖</div>
+<h1>Chameleon Book64 Narrator</h1>
+<p class="sub">Công cụ tạo ePub và kệ sách cá nhân an toàn, được lập chỉ mục — với tính năng thuyết minh âm thanh đọc theo từ, cụm từ, câu, phạm trù ngữ pháp hoặc như một giọng nói liền mạch.</p>
+<div class="hero-badges">
+<span class="badge">🔊 Thuyết minh âm thanh</span>
+<span class="badge">🌐 Hai ngôn ngữ song song</span>
+<span class="badge">📚 Nhập và xuất ePub</span>
+<span class="badge">🖨 In và PDF</span>
+<span class="badge">🔒 Trang được bảo vệ bằng mật khẩu</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Những gì bạn có thể làm với nó</h2>
+<p>Đọc, nghe, viết và học — trong một cuốn sách được lập chỉ mục</p>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Nghe mọi trang</h3>
+<p>Người đọc đọc to bằng giọng nói ngoại tuyến tự nhiên và tô sáng văn bản khi đọc. Chọn cách đọc: từng từ, từng cụm từ, từng câu, đọc trôi chảy — hoặc theo phạm trù ngữ pháp, tách riêng động từ, danh từ hoặc tính từ.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗣️</div>
+<h3>Lý tưởng để luyện ngoại ngữ</h3>
+<p>Làm chậm một câu, lặp lại một cụm từ, theo dõi ngữ pháp bằng màu sắc và nghe cùng đoạn văn đó bằng ngôn ngữ thứ hai. Hỏi gia sư AI tích hợp về bất kỳ từ hoặc dòng nào trên trang — bằng văn bản hoặc bằng giọng nói.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Hai ngôn ngữ song song</h3>
+<p>Giữ bản dịch bên cạnh mỗi trang và hiển thị nó phía trên bản gốc, theo từng câu thơ hoặc từng đoạn văn. Dòng tương ứng sẽ sáng lên bằng ngôn ngữ kia khi bạn đọc hoặc nghe.</p>
+</div>
+<div class="card">
+<div class="card-icon">📝</div>
+<h3>Viết sách của riêng bạn</h3>
+<p>Các mục được lập chỉ mục cho công thức nấu ăn, ghi chú, lời bài hát, tuyển tập thơ, tài liệu khóa học và hơn thế nữa. Định dạng bằng thanh công cụ quen thuộc, nhóm các trang thành phần và đặt tiêu đề, biểu tượng và bình luận cho mỗi mục.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Sách ngắn hoặc dài</h3>
+<p>Lưu một sách ngắn được lập chỉ mục <span class="fmt">.Sbook64</span> hoặc một sách dài <span class="fmt">.Lbook64</span>. Toàn bộ cuốn sách là một tệp duy nhất mà bạn có thể sao chép, sao lưu hoặc gửi — hình ảnh nhúng đi kèm bên trong tệp.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖼️</div>
+<h3>Hình ảnh nhúng</h3>
+<p>Kéo thả ảnh trực tiếp vào trang; chúng được lưu bên trong sách. Đóng gói chúng vào tệp để gửi, hoặc giải nén vào thư mục để chỉnh sửa nhanh.</p>
+</div>
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>ePub vào, ePub ra</h3>
+<p>Nhập ePub (và Word, OpenDocument, HTML, Markdown và văn bản) và mỗi chương trở thành một trang có thể chỉnh sửa. Xuất sách của bạn — hoặc chỉ một trong các bản dịch của nó — dưới dạng sách điện tử ePub 3 có mục lục, hoặc in và lưu dưới dạng PDF.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Tìm kiếm toàn bộ giá sách</h3>
+<p>Tìm từ và cụm từ trong một cuốn sách hoặc toàn bộ thư viện của bạn mà không cần mở từng cuốn — thậm chí giữa các ngôn ngữ, nên tìm kiếm bằng tiếng Anh có thể tìm thấy đoạn tương ứng trong bản dịch.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Một giá sách riêng tư</h3>
+<p>Khóa từng trang bằng mật khẩu; các trang bị khóa không bao giờ được xuất hoặc in. Sách của bạn vẫn ở trên máy tính của chính bạn.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>Đọc thoải mái</h3>
+<p>Chọn từ mười tám chủ đề, bao gồm sáng và tối có độ tương phản cao. Sử dụng hoàn toàn được từ bàn phím và với trình đọc màn hình.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ảnh chụp màn hình</h2>
+<p>Chameleon Book64 Narrator — ghi trực tiếp</p>
+</div>
+<div class="screenshot-gallery" id="book64-gallery">
+<div class="sg-frame"><img alt="Tiếng Anh và tiếng Trung được hiển thị song song, câu thơ đang đọc được tô sáng ở cả hai" loading="lazy" src="../book64-assets/1-cbn.png"/><div class="sg-cap">Hai ngôn ngữ song song</div></div>
+<div class="sg-frame"><img alt="Một trang được tô màu theo phạm trù ngữ pháp" loading="lazy" src="../book64-assets/2-cbn.png"/><div class="sg-cap">Ngữ pháp bằng màu sắc</div></div>
+<div class="sg-frame"><img alt="Kết quả tìm kiếm trên toàn bộ sách" loading="lazy" src="../book64-assets/3-cbn.png"/><div class="sg-cap">Tìm kiếm toàn bộ sách</div></div>
+<div class="sg-frame"><img alt="Trình đọc ở chủ đề tối" loading="lazy" src="../book64-assets/4-cbn.png"/><div class="sg-cap">Chủ đề tối</div></div>
+</div>
+<div class="cta-band">
+<h3>Chameleon Book64 Narrator</h3>
+<p>Chạy trên Linux ngay hôm nay. <strong>Giá đang được thiết lập ngay bây giờ</strong> — liên hệ với chúng tôi để biết tình trạng còn hàng.</p>
+<a class="btn btn-solid" href="../contact.html">Liên hệ với chúng tôi</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Trang chủ</a><a href="../ide.html">BẠN CÓ Ý TƯỞNG</a><a href="../presenter.html">Người trình bày</a>
+<a href="../accounting.html">Kế toán</a><a href="../technician.html">Kỹ thuật viên PC</a>
+<a href="../classroom.html">lớp học</a><a href="../contact.html">Liên hệ</a><a href="../privacy.html">Quyền riêng tư</a><a href="../terms.html">Điều khoản</a><a href="../accessibility.html">Khả năng truy cập</a><a href="../security.html">Bảo vệ</a>
+</div>
+<p class="ai-notice">Viết và dịch bởi AI.</p>
+<p>© 2026 Chameleon AI Agent Ltd · Được xây dựng bởi Marcos aka stemsee</p>
+</footer>
+</body>
+</html>

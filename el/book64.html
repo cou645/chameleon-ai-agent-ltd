@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chameleon Book64 Narrator — Chameleon AI</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .screenshot-gallery .sg-frame {
+      background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4);
+    }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap {
+      text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem;
+    }
+    .fmt { font-weight: 600; color: var(--brand-text); }
+    .pre-note {
+      background: #fffaf0; border: 1px solid #f6d68a;
+      color: #7a5312; text-align: center;
+      padding: .6rem 1rem; font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Μετάβαση στο κύριο περιεχόμενο</a>
+<div class="pre-note">
+  Το Chameleon Book64 Narrator βρίσκεται σε ενεργή ανάπτυξη. Οι παρακάτω λειτουργίες είναι τρέχουσες· η τιμολόγηση και η γενική διαθεσιμότητα οριστικοποιούνται ακόμη — <a href="../contact.html">επικοινωνήστε μαζί μας για άδειες χρήσης</a>.
+</div>
+<nav aria-label="Κύριο">
+<div class="nav-inner">
+<a class="nav-brand" href="../index.html"><img alt="Λογότυπο Chameleon AI" src="../icon.png"/><strong>Chameleon AI</strong></a>
+<div class="nav-links">
+<a href="../index.html">Σπίτι</a>
+<a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a>
+<a href="../presenter.html">Δωρητής</a>
+<a class="active" href="../book64.html">Book64 Narrator</a>
+<a href="../companion.html">Συνοδευτική εφαρμογή</a>
+<a href="../trxi-ctrl.html">TrXi-Ctrl</a>
+<a href="../media.html">Κέντρο πολυμέσων</a>
+<a href="../logistics4x4.html">Logistics 4×4</a>
+<a href="../services.html">Υπηρεσίες Ιστού</a>
+<a href="../accounting.html">Λογιστική</a>
+<a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a>
+<a href="../contact.html">Επαφή</a>
+<div class="lang-switcher"><button aria-expanded="false" aria-haspopup="true" class="lang-btn" onclick="var s=this.parentElement,o=s.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">🇬🇷 EL ▾</button><div class="lang-menu"><a href="../book64.html">🌐 EN — English</a><a href="../ar/book64.html">🇸🇦 AR — العربية</a><a href="../cy/book64.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 CY — Cymraeg</a><a href="../de/book64.html">🇩🇪 DE — Deutsch</a><a href="../es/book64.html">🇪🇸 ES — Español</a><a href="../fr/book64.html">🇫🇷 FR — Français</a><a href="../hi/book64.html">🇮🇳 HI — हिन्दी</a><a href="../it/book64.html">🇮🇹 IT — Italiano</a><a href="../ja/book64.html">🇯🇵 JA — 日本語</a><a href="../ko/book64.html">🇰🇷 KO — 한국어</a><a href="../pt/book64.html">🇵🇹 PT — Português</a><a href="../ru/book64.html">🇷🇺 RU — Русский</a><a href="../zh/book64.html">🇨🇳 ZH — 中文</a><a href="../id/book64.html">🇮🇩 ID — Indonesia</a><a href="../pl/book64.html">🇵🇱 PL — Polski</a><a href="../ro/book64.html">🇷🇴 RO — Română</a><a href="../sw/book64.html">🇰🇪 SW — Kiswahili</a><a href="../uk/book64.html">🇺🇦 UK — Українська</a><a href="../vi/book64.html">🇻🇳 VI — Tiếng Việt</a></div></div></div>
+</div>
+</nav>
+<div class="hero">
+<div class="hero-icon">📖</div>
+<h1>Chameleon Book64 Narrator</h1>
+<p class="sub">Ένα εργαλείο δημιουργίας ePub και μια ασφαλής, ευρετηριασμένη προσωπική βιβλιοθήκη — με ηχητική αφήγηση που διαβάζει ανά λέξη, φράση, πρόταση, γραμματική κατηγορία ή ως μία ρέουσα φωνή.</p>
+<div class="hero-badges">
+<span class="badge">🔊 Ηχητική αφήγηση</span>
+<span class="badge">🌐 Δύο γλώσσες δίπλα-δίπλα</span>
+<span class="badge">📚 Εισαγωγή και εξαγωγή ePub</span>
+<span class="badge">🖨 Εκτύπωση και PDF</span>
+<span class="badge">🔒 Σελίδες με προστασία κωδικού πρόσβασης</span>
+</div>
+</div>
+<div class="page" id="main" role="main">
+<div class="section-title">
+<h2>Τι μπορείτε να κάνετε με αυτό</h2>
+<p>Διαβάστε, ακούστε, γράψτε και μάθετε — σε ένα ευρετηριασμένο βιβλίο</p>
+</div>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🔊</div>
+<h3>Ακούστε κάθε σελίδα</h3>
+<p>Ο αφηγητής διαβάζει δυνατά με φυσικές φωνές εκτός σύνδεσης και επισημαίνει το κείμενο καθώς προχωρά. Επιλέξτε τον τρόπο: λέξη προς λέξη, φράση, πρόταση, ρέουσα ανάγνωση — ή ανά γραμματική κατηγορία, ξεχωρίζοντας τα ρήματα, τα ουσιαστικά ή τα επίθετα.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗣️</div>
+<h3>Ιδανικό για εξάσκηση γλώσσας</h3>
+<p>Επιβραδύνετε μια πρόταση, επαναλάβετε μια φράση, ακολουθήστε τη γραμματική με χρώμα και ακούστε το ίδιο απόσπασμα σε δεύτερη γλώσσα. Ρωτήστε τον ενσωματωμένο δάσκαλο AI για οποιαδήποτε λέξη ή γραμμή στη σελίδα — με κείμενο ή με φωνή.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Δύο γλώσσες παράλληλα</h3>
+<p>Κρατήστε μια μετάφραση δίπλα σε κάθε σελίδα και εμφανίστε την πάνω από το πρωτότυπο, στίχο προς στίχο ή παράγραφο προς παράγραφο. Η αντίστοιχη γραμμή φωτίζεται στην άλλη γλώσσα καθώς διαβάζετε ή ακούτε.</p>
+</div>
+<div class="card">
+<div class="card-icon">📝</div>
+<h3>Γράψτε τα δικά σας βιβλία</h3>
+<p>Ευρετηριασμένες καταχωρίσεις για συνταγές, σημειώσεις, στίχους, ποιητικές συλλογές, εκπαιδευτικό υλικό και άλλα. Μορφοποιήστε με μια οικεία γραμμή εργαλείων, ομαδοποιήστε σελίδες σε ενότητες και δώστε σε κάθε καταχώριση τίτλο, εικονίδιο και σχόλιο.</p>
+</div>
+<div class="card">
+<div class="card-icon">🗂️</div>
+<h3>Σύντομα ή μεγάλα βιβλία</h3>
+<p>Αποθηκεύστε ένα σύντομο ευρετηριασμένο <span class="fmt">.Sbook64</span> ή ένα μεγάλο <span class="fmt">.Lbook64</span>. Ένα ολόκληρο βιβλίο είναι ένα μόνο αρχείο που μπορείτε να αντιγράψετε, να δημιουργήσετε αντίγραφο ασφαλείας ή να στείλετε — οι ενσωματωμένες εικόνες ταξιδεύουν μέσα του.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖼️</div>
+<h3>Ενσωματωμένες εικόνες</h3>
+<p>Σύρετε εικόνες απευθείας σε μια σελίδα· αποθηκεύονται μέσα στο βιβλίο. Συσκευάστε τις στο αρχείο για αποστολή ή αποσυσκευάστε τις σε έναν φάκελο για γρήγορη επεξεργασία.</p>
+</div>
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>ePub μέσα, ePub έξω</h3>
+<p>Εισαγάγετε ePub (και Word, OpenDocument, HTML, Markdown και κείμενο) και κάθε κεφάλαιο γίνεται επεξεργάσιμη σελίδα. Εξαγάγετε το βιβλίο σας — ή μόνο μία από τις μεταφράσεις του — ως ηλεκτρονικό βιβλίο ePub 3 με πίνακα περιεχομένων, ή εκτυπώστε το και αποθηκεύστε το ως PDF.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔍</div>
+<h3>Αναζήτηση σε ολόκληρο το ράφι</h3>
+<p>Βρείτε λέξεις και φράσεις σε ένα βιβλίο ή σε ολόκληρη τη βιβλιοθήκη σας χωρίς να ανοίξετε το καθένα — ακόμη και μεταξύ γλωσσών, ώστε μια αναζήτηση στα αγγλικά να βρει το αντίστοιχο απόσπασμα σε μια μετάφραση.</p>
+</div>
+<div class="card">
+<div class="card-icon">🔒</div>
+<h3>Ένα ιδιωτικό ράφι</h3>
+<p>Κλειδώστε μεμονωμένες σελίδες με κωδικό πρόσβασης· οι κλειδωμένες σελίδες δεν εξάγονται ποτέ ούτε εκτυπώνονται. Τα βιβλία σας παραμένουν στον δικό σας υπολογιστή.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>Άνετο στην ανάγνωση</h3>
+<p>Επιλέξτε από δεκαοκτώ θέματα, συμπεριλαμβανομένων φωτεινού και σκούρου υψηλής αντίθεσης. Πλήρως χρησιμοποιήσιμο από το πληκτρολόγιο και με αναγνώστες οθόνης.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Στιγμιότυπα οθόνης</h2>
+<p>Chameleon Book64 Narrator — καταγεγραμμένο ζωντανά</p>
+</div>
+<div class="screenshot-gallery" id="book64-gallery">
+<div class="sg-frame"><img alt="Αγγλικά και Κινέζικα εμφανίζονται παράλληλα, ο στίχος που διαβάζεται επισημαίνεται και στα δύο" loading="lazy" src="../book64-assets/1-cbn.png"/><div class="sg-cap">Δύο γλώσσες παράλληλα</div></div>
+<div class="sg-frame"><img alt="Μια σελίδα χρωματισμένη κατά γραμματική κατηγορία" loading="lazy" src="../book64-assets/2-cbn.png"/><div class="sg-cap">Γραμματική σε χρώμα</div></div>
+<div class="sg-frame"><img alt="Αποτελέσματα αναζήτησης σε ολόκληρο το βιβλίο" loading="lazy" src="../book64-assets/3-cbn.png"/><div class="sg-cap">Αναζήτηση σε ολόκληρο το βιβλίο</div></div>
+<div class="sg-frame"><img alt="Ο αναγνώστης σε σκούρο θέμα" loading="lazy" src="../book64-assets/4-cbn.png"/><div class="sg-cap">Σκούρο θέμα</div></div>
+</div>
+<div class="cta-band">
+<h3>Chameleon Book64 Narrator</h3>
+<p>Λειτουργεί σε Linux σήμερα. <strong>Οι τιμές καθορίζονται τώρα</strong> — επικοινωνήστε μαζί μας για διαθεσιμότητα.</p>
+<a class="btn btn-solid" href="../contact.html">Επικοινωνήστε μαζί μας</a>
+</div>
+</div>
+<footer>
+<div class="foot-links">
+<a href="../index.html">Σπίτι</a><a href="../ide.html">ΕΧΕΙΣ ΙΔΕΕΣ</a><a href="../presenter.html">Δωρητής</a>
+<a href="../accounting.html">Λογιστική</a><a href="../technician.html">Τεχνικός Η/Υ</a>
+<a href="../classroom.html">Αίθουσα διδασκαλίας</a><a href="../contact.html">Επαφή</a><a href="../privacy.html">Απόρρητο</a><a href="../terms.html">Όροι</a><a href="../accessibility.html">Προσβασιμότητα</a><a href="../security.html">Ασφάλεια</a>
+</div>
+<p class="ai-notice">Γράφτηκε και μεταφράστηκε από AI.</p>
+<p>© 2026 Chameleon AI Agent Ltd · Κατασκευάστηκε από τον Marcos aka stemsee</p>
+</footer>
+</body>
+</html>
