@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Linuxデスクトップ用の無料リモートコントロール — Bluetooth、ファイアウォール、オーディオ、メディア、ウィンドウ、ターミナル、画面共有、共有クリップボード、AIチャットを、すべてスマートフォンから — さらに、root化したスマートフォンでは、VPNホットスポットとUSBマスストレージも。Debian Trixie向けに構築。他のほとんどのX11 Linuxデスクトップでも動作します。</p>
+<p class="sub">Linuxデスクトップ向けの無料リモートコントロール — Bluetooth、ファイアウォール、オーディオ、メディア、ウィンドウ、ターミナル、画面共有、共有クリップボード、AIチャットを、スマートフォンまたは別のコンピューターから操作 — さらに、root化したスマートフォンでは、VPNホットスポットとUSBマスストレージ。Debian Trixie向けに構築。他のほとんどのX11 Linuxデスクトップでも動作します。</p>
 <div class="hero-badges">
 <span class="badge">🆓 無料でオープン</span>
-<span class="badge">🐧 Linux / X11のみ</span>
+<span class="badge">🆕 バージョン 1.1.0</span>
+<span class="badge">📱 Android &amp; iOS · 💻 Windows、macOS、Linuxアプリ</span>
+<span class="badge">🐧 Linux / X11デスクトップを操作</span>
 <span class="badge">🔌 14のコントロール画面（root化したスマートフォンでは+2）</span>
 <span class="badge">🤖 MCP サーバー同梱</span>
 <span class="badge">🔒 あなたのネットワーク、クラウドリレーなし</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>1.1.0の新機能</h2>
+<p>2026年10月</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>デスクトップアプリ</h3><p>TrXi-Ctrlはスマートフォンに加え、Windows、macOS、Linuxでも動作するようになりました。ノートパソコンからLinuxマシンを操作：同じ画面を、本物のマウスとキーボードで。</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>マウスとキーボードのリモートデスクトップ</h3><p>マウスでリモート画面を移動、クリック（左、中、右）、ドラッグ、スクロールできます。ご自身のキーボードで入力し、Ctrl+Cなどのショートカットも使用できます。スマートフォンのタッチ操作は変わりません。</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>映像と一緒に音声</h3><p>リモートデスクトップは画面と一緒にPCの音声を再生します。デスクトップタブにミュートボタンがあります。</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>画像またはコードでペアリング</h3><p>PCのそばにいませんか？そこにいる人がペアリングQRをメールで送れます — アプリのスキャナー（画像アイコン）で画像を開いてください。カメラのないコンピューターは代わりにペアリングコードを入力します。</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>デバイスとホワイトリスト</h3><p>ゲートウェイの管理ページには、接続したすべてのデバイスとそのオンライン状態が一覧表示され、チェックを入れたデバイスのみを許可できます — Tailscale 名、または自宅ネットワークでは MAC アドレスで指定します。</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>ゲートウェイマネージャー</h3><p>ゲートウェイサービスを開始、停止、再起動し、ペアリング QR を表示、保存、コピーし、ゲートウェイのログを読むための小さなデスクトップパネル。</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>動作内容</h2>
 <p>スマートフォンアプリ1つ、デスクトップ上のゲートウェイデーモン1つ</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>u30e1u30c7u30a3u30a2</h3><p>本物の再生/一時停止/シーク/音量： <a href="../media.html">Chameleon Media Center</a> およびMPVベースのプレーヤー向け。mpv自身のIPCソケット経由 — 単なる静的なファイル一覧ではありません。</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMCライブ</h3><p>視聴 <a href="../media.html">Chameleon Media Center</a>のライブストリームをスマートフォンで — 弱い接続には低遅延（MPEG-TS）またはスムーズ（HLS）を選択 — ライブかどうか、ソース、視聴者数を確認し、誰でもブラウザで視聴できるリンクをコピーできます。</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windowsとデスクトップ</h3><p>ウィンドウの一覧表示、フォーカス、閉じる、最小化、最大化、タイル表示、仮想デスクトップの切り替え。</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>リモートデスクトップ</h3><p>WebRTCによる全画面共有とタッチ・トゥ・マウスおよびキーボード入力 — ネットワーク上のどこからでもデスクトップを表示・操作できます。完全に機能します：送信したタップ、ドラッグ、キー入力はほぼ即座にデスクトップに反映されます。気づく遅延は、デスクトップからスマートフォンに戻ってくる画面更新によるもので、入力によるものではありません。</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>リモートデスクトップ</h3><p>WebRTC による全画面共有。PC の音声付き — ネットワーク上のどこからでもデスクトップを表示して操作できます。スマートフォンでは、タッチでマウスを操作し、画面上のバーでテキストを送信します。Windows、macOS、Linux アプリでは、自分のマウスとキーボードが直接機能します。クリックやキー入力はほぼ即座にデスクトップに表示されます。感じる遅延は、戻ってくる画面更新によるもので、入力によるものではありません。</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>共有クリップボード</h3><p>PCがハブです：各スマートフォンはクリップボードをそこへ送信します — PC自身のクリップボードに直接、貼り付け可能な状態で — そしてクリップボード画面には各デバイスの最新エントリが一覧表示されます。1つをタップするとこのスマートフォンにコピーされます。バックグラウンドでスマートフォンのクリップボードから読み取ったり書き込んだりすることはなく、タップしたときだけ行います。</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>ターミナル</h3><p>スマートフォンから実行する本物のシェル。</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AIチャット</h3><p>ゲートウェイで設定した任意のAIプロバイダーと会話 — DeepSeek、OpenAI、Anthropicなど。</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — Tailscaleネットワーク上のゲートウェイを検出する設定タブ" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">ゲートウェイ検出</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — AIプロバイダーキーが設定された設定タブとアプリ情報" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AIプロバイダーの設定</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>ダウンロード <span class="free-badge">無料</span></h3>
-<p>スマホアプリ（Android）+ デスクトップゲートウェイ。どちらもオープン、どちらも無料。</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ APKをダウンロード</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>TrXi-Ctrl 1.1.0 をダウンロード <span class="free-badge">無料</span></h3>
+<p>アプリは、お使いのスマートフォンまたはコンピューター用、さらに制御したい Linux デスクトップ用のゲートウェイも含みます。</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ Windows</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ リナックス</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (未署名、サイドロード)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux用ゲートウェイ</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Windows &amp; macOS テストビルド 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">GitHubでゲートウェイを見る →</a>
+<p style="font-size:.9rem; margin-top:1rem;">古いスマートフォン (32 ビット Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · すべてのファイル: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">リリースページ</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub のゲートウェイ →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>アプリをインストール</h2>
+<p>どのビルドもまだ Apple や Microsoft による署名がされていないため、各システムは信頼するかどうかを一度だけ尋ねます</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>アンドロイド</h3><p>スマートフォンで APK をダウンロードして開きます。Android は初回にブラウザーまたはファイルマネージャーからのインストールを許可するよう求めます — 許可してから、インストールをタップします。過去 10 年間のほとんどのスマートフォンは arm64 APK を必要とします。armv7 は古い 32 ビットのスマートフォンでのみ使用してください。以降の更新はゲートウェイから直接届けることができます: <b>更新</b> タブ。</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhoneとiPad</h3><p>iOSビルドは署名されていないため、サイドロードします：インストール <a href="https://sideloadly.io">横から</a> または <a href="https://altstore.io">オルタナティブストア</a> をコンピュータで、iPhoneを接続し、 <code>.ipa</code> をドロップして、任意のApple IDでサインインします。次にiPhoneで：設定 → 一般 → VPNとデバイス管理 → Apple IDを信頼します。無料のApple IDでは、アプリを7日ごとに再サイドロードする必要があります。</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows 10 / 11</h3><p>ダウンロードしたファイルを任意の場所に解凍し（例： <code>C:\Programs\TrXi-Ctrl</code>)、実行します <code>trxi_ctrl.exe</code>。初回はSmartScreenが「WindowsによってPCが保護されました」と表示します： <b>詳細情報 → 実行</b>。ファイルは一緒に保管してください — .exeにはDLLと <code>data</code> フォルダが隣に必要です。</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>開いて <code>.dmg</code> ドラッグして <b>TrXi-Ctrl</b> に入れます <b>アプリケーション</b>。初回は、アプリを右クリック → <b>開ける</b> → 開く（公証されていないためダブルクリックはブロックされます）。macOS がまだ拒否する場合は、システム設定 → プライバシーとセキュリティ → <b>このまま開く</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>GTK 3 と libmpv が必要です：Debian/Ubuntu では <code>sudo apt install libgtk-3-0 libmpv2</code>。次に <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> を実行します <code>./bundle/trxi_ctrl</code>。フォルダは <code>bundle</code> まとめて保持してください。</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>デスクトップとペアリング</h3><p>ゲートウェイを実行している Linux デスクトップで、開きます <code>http://localhost:8772/admin</code> （または Gateway Manager）。 <b>スマートフォンとMac:</b> アプリ → 設定 → QRスキャナーアイコン → QRをスキャンするか、画像アイコンをタップして誰かがメールで送ったQR画像を開きます。 <b>WindowsとLinux:</b> ゲートウェイアドレスとQRの下に表示されているペアリングコードを入力します。コードは1回のみ有効で、10分間持続します。両方のデバイスが同じTailscaleネットワークまたはLAN上にある必要があります。</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>ゲートウェイをインストール</h2>

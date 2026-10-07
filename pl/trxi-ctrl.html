@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Darmowe zdalne sterowanie Twoim pulpitem Linux — Bluetooth, zapora, dźwięk, multimedia, okna, terminal, udostępnianie ekranu, wspólny schowek i czat AI, wszystko z telefonu — plus, na zrootowanych telefonach, hotspot VPN i pamięć masowa USB. Stworzone dla Debian Trixie; działa też na większości innych pulpitów Linux X11.</p>
+<p class="sub">Darmowe zdalne sterowanie pulpitem Linux — Bluetooth, zapora sieciowa, dźwięk, multimedia, okna, terminal, udostępnianie ekranu, wspólny schowek i czat AI, z telefonu lub z innego komputera — a także, na zrootowanych telefonach, hotspot VPN i pamięć masowa USB. Stworzone dla Debian Trixie; działa również na większości innych pulpitów Linux X11.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Darmowe i otwarte</span>
-<span class="badge">🐧 Tylko Linux / X11</span>
+<span class="badge">🆕 Wersja 1.1.0</span>
+<span class="badge">📱 Android i iOS · 💻 Aplikacje Windows, macOS i Linux</span>
+<span class="badge">🐧 Sterowanie pulpitami Linux / X11</span>
 <span class="badge">🔌 14 ekranów sterowania (+2 na zrootowanych telefonach)</span>
 <span class="badge">🤖 Serwer MCP w zestawie</span>
 <span class="badge">🔒 Twoja sieć, bez przekaźnika w chmurze</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>Co nowego w 1.1.0</h2>
+<p>Październik 2026</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>Aplikacje na pulpit</h3><p>TrXi-Ctrl działa teraz w systemach Windows, macOS i Linux, a także na telefonach. Steruj swoim komputerem z Linuksem z laptopa: te same ekrany, z prawdziwą myszą i klawiaturą.</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>Zdalny pulpit z myszą i klawiaturą</h3><p>Przesuwaj, klikaj (lewy, środkowy, prawy), przeciągaj i przewijaj zdalny ekran myszą; pisz i używaj skrótów, takich jak Ctrl+C, na własnej klawiaturze. Sterowanie dotykowe na telefonach pozostaje bez zmian.</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>Dźwięk razem z obrazem</h3><p>Zdalny pulpit odtwarza dźwięk komputera razem z ekranem, z przyciskiem wyciszenia na karcie Pulpit.</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>Parowanie z obrazu lub kodu</h3><p>Nie ma cię przy komputerze? Ktoś na miejscu może wysłać ci e-mailem kod QR parowania — otwórz obraz w skanerze aplikacji (ikona obrazu). Komputery bez kamery wpisują kod parowania.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Urządzenia i biała lista</h3><p>Strona administracyjna bramy wyświetla każde urządzenie, które się połączyło, i informację, czy jest online, oraz pozwala wpuścić tylko zaznaczone urządzenia — według nazwy Tailscale lub, w sieci domowej, adresu MAC.</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>Menedżer bramy</h3><p>Mały panel na pulpicie do uruchamiania, zatrzymywania i ponownego uruchamiania usługi bramy, wyświetlania, zapisywania lub kopiowania kodu QR parowania oraz odczytu dziennika bramy.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Co robi</h2>
 <p>Jedna aplikacja na telefonie, jeden demon bramy na pulpicie</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>Głoska bezdźwięczna</h3><p>Prawdziwe play/pause/seek/volume dla <a href="../media.html">Chameleon Media Center</a> oraz odtwarzaczy opartych na MPV, przez własny gniazdo IPC mpv — nie tylko statyczna lista plików.</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMK na żywo</h3><p>Oglądaj <a href="../media.html">Chameleon Media Center</a>transmisję na żywo na telefonie — wybierz Low latency (MPEG-TS) lub Smooth (HLS) dla słabszych połączeń — sprawdź, czy jest na żywo, jego źródło i ile osób ogląda, i skopiuj link, aby każdy mógł oglądać w przeglądarce.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows i pulpity</h3><p>Wyświetlanie listy, fokus, zamykanie, minimalizowanie, maksymalizowanie, kafelkowanie okien i przełączanie pulpitów wirtualnych.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>Pulpit zdalny</h3><p>Pełne udostępnianie ekranu przez WebRTC z dotykiem jako myszą i wprowadzaniem z klawiatury — zobacz i kontroluj swój pulpit z dowolnego miejsca w sieci. W pełni funkcjonalne: dotknięcia, przeciągnięcia i naciśnięcia klawiszy, które wysyłasz, pojawiają się na pulpicie niemal natychmiast. Każde zauważalne opóźnienie dotyczy aktualizacji ekranu przychodzących z pulpitu do telefonu, a nie twojego wprowadzania.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Pulpit zdalny</h3><p>Pełne udostępnianie ekranu przez WebRTC, z dźwiękiem komputera — oglądaj i kontroluj swój pulpit z dowolnego miejsca w sieci. W telefonie dotyk steruje myszą, a pasek na ekranie wysyła tekst; w aplikacjach Windows, macOS i Linux własna mysz i klawiatura działają bezpośrednio. Kliknięcia i naciśnięcia klawiszy pojawiają się na pulpicie niemal natychmiast; wszelkie zauważalne opóźnienia dotyczą aktualizacji ekranu wracających do ciebie, a nie twojego wprowadzania.</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>Wspólny schowek</h3><p>PC jest hubem: każdy telefon wysyła swój schowek tam — prosto do własnego schowka PC, gotowy do wklejenia — a ekran Clipboard wyświetla najnowszy wpis każdego urządzenia. Dotknij jednego, aby skopiować go do tego telefonu. Nic nie jest czytane ani zapisywane do schowka telefonu w tle, tylko gdy dotkniesz.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Prawdziwa powłoka, uruchamiana z telefonu.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Czat AI</h3><p>Rozmawiaj z dowolnym dostawcą AI skonfigurowanym na bramie — DeepSeek, OpenAI, Anthropic i innymi.</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — karta Ustawienia wykrywająca bramy w sieci Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Wykrywanie bramy</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — karta Ustawienia ze skonfigurowanym kluczem dostawcy AI i informacjami o aplikacji" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Konfiguracja dostawcy AI</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>Pobierz <span class="free-badge">ZA DARMO</span></h3>
-<p>Aplikacja na telefon (Android) + bramka na komputer. Obie otwarte, obie darmowe.</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Pobierz APK</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>Pobierz TrXi-Ctrl 1.1.0 <span class="free-badge">ZA DARMO</span></h3>
+<p>Aplikacja na telefon lub komputer oraz brama dla pulpitu Linux, którym chcesz sterować.</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ Okna</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (niepodpisane, sideload)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Bramka dla Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Testowe kompilacje dla Windows i macOS 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">Zobacz bramkę na GitHub →</a>
+<p style="font-size:.9rem; margin-top:1rem;">Starsze telefony (32-bit Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">pakiet armv7</a> · Wszystkie pliki: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">strona wydania</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway na GitHubie →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Zainstaluj aplikację</h2>
+<p>Żadna z kompilacji nie jest jeszcze podpisana przez Apple ani Microsoft, więc każdy system raz zapyta, czy jej ufasz</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>Android</h3><p>Pobierz APK na telefon i otwórz go. Android przy pierwszym razie poprosi o zezwolenie na instalacje z przeglądarki lub menedżera plików — zezwól, a następnie kliknij Zainstaluj. Większość telefonów z ostatnich dziesięciu lat potrzebuje APK arm64; używaj armv7 tylko na starych telefonach 32-bit. Późniejsze aktualizacje mogą przychodzić bezpośrednio z gateway: <b>Aktualizacje</b> karta.</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhone i iPad</h3><p>Kompilacja iOS jest niepodpisana, więc jest instalowana przez sideload: zainstaluj <a href="https://sideloadly.io">Ładowanie boczne</a> lub <a href="https://altstore.io">AltStore</a> na komputerze podłącz iPhone'a, przeciągnij <code>.ipa</code> i zaloguj się dowolnym Apple ID. Następnie na iPhonie: Ustawienia → Ogólne → VPN i zarządzanie urządzeniem → zaufaj swojemu Apple ID. W przypadku darmowego Apple ID aplikację trzeba ponownie zainstalować co 7 dni.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows 10/11</h3><p>Rozpakuj pobrany plik w dowolnym miejscu (na przykład <code>C:\Programs\TrXi-Ctrl</code>) i uruchom <code>trxi_ctrl.exe</code>. SmartScreen za pierwszym razem powie „Windows chroni Twój komputer”: <b>Więcej informacji → Uruchom mimo to</b>. Trzymaj pliki razem — .exe potrzebuje bibliotek DLL i folderu <code>data</code> obok niego.</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>Otwórz <code>.dmg</code> i przeciągnij <b>TrXi-Ctrl</b> do <b>Aplikacje</b>. Za pierwszym razem kliknij aplikację prawym przyciskiem → <b>Otwarte</b> → Otwórz (dwukrotne kliknięcie jest zablokowane, ponieważ nie jest notaryzowana). Jeśli macOS nadal odmawia, Ustawienia systemowe → Prywatność i bezpieczeństwo → <b>Otwórz mimo to</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linuksa</h3><p>Wymaga GTK 3 i libmpv: w Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Następnie <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> i uruchom <code>./bundle/trxi_ctrl</code>. Trzymaj <code>bundle</code> folder razem.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Sparuj ze swoim komputerem</h3><p>Na pulpicie Linux z uruchomioną bramą otwórz <code>http://localhost:8772/admin</code> (lub Gateway Manager). <b>Telefony i Mac:</b> aplikacja → Ustawienia → ikona skanera QR → zeskanuj kod QR lub dotknij ikony obrazu, aby otworzyć obraz kodu QR wysłany ci e-mailem. <b>Windows i Linux:</b> wprowadź adres bramy i kod parowania wyświetlany pod kodem QR. Kod działa jednorazowo i jest ważny 10 minut. Oba urządzenia muszą znajdować się w tej samej sieci Tailscale lub sieci LAN.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Zainstaluj bramkę</h2>

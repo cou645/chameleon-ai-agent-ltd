@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Controle remoto gratuito para o seu desktop Linux — Bluetooth, firewall, áudio, mídia, janelas, terminal, compartilhamento de tela, área de transferência compartilhada e chat com IA, tudo pelo seu telefone — além disso, em telefones com root, um hotspot VPN e armazenamento em massa USB. Feito para Debian Trixie; funciona na maioria dos outros desktops Linux X11 também.</p>
+<p class="sub">Controle remoto gratuito para sua área de trabalho Linux — Bluetooth, firewall, áudio, mídia, janelas, terminal, compartilhamento de tela, área de transferência compartilhada e chat com IA, do seu telefone ou de outro computador — além disso, em telefones com root, um hotspot VPN e armazenamento em massa USB. Feito para Debian Trixie; também funciona na maioria das outras áreas de trabalho Linux X11.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Gratuito e aberto</span>
-<span class="badge">🐧 Apenas Linux / X11</span>
+<span class="badge">🆕 Versão 1.1.0</span>
+<span class="badge">📱 Android e iOS · 💻 Aplicativos para Windows, macOS e Linux</span>
+<span class="badge">🐧 Controla áreas de trabalho Linux / X11</span>
 <span class="badge">🔌 14 telas de controle (+2 em telefones com root)</span>
 <span class="badge">🤖 Servidor MCP incluído</span>
 <span class="badge">🔒 Sua rede, sem relay na nuvem</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>Novidades na 1.1.0</h2>
+<p>Outubro de 2026</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>Aplicativos de desktop</h3><p>O TrXi-Ctrl agora funciona no Windows, macOS e Linux, além de telefones. Controle sua máquina Linux de um notebook: as mesmas telas, com mouse e teclado reais.</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>Área de trabalho remota com mouse e teclado</h3><p>Mova, clique (esquerdo, central, direito), arraste e role a tela remota com o mouse; digite e use atalhos como Ctrl+C no seu próprio teclado. Os controles de toque em telefones não mudam.</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>Som com a imagem</h3><p>A área de trabalho remota reproduz o som do PC junto com a tela, com um botão de mudo na aba Desktop.</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>Pareie por uma imagem ou um código</h3><p>Não está perto do PC? Alguém aí pode enviar o QR de pareamento por e-mail — abra a imagem no scanner do aplicativo (ícone de imagem). Computadores sem câmera digitam o código de pareamento.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Dispositivos e lista de permissões</h3><p>A página de administração do gateway lista todos os dispositivos que se conectaram e se estão online, e pode permitir apenas os dispositivos que você marcar — pelo nome do Tailscale ou, na sua rede doméstica, pelo endereço MAC.</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>Gerenciador de Gateway</h3><p>Um pequeno painel de desktop para iniciar, parar e reiniciar o serviço de gateway, mostrar, salvar ou copiar o QR de emparelhamento e ler o log do gateway.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>O que ele faz</h2>
 <p>Um app de telefone, um daemon de gateway no seu desktop</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>Mídia</h3><p>Reprodução/pausa/busca/volume reais para <a href="../media.html">Chameleon Media Center</a> e players baseados em MPV, através do próprio socket IPC do mpv — não apenas uma listagem estática de arquivos.</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMC ao vivo</h3><p>Assista <a href="../media.html">Chameleon Media Center</a>à transmissão ao vivo no seu telefone — escolha Baixa latência (MPEG-TS) ou Suave (HLS) para conexões mais fracas — veja se está ao vivo, sua fonte e quantos estão assistindo, e copie um link para qualquer pessoa assistir em um navegador.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows e desktops</h3><p>Liste, focalize, feche, minimize, maximize, organize janelas em mosaico e alterne entre desktops virtuais.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>Área de trabalho remota</h3><p>Compartilhamento de tela inteira via WebRTC com entrada de toque-para-mouse e teclado — veja e controle seu desktop de qualquer lugar da sua rede. Totalmente funcional: toques, arrastos e teclas que você envia aparecem no desktop quase imediatamente. Qualquer atraso que você note está nas atualizações de tela que voltam do desktop para o seu telefone, não na sua entrada.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Área de trabalho remota</h3><p>Compartilhamento de tela completo via WebRTC, com o som do PC — veja e controle sua área de trabalho de qualquer lugar da sua rede. Em um telefone, o toque controla o mouse e uma barra na tela envia texto; nos aplicativos Windows, macOS e Linux, seu próprio mouse e teclado funcionam diretamente. Cliques e teclas aparecem na área de trabalho quase imediatamente; qualquer atraso que você notar está nas atualizações de tela que retornam, não na sua entrada.</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>Área de transferência compartilhada</h3><p>O PC é o hub: cada telefone envia sua área de transferência para lá — direto na área de transferência do próprio PC, pronta para colar — e a tela Área de transferência lista a entrada mais recente de cada dispositivo. Toque em uma para copiá-la para este telefone. Nada é lido ou gravado na área de transferência do seu telefone em segundo plano, apenas quando você toca.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>terminal</h3><p>Um shell de verdade, executado do seu telefone.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Chat de IA</h3><p>Converse com qualquer provedor de IA que você configurou no gateway — DeepSeek, OpenAI, Anthropic e mais.</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — Aba de configurações descobrindo gateways na rede Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Descoberta de gateway</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — Aba de configurações com uma chave de provedor de IA configurada e informações do app" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Configuração do provedor de IA</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>Baixar <span class="free-badge">GRÁTIS</span></h3>
-<p>App para celular (Android) + gateway para desktop. Ambos abertos, ambos gratuitos.</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Baixar o APK</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>Baixar TrXi-Ctrl 1.1.0 <span class="free-badge">GRÁTIS</span></h3>
+<p>A app, para o seu telefone ou computador, além do gateway para o desktop Linux que você quer controlar.</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ Janelas</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (não assinado, sideload)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway para Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Builds de teste para Windows e macOS 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">Ver o gateway no GitHub →</a>
+<p style="font-size:.9rem; margin-top:1rem;">Telefones mais antigos (Android de 32 bits): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · Todos os arquivos: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">página de lançamento</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway no GitHub →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Instale a app</h2>
+<p>Nenhuma das compilações é assinada pela Apple ou Microsoft ainda, então cada sistema pergunta uma vez se você confia nela</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>Android</h3><p>Baixe o APK no telefone e abra-o. O Android pede para permitir instalações do seu navegador ou gerenciador de arquivos na primeira vez — permita, depois Instalar. A maioria dos telefones dos últimos dez anos quer o APK arm64; use armv7 apenas em telefones antigos de 32 bits. Atualizações posteriores podem vir diretamente do gateway: <b>Atualizações</b> aba.</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhone e iPad</h3><p>A compilação do iOS não é assinada, por isso é instalada por sideload: instale <a href="https://sideloadly.io">Carregamento lateral</a> ou <a href="https://altstore.io">AltStore</a> num computador, ligue o iPhone, arraste o <code>.ipa</code> e inicie sessão com qualquer Apple ID. Depois no iPhone: Ajustes → Geral → VPN e Gestão de Dispositivos → confie no seu Apple ID. Com um Apple ID gratuito, a app tem de ser reinstalada por sideload a cada 7 dias.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Janelas 10/11</h3><p>Descompacte a transferência em qualquer lugar (por exemplo <code>C:\Programs\TrXi-Ctrl</code>) e execute <code>trxi_ctrl.exe</code>. O SmartScreen diz "O Windows protegeu o seu PC" na primeira vez: <b>Mais informações → Executar mesmo assim</b>. Mantenha os ficheiros juntos — o .exe precisa das DLLs e da pasta <code>data</code> ao lado.</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>Abra o <code>.dmg</code> e arraste <b>TrXi-Ctrl</b> para <b>Aplicativos</b>. Na primeira vez, clique com o botão direito no app → <b>Abrir</b> → Abrir (o duplo clique é bloqueado porque não está notarizado). Se o macOS ainda recusar, Ajustes do Sistema → Privacidade e Segurança → <b>Abrir Mesmo Assim</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>Requer GTK 3 e libmpv: no Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Depois <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> e execute <code>./bundle/trxi_ctrl</code>. Mantenha a pasta <code>bundle</code> junta.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Emparelhe com o seu desktop</h3><p>No desktop Linux que executa o gateway, abra <code>http://localhost:8772/admin</code> (ou o Gateway Manager). <b>Telefones e Macs:</b> app → Configurações → ícone do scanner de QR → escaneie o QR, ou toque no ícone de imagem para abrir uma imagem de QR que alguém enviou por e-mail. <b>Windows e Linux:</b> insira o endereço do gateway e o código de emparelhamento mostrado abaixo do QR. Um código funciona uma vez e dura 10 minutos. Ambos os dispositivos precisam estar na mesma rede Tailscale ou LAN.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Instalar o gateway</h2>

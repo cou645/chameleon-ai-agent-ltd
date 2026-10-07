@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Kontrol jarak jauh gratis untuk desktop Linux Anda — Bluetooth, firewall, audio, media, jendela, terminal, berbagi layar, clipboard bersama, dan obrolan AI, semua dari ponsel Anda — plus, di ponsel yang di-root, hotspot VPN dan penyimpanan massal USB. Dibuat untuk Debian Trixie; berfungsi di sebagian besar desktop Linux X11 lainnya juga.</p>
+<p class="sub">Kontrol jarak jauh gratis untuk desktop Linux Anda — Bluetooth, firewall, audio, media, jendela, terminal, berbagi layar, papan klip bersama, dan obrolan AI, dari ponsel Anda atau dari komputer lain — plus, pada ponsel yang sudah di-root, hotspot VPN dan penyimpanan massal USB. Dibuat untuk Debian Trixie; juga berfungsi di sebagian besar desktop Linux X11 lainnya.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Gratis &amp; terbuka</span>
-<span class="badge">🐧 Hanya Linux / X11</span>
+<span class="badge">🆕 Versi 1.1.0</span>
+<span class="badge">📱 Android &amp; iOS · 💻 Aplikasi Windows, macOS &amp; Linux</span>
+<span class="badge">🐧 Kontrol desktop Linux / X11</span>
 <span class="badge">🔌 14 layar kontrol (+2 di ponsel yang di-root)</span>
 <span class="badge">🤖 Server MCP disertakan</span>
 <span class="badge">🔒 Jaringan Anda, tanpa relay cloud</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>Apa yang baru di 1.1.0</h2>
+<p>Oktober 2026</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>Aplikasi desktop</h3><p>TrXi-Ctrl kini berjalan di Windows, macOS, dan Linux serta ponsel. Kendalikan mesin Linux Anda dari laptop: layar yang sama, dengan mouse dan keyboard sungguhan.</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>Desktop jarak jauh dengan mouse &amp; keyboard</h3><p>Pindahkan, klik (kiri, tengah, kanan), seret, dan gulir layar jarak jauh dengan mouse Anda; ketik dan gunakan pintasan seperti Ctrl+C di keyboard Anda sendiri. Kontrol sentuh di ponsel tidak berubah.</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>Suara bersama gambar</h3><p>Desktop jarak jauh memutar suara PC bersama layar, dengan tombol bisu di tab Desktop.</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>Pasangkan dari gambar atau kode</h3><p>Tidak di dekat PC? Seseorang di sana dapat mengirimkan QR pemasangan melalui email — buka gambar di pemindai aplikasi (ikon gambar). Komputer tanpa kamera mengetikkan kode pemasangan sebagai gantinya.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Perangkat &amp; daftar putih</h3><p>Halaman admin gateway mencantumkan setiap perangkat yang pernah terhubung dan apakah online, dan dapat mengizinkan hanya perangkat yang Anda centang — berdasarkan nama Tailscale atau, di jaringan rumah Anda, alamat MAC.</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>Pengelola Gateway</h3><p>Panel desktop kecil untuk memulai, menghentikan, dan memulai ulang layanan gateway, menampilkan, menyimpan, atau menyalin QR pemasangan, dan membaca log gateway.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Apa yang dilakukannya</h2>
 <p>Satu aplikasi ponsel, satu daemon gateway di desktop Anda</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>Media</h3><p>Play/pause/seek/volume sungguhan untuk <a href="../media.html">Chameleon Media Center</a> dan pemutar berbasis MPV, melalui soket IPC milik mpv sendiri — bukan sekadar daftar file statis.</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMC Langsung</h3><p>Tonton <a href="../media.html">Chameleon Media Center</a>siaran langsung di ponsel Anda — pilih Low latency (MPEG-TS) atau Smooth (HLS) untuk koneksi lemah — lihat apakah sedang live, sumbernya dan berapa banyak yang menonton, dan salin tautan agar siapa pun dapat menonton di browser.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows &amp; desktop</h3><p>Daftar, fokus, tutup, perkecil, perbesar, susun jendela dan ganti desktop virtual.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>Desktop jarak jauh</h3><p>Berbagi layar penuh melalui WebRTC dengan sentuh-ke-mouse dan input keyboard — lihat dan kendalikan desktop Anda dari mana saja di jaringan Anda. Berfungsi penuh: ketukan, seret, dan ketukan tombol yang Anda kirim muncul di desktop hampir seketika. Keterlambatan yang Anda perhatikan ada pada pembaruan layar yang datang dari desktop ke ponsel Anda, bukan pada input Anda.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Desktop jarak jauh</h3><p>Berbagi layar penuh melalui WebRTC, dengan suara PC — lihat dan kendalikan desktop Anda dari mana saja di jaringan Anda. Di ponsel, sentuhan menggerakkan mouse dan bilah di layar mengirim teks; di aplikasi Windows, macOS, dan Linux, mouse dan keyboard Anda sendiri bekerja secara langsung. Klik dan penekanan tombol muncul di desktop hampir seketika; jeda apa pun yang Anda perhatikan ada pada pembaruan layar yang kembali, bukan pada input Anda.</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>Papan klip bersama</h3><p>PC adalah hub: setiap ponsel mendorong papan klipnya ke sana — langsung ke papan klip PC sendiri, siap ditempel — dan layar Clipboard mencantumkan entri terbaru setiap perangkat. Ketuk satu untuk menyalinnya ke ponsel ini. Tidak ada yang dibaca dari atau ditulis ke papan klip ponsel Anda di latar belakang, hanya saat Anda mengetuk.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Shell sungguhan, dijalankan dari ponsel Anda.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Obrolan AI</h3><p>Bicaralah dengan penyedia AI mana pun yang telah Anda konfigurasi di gateway — DeepSeek, OpenAI, Anthropic dan lainnya.</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — tab Setelan yang menemukan gateway di jaringan Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Penemuan gateway</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — tab Setelan dengan kunci penyedia AI yang dikonfigurasi dan info aplikasi" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Penyiapan penyedia AI</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>Unduh <span class="free-badge">GRATIS</span></h3>
-<p>Aplikasi ponsel (Android) + gateway desktop. Keduanya terbuka, keduanya gratis.</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Unduh APK</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>Unduh TrXi-Ctrl 1.1.0 <span class="free-badge">GRATIS</span></h3>
+<p>Aplikasi ini, untuk ponsel atau komputer Anda, plus gateway untuk desktop Linux yang ingin Anda kendalikan.</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ jendela</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (tidak ditandatangani, sideload)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway untuk Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Build uji Windows &amp; macOS 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">Lihat gateway di GitHub →</a>
+<p style="font-size:.9rem; margin-top:1rem;">Ponsel lama (Android 32-bit): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">APK armv7</a> · Semua file: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">halaman rilis</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway di GitHub →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Instal aplikasinya</h2>
+<p>Belum ada build yang ditandatangani oleh Apple atau Microsoft, jadi setiap sistem bertanya sekali apakah Anda mempercayainya</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>Android</h3><p>Unduh APK di ponsel dan buka. Android meminta izin untuk mengizinkan pemasangan dari browser atau pengelola file Anda saat pertama kali — izinkan, lalu Instal. Sebagian besar ponsel dari sepuluh tahun terakhir memerlukan APK arm64; gunakan armv7 hanya pada ponsel 32-bit lama. Pembaruan selanjutnya dapat langsung dari gateway: <b>Pembaruan</b> tab.</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhone &amp; iPad</h3><p>Build iOS tidak ditandatangani, jadi di-sideload: instal <a href="https://sideloadly.io">Secara sampingan</a> atau <a href="https://altstore.io">Toko Alt</a> di komputer, sambungkan iPhone, masukkan <code>.ipa</code> dan masuk dengan Apple ID apa pun. Lalu di iPhone: Pengaturan → Umum → VPN &amp; Manajemen Perangkat → percayai Apple ID Anda. Dengan Apple ID gratis, aplikasi harus di-sideload ulang setiap 7 hari.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>jendela 10/11</h3><p>Ekstrak unduhan di mana saja (misalnya <code>C:\Programs\TrXi-Ctrl</code>) dan jalankan <code>trxi_ctrl.exe</code>. SmartScreen mengatakan "Windows melindungi PC Anda" saat pertama kali: <b>Info selengkapnya → Jalankan saja</b>. Simpan file bersama-sama — .exe membutuhkan DLL dan folder <code>data</code> di sebelahnya.</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>Buka <code>.dmg</code> dan seret <b>TrXi-Ctrl</b> ke <b>Aplikasi</b>. Pertama kali, klik kanan aplikasi → <b>Membuka</b> → Buka (klik dua kali diblokir karena tidak dinotarisasi). Jika macOS masih menolak, Pengaturan Sistem → Privasi &amp; Keamanan → <b>Buka Saja</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>Memerlukan GTK 3 dan libmpv: di Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Lalu <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> dan jalankan <code>./bundle/trxi_ctrl</code>. Jaga <code>bundle</code> folder tetap bersama.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Pasangkan dengan desktop Anda</h3><p>Di desktop Linux yang menjalankan gateway, buka <code>http://localhost:8772/admin</code> (atau Gateway Manager). <b>Ponsel dan Mac:</b> aplikasi → Pengaturan → ikon pemindai QR → pindai QR, atau ketuk ikon gambar untuk membuka gambar QR yang dikirim seseorang melalui email kepada Anda. <b>Windows dan Linux:</b> masukkan alamat gateway dan kode pemasangan yang ditampilkan di bawah QR. Kode hanya berlaku sekali dan bertahan 10 menit. Kedua perangkat harus berada di jaringan Tailscale atau LAN yang sama.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Instal gateway</h2>

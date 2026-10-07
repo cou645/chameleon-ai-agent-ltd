@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Control remoto gratuito para tu escritorio Linux — Bluetooth, cortafuegos, audio, multimedia, ventanas, terminal, compartir pantalla, portapapeles compartido y chat con IA, todo desde tu teléfono — además, en teléfonos rooteados, un punto de acceso VPN y almacenamiento masivo USB. Diseñado para Debian Trixie; también funciona en la mayoría de los demás escritorios Linux X11.</p>
+<p class="sub">Control remoto gratuito para tu escritorio Linux — Bluetooth, cortafuegos, audio, multimedia, ventanas, terminal, compartir pantalla, portapapeles compartido y chat con IA, desde tu teléfono o desde otro ordenador — además, en teléfonos con root, un punto de acceso VPN y almacenamiento masivo USB. Creado para Debian Trixie; también funciona en la mayoría de los demás escritorios Linux con X11.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Gratis y abierto</span>
-<span class="badge">🐧 Solo Linux / X11</span>
+<span class="badge">🆕 Versión 1.1.0</span>
+<span class="badge">📱 Android e iOS · 💻 Aplicaciones para Windows, macOS y Linux</span>
+<span class="badge">🐧 Controla escritorios Linux / X11</span>
 <span class="badge">🔌 14 pantallas de control (+2 en teléfonos rooteados)</span>
 <span class="badge">🤖 Servidor MCP incluido</span>
 <span class="badge">🔒 Tu red, sin retransmisión en la nube</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>Novedades en 1.1.0</h2>
+<p>Octubre de 2026</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>Aplicaciones de escritorio</h3><p>TrXi-Ctrl ahora funciona en Windows, macOS y Linux además de en teléfonos. Controla tu máquina Linux desde un portátil: las mismas pantallas, con ratón y teclado reales.</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>Escritorio remoto con ratón y teclado</h3><p>Mueve, haz clic (izquierdo, central, derecho), arrastra y desplaza la pantalla remota con tu ratón; escribe y usa atajos como Ctrl+C en tu propio teclado. Los controles táctiles en teléfonos no cambian.</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>Sonido con la imagen</h3><p>El escritorio remoto reproduce el sonido del PC junto con la pantalla, con un botón de silencio en la pestaña Escritorio.</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>Empareja desde una imagen o un código</h3><p>¿No estás junto al PC? Alguien allí puede enviarte por correo el QR de emparejamiento — abre la imagen en el escáner de la aplicación (icono de imagen). Los ordenadores sin cámara escriben el código de emparejamiento en su lugar.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Dispositivos y lista blanca</h3><p>La página de administración de la puerta de enlace enumera cada dispositivo que se ha conectado y si está en línea, y puede permitir solo los dispositivos que marques — por nombre de Tailscale o, en tu red doméstica, por dirección MAC.</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>Administrador de puerta de enlace</h3><p>Un pequeño panel de escritorio para iniciar, detener y reiniciar el servicio de puerta de enlace, mostrar, guardar o copiar el QR de emparejamiento, y leer el registro de la puerta de enlace.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Qué hace</h2>
 <p>Una app de teléfono, un demonio de puerta de enlace en tu escritorio</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>Multimedia</h3><p>Reproducción/pausa/búsqueda/volumen reales para <a href="../media.html">Chameleon Media Center</a> y reproductores basados en MPV, mediante el propio socket IPC de mpv — no solo una lista de archivos estática.</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMC en vivo</h3><p>Mira <a href="../media.html">Chameleon Media Center</a>la transmisión en vivo en tu teléfono — elige Baja latencia (MPEG-TS) o Fluido (HLS) para conexiones más débiles — consulta si está en vivo, su fuente y cuántos están viendo, y copia un enlace para que cualquiera vea en un navegador.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows y escritorios</h3><p>Lista, enfoca, cierra, minimiza, maximiza, organiza ventanas y cambia de escritorios virtuales.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>Escritorio remoto</h3><p>Compartición de pantalla completa por WebRTC con entrada táctil-a-ratón y de teclado — ve y controla tu escritorio desde cualquier lugar de tu red. Totalmente funcional: los toques, arrastres y pulsaciones que envías aparecen en el escritorio casi de inmediato. Cualquier retraso que notes está en las actualizaciones de pantalla que vuelven del escritorio a tu teléfono, no en tu entrada.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Escritorio remoto</h3><p>Compartición de pantalla completa por WebRTC, con el sonido del PC — ve y controla tu escritorio desde cualquier lugar de tu red. En un teléfono, el tacto controla el ratón y una barra en pantalla envía texto; en las aplicaciones de Windows, macOS y Linux tu propio ratón y teclado funcionan directamente. Los clics y las pulsaciones aparecen en el escritorio casi de inmediato; cualquier retraso que notes está en las actualizaciones de pantalla que vuelven, no en tu entrada.</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>Portapapeles compartido</h3><p>El PC es el centro: cada teléfono envía su portapapeles allí — directamente al portapapeles del propio PC, listo para pegar — y la pantalla Portapapeles muestra la última entrada de cada dispositivo. Toca una para copiarla a este teléfono. No se lee ni se escribe nada en el portapapeles de tu teléfono en segundo plano, solo cuando tocas.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Un shell real, ejecutado desde tu teléfono.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Chat de IA</h3><p>Habla con el proveedor de IA que hayas configurado en la puerta de enlace — DeepSeek, OpenAI, Anthropic y más.</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — Pestaña de ajustes descubriendo puertas de enlace en la red de Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Descubrimiento de puerta de enlace</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — Pestaña de ajustes con una clave de proveedor de IA configurada e información de la aplicación" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Configuración del proveedor de IA</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>Descargar <span class="free-badge">GRATIS</span></h3>
-<p>App para teléfono (Android) + puerta de enlace de escritorio. Ambas abiertas, ambas gratuitas.</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Descargar el APK</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>Descargar TrXi-Ctrl 1.1.0 <span class="free-badge">GRATIS</span></h3>
+<p>La app, para tu teléfono u ordenador, además de la puerta de enlace para el escritorio Linux que quieres controlar.</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ ventanas</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (sin firmar, instalación lateral)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Puerta de enlace para Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Compilaciones de prueba para Windows y macOS 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">Ver la puerta de enlace en GitHub →</a>
+<p style="font-size:.9rem; margin-top:1rem;">Teléfonos antiguos (Android de 32 bits): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · Todos los archivos: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">página de versiones</a> · <a href="https://github.com/cou645/trixie-gateway">Puerta de enlace en GitHub →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Instala la app</h2>
+<p>Ninguna de las compilaciones está firmada por Apple o Microsoft todavía, así que cada sistema pregunta una vez si confías en ella</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>Androide</h3><p>Descarga el APK en el teléfono y ábrelo. Android pide permitir instalaciones desde tu navegador o gestor de archivos la primera vez — permítelo, luego Instalar. La mayoría de los teléfonos de los últimos diez años quieren el APK arm64; usa armv7 solo en teléfonos antiguos de 32 bits. Las actualizaciones posteriores pueden venir directamente de la puerta de enlace: <b>Actualizaciones</b> pestaña.</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhone y iPad</h3><p>La compilación de iOS no está firmada, por lo que se instala por sideload: instala <a href="https://sideloadly.io">Carga lateral</a> o <a href="https://altstore.io">Tienda alternativa</a> en un ordenador, conecta el iPhone, arrastra el <code>.ipa</code> e inicia sesión con cualquier Apple ID. Luego en el iPhone: Ajustes → General → VPN y gestión de dispositivos → confía en tu Apple ID. Con un Apple ID gratuito, la app debe reinstalarse por sideload cada 7 días.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows 10 / 11</h3><p>Descomprime la descarga en cualquier lugar (por ejemplo <code>C:\Programs\TrXi-Ctrl</code>) y ejecuta <code>trxi_ctrl.exe</code>. SmartScreen dice "Windows protegió tu PC" la primera vez: <b>Más información → Ejecutar de todos modos</b>. Mantén los archivos juntos: el .exe necesita las DLL y la carpeta <code>data</code> junto a él.</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macos</h3><p>Abre el <code>.dmg</code> y arrastra <b>TrXi-Ctrl</b> a <b>Aplicaciones</b>. La primera vez, haz clic derecho en la app → <b>Abierto</b> → Abrir (el doble clic está bloqueado porque no está notarizada). Si macOS sigue negándose, Ajustes del Sistema → Privacidad y seguridad → <b>Abrir de todos modos</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>linux</h3><p>Requiere GTK 3 y libmpv: en Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Luego <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> y ejecuta <code>./bundle/trxi_ctrl</code>. Mantén la carpeta <code>bundle</code> junta.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Empareja con tu escritorio</h3><p>En el escritorio Linux que ejecuta la puerta de enlace, abre <code>http://localhost:8772/admin</code> (o el Administrador de puerta de enlace). <b>Teléfonos y Macs:</b> app → Ajustes → icono del escáner de QR → escanea el QR, o toca el icono de imagen para abrir una imagen de QR que alguien te haya enviado por correo electrónico. <b>Windows y Linux:</b> introduce la dirección de la puerta de enlace y el código de emparejamiento que aparece debajo del QR. Un código funciona una vez y dura 10 minutos. Ambos dispositivos deben estar en la misma red de Tailscale o LAN.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Instalar la puerta de enlace</h2>

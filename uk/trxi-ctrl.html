@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Безкоштовне віддалене керування вашим робочим столом Linux — Bluetooth, брандмауер, аудіо, медіа, вікна, термінал, спільний доступ до екрана, спільний буфер обміну та чат зі ШІ, усе з вашого телефону — а також на рутованих телефонах VPN-хотспот і USB-накопичувач. Створено для Debian Trixie; працює й на більшості інших робочих столів Linux з X11.</p>
+<p class="sub">Безкоштовне віддалене керування вашим робочим столом Linux — Bluetooth, брандмауер, аудіо, медіа, вікна, термінал, спільний доступ до екрана, спільний буфер обміну та чат зі ШІ, з вашого телефону або з іншого комп'ютера — а також, на рутованих телефонах, VPN-точка доступу та USB-накопичувач. Створено для Debian Trixie; працює й на більшості інших робочих столів Linux з X11.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Безкоштовно та з відкритим кодом</span>
-<span class="badge">🐧 Лише Linux / X11</span>
+<span class="badge">🆕 Версія 1.1.0</span>
+<span class="badge">📱 Android і iOS · 💻 Застосунки для Windows, macOS і Linux</span>
+<span class="badge">🐧 Керування робочими столами Linux / X11</span>
 <span class="badge">🔌 14 екранів керування (+2 на рутованих телефонах)</span>
 <span class="badge">🤖 Включено сервер MCP</span>
 <span class="badge">🔒 Ваша мережа, без хмарного ретранслятора</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>Що нового в 1.1.0</h2>
+<p>Жовтень 2026</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>Настільні застосунки</h3><p>TrXi-Ctrl тепер працює на Windows, macOS і Linux, а також на телефонах. Керуйте своєю машиною Linux з ноутбука: ті самі екрани, зі справжньою мишею та клавіатурою.</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>Віддалений робочий стіл з мишею та клавіатурою</h3><p>Переміщайте, клацайте (лівою, середньою, правою), перетягуйте та прокручуйте віддалений екран мишею; вводьте текст і використовуйте сполучення клавіш, як-от Ctrl+C, на власній клавіатурі. Сенсорне керування на телефонах не змінилося.</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>Звук разом із зображенням</h3><p>Віддалений робочий стіл відтворює звук комп'ютера разом із екраном, із кнопкою вимкнення звуку на вкладці «Робочий стіл».</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>Сполучення за зображенням або кодом</h3><p>Не біля комп'ютера? Хтось поруч може надіслати вам QR-код сполучення електронною поштою — відкрийте зображення в сканері застосунку (значок зображення). Комп'ютери без камери вводять код сполучення вручну.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Пристрої та білий список</h3><p>Сторінка адміністратора шлюзу перелічує кожен пристрій, який підключався, і чи він онлайн, а також дає змогу впускати лише позначені пристрої — за назвою Tailscale або, у вашій домашній мережі, за MAC-адресою.</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>Менеджер шлюзу</h3><p>Невелика настільна панель для запуску, зупинки та перезапуску служби шлюзу, показу, збереження чи копіювання QR-коду сполучення та перегляду журналу шлюзу.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Що це робить</h2>
 <p>Один застосунок на телефоні, один демон-шлюз на вашому робочому столі</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>ЗМІ</h3><p>Справжні play/pause/seek/volume для <a href="../media.html">Chameleon Media Center</a> та плеєрів на базі MPV, через власний IPC-сокет mpv — а не просто статичний список файлів.</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Дивіться <a href="../media.html">Chameleon Media Center</a>прямий ефір на вашому телефоні — виберіть Low latency (MPEG-TS) або Smooth (HLS) для слабких з'єднань — дізнайтеся, чи йде ефір, його джерело та скільки глядачів, і скопіюйте посилання, щоб будь-хто міг дивитися в браузері.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows і робочі столи</h3><p>Список, фокус, закриття, згортання, розгортання, мозаїка вікон і перемикання віртуальних робочих столів.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>Віддалений робочий стіл</h3><p>Повний обмін екраном через WebRTC з керуванням дотиком-як-мишею та введенням з клавіатури — дивіться та керуйте робочим столом звідусіль у вашій мережі. Повністю функціонально: дотики, перетягування та натискання клавіш, які ви надсилаєте, з'являються на робочому столі майже миттєво. Будь-яка помітна затримка — в оновленнях екрана, що надходять від робочого столу до вашого телефона, а не у вашому введенні.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>Віддалений робочий стіл</h3><p>Повний обмін екраном через WebRTC зі звуком ПК — дивіться та керуйте своїм робочим столом з будь-якого місця у вашій мережі. На телефоні дотики керують мишею, а екранна панель надсилає текст; у застосунках Windows, macOS і Linux ваші власні миша та клавіатура працюють безпосередньо. Клацання та натискання клавіш з'являються на робочому столі майже миттєво; будь-яка помітна затримка стосується оновлень екрана, що повертаються, а не вашого введення.</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>Спільний буфер обміну</h3><p>ПК — це хаб: кожен телефон надсилає свій буфер обміну туди — прямо у власний буфер обміну ПК, готовий до вставлення — а екран Clipboard перелічує останній запис кожного пристрою. Торкніться одного, щоб скопіювати його на цей телефон. Нічого не читається та не записується у буфер обміну вашого телефона у фоновому режимі, лише коли ви торкаєтеся.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Термінал</h3><p>Справжня оболонка, що запускається з вашого телефона.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AI-чат</h3><p>Спілкуйтеся з будь-яким AI-провайдером, налаштованим на шлюзі — DeepSeek, OpenAI, Anthropic та іншими.</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Налаштування», що виявляє шлюзи в мережі Tailscale" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">Виявлення шлюзу</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — вкладка «Налаштування» з налаштованим ключем постачальника AI та інформацією про застосунок" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Налаштування постачальника ШІ</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>Завантажити <span class="free-badge">БЕЗКОШТОВНО</span></h3>
-<p>Мобільний застосунок (Android) + шлюз для ПК. Обидва відкриті, обидва безкоштовні.</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ Завантажити APK</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>Завантажити TrXi-Ctrl 1.1.0 <span class="free-badge">БЕЗКОШТОВНО</span></h3>
+<p>Застосунок для вашого телефону чи комп'ютера, а також шлюз для робочого столу Linux, яким ви хочете керувати.</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ Windows</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (без підпису, sideload)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Шлюз для Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Тестові збірки для Windows і macOS 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">Переглянути шлюз на GitHub →</a>
+<p style="font-size:.9rem; margin-top:1rem;">Старі телефони (32-бітний Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · Усі файли: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">сторінка релізу</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway на GitHub →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Встановіть застосунок</h2>
+<p>Жодна зі збірок поки не підписана Apple чи Microsoft, тому кожна система один раз запитає, чи довіряєте ви їй</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>Android</h3><p>Завантажте APK на телефон і відкрийте його. Android першого разу попросить дозволити встановлення з браузера чи файлового менеджера — дозвольте, потім натисніть «Встановити». Більшості телефонів за останні десять років потрібен APK arm64; використовуйте armv7 лише на старих 32-бітних телефонах. Подальші оновлення можуть надходити прямо з gateway: <b>Оновлення</b> вкладка.</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhone і iPad</h3><p>Збірка для iOS не підписана, тому встановлюється через sideload: встановіть <a href="https://sideloadly.io">Набік</a> або <a href="https://altstore.io">AltStore</a> на комп'ютері підключіть iPhone, перетягніть <code>.ipa</code> і увійдіть з будь-яким Apple ID. Потім на iPhone: Налаштування → Загальні → VPN і керування пристроєм → довіртеся своєму Apple ID. З безкоштовним Apple ID додаток потрібно перевстановлювати кожні 7 днів.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>Windows 10/11</h3><p>Розпакуйте завантаження будь-де (наприклад <code>C:\Programs\TrXi-Ctrl</code>) і запустіть <code>trxi_ctrl.exe</code>. SmartScreen першого разу скаже "Windows захистила ваш ПК": <b>Докладніше → Запустити все одно</b>. Тримайте файли разом — .exe потрібні DLL і папка <code>data</code> поруч із ним.</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>Відкрийте <code>.dmg</code> і перетягніть <b>TrXi-Ctrl</b> у <b>Програми</b>. Першого разу клацніть програму правою кнопкою → <b>ВІДЧИНЕНО</b> → Відкрити (подвійний клік заблоковано, оскільки її не нотаризовано). Якщо macOS усе ще відмовляється, Системні налаштування → Конфіденційність і безпека → <b>Відкрити все одно</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>Потрібні GTK 3 і libmpv: у Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Потім <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> і запустіть <code>./bundle/trxi_ctrl</code>. Тримайте <code>bundle</code> теку разом.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>Спаруйте зі своїм комп'ютером</h3><p>На робочому столі Linux, де запущено шлюз, відкрийте <code>http://localhost:8772/admin</code> (або Gateway Manager). <b>Телефони та Mac:</b> програма → Налаштування → значок сканера QR-кодів → відскануйте QR-код або торкніться значка зображення, щоб відкрити зображення QR-коду, надіслане вам електронною поштою. <b>Windows і Linux:</b> введіть адресу шлюзу та код спарювання, показаний під QR-кодом. Код діє один раз і триває 10 хвилин. Обидва пристрої мають бути в одній мережі Tailscale або локальній мережі.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Встановіть шлюз</h2>

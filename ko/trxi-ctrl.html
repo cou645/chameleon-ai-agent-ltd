@@ -60,10 +60,12 @@
 <div class="hero">
 <div class="hero-icon">🐧</div>
 <h1>TrXi-Ctrl</h1>
-<p class="sub">Linux 데스크톱을 위한 무료 원격 제어 — Bluetooth, 방화벽, 오디오, 미디어, 창, 터미널, 화면 공유, 공유 클립보드 및 AI 채팅을 모두 휴대폰에서 — 또한 루팅된 휴대폰에서는 VPN 핫스팟과 USB 대용량 저장소까지. Debian Trixie용으로 제작되었으며, 대부분의 다른 X11 Linux 데스크톱에서도 작동합니다.</p>
+<p class="sub">Linux 데스크톱을 위한 무료 원격 제어 — Bluetooth, 방화벽, 오디오, 미디어, 창, 터미널, 화면 공유, 공유 클립보드 및 AI 채팅을 휴대폰이나 다른 컴퓨터에서 — 또한 루팅된 휴대폰에서는 VPN 핫스팟과 USB 대용량 저장소. Debian Trixie용으로 제작되었으며, 대부분의 다른 X11 Linux 데스크톱에서도 작동합니다.</p>
 <div class="hero-badges">
 <span class="badge">🆓 무료 및 오픈</span>
-<span class="badge">🐧 Linux / X11 전용</span>
+<span class="badge">🆕 버전 1.1.0</span>
+<span class="badge">📱 Android 및 iOS · 💻 Windows, macOS 및 Linux 앱</span>
+<span class="badge">🐧 Linux / X11 데스크톱 제어</span>
 <span class="badge">🔌 14개의 제어 화면 (루팅된 휴대폰에서는 +2)</span>
 <span class="badge">🤖 MCP 서버 포함</span>
 <span class="badge">🔒 당신의 네트워크, 클라우드 릴레이 없음</span>
@@ -71,6 +73,18 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
+<h2>1.1.0의 새로운 기능</h2>
+<p>2026년 10월</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">💻</div><h3>데스크톱 앱</h3><p>TrXi-Ctrl은 이제 휴대폰뿐만 아니라 Windows, macOS, Linux에서도 실행됩니다. 노트북에서 Linux 컴퓨터를 제어하세요: 동일한 화면을 실제 마우스와 키보드로.</p></div>
+<div class="card"><div class="card-icon">🖱️</div><h3>마우스 및 키보드 원격 데스크톱</h3><p>마우스로 원격 화면을 이동하고 클릭(왼쪽, 가운데, 오른쪽)하고 드래그하고 스크롤하세요. 자신의 키보드로 입력하고 Ctrl+C 같은 단축키를 사용하세요. 휴대폰의 터치 컨트롤은 그대로입니다.</p></div>
+<div class="card"><div class="card-icon">🔇</div><h3>화면과 함께 나오는 소리</h3><p>원격 데스크톱은 화면과 함께 PC의 소리를 재생하며, 데스크톱 탭에 음소거 버튼이 있습니다.</p></div>
+<div class="card"><div class="card-icon">🖼️</div><h3>사진 또는 코드로 페어링</h3><p>PC 옆에 없나요? 그곳에 있는 사람이 페어링 QR을 이메일로 보내줄 수 있습니다 — 앱의 스캐너(이미지 아이콘)에서 사진을 여세요. 카메라가 없는 컴퓨터는 대신 페어링 코드를 입력합니다.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>기기 및 허용 목록</h3><p>게이트웨이의 관리 페이지에는 연결된 모든 기기와 온라인 여부가 나열되며, 체크한 기기만 허용할 수 있습니다 — Tailscale 이름 또는 홈 네트워크에서는 MAC 주소로 지정합니다.</p></div>
+<div class="card"><div class="card-icon">🎛️</div><h3>게이트웨이 관리자</h3><p>게이트웨이 서비스를 시작, 중지, 재시작하고, 페어링 QR을 표시, 저장 또는 복사하며, 게이트웨이 로그를 읽는 작은 데스크톱 패널입니다.</p></div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>기능 설명</h2>
 <p>휴대폰 앱 하나, 데스크톱의 게이트웨이 데몬 하나</p>
 </div>
@@ -83,7 +97,7 @@
 <div class="card"><div class="card-icon">🎬</div><h3>ubbf8ub514uc5b4</h3><p>실제 재생/일시정지/탐색/볼륨: <a href="../media.html">Chameleon Media Center</a> 및 MPV 기반 플레이어용, mpv 자체의 IPC 소켓을 통해 — 단순한 정적 파일 목록이 아닙니다.</p></div>
 <div class="card"><div class="card-icon">📺</div><h3>CMC 라이브</h3><p>시청하세요 <a href="../media.html">Chameleon Media Center</a>의 라이브 스트림을 휴대폰에서 — 약한 연결에는 저지연(MPEG-TS) 또는 부드러움(HLS)을 선택하세요 — 라이브 여부, 소스, 시청자 수를 확인하고 누구나 브라우저에서 시청할 수 있는 링크를 복사하세요.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows 및 데스크톱</h3><p>창 나열, 포커스, 닫기, 최소화, 최대화, 타일링 및 가상 데스크톱 전환.</p></div>
-<div class="card"><div class="card-icon">📲</div><h3>원격 데스크톱</h3><p>WebRTC를 통한 전체 화면 공유와 터치-마우스 및 키보드 입력 — 네트워크 어디서든 데스크톱을 보고 제어하세요. 완전히 작동합니다: 보내는 탭, 드래그, 키 입력이 거의 즉시 데스크톱에 나타납니다. 느껴지는 지연은 데스크톱에서 휴대폰으로 돌아오는 화면 업데이트에 있는 것이지, 입력에 있는 것이 아닙니다.</p></div>
+<div class="card"><div class="card-icon">📲</div><h3>원격 데스크톱</h3><p>WebRTC를 통한 전체 화면 공유, PC 사운드 포함 — 네트워크 어디서든 데스크톱을 보고 제어할 수 있습니다. 휴대폰에서는 터치로 마우스를 조작하고 화면 막대로 텍스트를 보냅니다. Windows, macOS, Linux 앱에서는 자신의 마우스와 키보드가 직접 작동합니다. 클릭과 키 입력은 거의 즉시 데스크톱에 나타납니다. 느껴지는 지연은 돌아오는 화면 업데이트에 있는 것이지 입력에 있는 것이 아닙니다.</p></div>
 <div class="card"><div class="card-icon">📋</div><h3>공유 클립보드</h3><p>PC가 허브입니다: 모든 휴대폰이 클립보드를 그곳으로 보냅니다 — PC 자체의 클립보드에 바로, 붙여넣을 준비가 된 상태로 — 그리고 클립보드 화면에는 각 기기의 최신 항목이 나열됩니다. 하나를 탭하면 이 휴대폰으로 복사됩니다. 백그라운드에서 휴대폰의 클립보드를 읽거나 쓰지 않으며, 탭할 때만 합니다.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>터미널</h3><p>휴대폰에서 실행되는 진짜 셸.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AI 채팅</h3><p>게이트웨이에 구성한 AI 제공자와 대화하세요 — DeepSeek, OpenAI, Anthropic 등.</p></div>
@@ -138,13 +152,28 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — Tailscale 네트워크에서 게이트웨이를 검색하는 설정 탭" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130333.png"/><div class="sg-cap">게이트웨이 검색</div></div>
 <div class="sg-frame"><img alt="TrXi-Ctrl — AI 공급자 키가 구성된 설정 탭 및 앱 정보" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AI 제공자 설정</div></div>
 </div>
-<div class="cta-band" style="margin-top:2.5rem;">
-<h3>다운로드 <span class="free-badge">무료</span></h3>
-<p>휴대폰 앱(Android) + 데스크톱 게이트웨이. 둘 다 오픈, 둘 다 무료.</p>
-<a class="btn btn-solid" download="" href="../trxi-ctrl-assets/trxi-ctrl.apk">⬇ APK 다운로드</a>
+<div class="cta-band" id="download" style="margin-top:2.5rem;">
+<h3>TrXi-Ctrl 1.1.0 다운로드 <span class="free-badge">무료</span></h3>
+<p>앱은 휴대폰이나 컴퓨터용이며, 제어하려는 Linux 데스크톱용 게이트웨이도 포함됩니다.</p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ 안드로이드(APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ 윈도우</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS(.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ 리눅스</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (서명되지 않음, 사이드로드)</a>
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux용 게이트웨이</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases">Windows 및 macOS 테스트 빌드 🧪</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway">GitHub에서 게이트웨이 보기 →</a>
+<p style="font-size:.9rem; margin-top:1rem;">구형 휴대폰 (32비트 Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · 모든 파일: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">릴리스 페이지</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub의 게이트웨이 →</a></p>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>앱 설치</h2>
+<p>아직 Apple이나 Microsoft에서 서명한 빌드가 없으므로, 각 시스템은 신뢰할지 한 번씩 묻습니다</p>
+</div>
+<div class="cards">
+<div class="card"><div class="card-icon">🤖</div><h3>기계적 인조 인간</h3><p>휴대폰에서 APK를 다운로드하고 엽니다. Android는 처음에 브라우저나 파일 관리자에서 설치를 허용할지 묻습니다 — 허용한 다음 설치를 누르세요. 지난 10년간의 대부분의 휴대폰은 arm64 APK를 필요로 합니다. armv7은 오래된 32비트 휴대폰에서만 사용하세요. 이후 업데이트는 게이트웨이에서 바로 받을 수 있습니다: <b>업데이트</b> 탭.</p></div>
+<div class="card"><div class="card-icon">🍏</div><h3>iPhone 및 iPad</h3><p>iOS 빌드는 서명되지 않았으므로 사이드로드합니다: 설치 <a href="https://sideloadly.io">사이드로드 방식</a> 또는 <a href="https://altstore.io">알트스토어</a> 를 컴퓨터에서, iPhone을 연결하고, <code>.ipa</code> 을 드롭한 후 아무 Apple ID로 로그인하세요. 그런 다음 iPhone에서: 설정 → 일반 → VPN 및 기기 관리 → Apple ID를 신뢰하세요. 무료 Apple ID의 경우 앱을 7일마다 다시 사이드로드해야 합니다.</p></div>
+<div class="card"><div class="card-icon">🪟</div><h3>윈도우 10/11</h3><p>다운로드한 파일을 아무 곳에나 압축 해제하고 (예: <code>C:\Programs\TrXi-Ctrl</code>) 실행하세요 <code>trxi_ctrl.exe</code>. 처음에는 SmartScreen이 "Windows에서 PC를 보호했습니다"라고 표시합니다: <b>추가 정보 → 실행</b>. 파일을 함께 보관하세요 — .exe에는 DLL과 <code>data</code> 폴더가 옆에 필요합니다.</p></div>
+<div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>열고 <code>.dmg</code> 끌어다 놓습니다 <b>TrXi-Ctrl</b> 으로 <b>응용</b>. 처음에는 앱을 마우스 오른쪽 버튼으로 클릭 → <b>열려 있는</b> → 열기 (공증되지 않았기 때문에 더블 클릭이 차단됩니다). macOS가 계속 거부하면 시스템 설정 → 개인정보 보호 및 보안 → <b>그래도 열기</b>.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>리눅스</h3><p>GTK 3 및 libmpv 필요: Debian/Ubuntu에서 <code>sudo apt install libgtk-3-0 libmpv2</code>. 그런 다음 <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> 를 실행합니다 <code>./bundle/trxi_ctrl</code>. 폴더를 <code>bundle</code> 함께 유지하세요.</p></div>
+<div class="card"><div class="card-icon">🔗</div><h3>데스크톱과 페어링</h3><p>게이트웨이를 실행하는 Linux 데스크톱에서 열기 <code>http://localhost:8772/admin</code> (또는 Gateway Manager). <b>휴대폰 및 Mac:</b> 앱 → 설정 → QR 스캐너 아이콘 → QR을 스캔하거나, 이미지 아이콘을 탭하여 누군가 이메일로 보낸 QR 이미지를 엽니다. <b>Windows 및 Linux:</b> 게이트웨이 주소와 QR 아래에 표시된 페어링 코드를 입력하세요. 코드는 한 번만 작동하며 10분 동안 유효합니다. 두 기기 모두 동일한 Tailscale 네트워크 또는 LAN에 있어야 합니다.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>게이트웨이 설치</h2>
