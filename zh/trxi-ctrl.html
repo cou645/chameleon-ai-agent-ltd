@@ -63,7 +63,7 @@
 <p class="sub">免费远程控制您的 Linux 桌面 — 蓝牙、防火墙、音频、媒体、窗口、终端、屏幕共享、共享剪贴板和 AI 聊天，从您的手机或另一台电脑 — 此外，在已 root 的手机上，还支持 VPN 热点和 USB 大容量存储。专为 Debian Trixie 打造；也适用于大多数其他 X11 Linux 桌面。</p>
 <div class="hero-badges">
 <span class="badge">🆓 个人使用免费</span>
-<span class="badge">🆕 版本 1.1.0</span>
+<span class="badge">🆕 版本 1.2.0</span>
 <span class="badge">📱 Android 和 iOS · 💻 Windows、macOS 和 Linux 应用</span>
 <span class="badge">🐧 控制 Linux / X11 桌面</span>
 <span class="badge">🔌 17 个屏幕（已 root 的手机上 +2）</span>
@@ -73,10 +73,13 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
-<h2>1.1.0 的新功能</h2>
-<p>2026 年 10 月</p>
+<h2>新功能</h2>
+<p>1.2.0 和网关 0.3.1，2026 年 10 月</p>
 </div>
 <div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>在您的家庭网络中也会加密</h3><p>通过 Tailscale 时连接已经是加密的。在家庭网络中，应用现在使用 HTTPS 并检查网关自身的证书指纹，该指纹随配对二维码一起提供。</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>安全审查修复</h3><p>Gateway 0.3.1 修复了我们在 <a href="../security.html#trxi-27001">ISO 27001 审查</a>中发现的漏洞：可撤销设备、默认仅限 Tailscale、按设备授予终端访问权限、防篡改日志，以及一个 root 辅助程序，使网关能以普通用户身份运行。</p></div>
+<div class="card"><div class="card-icon">⚠️</div><h3>安全提示</h3><p>首次启动时显示风险通知，删除、覆盖、加密、格式化或关机的命令在执行前会先询问。</p></div>
 <div class="card"><div class="card-icon">💻</div><h3>桌面应用</h3><p>TrXi-Ctrl 现在不仅可在手机上运行，还支持 Windows、macOS 和 Linux。用笔记本电脑控制你的 Linux 电脑：相同的屏幕，配真正的鼠标和键盘。</p></div>
 <div class="card"><div class="card-icon">🖱️</div><h3>鼠标和键盘远程桌面</h3><p>用鼠标移动、点击（左键、中键、右键）、拖拽和滚动远程屏幕；在自己的键盘上输入并使用 Ctrl+C 等快捷键。手机上的触控操作保持不变。</p></div>
 <div class="card"><div class="card-icon">🔇</div><h3>声音与画面同步</h3><p>远程桌面在显示屏幕的同时播放电脑的声音，桌面标签页上有静音按钮。</p></div>
@@ -115,7 +118,7 @@
 <p>trixie-gateway — 桌面端，单个自包含二进制文件</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>单个二进制文件，无需 Python</h3><p>下载单个自包含的可执行文件——机器上无需 Python、pip 或 venv。自 v0.3.0 起，它仅通过 Tailscale 和从 PC 本身响应，新设备启动时没有终端访问权限，丢失的设备可以从管理页面撤销。基于 aiohttp + aiortc 构建，如果你更愿意从 Python 运行，源代码仍在 GitHub 上。可独立运行或作为 systemd 服务运行，监听你的 Tailscale/LAN 地址。</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>单个二进制文件，无需 Python</h3><p>下载单个自包含的可执行文件——机器上无需 Python、pip 或 venv。自 v0.3.0 起，它仅通过 Tailscale（或您启用的家庭网络 HTTPS）以及从 PC 本身响应，新设备初始没有终端访问权限，丢失的设备可以从管理页面撤销。基于 aiohttp + aiortc 构建，如果您更愿意从 Python 运行，源代码仍在 GitHub 上。可独立运行或作为 systemd 服务运行，监听您的 Tailscale/LAN 地址。</p></div>
 <div class="card"><div class="card-icon">🔌</div><h3>约 110 个 REST 端点</h3><p>上述所有手机应用功能，外加一个兼容 OpenAI 的 <code>/v1/chat/completions</code> 可路由到你配置的任何 AI 提供商。</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>包含 MCP 服务器</h3><p><code>media_mcp_server.py</code> 通过 stdio JSON-RPC 将媒体控制（状态、播放、暂停、跳转、音量、打开、浏览）作为 MCP 工具公开——与手机应用使用相同的会话数据和控制路径，因此 AI 代理和你的手机始终看到相同的内容。</p></div>
 </div>
@@ -153,15 +156,15 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — 已配置 AI 提供商密钥并显示应用信息的设置标签页" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AI 提供商设置</div></div>
 </div>
 <div class="cta-band" id="download" style="margin-top:2.5rem;">
-<h3>下载 TrXi-Ctrl 1.1.0 <span class="free-badge">免费</span></h3>
+<h3>下载 TrXi-Ctrl 1.2.0 <span class="free-badge">免费</span></h3>
 <p>适用于你的手机或电脑的应用，以及用于你想控制的 Linux 桌面的网关。</p>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ 安卓（APK）</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ 窗户</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS（未签名，侧载）</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux 网关</a>
-<p style="font-size:.9rem; margin-top:1rem;">旧手机（32 位 Android）： <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">ARMv7 APK</a> · 所有文件： <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">发布页面</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub 上的 Gateway →</a></p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-arm64.apk">⬇ 安卓（APK）</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-windows.zip">⬇ 窗户</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-linux.tar.gz">⬇ Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-ios-unsigned.ipa">⬇ iOS（未签名，侧载）</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux 网关</a>
+<p style="font-size:.9rem; margin-top:1rem;">需要网关 v0.3.1 或更高版本。较旧的手机（32 位 Android）： <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-armv7.apk">ARMv7 APK</a> · 所有文件： <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.2.0">发布页面</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub 上的 Gateway →</a></p>
 </div>
 <p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ 使用风险自负。</strong> TrXi-Ctrl 和 trixie-gateway 是自由软件，可让配对设备对您的计算机进行强大控制，包括以网关用户（通常是 root）身份运行命令。您需对发送的每条命令负责，需确保网关不暴露在开放互联网上并保管好配对码，且仅控制您获授权控制的机器。CHAMELEON-AI-AGENT LTD 及作者对破坏性命令、通过互联网共享资源或不受支持的配置所造成的损害不承担任何责任——请参阅 <a href="../terms.html#remote-control">条款 §8A</a>。我们已修复和计划修复的内容，对照 ISO/IEC 27001： <a href="../security.html#trxi-27001">安全审查</a> （对齐工作，而非认证）。</p>
 <div class="section-title" style="margin-top:3rem;">
@@ -173,14 +176,14 @@
 <div class="card"><div class="card-icon">🍏</div><h3>iPhone 和 iPad</h3><p>iOS 构建版本未签名，因此需要侧载：安装 <a href="https://sideloadly.io">侧载</a> 或 <a href="https://altstore.io">替代商店</a> 在电脑上，连接 iPhone，拖入 <code>.ipa</code> 并使用任意 Apple ID 登录。然后在 iPhone 上：设置 → 通用 → VPN 与设备管理 → 信任你的 Apple ID。使用免费 Apple ID 时，应用必须每 7 天重新侧载一次。</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows 10 / 11</h3><p>将下载的文件解压到任意位置（例如 <code>C:\Programs\TrXi-Ctrl</code>）并运行 <code>trxi_ctrl.exe</code>。首次运行时 SmartScreen 会提示“Windows 已保护你的电脑”： <b>更多信息 → 仍要运行</b>。请将文件放在一起——.exe 需要旁边的 DLL 和 <code>data</code> 文件夹。</p></div>
 <div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>打开 <code>.dmg</code> 并将 <b>TrXi-Ctrl</b> 拖入 <b>应用程序</b>。首次使用时，右键点击该应用 → <b>打开</b> → 打开（双击会被阻止，因为它未经过公证）。如果 macOS 仍然拒绝，系统设置 → 隐私与安全性 → <b>仍要打开</b>.</p></div>
-<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>需要 GTK 3 和 libmpv：在 Debian/Ubuntu 上 <code>sudo apt install libgtk-3-0 libmpv2</code>。然后 <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> 并运行 <code>./bundle/trxi_ctrl</code>。保持 <code>bundle</code> 文件夹在一起。</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>需要 GTK 3 和 libmpv：在 Debian/Ubuntu 上 <code>sudo apt install libgtk-3-0 libmpv2</code>。然后 <code>tar -xzf TrXi-Ctrl-1.2.0-linux.tar.gz</code> 并运行 <code>./bundle/trxi_ctrl</code>。保持 <code>bundle</code> 文件夹在一起。</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>与你的桌面配对</h3><p>在运行网关的 Linux 桌面上，打开 <code>http://localhost:8772/admin</code> （或 Gateway Manager）。 <b>手机和 Mac：</b> 应用 → 设置 → 二维码扫描图标 → 扫描二维码，或点击图片图标打开别人通过电子邮件发给你的二维码图片。 <b>Windows 和 Linux：</b> 输入网关地址和二维码下方显示的配对码。配对码只能使用一次，有效期为 10 分钟。两台设备需要处于同一个 Tailscale 网络中（除非你开启，否则家庭网络访问是关闭的）。新设备无法使用终端，直到你在管理页面勾选 <b>终端</b> 它们。</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>安装网关</h2>
 <p>在您想要控制的 Debian Trixie（或兼容 Linux）机器上</p>
 </div>
-<div class="code-block"># Linux — 独立二进制文件，无需安装其他任何东西 curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # 然后在应用中：设置 → 网关 URL → http://&lt;本机的-tailscale-ip&gt;:8772 # 或者如果你俩在同一个 Tailscale 网络中，点击 "Discover Peers"</div>
+<div class="code-block"># Linux — 独立二进制文件，无需安装其他任何东西 curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # 然后在应用中：Settings → Gateway URL → http://&lt;this-machine's-tailscale-ip&gt;:8772 # 或者如果你俩在同一个 Tailscale 网络中，点击 "Discover Peers"</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">更喜欢 Python？ <code>git clone https://github.com/cou645/trixie-gateway.git</code>，然后 <code>pip install -r requirements.txt</code> 和 <code>python3 gateway.py --port 8772</code>。完整的安装文档，包括以你自己的用户身份运行（推荐）或作为系统服务运行，都在仓库的 <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🔏 检查你的下载。</strong> 每个版本都有一个 <code>SHA256SUMS.txt</code> 用我们的发布密钥签名的， <a href="../.well-known/trxi-release.pub">trxi-release.pub</a>。将这三个文件放在你的下载文件旁边： <code>openssl pkeyutl -verify -pubin -inkey trxi-release.pub -rawin -in SHA256SUMS.txt -sigfile SHA256SUMS.txt.sig</code> 必须显示“Signature Verified Successfully”，然后 <code>sha256sum -c --ignore-missing SHA256SUMS.txt</code> 必须显示 OK。</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows 和 macOS 测试版</strong> 位于 <a href="https://github.com/cou645/trixie-gateway/releases">发布页面</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). 它们未签名，因此 Windows SmartScreen 会提示“未知发布者”（更多信息 → 仍要运行），而 macOS 会阻止首次启动（右键点击 → 打开）。请报告哪些地方出问题。</p>

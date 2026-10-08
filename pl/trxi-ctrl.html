@@ -63,7 +63,7 @@
 <p class="sub">Darmowe zdalne sterowanie pulpitem Linux — Bluetooth, zapora sieciowa, dźwięk, multimedia, okna, terminal, udostępnianie ekranu, wspólny schowek i czat AI, z telefonu lub z innego komputera — a także, na zrootowanych telefonach, hotspot VPN i pamięć masowa USB. Stworzone dla Debian Trixie; działa również na większości innych pulpitów Linux X11.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Bezpłatnie do użytku osobistego</span>
-<span class="badge">🆕 Wersja 1.1.0</span>
+<span class="badge">🆕 Wersja 1.2.0</span>
 <span class="badge">📱 Android i iOS · 💻 Aplikacje Windows, macOS i Linux</span>
 <span class="badge">🐧 Sterowanie pulpitami Linux / X11</span>
 <span class="badge">🔌 17 ekranów (+2 na zrootowanych telefonach)</span>
@@ -73,10 +73,13 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
-<h2>Co nowego w 1.1.0</h2>
-<p>Październik 2026</p>
+<h2>Co nowego</h2>
+<p>1.2.0 i gateway 0.3.1, październik 2026</p>
 </div>
 <div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>Zaszyfrowane także w Twojej sieci domowej</h3><p>Przez Tailscale połączenie było już szyfrowane. W sieci domowej aplikacja używa teraz HTTPS i sprawdza odcisk certyfikatu samej bramy, który przychodzi wraz z kodem QR do parowania.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Poprawki po przeglądzie bezpieczeństwa</h3><p>Gateway 0.3.1 zamyka luki znalezione w naszym <a href="../security.html#trxi-27001">przeglądzie ISO 27001</a>: odwoływalne urządzenia, domyślnie tylko Tailscale, dostęp do terminala przyznawany dla każdego urządzenia, dziennik odporny na manipulacje oraz pomocnik root, dzięki któremu brama może działać jako zwykły użytkownik.</p></div>
+<div class="card"><div class="card-icon">⚠️</div><h3>Monity bezpieczeństwa</h3><p>Powiadomienie o ryzyku przy pierwszym uruchomieniu, a polecenia, które usuwają, nadpisują, szyfrują, formatują lub wyłączają, pytają przed wykonaniem.</p></div>
 <div class="card"><div class="card-icon">💻</div><h3>Aplikacje na pulpit</h3><p>TrXi-Ctrl działa teraz w systemach Windows, macOS i Linux, a także na telefonach. Steruj swoim komputerem z Linuksem z laptopa: te same ekrany, z prawdziwą myszą i klawiaturą.</p></div>
 <div class="card"><div class="card-icon">🖱️</div><h3>Zdalny pulpit z myszą i klawiaturą</h3><p>Przesuwaj, klikaj (lewy, środkowy, prawy), przeciągaj i przewijaj zdalny ekran myszą; pisz i używaj skrótów, takich jak Ctrl+C, na własnej klawiaturze. Sterowanie dotykowe na telefonach pozostaje bez zmian.</p></div>
 <div class="card"><div class="card-icon">🔇</div><h3>Dźwięk razem z obrazem</h3><p>Zdalny pulpit odtwarza dźwięk komputera razem z ekranem, z przyciskiem wyciszenia na karcie Pulpit.</p></div>
@@ -115,7 +118,7 @@
 <p>trixie-gateway — strona desktopowa, pojedynczy samodzielny plik binarny</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>Jeden plik binarny, Python niepotrzebny</h3><p>Pobierz jeden samodzielny plik wykonywalny — bez Pythona, pipa czy venv na maszynie. Od wersji v0.3.0 odpowiada wyłącznie przez Tailscale i z samego komputera, nowe urządzenia startują bez dostępu do terminala, a utracone urządzenia można odwołać ze strony administratora. Zbudowany na aiohttp + aiortc, a źródło wciąż jest na GitHubie, jeśli wolisz uruchamiać go z Pythona. Działa samodzielnie lub jako usługa systemd, nasłuchując na twoim adresie Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>Jeden plik binarny, Python niepotrzebny</h3><p>Pobierz jeden samodzielny plik wykonywalny — bez Pythona, pip ani venv na maszynie. Od wersji v0.3.0 odpowiada tylko przez Tailscale (lub HTTPS w Twojej sieci domowej, jeśli to włączysz) i z samego komputera, nowe urządzenia zaczynają bez dostępu do terminala, a utracone urządzenia można odwołać ze strony administratora. Zbudowane na aiohttp + aiortc, a źródło wciąż jest na GitHubie, jeśli wolisz uruchamiać z Pythona. Działa samodzielnie lub jako usługa systemd, nasłuchując na Twoim adresie Tailscale/LAN.</p></div>
 <div class="card"><div class="card-icon">🔌</div><h3>~110 punktów końcowych REST</h3><p>Wszystkie funkcje aplikacji telefonu powyżej, plus zgodny z OpenAI <code>/v1/chat/completions</code> który kieruje do dowolnego skonfigurowanego przez ciebie dostawcy AI.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>Serwer MCP w zestawie</h3><p><code>media_mcp_server.py</code> udostępnia kontrolę multimediów (status, odtwarzanie, pauza, przewijanie, głośność, otwieranie, przeglądanie) jako narzędzia MCP przez stdio JSON-RPC — te same dane sesji i ścieżka kontroli, których używa aplikacja telefonu, więc agent AI i twój telefon zawsze widzą to samo.</p></div>
 </div>
@@ -153,15 +156,15 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — karta Ustawienia ze skonfigurowanym kluczem dostawcy AI i informacjami o aplikacji" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Konfiguracja dostawcy AI</div></div>
 </div>
 <div class="cta-band" id="download" style="margin-top:2.5rem;">
-<h3>Pobierz TrXi-Ctrl 1.1.0 <span class="free-badge">ZA DARMO</span></h3>
+<h3>Pobierz TrXi-Ctrl 1.2.0 <span class="free-badge">ZA DARMO</span></h3>
 <p>Aplikacja na telefon lub komputer oraz brama dla pulpitu Linux, którym chcesz sterować.</p>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ Okna</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (niepodpisane, sideload)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz">⬇ Bramka dla Linux</a>
-<p style="font-size:.9rem; margin-top:1rem;">Starsze telefony (32-bit Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">pakiet armv7</a> · Wszystkie pliki: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">strona wydania</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway na GitHubie →</a></p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-windows.zip">⬇ Okna</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-linux.tar.gz">⬇ Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-ios-unsigned.ipa">⬇ iOS (niepodpisane, sideload)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz">⬇ Bramka dla Linux</a>
+<p style="font-size:.9rem; margin-top:1rem;">Wymaga gateway v0.3.1 lub nowszego. Starsze telefony (32-bitowy Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-armv7.apk">pakiet armv7</a> · Wszystkie pliki: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.2.0">strona wydania</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway na GitHubie →</a></p>
 </div>
 <p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Używaj na własne ryzyko.</strong> TrXi-Ctrl i trixie-gateway to wolne oprogramowanie, które daje sparowanemu urządzeniu potężną kontrolę nad Twoim komputerem, w tym uruchamianie poleceń jako użytkownik bramy (często root). Odpowiadasz za każde wysłane polecenie, za utrzymywanie bramy poza otwartym internetem i prywatność kodów parowania oraz za kontrolowanie wyłącznie maszyn, do których masz uprawnienia. CHAMELEON-AI-AGENT LTD i autor nie ponoszą żadnej odpowiedzialności za szkody wynikające z destrukcyjnych poleceń, udostępniania zasobów przez internet lub nieobsługiwanych konfiguracji — zobacz <a href="../terms.html#remote-control">Warunki §8A</a>. Co naprawiliśmy i planujemy naprawić, w odniesieniu do ISO/IEC 27001: <a href="../security.html#trxi-27001">przegląd bezpieczeństwa</a> (praca nad zgodnością, nie certyfikacja).</p>
 <div class="section-title" style="margin-top:3rem;">
@@ -173,14 +176,14 @@
 <div class="card"><div class="card-icon">🍏</div><h3>iPhone i iPad</h3><p>Kompilacja iOS jest niepodpisana, więc jest instalowana przez sideload: zainstaluj <a href="https://sideloadly.io">Ładowanie boczne</a> lub <a href="https://altstore.io">AltStore</a> na komputerze podłącz iPhone'a, przeciągnij <code>.ipa</code> i zaloguj się dowolnym Apple ID. Następnie na iPhonie: Ustawienia → Ogólne → VPN i zarządzanie urządzeniem → zaufaj swojemu Apple ID. W przypadku darmowego Apple ID aplikację trzeba ponownie zainstalować co 7 dni.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows 10/11</h3><p>Rozpakuj pobrany plik w dowolnym miejscu (na przykład <code>C:\Programs\TrXi-Ctrl</code>) i uruchom <code>trxi_ctrl.exe</code>. SmartScreen za pierwszym razem powie „Windows chroni Twój komputer”: <b>Więcej informacji → Uruchom mimo to</b>. Trzymaj pliki razem — .exe potrzebuje bibliotek DLL i folderu <code>data</code> obok niego.</p></div>
 <div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>Otwórz <code>.dmg</code> i przeciągnij <b>TrXi-Ctrl</b> do <b>Aplikacje</b>. Za pierwszym razem kliknij aplikację prawym przyciskiem → <b>Otwarte</b> → Otwórz (dwukrotne kliknięcie jest zablokowane, ponieważ nie jest notaryzowana). Jeśli macOS nadal odmawia, Ustawienia systemowe → Prywatność i bezpieczeństwo → <b>Otwórz mimo to</b>.</p></div>
-<div class="card"><div class="card-icon">🐧</div><h3>Linuksa</h3><p>Wymaga GTK 3 i libmpv: w Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Następnie <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> i uruchom <code>./bundle/trxi_ctrl</code>. Trzymaj <code>bundle</code> folder razem.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linuksa</h3><p>Wymaga GTK 3 i libmpv: w Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Następnie <code>tar -xzf TrXi-Ctrl-1.2.0-linux.tar.gz</code> i uruchom <code>./bundle/trxi_ctrl</code>. Trzymaj <code>bundle</code> folder razem.</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>Sparuj ze swoim komputerem</h3><p>Na pulpicie Linux z uruchomioną bramą otwórz <code>http://localhost:8772/admin</code> (lub Gateway Manager). <b>Telefony i Mac:</b> aplikacja → Ustawienia → ikona skanera QR → zeskanuj kod QR lub dotknij ikony obrazu, aby otworzyć obraz kodu QR wysłany ci e-mailem. <b>Windows i Linux:</b> wprowadź adres bramy i kod parowania wyświetlany pod kodem QR. Kod działa jednorazowo i jest ważny 10 minut. Oba urządzenia muszą być w tej samej sieci Tailscale (dostęp do sieci domowej jest wyłączony, chyba że go włączysz). Nowe urządzenia nie mogą korzystać z Terminala, dopóki nie zaznaczysz <b>Terminal</b> ich na stronie administratora.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Zainstaluj bramkę</h2>
 <p>Na maszynie z Debian Trixie (lub kompatybilnym Linuxem), którą chcesz kontrolować</p>
 </div>
-<div class="code-block"># Linux — samodzielny plik binarny, nic więcej do zainstalowania curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # następnie w aplikacji: Ustawienia → Adres URL bramy → http://&lt;adres-tailscale-tego-komputera&gt;:8772 # lub dotknij "Discover Peers", jeśli oboje jesteście w tej samej sieci Tailscale</div>
+<div class="code-block"># Linux — samodzielny plik binarny, nic więcej nie trzeba instalować curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # następnie w aplikacji: Settings → Gateway URL → http://&lt;this-machine's-tailscale-ip&gt;:8772 # lub dotknij "Discover Peers", jeśli oboje jesteście w tej samej sieci Tailscale</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Wolisz Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, następnie <code>pip install -r requirements.txt</code> I <code>python3 gateway.py --port 8772</code>. Pełna dokumentacja instalacji, w tym uruchamianie jako własny użytkownik (zalecane) lub jako usługa systemowa, znajduje się w repozytorium <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🔏 Sprawdź swoje pobranie.</strong> Każde wydanie ma <code>SHA256SUMS.txt</code> podpisany naszym kluczem wydania, <a href="../.well-known/trxi-release.pub">wydanie trxi.pub</a>. Mając trzy pliki obok pobranego pliku: <code>openssl pkeyutl -verify -pubin -inkey trxi-release.pub -rawin -in SHA256SUMS.txt -sigfile SHA256SUMS.txt.sig</code> musi wyświetlać "Signature Verified Successfully", następnie <code>sha256sum -c --ignore-missing SHA256SUMS.txt</code> musi wyświetlać OK.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Testowe kompilacje dla Windows i macOS</strong> są na <a href="https://github.com/cou645/trixie-gateway/releases">strona wydań</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Nie są podpisane, więc Windows SmartScreen powie "nieznany wydawca" (Więcej informacji → Uruchom mimo to), a macOS zablokuje pierwsze uruchomienie (kliknij prawym przyciskiem → Otwórz). Zgłoś, co nie działa.</p>

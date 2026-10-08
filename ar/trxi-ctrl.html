@@ -63,7 +63,7 @@
 <p class="sub">تحكم عن بُعد مجاني لسطح مكتب Linux الخاص بك — Bluetooth، جدار الحماية، الصوت، الوسائط، النوافذ، الطرفية، مشاركة الشاشة، الحافظة المشتركة ودردشة الذكاء الاصطناعي، من هاتفك أو من حاسوب آخر — بالإضافة إلى، على الهواتف المُروّتة، نقطة اتصال VPN وتخزين USB كبير السعة. مصمم لـ Debian Trixie؛ يعمل على معظم أسطح مكتب Linux الأخرى بنظام X11 أيضًا.</p>
 <div class="hero-badges">
 <span class="badge">🆓 مجاني للاستخدام الشخصي</span>
-<span class="badge">🆕 الإصدار 1.1.0</span>
+<span class="badge">🆕 الإصدار 1.2.0</span>
 <span class="badge">📱 Android و iOS · 💻 تطبيقات Windows و macOS و Linux</span>
 <span class="badge">🐧 يتحكم في أسطح مكتب Linux / X11</span>
 <span class="badge">🔌 17 شاشة (+2 على الهواتف المُروّتة)</span>
@@ -73,10 +73,13 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
-<h2>الجديد في 1.1.0</h2>
-<p>أكتوبر 2026</p>
+<h2>الجديد</h2>
+<p>1.2.0 والبوابة 0.3.1، أكتوبر 2026</p>
 </div>
 <div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>مشفّر على شبكتك المنزلية أيضًا</h3><p>عبر Tailscale كان الاتصال مشفّرًا بالفعل. على الشبكة المنزلية، يستخدم التطبيق الآن HTTPS ويتحقق من بصمة شهادة البوابة نفسها، التي تصل مع رمز QR للاقتران.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>إصلاحات مراجعة الأمان</h3><p>تُغلق البوابة 0.3.1 الثغرات التي وجدناها في <a href="../security.html#trxi-27001">مراجعة ISO 27001</a>: أجهزة قابلة للإلغاء، Tailscale فقط افتراضيًا، وصول الطرفية يُمنح لكل جهاز، سجل مقاوم للتلاعب، ومساعد جذر حتى تعمل البوابة كمستخدم عادي.</p></div>
+<div class="card"><div class="card-icon">⚠️</div><h3>تنبيهات السلامة</h3><p>إشعار مخاطر عند أول تشغيل، والأوامر التي تحذف أو تستبدل أو تشفّر أو تهيّئ أو تُغلق تسأل قبل التنفيذ.</p></div>
 <div class="card"><div class="card-icon">💻</div><h3>تطبيقات سطح المكتب</h3><p>يعمل TrXi-Ctrl الآن على Windows و macOS و Linux بالإضافة إلى الهواتف. تحكم في جهاز Linux الخاص بك من حاسوب محمول: الشاشات نفسها، بفأرة ولوحة مفاتيح حقيقية.</p></div>
 <div class="card"><div class="card-icon">🖱️</div><h3>سطح مكتب بعيد بفأرة ولوحة مفاتيح</h3><p>حرّك الشاشة البعيدة وانقر عليها (يسار، وسط، يمين) واسحبها ومرّرها بفأرتك؛ اكتب واستخدم اختصارات مثل Ctrl+C على لوحة مفاتيحك. عناصر التحكم باللمس على الهواتف دون تغيير.</p></div>
 <div class="card"><div class="card-icon">🔇</div><h3>الصوت مع الصورة</h3><p>يشغّل سطح المكتب البعيد صوت الحاسوب مع الشاشة، مع زر كتم في تبويب سطح المكتب.</p></div>
@@ -115,7 +118,7 @@
 <p>trixie-gateway — الجانب المكتبي، ملف تنفيذي واحد مكتفٍ بذاته</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>ملف تنفيذي واحد، بلا حاجة إلى Python</h3><p>قم بتنزيل ملف تنفيذي واحد قائم بذاته — لا حاجة إلى Python أو pip أو venv على الجهاز. منذ الإصدار v0.3.0، لا يستجيب إلا عبر Tailscale ومن الكمبيوتر نفسه، وتبدأ الأجهزة الجديدة دون وصول إلى الطرفية، ويمكن إلغاء الأجهزة المفقودة من صفحة المسؤول. مبني على aiohttp + aiortc، والمصدر لا يزال على GitHub إذا كنت تفضل تشغيله من Python. يعمل بشكل مستقل أو كخدمة systemd، ويستمع على عنوان Tailscale/LAN الخاص بك.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>ملف تنفيذي واحد، بلا حاجة إلى Python</h3><p>قم بتنزيل ملف تنفيذي واحد مكتفٍ ذاتيًا — لا حاجة إلى Python أو pip أو venv على الجهاز. منذ الإصدار v0.3.0، لا يستجيب إلا عبر Tailscale (أو HTTPS على شبكتك المنزلية، إذا قمت بتفعيل ذلك) ومن الكمبيوتر نفسه، وتبدأ الأجهزة الجديدة دون وصول إلى الطرفية، ويمكن إلغاء الأجهزة المفقودة من صفحة المسؤول. مبني على aiohttp + aiortc، والمصدر لا يزال على GitHub إذا كنت تفضل تشغيله من Python. يعمل بشكل مستقل أو كخدمة systemd، ويستمع على عنوان Tailscale/LAN الخاص بك.</p></div>
 <div class="card"><div class="card-icon">🔌</div><h3>~110 نقطة نهاية REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> متوافق مع OpenAI يوجّه إلى أي مزوّد ذكاء اصطناعي تقوم بتهيئته.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>خادم MCP مضمّن</h3><p><code>media_mcp_server.py</code> يكشف التحكم بالوسائط (الحالة، التشغيل، الإيقاف المؤقت، التنقل، مستوى الصوت، الفتح، التصفح) كأدوات MCP عبر stdio JSON-RPC — نفس بيانات الجلسة ومسار التحكم الذي يستخدمه تطبيق الهاتف، لذا يرى وكيل الذكاء الاصطناعي وهاتفك دائمًا الشيء نفسه.</p></div>
 </div>
@@ -153,15 +156,15 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — علامة تبويب الإعدادات مع مفتاح مزوّد ذكاء اصطناعي مُهيّأ ومعلومات التطبيق" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">إعداد مزود الذكاء الاصطناعي</div></div>
 </div>
 <div class="cta-band" id="download" style="margin-top:2.5rem;">
-<h3>تنزيل TrXi-Ctrl 1.1.0 <span class="free-badge">مجاني</span></h3>
+<h3>تنزيل TrXi-Ctrl 1.2.0 <span class="free-badge">مجاني</span></h3>
 <p>التطبيق، لهاتفك أو حاسوبك، بالإضافة إلى البوابة لسطح مكتب Linux الذي تريد التحكم به.</p>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ أندرويد (APK)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ ويندوز</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ ماك (.dmg)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ لينكس</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (غير موقّع، تحميل جانبي)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz">⬇ بوابة لنظام Linux</a>
-<p style="font-size:.9rem; margin-top:1rem;">الهواتف الأقدم (Android 32 بت): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">أرمف7 APK</a> · جميع الملفات: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">صفحة الإصدار</a> · <a href="https://github.com/cou645/trixie-gateway">البوابة على GitHub →</a></p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-arm64.apk">⬇ أندرويد (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-windows.zip">⬇ ويندوز</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-macos.dmg">⬇ ماك (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-linux.tar.gz">⬇ لينكس</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-ios-unsigned.ipa">⬇ iOS (غير موقّع، تحميل جانبي)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz">⬇ بوابة لنظام Linux</a>
+<p style="font-size:.9rem; margin-top:1rem;">يتطلب البوابة v0.3.1 أو أحدث. الهواتف الأقدم (Android 32 بت): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-armv7.apk">أرمف7 APK</a> · جميع الملفات: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.2.0">صفحة الإصدار</a> · <a href="https://github.com/cou645/trixie-gateway">البوابة على GitHub →</a></p>
 </div>
 <p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ استخدمه على مسؤوليتك الخاصة.</strong> TrXi-Ctrl و trixie-gateway هما برنامجان مجانيان يمنحان جهازًا مقترنًا تحكمًا قويًا في حاسوبك، بما في ذلك تنفيذ الأوامر كمستخدم البوابة (غالبًا root). أنت مسؤول عن كل أمر ترسله، وعن إبقاء البوابة بعيدًا عن الإنترنت المفتوح وعن رموز الاقتران خاصة، وعن التحكم فقط في الأجهزة المصرح لك بها. لا تتحمل CHAMELEON-AI-AGENT LTD والمؤلف أي مسؤولية عن الأضرار الناتجة عن الأوامر التدميرية، أو مشاركة الموارد عبر الإنترنت، أو الإعدادات غير المدعومة — راجع <a href="../terms.html#remote-control">الشروط §8A</a>. ما أصلحناه ونخطط لإصلاحه، مقاسًا وفق ISO/IEC 27001: <a href="../security.html#trxi-27001">مراجعة أمنية</a> (عمل مواءمة، وليس اعتمادًا).</p>
 <div class="section-title" style="margin-top:3rem;">
@@ -173,14 +176,19 @@
 <div class="card"><div class="card-icon">🍏</div><h3>iPhone و iPad</h3><p>نسخة iOS غير موقّعة، لذا يتم تثبيتها جانبياً: ثبّت <a href="https://sideloadly.io">بشكل جانبي</a> أو <a href="https://altstore.io">متجر البديل</a> على جهاز كمبيوتر، وصّل الـ iPhone، وأسقط ملف <code>.ipa</code> وسجّل الدخول بأي Apple ID. ثم على الـ iPhone: الإعدادات → عام → VPN وإدارة الجهاز → ثق بـ Apple ID الخاص بك. مع Apple ID مجاني، يجب إعادة التثبيت الجانبي للتطبيق كل 7 أيام.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>ويندوز 10/11</h3><p>فك ضغط التنزيل في أي مكان (على سبيل المثال <code>C:\Programs\TrXi-Ctrl</code>) وشغّل <code>trxi_ctrl.exe</code>. سيقول SmartScreen "قام Windows بحماية جهاز الكمبيوتر الخاص بك" في المرة الأولى: <b>مزيد من المعلومات → التشغيل على أي حال</b>. أبقِ الملفات معاً — يحتاج ملف .exe إلى ملفات DLL ومجلد <code>data</code> بجانبه.</p></div>
 <div class="card"><div class="card-icon">🍎</div><h3>ماك</h3><p>افتح <code>.dmg</code> واسحب <b>TrXi-Ctrl</b> إلى <b>التطبيقات</b>. في المرة الأولى، انقر بزر الفأرة الأيمن على التطبيق ← <b>يفتح</b> ← فتح (النقر المزدوج محظور لأنه غير موثّق). إذا استمر macOS في الرفض، إعدادات النظام ← الخصوصية والأمان ← <b>فتح على أي حال</b>.</p></div>
-<div class="card"><div class="card-icon">🐧</div><h3>لينكس</h3><p>يتطلب GTK 3 وlibmpv: على Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. ثم <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> وشغّل <code>./bundle/trxi_ctrl</code>. أبقِ مجلد <code>bundle</code> معًا.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>لينكس</h3><p>يتطلب GTK 3 وlibmpv: على Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. ثم <code>tar -xzf TrXi-Ctrl-1.2.0-linux.tar.gz</code> وشغّل <code>./bundle/trxi_ctrl</code>. أبقِ مجلد <code>bundle</code> معًا.</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>اقترن بسطح المكتب لديك</h3><p>على سطح مكتب Linux الذي يشغّل البوابة، افتح <code>http://localhost:8772/admin</code> (أو مدير البوابة). <b>الهواتف وأجهزة Mac:</b> التطبيق → الإعدادات → أيقونة ماسح رمز QR → امسح رمز QR، أو اضغط على أيقونة الصورة لفتح صورة رمز QR أرسلها لك أحدهم عبر البريد الإلكتروني. <b>Windows وLinux:</b> أدخل عنوان البوابة ورمز الاقتران المعروض أسفل رمز QR. يعمل الرمز مرة واحدة ويدوم 10 دقائق. يجب أن يكون كلا الجهازين على نفس شبكة Tailscale (الوصول إلى الشبكة المنزلية معطّل ما لم تقم بتشغيله). لا يمكن للأجهزة الجديدة استخدام Terminal حتى تضع علامة <b>الطرفية</b> عليها في صفحة المسؤول.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>تثبيت البوابة</h2>
 <p>على جهاز Debian Trixie (أو Linux متوافق) الذي تريد التحكم به</p>
 </div>
-<div class="code-block"># Linux — ملف تنفيذي مستقل، لا شيء آخر لتثبيته curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # ثم في التطبيق: الإعدادات → عنوان البوابة → http://&lt;عنوان IP لهذا الجهاز على Tailscale&gt;:8772 # أو اضغط "اكتشاف الأقران" إذا كنتما على نفس شبكة Tailscale</div>
+<div class="code-block"># Linux — ملف تنفيذي مستقل، لا شيء آخر لتثبيته
+curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz
+tar -xzf trixie-gateway-linux-x86_64.tar.gz
+./trixie-gateway --port 8772
+# ثم في التطبيق: الإعدادات → عنوان البوابة → http://&lt;this-machine's-tailscale-ip&gt;:8772
+# أو اضغط "اكتشاف الأقران" إذا كنتما على نفس شبكة Tailscale</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">تفضل Python؟ <code>git clone https://github.com/cou645/trixie-gateway.git</code>، ثم <code>pip install -r requirements.txt</code> و <code>python3 gateway.py --port 8772</code>. توجد وثائق التثبيت الكاملة، بما في ذلك تشغيله كمستخدمك الخاص (موصى به) أو كخدمة نظام، في <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🔏 تحقق من تنزيلك.</strong> كل إصدار يحتوي على <code>SHA256SUMS.txt</code> موقّع بمفتاح الإصدار الخاص بنا، <a href="../.well-known/trxi-release.pub">إصدار trxi.pub</a>. مع الملفات الثلاثة بجانب التنزيل الخاص بك: <code>openssl pkeyutl -verify -pubin -inkey trxi-release.pub -rawin -in SHA256SUMS.txt -sigfile SHA256SUMS.txt.sig</code> يجب أن يقول "Signature Verified Successfully"، ثم <code>sha256sum -c --ignore-missing SHA256SUMS.txt</code> يجب أن يقول OK.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 إصدارات تجريبية لنظامي Windows وmacOS</strong> موجودة على <a href="https://github.com/cou645/trixie-gateway/releases">صفحة الإصدارات</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). إنها غير موقّعة، لذا سيقول Windows SmartScreen "ناشر غير معروف" (مزيد من المعلومات → تشغيل على أي حال) وسيحظر macOS التشغيل الأول (انقر بزر الفأرة الأيمن → فتح). يرجى الإبلاغ عمّا لا يعمل.</p>

@@ -127,7 +127,7 @@
 
 <h3 id="trxi-27001">8.1 TrXi-Ctrl and trixie-gateway: ISO/IEC 27001 gap review</h3>
 <p>In October 2026 we reviewed <a href="trxi-ctrl.html">TrXi-Ctrl</a> and trixie-gateway against ISO/IEC 27001:2022 Annex A and listed 19 gaps, from code weaknesses to the paperwork certification would need. We are working through them in priority order. This is alignment work, not certification.</p>
-<p><strong>Fixed</strong> (gateway v0.3.0 and later):</p>
+<p><strong>Fixed</strong> (gateway v0.3.0, and v0.3.1 for the last two):</p>
 <ul>
 <li>Web pages open in the PC's browser can no longer send requests to the gateway (cross-site and DNS-rebinding protection) (A.8.26).</li>
 <li>Authentication is on by default; the "no authentication" testing switch only ever works from the PC itself (A.8.5).</li>
@@ -140,14 +140,13 @@
 <li>Dependencies are pinned to tested versions, build actions to exact commits, and update proposals arrive weekly (A.8.8, A.5.21).</li>
 <li>Release checksums are signed with our Ed25519 key, published at <a href="/.well-known/trxi-release.pub">/.well-known/trxi-release.pub</a> (A.8.24).</li>
 <li>Security regression tests run on every change (A.8.29).</li>
-<li>The gateway shows which account it runs as, and features that need administrator rights say so when it isn't one; running as your normal user is now the recommended setup (A.8.2).</li>
+<li>The gateway shows which account it runs as and can run as a normal user; a small root helper does only the firewall, Wi-Fi and layer actions, for that one account, with every argument checked (A.8.2, A.8.18).</li>
+<li>On home networks the apps use HTTPS and pin the gateway's own certificate, delivered in the pairing QR (A.8.24).</li>
 </ul>
 <p><strong>Planned</strong>, with what you can do meanwhile:</p>
 <ul>
-<li>Encrypted connections on home networks, not only over Tailscale (A.8.24). Meanwhile: leave home-network access off and connect over Tailscale, which encrypts end to end.</li>
-<li>A small helper for the few administrator-only features, so the gateway never needs to run as root (A.8.2). Meanwhile: run it as your normal user unless you need firewall or network control.</li>
 <li>Code-signed Windows and macOS apps and a dedicated Android release key (A.8.24). Meanwhile: check the signed checksums.</li>
-<li>Company information security management documents (scope, risk register, Statement of Applicability, policies, asset and supplier registers) are drafted and awaiting director approval.</li>
+<li>Information security management documents (scope, risk register, Statement of Applicability, policies, asset and supplier registers) are drafted and awaiting the owner's approval.</li>
 </ul>
 <p>Found something we missed? Report it as described in <a href="#report">section 1</a>.</p>
 

@@ -63,7 +63,7 @@
 <p class="sub">Linux 데스크톱을 위한 무료 원격 제어 — Bluetooth, 방화벽, 오디오, 미디어, 창, 터미널, 화면 공유, 공유 클립보드 및 AI 채팅을 휴대폰이나 다른 컴퓨터에서 — 또한 루팅된 휴대폰에서는 VPN 핫스팟과 USB 대용량 저장소. Debian Trixie용으로 제작되었으며, 대부분의 다른 X11 Linux 데스크톱에서도 작동합니다.</p>
 <div class="hero-badges">
 <span class="badge">🆓 개인 사용 무료</span>
-<span class="badge">🆕 버전 1.1.0</span>
+<span class="badge">🆕 버전 1.2.0</span>
 <span class="badge">📱 Android 및 iOS · 💻 Windows, macOS 및 Linux 앱</span>
 <span class="badge">🐧 Linux / X11 데스크톱 제어</span>
 <span class="badge">🔌 17개 화면(루팅된 휴대폰에서는 +2)</span>
@@ -73,10 +73,13 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
-<h2>1.1.0의 새로운 기능</h2>
-<p>2026년 10월</p>
+<h2>새로운 기능</h2>
+<p>1.2.0 및 게이트웨이 0.3.1, 2026년 10월</p>
 </div>
 <div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>홈 네트워크에서도 암호화</h3><p>Tailscale을 통한 연결은 이미 암호화되어 있었습니다. 홈 네트워크에서 앱은 이제 HTTPS를 사용하고 페어링 QR과 함께 전달되는 게이트웨이 자체의 인증서 지문을 확인합니다.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>보안 검토 수정 사항</h3><p>게이트웨이 0.3.1은 우리의 <a href="../security.html#trxi-27001">ISO 27001 검토</a>에서 발견된 취약점을 해결합니다: 취소 가능한 기기, 기본적으로 Tailscale 전용, 기기별 터미널 접근 권한, 변조 감지 가능한 로그, 그리고 게이트웨이가 일반 사용자로 실행될 수 있게 하는 root 헬퍼.</p></div>
+<div class="card"><div class="card-icon">⚠️</div><h3>안전 확인 프롬프트</h3><p>첫 실행 시 위험 알림이 표시되며, 삭제, 덮어쓰기, 암호화, 포맷 또는 종료하는 명령은 실행 전에 확인을 요청합니다.</p></div>
 <div class="card"><div class="card-icon">💻</div><h3>데스크톱 앱</h3><p>TrXi-Ctrl은 이제 휴대폰뿐만 아니라 Windows, macOS, Linux에서도 실행됩니다. 노트북에서 Linux 컴퓨터를 제어하세요: 동일한 화면을 실제 마우스와 키보드로.</p></div>
 <div class="card"><div class="card-icon">🖱️</div><h3>마우스 및 키보드 원격 데스크톱</h3><p>마우스로 원격 화면을 이동하고 클릭(왼쪽, 가운데, 오른쪽)하고 드래그하고 스크롤하세요. 자신의 키보드로 입력하고 Ctrl+C 같은 단축키를 사용하세요. 휴대폰의 터치 컨트롤은 그대로입니다.</p></div>
 <div class="card"><div class="card-icon">🔇</div><h3>화면과 함께 나오는 소리</h3><p>원격 데스크톱은 화면과 함께 PC의 소리를 재생하며, 데스크톱 탭에 음소거 버튼이 있습니다.</p></div>
@@ -115,7 +118,7 @@
 <p>trixie-gateway — 데스크톱 측, 단일 자체 포함 바이너리</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>단일 바이너리, Python 불필요</h3><p>단일 자체 포함 실행 파일을 다운로드하세요 — 머신에 Python, pip 또는 venv가 필요하지 않습니다. v0.3.0부터는 Tailscale을 통해서만 그리고 PC 자체에서만 응답하며, 새 장치는 터미널 액세스 없이 시작되고, 분실한 장치는 관리 페이지에서 해지할 수 있습니다. aiohttp + aiortc를 기반으로 하며, Python에서 실행하려는 경우 소스는 여전히 GitHub에 있습니다. 독립 실행형 또는 systemd 서비스로 실행되며 Tailscale/LAN 주소에서 수신 대기합니다.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>단일 바이너리, Python 불필요</h3><p>단일 자체 포함 실행 파일을 다운로드하세요 — 머신에 Python, pip 또는 venv가 필요하지 않습니다. v0.3.0부터는 Tailscale(또는 홈 네트워크에서 활성화한 경우 HTTPS)과 PC 자체를 통해서만 응답하며, 새 기기는 터미널 액세스 없이 시작되고, 분실한 기기는 관리 페이지에서 해지할 수 있습니다. aiohttp + aiortc 기반으로 구축되었으며, Python에서 실행하는 것을 선호하는 경우 소스는 여전히 GitHub에 있습니다. 독립 실행형 또는 systemd 서비스로 실행되며, Tailscale/LAN 주소에서 수신 대기합니다.</p></div>
 <div class="card"><div class="card-icon">🔌</div><h3>~110개 REST 엔드포인트</h3><p>위의 모든 휴대폰 앱 기능에 더해, OpenAI 호환 <code>/v1/chat/completions</code> 이 구성한 AI 제공자로 라우팅합니다.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>MCP 서버 포함</h3><p><code>media_mcp_server.py</code> 미디어 제어(상태, 재생, 일시정지, 탐색, 볼륨, 열기, 찾아보기)를 stdio JSON-RPC를 통한 MCP 도구로 노출합니다 — 휴대폰 앱이 사용하는 것과 동일한 세션 데이터 및 제어 경로이므로 AI 에이전트와 휴대폰이 항상 같은 것을 봅니다.</p></div>
 </div>
@@ -153,15 +156,15 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — AI 공급자 키가 구성된 설정 탭 및 앱 정보" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">AI 제공자 설정</div></div>
 </div>
 <div class="cta-band" id="download" style="margin-top:2.5rem;">
-<h3>TrXi-Ctrl 1.1.0 다운로드 <span class="free-badge">무료</span></h3>
+<h3>TrXi-Ctrl 1.2.0 다운로드 <span class="free-badge">무료</span></h3>
 <p>앱은 휴대폰이나 컴퓨터용이며, 제어하려는 Linux 데스크톱용 게이트웨이도 포함됩니다.</p>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ 안드로이드(APK)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ 윈도우</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS(.dmg)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ 리눅스</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (서명되지 않음, 사이드로드)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux용 게이트웨이</a>
-<p style="font-size:.9rem; margin-top:1rem;">구형 휴대폰 (32비트 Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · 모든 파일: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">릴리스 페이지</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub의 게이트웨이 →</a></p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-arm64.apk">⬇ 안드로이드(APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-windows.zip">⬇ 윈도우</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-macos.dmg">⬇ macOS(.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-linux.tar.gz">⬇ 리눅스</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-ios-unsigned.ipa">⬇ iOS (서명되지 않음, 사이드로드)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux용 게이트웨이</a>
+<p style="font-size:.9rem; margin-top:1rem;">게이트웨이 v0.3.1 이상이 필요합니다. 구형 휴대폰(32비트 Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-armv7.apk">armv7 APK</a> · 모든 파일: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.2.0">릴리스 페이지</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub의 게이트웨이 →</a></p>
 </div>
 <p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ 본인 책임하에 사용하세요.</strong> TrXi-Ctrl과 trixie-gateway는 페어링된 기기에 컴퓨터에 대한 강력한 제어 권한을 부여하는 자유 소프트웨어로, 게이트웨이의 사용자(흔히 root)로서 명령을 실행하는 것도 포함됩니다. 귀하는 전송하는 모든 명령, 게이트웨이를 개방형 인터넷에서 차단하고 페어링 코드를 비공개로 유지하는 것, 그리고 권한이 있는 기기만 제어하는 것에 대한 책임이 있습니다. CHAMELEON-AI-AGENT LTD와 저자는 파괴적인 명령, 인터넷을 통한 리소스 공유 또는 지원되지 않는 설정으로 인한 피해에 대해 어떠한 책임도 지지 않습니다 — 참조 <a href="../terms.html#remote-control">약관 §8A</a>. ISO/IEC 27001에 비추어 측정한, 수정한 항목과 수정할 계획인 항목: <a href="../security.html#trxi-27001">보안 검토</a> (정렬 작업이며 인증이 아닙니다).</p>
 <div class="section-title" style="margin-top:3rem;">
@@ -173,14 +176,19 @@
 <div class="card"><div class="card-icon">🍏</div><h3>iPhone 및 iPad</h3><p>iOS 빌드는 서명되지 않았으므로 사이드로드합니다: 설치 <a href="https://sideloadly.io">사이드로드 방식</a> 또는 <a href="https://altstore.io">알트스토어</a> 를 컴퓨터에서, iPhone을 연결하고, <code>.ipa</code> 을 드롭한 후 아무 Apple ID로 로그인하세요. 그런 다음 iPhone에서: 설정 → 일반 → VPN 및 기기 관리 → Apple ID를 신뢰하세요. 무료 Apple ID의 경우 앱을 7일마다 다시 사이드로드해야 합니다.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>윈도우 10/11</h3><p>다운로드한 파일을 아무 곳에나 압축 해제하고 (예: <code>C:\Programs\TrXi-Ctrl</code>) 실행하세요 <code>trxi_ctrl.exe</code>. 처음에는 SmartScreen이 "Windows에서 PC를 보호했습니다"라고 표시합니다: <b>추가 정보 → 실행</b>. 파일을 함께 보관하세요 — .exe에는 DLL과 <code>data</code> 폴더가 옆에 필요합니다.</p></div>
 <div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>열고 <code>.dmg</code> 끌어다 놓습니다 <b>TrXi-Ctrl</b> 으로 <b>응용</b>. 처음에는 앱을 마우스 오른쪽 버튼으로 클릭 → <b>열려 있는</b> → 열기 (공증되지 않았기 때문에 더블 클릭이 차단됩니다). macOS가 계속 거부하면 시스템 설정 → 개인정보 보호 및 보안 → <b>그래도 열기</b>.</p></div>
-<div class="card"><div class="card-icon">🐧</div><h3>리눅스</h3><p>GTK 3 및 libmpv 필요: Debian/Ubuntu에서 <code>sudo apt install libgtk-3-0 libmpv2</code>. 그런 다음 <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> 를 실행합니다 <code>./bundle/trxi_ctrl</code>. 폴더를 <code>bundle</code> 함께 유지하세요.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>리눅스</h3><p>GTK 3 및 libmpv 필요: Debian/Ubuntu에서 <code>sudo apt install libgtk-3-0 libmpv2</code>. 그런 다음 <code>tar -xzf TrXi-Ctrl-1.2.0-linux.tar.gz</code> 를 실행합니다 <code>./bundle/trxi_ctrl</code>. 폴더를 <code>bundle</code> 함께 유지하세요.</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>데스크톱과 페어링</h3><p>게이트웨이를 실행하는 Linux 데스크톱에서 열기 <code>http://localhost:8772/admin</code> (또는 Gateway Manager). <b>휴대폰 및 Mac:</b> 앱 → 설정 → QR 스캐너 아이콘 → QR을 스캔하거나, 이미지 아이콘을 탭하여 누군가 이메일로 보낸 QR 이미지를 엽니다. <b>Windows 및 Linux:</b> QR 아래에 표시된 게이트웨이 주소와 페어링 코드를 입력하세요. 코드는 한 번만 작동하며 10분 동안 지속됩니다. 두 기기 모두 동일한 Tailscale 네트워크에 있어야 합니다(홈 네트워크 액세스는 직접 켜지 않는 한 꺼져 있습니다). 새 기기는 관리 페이지에서 체크하기 전까지 Terminal을 사용할 수 없습니다 <b>터미널</b> 。</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>게이트웨이 설치</h2>
 <p>제어하려는 Debian Trixie(또는 호환 Linux) 머신에서</p>
 </div>
-<div class="code-block"># Linux — 독립 실행형 바이너리, 설치할 다른 것은 없습니다 curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # 그런 다음 앱에서: 설정 → 게이트웨이 URL → http://&lt;이 머신의 Tailscale IP&gt;:8772 # 또는 둘 다 같은 Tailscale 네트워크에 있다면 "피어 검색"을 탭하세요</div>
+<div class="code-block"># Linux — 독립 실행형 바이너리, 그 외 설치할 것은 없음
+curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz
+tar -xzf trixie-gateway-linux-x86_64.tar.gz
+./trixie-gateway --port 8772
+# 그런 다음 앱에서: 설정 → 게이트웨이 URL → http://&lt;this-machine's-tailscale-ip&gt;:8772
+# 또는 둘 다 같은 Tailscale 네트워크에 있다면 "피어 검색"을 탭하세요</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Python을 선호하시나요? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, 그런 다음 <code>pip install -r requirements.txt</code> 그리고 <code>python3 gateway.py --port 8772</code>. 자신의 사용자로 실행(권장)하거나 시스템 서비스로 실행하는 것을 포함한 전체 설치 문서는 저장소의 <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🔏 다운로드를 확인하세요.</strong> 모든 릴리스에는 <code>SHA256SUMS.txt</code> 우리의 릴리스 키로 서명된 <a href="../.well-known/trxi-release.pub">trxi-release.pub</a>이 있습니다. 다운로드 옆에 있는 세 개의 파일과 함께: <code>openssl pkeyutl -verify -pubin -inkey trxi-release.pub -rawin -in SHA256SUMS.txt -sigfile SHA256SUMS.txt.sig</code> "Signature Verified Successfully"라고 표시되어야 하며, 그런 다음 <code>sha256sum -c --ignore-missing SHA256SUMS.txt</code> OK라고 표시되어야 합니다.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows 및 macOS 테스트 빌드</strong> 는 여기에 있습니다 <a href="https://github.com/cou645/trixie-gateway/releases">릴리스 페이지</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). 서명되지 않았으므로 Windows SmartScreen은 "알 수 없는 게시자"라고 표시하고(추가 정보 → 실행) macOS는 첫 실행을 차단합니다(마우스 오른쪽 버튼 클릭 → 열기). 문제가 있으면 알려주세요.</p>

@@ -63,7 +63,7 @@
 <p class="sub">Rheolaeth bell am ddim ar gyfer eich penbwrdd Linux — Bluetooth, mur tân, sain, cyfryngau, ffenestri, terfynell, rhannu sgrin, clipfwrdd a rennir a sgwrs AI, o'ch ffôn neu o gyfrifiadur arall — ynghyd â, ar ffonau wedi'u gwreiddio, hotspot VPN a storfa dorfol USB. Wedi'i adeiladu ar gyfer Debian Trixie; mae'n gweithio ar y rhan fwyaf o benbyrddau Linux X11 eraill hefyd.</p>
 <div class="hero-badges">
 <span class="badge">🆓 Am ddim at ddefnydd personol</span>
-<span class="badge">🆕 Fersiwn 1.1.0</span>
+<span class="badge">🆕 Fersiwn 1.2.0</span>
 <span class="badge">📱 Android ac iOS · 💻 Apiau Windows, macOS a Linux</span>
 <span class="badge">🐧 Yn rheoli penbyrddau Linux / X11</span>
 <span class="badge">🔌 17 sgrin (+2 ar ffonau wedi'u gwreiddio)</span>
@@ -73,10 +73,13 @@
 </div>
 <div class="page" id="main" role="main">
 <div class="section-title">
-<h2>Beth sy'n newydd yn 1.1.0</h2>
-<p>Hydref 2026</p>
+<h2>Beth sy'n newydd</h2>
+<p>1.2.0 a phorth 0.3.1, Hydref 2026</p>
 </div>
 <div class="cards">
+<div class="card"><div class="card-icon">🔐</div><h3>Wedi'i amgryptio ar eich rhwydwaith cartref hefyd</h3><p>Dros Tailscale roedd y cysylltiad eisoes wedi'i amgryptio. Ar rwydwaith cartref mae'r ap nawr yn defnyddio HTTPS ac yn gwirio ôl-brint tystysgrif y porth ei hun, sy'n dod gyda'r cod QR paru.</p></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Trwsiadau adolygiad diogelwch</h3><p>Mae porth 0.3.1 yn cau'r bylchau a ganfuwyd yn ein <a href="../security.html#trxi-27001">adolygiad ISO 27001</a>: dyfeisiau y gellir eu dirymu, Tailscale yn unig yn ddiofyn, mynediad terfynell yn cael ei roi fesul dyfais, log sy'n amlwg os caiff ei ymyrryd, a chymorthydd root fel y gall y porth redeg fel defnyddiwr arferol.</p></div>
+<div class="card"><div class="card-icon">⚠️</div><h3>Anogwyr diogelwch</h3><p>Hysbysiad risg ar y lansiad cyntaf, ac mae gorchmynion sy'n dileu, trosysgrifo, amgryptio, fformatio neu gau i lawr yn gofyn cyn iddynt redeg.</p></div>
 <div class="card"><div class="card-icon">💻</div><h3>Apiau penbwrdd</h3><p>Mae TrXi-Ctrl bellach yn rhedeg ar Windows, macOS a Linux yn ogystal â ffonau. Rheolwch eich peiriant Linux o liniadur: yr un sgriniau, gyda llygoden a bysellfwrdd go iawn.</p></div>
 <div class="card"><div class="card-icon">🖱️</div><h3>Penbwrdd o bell â llygoden a bysellfwrdd</h3><p>Symudwch, cliciwch (chwith, canol, dde), llusgwch a sgroliwch y sgrin bell gyda'ch llygoden; teipiwch a defnyddiwch fyrlyrau fel Ctrl+C ar eich bysellfwrdd eich hun. Mae rheolyddion cyffwrdd ar ffonau heb newid.</p></div>
 <div class="card"><div class="card-icon">🔇</div><h3>Sain gyda'r darlun</h3><p>Mae'r penbwrdd o bell yn chwarae sain y PC ynghyd â'r sgrin, gyda botwm tawelu ar y tab Penbwrdd.</p></div>
@@ -115,7 +118,7 @@
 <p>trixie-gateway — yr ochr bwrdd gwaith, un deuaidd hunangynhwysol</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>Un deuaidd, dim angen Python</h3><p>Lawrlwythwch un ffeil weithredadwy hunangynhwysol — dim Python, pip na venv ar y peiriant. Ers v0.3.0 dim ond dros Tailscale ac o'r PC ei hun y mae'n ymateb, mae dyfeisiau newydd yn cychwyn heb fynediad terfynell, a gellir dirymu dyfeisiau coll o'r dudalen weinyddol. Wedi'i adeiladu ar aiohttp + aiortc, ac mae'r ffynhonnell yn dal ar GitHub os byddai'n well gennych ei redeg o Python. Yn rhedeg yn annibynnol neu fel gwasanaeth systemd, gan wrando ar eich cyfeiriad Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>Un deuaidd, dim angen Python</h3><p>Lawrlwythwch un ffeil weithredadwy hunangynhwysol — dim Python, pip na venv ar y peiriant. Ers v0.3.0 dim ond dros Tailscale (neu HTTPS ar eich rhwydwaith cartref, os ydych yn ei droi ymlaen) ac o'r PC ei hun y mae'n ateb, mae dyfeisiau newydd yn cychwyn heb fynediad terfynell, a gellir dirymu dyfeisiau coll o'r dudalen weinyddol. Wedi'i adeiladu ar aiohttp + aiortc, ac mae'r ffynhonnell yn dal ar GitHub os byddai'n well gennych ei redeg o Python. Yn rhedeg yn annibynnol neu fel gwasanaeth systemd, gan wrando ar eich cyfeiriad Tailscale/LAN.</p></div>
 <div class="card"><div class="card-icon">🔌</div><h3>~110 pwynt terfyn REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> sy'n llwybro i ba bynnag ddarparwr AI bynnag a ffurfweddwch.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>Gweinydd MCP wedi'i gynnwys</h3><p><code>media_mcp_server.py</code> yn datgelu rheolaeth cyfryngau (statws, chwarae, oedi, chwilio, cyfaint, agor, pori) fel offerynnau MCP dros stdio JSON-RPC — yr un data sesiwn a llwybr rheoli ag y mae'r ap ffôn yn ei ddefnyddio, felly mae asiant AI a'ch ffôn bob amser yn gweld yr un peth.</p></div>
 </div>
@@ -153,15 +156,15 @@
 <div class="sg-frame"><img alt="TrXi-Ctrl — Tab Gosodiadau gydag allwedd darparwr AI wedi'i ffurfweddu a gwybodaeth am yr ap" loading="lazy" src="../trxi-ctrl-assets/Screenshot_20260915-130342.png"/><div class="sg-cap">Gosodiad darparwr AI</div></div>
 </div>
 <div class="cta-band" id="download" style="margin-top:2.5rem;">
-<h3>Lawrlwytho TrXi-Ctrl 1.1.0 <span class="free-badge">AM DDIM</span></h3>
+<h3>Lawrlwytho TrXi-Ctrl 1.2.0 <span class="free-badge">AM DDIM</span></h3>
 <p>Yr ap, ar gyfer eich ffôn neu gyfrifiadur, ynghyd â'r porth ar gyfer y bwrdd gwaith Linux rydych am ei reoli.</p>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-arm64.apk">⬇ Android (APK)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-windows.zip">⬇ Ffenestri</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-macos.dmg">⬇ macOS (.dmg)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-linux.tar.gz">⬇ Linux</a>
-<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-ios-unsigned.ipa">⬇ iOS (heb ei lofnodi, llwytho ochr)</a>
-<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz">⬇ Porth ar gyfer Linux</a>
-<p style="font-size:.9rem; margin-top:1rem;">Ffôn hŷn (Android 32-bit): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">APK armv7</a> · Pob ffeil: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">tudalen rhyddhau</a> · <a href="https://github.com/cou645/trixie-gateway">Porth ar GitHub →</a></p>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-arm64.apk">⬇ Android (APK)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-windows.zip">⬇ Ffenestri</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-macos.dmg">⬇ macOS (.dmg)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-linux.tar.gz">⬇ Linux</a>
+<a class="btn" href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-ios-unsigned.ipa">⬇ iOS (heb ei lofnodi, llwytho ochr)</a>
+<a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz">⬇ Porth ar gyfer Linux</a>
+<p style="font-size:.9rem; margin-top:1rem;">Angen porth v0.3.1 neu ddiweddarach. Ffôn hŷn (Android 32-bit): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.2.0/TrXi-Ctrl-1.2.0-android-armv7.apk">APK armv7</a> · Pob ffeil: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.2.0">tudalen rhyddhau</a> · <a href="https://github.com/cou645/trixie-gateway">Porth ar GitHub →</a></p>
 </div>
 <p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Defnyddiwch ar eich risg eich hun.</strong> Mae TrXi-Ctrl a trixie-gateway yn feddalwedd rhad ac am ddim sy'n rhoi rheolaeth bwerus i ddyfais wedi'i pharu dros eich cyfrifiadur, gan gynnwys rhedeg gorchmynion fel defnyddiwr y porth (yn aml root). Rydych chi'n gyfrifol am bob gorchymyn a anfonwch, am gadw'r porth oddi ar y rhyngrwyd agored a'ch codau paru'n breifat, ac am reoli peiriannau yn unig y mae gennych awdurdod drostynt. Nid yw CHAMELEON-AI-AGENT LTD a'r awdur yn derbyn unrhyw atebolrwydd am niwed o orchmynion dinistriol, rhannu adnoddau dros y rhyngrwyd, neu sefyllfaoedd heb eu cefnogi — gweler <a href="../terms.html#remote-control">Telerau §8A</a>. Yr hyn rydym wedi'i drwsio ac yn bwriadu ei drwsio, wedi'i fesur yn erbyn ISO/IEC 27001: <a href="../security.html#trxi-27001">adolygiad diogelwch</a> (gwaith aliniad, nid ardystiad).</p>
 <div class="section-title" style="margin-top:3rem;">
@@ -173,14 +176,19 @@
 <div class="card"><div class="card-icon">🍏</div><h3>iPhone a iPad</h3><p>Mae'r fersiwn iOS heb ei lofnodi, felly caiff ei lwytho ar yr ochr: gosodwch <a href="https://sideloadly.io">Sideloadly</a> neu <a href="https://altstore.io">AltStore</a> ar gyfrifiadur, cysylltwch yr iPhone, gollwng y <code>.ipa</code> a mewngofnodwch ag unrhyw Apple ID. Yna ar yr iPhone: Settings → General → VPN &amp; Device Management → ymddiriedwch yn eich Apple ID. Gydag Apple ID am ddim rhaid ail-lwytho'r ap bob 7 diwrnod.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows 10/11</h3><p>Dadzipiwch y lawrlwythiad yn unrhyw le (er enghraifft <code>C:\Programs\TrXi-Ctrl</code>) a rhedwch <code>trxi_ctrl.exe</code>. Mae SmartScreen yn dweud "Windows protected your PC" y tro cyntaf: <b>Mwy o wybodaeth → Rhedeg beth bynnag</b>. Cadwch y ffeiliau gyda'i gilydd — mae angen y DLLs a'r ffolder <code>data</code> wrth ymyl y .exe.</p></div>
 <div class="card"><div class="card-icon">🍎</div><h3>macOS</h3><p>Agorwch y <code>.dmg</code> a llusgwch <b>TrXi-Ctrl</b> i mewn i <b>Ceisiadau</b>. Y tro cyntaf, de-gliciwch ar yr ap → <b>Agored</b> → Agor (mae clic dwbl yn cael ei rwystro oherwydd nad yw wedi'i notareiddio). Os yw macOS yn dal i wrthod, System Settings → Privacy &amp; Security → <b>Ar agor Beth bynnag</b>.</p></div>
-<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>Angen GTK 3 a libmpv: ar Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Yna <code>tar -xzf TrXi-Ctrl-1.1.0-linux.tar.gz</code> a rhedeg <code>./bundle/trxi_ctrl</code>. Cadwch y ffolder <code>bundle</code> gyda'i gilydd.</p></div>
+<div class="card"><div class="card-icon">🐧</div><h3>Linux</h3><p>Angen GTK 3 a libmpv: ar Debian/Ubuntu <code>sudo apt install libgtk-3-0 libmpv2</code>. Yna <code>tar -xzf TrXi-Ctrl-1.2.0-linux.tar.gz</code> a rhedeg <code>./bundle/trxi_ctrl</code>. Cadwch y ffolder <code>bundle</code> gyda'i gilydd.</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>Parwch â'ch bwrdd gwaith</h3><p>Ar y bwrdd gwaith Linux sy'n rhedeg y porth, agorwch <code>http://localhost:8772/admin</code> (neu'r Gateway Manager). <b>Ffôn a Mac:</b> ap → Gosodiadau → eicon sganiwr QR → sganiwch y QR, neu tapiwch yr eicon delwedd i agor llun QR a anfonwyd atoch drwy e-bost. <b>Windows a Linux:</b> nodwch gyfeiriad y porth a'r cod paru a ddangosir o dan y cod QR. Mae cod yn gweithio unwaith ac yn para 10 munud. Mae angen i'r ddau ddyfais fod ar yr un rhwydwaith Tailscale (mae mynediad i'r rhwydwaith cartref i ffwrdd oni bai eich bod yn ei droi ymlaen). Ni all dyfeisiau newydd ddefnyddio'r Terminal nes i chi docio <b>Terfynell</b> arnynt ar y dudalen weinyddol.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Gosod y porth</h2>
 <p>Ar y peiriant Debian Trixie (neu Linux cydnaws) rydych am ei reoli</p>
 </div>
-<div class="code-block"># Linux — deuaidd annibynnol, dim byd arall i'w osod curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.0/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # yna yn yr ap: Settings → Gateway URL → http://&lt;IP Tailscale y peiriant hwn&gt;:8772 # neu tapiwch "Discover Peers" os ydych chi'ch dau ar yr un rhwydwaith Tailscale</div>
+<div class="code-block"># Linux — deuaidd annibynnol, dim byd arall i'w osod
+curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.3.1/trixie-gateway-linux-x86_64.tar.gz
+tar -xzf trixie-gateway-linux-x86_64.tar.gz
+./trixie-gateway --port 8772
+# yna yn yr ap: Gosodiadau → URL y Porth → http://&lt;this-machine's-tailscale-ip&gt;:8772
+# neu tapiwch "Darganfod Cymheiriaid" os ydych chi'ch dau ar yr un rhwydwaith Tailscale</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Yn well gennych Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, yna <code>pip install -r requirements.txt</code> a <code>python3 gateway.py --port 8772</code>. Mae dogfennau gosod llawn, gan gynnwys ei redeg fel eich defnyddiwr eich hun (a argymhellir) neu fel gwasanaeth system, yn nogfennaur repo <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🔏 Gwiriwch eich lawrlwythiad.</strong> Mae pob rhyddhau yn cynnwys <code>SHA256SUMS.txt</code> wedi'i lofnodi â'n hallwedd rhyddhau, <a href="../.well-known/trxi-release.pub">trxi-rhyddhau.pub</a>. Gyda'r tri ffeil wrth ymyl eich lawrlwythiad: <code>openssl pkeyutl -verify -pubin -inkey trxi-release.pub -rawin -in SHA256SUMS.txt -sigfile SHA256SUMS.txt.sig</code> rhaid iddo ddweud "Signature Verified Successfully", yna <code>sha256sum -c --ignore-missing SHA256SUMS.txt</code> rhaid iddo ddweud OK.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Adeliadau prawf Windows a macOS</strong> ar gael ar y <a href="https://github.com/cou645/trixie-gateway/releases">tudalen rhyddhau</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Nid ydynt wedi'u llofnodi, felly bydd Windows SmartScreen yn dweud "cyhoeddwr anhysbys" (Rhagor o wybodaeth → Rhedeg beth bynnag) a bydd macOS yn rhwystro'r lansiad cyntaf (clic-dde → Agor). Rhowch wybod beth sy'n torri.</p>
