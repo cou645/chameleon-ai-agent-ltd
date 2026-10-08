@@ -35,7 +35,7 @@
 <body>
 <a class="skip-link" href="#main">Salt la conținutul principal</a>
 <div class="pre-note">
-  TrXi-Ctrl este gratuit și deschis — aplicația pentru telefon, gateway-ul cu care comunică și serverul său MCP sunt toate descărcări gratuite pentru pasionații de Linux. Este și modul în care le prezentăm oamenilor restul familiei Chameleon AI Agent Ltd — vezi <a href="../index.html">aplicații desktop plătite</a>.
+  TrXi-Ctrl este gratuit de descărcat și utilizat — aplicația pentru telefon și desktop, gateway-ul cu care comunică și serverul său MCP. Sursa gateway-ului este pe GitHub sub licența PolyForm Strict (gratuit pentru uz personal, necomercial); sursa aplicației nu este publicată. Este și modul în care le prezentăm oamenilor restul familiei Chameleon AI Agent Ltd — vezi <a href="../index.html">aplicații desktop plătite</a>.
 </div>
 <nav aria-label="Principal">
 <div class="nav-inner">
@@ -62,13 +62,13 @@
 <h1>TrXi-Ctrl</h1>
 <p class="sub">Control de la distanță gratuit pentru desktopul dvs. Linux — Bluetooth, firewall, audio, media, ferestre, terminal, partajare ecran, clipboard partajat și chat AI, de pe telefonul dvs. sau de pe alt computer — plus, pe telefoanele cu root, un hotspot VPN și stocare de masă USB. Creat pentru Debian Trixie; funcționează și pe majoritatea celorlalte desktopuri Linux X11.</p>
 <div class="hero-badges">
-<span class="badge">🆓 Gratuit și open</span>
+<span class="badge">🆓 Gratuit pentru uz personal</span>
 <span class="badge">🆕 Versiunea 1.1.0</span>
 <span class="badge">📱 Android și iOS · 💻 Aplicații Windows, macOS și Linux</span>
 <span class="badge">🐧 Controlul desktopurilor Linux / X11</span>
-<span class="badge">🔌 14 ecrane de control (+2 pe telefoanele rootate)</span>
+<span class="badge">🔌 17 ecrane (+2 pe telefoanele cu root)</span>
 <span class="badge">🤖 Server MCP inclus</span>
-<span class="badge">🔒 Rețeaua ta, fără relay cloud</span>
+<span class="badge">🔒 Rețeaua dvs., fără cont necesar</span>
 </div>
 </div>
 <div class="page" id="main" role="main">
@@ -98,7 +98,7 @@
 <div class="card"><div class="card-icon">📺</div><h3>CMC Live</h3><p>Urmărește <a href="../media.html">Chameleon Media Center</a>transmisia live pe telefonul tău — alege Low latency (MPEG-TS) sau Smooth (HLS) pentru conexiuni slabe — vezi dacă este live, sursa sa și câți urmăresc, și copiază un link pentru ca oricine să poată urmări într-un browser.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows și desktopuri</h3><p>Listează, focalizează, închide, minimizează, maximizează, aranjează ferestrele în mozaic și comută desktopurile virtuale.</p></div>
 <div class="card"><div class="card-icon">📲</div><h3>Desktop la distanță</h3><p>Partajare completă a ecranului prin WebRTC, cu sunetul PC-ului — vezi și controlează-ți desktopul de oriunde din rețeaua ta. Pe un telefon, atingerea controlează mouse-ul, iar o bară pe ecran trimite text; în aplicațiile Windows, macOS și Linux, propriul mouse și tastatură funcționează direct. Clicurile și apăsările de taste apar pe desktop aproape imediat; orice întârziere observi este la actualizările ecranului care se întorc, nu la introducerea ta.</p></div>
-<div class="card"><div class="card-icon">📋</div><h3>Clipboard partajat</h3><p>PC-ul este hubul: fiecare telefon își trimite clipboardul acolo — direct în clipboardul propriu al PC-ului, gata de lipit — iar ecranul Clipboard listează cea mai recentă intrare a fiecărui dispozitiv. Atinge una pentru a o copia pe acest telefon. Nimic nu este citit sau scris în clipboardul telefonului tău în fundal, doar când atingi.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Clipboard partajat</h3><p>PC-ul este centrul: fiecare dispozitiv își trimite clipboardul acolo — direct în clipboardul PC-ului, gata de lipit — iar ecranul Clipboard afișează un istoric comun al ultimelor 50 de elemente. Trimiteți un element către dispozitivele sau grupurile alese, dezactivați sunetul dispozitivelor de la care nu doriți să primiți și atingeți un element pentru a-l copia pe acest dispozitiv. Nimic nu este citit sau scris în clipboardul telefonului dvs. în fundal, doar când atingeți.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Un shell real, rulat de pe telefonul tău.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Chat AI</h3><p>Vorbește cu orice furnizor AI pe care l-ai configurat pe gateway — DeepSeek, OpenAI, Anthropic și altele.</p></div>
 </div>
@@ -115,8 +115,8 @@
 <p>trixie-gateway — partea de desktop, un singur binar autonom</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>Un singur binar, fără Python necesar</h3><p>Descarcă un singur executabil autonom — fără Python, pip sau venv pe mașină. Construit pe aiohttp + aiortc, iar sursa este încă pe GitHub dacă preferi să îl rulezi din Python. Rulează independent sau ca serviciu systemd, ascultând pe adresa ta Tailscale/LAN.</p></div>
-<div class="card"><div class="card-icon">🔌</div><h3>~120 de endpoint-uri REST</h3><p>Fiecare funcție a aplicației de telefon de mai sus, plus unul compatibil cu OpenAI <code>/v1/chat/completions</code> care rutează către orice furnizor AI pe care îl configurezi.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>Un singur binar, fără Python necesar</h3><p>Descărcați un singur executabil autonom — fără Python, pip sau venv pe mașină. Binarul actual (v0.2.0-test2, septembrie 2026) precede corecțiile de securitate din octombrie; până când este publicat unul nou, rulați gateway-ul din sursă pentru a le obține. Construit pe aiohttp + aiortc, iar sursa este încă pe GitHub dacă preferați să îl rulați din Python. Rulează independent sau ca serviciu systemd, ascultând pe adresa dvs. Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~110 endpoint-uri REST</h3><p>Fiecare funcție a aplicației de telefon de mai sus, plus unul compatibil cu OpenAI <code>/v1/chat/completions</code> care rutează către orice furnizor AI pe care îl configurezi.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>Server MCP inclus</h3><p><code>media_mcp_server.py</code> expune controlul media (stare, redare, pauză, căutare, volum, deschidere, navigare) ca instrumente MCP prin stdio JSON-RPC — aceleași date de sesiune și cale de control pe care le folosește aplicația de telefon, astfel încât un agent AI și telefonul tău văd mereu același lucru.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -128,7 +128,7 @@
 <tbody>
 <tr><td>Debian Trixie</td><td class="yes">✓ Dezvoltat și testat aici</td><td>—</td></tr>
 <tr><td>Familia Fatdog64 / Puppy Linux</td><td class="yes">✓ Ar trebui să funcționeze</td><td>Funcția Layers detectează automat ramuri union-fs sub fie <code>/aufs</code> (derivat din Fatdog64, inclusiv această mașină) fie <code>/initrd</code> (Puppy standard) — <code>/initrd</code> calea nu este testată pe o instalare reală Puppy, bazată pe convenții documentate mai degrabă decât pe verificare practică</td></tr>
-<tr><td>Alte desktopuri X11 Linux</td><td class="yes">✓ Ar trebui să funcționeze</td><td>Necesită BlueZ, iptables, PulseAudio/PipeWire cu compatibilitate pactl și o sesiune X11 (desktopurile doar Wayland nu sunt acceptate — <code>wmctrl</code>/<code>xdotool</code> necesită X11)</td></tr>
+<tr><td>Alte desktopuri X11 Linux</td><td class="yes">✓ Ar trebui să funcționeze</td><td>Necesită BlueZ, iptables, PulseAudio/PipeWire cu compatibilitate pactl și o sesiune X11. Wayland este experimental: compozitori cu <code>ext-image-copy-capture</code> și protocoale foreign-toplevel (testat pe mango); sesiunile Wayland GNOME și KDE nu sunt încă acceptate</td></tr>
 <tr><td>Windows 11</td><td class="test">🧪 Build de test experimental</td><td>Partajarea ecranului, mouse-ul/tastatura, lista ferestrelor, volumul și terminalul sunt implementate pentru Windows. Binarele se compilează și pornesc în CI automatizat, dar au <strong>nu a fost încă rulat pe o mașină Windows reală</strong> — așteptați-vă la imperfecțiuni. Bluetooth, firewall, straturile, luminozitatea, rețeaua și Media Center rămân doar pentru Linux și răspund <code>501</code></td></tr>
 <tr><td>macOS (Intel și Apple Silicon)</td><td class="test">🧪 Build de test experimental</td><td>Același set de funcții ca Windows, folosind Quartz, AVFoundation și <code>osascript</code>. Se compilează și pornește în CI pentru ambele arhitecturi, dar este <strong>netestat pe Mac-uri reale</strong>. Aplicația este nesemnată, iar macOS va solicita permisiunea de Înregistrare a ecranului și Accesibilitate</td></tr>
 </tbody>
@@ -163,7 +163,7 @@
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway pentru Linux</a>
 <p style="font-size:.9rem; margin-top:1rem;">Telefoane mai vechi (Android pe 32 de biți): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">APK armv7</a> · Toate fișierele: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">pagina de lansare</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway pe GitHub →</a></p>
 </div>
-<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Folosiți pe propriul risc.</strong> TrXi-Ctrl și trixie-gateway sunt software liber care oferă unui dispozitiv asociat control puternic asupra computerului dvs., inclusiv rularea de comenzi ca utilizator al gateway-ului (deseori root). Sunteți responsabil pentru fiecare comandă pe care o trimiteți, pentru menținerea gateway-ului în afara internetului deschis și pentru păstrarea codurilor de asociere private, și pentru a controla doar mașinile pentru care sunteți autorizat. CHAMELEON-AI-AGENT LTD și autorul nu își asumă nicio răspundere pentru daune cauzate de comenzi distructive, partajarea resurselor prin internet sau configurații neacceptate — consultați <a href="../terms.html#remote-control">Termeni §8A</a>.</p>
+<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Folosiți pe propriul risc.</strong> TrXi-Ctrl și trixie-gateway sunt software liber care oferă unui dispozitiv asociat control puternic asupra computerului dvs., inclusiv rularea de comenzi ca utilizator al gateway-ului (deseori root). Sunteți responsabil pentru fiecare comandă pe care o trimiteți, pentru menținerea gateway-ului în afara internetului deschis și pentru păstrarea codurilor de asociere private, și pentru a controla doar mașinile pentru care sunteți autorizat. CHAMELEON-AI-AGENT LTD și autorul nu își asumă nicio răspundere pentru daune cauzate de comenzi distructive, partajarea resurselor prin internet sau configurații neacceptate — consultați <a href="../terms.html#remote-control">Termeni §8A</a>. Ce am remediat și planificăm să remediem, raportat la ISO/IEC 27001: <a href="../security.html#trxi-27001">evaluare de securitate</a> (muncă de aliniere, nu certificare).</p>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Instalați aplicația</h2>
 <p>Niciuna dintre versiuni nu este încă semnată de Apple sau Microsoft, așa că fiecare sistem întreabă o dată dacă ai încredere în ea</p>
@@ -180,12 +180,12 @@
 <h2>Instalează gateway-ul</h2>
 <p>Pe mașina Debian Trixie (sau Linux compatibil) pe care vrei să o controlezi</p>
 </div>
-<div class="code-block"># Linux — binar autonom, nimic altceva de instalat curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # apoi în aplicația de telefon: Setări → URL gateway → http://&lt;ip-tailscale-sau-LAN-al-acestei-mașini&gt;:8772 # sau apasă "Discover Peers" dacă sunteți amândoi în aceeași rețea Tailscale</div>
+<div class="code-block"># Linux — binar autonom, nimic altceva de instalat # (v0.2.0-test2 precede remediile de securitate din octombrie; pentru acestea, rulați din sursă — vedeți mai jos) curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # apoi în aplicația de pe telefon: Settings → Gateway URL → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772 # sau atingeți "Discover Peers" dacă sunteți amândoi în aceeași rețea Tailscale</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Preferi Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, apoi <code>pip install -r requirements.txt</code> şi <code>python3 gateway.py --port 8772</code>. Documentația completă de instalare, inclusiv rularea ca serviciu systemd, se află în depozitul <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Versiuni de test pentru Windows și macOS</strong> sunt pe <a href="https://github.com/cou645/trixie-gateway/releases">pagina de versiuni</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Nu sunt semnate, așa că Windows SmartScreen va spune "editor necunoscut" (Mai multe informații → Rulează oricum), iar macOS va bloca prima lansare (clic dreapta → Deschide). Te rugăm să raportezi ce se strică.</p>
 <div class="cta-band" style="margin-top:3rem;">
 <h3>Îți place TrXi-Ctrl? Vezi ce altceva construim</h3>
-<p>TrXi-Ctrl este partea gratuită și open a unei familii mai mari de instrumente AI pentru desktop — un editor de cod, un studio de prezentări, contabilitate UK, dispecerat de flote și altele.</p>
+<p>TrXi-Ctrl este partea gratuită a unei familii mai mari de instrumente AI pentru desktop — un editor de cod, un studio de prezentări, contabilitate britanică, dispecerat de flote și multe altele.</p>
 <a class="btn btn-solid" href="../index.html">Vezi toate aplicațiile Chameleon AI →</a>
 <a class="btn" href="../companion.html">Chameleon Companion (AI pentru telefon + desktop) →</a>
 </div>

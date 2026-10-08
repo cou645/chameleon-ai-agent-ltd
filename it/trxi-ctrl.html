@@ -35,7 +35,7 @@
 <body>
 <a class="skip-link" href="#main">Vai al contenuto principale</a>
 <div class="pre-note">
-  TrXi-Ctrl è gratuito e aperto — l'app per telefono, il gateway con cui comunica e il suo server MCP sono tutti download gratuiti per gli appassionati di Linux. È anche il modo in cui presentiamo le persone al resto della famiglia Chameleon AI Agent Ltd — vedi il nostro <a href="../index.html">app desktop a pagamento</a>.
+  TrXi-Ctrl è gratuito da scaricare e usare — l'app per telefono e desktop, il gateway con cui comunica e il suo server MCP. Il codice sorgente del gateway è su GitHub con licenza PolyForm Strict (gratuito per uso personale e non commerciale); il codice sorgente dell'app non è pubblicato. È anche il modo in cui presentiamo il resto della famiglia Chameleon AI Agent Ltd — vedi il nostro <a href="../index.html">app desktop a pagamento</a>.
 </div>
 <nav aria-label="Primario">
 <div class="nav-inner">
@@ -62,13 +62,13 @@
 <h1>TrXi-Ctrl</h1>
 <p class="sub">Controllo remoto gratuito per il tuo desktop Linux — Bluetooth, firewall, audio, media, finestre, terminale, condivisione dello schermo, appunti condivisi e chat AI, dal tuo telefono o da un altro computer — inoltre, sui telefoni con root, un hotspot VPN e memoria di massa USB. Creato per Debian Trixie; funziona anche sulla maggior parte degli altri desktop Linux X11.</p>
 <div class="hero-badges">
-<span class="badge">🆓 Gratuito e aperto</span>
+<span class="badge">🆓 Gratuito per uso personale</span>
 <span class="badge">🆕 Versione 1.1.0</span>
 <span class="badge">📱 Android e iOS · 💻 App per Windows, macOS e Linux</span>
 <span class="badge">🐧 Controlla desktop Linux / X11</span>
-<span class="badge">🔌 14 schermate di controllo (+2 sui telefoni con root)</span>
+<span class="badge">🔌 17 schermate (+2 su telefoni con root)</span>
 <span class="badge">🤖 Server MCP incluso</span>
-<span class="badge">🔒 La tua rete, nessun relay cloud</span>
+<span class="badge">🔒 La tua rete, nessun account necessario</span>
 </div>
 </div>
 <div class="page" id="main" role="main">
@@ -98,7 +98,7 @@
 <div class="card"><div class="card-icon">📺</div><h3>CMC in diretta</h3><p>Guarda <a href="../media.html">Chameleon Media Center</a>lo streaming live sul tuo telefono — scegli Bassa latenza (MPEG-TS) o Fluido (HLS) per connessioni più deboli — vedi se è live, la sua fonte e quanti stanno guardando, e copia un link così chiunque può guardare in un browser.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows e desktop</h3><p>Elenca, focalizza, chiudi, riduci a icona, ingrandisci, affianca le finestre e cambia desktop virtuali.</p></div>
 <div class="card"><div class="card-icon">📲</div><h3>Desktop remoto</h3><p>Condivisione completa dello schermo tramite WebRTC, con l'audio del PC — guarda e controlla il tuo desktop da qualsiasi punto della tua rete. Su un telefono, il tocco guida il mouse e una barra sullo schermo invia testo; nelle app Windows, macOS e Linux il tuo mouse e la tua tastiera funzionano direttamente. I clic e le pressioni dei tasti appaiono sul desktop quasi immediatamente; qualsiasi ritardo noti è negli aggiornamenti dello schermo che tornano, non nel tuo input.</p></div>
-<div class="card"><div class="card-icon">📋</div><h3>Appunti condivisi</h3><p>Il PC è l'hub: ogni telefono vi invia i suoi appunti — direttamente negli appunti del PC, pronti da incollare — e la schermata Appunti elenca l'ultima voce di ogni dispositivo. Tocca una per copiarla su questo telefono. Nulla viene letto o scritto negli appunti del tuo telefono in background, solo quando tocchi.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Appunti condivisi</h3><p>Il PC è l'hub: ogni dispositivo invia lì i suoi appunti — direttamente negli appunti del PC, pronti da incollare — e la schermata Appunti mostra una cronologia condivisa degli ultimi 50 elementi. Invia un elemento a dispositivi o gruppi scelti, silenzia i dispositivi da cui non vuoi ricevere, e tocca un elemento per copiarlo su questo dispositivo. Nulla viene letto o scritto negli appunti del tuo telefono in background, solo quando tocchi.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminale</h3><p>Una vera shell, eseguita dal tuo telefono.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Chat IA</h3><p>Parla con qualunque provider IA tu abbia configurato sul gateway — DeepSeek, OpenAI, Anthropic e altri.</p></div>
 </div>
@@ -115,8 +115,8 @@
 <p>trixie-gateway — il lato desktop, un singolo binario autonomo</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>Un solo binario, nessun Python necessario</h3><p>Scarica un singolo eseguibile autonomo — nessun Python, pip o venv sulla macchina. Basato su aiohttp + aiortc, e il sorgente è ancora su GitHub se preferisci eseguirlo da Python. Funziona in modo autonomo o come servizio systemd, in ascolto sul tuo indirizzo Tailscale/LAN.</p></div>
-<div class="card"><div class="card-icon">🔌</div><h3>~120 endpoint REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> compatibile con OpenAI che instrada verso qualunque provider AI tu configuri.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>Un solo binario, nessun Python necessario</h3><p>Scarica un singolo eseguibile autonomo — niente Python, pip o venv sulla macchina. Il binario attuale (v0.2.0-test2, settembre 2026) precede le correzioni di sicurezza di ottobre; finché non ne viene pubblicato uno nuovo, esegui il gateway dal codice sorgente per ottenerle. Basato su aiohttp + aiortc, e il codice sorgente è ancora su GitHub se preferisci eseguirlo da Python. Funziona in modo autonomo o come servizio systemd, in ascolto sul tuo indirizzo Tailscale/LAN.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~110 endpoint REST</h3><p>Every phone-app feature above, plus an OpenAI-compatible <code>/v1/chat/completions</code> compatibile con OpenAI che instrada verso qualunque provider AI tu configuri.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>Server MCP incluso</h3><p><code>media_mcp_server.py</code> espone il controllo dei media (stato, riproduci, pausa, cerca, volume, apri, sfoglia) come strumenti MCP su stdio JSON-RPC — gli stessi dati di sessione e percorso di controllo usati dall'app del telefono, così un agente AI e il tuo telefono vedono sempre la stessa cosa.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -128,7 +128,7 @@
 <tbody>
 <tr><td>Debian Trixie</td><td class="yes">✓ Sviluppato e testato qui</td><td>—</td></tr>
 <tr><td>Famiglia Fatdog64 / Puppy Linux</td><td class="yes">✓ Dovrebbe funzionare</td><td>La funzione Layers rileva i rami union-fs sotto l'uno o l'altro <code>/aufs</code> (derivato da Fatdog64, incl. questa macchina) o <code>/initrd</code> (Puppy standard) automaticamente — il <code>/initrd</code> percorso non è testato su un'installazione reale di Puppy, basato su convenzioni documentate anziché su verifica pratica</td></tr>
-<tr><td>Altri desktop Linux X11</td><td class="yes">✓ Dovrebbe funzionare</td><td>Richiede BlueZ, iptables, PulseAudio/PipeWire-con-compatibilità-pactl e una sessione X11 (i desktop solo Wayland non sono supportati — <code>wmctrl</code>/<code>xdotool</code> richiedono X11)</td></tr>
+<tr><td>Altri desktop Linux X11</td><td class="yes">✓ Dovrebbe funzionare</td><td>Richiede BlueZ, iptables, PulseAudio/PipeWire con compatibilità pactl e una sessione X11. Wayland è sperimentale: i compositor con i <code>ext-image-copy-capture</code> e protocolli foreign-toplevel (testati su mango); le sessioni Wayland di GNOME e KDE non sono ancora supportate</td></tr>
 <tr><td>finestre11</td><td class="test">🧪 Build di test sperimentale</td><td>Condivisione schermo, mouse/tastiera, elenco finestre, volume e terminale sono implementati per Windows. Il binario viene compilato e avviato nella CI automatizzata, ma <strong>non è ancora stato eseguito su una vera macchina Windows</strong> — aspettati spigoli. Bluetooth, firewall, livelli, luminosità, rete e Media Center restano solo per Linux e rispondono <code>501</code></td></tr>
 <tr><td>macOS (Intel e Apple Silicon)</td><td class="test">🧪 Build di test sperimentale</td><td>Lo stesso set di funzionalità di Windows, usando Quartz, AVFoundation e <code>osascript</code>. Viene compilato e avviato nella CI per entrambe le architetture ma è <strong>non testato su Mac reali</strong>. L'app non è firmata, e macOS chiederà il permesso di Registrazione schermo e Accessibilità</td></tr>
 </tbody>
@@ -163,7 +163,7 @@
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway per Linux</a>
 <p style="font-size:.9rem; margin-top:1rem;">Telefoni più vecchi (Android a 32 bit): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7APK</a> · Tutti i file: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">pagina di rilascio</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway su GitHub →</a></p>
 </div>
-<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Usalo a tuo rischio.</strong> TrXi-Ctrl e trixie-gateway sono software liberi che danno a un dispositivo accoppiato un controllo potente sul tuo computer, inclusa l'esecuzione di comandi come utente del gateway (spesso root). Sei responsabile di ogni comando che invii, di tenere il gateway fuori da internet aperto e i tuoi codici di accoppiamento privati, e di controllare solo macchine per cui sei autorizzato. CHAMELEON-AI-AGENT LTD e l'autore non si assumono alcuna responsabilità per danni derivanti da comandi distruttivi, condivisione di risorse su internet o configurazioni non supportate — vedi <a href="../terms.html#remote-control">Termini §8A</a>.</p>
+<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Usalo a tuo rischio.</strong> TrXi-Ctrl e trixie-gateway sono software liberi che danno a un dispositivo accoppiato un controllo potente sul tuo computer, inclusa l'esecuzione di comandi come utente del gateway (spesso root). Sei responsabile di ogni comando che invii, di tenere il gateway fuori da internet aperto e i tuoi codici di accoppiamento privati, e di controllare solo macchine per cui sei autorizzato. CHAMELEON-AI-AGENT LTD e l'autore non si assumono alcuna responsabilità per danni derivanti da comandi distruttivi, condivisione di risorse su internet o configurazioni non supportate — vedi <a href="../terms.html#remote-control">Termini §8A</a>. Ciò che abbiamo corretto e intendiamo correggere, misurato rispetto a ISO/IEC 27001: <a href="../security.html#trxi-27001">revisione di sicurezza</a> (lavoro di allineamento, non certificazione).</p>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Installa l'app</h2>
 <p>Nessuna delle build è ancora firmata da Apple o Microsoft, quindi ogni sistema chiede una volta se ti fidi</p>
@@ -180,12 +180,12 @@
 <h2>Installa il gateway</h2>
 <p>Sulla macchina Debian Trixie (o Linux compatibile) che vuoi controllare</p>
 </div>
-<div class="code-block"># Linux — binario autonomo, nient'altro da installare curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # poi nell'app del telefono: Impostazioni → URL del gateway → http://&lt;IP Tailscale o LAN di questa macchina&gt;:8772 # oppure tocca "Scopri peer" se siete entrambi sulla stessa rete Tailscale</div>
+<div class="code-block"># Linux — binario autonomo, nient'altro da installare # (v0.2.0-test2 è precedente alle correzioni di sicurezza di ottobre; per quelle, esegui dal codice sorgente — vedi sotto) curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # poi nell'app del telefono: Impostazioni → URL del gateway → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772 # oppure tocca "Discover Peers" se siete entrambi sulla stessa rete Tailscale</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Preferisci Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, poi <code>pip install -r requirements.txt</code> E <code>python3 gateway.py --port 8772</code>. La documentazione completa di installazione, inclusa l'esecuzione come servizio systemd, è nel repository <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Build di test per Windows e macOS</strong> sono sul <a href="https://github.com/cou645/trixie-gateway/releases">pagina delle versioni</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Non sono firmati, quindi Windows SmartScreen dirà "editore sconosciuto" (Ulteriori informazioni → Esegui comunque) e macOS bloccherà il primo avvio (clic destro → Apri). Segnala cosa non funziona.</p>
 <div class="cta-band" style="margin-top:3rem;">
 <h3>Ti piace TrXi-Ctrl? Scopri cos'altro creiamo</h3>
-<p>TrXi-Ctrl è la parte gratuita e aperta di una famiglia più ampia di strumenti AI per desktop — un editor di codice, uno studio per presentazioni, contabilità UK, dispatch per flotte e altro ancora.</p>
+<p>TrXi-Ctrl è la parte gratuita di una famiglia più ampia di strumenti AI per desktop — un editor di codice, uno studio di presentazioni, contabilità britannica, dispatch di flotte e altro ancora.</p>
 <a class="btn btn-solid" href="../index.html">Vedi tutte le app Chameleon AI →</a>
 <a class="btn" href="../companion.html">Chameleon Companion (AI per telefono + desktop) →</a>
 </div>

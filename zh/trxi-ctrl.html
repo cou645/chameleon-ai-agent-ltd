@@ -35,7 +35,7 @@
 <body>
 <a class="skip-link" href="#main">跳到主要内容</a>
 <div class="pre-note">
-  TrXi-Ctrl 是免费且开源的——手机应用、它所通信的网关及其 MCP 服务器都是面向 Linux 爱好者的免费下载。这也是我们向大家介绍 Chameleon AI Agent Ltd 家族其他成员的方式——请查看我们的 <a href="../index.html">付费桌面应用</a>.
+  TrXi-Ctrl 可免费下载和使用——包括手机和桌面应用、它所连接到的网关及其 MCP 服务器。网关的源代码在 GitHub 上以 PolyForm Strict 许可证发布（供个人、非商业用途免费使用）；应用的源代码未公开。这也是我们向大家介绍 Chameleon AI Agent Ltd 家族其他产品的方式——请参阅我们的 <a href="../index.html">付费桌面应用</a>.
 </div>
 <nav aria-label="主要">
 <div class="nav-inner">
@@ -62,13 +62,13 @@
 <h1>TrXi-Ctrl</h1>
 <p class="sub">免费远程控制您的 Linux 桌面 — 蓝牙、防火墙、音频、媒体、窗口、终端、屏幕共享、共享剪贴板和 AI 聊天，从您的手机或另一台电脑 — 此外，在已 root 的手机上，还支持 VPN 热点和 USB 大容量存储。专为 Debian Trixie 打造；也适用于大多数其他 X11 Linux 桌面。</p>
 <div class="hero-badges">
-<span class="badge">🆓 免费且开源</span>
+<span class="badge">🆓 个人使用免费</span>
 <span class="badge">🆕 版本 1.1.0</span>
 <span class="badge">📱 Android 和 iOS · 💻 Windows、macOS 和 Linux 应用</span>
 <span class="badge">🐧 控制 Linux / X11 桌面</span>
-<span class="badge">🔌 14 个控制屏幕（已 root 手机额外 +2）</span>
+<span class="badge">🔌 17 个屏幕（已 root 的手机上 +2）</span>
 <span class="badge">🤖 包含 MCP 服务器</span>
-<span class="badge">🔒 您的网络，无云中继</span>
+<span class="badge">🔒 您自己的网络，无需账户</span>
 </div>
 </div>
 <div class="page" id="main" role="main">
@@ -98,7 +98,7 @@
 <div class="card"><div class="card-icon">📺</div><h3>CMC直播</h3><p>观看 <a href="../media.html">Chameleon Media Center</a>在您手机上的直播 — 为较弱连接选择低延迟 (MPEG-TS) 或流畅 (HLS) — 查看是否正在直播、其来源和观看人数，并复制链接让任何人都能在浏览器中观看。</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows 与桌面</h3><p>列出、聚焦、关闭、最小化、最大化、平铺窗口以及切换虚拟桌面。</p></div>
 <div class="card"><div class="card-icon">📲</div><h3>远程桌面</h3><p>通过 WebRTC 进行全屏共享，并带有 PC 的声音——可在网络中的任何位置查看和控制你的桌面。在手机上，触摸可驱动鼠标，屏幕栏可发送文本；在 Windows、macOS 和 Linux 应用中，你自己的鼠标和键盘可直接使用。点击和按键几乎会立即显示在桌面上；你注意到的任何延迟都来自返回的屏幕更新，而不是你的输入。</p></div>
-<div class="card"><div class="card-icon">📋</div><h3>共享剪贴板</h3><p>PC 是枢纽：每部手机将其剪贴板推送到那里 — 直接进入 PC 自己的剪贴板，随时可粘贴 — 而剪贴板屏幕会列出每台设备的最新条目。点击一个即可复制到本手机。后台不会读取或写入您手机的剪贴板，仅在您点击时才会。</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>共享剪贴板</h3><p>PC 是枢纽：每台设备都将自己的剪贴板推送到那里——直接进入 PC 自己的剪贴板，随时可粘贴——而剪贴板屏幕会显示最近 50 个项目的共享历史记录。将项目发送到选定的设备或群组，将不想接收其消息的设备静音，然后点击项目即可将其复制到此设备。后台不会从您手机的剪贴板读取或写入任何内容，只有在您点击时才会。</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>终端</h3><p>真正的 shell，从您的手机运行。</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AI 聊天</h3><p>与您在网关上配置的任何 AI 提供商交谈 — DeepSeek、OpenAI、Anthropic 等。</p></div>
 </div>
@@ -115,8 +115,8 @@
 <p>trixie-gateway — 桌面端，单个自包含二进制文件</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>单个二进制文件，无需 Python</h3><p>下载单个自包含可执行文件——机器上无需 Python、pip 或 venv。基于 aiohttp + aiortc 构建，如果你更愿意从 Python 运行，源代码仍在 GitHub 上。可独立运行或作为 systemd 服务运行，监听你的 Tailscale/LAN 地址。</p></div>
-<div class="card"><div class="card-icon">🔌</div><h3>约 120 个 REST 端点</h3><p>上述所有手机应用功能，外加一个兼容 OpenAI 的 <code>/v1/chat/completions</code> 可路由到你配置的任何 AI 提供商。</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>单个二进制文件，无需 Python</h3><p>下载一个独立的可执行文件——机器上无需 Python、pip 或 venv。当前二进制文件（v0.2.0-test2，2026 年 9 月）早于 10 月的安全修复；在新版本发布之前，请从源代码运行网关以获取这些修复。基于 aiohttp + aiortc 构建，如果您更愿意从 Python 运行，源代码仍在 GitHub 上。可独立运行，也可作为 systemd 服务运行，监听您的 Tailscale/LAN 地址。</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>约 110 个 REST 端点</h3><p>上述所有手机应用功能，外加一个兼容 OpenAI 的 <code>/v1/chat/completions</code> 可路由到你配置的任何 AI 提供商。</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>包含 MCP 服务器</h3><p><code>media_mcp_server.py</code> 通过 stdio JSON-RPC 将媒体控制（状态、播放、暂停、跳转、音量、打开、浏览）作为 MCP 工具公开——与手机应用使用相同的会话数据和控制路径，因此 AI 代理和你的手机始终看到相同的内容。</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -128,7 +128,7 @@
 <tbody>
 <tr><td>Debian 特里克西</td><td class="yes">✓ 在此开发和测试</td><td>—</td></tr>
 <tr><td>Fatdog64 / Puppy Linux 系列</td><td class="yes">✓ 应该可以运行</td><td>Layers 功能会自动检测以下任一项下的 union-fs 分支 <code>/aufs</code> （源自 Fatdog64，包括这台机器）或 <code>/initrd</code> （标准 Puppy）— <code>/initrd</code> 该路径尚未针对真实的 Puppy 安装进行测试，基于文档化的惯例而非实际验证</td></tr>
-<tr><td>其他 X11 Linux 桌面</td><td class="yes">✓ 应该可以运行</td><td>需要 BlueZ、iptables、PulseAudio/PipeWire（带 pactl 兼容）、以及 X11 会话（不支持仅 Wayland 的桌面 — <code>wmctrl</code>/<code>xdotool</code> 需要 X11）</td></tr>
+<tr><td>其他 X11 Linux 桌面</td><td class="yes">✓ 应该可以运行</td><td>需要 BlueZ、iptables、PulseAudio/PipeWire（带 pactl 兼容）以及 X11 会话。Wayland 为实验性：具有 <code>ext-image-copy-capture</code> 和 foreign-toplevel 协议的合成器（已在 mango 上测试）；尚不支持 GNOME 和 KDE 的 Wayland 会话</td></tr>
 <tr><td>视窗11</td><td class="test">🧪 实验性测试版本</td><td>屏幕共享、鼠标/键盘、窗口列表、音量和终端已在 Windows 上实现。该二进制文件可在自动化 CI 中构建并启动，但 <strong>尚未在真实的 Windows 机器上运行过</strong> ——预计会有粗糙之处。蓝牙、防火墙、图层、亮度、网络和 Media Center 仍仅限 Linux，并会响应 <code>501</code></td></tr>
 <tr><td>macOS（Intel 和 Apple Silicon）</td><td class="test">🧪 实验性测试版本</td><td>与 Windows 相同的功能集，使用 Quartz、AVFoundation 和 <code>osascript</code>。可在 CI 中为两种架构构建并启动，但 <strong>未在真实 Mac 上测试过</strong>。该应用未签名，macOS 将请求屏幕录制和辅助功能权限</td></tr>
 </tbody>
@@ -163,7 +163,7 @@
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux 网关</a>
 <p style="font-size:.9rem; margin-top:1rem;">旧手机（32 位 Android）： <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">ARMv7 APK</a> · 所有文件： <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">发布页面</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub 上的 Gateway →</a></p>
 </div>
-<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ 使用风险自负。</strong> TrXi-Ctrl 和 trixie-gateway 是自由软件，可让配对设备对您的计算机进行强大控制，包括以网关用户（通常是 root）身份运行命令。您需对发送的每条命令负责，需确保网关不暴露在开放互联网上并保管好配对码，且仅控制您获授权控制的机器。CHAMELEON-AI-AGENT LTD 及作者对破坏性命令、通过互联网共享资源或不受支持的配置所造成的损害不承担任何责任——请参阅 <a href="../terms.html#remote-control">条款 §8A</a>.</p>
+<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ 使用风险自负。</strong> TrXi-Ctrl 和 trixie-gateway 是自由软件，可让配对设备对您的计算机进行强大控制，包括以网关用户（通常是 root）身份运行命令。您需对发送的每条命令负责，需确保网关不暴露在开放互联网上并保管好配对码，且仅控制您获授权控制的机器。CHAMELEON-AI-AGENT LTD 及作者对破坏性命令、通过互联网共享资源或不受支持的配置所造成的损害不承担任何责任——请参阅 <a href="../terms.html#remote-control">条款 §8A</a>。我们已修复和计划修复的内容，对照 ISO/IEC 27001： <a href="../security.html#trxi-27001">安全审查</a> （对齐工作，而非认证）。</p>
 <div class="section-title" style="margin-top:3rem;">
 <h2>安装应用</h2>
 <p>目前所有构建版本都尚未由 Apple 或 Microsoft 签名，因此每个系统都会询问一次是否信任它</p>
@@ -180,12 +180,12 @@
 <h2>安装网关</h2>
 <p>在您想要控制的 Debian Trixie（或兼容 Linux）机器上</p>
 </div>
-<div class="code-block"># Linux — 独立二进制文件，无需安装其他任何东西 curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # 然后在手机应用中：设置 → 网关 URL → http://&lt;此机器的-tailscale-或局域网-IP&gt;:8772 # 或者如果您们都在同一个 Tailscale 网络中，点击 "Discover Peers"</div>
+<div class="code-block"># Linux — 独立二进制文件，无需安装其他任何东西 #（v0.2.0-test2 早于十月的安全修复；如需这些修复，请从源代码运行——见下文） curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # 然后在手机应用中：Settings → Gateway URL → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772 # 或者如果你俩在同一个 Tailscale 网络中，点击 "Discover Peers"</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">更喜欢 Python？ <code>git clone https://github.com/cou645/trixie-gateway.git</code>，然后 <code>pip install -r requirements.txt</code> 和 <code>python3 gateway.py --port 8772</code>。完整的安装文档，包括将其作为 systemd 服务运行，都在仓库的 <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows 和 macOS 测试版</strong> 位于 <a href="https://github.com/cou645/trixie-gateway/releases">发布页面</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). 它们未签名，因此 Windows SmartScreen 会提示“未知发布者”（更多信息 → 仍要运行），而 macOS 会阻止首次启动（右键点击 → 打开）。请报告哪些地方出问题。</p>
 <div class="cta-band" style="margin-top:3rem;">
 <h3>喜欢 TrXi-Ctrl？看看我们还构建了什么</h3>
-<p>TrXi-Ctrl 是更大的桌面 AI 工具家族中免费、开源的一部分——包括代码编辑器、演示工作室、英国会计、车队调度等。</p>
+<p>TrXi-Ctrl 是更大的桌面 AI 工具家族中的免费部分——包括代码编辑器、演示工作室、英国会计、车队调度等。</p>
 <a class="btn btn-solid" href="../index.html">查看所有 Chameleon AI 应用 →</a>
 <a class="btn" href="../companion.html">Chameleon Companion（手机 + 桌面 AI）→</a>
 </div>

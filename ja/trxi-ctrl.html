@@ -35,7 +35,7 @@
 <body>
 <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
 <div class="pre-note">
-  TrXi-Ctrlは無料でオープンです — スマートフォンアプリ、それが通信するゲートウェイ、そのMCPサーバーはすべてLinux愛好家向けの無料ダウンロードです。また、これはChameleon AI Agent Ltdファミリーの他の製品を紹介する方法でもあります — ご覧ください <a href="../index.html">有料デスクトップアプリ</a>.
+  TrXi-Ctrlは無料でダウンロードして使用できます — スマートフォンとデスクトップのアプリ、それが通信するゲートウェイ、そしてそのMCPサーバー。ゲートウェイのソースはGitHub上でPolyForm Strictライセンスの下に公開されています（個人の非商用利用は無料）。アプリのソースは公開されていません。これは、Chameleon AI Agent Ltdファミリーの他の製品を紹介する方法でもあります — こちらをご覧ください <a href="../index.html">有料デスクトップアプリ</a>.
 </div>
 <nav aria-label="プライマリ">
 <div class="nav-inner">
@@ -62,13 +62,13 @@
 <h1>TrXi-Ctrl</h1>
 <p class="sub">Linuxデスクトップ向けの無料リモートコントロール — Bluetooth、ファイアウォール、オーディオ、メディア、ウィンドウ、ターミナル、画面共有、共有クリップボード、AIチャットを、スマートフォンまたは別のコンピューターから操作 — さらに、root化したスマートフォンでは、VPNホットスポットとUSBマスストレージ。Debian Trixie向けに構築。他のほとんどのX11 Linuxデスクトップでも動作します。</p>
 <div class="hero-badges">
-<span class="badge">🆓 無料でオープン</span>
+<span class="badge">🆓 個人利用は無料</span>
 <span class="badge">🆕 バージョン 1.1.0</span>
 <span class="badge">📱 Android &amp; iOS · 💻 Windows、macOS、Linuxアプリ</span>
 <span class="badge">🐧 Linux / X11デスクトップを操作</span>
-<span class="badge">🔌 14のコントロール画面（root化したスマートフォンでは+2）</span>
+<span class="badge">🔌 17画面（root化したスマートフォンでは+2）</span>
 <span class="badge">🤖 MCP サーバー同梱</span>
-<span class="badge">🔒 あなたのネットワーク、クラウドリレーなし</span>
+<span class="badge">🔒 自分のネットワーク、アカウント不要</span>
 </div>
 </div>
 <div class="page" id="main" role="main">
@@ -98,7 +98,7 @@
 <div class="card"><div class="card-icon">📺</div><h3>CMCライブ</h3><p>視聴 <a href="../media.html">Chameleon Media Center</a>のライブストリームをスマートフォンで — 弱い接続には低遅延（MPEG-TS）またはスムーズ（HLS）を選択 — ライブかどうか、ソース、視聴者数を確認し、誰でもブラウザで視聴できるリンクをコピーできます。</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windowsとデスクトップ</h3><p>ウィンドウの一覧表示、フォーカス、閉じる、最小化、最大化、タイル表示、仮想デスクトップの切り替え。</p></div>
 <div class="card"><div class="card-icon">📲</div><h3>リモートデスクトップ</h3><p>WebRTC による全画面共有。PC の音声付き — ネットワーク上のどこからでもデスクトップを表示して操作できます。スマートフォンでは、タッチでマウスを操作し、画面上のバーでテキストを送信します。Windows、macOS、Linux アプリでは、自分のマウスとキーボードが直接機能します。クリックやキー入力はほぼ即座にデスクトップに表示されます。感じる遅延は、戻ってくる画面更新によるもので、入力によるものではありません。</p></div>
-<div class="card"><div class="card-icon">📋</div><h3>共有クリップボード</h3><p>PCがハブです：各スマートフォンはクリップボードをそこへ送信します — PC自身のクリップボードに直接、貼り付け可能な状態で — そしてクリップボード画面には各デバイスの最新エントリが一覧表示されます。1つをタップするとこのスマートフォンにコピーされます。バックグラウンドでスマートフォンのクリップボードから読み取ったり書き込んだりすることはなく、タップしたときだけ行います。</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>共有クリップボード</h3><p>PCがハブです。すべてのデバイスがクリップボードの内容をそこへ送信し、PC自身のクリップボードに直接入ってすぐに貼り付けられます。クリップボード画面には直近50件の共有履歴が表示されます。選んだデバイスやグループにアイテムを送信したり、受信したくないデバイスをミュートしたり、アイテムをタップしてこのデバイスにコピーしたりできます。バックグラウンドでスマートフォンのクリップボードから読み書きされることはなく、タップしたときだけ行われます。</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>ターミナル</h3><p>スマートフォンから実行する本物のシェル。</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>AIチャット</h3><p>ゲートウェイで設定した任意のAIプロバイダーと会話 — DeepSeek、OpenAI、Anthropicなど。</p></div>
 </div>
@@ -115,8 +115,8 @@
 <p>trixie-gateway — デスクトップ側、単一の自己完結型バイナリ</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>単一バイナリ、Python不要</h3><p>単一の自己完結型実行ファイルをダウンロード — マシンにPython、pip、venvは不要。aiohttp + aiortcで構築されており、Pythonから実行したい場合のためにソースは今もGitHubにあります。単独で、またはsystemdサービスとして実行され、Tailscale/LANアドレスで待ち受けます。</p></div>
-<div class="card"><div class="card-icon">🔌</div><h3>約120のRESTエンドポイント</h3><p>上記のすべてのスマートフォンアプリ機能に加え、OpenAI互換の <code>/v1/chat/completions</code> 設定した任意のAIプロバイダーにルーティングします。</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>単一バイナリ、Python不要</h3><p>単一の自己完結型実行ファイルをダウンロード — マシンにPython、pip、venvは不要です。現在のバイナリ（v0.2.0-test2、2026年9月）は10月のセキュリティ修正より前のものです。新しいものが公開されるまでは、それらを適用するためにソースからゲートウェイを実行してください。aiohttp + aiortcで構築されており、Pythonから実行したい場合のためにソースは今もGitHubにあります。単体で、またはsystemdサービスとして動作し、Tailscale/LANアドレスで待ち受けます。</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~110個のRESTエンドポイント</h3><p>上記のすべてのスマートフォンアプリ機能に加え、OpenAI互換の <code>/v1/chat/completions</code> 設定した任意のAIプロバイダーにルーティングします。</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>MCPサーバー同梱</h3><p><code>media_mcp_server.py</code> メディア制御（ステータス、再生、一時停止、シーク、音量、開く、閲覧）をstdio JSON-RPC経由のMCPツールとして公開します — スマートフォンアプリが使用するのと同じセッションデータと制御パスなので、AIエージェントとスマートフォンは常に同じものを見ます。</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -128,7 +128,7 @@
 <tbody>
 <tr><td>Debian トリクシー</td><td class="yes">✓ ここで開発・テスト済み</td><td>—</td></tr>
 <tr><td>Fatdog64 / Puppy Linux ファミリー</td><td class="yes">✓ 動作するはず</td><td>Layers 機能はどちらの下でも union-fs ブランチを検出します <code>/aufs</code> （Fatdog64 派生、このマシンを含む）または <code>/initrd</code> （標準 Puppy）を自動的に — <code>/initrd</code> パスは実際の Puppy インストールに対してテストされておらず、実地検証ではなく文書化された慣例に基づいています</td></tr>
-<tr><td>その他の X11 Linux デスクトップ</td><td class="yes">✓ 動作するはず</td><td>BlueZ、iptables、PulseAudio/PipeWire（pactl 互換）、および X11 セッションが必要です（Wayland のみのデスクトップはサポートされていません — <code>wmctrl</code>/<code>xdotool</code> X11 が必要）</td></tr>
+<tr><td>その他の X11 Linux デスクトップ</td><td class="yes">✓ 動作するはず</td><td>BlueZ、iptables、pactl互換のPulseAudio/PipeWire、およびX11セッションが必要です。Waylandは実験的です：以下のものを備えたコンポジタ <code>ext-image-copy-capture</code> およびforeign-toplevelプロトコル（mangoでテスト済み）。GNOMEおよびKDEのWaylandセッションはまだサポートされていません</td></tr>
 <tr><td>Windows 11</td><td class="test">🧪 実験的なテストビルド</td><td>画面共有、マウス/キーボード、ウィンドウ一覧、音量、ターミナルは Windows 向けに実装されています。バイナリは自動 CI でビルドおよび起動しますが、 <strong>実際の Windows マシンではまだ実行されていません</strong> — 粗削りな部分を想定してください。Bluetooth、ファイアウォール、レイヤー、明るさ、ネットワーク、Media Center は Linux 専用のままで、応答します <code>501</code></td></tr>
 <tr><td>macOS (インテルおよび Apple シリコン)</td><td class="test">🧪 実験的なテストビルド</td><td>Windows と同じ機能セットで、Quartz、AVFoundation、および <code>osascript</code>を使用します。両方のアーキテクチャで CI でビルドおよび起動しますが、 <strong>実際の Mac では未テストです</strong>。アプリは署名されておらず、macOS は画面収録とアクセシビリティの許可を求めます</td></tr>
 </tbody>
@@ -163,7 +163,7 @@
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Linux用ゲートウェイ</a>
 <p style="font-size:.9rem; margin-top:1rem;">古いスマートフォン (32 ビット Android): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">armv7 APK</a> · すべてのファイル: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">リリースページ</a> · <a href="https://github.com/cou645/trixie-gateway">GitHub のゲートウェイ →</a></p>
 </div>
-<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ 自己責任で使用してください。</strong> TrXi-Ctrl と trixie-gateway は、ペアリングされたデバイスにコンピュータの強力な制御を可能にするフリーソフトウェアです。これには、ゲートウェイのユーザー（多くの場合 root）としてコマンドを実行することが含まれます。送信するすべてのコマンド、ゲートウェイをオープンインターネットから遠ざけペアリングコードを非公開に保つこと、および権限を持つマシンのみを制御することについては、あなたが責任を負います。CHAMELEON-AI-AGENT LTD および作者は、破壊的なコマンド、インターネット経由でのリソース共有、またはサポートされていないセットアップによる損害について一切の責任を負いません — 参照 <a href="../terms.html#remote-control">利用規約 §8A</a>.</p>
+<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ 自己責任で使用してください。</strong> TrXi-Ctrl と trixie-gateway は、ペアリングされたデバイスにコンピュータの強力な制御を可能にするフリーソフトウェアです。これには、ゲートウェイのユーザー（多くの場合 root）としてコマンドを実行することが含まれます。送信するすべてのコマンド、ゲートウェイをオープンインターネットから遠ざけペアリングコードを非公開に保つこと、および権限を持つマシンのみを制御することについては、あなたが責任を負います。CHAMELEON-AI-AGENT LTD および作者は、破壊的なコマンド、インターネット経由でのリソース共有、またはサポートされていないセットアップによる損害について一切の責任を負いません — 参照 <a href="../terms.html#remote-control">利用規約 §8A</a>。ISO/IEC 27001に照らして測定した、修正済みおよび修正予定の項目： <a href="../security.html#trxi-27001">セキュリティレビュー</a> （整合作業であり、認証ではありません）。</p>
 <div class="section-title" style="margin-top:3rem;">
 <h2>アプリをインストール</h2>
 <p>どのビルドもまだ Apple や Microsoft による署名がされていないため、各システムは信頼するかどうかを一度だけ尋ねます</p>
@@ -180,12 +180,12 @@
 <h2>ゲートウェイをインストール</h2>
 <p>制御したいDebian Trixie（または互換Linux）マシン上で</p>
 </div>
-<div class="code-block"># Linux — スタンドアロンバイナリ、他にインストールするものはありません curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # その後スマホアプリで: 設定 → ゲートウェイURL → http://&lt;このマシンのTailscaleまたはLANのIP&gt;:8772 # または、両方が同じTailscaleネットワーク上にいる場合は「ピアを検出」をタップ</div>
+<div class="code-block"># Linux — スタンドアロンバイナリ、他にインストールするものはありません # (v0.2.0-test2 は10月のセキュリティ修正より前のものです。それらについては、ソースから実行してください — 下記参照) curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # その後、スマホアプリで: 設定 → ゲートウェイURL → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772 # または、両方が同じTailscaleネットワーク上にいる場合は「Discover Peers」をタップしてください</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Pythonの方がいい？ <code>git clone https://github.com/cou645/trixie-gateway.git</code>、次に <code>pip install -r requirements.txt</code> そして <code>python3 gateway.py --port 8772</code>。systemdサービスとしての実行を含む完全なインストールドキュメントは、リポジトリの <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Windows &amp; macOS テストビルド</strong> はこちら <a href="https://github.com/cou645/trixie-gateway/releases">リリースページ</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>)。これらは署名されていないため、Windows SmartScreen は「不明な発行元」と表示し（詳細情報 → 実行）、macOS は初回起動をブロックします（右クリック → 開く）。不具合があれば報告してください。</p>
 <div class="cta-band" style="margin-top:3rem;">
 <h3>TrXi-Ctrl を気に入りましたか？他に何を作っているか見てみましょう</h3>
-<p>TrXi-Ctrl は、デスクトップ AI ツールのより大きなファミリーの無料でオープンな一部です — コードエディター、プレゼンスタジオ、英国会計、フリート配車など。</p>
+<p>TrXi-Ctrlは、より大きなデスクトップAIツール群の無料部分です — コードエディタ、プレゼンスタジオ、英国会計、フリートディスパッチなど。</p>
 <a class="btn btn-solid" href="../index.html">すべての Chameleon AI アプリを見る →</a>
 <a class="btn" href="../companion.html">Chameleon Companion（スマホ + デスクトップ AI）→</a>
 </div>

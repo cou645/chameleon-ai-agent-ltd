@@ -62,7 +62,7 @@
 
 <p class="meta"><strong>Published:</strong> 2 September 2026 &nbsp;·&nbsp; <strong>Last reviewed:</strong> 27 September 2026</p>
 
-<h2>1. Reporting a vulnerability</h2>
+<h2 id="report">1. Reporting a vulnerability</h2>
 <p>Email <a href="mailto:security@chameleon-ai-agent-ltd.net">security@chameleon-ai-agent-ltd.net</a>. Please do not post security problems in a public forum or a support ticket before we have had a chance to fix them.</p>
 <p>Tell us:</p>
 <ul>
@@ -124,6 +124,26 @@
 
 <h2>8. How we manage information security</h2>
 <p>Our security controls are aligned with the Annex A controls of ISO/IEC 27001:2022 that apply to a small software publisher: access control and authentication, protection of credentials, cryptography, secure development, vulnerability management and incident response. The policy is owned by the company director and reviewed every year and after any incident. We are <strong>not certified</strong> to ISO/IEC 27001 and do not claim to be.</p>
+
+<h3 id="trxi-27001">8.1 TrXi-Ctrl and trixie-gateway: ISO/IEC 27001 gap review</h3>
+<p>In October 2026 we reviewed <a href="trxi-ctrl.html">TrXi-Ctrl</a> and trixie-gateway against ISO/IEC 27001:2022 Annex A and listed 19 gaps, from code weaknesses to the paperwork certification would need. We are working through them in priority order. This is alignment work, not certification.</p>
+<p><strong>Fixed</strong> (in the gateway source; the downloadable gateway binary v0.2.0-test2 predates these):</p>
+<ul>
+<li>7 Oct 2026 — terminal commands that delete, overwrite, copy, encrypt, format or shut down ask for confirmation in the app first, and confirmed ones are logged (A.8.2, A.8.15).</li>
+<li>8 Oct 2026 — web pages open in the PC's browser can no longer send requests to the gateway (cross-site and DNS-rebinding protection) (A.8.26).</li>
+<li>8 Oct 2026 — authentication is on by default; the "no authentication" testing switch only ever works from the PC itself (A.8.5).</li>
+<li>Oct 2026 — the gateway's admin page lists every device that has connected and can allow only the devices you tick (A.5.15).</li>
+<li>Oct 2026 — automated security regression tests for the fixes above (A.8.29).</li>
+</ul>
+<p><strong>Planned</strong>, with what you can do meanwhile:</p>
+<ul>
+<li>Gateway reachable only over Tailscale by default (A.8.20, A.8.22). Meanwhile: don't run it on public Wi-Fi, or block port 8772 except on <code>tailscale0</code>.</li>
+<li>Revocable, shorter-lived device tokens with per-device permissions (A.5.15, A.5.18). Meanwhile: untick a lost device on the admin page's whitelist.</li>
+<li>Encrypted connections on home networks, not only over Tailscale (A.8.24). Meanwhile: connect over Tailscale, which encrypts end to end.</li>
+<li>Running as a normal user by default, with a minimal helper for the few administrator-only features (A.8.2). Meanwhile: avoid running the gateway as root or Administrator unless you need firewall or network control.</li>
+<li>A fuller, tamper-evident activity log; clipboard history expiry; pinned dependencies; signed downloads (A.8.15, A.8.10, A.8.8, A.8.24).</li>
+</ul>
+<p>Found something we missed? Report it as described in <a href="#report">section 1</a>.</p>
 
 <h2>9. Machine-readable contact</h2>
 <p>This policy is also advertised at <a href="/.well-known/security.txt">/.well-known/security.txt</a> in the format defined by <a href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener" target="_blank">RFC 9116</a>.</p>

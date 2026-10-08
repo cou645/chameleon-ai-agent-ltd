@@ -35,7 +35,7 @@
 <body>
 <a class="skip-link" href="#main">Langsung ke konten utama</a>
 <div class="pre-note">
-  TrXi-Ctrl gratis dan terbuka — aplikasi ponsel, gateway yang dihubunginya, dan server MCP-nya semuanya unduhan gratis untuk penggemar Linux. Ini juga cara kami memperkenalkan orang pada keluarga Chameleon AI Agent Ltd lainnya — lihat <a href="../index.html">aplikasi desktop berbayar</a>.
+  TrXi-Ctrl gratis untuk diunduh dan digunakan — aplikasi ponsel dan desktop, gateway yang dihubunginya, dan server MCP-nya. Sumber gateway ada di GitHub di bawah lisensi PolyForm Strict (gratis untuk penggunaan pribadi, non-komersial); sumber aplikasinya tidak dipublikasikan. Ini juga cara kami memperkenalkan orang pada keluarga Chameleon AI Agent Ltd lainnya — lihat <a href="../index.html">aplikasi desktop berbayar</a>.
 </div>
 <nav aria-label="Utama">
 <div class="nav-inner">
@@ -62,13 +62,13 @@
 <h1>TrXi-Ctrl</h1>
 <p class="sub">Kontrol jarak jauh gratis untuk desktop Linux Anda — Bluetooth, firewall, audio, media, jendela, terminal, berbagi layar, papan klip bersama, dan obrolan AI, dari ponsel Anda atau dari komputer lain — plus, pada ponsel yang sudah di-root, hotspot VPN dan penyimpanan massal USB. Dibuat untuk Debian Trixie; juga berfungsi di sebagian besar desktop Linux X11 lainnya.</p>
 <div class="hero-badges">
-<span class="badge">🆓 Gratis &amp; terbuka</span>
+<span class="badge">🆓 Gratis untuk penggunaan pribadi</span>
 <span class="badge">🆕 Versi 1.1.0</span>
 <span class="badge">📱 Android &amp; iOS · 💻 Aplikasi Windows, macOS &amp; Linux</span>
 <span class="badge">🐧 Kontrol desktop Linux / X11</span>
-<span class="badge">🔌 14 layar kontrol (+2 di ponsel yang di-root)</span>
+<span class="badge">🔌 17 layar (+2 di ponsel yang di-root)</span>
 <span class="badge">🤖 Server MCP disertakan</span>
-<span class="badge">🔒 Jaringan Anda, tanpa relay cloud</span>
+<span class="badge">🔒 Jaringan Anda sendiri, tanpa perlu akun</span>
 </div>
 </div>
 <div class="page" id="main" role="main">
@@ -98,7 +98,7 @@
 <div class="card"><div class="card-icon">📺</div><h3>CMC Langsung</h3><p>Tonton <a href="../media.html">Chameleon Media Center</a>siaran langsung di ponsel Anda — pilih Low latency (MPEG-TS) atau Smooth (HLS) untuk koneksi lemah — lihat apakah sedang live, sumbernya dan berapa banyak yang menonton, dan salin tautan agar siapa pun dapat menonton di browser.</p></div>
 <div class="card"><div class="card-icon">🪟</div><h3>Windows &amp; desktop</h3><p>Daftar, fokus, tutup, perkecil, perbesar, susun jendela dan ganti desktop virtual.</p></div>
 <div class="card"><div class="card-icon">📲</div><h3>Desktop jarak jauh</h3><p>Berbagi layar penuh melalui WebRTC, dengan suara PC — lihat dan kendalikan desktop Anda dari mana saja di jaringan Anda. Di ponsel, sentuhan menggerakkan mouse dan bilah di layar mengirim teks; di aplikasi Windows, macOS, dan Linux, mouse dan keyboard Anda sendiri bekerja secara langsung. Klik dan penekanan tombol muncul di desktop hampir seketika; jeda apa pun yang Anda perhatikan ada pada pembaruan layar yang kembali, bukan pada input Anda.</p></div>
-<div class="card"><div class="card-icon">📋</div><h3>Papan klip bersama</h3><p>PC adalah hub: setiap ponsel mendorong papan klipnya ke sana — langsung ke papan klip PC sendiri, siap ditempel — dan layar Clipboard mencantumkan entri terbaru setiap perangkat. Ketuk satu untuk menyalinnya ke ponsel ini. Tidak ada yang dibaca dari atau ditulis ke papan klip ponsel Anda di latar belakang, hanya saat Anda mengetuk.</p></div>
+<div class="card"><div class="card-icon">📋</div><h3>Papan klip bersama</h3><p>PC adalah pusatnya: setiap perangkat mendorong papan klipnya ke sana — langsung ke papan klip PC sendiri, siap ditempel — dan layar Papan Klip menampilkan riwayat bersama dari 50 item terakhir. Kirim item ke perangkat atau grup tertentu, bisukan perangkat yang tidak ingin Anda dengar, dan ketuk item untuk menyalinnya ke perangkat ini. Tidak ada yang dibaca dari atau ditulis ke papan klip ponsel Anda di latar belakang, hanya saat Anda mengetuk.</p></div>
 <div class="card"><div class="card-icon">⌨️</div><h3>Terminal</h3><p>Shell sungguhan, dijalankan dari ponsel Anda.</p></div>
 <div class="card"><div class="card-icon">🤖</div><h3>Obrolan AI</h3><p>Bicaralah dengan penyedia AI mana pun yang telah Anda konfigurasi di gateway — DeepSeek, OpenAI, Anthropic dan lainnya.</p></div>
 </div>
@@ -115,8 +115,8 @@
 <p>trixie-gateway — sisi desktop, satu biner mandiri</p>
 </div>
 <div class="cards">
-<div class="card"><div class="card-icon">📦</div><h3>Satu biner, tanpa perlu Python</h3><p>Unduh satu executable mandiri — tanpa Python, pip, atau venv di mesin. Dibangun di atas aiohttp + aiortc, dan sumbernya masih ada di GitHub jika Anda lebih suka menjalankannya dari Python. Berjalan mandiri atau sebagai layanan systemd, mendengarkan di alamat Tailscale/LAN Anda.</p></div>
-<div class="card"><div class="card-icon">🔌</div><h3>~120 endpoint REST</h3><p>Setiap fitur aplikasi ponsel di atas, plus yang kompatibel dengan OpenAI <code>/v1/chat/completions</code> yang merutekan ke penyedia AI mana pun yang Anda konfigurasikan.</p></div>
+<div class="card"><div class="card-icon">📦</div><h3>Satu biner, tanpa perlu Python</h3><p>Unduh satu eksekutabel mandiri — tanpa Python, pip, atau venv di mesin. Biner saat ini (v0.2.0-test2, September 2026) mendahului perbaikan keamanan Oktober; sampai versi baru diterbitkan, jalankan gateway dari sumber untuk mendapatkannya. Dibangun di atas aiohttp + aiortc, dan sumbernya masih ada di GitHub jika Anda lebih suka menjalankannya dari Python. Berjalan mandiri atau sebagai layanan systemd, mendengarkan di alamat Tailscale/LAN Anda.</p></div>
+<div class="card"><div class="card-icon">🔌</div><h3>~110 endpoint REST</h3><p>Setiap fitur aplikasi ponsel di atas, plus yang kompatibel dengan OpenAI <code>/v1/chat/completions</code> yang merutekan ke penyedia AI mana pun yang Anda konfigurasikan.</p></div>
 <div class="card"><div class="card-icon">🧩</div><h3>Server MCP disertakan</h3><p><code>media_mcp_server.py</code> mengekspos kontrol media (status, putar, jeda, cari, volume, buka, jelajah) sebagai alat MCP melalui stdio JSON-RPC — data sesi dan jalur kontrol yang sama dengan yang digunakan aplikasi ponsel, sehingga agen AI dan ponsel Anda selalu melihat hal yang sama.</p></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
@@ -128,7 +128,7 @@
 <tbody>
 <tr><td>Trixie Debian</td><td class="yes">✓ Dikembangkan &amp; diuji di sini</td><td>—</td></tr>
 <tr><td>Keluarga Fatdog64 / Puppy Linux</td><td class="yes">✓ Seharusnya berfungsi</td><td>Fitur Layers mendeteksi cabang union-fs secara otomatis di bawah salah satu <code>/aufs</code> (turunan Fatdog64, termasuk mesin ini) atau <code>/initrd</code> (Puppy standar) — <code>/initrd</code> jalur ini belum diuji terhadap instalasi Puppy nyata, berdasarkan konvensi yang didokumentasikan alih-alih verifikasi langsung</td></tr>
-<tr><td>Desktop Linux X11 lainnya</td><td class="yes">✓ Seharusnya berfungsi</td><td>Memerlukan BlueZ, iptables, PulseAudio/PipeWire dengan kompatibilitas pactl, dan sesi X11 (desktop hanya Wayland tidak didukung — <code>wmctrl</code>/<code>xdotool</code> memerlukan X11)</td></tr>
+<tr><td>Desktop Linux X11 lainnya</td><td class="yes">✓ Seharusnya berfungsi</td><td>Membutuhkan BlueZ, iptables, PulseAudio/PipeWire dengan kompatibilitas pactl, dan sesi X11. Wayland bersifat eksperimental: kompositor dengan <code>ext-image-copy-capture</code> dan protokol foreign-toplevel (diuji pada mango); sesi Wayland GNOME dan KDE belum didukung</td></tr>
 <tr><td>jendela 11</td><td class="test">🧪 Build pengujian eksperimental</td><td>Berbagi layar, mouse/keyboard, daftar jendela, volume, dan terminal diimplementasikan untuk Windows. Biner dibuat dan dimulai di CI otomatis, tetapi telah <strong>belum dijalankan pada mesin Windows sungguhan</strong> — perkirakan masih kasar. Bluetooth, firewall, lapisan, kecerahan, jaringan, dan Media Center tetap hanya untuk Linux dan menjawab <code>501</code></td></tr>
 <tr><td>macOS (Intel &amp; Apple Silikon)</td><td class="test">🧪 Build pengujian eksperimental</td><td>Set fitur yang sama dengan Windows, menggunakan Quartz, AVFoundation, dan <code>osascript</code>. Dibuat dan dimulai di CI untuk kedua arsitektur tetapi <strong>belum diuji pada Mac sungguhan</strong>. Aplikasi tidak ditandatangani, dan macOS akan meminta izin Perekaman Layar dan Aksesibilitas</td></tr>
 </tbody>
@@ -163,7 +163,7 @@
 <a class="btn btn-solid" href="https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz">⬇ Gateway untuk Linux</a>
 <p style="font-size:.9rem; margin-top:1rem;">Ponsel lama (Android 32-bit): <a href="https://github.com/cou645/trixie-gateway/releases/download/trxi-ctrl-v1.1.0/TrXi-Ctrl-1.1.0-android-armv7.apk">APK armv7</a> · Semua file: <a href="https://github.com/cou645/trixie-gateway/releases/tag/trxi-ctrl-v1.1.0">halaman rilis</a> · <a href="https://github.com/cou645/trixie-gateway">Gateway di GitHub →</a></p>
 </div>
-<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Gunakan dengan risiko Anda sendiri.</strong> TrXi-Ctrl dan trixie-gateway adalah perangkat lunak bebas yang memberi perangkat yang dipasangkan kendali kuat atas komputer Anda, termasuk menjalankan perintah sebagai pengguna gateway (sering kali root). Anda bertanggung jawab atas setiap perintah yang Anda kirim, untuk menjaga gateway tetap di luar internet terbuka dan kode pemasangan Anda tetap privat, dan untuk hanya mengendalikan mesin yang Anda berwenang untuk mengendalikannya. CHAMELEON-AI-AGENT LTD dan penulis tidak menerima tanggung jawab apa pun atas kerugian akibat perintah yang merusak, berbagi sumber daya melalui internet, atau pengaturan yang tidak didukung — lihat <a href="../terms.html#remote-control">Ketentuan §8A</a>.</p>
+<p style="font-size:.9rem; margin-top:1.5rem; padding:1rem; border-left:4px solid #e0a000; background:rgba(224,160,0,.08);"><strong>⚠️ Gunakan dengan risiko Anda sendiri.</strong> TrXi-Ctrl dan trixie-gateway adalah perangkat lunak bebas yang memberi perangkat yang dipasangkan kendali kuat atas komputer Anda, termasuk menjalankan perintah sebagai pengguna gateway (sering kali root). Anda bertanggung jawab atas setiap perintah yang Anda kirim, untuk menjaga gateway tetap di luar internet terbuka dan kode pemasangan Anda tetap privat, dan untuk hanya mengendalikan mesin yang Anda berwenang untuk mengendalikannya. CHAMELEON-AI-AGENT LTD dan penulis tidak menerima tanggung jawab apa pun atas kerugian akibat perintah yang merusak, berbagi sumber daya melalui internet, atau pengaturan yang tidak didukung — lihat <a href="../terms.html#remote-control">Ketentuan §8A</a>. Apa yang telah kami perbaiki dan rencanakan untuk diperbaiki, diukur terhadap ISO/IEC 27001: <a href="../security.html#trxi-27001">tinjauan keamanan</a> (kerja penyelarasan, bukan sertifikasi).</p>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Instal aplikasinya</h2>
 <p>Belum ada build yang ditandatangani oleh Apple atau Microsoft, jadi setiap sistem bertanya sekali apakah Anda mempercayainya</p>
@@ -180,12 +180,12 @@
 <h2>Instal gateway</h2>
 <p>Di mesin Debian Trixie (atau Linux yang kompatibel) yang ingin Anda kendalikan</p>
 </div>
-<div class="code-block"># Linux — biner mandiri, tidak ada lagi yang perlu diinstal curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # lalu di aplikasi ponsel: Pengaturan → URL Gateway → http://&lt;ip-tailscale-atau-LAN-mesin-ini&gt;:8772 # atau ketuk "Discover Peers" jika Anda berdua berada di jaringan Tailscale yang sama</div>
+<div class="code-block"># Linux — biner mandiri, tidak ada lagi yang perlu diinstal # (v0.2.0-test2 mendahului perbaikan keamanan Oktober; untuk itu, jalankan dari sumber — lihat di bawah) curl -LO https://github.com/cou645/trixie-gateway/releases/download/v0.2.0-test2/trixie-gateway-linux-x86_64.tar.gz tar -xzf trixie-gateway-linux-x86_64.tar.gz ./trixie-gateway --port 8772 # lalu di aplikasi ponsel: Settings → Gateway URL → http://&lt;this-machine's-tailscale-or-LAN-ip&gt;:8772 # atau ketuk "Discover Peers" jika Anda berdua berada di jaringan Tailscale yang sama</div>
 <p style="color:#6b6b7a; font-size:.9rem; margin-top:1rem;">Lebih suka Python? <code>git clone https://github.com/cou645/trixie-gateway.git</code>, lalu <code>pip install -r requirements.txt</code> Dan <code>python3 gateway.py --port 8772</code>. Dokumentasi instalasi lengkap, termasuk menjalankannya sebagai layanan systemd, ada di repositori <code>README.md</code>.</p>
 <p style="color:#6b6b7a; font-size:.9rem;"><strong>🧪 Build uji Windows &amp; macOS</strong> ada di <a href="https://github.com/cou645/trixie-gateway/releases">halaman rilis</a> (<code>trixie-gateway-windows-x86_64.exe</code>, <code>trixie-gateway-macos-arm64.zip</code>, <code>trixie-gateway-macos-x86_64.zip</code>). Aplikasi ini tidak ditandatangani, jadi Windows SmartScreen akan mengatakan "penerbit tidak dikenal" (Info selengkapnya → Jalankan saja) dan macOS akan memblokir peluncuran pertama (klik kanan → Buka). Harap laporkan apa yang rusak.</p>
 <div class="cta-band" style="margin-top:3rem;">
 <h3>Suka TrXi-Ctrl? Lihat apa lagi yang kami buat</h3>
-<p>TrXi-Ctrl adalah bagian gratis dan terbuka dari keluarga besar alat AI desktop — editor kode, studio presentasi, akuntansi Inggris, pengiriman armada, dan lainnya.</p>
+<p>TrXi-Ctrl adalah bagian gratis dari keluarga besar alat AI desktop — editor kode, studio presentasi, akuntansi Inggris, pengiriman armada, dan lainnya.</p>
 <a class="btn btn-solid" href="../index.html">Lihat semua aplikasi Chameleon AI →</a>
 <a class="btn" href="../companion.html">Chameleon Companion (AI ponsel + desktop) →</a>
 </div>
