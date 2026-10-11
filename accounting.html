@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Your books stay yours</h3>
-<p>The whole ledger is a single file on your computer. It works with no internet. Run several companies side by side and switch between them.</p>
+<p>The whole ledger lives on your own computer or phone, <strong>encrypted</strong> (SQLCipher v4 format, AES-256) with a key kept in your device's secure store. It works with no internet, keeps an encrypted backup each day, and never sends your books to Google or Apple backups. Export an ordinary copy whenever you choose.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Import any UK bank statement</h3>
+<p>Add your Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise or PayPal account and import its CSV or OFX statement. Each line comes with a suggested category and VAT rate; nothing posts until you confirm it, and importing twice never doubles up.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>Standard, Cash and Flat Rate VAT</h3>
+<p>Choose your VAT scheme and the return follows it: invoice date for standard accounting, payment date for cash accounting, or your sector's percentage of VAT-inclusive turnover for the Flat Rate Scheme.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Print, PDF and spreadsheets</h3>
+<p>Print your Profit &amp; Loss, Balance Sheet, VAT summary and transactions, save them as PDF, or export CSV for Excel, LibreOffice Calc, Numbers or Google Sheets. On the desktop, keyboard shortcuts cover every section.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="contact.html">Contact us</a>
 <a class="btn" href="docs/Chameleon_Accounting_User_Guide.pdf">📄 User Guide (PDF)</a>
 <a class="btn" href="index.html">← Back to overview</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Linux users: standard kernel recommended</h2>
+<p>Chameleon Accounting MTD is built and tested on the standard kernel every major Linux distribution installs. On a full <strong>real-time</strong> kernel (<code>PREEMPT_RT</code>, often named <code>-rt</code>) we have seen the system freeze and crash in the kernel's real-time locking code while running Dart and Flutter software; the standard kernel of the same version was stable. If you use a real-time kernel and see freezes, switch to your distribution's standard kernel (for low latency, its <code>preempt=full</code> boot option is a safer choice). <code>uname -v</code> shows <code>PREEMPT_RT</code> on a real-time kernel. This has nothing to do with the app's encryption.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Comments</h2>

@@ -186,7 +186,7 @@
 <p>Keeping your personal data safe is our responsibility. We apply appropriate technical and organisational measures, including:</p>
 <ul>
 <li>encryption in transit (TLS, using the operating system's certificate store) for the website and for every connection the Software makes on your behalf;</li>
-<li>encryption at rest for the access tokens and API credentials the Software stores on your device (authenticated ChaCha20-Poly1305), with the ledger database encrypted by the app or required to sit on an encrypted volume;</li>
+<li>encryption at rest on your device: the Chameleon Accounting MTD app encrypts its whole ledger and its daily backups (SQLCipher v4 format, AES-256) with a key held in the device's secure store, alongside your access tokens and API credentials; the command-line tool encrypts its tokens and credentials (authenticated ChaCha20-Poly1305) and requires its ledger to sit on an encrypted volume;</li>
 <li>access controls, least-privilege administration and per-organisation isolation, with the number of people who can access personal data kept to a minimum;</li>
 <li>a local-first design that means your accounting data and credentials never reach our systems in the first place (sections 5 and 6);</li>
 <li>signed, verifiable software updates, and a built-in security self-check for the device the Software runs on;</li>
