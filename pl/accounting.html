@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Twoje książki pozostają twoje</h3>
-<p>Cała księga to pojedynczy plik na Twoim komputerze. Działa bez internetu. Prowadź kilka firm jednocześnie i przełączaj się między nimi.</p>
+<p>Cała księga żyje na Twoim komputerze lub telefonie, <strong>zaszyfrowane</strong> (format SQLCipher v4, AES-256) z kluczem przechowywanym w bezpiecznym magazynie urządzenia. Działa bez Internetu, codziennie tworzy zaszyfrowaną kopię zapasową i nigdy nie wysyła Twoich książek do kopii zapasowych Google lub Apple. Eksportuj zwykłą kopię, kiedy tylko chcesz.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Zaimportuj dowolny wyciąg bankowy z Wielkiej Brytanii</h3>
+<p>Dodaj swoje konto Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise lub PayPal i zaimportuj jego wyciąg CSV lub OFX. W każdym wierszu znajduje się sugerowana kategoria i stawka VAT; nic nie jest publikowane, dopóki tego nie potwierdzisz, a dwukrotne importowanie nigdy się nie podwaja.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>Standardowy, gotówkowy i ryczałtowy podatek VAT</h3>
+<p>Wybierz swój schemat VAT, a zwrot będzie następujący: data faktury w przypadku standardowej księgowości, data płatności w przypadku rachunkowości kasowej lub procent obrotu Twojego sektora zawierający VAT w przypadku schematu ryczałtowego.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Drukuj, PDF i arkusze kalkulacyjne</h3>
+<p>Wydrukuj swoje zyski i straty, bilans, podsumowanie podatku VAT i transakcje, zapisz je w formacie PDF lub wyeksportuj plik CSV do programów Excel, LibreOffice Calc, Numbers lub Arkuszy Google. Na pulpicie skróty klawiaturowe obejmują każdą sekcję.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Skontaktuj się z nami</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Podręcznik użytkownika (PDF)</a>
 <a class="btn" href="../index.html">← Powrót do przeglądu</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Użytkownicy Linuksa: zalecane standardowe jądro</h2>
+<p>Chameleon Accounting MTD jest budowane i testowane na standardowym jądrze podczas każdej większej instalacji dystrybucji Linuksa. Na pełnym <strong>w czasie rzeczywistym</strong> jądro (<code>PREEMPT_RT</code>, często nazywany <code>-rt</code>) zaobserwowaliśmy zawieszanie się i awarię systemu w kodzie blokującym jądro w czasie rzeczywistym podczas uruchamiania oprogramowania Dart i Flutter; standardowe jądro tej samej wersji było stabilne. Jeśli używasz jądra czasu rzeczywistego i widzisz zawieszanie się, przełącz się na standardowe jądro swojej dystrybucji (w celu uzyskania małych opóźnień jego <code>preempt=full</code> opcja rozruchu jest bezpieczniejszym wyborem). <code>uname -v</code> widać <code>PREEMPT_RT</code> na jądrze czasu rzeczywistego. Nie ma to nic wspólnego z szyfrowaniem aplikacji.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Komentarze</h2>

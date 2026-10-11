@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>あなたの本はあなたのものです</h3>
-<p>元帳全体はコンピューター上の単一のファイルです。インターネットなしで動作します。複数の会社を並行して運営し、それらを切り替えます。</p>
+<p>台帳全体が自分のコンピューターまたは携帯電話上に保存されます。 <strong>暗号化された</strong> (SQLCipher v4 形式、AES-256) キーを使用してデバイスの安全なストアに保存されます。インターネットがなくても動作し、暗号化されたバックアップを毎日保持し、書籍を Google や Apple のバックアップに送信することはありません。いつでも通常のコピーをエクスポートできます。</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>英国の銀行取引明細書をインポートする</h3>
+<p>Barclays、HSBC、Lloyds、Halifax、NatWest、Nationwide、Santander、Tide、Revolut、Starling、Monzo、Wise、または PayPal アカウントを追加し、CSV または OFX 明細をインポートします。各行には、推奨されるカテゴリと VAT 率が含まれています。確認するまで何も投稿されず、2 回インポートしても 2 倍になることはありません。</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>標準、現金、定額の VAT</h3>
+<p>VAT スキームを選択すると、標準会計の場合は請求日、現金会計の場合は支払い日、または定額制スキームの場合はあなたの部門の VAT 込み売上高の割合が選択されます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>印刷、PDF、スプレッドシート</h3>
+<p>損益計算書、貸借対照表、VAT 概要および取引を印刷したり、PDF として保存したり、Excel、LibreOffice Calc、Numbers または Google Sheets 用の CSV をエクスポートしたりできます。デスクトップでは、キーボード ショートカットがすべてのセクションをカバーします。</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">お問い合わせ</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 ユーザーガイド (PDF)</a>
 <a class="btn" href="../index.html">← 概要に戻る</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Linux ユーザー: 標準カーネルを推奨</h2>
+<p>Chameleon Accounting MTD は、すべての主要な Linux ディストリビューションがインストールする標準カーネル上で構築およびテストされています。完全に <strong>リアルタイム</strong> カーネル (<code>PREEMPT_RT</code>、よく名前が付けられます <code>-rt</code>) Dart および Flutter ソフトウェアの実行中に、カーネルのリアルタイム ロック コードでシステムがフリーズし、クラッシュすることが確認されています。同じバージョンの標準カーネルは安定していました。リアルタイム カーネルを使用していてフリーズが発生した場合は、ディストリビューションの標準カーネルに切り替えてください (待ち時間を短くするには、 <code>preempt=full</code> ブート オプションを選択する方が安全です)。 <code>uname -v</code> ショー <code>PREEMPT_RT</code> リアルタイムカーネル上で。これはアプリの暗号化とは関係ありません。</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>コメント</h2>

@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Cărțile tale rămân ale tale</h3>
-<p>Întregul registru este un singur fișier pe computerul dvs. Funcționează fără internet. Rulați mai multe companii una lângă alta și comutați între ele.</p>
+<p>Întregul registru trăiește pe propriul computer sau telefon, <strong>criptat</strong> (format SQLCipher v4, AES-256) cu o cheie păstrată în depozitul securizat al dispozitivului dvs. Funcționează fără internet, păstrează o copie de rezervă criptată în fiecare zi și nu trimite niciodată cărțile dvs. la copii de rezervă Google sau Apple. Exportați o copie obișnuită oricând doriți.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Importați orice extras de cont bancar din Regatul Unit</h3>
+<p>Adăugați contul dvs. Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise sau PayPal și importați extrasul CSV sau OFX. Fiecare linie vine cu o categorie sugerată și o cotă de TVA; nimic nu se postează până nu îl confirmați, iar importul de două ori nu se dublează niciodată.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>TVA standard, numerar și forfetară</h3>
+<p>Alegeți schema dvs. de TVA și returnarea urmează după aceasta: data facturii pentru contabilitatea standard, data plății pentru contabilitatea de casă sau procentul sectorului dvs. din cifra de afaceri cu TVA inclus pentru Schema cu tarif fix.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Imprimare, PDF și foi de calcul</h3>
+<p>Imprimați profitul și pierderea, bilanțul, rezumatul TVA și tranzacțiile, salvați-le ca PDF sau exportați CSV pentru Excel, LibreOffice Calc, Numbers sau Google Sheets. Pe desktop, comenzile rapide de la tastatură acoperă fiecare secțiune.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Contactați-ne</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Ghidul utilizatorului (PDF)</a>
 <a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Utilizatori Linux: se recomandă nucleul standard</h2>
+<p>Chameleon Accounting MTD este construit și testat pe nucleul standard pe care se instalează fiecare distribuție Linux majoră. Pe plin <strong>în timp real</strong> nucleu (<code>PREEMPT_RT</code>, adesea numit <code>-rt</code>) am văzut că sistemul se blochează și se prăbușește în codul de blocare în timp real al nucleului în timp ce rulează software-ul Dart și Flutter; nucleul standard al aceleiași versiuni a fost stabil. Dacă utilizați un nucleu în timp real și vedeți blocări, treceți la nucleul standard al distribuției dvs. (pentru o latență scăzută, <code>preempt=full</code> opțiunea de pornire este o alegere mai sigură). <code>uname -v</code> spectacole <code>PREEMPT_RT</code> pe un nucleu în timp real. Acest lucru nu are nimic de-a face cu criptarea aplicației.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Comentarii</h2>

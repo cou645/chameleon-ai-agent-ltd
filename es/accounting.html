@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Tus libros siguen siendo tuyos</h3>
-<p>Todo el libro mayor es un solo archivo en su computadora. Funciona sin internet. Ejecute varias empresas en paralelo y cambie entre ellas.</p>
+<p>Todo el libro de contabilidad se encuentra en su propia computadora o teléfono, <strong>cifrado</strong> (formato SQLCipher v4, AES-256) con una clave guardada en el almacén seguro de su dispositivo. Funciona sin Internet, mantiene una copia de seguridad cifrada todos los días y nunca envía sus libros a las copias de seguridad de Google o Apple. Exporta una copia normal cuando quieras.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Importe cualquier extracto bancario del Reino Unido</h3>
+<p>Agregue su cuenta de Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise o PayPal e importe su extracto CSV u OFX. Cada línea viene con una categoría sugerida y una tasa de IVA; nada se publica hasta que lo confirmas, y la importación dos veces nunca se duplica.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>IVA estándar, al contado y a tanto alzado</h3>
+<p>Elija su régimen de IVA y la declaración le seguirá: fecha de factura para contabilidad estándar, fecha de pago para contabilidad de caja o porcentaje de facturación con IVA incluido de su sector para el régimen de tarifa plana.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Imprimir, PDF y hojas de cálculo</h3>
+<p>Imprima sus pérdidas y ganancias, su balance general, su resumen de IVA y sus transacciones, guárdelos como PDF o exporte CSV para Excel, LibreOffice Calc, Numbers o Google Sheets. En el escritorio, los atajos de teclado cubren todas las secciones.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Contáctenos</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Guía del usuario (PDF)</a>
 <a class="btn" href="../index.html">← Volver a la descripción general</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Usuarios de Linux: se recomienda el kernel estándar</h2>
+<p>Chameleon Accounting MTD está construido y probado en el kernel estándar que instalan todas las principales distribuciones de Linux. En pleno <strong>en tiempo real</strong> núcleo (<code>PREEMPT_RT</code>, a menudo nombrado <code>-rt</code>) hemos visto el sistema congelarse y fallar en el código de bloqueo en tiempo real del kernel mientras ejecutaba el software Dart y Flutter; el kernel estándar de la misma versión era estable. Si utiliza un kernel en tiempo real y ve bloqueos, cambie al kernel estándar de su distribución (para baja latencia, es <code>preempt=full</code> opción de arranque es una opción más segura). <code>uname -v</code> muestra <code>PREEMPT_RT</code> en un kernel en tiempo real. Esto no tiene nada que ver con el cifrado de la aplicación.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Comentarios</h2>

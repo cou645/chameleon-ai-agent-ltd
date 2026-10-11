@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Buku Anda tetap milik Anda</h3>
-<p>Seluruh buku besar adalah satu file di komputer Anda. Berfungsi tanpa internet. Jalankan beberapa perusahaan berdampingan dan beralih di antara mereka.</p>
+<p>Seluruh buku besar ada di komputer atau ponsel Anda sendiri, <strong>terenkripsi</strong> (Format SQLCipher v4, AES-256) dengan kunci disimpan di penyimpanan aman perangkat Anda. Ia berfungsi tanpa internet, menyimpan cadangan terenkripsi setiap hari, dan tidak pernah mengirimkan buku Anda ke cadangan Google atau Apple. Ekspor salinan biasa kapan pun Anda mau.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Impor laporan bank Inggris apa pun</h3>
+<p>Tambahkan akun Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise, atau PayPal Anda dan impor laporan CSV atau OFX-nya. Setiap baris dilengkapi dengan kategori yang disarankan dan tarif PPN; tidak ada yang diposting sampai Anda mengonfirmasinya, dan mengimpor dua kali tidak akan pernah berlipat ganda.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>PPN Standar, Tunai, dan Tarif Tetap</h3>
+<p>Pilih skema PPN Anda dan pengembaliannya mengikuti: tanggal faktur untuk akuntansi standar, tanggal pembayaran untuk akuntansi tunai, atau persentase omzet termasuk PPN sektor Anda untuk Skema Tarif Tetap.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Cetak, PDF, dan spreadsheet</h3>
+<p>Cetak Laba &amp; Rugi, Neraca, ringkasan dan transaksi PPN Anda, simpan sebagai PDF, atau ekspor CSV untuk Excel, LibreOffice Calc, Numbers, atau Google Sheets. Di desktop, pintasan keyboard mencakup setiap bagian.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Hubungi kami</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Panduan Pengguna (PDF)</a>
 <a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Pengguna Linux: kernel standar direkomendasikan</h2>
+<p>Chameleon Accounting MTD dibangun dan diuji pada kernel standar yang diinstal oleh setiap distribusi Linux utama. Secara penuh <strong>waktu nyata</strong> inti (<code>PREEMPT_RT</code>, sering disebut <code>-rt</code>) kita telah melihat sistem macet dan mogok pada kode penguncian real-time kernel saat menjalankan perangkat lunak Dart dan Flutter; kernel standar dari versi yang sama stabil. Jika Anda menggunakan kernel real-time dan melihat macet, beralihlah ke kernel standar distribusi Anda (untuk latensi rendah, <code>preempt=full</code> opsi boot adalah pilihan yang lebih aman). <code>uname -v</code> menunjukkan <code>PREEMPT_RT</code> pada kernel waktu nyata. Ini tidak ada hubungannya dengan enkripsi aplikasi.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Komentar</h2>

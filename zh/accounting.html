@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>您的书籍始终属于您</h3>
-<p>整个分类账是您计算机上的一个文件。无需互联网即可工作。并排运行多家公司并在它们之间切换。</p>
+<p>整个账本都存在于你自己的电脑或手机上， <strong>加密的</strong> （SQLCipher v4 格式，AES-256），密钥保存在设备的安全存储中。它无需互联网即可工作，每天都会保存加密备份，并且永远不会将您的图书发送到 Google 或 Apple 备份。您可以随时选择导出普通副本。</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>导入任何英国银行对账单</h3>
+<p>添加您的 Barclays、HSBC、Lloyds、Halifax、NatWest、Nationwide、Santander、Tide、Revolut、Starling、Monzo、Wise 或 PayPal 账户，并导入其 CSV 或 OFX 报表。每行都带有建议的类别和增值税税率；在您确认之前不会发布任何内容，并且导入两次永远不会加倍。</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>标准、现金和统一税率增值税</h3>
+<p>选择您的增值税方案，然后返回：标准会计的发票日期、现金会计的付款日期或统一费率方案中您所在部门的含增值税营业额百分比。</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>打印、PDF 和电子表格</h3>
+<p>打印您的损益表、资产负债表、增值税摘要和交易，将其另存为 PDF，或导出 CSV 文件以用于 Excel、LibreOffice Calc、Numbers 或 Google Sheets。在桌面上，键盘快捷键涵盖了每个部分。</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">联系我们</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 用户指南（PDF）</a>
 <a class="btn" href="../index.html">← 返回概述</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Linux用户：推荐标准内核</h2>
+<p>Chameleon Accounting MTD 是在每个主要 Linux 发行版安装的标准内核上构建和测试的。上一个完整的 <strong>即时的</strong> 内核（<code>PREEMPT_RT</code>, 常被命名为 <code>-rt</code>）我们在运行 Dart 和 Flutter 软件时，在内核的实时锁定代码中看到了系统冻结和崩溃；同版本标准内核稳定。如果您使用实时内核并看到冻结，请切换到您的发行版的标准内核（为了低延迟，其 <code>preempt=full</code> 引导选项是一个更安全的选择）。 <code>uname -v</code> 节目 <code>PREEMPT_RT</code> 在实时内核上。这与应用程序的加密无关。</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>评论</h2>

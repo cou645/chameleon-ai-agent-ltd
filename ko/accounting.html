@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>당신의 책은 당신의 것입니다</h3>
-<p>전체 원장은 컴퓨터의 단일 파일입니다. 인터넷 없이 작동합니다. 여러 회사를 나란히 운영하고 그 사이를 전환합니다.</p>
+<p>전체 원장은 귀하의 컴퓨터나 휴대폰에 저장되어 있으며, <strong>암호화된</strong> (SQLCipher v4 형식, AES-256) 키를 장치의 보안 저장소에 보관합니다. 인터넷 없이도 작동하고 매일 암호화된 백업을 유지하며 책을 Google이나 Apple 백업으로 보내지 않습니다. 원할 때마다 일반 복사본을 내보냅니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>영국 은행 명세서 가져오기</h3>
+<p>Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise 또는 PayPal 계정을 추가하고 CSV 또는 OFX 명세서를 가져옵니다. 각 줄에는 제안된 카테고리 및 VAT 세율이 제공됩니다. 확인하기 전까지는 아무 것도 게시되지 않으며 두 번 가져오면 두 배로 늘어나지 않습니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>표준, 현금 및 정액 VAT</h3>
+<p>VAT 제도를 선택하면 표준 회계의 경우 송장 날짜, 현금 회계의 경우 지불 날짜 또는 정액 요금 제도의 경우 해당 부문의 VAT 포함 매출액 비율이 반환됩니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>인쇄, PDF 및 스프레드시트</h3>
+<p>손익, 대차대조표, VAT 요약 및 거래를 인쇄하고 PDF로 저장하거나 Excel, LibreOffice Calc, Numbers 또는 Google Sheets용 CSV를 내보냅니다. 데스크탑에서는 키보드 단축키가 모든 섹션을 다룹니다.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">문의하기</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 사용자 가이드 (PDF)</a>
 <a class="btn" href="../index.html">← 개요로 돌아가기</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Linux 사용자: 표준 커널 권장</h2>
+<p>Chameleon Accounting MTD는 모든 주요 Linux 배포판 설치 시 표준 커널에서 구축 및 테스트되었습니다. 가득 차서 <strong>실시간</strong> 커널(<code>PREEMPT_RT</code>, 종종 명명됨 <code>-rt</code>) Dart 및 Flutter 소프트웨어를 실행하는 동안 커널의 실시간 잠금 코드에서 시스템이 정지되고 충돌하는 것을 확인했습니다. 동일한 버전의 표준 커널은 안정적이었습니다. 실시간 커널을 사용하고 정지되는 경우 배포판의 표준 커널로 전환하십시오(낮은 대기 시간을 위해 <code>preempt=full</code> 부팅 옵션이 더 안전한 선택입니다.) <code>uname -v</code> 쇼 <code>PREEMPT_RT</code> 실시간 커널에서. 이는 앱의 암호화와는 아무런 관련이 없습니다.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>댓글</h2>

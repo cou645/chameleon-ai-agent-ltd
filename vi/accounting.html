@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Sách của bạn vẫn là của bạn</h3>
-<p>Toàn bộ sổ cái là một tệp duy nhất trên máy tính của bạn. Nó hoạt động không cần internet. Chạy nhiều công ty song song và chuyển đổi giữa chúng.</p>
+<p>Toàn bộ sổ cái nằm trên máy tính hoặc điện thoại của bạn, <strong>được mã hóa</strong> (định dạng SQLCipher v4, AES-256) bằng khóa được lưu trong kho bảo mật trên thiết bị của bạn. Nó hoạt động mà không cần internet, giữ bản sao lưu được mã hóa mỗi ngày và không bao giờ gửi sách của bạn tới bản sao lưu của Google hoặc Apple. Xuất một bản sao thông thường bất cứ khi nào bạn chọn.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Nhập bất kỳ bảng sao kê ngân hàng nào của Vương quốc Anh</h3>
+<p>Thêm tài khoản Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise hoặc PayPal và nhập bảng kê CSV hoặc OFX của tài khoản đó. Mỗi dòng có một danh mục và thuế suất VAT được đề xuất; không có bài đăng nào cho đến khi bạn xác nhận nó và việc nhập hai lần không bao giờ tăng gấp đôi.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>VAT tiêu chuẩn, tiền mặt và thuế suất cố định</h3>
+<p>Chọn chương trình VAT của bạn và tờ khai sẽ tuân theo: ngày lập hóa đơn cho kế toán chuẩn, ngày thanh toán cho kế toán tiền mặt hoặc tỷ lệ phần trăm doanh thu đã bao gồm VAT của ngành bạn cho Chương trình tỷ giá cố định.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>In, PDF và bảng tính</h3>
+<p>In Lãi &amp; Lỗ, Bảng cân đối kế toán, tóm tắt VAT và các giao dịch, lưu chúng dưới dạng PDF hoặc xuất CSV cho Excel, LibreOffice Calc, Numbers hoặc Google Sheets. Trên máy tính để bàn, các phím tắt bao gồm mọi phần.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Liên hệ với chúng tôi</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Hướng dẫn sử dụng (PDF)</a>
 <a class="btn" href="../index.html">← Quay lại tổng quan</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Người dùng Linux: nên sử dụng kernel tiêu chuẩn</h2>
+<p>Chameleon Accounting MTD được xây dựng và thử nghiệm trên kernel tiêu chuẩn mỗi lần cài đặt bản phân phối Linux chính. Trên đầy đủ <strong>thời gian thực</strong> hạt nhân (<code>PREEMPT_RT</code>, thường được đặt tên <code>-rt</code>) chúng tôi đã thấy hệ thống bị treo và gặp sự cố với mã khóa thời gian thực của kernel khi chạy phần mềm Dart và Flutter; kernel tiêu chuẩn của cùng một phiên bản đã ổn định. Nếu bạn sử dụng hạt nhân thời gian thực và thấy bị treo, hãy chuyển sang hạt nhân tiêu chuẩn của bản phân phối của bạn (đối với độ trễ thấp, <code>preempt=full</code> tùy chọn khởi động là lựa chọn an toàn hơn). <code>uname -v</code> chương trình <code>PREEMPT_RT</code> trên hạt nhân thời gian thực. Điều này không liên quan gì đến mã hóa của ứng dụng.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Bình luận</h2>

@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>Ihre Bücher bleiben Ihr Eigentum</h3>
-<p>Das gesamte Hauptbuch ist eine einzige Datei auf Ihrem Computer. Es funktioniert ohne Internet. Betreiben Sie mehrere Unternehmen nebeneinander und wechseln Sie zwischen ihnen.</p>
+<p>Das gesamte Hauptbuch befindet sich auf Ihrem eigenen Computer oder Telefon. <strong>verschlüsselt</strong> (SQLCipher v4-Format, AES-256) mit einem Schlüssel, der im sicheren Speicher Ihres Geräts aufbewahrt wird. Es funktioniert ohne Internet, führt jeden Tag ein verschlüsseltes Backup durch und sendet Ihre Bücher niemals an Google- oder Apple-Backups. Exportieren Sie jederzeit eine normale Kopie.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Importieren Sie einen beliebigen Kontoauszug aus dem Vereinigten Königreich</h3>
+<p>Fügen Sie Ihr Barclays-, HSBC-, Lloyds-, Halifax-, NatWest-, Nationwide-, Santander-, Tide-, Revolut-, Starling-, Monzo-, Wise- oder PayPal-Konto hinzu und importieren Sie dessen CSV- oder OFX-Kontoauszug. Jede Zeile enthält eine vorgeschlagene Kategorie und einen Mehrwertsteuersatz. Es wird nichts gepostet, bis Sie es bestätigen, und ein zweimaliger Import führt nie zu einer Verdoppelung.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>Standard-, Bargeld- und Pauschalumsatzsteuer</h3>
+<p>Wählen Sie Ihr Mehrwertsteuersystem und die Steuererklärung folgt diesem: Rechnungsdatum für die Standardbuchhaltung, Zahlungsdatum für die Kassenbuchhaltung oder den Prozentsatz Ihres Sektors am Umsatz inklusive Mehrwertsteuer für das Flatrate-System.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Drucken, PDF und Tabellenkalkulationen</h3>
+<p>Drucken Sie Ihre Gewinn- und Verlustrechnung, Bilanz, Mehrwertsteuerübersicht und Transaktionen aus, speichern Sie sie als PDF oder exportieren Sie CSV für Excel, LibreOffice Calc, Numbers oder Google Sheets. Auf dem Desktop decken Tastaturkürzel jeden Abschnitt ab.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Kontaktieren Sie uns</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Benutzerhandbuch (PDF)</a>
 <a class="btn" href="../index.html">← Zurück zur Übersicht</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Linux-Benutzer: Standardkernel empfohlen</h2>
+<p>Chameleon Accounting MTD wird auf dem Standardkernel erstellt und getestet, den jede größere Linux-Distribution installiert. Auf einem vollen <strong>Echtzeit</strong> Kernel (<code>PREEMPT_RT</code>, oft genannt <code>-rt</code>) haben wir gesehen, dass das System beim Ausführen der Dart- und Flutter-Software im Echtzeit-Sperrcode des Kernels einfriert und abstürzt; Der Standardkernel derselben Version war stabil. Wenn Sie einen Echtzeit-Kernel verwenden und Abstürze feststellen, wechseln Sie zum Standard-Kernel Ihrer Distribution (für eine geringe Latenz). <code>preempt=full</code> Die Boot-Option ist eine sicherere Wahl). <code>uname -v</code> zeigt <code>PREEMPT_RT</code> auf einem Echtzeitkernel. Dies hat nichts mit der Verschlüsselung der App zu tun.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Kommentare</h2>

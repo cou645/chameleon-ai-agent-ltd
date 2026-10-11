@@ -109,7 +109,22 @@
 <div class="card">
 <div class="card-icon">🔒</div>
 <h3>I tuoi libri restano tuoi</h3>
-<p>L'intero libro mastro è un unico file sul tuo computer. Funziona senza internet. Gestisci più aziende fianco a fianco e passa dall'una all'altra.</p>
+<p>L'intero registro risiede sul tuo computer o telefono, <strong>crittografato</strong> (formato SQLCipher v4, AES-256) con una chiave conservata nell'archivio sicuro del tuo dispositivo. Funziona senza Internet, mantiene un backup crittografato ogni giorno e non invia mai i tuoi libri ai backup di Google o Apple. Esporta una copia ordinaria ogni volta che lo desideri.</p>
+</div>
+<div class="card">
+<div class="card-icon">📥</div>
+<h3>Importa qualsiasi estratto conto bancario del Regno Unito</h3>
+<p>Aggiungi il tuo account Barclays, HSBC, Lloyds, Halifax, NatWest, Nationwide, Santander, Tide, Revolut, Starling, Monzo, Wise o PayPal e importa il suo estratto conto CSV o OFX. Ogni riga viene fornita con una categoria e un'aliquota IVA suggerite; non viene pubblicato nulla finché non lo confermi e l'importazione due volte non raddoppia mai.</p>
+</div>
+<div class="card">
+<div class="card-icon">⚖️</div>
+<h3>IVA standard, in contanti e forfettaria</h3>
+<p>Scegli il tuo regime IVA e la dichiarazione lo segue: data della fattura per la contabilità standard, data di pagamento per la contabilità di cassa o percentuale del fatturato comprensivo di IVA del tuo settore per il regime forfettario.</p>
+</div>
+<div class="card">
+<div class="card-icon">🖨️</div>
+<h3>Stampa, PDF e fogli di calcolo</h3>
+<p>Stampa profitti e perdite, stato patrimoniale, riepilogo IVA e transazioni, salvali come PDF o esporta CSV per Excel, LibreOffice Calc, Numbers o Fogli Google. Sul desktop, le scorciatoie da tastiera coprono ogni sezione.</p>
 </div>
 <div class="card">
 <div class="card-icon">🏦</div>
@@ -204,6 +219,10 @@
 <a class="btn btn-solid" href="../contact.html">Contattaci</a>
 <a class="btn" href="../docs/Chameleon_Accounting_User_Guide.pdf">📄 Guida utente (PDF)</a>
 <a class="btn" href="../index.html">← Torna alla panoramica</a>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Utenti Linux: kernel standard consigliato</h2>
+<p>Chameleon Accounting MTD è costruito e testato sul kernel standard installato da tutte le principali distribuzioni Linux. Per intero <strong>in tempo reale</strong> nocciolo (<code>PREEMPT_RT</code>, spesso nominato <code>-rt</code>) abbiamo visto il sistema bloccarsi e bloccarsi nel codice di blocco in tempo reale del kernel durante l'esecuzione del software Dart e Flutter; il kernel standard della stessa versione era stabile. Se utilizzi un kernel in tempo reale e noti blocchi, passa al kernel standard della tua distribuzione (per una bassa latenza, è <code>preempt=full</code> l'opzione di avvio è una scelta più sicura). <code>uname -v</code> spettacoli <code>PREEMPT_RT</code> su un kernel in tempo reale. Questo non ha nulla a che fare con la crittografia dell'app.</p>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Commenti</h2>
