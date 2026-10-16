@@ -87,6 +87,7 @@ PROTECT = (
     "Chameleon AI", "Chameleon Companion", "Chameleon Classroom", "Chameleon Media Center",
     "Kameleon Presenter", "Logistics 4×4", "Logistics 4x4", "stemsee",
     "GoCardless", "TrueLayer", "OpenAI", "Anthropic", "TrXi-Ctrl",
+    "Bounty Heist Football", "Bounty Heist",
     
 )
 
