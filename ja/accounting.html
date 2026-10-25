@@ -21,6 +21,13 @@
     .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
       text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0; }
+    .screenshot-gallery .sg-frame { background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4); }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap { text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem; }
   </style>
 </head>
 <body>
@@ -146,6 +153,18 @@
 <h3>あなたのポジションについて質問する</h3>
 <p>すべてのレポートは構造化データとしても出力されます。独自のAIプロバイダーキー（Anthropic、Google、またはOpenAI互換のサービス）を接続すると、平易な英語で四半期の状況やVATの行き先を尋ねることができます。読み取りと下書きのみを行い、エントリを転記したり申告書を提出したりすることはなく、すべての数値を確認します。オプションであり、オンにするまでオフになっています。</p>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>スクリーンショット</h2>
+<p>Chameleon Accounting MTD — 新しい会社のデスクトップ アプリ</p>
+</div>
+<div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 検索ボックスと勘定科目フィルターを備えた元帳画面" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">元帳</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 新しい入力画面: 各行の口座、借方、貸方、および VAT コード。借方が貸方と等しい場合にのみ転記されます。" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">新規エントリー</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 選択した期間の損益、貸借対照表、VAT、レビュー タブを含むレポート画面" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">レポート</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 請求書、見積書、および [新しい請求書] ボタンを備えた請求書画面" loading="lazy" src="../accounting-assets/xsr-261025121635.png"/><div class="sg-cap">請求書と見積書</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — エージェント画面: 読み取り専用ツールを使用して書籍について独自の AI に質問する" loading="lazy" src="../accounting-assets/xsr-261025121659.png"/><div class="sg-cap">本について質問する</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 設定: 会社の詳細、会計期間の開始、連絡先、会社の鍵および暗号化されたバックアップ" loading="lazy" src="../accounting-assets/xsr-261025121722.png"/><div class="sg-cap">設定とバックアップ</div></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>VATコード</h2>

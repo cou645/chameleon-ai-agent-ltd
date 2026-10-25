@@ -21,6 +21,13 @@
     .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
       text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0; }
+    .screenshot-gallery .sg-frame { background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4); }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap { text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem; }
   </style>
 </head>
 <body>
@@ -146,6 +153,18 @@
 <h3>询问你的职位</h3>
 <p>每份报告也以结构化数据形式输出。连接您自己的AI提供商密钥——Anthropic、Google或任何兼容OpenAI的服务——您就可以用简单的英语询问季度表现或增值税去向。它只读取和起草：从不发布条目或提交申报表，您检查每个数字。可选，默认关闭，直到您开启。</p>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>截图</h2>
+<p>Chameleon Accounting MTD — 新公司账簿上的桌面应用程序</p>
+</div>
+<div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 带有搜索框和帐户过滤器的分类帐屏幕" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">分类帐</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 新输入屏幕：每行显示帐户、借方、贷方和增值税代码，仅在借方等于贷方时发布" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">新条目</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 报告屏幕，包含选定期间的损益表、资产负债表、增值税和审核选项卡" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">报告</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 带有发票、报价和新发票按钮的发票屏幕" loading="lazy" src="../accounting-assets/xsr-261025121635.png"/><div class="sg-cap">发票和报价</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 代理屏幕：使用只读工具向您自己的 AI 询问书籍" loading="lazy" src="../accounting-assets/xsr-261025121659.png"/><div class="sg-cap">询问有关书籍的问题</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 设置：公司详细信息、会计​​期间开始、联系人、公司内部密钥和加密备份" loading="lazy" src="../accounting-assets/xsr-261025121722.png"/><div class="sg-cap">设置和备份</div></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>增值税代码</h2>

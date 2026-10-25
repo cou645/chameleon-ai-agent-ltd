@@ -21,6 +21,13 @@
     .vat-code p { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
     .pre-note { background: #fffaf0; border: 1px solid #f6d68a; color: #7a5312;
       text-align: center; padding: .6rem 1rem; font-size: .9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0; }
+    .screenshot-gallery .sg-frame { background: #0f0f1f; border-radius: 12px; overflow: hidden;
+      border: 1px solid #2a2a3e; box-shadow: 0 4px 18px rgba(0,0,0,.4); }
+    .screenshot-gallery .sg-frame img { width: 100%; height: auto; display: block; }
+    .screenshot-gallery .sg-cap { text-align: center; font-size: .75rem; color: #8888aa;
+      padding: .4rem .6rem .6rem; }
   </style>
 </head>
 <body>
@@ -146,6 +153,18 @@
 <h3>Дізнайтеся про вашу позицію</h3>
 <p>Кожен звіт також виходить як структуровані дані. Підключіть власний ключ постачальника ШІ — Anthropic, Google або будь-який сервіс, сумісний з OpenAI, — і ви можете запитати простою англійською, як виглядає квартал або куди пішов ПДВ. Він лише читає та створює чернетки: він ніколи не публікує записи та не подає декларації, і ви перевіряєте кожну цифру. Опційно та вимкнено, поки ви не ввімкнете.</p>
 </div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Скріншоти</h2>
+<p>Chameleon Accounting MTD — додаток для настільних комп’ютерів у книгах нової компанії</p>
+</div>
+<div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран книги з вікном пошуку та фільтром облікових записів" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Леджер</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Новий екран введення: рахунок, дебет, кредит і код ПДВ у кожному рядку, опублікований лише тоді, коли дебети дорівнюють кредитам" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Новий запис</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран звітів із вкладками «Прибутки та збитки», «Баланс», «ПДВ» і «Огляд» за вибраний період" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Звіти</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран рахунків-фактур із рахунками-фактурами, пропозиціями та кнопкою «Новий рахунок-фактура»" loading="lazy" src="../accounting-assets/xsr-261025121635.png"/><div class="sg-cap">Рахунки та цінові пропозиції</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран агента: запитайте свій власний ШІ про книги за допомогою інструментів лише для читання" loading="lazy" src="../accounting-assets/xsr-261025121659.png"/><div class="sg-cap">Запитайте про книжки</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Налаштування: відомості про компанію, початок облікового періоду, контакт, ключ компанії та зашифровані резервні копії" loading="lazy" src="../accounting-assets/xsr-261025121722.png"/><div class="sg-cap">Налаштування та резервне копіювання</div></div>
 </div>
 <div class="section-title" style="margin-top:3rem;">
 <h2>Коди ПДВ</h2>
