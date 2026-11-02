@@ -51,7 +51,7 @@
 <div class="hero">
 <div class="hero-icon">🎬</div>
 <h1>Chameleon Media Center</h1>
-<p class="sub">一款基于 mpv 的完整桌面媒体工作室 — 播放、播放列表、YouTube 和 Bilibili 搜索（带有即用即看缓存）、直播、DVB-T/T2 电视、DVD/蓝光/CD、蓝牙和 USB 音频路由、音效、可视化工具、视频编辑器、均衡器、虚拟网络摄像头、多手机 Android 镜像、调度程序、游戏和体育记分牌，尽在一个应用程序中。</p>
+<p class="sub">一款基于 mpv 的完整桌面媒体工作室 — 播放、播放列表、YouTube 和 Bilibili 搜索（带有即用即看缓存）、实时流媒体、投射和屏幕镜像到电视、DVB-T/T2 电视、DVD/蓝光/CD、蓝牙和 USB 音频路由、音效、可视化工具、视频编辑器、均衡器、虚拟网络摄像头、多手机 Android 镜像、调度程序、游戏和体育记分牌，在一个应用程序中。</p>
 <div class="hero-badges">
 <span class="badge">🎞️ 由 mpv 驱动的播放</span>
 <span class="badge">🔎 YouTube 和 Bilibili 搜索 + 观看缓存</span>
@@ -61,6 +61,7 @@
 <span class="badge">📱 最多同时投屏 16 部手机</span>
 <span class="badge">📷 虚拟摄像头 + 四角画中画</span>
 <span class="badge">📡 推流到浏览器、YouTube、Twitch 等</span>
+<span class="badge">📺 投射和镜像到电视和投影仪</span>
 <span class="badge">🤏 在每部手机上捏合/滚动缩放</span>
 <span class="badge">⏰ 预定录制和下载</span>
 <span class="badge">🎮 游戏，用手机作为控制器</span>
@@ -83,6 +84,7 @@
 <div class="card"><div class="card-icon">📱</div><h3>ADB 手机 — 最多同时 16 台</h3><p>一个由 1–16 个独立面板组成的网格，列数随你喜好——可同时镜像和控制同样数量的 Android 手机，每台都有自己的屏幕、音频路由和输入。双指捏合（此设备有触摸屏）或滚轮可放大任意手机的屏幕，Shift+拖动可平移。直接用鼠标、触控笔、触摸或物理键盘进行点击、滑动和输入——每台设备持久的 shell 让每次输入都实时进行，而不必为每次按键付出新建连接的开销。一键“无线连接”会自动将 USB 连接的手机切换到 adb-over-wifi，或通过扫描手机的配对二维码进行 Wi-Fi 配对。向任意手机推送和拉取文件，休眠的手机会在开始串流前被唤醒。镜像以低延迟运行——手机的屏幕在可用时于 GPU 上解码和缩放——并且每个面板都有 A/V 同步控制，可将手机的 PC 音频延迟恰到好处的毫秒数，使声音和画面同步。息屏会在你继续从 PC 观看和控制手机时关闭手机自身的显示，关闭应用会干净地将每台手机的音视频恢复正常。</p></div>
 <div class="card"><div class="card-icon">📷</div><h3>虚拟摄像头</h3><p>一个“CMC PC Webcam”设备，任何视频通话应用、浏览器或 OBS 都可以选择 — 向它提供内置摄像头或任何已连接手机的摄像头，并在通话中切换源而不会让应用丢失设备。每个手机面板也都有自己的虚拟摄像头。</p></div>
 <div class="card"><div class="card-icon">📡</div><h3>直播</h3><p>将摄像头或视频面板串流到局域网或 Tailscale 上的任意浏览器（HLS 播放器页面），并为 TrXi-Ctrl、VLC 或 mpv 提供低延迟流——一次编码即可供众多观看者——或将其推送到 YouTube Live、Facebook Live、Twitch、微信视频号或任意 RTMP 服务器。在 Intel 显卡上，流会在 GPU 上编码而不是 CPU。</p></div>
+<div class="card"><div class="card-icon">📺</div><h3>投射并镜像到电视</h3><p>一个📺投射按钮可将您正在观看的内容发送到大屏幕，使用 CMC 自己的用 Rust 从头开始​​编写的投射引擎，无需安装额外的投射软件。</p><p><strong>Chromecast：</strong> CMC 在您的网络上查找 Chromecast，或获取您键入的地址，然后在电视上播放当前文件或流。然后，在 CMC 中播放、暂停、搜索和音量控制电视而不是笔记本电脑，并且播放列表中的下一个项目将在电视上显示。</p><p><strong>Miracast 屏幕镜像：</strong> 将整个桌面（带声音）镜像到电视或具有内置“无线显示器”的适配器 - 无需 Wi-Fi 网络或路由器，笔记本电脑可直接连接到电视。图片在 GPU 上以高达 1080p 的分辨率进行编码，与电视声称可以显示的内容相匹配。当您进行镜像时，CMC 自己的声音会移动到电视上，并在您停止时返回到笔记本电脑上。</p><p><strong>AirBlit（正在开发中）：</strong> 我们自己的无线显示链接，从一台电脑到另一台电脑 - 将您的桌面发送到通过 HDMI 插入电视或投影仪的第二台笔记本电脑，该笔记本电脑全屏显示并通过 HDMI 输出播放声音，同时其自己的屏幕仍可免费使用。</p></div>
 <div class="card"><div class="card-icon">🔗</div><h3>分享与发现</h3><p>同一网络上的 CMC 会自动找到彼此，群组代码可将您的播放列表 — 包括本地文件 — 分享给其他 CMC。</p></div>
 <div class="card"><div class="card-icon">🔔</div><h3>音效</h3><p>音板，可在您玩游戏或直播时提供动态音频提示，包括游戏中使用的足球踢球、进球欢呼和人群声音。</p></div>
 <div class="card"><div class="card-icon">🌈</div><h3>可视化器</h3><p>为当前播放的任何内容提供实时音频响应视觉效果。</p></div>
