@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD: l'app desktop, sui libri contabili di una nuova azienda</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD - Nuova schermata di immissione con linee di dare e credito e un codice IVA su ogni riga" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Nuova voce</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD: schermata Fatture con fatture e preventivi, prima che vengano emessi" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Fatture</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD: schermata Agente, che chiede alla tua IA informazioni sul registro utilizzando strumenti di sola lettura" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Agente</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD: schermata Impostazioni con periodo contabile, dettagli di contatto, chiave Companies House e backup" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Impostazioni</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD: schermata del registro con una casella di ricerca e un filtro dell'account" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Registro</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD - Nuova schermata di immissione: conto, dare, credito e codice IVA su ogni riga, registrato solo quando i debiti equivalgono ai crediti" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Nuova voce</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD: schermata Report con le schede Profitti e perdite, Stato patrimoniale, IVA e Revisione per il periodo selezionato" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Rapporti</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Torna alla panoramica</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Come è costruito e testato</h2>
+<p>Il software fiscale deve essere corretto, quindi la maggior parte del lavoro è dimostrarlo</p>
+</div>
+<p>Chameleon Accounting MTD è scritto in Dart e Flutter, quindi una base di codice può essere eseguita su Linux, Windows, macOS, Android e iOS. Marcos lo progetta e decide cosa deve fare; il codice è scritto dall'AI sotto quella direzione. Nulla viene dato per scontato: vengono eseguiti più di 500 test automatizzati per ogni modifica. Alcuni controlli inseriscono un errore intenzionale per dimostrare che i controlli possono davvero fallire. Un contabile non ha ancora rivisto le norme fiscali e ciò avverrà prima del rilascio.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Ogni giorno contro la sandbox dell'HMRC</h3>
+<p>L'HMRC gestisce una copia pratica del suo servizio IVA per gli sviluppatori di software, chiamata sandbox. Dal 29 settembre 2026 l'app si è collegata automaticamente, fino a tre volte al giorno, per verificare le chiamate IVA e i dettagli di prevenzione delle frodi richiesti dall'HMRC con ogni chiamata. Al 4 novembre 2026 si trattava di 124 corse, di cui 108 superate, con almeno un passaggio in ciascuno dei 37 giorni. Abbiamo richiesto all'HMRC il permesso di utilizzare il servizio live e stiamo aspettando la sua decisione. La sandbox testa il nostro software, non i tuoi documenti fiscali reali.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Un anno fiscale in un giorno</h3>
+<p>Un sandbox non può mostrare cosa succede in un anno intero, quindi abbiamo costruito il nostro simulatore. Un orologio falso gestisce un'azienda inventata durante il suo anno, con sostituti di HMRC, Companies House e un contabile, mentre il vero codice dell'app fa il lavoro. Una chiave di risposta separata, che non condivide alcun codice con l'app, determina cosa dovrebbe essere ogni figura. Corri a tutto gas, un anno richiede pochi secondi. Puoi anche guardare l'app reale funzionare a 365 volte la velocità normale: un anno in un giorno, sotto uno striscione rosso che dice che non è reale.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Cosa copre il simulatore</h3>
+<p>Diversi tipi di attività: piccoli profitti, sgravi marginali, una perdita, contabilità di cassa, il regime forfettario, una fine anno che non corrisponde ai trimestri IVA, un amministratore che non rimborsa un prestito, un'azienda che supera il limite IVA e una ditta individuale. Inoltre, evidenzia ciò che va storto: errori contabili commessi, HMRC inattivo, un contabile che risponde in ritardo o se ne va durante una revisione e il cambiamento di fine anno di un'azienda.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Cosa ha trovato</h3>
+<p>Veri bug, ora tutti risolti. Un bilancio ha smesso di pareggiare dopo il 31 dicembre. Un assegno che supera i due quarti sconvolge l'assegno bancario. L'imposta sulle società ha ignorato l'IVA mantenuta nel quadro del regime forfettario. L’avviso sul limite IVA non è mai apparso per le imprese che ne avevano bisogno. Un sollecito sulla dichiarazione dei redditi è scomparso tre mesi prima della scadenza della dichiarazione. I conti alla rovescia duravano un giorno durante il cambio dell'ora primaverile. Trovarli è stato il motivo per costruirlo.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Controllato rispetto alle regole ufficiali</h3>
+<p>Laddove vengono pubblicate regole ufficiali, le testiamo direttamente. Le bozze delle dichiarazioni dei redditi aziendali vengono verificate offline rispetto alla struttura pubblicata e alle regole aziendali dell'HMRC. I conti correnti e i calcoli delle imposte vengono confrontati con gli elenchi di tag ufficiali utilizzando Arelle, uno strumento di controllo gratuito e indipendente. Un simulatore può solo dimostrare ciò in cui crediamo riguardo a un servizio, quindi non sostituisce i servizi di test dell'HMRC, che non hanno ancora visionato questi documenti.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Il prossimo passo, potenzialmente: il bilancio civilistico</h3>
+<p>Disponiamo di bozze di lavoro, non ancora pubblicate, dei conti annuali che una microentità (FRS 105) o una piccola azienda (FRS 102 Sezione 1A) deve preparare, un calcolo delle imposte secondo lo schema prescritto dall'HMRC e una dichiarazione dei redditi della società (CT600). Potrebbero lasciare che una piccola azienda finisca la fine dell’anno in un unico posto. <strong>Questa app non può archiviarne nessuno oggi e non promettiamo che lo farà.</strong> Ciò dipende dalla revisione di un contabile, dal riconoscimento da parte dell'HMRC del software per le dichiarazioni dei redditi delle società, dal superamento dei servizi di test dell'HMRC e dai requisiti della Companies House.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Utenti Linux: kernel standard consigliato</h2>
 <p>Chameleon Accounting MTD è costruito e testato sul kernel standard installato da tutte le principali distribuzioni Linux. Per intero <strong>in tempo reale</strong> nocciolo (<code>PREEMPT_RT</code>, spesso nominato <code>-rt</code>) abbiamo visto il sistema bloccarsi e bloccarsi nel codice di blocco in tempo reale del kernel durante l'esecuzione del software Dart e Flutter; il kernel standard della stessa versione era stabile. Se utilizzi un kernel in tempo reale e noti blocchi, passa al kernel standard della tua distribuzione (per una bassa latenza, è <code>preempt=full</code> l'opzione di avvio è una scelta più sicura). <code>uname -v</code> spettacoli <code>PREEMPT_RT</code> su un kernel in tempo reale. Questo non ha nulla a che fare con la crittografia dell'app.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Fonti</h2>
+<p>Contro cosa sono state verificate le norme fiscali e questi sviluppi, letto nel novembre 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Companies Act 2006, sezione 443: calcolo del periodo per il deposito dei conti</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Companies Act 2006, sezione 444: deposito da parte di piccole imprese</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Companies Act 2006, sezione 475: dichiarazioni di esenzione dalla revisione contabile</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Regolamento 2008 Piccole Imprese e Gruppi (Bilanci e Relazione sulla Gestione), Allegato 1: formati</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Legge Finanziaria 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: Vita di un'azienda, requisiti annuali</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: archiviazione dei conti della Companies House, comprese modifiche e date</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Conti per microentità, piccole imprese e aziende dormienti</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Aliquote e sgravi fiscali sulle società</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Ridurre il tasso principale di svalutazione delle indennità</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: specifiche tecniche CT600 (artefatti RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: specifiche tecniche XBRL e iXBRL, incluso il formato CT Computations</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: tassonomie accettate da HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: specifica IRmark generica, versione 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: motore di transazione, protocollo di invio documenti (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Financial Reporting Council: Suite di tassonomia 2026</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: domande frequenti sui conti delle microentità</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: le soglie dimensionali delle imprese del Regno Unito aumentano da aprile 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: scadenze per il pagamento dell'imposta sulle società</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — डेस्कटॉप ऐप, एक नई कंपनी के खातों पर</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — New entry screen with debit and credit lines and a VAT code on each line" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">नई प्रविष्टि</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Invoices screen with invoices and quotes, before any are issued" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">चालान</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Agent screen, which asks your own AI about the ledger using read-only tools" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">प्रतिनिधि</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Settings screen with accounting period, contact details, Companies House key and backup" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">सेटिंग्स</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — खोज बॉक्स और खाता फ़िल्टर वाली लेजर स्क्रीन" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">खाता बही</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — नई प्रविष्टि स्क्रीन: हर पंक्ति में खाता, डेबिट, क्रेडिट और वैट कोड; डेबिट और क्रेडिट बराबर होने पर ही पोस्ट होती है" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">नई प्रविष्टि</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — चुनी गई अवधि के लिए लाभ और हानि, बैलेंस शीट, वैट और समीक्षा टैब वाली रिपोर्ट स्क्रीन" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">रिपोर्टों</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← सिंहावलोकन पर वापस जाएँ</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>इसका निर्माण और परीक्षण कैसे किया जाता है</h2>
+<p>कर सॉफ्टवेयर सही होना चाहिए, इसलिए अधिकांश काम इसे साबित करने में लग जाता है</p>
+</div>
+<p>Chameleon Accounting MTD is written in Dart and Flutter, so one code base can run on Linux, Windows, macOS, Android and iOS. Marcos designs it and decides what it must do; the code is written by AI under that direction. Nothing is taken on trust: more than 500 automated tests run against each change. Some of the checks plant a deliberate error to prove that the checks really can fail. An accountant has not yet reviewed the tax rules, and that will happen before release.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. हर दिन एचएमआरसी के सैंडबॉक्स के विरुद्ध</h3>
+<p>एचएमआरसी सॉफ्टवेयर डेवलपर्स के लिए अपनी वैट सेवा की एक अभ्यास प्रति चलाता है, जिसे सैंडबॉक्स कहा जाता है। 29 सितंबर 2026 से ऐप अपने वैट कॉल और एचएमआरसी द्वारा हर कॉल के लिए आवश्यक धोखाधड़ी रोकथाम विवरण की जांच करने के लिए, दिन में तीन बार तक स्वचालित रूप से इससे कनेक्ट हो गया है। 4 नवंबर 2026 तक यह 124 रन था, जिसमें से 108 रन पूरे हुए, 37 दिनों में से हर एक दिन में कम से कम एक पास हुआ। हमने लाइव सेवा का उपयोग करने की अनुमति के लिए एचएमआरसी को आवेदन किया है और उसके निर्णय की प्रतीक्षा कर रहे हैं। सैंडबॉक्स हमारे सॉफ़्टवेयर का परीक्षण करता है, आपके वास्तविक कर रिकॉर्ड का नहीं।</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. एक दिन में एक कर वर्ष</h3>
+<p>एक सैंडबॉक्स यह नहीं दिखा सकता कि पूरे वर्ष में क्या होता है, इसलिए हमने अपना स्वयं का सिम्युलेटर बनाया। एक नकली घड़ी पूरे साल एक बनी-बनाई कंपनी चलाती है, जिसमें एचएमआरसी, कंपनी हाउस और एक अकाउंटेंट के लिए स्टैंड-इन होता है, जबकि ऐप का असली कोड काम करता है। एक अलग उत्तर कुंजी, ऐप के साथ कोई कोड साझा किए बिना, यह पता लगाती है कि प्रत्येक अंक क्या होना चाहिए। सीधे भागो, एक साल में कुछ सेकंड लगते हैं। आप वास्तविक ऐप को 365 गुना सामान्य गति से चलते हुए भी देख सकते हैं: एक दिन में एक वर्ष, एक लाल बैनर के नीचे जो बताता है कि यह वास्तविक नहीं है।</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>सिम्युलेटर क्या कवर करता है</h3>
+<p>विभिन्न प्रकार के व्यवसाय: छोटे लाभ, सीमांत राहत, हानि, नकद लेखांकन, फ्लैट दर योजना, एक वर्ष का अंत जो वैट तिमाहियों से मेल नहीं खाता है, एक निदेशक जो ऋण नहीं चुकाता है, एक कंपनी जो वैट सीमा पार कर रही है, और एक एकमात्र व्यापारी। इससे यह भी पता चलता है कि क्या गलत होता है: नियोजित बहीखाता गलतियाँ, एचएमआरसी का डाउन होना, एक अकाउंटेंट का देर से जवाब देना या समीक्षा के दौरान चले जाना, और कंपनी का साल के अंत में बदलाव।</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>इसने क्या पाया है</h3>
+<p>वास्तविक बग, अब सभी ठीक हो गए हैं। 31 दिसंबर के बाद एक बैलेंस शीट में संतुलन बनाना बंद हो गया। दो तिमाहियों को पार करने वाले चेक ने बैंक चेक को परेशान कर दिया। निगम कर ने फ्लैट रेट योजना के तहत रखे गए वैट को नजरअंदाज कर दिया। वैट सीमा के बारे में चेतावनी उन व्यवसायों के लिए कभी प्रकट नहीं हुई जिन्हें इसकी आवश्यकता थी। टैक्स रिटर्न रिमाइंडर रिटर्न देय होने से तीन महीने पहले गायब हो गया। वसंत घड़ी परिवर्तन के दौरान उलटी गिनती एक दिन कम थी। इन्हें ढूंढना ही इसे बनाने का कारण बना।</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>सरकारी नियमों के विरुद्ध जाँच की गई</h3>
+<p>जहां आधिकारिक नियम प्रकाशित होते हैं, हम सीधे उनके विरुद्ध परीक्षण करते हैं। ड्राफ्ट कंपनी टैक्स रिटर्न की जांच एचएमआरसी की अपनी प्रकाशित संरचना और व्यावसायिक नियमों के अनुसार ऑफ़लाइन की जाती है। ड्राफ्ट खातों और कर गणनाओं की जाँच एक निःशुल्क, स्वतंत्र जाँच उपकरण अरेले का उपयोग करके आधिकारिक टैग सूचियों के विरुद्ध की जाती है। एक सिम्युलेटर केवल वही साबित कर सकता है जो हम किसी सेवा के बारे में मानते हैं, इसलिए यह एचएमआरसी की अपनी परीक्षण सेवाओं का कोई विकल्प नहीं है, जिन्होंने अभी तक इन दस्तावेजों को नहीं देखा है।</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. अगला, संभावित रूप से: वैधानिक खाते</h3>
+<p>हमारे पास सूक्ष्म-इकाई (एफआरएस 105) या छोटी कंपनी (एफआरएस 102 धारा 1ए) द्वारा तैयार किए जाने वाले वार्षिक खातों, एचएमआरसी के निर्धारित लेआउट में एक कर गणना और एक कंपनी टैक्स रिटर्न (सीटी600) के कामकाजी ड्राफ्ट हैं, जो अभी तक किसी भी रिलीज में नहीं हैं। वे एक छोटी कंपनी को अपने साल का अंत एक ही स्थान पर करने दे सकते थे। <strong>यह ऐप आज उनमें से किसी को भी फाइल नहीं कर सकता है, और हम कोई वादा नहीं करते हैं कि यह करेगा।</strong> यह एक अकाउंटेंट की समीक्षा, एचएमआरसी द्वारा कंपनी टैक्स रिटर्न के लिए सॉफ्टवेयर को पहचानने, एचएमआरसी की परीक्षण सेवाओं को पास करने और कंपनी हाउस की अपनी आवश्यकताओं पर निर्भर करता है।</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>लिनक्स उपयोगकर्ता: मानक कर्नेल अनुशंसित</h2>
 <p>Chameleon Accounting MTD is built and tested on the standard kernel every major Linux distribution installs. On a full <strong>रियल टाइम</strong> कर्नेल (<code>PREEMPT_RT</code>, अक्सर नामित किया जाता है <code>-rt</code>) हमने डार्ट और फ़्लटर सॉफ़्टवेयर चलाते समय कर्नेल के रीयल-टाइम लॉकिंग कोड में सिस्टम को फ्रीज और क्रैश होते देखा है; उसी संस्करण का मानक कर्नेल स्थिर था। यदि आप रीयल-टाइम कर्नेल का उपयोग करते हैं और फ़्रीज़ देखते हैं, तो अपने वितरण के मानक कर्नेल पर स्विच करें (कम विलंबता के लिए, यह <code>preempt=full</code> बूट विकल्प एक सुरक्षित विकल्प है)। <code>uname -v</code> दिखाता है <code>PREEMPT_RT</code> वास्तविक समय कर्नेल पर। इसका ऐप के एन्क्रिप्शन से कोई लेना-देना नहीं है.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>सूत्रों का कहना है</h2>
+<p>कर नियमों और इन विकासों की जाँच किसके विरुद्ध की गई, नवंबर 2026 में पढ़ें</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">कंपनी अधिनियम 2006, धारा 443: खाते दाखिल करने की अवधि की गणना</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">कंपनी अधिनियम 2006, धारा 444: छोटी कंपनियों द्वारा फाइलिंग</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">कंपनी अधिनियम 2006, धारा 475: ऑडिट छूट विवरण</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">छोटी कंपनियाँ और समूह (खाते और निदेशकों की रिपोर्ट) विनियम 2008, अनुसूची 1: प्रारूप</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">वित्त अधिनियम 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">कंपनी हाउस: कंपनी का जीवन, वार्षिक आवश्यकताएँ</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">कंपनी हाउस: परिवर्तन और तारीखों सहित, अपने कंपनी हाउस खातों को दाखिल करना</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: सूक्ष्म संस्थाओं, छोटी और निष्क्रिय कंपनियों के लिए खाते</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: निगम कर दरें और भत्ते</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: भत्तों को लिखने की मुख्य दर को कम करना</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: CT600 तकनीकी विशिष्टताएँ (रिम कलाकृतियाँ)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">एचएमआरसी: सीटी कंप्यूटेशंस प्रारूप सहित एक्सबीआरएल और आईएक्सबीआरएल तकनीकी विनिर्देश</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">एचएमआरसी: एचएमआरसी द्वारा स्वीकृत वर्गीकरण</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">एचएमआरसी: जेनेरिक आईआरमार्क विनिर्देश, संस्करण 1.2 (पीडीएफ)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">एचएमआरसी: लेनदेन इंजन, दस्तावेज़ सबमिशन प्रोटोकॉल (पीडीएफ)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">वित्तीय रिपोर्टिंग परिषद: 2026 टैक्सोनॉमी सुइट</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: सूक्ष्म-इकाईयों के खातों से संबंधित अक्सर पूछे जाने वाले प्रश्न</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: यूके कंपनी का आकार सीमा अप्रैल 2025 से बढ़ जाएगी</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">गोफ़ाइल: निगम कर भुगतान की समय सीमा</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

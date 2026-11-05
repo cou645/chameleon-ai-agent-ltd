@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD - yr ap bwrdd gwaith, ar lyfrau cwmni newydd</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Sgrin mynediad newydd gyda llinellau debyd a chredyd a chod TAW ar bob llinell" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Mynediad newydd</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD - Mae anfonebau'n sgrinio gydag anfonebau a dyfynbrisiau, cyn i unrhyw rai gael eu cyhoeddi" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Anfonebau</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD - Sgrin asiant, sy'n gofyn i'ch AI eich hun am y cyfriflyfr gan ddefnyddio offer darllen yn unig" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Asiant</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Sgrin gosodiadau gyda chyfnod cyfrifo, manylion cyswllt, allwedd Tŷ'r Cwmnïau a chopi wrth gefn" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Gosodiadau</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD - Sgrin cyfriflyfr gyda blwch chwilio a hidlydd cyfrif" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Cyfriflyfr</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD - Sgrin mynediad newydd: cod cyfrif, debyd, credyd a TAW ar bob llinell, wedi'i bostio dim ond pan fydd debydau'n hafal i gredydau" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Mynediad newydd</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD - Sgrin adroddiadau gyda thabiau Elw a Cholled, Mantolen, TAW ac Adolygu ar gyfer y cyfnod a ddewiswyd" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Adroddiadau</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Yn ôl i'r trosolwg</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Sut mae'n cael ei adeiladu a'i brofi</h2>
+<p>Mae'n rhaid i feddalwedd treth fod yn gywir, felly mae'r rhan fwyaf o'r gwaith yn mynd i mewn i'w brofi</p>
+</div>
+<p>Mae Chameleon Accounting MTD wedi'i ysgrifennu yn Dart and Flutter, felly gall un sylfaen cod redeg ar Linux, Windows, macOS, Android ac iOS. Mae Marcos yn ei ddylunio ac yn penderfynu beth mae'n rhaid iddo ei wneud; ysgrifennir y cod gan AI o dan y cyfarwyddyd hwnnw. Nid oes dim yn cael ei gymryd ar ymddiriedaeth: mae mwy na 500 o brofion awtomataidd yn rhedeg yn erbyn pob newid. Mae rhai o'r gwiriadau yn gosod gwall bwriadol i brofi y gall y gwiriadau wir fethu. Nid yw cyfrifydd wedi adolygu’r rheolau treth eto, a bydd hynny’n digwydd cyn rhyddhau.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Bob dydd yn erbyn blwch tywod CThEM</h3>
+<p>Mae CThEM yn rhedeg copi practis o’i wasanaeth TAW ar gyfer datblygwyr meddalwedd, a elwir yn sandbox. Ers 29 Medi 2026 mae’r ap wedi cysylltu ag ef yn awtomatig, hyd at deirgwaith y dydd, i wirio ei alwadau TAW a’r manylion atal twyll sydd eu hangen ar CThEM gyda phob galwad. Erbyn 4 Tachwedd 2026 roedd hynny’n 124 rhediad, gyda 108 ohonynt wedi pasio, gydag o leiaf un pasiad ymlaen bob un o’r 37 diwrnod. Rydym wedi gwneud cais i CThEM am ganiatâd i ddefnyddio’r gwasanaeth byw ac yn aros am ei benderfyniad. Mae'r blwch tywod yn profi ein meddalwedd, nid eich cofnodion treth go iawn.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Blwyddyn dreth mewn diwrnod</h3>
+<p>Ni all blwch tywod ddangos beth sy'n digwydd dros flwyddyn gyfan, felly fe wnaethom adeiladu ein efelychydd ein hunain. Mae cloc ffug yn rhedeg cwmni gwneud i fyny drwy ei flwyddyn, gyda stand-ins ar gyfer CThEM, Tŷ’r Cwmnïau a chyfrifydd, tra bod cod go iawn yr ap yn gwneud y gwaith. Mae allwedd ateb ar wahân, sy'n rhannu dim cod gyda'r app, yn gweithio allan beth ddylai pob ffigur fod. Rhedeg yn fflat, mae blwyddyn yn cymryd eiliadau. Gallwch hefyd wylio'r app go iawn yn rhedeg ar gyflymder arferol 365 gwaith: blwyddyn mewn diwrnod, o dan faner goch yn dweud nad yw'n real.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Beth mae'r efelychydd yn ei gynnwys</h3>
+<p>Gwahanol fathau o fusnes: elw bach, rhyddhad ymylol, colled, cyfrifo arian parod, y Cynllun Cyfradd Unffurf, diwedd blwyddyn nad yw'n cyfateb i'r chwarteri TAW, cyfarwyddwr nad yw'n ad-dalu benthyciad, cwmni sy'n croesi'r terfyn TAW, ac unig fasnachwr. Mae hefyd yn dangos beth sy'n mynd o'i le: wedi plannu camgymeriadau cadw cyfrifon, Cyllid a Thollau Ei Mawrhydi i lawr, cyfrifydd yn ymateb yn hwyr neu'n gadael yn ystod adolygiad, a diwedd blwyddyn cwmni yn newid.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Yr hyn y mae wedi'i ddarganfod</h3>
+<p>Bygiau go iawn, i gyd bellach yn sefydlog. Daeth mantolen i ben ar ôl 31 Rhagfyr. Roedd siec yn croesi dau chwarter wedi cynhyrfu'r siec banc. Treth Gorfforaeth yn anwybyddu TAW a gedwir o dan y Cynllun Cyfradd Unffurf. Ni ymddangosodd y rhybudd am y terfyn TAW erioed ar gyfer y busnesau oedd ei angen. Diflannodd nodyn atgoffa ffurflen dreth dri mis cyn bod y ffurflen dreth yn ddyledus. Roedd y cyfrif i lawr ddiwrnod yn fyr ar draws newid cloc y gwanwyn. Dod o hyd i'r rhain oedd y rheswm dros ei adeiladu.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Wedi'i wirio yn erbyn y rheolau swyddogol</h3>
+<p>Lle cyhoeddir rheolau swyddogol, rydym yn profi yn eu herbyn yn uniongyrchol. Mae Ffurflenni Treth Cwmni Drafft yn cael eu gwirio all-lein yn erbyn strwythur cyhoeddedig CThEM a rheolau busnes. Mae cyfrifon drafft a chyfrifiannau treth yn cael eu gwirio yn erbyn y rhestrau tagiau swyddogol gan ddefnyddio Arelle, offeryn gwirio annibynnol rhad ac am ddim. Ni all efelychydd ond profi’r hyn a gredwn am wasanaeth, felly nid yw hyn yn cymryd lle gwasanaethau prawf CThEM ei hun, nad ydynt wedi gweld y dogfennau hyn eto.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Yn dod nesaf, o bosibl: cyfrifon statudol</h3>
+<p>Mae gennym ddrafftiau gwaith, nad ydynt eto mewn unrhyw ddatganiad, o’r cyfrifon blynyddol y mae’n rhaid i ficro-endid (FRS 105) neu gwmni bach (FRS 102 Adran 1A) eu paratoi, cyfrifiant treth yng nghynllun rhagnodedig CThEM, a Ffurflen Dreth y Cwmni (CT600). Gallent adael i gwmni bach wneud diwedd ei flwyddyn mewn un lle. <strong>Ni all yr ap hwn ffeilio unrhyw un ohonynt heddiw, ac nid ydym yn addo y bydd.</strong> Mae hynny’n dibynnu ar adolygiad cyfrifydd, ar CThEM yn cydnabod y feddalwedd ar gyfer Ffurflenni Treth Cwmnïau, ar basio gwasanaethau prawf CThEM, ac ar ofynion Tŷ’r Cwmnïau ei hun.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Defnyddwyr Linux: cnewyllyn safonol a argymhellir</h2>
 <p>Mae Chameleon Accounting MTD wedi'i adeiladu a'i brofi ar y cnewyllyn safonol y mae pob dosbarthiad Linux mawr yn ei osod. Ar lawn <strong>amser real</strong> cnewyllyn (<code>PREEMPT_RT</code>, a enwir yn aml <code>-rt</code>) rydym wedi gweld y system yn rhewi ac yn chwalu yng nghod cloi amser real y cnewyllyn wrth redeg meddalwedd Dart and Flutter; roedd cnewyllyn safonol yr un fersiwn yn sefydlog. Os ydych chi'n defnyddio cnewyllyn amser real ac yn gweld rhewiadau, newidiwch i gnewyllyn safonol eich dosbarthiad (ar gyfer hwyrni isel, ei <code>preempt=full</code> opsiwn cist yn ddewis mwy diogel). <code>uname -v</code> sioeau <code>PREEMPT_RT</code> ar gnewyllyn amser real. Nid oes gan hyn unrhyw beth i'w wneud ag amgryptio'r app.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Ffynonellau</h2>
+<p>Yr hyn y gwiriwyd y rheolau treth a’r datblygiadau hyn yn eu herbyn, darllenwyd ym mis Tachwedd 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Deddf Cwmnïau 2006, adran 443: cyfrifo’r cyfnod ar gyfer ffeilio cyfrifon</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Deddf Cwmnïau 2006, adran 444: ffeilio gan gwmnïau bach</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Deddf Cwmnïau 2006, adran 475: datganiadau eithrio rhag archwilio ariannol</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Rheoliadau Cwmnïau a Grwpiau Bach (Cyfrifon ac Adroddiad Cyfarwyddwyr) 2008, Atodlen 1: fformatau</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Deddf Cyllid 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Tŷ'r Cwmnïau: Bywyd cwmni, gofynion blynyddol</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Tŷ’r Cwmnïau: Ffeilio eich cyfrifon Tŷ’r Cwmnïau, gan gynnwys newidiadau a dyddiadau</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Cyfrifon ar gyfer micro-endidau, cwmnïau bach a segur</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Cyfraddau a lwfansau Treth Gorfforaeth</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Lleihau prif gyfradd lwfansau ar bapur</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">CThEM: manylebau technegol CT600 (arteffactau RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">CThEM: manylebau technegol XBRL ac iXBRL, gan gynnwys y Fformat Cyfrifiannau CT</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">CThEM: Tacsonomegau a dderbynnir gan CThEM</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">CThEM: Manyleb IRmark generig, fersiwn 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">CThEM: Peiriant Trafodion, Protocol Cyflwyno Dogfennau (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Cyngor Adrodd Ariannol: 2026 o Gyfres Tacsonomeg</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Cwestiynau Cyffredin am gyfrifon micro-endidau</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: Mae trothwyon maint cwmnïau’r DU yn cynyddu o fis Ebrill 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: dyddiadau cau ar gyfer talu Treth Gorfforaeth</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

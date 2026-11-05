@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — настольное приложение на балансе новой компании</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — новый экран ввода с дебетовыми и кредитными линиями и кодом НДС в каждой строке." loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Новая запись</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — экран счетов со счетами и предложениями до их выдачи." loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Счета-фактуры</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — экран агента, который запрашивает ваш собственный ИИ о реестре с помощью инструментов, доступных только для чтения." loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Агент</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — экран настроек с отчетным периодом, контактными данными, ключом Регистрационной палаты и резервной копией." loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Настройки</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — экран книги с полем поиска и фильтром учетной записи." loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Леджер</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — новый экран ввода: код счета, дебета, кредита и НДС в каждой строке, публикуется только тогда, когда дебет равен кредиту." loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Новая запись</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — экран отчетов с вкладками «Прибыль и убыток», «Баланс», «НДС» и «Просмотр» за выбранный период." loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Отчеты</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Вернуться к обзору</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Как он создается и тестируется</h2>
+<p>Налоговое программное обеспечение должно быть правильным, поэтому большая часть работы уходит на его доказательство.</p>
+</div>
+<p>Chameleon Accounting MTD написан на Dart и Flutter, поэтому одна база кода может работать на Linux, Windows, macOS, Android и iOS. Маркос проектирует его и решает, что он должен делать; код пишется ИИ под этим руководством. Ничего не принимается на веру: каждое изменение проводится более 500 автоматических тестов. Некоторые проверки допускают преднамеренную ошибку, чтобы доказать, что проверки действительно могут потерпеть неудачу. Бухгалтер еще не ознакомился с налоговыми правилами, и это произойдет до их публикации.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Каждый день против песочницы HMRC</h3>
+<p>HMRC запускает практическую копию своей службы НДС для разработчиков программного обеспечения, называемую «песочницей». С 29 сентября 2026 года приложение подключается к нему автоматически, до трех раз в день, чтобы проверять звонки по НДС и сведения о предотвращении мошенничества, которые HMRC требует при каждом звонке. К 4 ноября 2026 года это было 124 захода, из них 108 пройденных, по крайней мере, по одному заходу в каждый из 37 дней. Мы обратились в HMRC за разрешением на использование онлайн-сервиса и ждем решения. В «песочнице» проверяется наше программное обеспечение, а не ваша реальная налоговая отчетность.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Налоговый год за день</h3>
+<p>Песочница не может показать, что происходит за целый год, поэтому мы создали собственный симулятор. Фальшивые часы управляют вымышленной компанией в течение всего года с заместителями HMRC, Регистрационной палаты и бухгалтера, в то время как настоящий код приложения делает всю работу. Отдельный ключ ответа, не использующий совместного кода с приложением, определяет, какой должна быть каждая цифра. Бегите изо всех сил, год занимает секунды. Вы также можете наблюдать, как настоящее приложение работает со скоростью, в 365 раз превышающей нормальную: год за день, под красным баннером, говорящим, что это нереально.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Что включает в себя симулятор</h3>
+<p>Различные виды бизнеса: небольшая прибыль, предельное облегчение, убыток, кассовый учет, схема фиксированной ставки, конец года, не соответствующий кварталам НДС, директор, не выплачивающий кредит, компания, превышающая лимит НДС, и индивидуальный предприниматель. Он также показывает, что пошло не так: допущенные бухгалтерские ошибки, неработающая HMRC, бухгалтер, который поздно отвечает или уходит во время проверки, а также изменение конца года компании.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Что он нашел</h3>
+<p>Реальные ошибки, все исправлено. Баланс перестал балансироваться после 31 декабря. Чек, пересекающий две четверти, аннулирует банковский чек. Корпоративный налог игнорировал НДС, сохраняемый по схеме фиксированной ставки. Предупреждение о лимите НДС так и не появилось для предприятий, которым это было необходимо. Напоминание о налоговой декларации исчезло за три месяца до наступления срока подачи налоговой декларации. Из-за весенней смены часов обратный отсчет замедлился на один день. Их обнаружение и послужило причиной его создания.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Проверено на соответствие официальным правилам.</h3>
+<p>Там, где опубликованы официальные правила, мы проверяем их напрямую. Проекты налоговых деклараций компаний проверяются в автономном режиме на соответствие опубликованной структуре и бизнес-правилам HMRC. Черновики счетов и налоговые расчеты проверяются по официальным спискам тегов с помощью Arelle, бесплатного независимого инструмента проверки. Симулятор может доказать только то, что мы думаем об услуге, поэтому он не заменяет собственные тестовые службы HMRC, которые еще не видели эти документы.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Следующее, возможно, следующее: обязательные отчеты.</h3>
+<p>У нас есть рабочие проекты (еще не выпущенные ни в одном из выпусков) годовой отчетности, которую микропредприятие (FRS 105) или малая компания (FRS 102, раздел 1A) должны подготовить, расчет налога в установленной форме HMRC и налоговая декларация компании (CT600). Они могли бы позволить небольшой компании завершить год в одном месте. <strong>Сегодня это приложение не может зарегистрировать ни одну из них, и мы не обещаем, что это сделает.</strong> Это зависит от проверки бухгалтера, от признания HMRC программного обеспечения для налоговых деклараций компаний, от прохождения тестовых услуг HMRC и от собственных требований Регистрационной палаты.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Пользователи Linux: рекомендуется стандартное ядро.</h2>
 <p>Chameleon Accounting MTD построен и протестирован на стандартном ядре, которое устанавливается в каждом крупном дистрибутиве Linux. На полном <strong>в реальном времени</strong> ядро (<code>PREEMPT_RT</code>, часто называемый <code>-rt</code>) мы видели зависание системы и сбой в коде блокировки ядра в реальном времени при запуске программного обеспечения Dart и Flutter; стандартное ядро ​​той же версии было стабильным. Если вы используете ядро ​​реального времени и видите зависания, переключитесь на стандартное ядро ​​вашего дистрибутива (для низкой задержки его <code>preempt=full</code> вариант загрузки является более безопасным выбором). <code>uname -v</code> шоу <code>PREEMPT_RT</code> на ядре реального времени. Это не имеет ничего общего с шифрованием приложения.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Источники</h2>
+<p>С чем сверялись налоговые правила и эти разработки, читайте в ноябре 2026 года.</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Закон о компаниях 2006 г., раздел 443: расчет периода подачи отчетности</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Закон о компаниях 2006 г., раздел 444: подача заявок малыми компаниями</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Закон о компаниях 2006 г., раздел 475: заявления об освобождении от аудита</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Положения о малых компаниях и группах (отчетность и отчет директоров) 2008 г., Приложение 1: форматы</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Закон о финансах 2026 г.</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Регистрационная палата: Жизнь компании, годовые требования</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Регистрационная палата: подача отчетности в Регистрационную палату, включая изменения и даты.</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Счета для микропредприятий, малых и бездействующих компаний</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Ставки и льготы по корпоративному налогу</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Снижение основной ставки списания пособий</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: технические характеристики CT600 (артефакты RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: технические спецификации XBRL и iXBRL, включая формат вычислений CT.</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Таксономии, принятые HMRC.</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: Общая спецификация IRmark, версия 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: механизм транзакций, протокол подачи документов (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Совет по финансовой отчетности: Пакет таксономии 2026 г.</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Часто задаваемые вопросы по счетам микропредприятий</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: пороговые значения размера компаний в Великобритании увеличиваются с апреля 2025 года</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: Сроки уплаты корпоративного налога</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

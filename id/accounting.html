@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — aplikasi desktop, pada pembukuan perusahaan baru</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — New entry screen with debit and credit lines and a VAT code on each line" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Entri baru</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Invoices screen with invoices and quotes, before any are issued" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Faktur</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Agent screen, which asks your own AI about the ledger using read-only tools" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Agen</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Settings screen with accounting period, contact details, Companies House key and backup" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Pengaturan</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Layar buku besar dengan kotak pencarian dan filter akun" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Buku besar</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Layar entri baru: akun, debit, kredit, dan kode PPN di setiap baris; diposting hanya jika debit sama dengan kredit" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Entri baru</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Layar laporan dengan tab Laba Rugi, Neraca, PPN, dan Tinjauan untuk periode yang dipilih" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Laporan</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Kembali ke ikhtisar</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Bagaimana itu dibangun dan diuji</h2>
+<p>Perangkat lunak perpajakan harus benar, sehingga sebagian besar upaya dilakukan untuk membuktikannya</p>
+</div>
+<p>Chameleon Accounting MTD is written in Dart and Flutter, so one code base can run on Linux, Windows, macOS, Android and iOS. Marcos designs it and decides what it must do; the code is written by AI under that direction. Nothing is taken on trust: more than 500 automated tests run against each change. Some of the checks plant a deliberate error to prove that the checks really can fail. An accountant has not yet reviewed the tax rules, and that will happen before release.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Setiap hari melawan kotak pasir HMRC</h3>
+<p>HMRC menjalankan salinan praktik layanan PPN untuk pengembang perangkat lunak, yang disebut kotak pasir. Sejak 29 September 2026, aplikasi telah terhubung secara otomatis, hingga tiga kali sehari, untuk memeriksa panggilan PPN dan detail pencegahan penipuan yang diperlukan HMRC dalam setiap panggilan. Pada tanggal 4 November 2026, terdapat 124 kali lari, 108 di antaranya berhasil dilewati, dengan setidaknya satu kali lolos dalam setiap 37 hari. Kami telah mengajukan permohonan izin kepada HMRC untuk menggunakan layanan langsung dan menunggu keputusannya. Sandbox menguji perangkat lunak kami, bukan catatan pajak Anda yang sebenarnya.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Satu tahun pajak dalam sehari</h3>
+<p>Kotak pasir tidak dapat menampilkan apa yang terjadi selama setahun penuh, jadi kami membuat simulator sendiri. Jam palsu menjalankan perusahaan buatan selama setahun, dengan pengganti HMRC, Companies House, dan seorang akuntan, sementara kode asli aplikasilah yang menjalankan fungsinya. Kunci jawaban terpisah, yang tidak membagikan kode apa pun dengan aplikasi, menentukan angka yang seharusnya. Habis, satu tahun hanya butuh beberapa detik. Anda juga dapat menyaksikan aplikasi sesungguhnya berjalan dengan kecepatan 365 kali lipat dari kecepatan normal: setahun dalam sehari, di bawah spanduk merah yang menyatakan bahwa aplikasi tersebut tidak nyata.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Apa yang dicakup oleh simulator</h3>
+<p>Berbagai jenis bisnis: keuntungan kecil, keringanan marjinal, kerugian, akuntansi tunai, Skema Tarif Tetap, akhir tahun yang tidak sesuai dengan kuartal PPN, direktur yang tidak membayar kembali pinjaman, perusahaan yang melewati batas PPN, dan pedagang tunggal. Hal ini juga menunjukkan apa yang salah: kesalahan pembukuan yang ditanamkan, HMRC tidak beroperasi, akuntan terlambat membalas atau keluar saat peninjauan, dan perubahan akhir tahun perusahaan.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Apa yang ditemukannya</h3>
+<p>Bug nyata, semuanya sudah diperbaiki. Neraca tidak lagi seimbang setelah tanggal 31 Desember. Cek yang melewati dua perempat mengganggu cek bank. Pajak Perusahaan mengabaikan PPN yang disimpan dalam Skema Tarif Tetap. Peringatan mengenai batasan PPN tidak pernah muncul bagi pelaku usaha yang membutuhkannya. Pengingat pengembalian pajak hilang tiga bulan sebelum jatuh tempo pengembalian. Hitung mundur hanya satu hari singkat sepanjang pergantian jam musim semi. Menemukan ini adalah alasan untuk membangunnya.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Diperiksa berdasarkan aturan resmi</h3>
+<p>Jika peraturan resmi dipublikasikan, kami mengujinya secara langsung. Draf Pengembalian Pajak Perusahaan diperiksa secara offline berdasarkan struktur dan aturan bisnis HMRC yang diterbitkan sendiri. Draf rekening dan penghitungan pajak diperiksa berdasarkan daftar tag resmi menggunakan Arelle, alat pemeriksaan independen dan gratis. Simulator hanya dapat membuktikan apa yang kami yakini tentang suatu layanan, jadi ini bukanlah pengganti layanan pengujian HMRC sendiri, yang belum melihat dokumen-dokumen ini.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Kemungkinan berikutnya adalah: rekening hukum</h3>
+<p>Kami memiliki rancangan kerja, yang belum dirilis, dari rekening tahunan yang harus disiapkan oleh entitas mikro (FRS 105) atau perusahaan kecil (FRS 102 Bagian 1A), perhitungan pajak dalam tata letak yang ditentukan HMRC, dan Surat Pemberitahuan Pajak Perusahaan (CT600). Mereka dapat membiarkan sebuah perusahaan kecil mengakhiri tahunnya di satu tempat. <strong>Aplikasi ini tidak dapat mengajukan satupun hari ini, dan kami tidak berjanji akan melakukannya.</strong> Hal ini tergantung pada tinjauan akuntan, pada HMRC yang mengenali perangkat lunak untuk Pengembalian Pajak Perusahaan, pada kelulusan layanan pengujian HMRC, dan pada persyaratan Companies House sendiri.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Pengguna Linux: kernel standar direkomendasikan</h2>
 <p>Chameleon Accounting MTD dibangun dan diuji pada kernel standar yang diinstal oleh setiap distribusi Linux utama. Secara penuh <strong>waktu nyata</strong> inti (<code>PREEMPT_RT</code>, sering disebut <code>-rt</code>) kita telah melihat sistem macet dan mogok pada kode penguncian real-time kernel saat menjalankan perangkat lunak Dart dan Flutter; kernel standar dari versi yang sama stabil. Jika Anda menggunakan kernel real-time dan melihat macet, beralihlah ke kernel standar distribusi Anda (untuk latensi rendah, <code>preempt=full</code> opsi boot adalah pilihan yang lebih aman). <code>uname -v</code> menunjukkan <code>PREEMPT_RT</code> pada kernel waktu nyata. Ini tidak ada hubungannya dengan enkripsi aplikasi.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sumber</h2>
+<p>Baca tentang peraturan perpajakan dan perkembangannya, baca pada November 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Companies Act 2006, pasal 443: menghitung periode pengarsipan rekening</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Companies Act 2006, pasal 444: pengajuan oleh perusahaan kecil</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Companies Act 2006, pasal 475: pernyataan pengecualian audit</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Peraturan Perusahaan Kecil dan Kelompok (Akun dan Laporan Direksi) 2008, Jadwal 1: format</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">UU Keuangan 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: Kehidupan perusahaan, persyaratan tahunan</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: Mengarsipkan akun Companies House Anda, termasuk perubahan dan tanggal</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Akun untuk entitas mikro, perusahaan kecil dan tidak aktif</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Tarif dan tunjangan Pajak Perusahaan</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Mengurangi tarif utama penulisan tunjangan</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: Spesifikasi teknis CT600 (artefak RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: Spesifikasi teknis XBRL dan iXBRL, termasuk Format Komputasi CT</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Taksonomi diterima oleh HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: Spesifikasi IRmark generik, versi 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: Mesin Transaksi, Protokol Pengiriman Dokumen (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Dewan Pelaporan Keuangan: Rangkaian Taksonomi 2026</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: FAQ tentang akun entitas mikro</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: Batasan ukuran perusahaan di Inggris meningkat mulai April 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: Batas waktu pembayaran Pajak Perusahaan</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

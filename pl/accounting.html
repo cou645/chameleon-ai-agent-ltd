@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — aplikacja komputerowa, w księgach nowej firmy</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Nowy ekran wejściowy z liniami debetowymi i kredytowymi oraz kodem VAT w każdej linii" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Nowy wpis</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — ekran faktur z fakturami i ofertami, zanim jakiekolwiek zostaną wystawione" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Faktury</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — ekran agenta, który pyta Twoją sztuczną inteligencję o księgę za pomocą narzędzi tylko do odczytu" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Agent</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — ekran ustawień z okresem rozliczeniowym, danymi kontaktowymi, kluczem Companies House i kopią zapasową" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Ustawienia</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — ekran księgi głównej z polem wyszukiwania i filtrem konta" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Księga główna</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Nowy ekran wejściowy: kod konta, debetowy, kredytowy i VAT w każdym wierszu, księgowany tylko wtedy, gdy obciążenia są równe kredytom" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Nowy wpis</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — ekran raportów z zakładkami Zyski i straty, Bilans, VAT i Przegląd za wybrany okres" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Raporty</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Powrót do przeglądu</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Jak jest zbudowany i testowany</h2>
+<p>Oprogramowanie podatkowe musi być odpowiednie, dlatego większość pracy skupia się na jego udowodnieniu</p>
+</div>
+<p>Chameleon Accounting MTD jest napisany w Dart i Flutter, więc jedna baza kodu może działać na systemach Linux, Windows, macOS, Android i iOS. Marcos projektuje go i decyduje, co ma robić; kod jest napisany przez sztuczną inteligencję pod tym kierunkiem. Nic nie jest brane na wiarę: każda zmiana przeprowadzana jest ponad 500 zautomatyzowanych testów. Niektóre kontrole wprowadzają celowy błąd, aby udowodnić, że kontrole naprawdę mogą zakończyć się niepowodzeniem. Księgowy nie dokonał jeszcze przeglądu przepisów podatkowych, a stanie się to przed zwolnieniem.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Codziennie przeciwko piaskownicy HMRC</h3>
+<p>HMRC udostępnia próbną kopię swojej usługi VAT dla twórców oprogramowania, zwanej piaskownicą. Od 29 września 2026 r. aplikacja łączy się z nią automatycznie, maksymalnie trzy razy dziennie, aby sprawdzić zgłoszenia dotyczące podatku VAT i szczegóły dotyczące zapobiegania oszustwom, których HMRC wymaga przy każdym połączeniu. Do 4 listopada 2026 r. było to 124 przejazdy, z czego 108 zostało zaliczonych, przy co najmniej jednym przepustce w każdym z 37 dni. Złożyliśmy wniosek do HMRC o pozwolenie na korzystanie z usługi na żywo i czekamy na jej decyzję. Sandbox testuje nasze oprogramowanie, a nie Twoją prawdziwą dokumentację podatkową.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Rok podatkowy w jeden dzień</h3>
+<p>Sandbox nie jest w stanie pokazać, co dzieje się przez cały rok, dlatego zbudowaliśmy własny symulator. Fałszywy zegar prowadzi fikcyjną firmę przez cały rok, zastępując HMRC, Companies House i księgowego, podczas gdy prawdziwy kod aplikacji wykonuje całą pracę. Oddzielny klucz odpowiedzi, nie udostępniający kodu aplikacji, sprawdza, jaka powinna być każda figura. Biegaj na pełnych obrotach, rok zajmuje sekundy. Możesz także zobaczyć, jak prawdziwa aplikacja działa z 365-krotnością normalnej prędkości: rok w dzień, pod czerwonym sztandarem informującym, że to nie jest prawdziwe.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Co obejmuje symulator</h3>
+<p>Różne rodzaje działalności: małe zyski, marginalna ulga, strata, księgowanie kasowe, system stawek ryczałtowych, koniec roku niezgodny z kwartałami VAT, dyrektor, który nie spłaca pożyczki, firma przekraczająca limit VAT, jednoosobowa działalność gospodarcza. Pokazuje także, co poszło nie tak: zasadzone błędy księgowe, awaria HMRC, księgowa spóźniająca się z odpowiedzią lub wychodząca w trakcie przeglądu oraz zmiana końca roku obrotowego w firmie.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Co znalazło</h3>
+<p>Prawdziwe błędy, wszystkie już naprawione. Bilans przestał się równoważyć po 31 grudnia. Czek przekraczający dwie czwarte zniweczył czek bankowy. Podatek dochodowy od osób prawnych ignorował podatek VAT utrzymywany w ramach programu stawek ryczałtowych. Ostrzeżenie o limicie VAT nigdy nie pojawiło się dla przedsiębiorców, którzy go potrzebowali. Przypomnienie o zeznaniu podatkowym zniknęło na trzy miesiące przed terminem zwrotu. Odliczanie trwało o dzień krócej po wiosennej zmianie czasu. Znalezienie ich było powodem jego zbudowania.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Sprawdzono pod kątem oficjalnych zasad</h3>
+<p>Tam, gdzie publikowane są oficjalne zasady, bezpośrednio je testujemy. Projekty zeznań podatkowych firmy są sprawdzane w trybie offline pod kątem opublikowanej struktury i zasad biznesowych HMRC. Wersje robocze kont i obliczenia podatkowe są sprawdzane z oficjalnymi listami tagów za pomocą Arelle, bezpłatnego, niezależnego narzędzia sprawdzającego. Symulator może jedynie udowodnić to, w co wierzymy na temat usługi, dlatego nie zastępuje własnych usług testowych HMRC, które nie widziały jeszcze tych dokumentów.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. W następnej kolejności, potencjalnie: rachunki ustawowe</h3>
+<p>Mamy robocze projekty rocznych sprawozdań finansowych, które musi przygotować mikrojednostka (FRS 105) lub mała firma (FRS 102 sekcja 1A), obliczenia podatku w formacie zalecanym przez HMRC oraz zeznanie podatkowe firmy (CT600). Mogliby pozwolić małej firmie zakończyć rok w jednym miejscu. <strong>Ta aplikacja nie może dzisiaj przesłać żadnego z nich i nie obiecujemy, że tak się stanie.</strong> Zależy to od opinii księgowego, uznania przez HMRC oprogramowania do zeznań podatkowych firmy, pozytywnego przejścia testów przez HMRC oraz od wymagań Companies House.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Użytkownicy Linuksa: zalecane standardowe jądro</h2>
 <p>Chameleon Accounting MTD jest budowane i testowane na standardowym jądrze podczas każdej większej instalacji dystrybucji Linuksa. Na pełnym <strong>w czasie rzeczywistym</strong> jądro (<code>PREEMPT_RT</code>, często nazywany <code>-rt</code>) zaobserwowaliśmy zawieszanie się i awarię systemu w kodzie blokującym jądro w czasie rzeczywistym podczas uruchamiania oprogramowania Dart i Flutter; standardowe jądro tej samej wersji było stabilne. Jeśli używasz jądra czasu rzeczywistego i widzisz zawieszanie się, przełącz się na standardowe jądro swojej dystrybucji (w celu uzyskania małych opóźnień jego <code>preempt=full</code> opcja rozruchu jest bezpieczniejszym wyborem). <code>uname -v</code> widać <code>PREEMPT_RT</code> na jądrze czasu rzeczywistego. Nie ma to nic wspólnego z szyfrowaniem aplikacji.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Źródła</h2>
+<p>Z czym sprawdzono przepisy podatkowe i te zmiany, przeczytaj w listopadzie 2026 r</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Ustawa o spółkach z 2006 r., art. 443: obliczanie okresu składania sprawozdań finansowych</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Ustawa o spółkach z 2006 r., sekcja 444: składanie wniosków przez małe firmy</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Ustawa o spółkach z 2006 r., sekcja 475: oświadczenia o zwolnieniu z audytu</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Przepisy dotyczące małych spółek i grup (rachunki i sprawozdania zarządu) z 2008 r., załącznik 1: formaty</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Ustawa finansowa 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: Życie firmy, wymagania roczne</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: składanie kont Companies House, w tym zmian i dat</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Rachunki dla mikropodmiotów, małych i nieaktywnych firm</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Stawki i ulgi w zakresie podatku dochodowego od osób prawnych</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Obniżenie podstawowej stawki odpisów aktualizacyjnych</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: specyfikacje techniczne CT600 (artefakty RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: specyfikacje techniczne XBRL i iXBRL, w tym format obliczeń CT</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Taksonomie akceptowane przez HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: Ogólna specyfikacja IRmark, wersja 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: silnik transakcyjny, protokół przesyłania dokumentów (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Rada ds. Sprawozdawczości Finansowej: Pakiet Taksonomii 2026</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Często zadawane pytania dotyczące rachunków mikropodmiotów</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: Od kwietnia 2025 r. w Wielkiej Brytanii wzrosną progi wielkości przedsiębiorstw</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: Terminy płatności podatku dochodowego od osób prawnych</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

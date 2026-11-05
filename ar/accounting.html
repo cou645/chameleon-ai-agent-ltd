@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — تطبيق سطح المكتب، في دفاتر شركة جديدة</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — شاشة إدخال جديدة مع خطوط الخصم والائتمان ورمز ضريبة القيمة المضافة على كل سطر" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">دخول جديد</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — شاشة الفواتير مع الفواتير وعروض الأسعار، قبل إصدارها" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">الفواتير</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — شاشة الوكيل، التي تسأل الذكاء الاصطناعي الخاص بك عن دفتر الأستاذ باستخدام أدوات للقراءة فقط" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">عامل</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD - شاشة الإعدادات مع الفترة المحاسبية وتفاصيل الاتصال ومفتاح الشركات والنسخ الاحتياطي" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">إعدادات</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — شاشة دفتر الأستاذ مع مربع بحث ومرشح للحساب" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">دفتر الأستاذ</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — شاشة إدخال جديدة: رمز الحساب والخصم والائتمان وضريبة القيمة المضافة على كل سطر، ويتم نشره فقط عندما تساوي الأرصدة المدينة الأرصدة" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">دخول جديد</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD - شاشة التقارير مع علامات تبويب الربح والخسارة والميزانية العمومية وضريبة القيمة المضافة والمراجعة للفترة المختارة" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">التقارير</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← العودة إلى النظرة العامة</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>كيف تم بناؤه واختباره</h2>
+<p>يجب أن تكون البرامج الضريبية صحيحة، لذا فإن معظم العمل يتمحور حول إثبات ذلك</p>
+</div>
+<p>تمت كتابة Chameleon Accounting MTD بلغة Dart وFlutter، بحيث يمكن تشغيل قاعدة تعليمات برمجية واحدة على Linux وWindows وmacOS وAndroid وiOS. يصممها ماركوس ويقرر ما يجب عليه فعله؛ تتم كتابة الكود بواسطة الذكاء الاصطناعي تحت هذا الاتجاه. لا يتم أخذ أي شيء على محمل الثقة: يتم إجراء أكثر من 500 اختبار آلي مقابل كل تغيير. تزرع بعض الشيكات خطأً متعمدًا لإثبات أن الشيكات يمكن أن تفشل بالفعل. لم يقم المحاسب بمراجعة القواعد الضريبية بعد، وسيحدث ذلك قبل الإصدار.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. كل يوم ضد صندوق الإيرادات والجمارك البريطانية</h3>
+<p>تدير إدارة الإيرادات والجمارك البريطانية (HMRC) نسخة تجريبية من خدمة ضريبة القيمة المضافة الخاصة بها لمطوري البرامج، والتي تسمى صندوق الحماية (sandbox). منذ 29 سبتمبر 2026، تم ربط التطبيق به تلقائيًا، حتى ثلاث مرات يوميًا، للتحقق من مكالمات ضريبة القيمة المضافة وتفاصيل منع الاحتيال التي تطلبها إدارة الإيرادات والجمارك البريطانية مع كل مكالمة. بحلول 4 نوفمبر 2026، كان ذلك 124 جولة، منها 108 تمريرة، مع تمريرة واحدة على الأقل في كل يوم من الأيام الـ 37. لقد تقدمنا ​​بطلب إلى HMRC للحصول على إذن لاستخدام الخدمة المباشرة وننتظر قرارها. يقوم صندوق الحماية باختبار برنامجنا، وليس سجلاتك الضريبية الحقيقية.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. سنة ضريبية في يوم واحد</h3>
+<p>لا يمكن لصندوق الحماية إظهار ما يحدث على مدار عام كامل، لذلك قمنا ببناء جهاز محاكاة خاص بنا. تدير الساعة المزيفة شركة مصطنعة طوال عامها، مع وجود بدائل لـ HMRC وCompanies House ومحاسب، بينما يقوم الكود الحقيقي للتطبيق بالعمل. يعمل مفتاح الإجابة المنفصل، الذي لا يشارك أي رمز مع التطبيق، على تحديد الشكل الذي يجب أن يكون عليه كل رقم. انطلق بسرعة، فالعام يستغرق ثوانٍ. يمكنك أيضًا مشاهدة التطبيق الحقيقي وهو يعمل بسرعة 365 ضعف السرعة العادية: سنة في يوم، تحت لافتة حمراء تقول إنه ليس حقيقيًا.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>ما يغطيه جهاز المحاكاة</h3>
+<p>أنواع مختلفة من الأعمال: الأرباح الصغيرة، والإغاثة الهامشية، والخسارة، والمحاسبة النقدية، ونظام المعدل الثابت، ونهاية السنة التي لا تتطابق مع أرباع ضريبة القيمة المضافة، والمدير الذي لا يسدد القرض، والشركة التي تتجاوز حد ضريبة القيمة المضافة، والتاجر الوحيد. كما أنه يوضح الأخطاء التي تحدث: أخطاء مسك الدفاتر المزروعة، وتعطل إدارة الإيرادات والجمارك البريطانية، وتأخر المحاسب في الرد أو المغادرة أثناء المراجعة، وتغيير نهاية العام للشركة.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>ما وجدته</h3>
+<p>الأخطاء الحقيقية، تم إصلاح جميعها الآن. توقفت الميزانية العمومية عن التوازن بعد 31 ديسمبر. الشيك الذي يعبر ربعين يقلب الشيك البنكي. تجاهلت ضريبة الشركات ضريبة القيمة المضافة التي تم الاحتفاظ بها بموجب نظام المعدل الثابت. لم يظهر التحذير بشأن حد ضريبة القيمة المضافة أبدًا للشركات التي تحتاج إليه. اختفى تذكير الإقرار الضريبي قبل ثلاثة أشهر من موعد استحقاق الإقرار الضريبي. كان العد التنازلي يومًا قصيرًا عبر تغيير ساعة الربيع. العثور على هذه كان السبب في بنائه.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>تم فحصها ضد القواعد الرسمية</h3>
+<p>عندما يتم نشر القواعد الرسمية، فإننا نختبرها مباشرة. يتم فحص مسودة الإقرارات الضريبية للشركة دون الاتصال بالإنترنت وفقًا للهيكل المنشور وقواعد العمل الخاصة بـ HMRC. يتم فحص الحسابات المسودة وحسابات الضرائب مقابل قوائم العلامات الرسمية باستخدام Arelle، وهي أداة فحص مجانية ومستقلة. يمكن لجهاز المحاكاة أن يثبت فقط ما نؤمن به بشأن الخدمة، لذا فإن هذا ليس بديلاً عن خدمات الاختبار الخاصة بإدارة الإيرادات والجمارك البريطانية، والتي لم تطلع على هذه المستندات بعد.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. التالي، ربما: الحسابات القانونية</h3>
+<p>لدينا مسودات عمل، لم يتم إصدارها بعد، للحسابات السنوية التي يجب على الكيان الصغير (FRS 105) أو الشركة الصغيرة (FRS 102 القسم 1A) إعدادها، وحساب الضريبة في التخطيط المحدد من قبل إدارة الإيرادات والجمارك البريطانية، والإقرار الضريبي للشركة (CT600). يمكنهم السماح لشركة صغيرة بإنهاء عامها في مكان واحد. <strong>لا يمكن لهذا التطبيق تقديم أي منها اليوم، ونحن لا نتعهد بذلك.</strong> ويعتمد ذلك على مراجعة المحاسب، وعلى اعتراف إدارة الإيرادات والجمارك البريطانية ببرنامج إقرارات ضرائب الشركات، وعلى اجتياز خدمات اختبار إدارة الإيرادات والجمارك البريطانية، وعلى متطلبات دار الشركات الخاصة.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>مستخدمو Linux: يوصى باستخدام kernel القياسي</h2>
 <p>تم تصميم Chameleon Accounting MTD واختباره على النواة القياسية التي يتم تثبيتها في كل توزيعة Linux رئيسية. على كامل <strong>في الوقت الحالى</strong> النواة (<code>PREEMPT_RT</code>، غالبا ما يسمى <code>-rt</code>) لقد رأينا النظام يتجمد ويتعطل في رمز القفل في الوقت الفعلي للنواة أثناء تشغيل برنامج Dart وFlutter؛ كانت النواة القياسية لنفس الإصدار مستقرة. إذا كنت تستخدم نواة في الوقت الفعلي ولاحظت تجميدًا، فانتقل إلى النواة القياسية لتوزيعك (لزمن الاستجابة المنخفض، <code>preempt=full</code> يعد خيار التمهيد خيارًا أكثر أمانًا). <code>uname -v</code> يظهر <code>PREEMPT_RT</code> على نواة في الوقت الحقيقي. هذا ليس له علاقة بتشفير التطبيق.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>مصادر</h2>
+<p>ما تم التحقق من القواعد الضريبية وهذه التطورات، اقرأ في نوفمبر 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">قانون الشركات لعام 2006، القسم 443: حساب فترة تقديم الحسابات</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">قانون الشركات لعام 2006، القسم 444: التسجيل من قبل الشركات الصغيرة</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">قانون الشركات لعام 2006، القسم 475: بيانات الإعفاء من التدقيق</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">لوائح الشركات والمجموعات الصغيرة (الحسابات وتقرير مجلس الإدارة) لعام 2008، الجدول 1: التنسيقات</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">قانون المالية 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">بيت الشركات: حياة الشركة، المتطلبات السنوية</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">دار الشركات: تقديم حسابات دار الشركات الخاصة بك، بما في ذلك التغييرات والتواريخ</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: حسابات الكيانات متناهية الصغر والشركات الصغيرة والخاملة</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: معدلات ضريبة الشركات والبدلات</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: تخفيض المعدل الرئيسي لشطب البدلات</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: المواصفات الفنية لـ CT600 (مصنوعات RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: المواصفات الفنية لـ XBRL وiXBRL، بما في ذلك تنسيق حسابات CT</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: التصنيفات المقبولة من قبل HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: مواصفات IRmark العامة، الإصدار 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: محرك المعاملات، بروتوكول تقديم المستندات (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">مجلس التقارير المالية: مجموعة التصنيف 2026</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: الأسئلة الشائعة حول حسابات الكيانات الصغيرة</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">معهد المحاسبين القانونيين ICAEW: زيادة الحدود القصوى لحجم الشركة في المملكة المتحدة اعتبارًا من أبريل 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: المواعيد النهائية لدفع ضريبة الشركات</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

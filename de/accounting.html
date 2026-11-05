@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD – die Desktop-App für die Bücher eines neuen Unternehmens</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD – Neuer Eingabebildschirm mit Soll- und Habenzeilen und einem Mehrwertsteuercode in jeder Zeile" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Neuer Eintrag</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD – Rechnungsbildschirm mit Rechnungen und Angeboten, bevor diese ausgestellt werden" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Rechnungen</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD – Agentenbildschirm, der Ihre eigene KI mithilfe schreibgeschützter Tools nach dem Hauptbuch fragt" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Agent</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD – Einstellungsbildschirm mit Abrechnungszeitraum, Kontaktdaten, Firmenschlüssel und Backup" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Einstellungen</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD – Hauptbuchbildschirm mit einem Suchfeld und einem Kontofilter" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Hauptbuch</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD – Neuer Eingabebildschirm: Konto-, Soll-, Haben- und MwSt.-Code in jeder Zeile, nur gebucht, wenn Belastungen gleich Gutschriften sind" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Neuer Eintrag</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD – Berichtsbildschirm mit den Registerkarten Gewinn und Verlust, Bilanz, Mehrwertsteuer und Überprüfung für den ausgewählten Zeitraum" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Berichte</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Zurück zur Übersicht</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Wie es gebaut und getestet wird</h2>
+<p>Steuersoftware muss stimmen, daher wird die meiste Arbeit darauf verwendet, dies zu beweisen</p>
+</div>
+<p>Chameleon Accounting MTD ist in Dart und Flutter geschrieben, sodass eine Codebasis auf Linux, Windows, macOS, Android und iOS ausgeführt werden kann. Marcos entwirft es und entscheidet, was es tun soll; Der Code wird von der KI unter dieser Anleitung geschrieben. Nichts wird auf Vertrauen gesetzt: Für jede Änderung werden mehr als 500 automatisierte Tests durchgeführt. Bei manchen Prüfungen wird ein absichtlicher Fehler eingebaut, um zu beweisen, dass die Prüfungen tatsächlich fehlschlagen können. Ein Buchhalter hat die Steuervorschriften noch nicht überprüft, und das wird vor der Veröffentlichung geschehen.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Jeden Tag gegen die Sandbox der HMRC</h3>
+<p>HMRC betreibt eine Übungskopie seines Mehrwertsteuerdienstes für Softwareentwickler, die sogenannte Sandbox. Seit dem 29. September 2026 stellt die App automatisch bis zu dreimal täglich eine Verbindung her, um ihre Mehrwertsteueranrufe und die von der HMRC bei jedem Anruf benötigten Angaben zur Betrugsprävention zu überprüfen. Bis zum 4. November 2026 waren es 124 Läufe, von denen 108 bestanden wurden, wobei an jedem der 37 Tage mindestens ein Durchgang stattfand. Wir haben beim HMRC die Erlaubnis zur Nutzung des Live-Dienstes beantragt und warten auf die Entscheidung. Die Sandbox testet unsere Software, nicht Ihre echten Steuerunterlagen.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Ein Steuerjahr an einem Tag</h3>
+<p>Eine Sandbox kann nicht zeigen, was über ein ganzes Jahr hinweg passiert, deshalb haben wir unseren eigenen Simulator gebaut. Eine gefälschte Uhr leitet das ganze Jahr über ein erfundenes Unternehmen mit Stellvertretern für HMRC, Companies House und einem Buchhalter, während der echte Code der App die Arbeit erledigt. Ein separater Antwortschlüssel, der keinen Code mit der App teilt, ermittelt, wie jede Zahl aussehen sollte. Vollgas geben, ein Jahr dauert Sekunden. Sie können auch zusehen, wie die echte App mit 365-facher Geschwindigkeit läuft: ein Jahr am Tag, unter einem roten Banner, das darauf hinweist, dass es sich nicht um eine echte App handelt.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Was der Simulator abdeckt</h3>
+<p>Verschiedene Arten von Unternehmen: kleine Gewinne, geringfügige Entlastung, ein Verlust, Kassenbuchhaltung, das Flatrate-System, ein Jahresende, das nicht mit den Mehrwertsteuerquartalen übereinstimmt, ein Geschäftsführer, der einen Kredit nicht zurückzahlt, ein Unternehmen, das die Mehrwertsteuergrenze überschreitet, und ein Einzelunternehmer. Es zeigt auch, was schief geht: eingepflanzte Buchhaltungsfehler, Ausfall der HMRC, ein Buchhalter, der zu spät antwortet oder während einer Überprüfung abreist, und die Änderung des Jahresabschlusses eines Unternehmens.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Was es gefunden hat</h3>
+<p>Echte Fehler, alle jetzt behoben. Eine Bilanz wurde nach dem 31. Dezember nicht mehr ausgeglichen. Ein Scheck, der zwei Viertel übersteigt, bringt den Bankscheck durcheinander. Die Körperschaftssteuer ignorierte die im Rahmen der Pauschalsatzregelung einbehaltene Mehrwertsteuer. Die Warnung vor der Mehrwertsteuergrenze erschien nie für die Unternehmen, die sie brauchten. Eine Steuererklärungserinnerung verschwand drei Monate vor Fälligkeit der Steuererklärung. Die Countdowns zur Zeitumstellung im Frühling dauerten nur einen Tag. Diese zu finden war der Grund für den Bau.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Geprüft anhand der offiziellen Regeln</h3>
+<p>Wo offizielle Regeln veröffentlicht werden, testen wir direkt anhand dieser. Entwürfe von Unternehmenssteuererklärungen werden offline anhand der von der HMRC veröffentlichten Struktur und Geschäftsregeln überprüft. Rechnungsentwürfe und Steuerberechnungen werden mithilfe von Arelle, einem kostenlosen, unabhängigen Prüftool, mit den offiziellen Tag-Listen abgeglichen. Ein Simulator kann nur beweisen, was wir über einen Dienst glauben, daher ist dies kein Ersatz für die eigenen Testdienste der HMRC, die diese Dokumente noch nicht gesehen haben.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Als nächstes kommt möglicherweise: die gesetzliche Jahresrechnung</h3>
+<p>Wir verfügen über Arbeitsentwürfe, die noch nicht veröffentlicht wurden, für den Jahresabschluss, den ein Kleinstunternehmen (FRS 105) oder ein Kleinunternehmen (FRS 102 Abschnitt 1A) erstellen muss, eine Steuerberechnung im vorgeschriebenen Layout der HMRC und eine Unternehmenssteuererklärung (CT600). Sie könnten ein kleines Unternehmen seinen Jahresabschluss an einem Ort machen lassen. <strong>Diese App kann heute keine davon einreichen, und wir geben keine Zusicherung, dass dies der Fall sein wird.</strong> Dies hängt von der Prüfung durch einen Buchhalter, von der Anerkennung der Software für Unternehmenssteuererklärungen durch das HMRC, vom Bestehen der Testdienste des HMRC und von den eigenen Anforderungen des Companies House ab.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Linux-Benutzer: Standardkernel empfohlen</h2>
 <p>Chameleon Accounting MTD wird auf dem Standardkernel erstellt und getestet, den jede größere Linux-Distribution installiert. Auf einem vollen <strong>Echtzeit</strong> Kernel (<code>PREEMPT_RT</code>, oft genannt <code>-rt</code>) haben wir gesehen, dass das System beim Ausführen der Dart- und Flutter-Software im Echtzeit-Sperrcode des Kernels einfriert und abstürzt; Der Standardkernel derselben Version war stabil. Wenn Sie einen Echtzeit-Kernel verwenden und Abstürze feststellen, wechseln Sie zum Standard-Kernel Ihrer Distribution (für eine geringe Latenz). <code>preempt=full</code> Die Boot-Option ist eine sicherere Wahl). <code>uname -v</code> zeigt <code>PREEMPT_RT</code> auf einem Echtzeitkernel. Dies hat nichts mit der Verschlüsselung der App zu tun.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Quellen</h2>
+<p>Womit die Steuerregeln und diese Entwicklungen überprüft wurden, lesen Sie im November 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Companies Act 2006, Abschnitt 443: Berechnung des Zeitraums für die Einreichung von Konten</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Companies Act 2006, Abschnitt 444: Einreichung durch kleine Unternehmen</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Companies Act 2006, Abschnitt 475: Erklärungen zur Prüfungsausnahme</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Die Small Companies and Groups (Accounts and Directors' Report) Regulations 2008, Anhang 1: Formate</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Finanzgesetz 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Firmenhaus: Lebenslauf eines Unternehmens, Jahresbedarf</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: Einreichung Ihrer Companies House-Konten, einschließlich Änderungen und Daten</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Konten für Kleinstunternehmen, kleine und ruhende Unternehmen</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Körperschaftssteuersätze und Freibeträge</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Senkung des Hauptsatzes für die Abschreibung von Wertberichtigungen</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: Technische Spezifikationen des CT600 (RIM-Artefakte)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: Technische Spezifikationen für XBRL und iXBRL, einschließlich des CT-Berechnungsformats</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Von der HMRC akzeptierte Taxonomien</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: Generische IRmark-Spezifikation, Version 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: Transaction Engine, Document Submission Protocol (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Financial Reporting Council: Taxonomie-Suite 2026</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Häufig gestellte Fragen zu Konten von Kleinstunternehmen</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: Die Schwellenwerte für die Unternehmensgröße im Vereinigten Königreich werden ab April 2025 erhöht</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: Zahlungsfristen für die Körperschaftssteuer</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

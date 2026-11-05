@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — 새 회사 장부를 연 데스크톱 앱</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 차변 및 신용 라인과 각 라인에 VAT 코드가 포함된 새로운 입력 화면" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">신규 항목</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 발행 전 송장 및 견적이 포함된 송장 화면" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">송장</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 읽기 전용 도구를 사용하여 원장에 대해 자신의 AI에 질문하는 에이전트 화면" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">대리인</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD - 회계 기간, 연락처 세부 정보, 회사 키 및 백업이 포함된 설정 화면" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">설정</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 검색 상자와 계정 필터가 있는 원장 화면" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">원장</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 새로운 입력 화면: 각 라인의 계정, 차변, 대변 및 VAT 코드(차변과 대변이 동일한 경우에만 게시됨)" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">신규 항목</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 선택한 기간에 대한 손익, 대차대조표, VAT 및 검토 탭이 있는 보고서 화면" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">보고서</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← 개요로 돌아가기</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>구축 및 테스트 방법</h2>
+<p>세금 소프트웨어는 정확해야 하므로 대부분의 작업은 이를 증명하는 데 사용됩니다.</p>
+</div>
+<p>Chameleon Accounting MTD는 Dart 및 Flutter로 작성되었으므로 하나의 코드 베이스가 Linux, Windows, macOS, Android 및 iOS에서 실행될 수 있습니다. Marcos는 그것을 디자인하고 무엇을 해야 할지 결정합니다. 코드는 해당 지시에 따라 AI에 의해 작성됩니다. 신뢰에 대해서는 아무 것도 취하지 않습니다. 각 변경 사항에 대해 500개 이상의 자동화된 테스트가 실행됩니다. 일부 검사에서는 검사가 실제로 실패할 수 있음을 증명하기 위해 의도적인 오류를 심습니다. 회계사는 아직 세금 규정을 검토하지 않았으며 이는 석방되기 전에 일어날 것입니다.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. HMRC 샌드박스를 상대로 매일매일</h3>
+<p>HMRC는 샌드박스라고 하는 소프트웨어 개발자를 위한 VAT 서비스의 실습 사본을 실행합니다. 2026년 9월 29일부터 앱은 하루에 최대 3번 자동으로 연결되어 VAT 통화 및 HMRC가 통화할 때마다 요구하는 사기 예방 세부정보를 확인합니다. 2026년 11월 4일까지 124번의 실행이 있었고 그 중 108번이 통과되었으며 37일마다 최소 한 번의 통과가 이루어졌습니다. 우리는 HMRC에 라이브 서비스 사용 허가를 신청했으며 결정을 기다리고 있습니다. 샌드박스는 실제 세금 기록이 아닌 소프트웨어를 테스트합니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. 하루에 과세 연도</h3>
+<p>샌드박스는 1년 동안 무슨 일이 일어나는지 보여줄 수 없기 때문에 우리는 자체 시뮬레이터를 만들었습니다. 가짜 시계는 HMRC, Companies House 및 회계사를 대신하여 가상의 회사를 일년 내내 운영하며 앱의 실제 코드가 작업을 수행합니다. 앱과 코드를 공유하지 않는 별도의 답안을 통해 모든 수치가 무엇인지 알아낼 수 있습니다. 1년이 몇 초밖에 걸리지 않습니다. 또한 실제 앱이 실제가 아니라는 빨간색 배너 아래에서 1년에 365배의 일반 속도로 실행되는 것을 볼 수도 있습니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>시뮬레이터에서 다루는 내용</h3>
+<p>다양한 종류의 사업: 소액 이익, 한계 구제, 손실, 현금 회계, 정액 요금제, VAT 분기와 일치하지 않는 연말, 대출금을 상환하지 않는 이사, VAT 한도를 초과하는 회사 및 개인 사업자. 또한 잘못된 장부 관리 실수, HMRC 다운, 회계사가 늦게 답변하거나 검토 중에 떠나는 것, 회사의 연말 변경 등 무엇이 잘못되었는지도 보여줍니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>그것이 발견한 것</h3>
+<p>실제 버그가 모두 수정되었습니다. 12월 31일 이후 대차대조표의 균형이 중단되었습니다. 2개 분기를 가로지르는 수표가 은행 수표를 뒤엎었습니다. 법인세는 정액요금제에 따라 유지되는 부가가치세(VAT)를 무시합니다. VAT 한도에 대한 경고는 이를 필요로 하는 기업에 나타나지 않았습니다. 세금 신고 알림은 세금 신고 기한 3개월 전에 사라졌습니다. 봄 시계 변경으로 인해 카운트다운이 하루 부족했습니다. 이것을 발견한 것이 이 건물을 지은 이유였습니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>공식 규정에 따라 확인됨</h3>
+<p>공식 규칙이 게시되면 우리는 이를 직접 테스트합니다. 회사 세금 신고서 초안은 HMRC가 자체적으로 게시한 구조 및 비즈니스 규칙에 따라 오프라인으로 확인됩니다. 무료 독립 확인 도구인 Arelle을 사용하여 초안 계정 및 세금 계산을 공식 태그 목록과 비교하여 확인합니다. 시뮬레이터는 서비스에 대한 우리의 믿음만을 증명할 수 있으므로 아직 해당 문서를 보지 못한 HMRC의 자체 테스트 서비스를 대체할 수는 없습니다.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. 다음은 잠재적으로 법정 계정입니다.</h3>
+<p>우리는 아직 릴리스되지 않은 소규모 기업(FRS 105) 또는 소규모 회사(FRS 102 섹션 1A)가 준비해야 하는 연간 계정의 작업 초안, HMRC가 규정한 레이아웃에 따른 세금 계산 및 회사 세금 신고서(CT600)를 보유하고 있습니다. 소규모 회사의 연말을 한 곳에서 처리할 수 있습니다. <strong>이 앱은 현재 그 어떤 것도 제출할 수 없으며, 그렇게 될 것이라는 약속도 하지 않습니다.</strong> 이는 회계사의 검토, 회사 세금 신고용 소프트웨어를 인정하는 HMRC, HMRC의 테스트 서비스 통과 및 Companies House의 자체 요구 사항에 따라 달라집니다.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Linux 사용자: 표준 커널 권장</h2>
 <p>Chameleon Accounting MTD는 모든 주요 Linux 배포판 설치 시 표준 커널에서 구축 및 테스트되었습니다. 가득 차서 <strong>실시간</strong> 커널(<code>PREEMPT_RT</code>, 종종 명명됨 <code>-rt</code>) Dart 및 Flutter 소프트웨어를 실행하는 동안 커널의 실시간 잠금 코드에서 시스템이 정지되고 충돌하는 것을 확인했습니다. 동일한 버전의 표준 커널은 안정적이었습니다. 실시간 커널을 사용하고 정지되는 경우 배포판의 표준 커널로 전환하십시오(낮은 대기 시간을 위해 <code>preempt=full</code> 부팅 옵션이 더 안전한 선택입니다.) <code>uname -v</code> 쇼 <code>PREEMPT_RT</code> 실시간 커널에서. 이는 앱의 암호화와는 아무런 관련이 없습니다.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>출처</h2>
+<p>세금 규정과 이러한 개발 내용을 비교하여 확인한 내용은 2026년 11월에 읽음</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">회사법 2006, 섹션 443: 계정 제출 기간 계산</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">회사법 2006, 444항: 소규모 회사에 의한 신고</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">회사법 2006, 475항: 감사 면제 조항</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">소규모 회사 및 그룹(회계 및 이사 보고서) 규정 2008, 일정 1: 형식</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">2026년 재정법</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">회사 하우스: 회사의 수명, 연간 요구 사항</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: 변경 사항 및 날짜를 ​​포함하여 Companies House 계정 제출</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: 소규모 기업, 중소기업 및 휴면 기업을 위한 계정</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: 법인세율 및 수당</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: 수당 상각 비율 인하</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: CT600 기술 사양(RIM 가공물)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: CT 계산 형식을 포함한 XBRL 및 iXBRL 기술 사양</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: HMRC에서 허용하는 분류법</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: 일반 IRmark 사양, 버전 1.2(PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: 거래 엔진, 문서 제출 프로토콜(PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">재무보고위원회: 2026년 분류법 모음</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: 소기업 계정 FAQ</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: 영국 회사 규모 기준은 2025년 4월부터 증가합니다.</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: 법인세 납부 기한</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

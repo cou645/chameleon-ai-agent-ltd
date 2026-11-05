@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — aplicația desktop, pe cărțile unei noi companii</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Nou ecran de intrare cu linii de debit și credit și un cod de TVA pe fiecare linie" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Noua intrare</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Ecran Facturi cu facturi și cotații, înainte ca acestea să fie emise" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Facturi</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Ecran de agent, care vă întreabă propria IA despre registru folosind instrumente numai pentru citire" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Agent</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Ecran de setări cu perioada contabilă, detalii de contact, cheia Companies House și backup" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Setări</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Ecran registru cu o casetă de căutare și un filtru de cont" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Registrul mare</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Nou ecran de introducere: cont, debit, credit și cod de TVA pe fiecare rând, afișat numai atunci când debitele sunt egale cu credite" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Noua intrare</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Ecran Rapoarte cu filele Profit și pierdere, Bilanț, TVA și Revizuire pentru perioada aleasă" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Rapoarte</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Înapoi la prezentare generală</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Cum este construit și testat</h2>
+<p>Software-ul fiscal trebuie să fie corect, așa că cea mai mare parte a muncii este îndreptată spre dovedirea acestuia</p>
+</div>
+<p>Chameleon Accounting MTD este scris în Dart și Flutter, astfel încât o bază de cod poate rula pe Linux, Windows, macOS, Android și iOS. Marcos îl proiectează și decide ce trebuie să facă; codul este scris de AI sub acea direcție. Nimic nu este luat de încredere: peste 500 de teste automate sunt executate pentru fiecare modificare. Unele dintre verificări generează o eroare deliberată pentru a demonstra că verificările pot eșua într-adevăr. Un contabil nu a revizuit încă regulile fiscale și asta se va întâmpla înainte de eliberare.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. În fiecare zi împotriva sandbox-ului HMRC</h3>
+<p>HMRC rulează o copie practică a serviciului său de TVA pentru dezvoltatorii de software, numită sandbox. Din 29 septembrie 2026, aplicația s-a conectat automat la aceasta, de până la trei ori pe zi, pentru a-și verifica apelurile TVA și detaliile de prevenire a fraudei pe care HMRC le solicită la fiecare apel. Până la 4 noiembrie 2026, acestea erau 124 de curse, dintre care 108 au trecut, cu cel puțin o trecere în fiecare dintre cele 37 de zile. Am solicitat HMRC permisiunea de a folosi serviciul live și așteptăm decizia acestuia. Sandbox-ul testează software-ul nostru, nu evidențele fiscale reale.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Un an fiscal într-o zi</h3>
+<p>Un sandbox nu poate arăta ce se întâmplă pe parcursul unui an întreg, așa că ne-am construit propriul simulator. Un ceas fals conduce o companie inventată de-a lungul anului, cu înlocuitori pentru HMRC, Companies House și un contabil, în timp ce codul real al aplicației face treaba. O cheie de răspuns separată, care nu partajează niciun cod cu aplicația, stabilește care ar trebui să fie fiecare cifră. Rămâneți complet, un an durează secunde. De asemenea, puteți urmări aplicația reală rulând cu o viteză de 365 de ori normală: un an într-o zi, sub un banner roșu care spune că nu este reală.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Ce acoperă simulatorul</h3>
+<p>Diferite genuri de afaceri: profituri mici, scutiri marginale, o pierdere, contabilitate de numerar, Schema de rate forfetare, un sfârșit de an care nu se potrivește cu trimestrele de TVA, un director care nu rambursează un împrumut, o companie care depășește limita TVA și un comerciant unic. De asemenea, dezvăluie ce nu merge bine: greșeli de contabilitate plantate, HMRC căzut, un contabil care răspunde cu întârziere sau pleacă în timpul unei revizuiri și schimbarea sfârșitului de an al unei companii.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Ce a găsit</h3>
+<p>Bug-uri reale, toate acum remediate. Un bilanţ a încetat să se echilibreze după 31 decembrie. Un cec care a trecut de două sferturi a supărat cecul bancar. Impozitul pe societăți a ignorat TVA-ul păstrat în cadrul schemei de rate forfetare. Avertismentul despre limita TVA nu a apărut niciodată pentru afacerile care aveau nevoie de ea. Un memento privind declarația fiscală a dispărut cu trei luni înainte ca returnarea să fie dată. Numărătoarea inversă a fost scurtă cu o zi la schimbarea ceasului de primăvară. Găsirea acestora a fost motivul pentru a-l construi.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Verificat conform regulilor oficiale</h3>
+<p>Acolo unde sunt publicate reguli oficiale, testăm direct împotriva lor. Proiectele de declarații fiscale ale companiei sunt verificate offline în raport cu structura și regulile comerciale publicate de HMRC. Conturile nefinalizate și calculele fiscale sunt verificate cu listele oficiale de etichete folosind Arelle, un instrument de verificare gratuit și independent. Un simulator poate dovedi doar ceea ce credem noi despre un serviciu, așa că acesta nu înlocuiește propriile servicii de testare ale HMRC, care nu au văzut încă aceste documente.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Urmează, potențial: conturile statutare</h3>
+<p>Avem proiecte de lucru, care nu sunt încă în nicio ediție, ale conturilor anuale pe care o micro-entitate (FRS 105) sau o companie mică (FRS 102 Secțiunea 1A) trebuie să pregătească, un calcul al impozitului în formatul prescris de HMRC și o declarație de impozit pe companie (CT600). Ar putea lăsa o companie mică să-și facă sfârșitul de an într-un singur loc. <strong>Această aplicație nu poate depune niciunul dintre ele astăzi și nu promitem că o va face.</strong> Asta depinde de evaluarea unui contabil, de recunoașterea HMRC a software-ului pentru declarațiile fiscale ale companiei, de promovarea serviciilor de testare ale HMRC și de cerințele proprii ale Companies House.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Utilizatori Linux: se recomandă nucleul standard</h2>
 <p>Chameleon Accounting MTD este construit și testat pe nucleul standard pe care se instalează fiecare distribuție Linux majoră. Pe plin <strong>în timp real</strong> nucleu (<code>PREEMPT_RT</code>, adesea numit <code>-rt</code>) am văzut că sistemul se blochează și se prăbușește în codul de blocare în timp real al nucleului în timp ce rulează software-ul Dart și Flutter; nucleul standard al aceleiași versiuni a fost stabil. Dacă utilizați un nucleu în timp real și vedeți blocări, treceți la nucleul standard al distribuției dvs. (pentru o latență scăzută, <code>preempt=full</code> opțiunea de pornire este o alegere mai sigură). <code>uname -v</code> spectacole <code>PREEMPT_RT</code> pe un nucleu în timp real. Acest lucru nu are nimic de-a face cu criptarea aplicației.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Surse</h2>
+<p>Cu ce ​​au fost verificate regulile fiscale și aceste evoluții, citit în noiembrie 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Companies Act 2006, secțiunea 443: calcularea perioadei de depunere a conturilor</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Companies Act 2006, secțiunea 444: depunerea de către companiile mici</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Companies Act 2006, secțiunea 475: declarații de scutire de audit</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Reglementările 2008 privind Companiile și Grupurile Mici (Conturi și Raportul Directorilor), Anexa 1: formate</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Legea financiară din 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: Viața unei companii, cerințe anuale</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: înregistrarea conturilor dvs. Companies House, inclusiv modificările și datele</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Conturi pentru microentități, companii mici și latente</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Cote și alocații ale impozitului pe corporații</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Reducerea ratei principale de reducere a indemnizațiilor</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: specificații tehnice CT600 (artefacte RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: specificații tehnice XBRL și iXBRL, inclusiv formatul de calcul CT</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Taxonomii acceptate de HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: specificația generică IRmark, versiunea 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: Transaction Engine, Document Submission Protocol (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Consiliul de raportare financiară: 2026 Taxonomy Suite</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Întrebări frecvente privind conturile micro-entităților</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: Pragurile pentru dimensiunea companiei din Regatul Unit cresc din aprilie 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: termenele limită de plată a impozitului pe profit</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

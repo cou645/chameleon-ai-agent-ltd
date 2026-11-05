@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — η εφαρμογή για υπολογιστές, στα βιβλία μιας νέας εταιρείας</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Νέα οθόνη εισόδου με χρεωστικές και πιστωτικές γραμμές και κωδικό ΦΠΑ σε κάθε γραμμή" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Νέα καταχώρηση</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Οθόνη τιμολογίων με τιμολόγια και προσφορές, πριν από την έκδοση" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">τιμολόγια</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Οθόνη αντιπροσώπου, η οποία ρωτά τη δική σας τεχνητή νοημοσύνη σχετικά με το καθολικό χρησιμοποιώντας εργαλεία μόνο για ανάγνωση" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Μέσο</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Οθόνη ρυθμίσεων με λογιστική περίοδο, στοιχεία επικοινωνίας, κλειδί Εταιρειών και εφεδρικό αντίγραφο" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Ρυθμίσεις</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Οθόνη Ledger με πλαίσιο αναζήτησης και φίλτρο λογαριασμού" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Καθολικό</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Νέα οθόνη καταχώρισης: κωδικός λογαριασμού, χρέωσης, πίστωσης και ΦΠΑ σε κάθε γραμμή, δημοσιεύεται μόνο όταν οι χρεώσεις ισούνται με πιστώσεις" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Νέα καταχώρηση</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Οθόνη αναφορών με καρτέλες Κέρδη και Ζημιές, Ισολογισμός, ΦΠΑ και Αναθεώρηση για την επιλεγμένη περίοδο" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Αναφορές</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Επιστροφή στην επισκόπηση</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Πώς κατασκευάζεται και δοκιμάζεται</h2>
+<p>Το φορολογικό λογισμικό πρέπει να είναι σωστό, επομένως το μεγαλύτερο μέρος της δουλειάς πηγαίνει στην απόδειξή του</p>
+</div>
+<p>Το Chameleon Accounting MTD είναι γραμμένο σε Dart και Flutter, επομένως μια βάση κώδικα μπορεί να εκτελεστεί σε Linux, Windows, macOS, Android και iOS. Ο Μάρκος το σχεδιάζει και αποφασίζει τι πρέπει να κάνει. ο κώδικας γράφεται από την AI υπό αυτή την κατεύθυνση. Τίποτα δεν λαμβάνεται υπόψη στην εμπιστοσύνη: περισσότερες από 500 αυτοματοποιημένες δοκιμές εκτελούνται σε κάθε αλλαγή. Ορισμένοι από τους ελέγχους εγκαθιστούν ένα εσκεμμένο σφάλμα για να αποδείξουν ότι οι έλεγχοι μπορεί πραγματικά να αποτύχουν. Ένας λογιστής δεν έχει ακόμη αναθεωρήσει τους φορολογικούς κανόνες και αυτό θα συμβεί πριν από την αποδέσμευση.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Κάθε μέρα ενάντια στο sandbox του HMRC</h3>
+<p>Η HMRC εκτελεί ένα αντίγραφο πρακτικής της υπηρεσίας ΦΠΑ για προγραμματιστές λογισμικού, που ονομάζεται sandbox. Από τις 29 Σεπτεμβρίου 2026, η εφαρμογή συνδέεται αυτόματα σε αυτήν, έως και τρεις φορές την ημέρα, για να ελέγχει τις κλήσεις ΦΠΑ και τα στοιχεία πρόληψης απάτης που απαιτεί η HMRC σε κάθε κλήση. Μέχρι τις 4 Νοεμβρίου 2026 ήταν 124 σειρές, εκ των οποίων οι 108 πέρασαν, με τουλάχιστον ένα πέρασμα κάθε μία από τις 37 ημέρες. Έχουμε κάνει αίτηση στο HMRC για άδεια χρήσης της ζωντανής υπηρεσίας και περιμένουμε την απόφασή του. Το sandbox ελέγχει το λογισμικό μας, όχι τα πραγματικά φορολογικά σας αρχεία.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Ένα φορολογικό έτος σε μια μέρα</h3>
+<p>Ένα sandbox δεν μπορεί να δείξει τι συμβαίνει σε έναν ολόκληρο χρόνο, έτσι δημιουργήσαμε τον δικό μας προσομοιωτή. Ένα ψεύτικο ρολόι διευθύνει μια φτιαγμένη εταιρεία καθ' όλη τη διάρκεια του έτους, με stand-in για HMRC, Companies House και έναν λογιστή, ενώ ο πραγματικός κώδικας της εφαρμογής κάνει τη δουλειά. Ένα ξεχωριστό κλειδί απάντησης, που δεν μοιράζεται κώδικα με την εφαρμογή, καθορίζει ποια πρέπει να είναι κάθε φιγούρα. Εξαντλήστε, ένας χρόνος διαρκεί δευτερόλεπτα. Μπορείτε επίσης να παρακολουθήσετε την πραγματική εφαρμογή να τρέχει με 365 φορές την κανονική ταχύτητα: ένα χρόνο σε μια μέρα, κάτω από ένα κόκκινο πανό που λέει ότι δεν είναι αληθινή.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Τι καλύπτει ο προσομοιωτής</h3>
+<p>Διαφορετικά είδη επιχειρήσεων: μικρά κέρδη, οριακή ελάφρυνση, ζημιά, λογιστική μετρητών, καθεστώς κατ' αποκοπήν συντελεστή, τέλος έτους που δεν ταιριάζει με τα τρίμηνα ΦΠΑ, διευθυντής που δεν αποπληρώνει δάνειο, εταιρεία που υπερβαίνει το όριο ΦΠΑ και ατομικός έμπορος. Αναδεικνύει επίσης τι πάει στραβά: φυτεμένα λάθη τήρησης βιβλίων, το HMRC που πέφτει εκτός λειτουργίας, ένας λογιστής που απαντά αργά ή αποχωρεί κατά τη διάρκεια μιας αξιολόγησης και αλλάζει το τέλος του έτους μιας εταιρείας.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Αυτό που έχει βρει</h3>
+<p>Πραγματικά σφάλματα, όλα τώρα διορθωμένα. Ένας ισολογισμός σταμάτησε να εξισορροπείται μετά τις 31 Δεκεμβρίου. Μια επιταγή που διέσχιζε τα δύο τέταρτα αναστάτωσε την τραπεζική επιταγή. Ο εταιρικός φόρος αγνόησε τον ΦΠΑ που διατηρείται στο πλαίσιο του καθεστώτος κατ' αποκοπή συντελεστή. Η προειδοποίηση για το όριο ΦΠΑ δεν εμφανίστηκε ποτέ για τις επιχειρήσεις που το χρειάζονταν. Μια υπενθύμιση φορολογικής δήλωσης εξαφανίστηκε τρεις μήνες πριν από την ημερομηνία λήξης της δήλωσης. Η αντίστροφη μέτρηση ήταν μια μέρα μικρή για την αλλαγή του ρολογιού της άνοιξης. Η εύρεση αυτών ήταν ο λόγος για την κατασκευή του.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Ελεγμένο σύμφωνα με τους επίσημους κανόνες</h3>
+<p>Όπου δημοσιεύονται επίσημοι κανόνες, δοκιμάζουμε απευθείας εναντίον τους. Τα προσχέδια εταιρικών φορολογικών δηλώσεων ελέγχονται εκτός σύνδεσης με βάση τη δημοσιευμένη δομή και τους επιχειρηματικούς κανόνες της HMRC. Οι πρόχειροι λογαριασμοί και οι υπολογισμοί φόρων ελέγχονται σε σχέση με τις επίσημες λίστες ετικετών χρησιμοποιώντας το Arelle, ένα δωρεάν, ανεξάρτητο εργαλείο ελέγχου. Ένας προσομοιωτής μπορεί να αποδείξει μόνο αυτό που πιστεύουμε για μια υπηρεσία, επομένως αυτό δεν υποκαθιστά τις υπηρεσίες δοκιμών της ίδιας της HMRC, οι οποίες δεν έχουν δει ακόμη αυτά τα έγγραφα.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Ακολουθούν, ενδεχομένως: νόμιμοι λογαριασμοί</h3>
+<p>Διαθέτουμε προσχέδια εργασίας, που δεν υπάρχουν ακόμη σε καμία έκδοση, των ετήσιων λογαριασμών που πρέπει να προετοιμάσει μια πολύ μικρή οντότητα (ΔΠΧΠ 105) ή μια μικρή εταιρεία (ΔΠΧΠ 102 Ενότητα 1Α), έναν φορολογικό υπολογισμό στην προβλεπόμενη διάταξη του HMRC και μια δήλωση φόρου εταιρείας (CT600). Θα μπορούσαν να αφήσουν μια μικρή εταιρεία να τελειώσει τη χρονιά της σε ένα μέρος. <strong>Αυτή η εφαρμογή δεν μπορεί να υποβάλει κανένα από αυτά σήμερα και δεν υποσχόμαστε ότι θα το κάνει.</strong> Αυτό εξαρτάται από την αναθεώρηση ενός λογιστή, από την αναγνώριση του λογισμικού για τις φορολογικές δηλώσεις εταιρείας από την HMRC, από την επιτυχία των υπηρεσιών δοκιμών της HMRC και από τις απαιτήσεις της ίδιας της εταιρείας Companies House.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Χρήστες Linux: Συνιστάται τυπικός πυρήνας</h2>
 <p>Το Chameleon Accounting MTD είναι χτισμένο και δοκιμασμένο στον τυπικό πυρήνα κάθε μεγάλης εγκατάστασης διανομής Linux. Σε πλήρη <strong>σε πραγματικό χρόνο</strong> πυρήνας (<code>PREEMPT_RT</code>, που συχνά ονομάζονται <code>-rt</code>) είδαμε το σύστημα να παγώνει και να κολλάει στον κώδικα κλειδώματος του πυρήνα σε πραγματικό χρόνο κατά την εκτέλεση του λογισμικού Dart και Flutter. ο τυπικός πυρήνας της ίδιας έκδοσης ήταν σταθερός. Εάν χρησιμοποιείτε πυρήνα σε πραγματικό χρόνο και βλέπετε παγώσεις, μεταβείτε στον τυπικό πυρήνα της διανομής σας (για χαμηλή καθυστέρηση, <code>preempt=full</code> η επιλογή εκκίνησης είναι μια ασφαλέστερη επιλογή). <code>uname -v</code> δείχνει <code>PREEMPT_RT</code> σε έναν πυρήνα σε πραγματικό χρόνο. Αυτό δεν έχει καμία σχέση με την κρυπτογράφηση της εφαρμογής.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Πηγές</h2>
+<p>Τι ελέγχθηκαν οι φορολογικοί κανόνες και αυτές οι εξελίξεις, διαβάστε τον Νοέμβριο του 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Companies Act 2006, ενότητα 443: υπολογισμός της περιόδου για την υποβολή λογαριασμών</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Companies Act 2006, ενότητα 444: υποβολή από μικρές εταιρείες</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Companies Act 2006, ενότητα 475: δηλώσεις εξαίρεσης ελέγχου</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Κανονισμοί Μικρών Εταιρειών και Ομίλων (Λογαριασμοί και Έκθεση Διευθυντών) 2008, Πρόγραμμα 1: μορφές</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Οικονομικός νόμος 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: Η ζωή μιας εταιρείας, ετήσιες απαιτήσεις</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: Αρχειοθέτηση των λογαριασμών σας Companies House, συμπεριλαμβανομένων αλλαγών και ημερομηνιών</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Λογαριασμοί για πολύ μικρές οντότητες, μικρές και αδρανείς εταιρείες</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Συντελεστές και επιδόματα εταιρικού φόρου</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Μείωση του κύριου ποσοστού διαγραφής επιδομάτων</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: Τεχνικές προδιαγραφές CT600 (τεχνουργήματα RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: Τεχνικές προδιαγραφές XBRL και iXBRL, συμπεριλαμβανομένου του CT Computations Format</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Ταξινομήσεις αποδεκτές από το HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: Γενική προδιαγραφή IRmark, έκδοση 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: Transaction Engine, Document Submission Protocol (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Συμβούλιο Οικονομικών Αναφορών: 2026 Taxonomy Suite</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Συχνές ερωτήσεις για λογαριασμούς μικροοντοτήτων</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: Τα κατώφλια μεγέθους εταιρείας του Ηνωμένου Βασιλείου αυξάνονται από τον Απρίλιο του 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: Προθεσμίες πληρωμής εταιρικού φόρου</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

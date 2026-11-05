@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — додаток для настільних комп’ютерів у книгах нової компанії</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — новий екран введення з дебетовою та кредитною лініями та кодом ПДВ у кожному рядку" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">Новий запис</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран рахунків-фактур із рахунками-фактурами та ціновими пропозиціями до їх виставлення" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Рахунки-фактури</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран агента, який запитує ваш власний ШІ про бухгалтерську книгу за допомогою інструментів лише для читання" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Агент</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран налаштувань із обліковим періодом, контактними даними, ключем компанії та резервною копією" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Налаштування</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран книги з вікном пошуку та фільтром облікових записів" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Леджер</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Новий екран введення: рахунок, дебет, кредит і код ПДВ у кожному рядку, опублікований лише тоді, коли дебети дорівнюють кредитам" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">Новий запис</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Екран звітів із вкладками «Прибутки та збитки», «Баланс», «ПДВ» і «Огляд» за вибраний період" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Звіти</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← Повернутися до огляду</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>Як це побудовано та перевірено</h2>
+<p>Податкове програмне забезпечення має бути правильним, тому більшість роботи йде на його підтвердження</p>
+</div>
+<p>Chameleon Accounting MTD написаний на Dart і Flutter, тому одна база коду може працювати на Linux, Windows, macOS, Android та iOS. Маркос проектує його та вирішує, що він повинен робити; код написаний ШІ під цим керівництвом. Нічому не довіряють: понад 500 автоматизованих тестів виконуються для кожної зміни. Деякі з перевірок створюють навмисну ​​помилку, щоб довести, що перевірки дійсно можуть бути невдалими. Бухгалтер ще не ознайомився з правилами оподаткування, і це станеться до звільнення.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Кожен день проти пісочниці HMRC</h3>
+<p>HMRC запускає практичну копію своєї служби ПДВ для розробників програмного забезпечення, яка називається «пісочниця». З 29 вересня 2026 року програма підключається до нього автоматично, до трьох разів на день, щоб перевіряти його дзвінки щодо ПДВ і деталі запобігання шахрайству, які вимагає HMRC під час кожного дзвінка. Станом на 4 листопада 2026 року це було 124 запуски, з яких 108 пройдено, принаймні по одному проходженню за кожний із 37 днів. Ми звернулися до HMRC з проханням отримати дозвіл на використання прямої служби та чекаємо на рішення. Пісочниця перевіряє наше програмне забезпечення, а не ваші справжні податкові записи.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. Податковий рік за день</h3>
+<p>Пісочниця не може показати, що відбувається протягом цілого року, тому ми створили власний симулятор. Фальшивий годинник керує вигаданою компанією протягом усього року з дублерами для HMRC, Companies House і бухгалтера, тоді як справжній код програми виконує роботу. Окремий ключ відповіді, який не використовує код для програми, визначає, якою має бути кожна цифра. Працюйте рівно, рік займає секунди. Ви також можете спостерігати, як справжня програма працює зі швидкістю, яка в 365 разів перевищує нормальну: рік за день, під червоним прапором із повідомленням, що вона несправжня.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>Що охоплює симулятор</h3>
+<p>Різні види бізнесу: невеликий прибуток, маржинальна пільга, збиток, касовий облік, схема фіксованої ставки, кінець року, який не збігається з ПДВ-кварталами, директор, який не повертає кредит, компанія перетинає ліміт ПДВ, приватний підприємець. Він також показує, що пішло не так: закладені бухгалтерські помилки, HMRC не працює, бухгалтер відповідає із запізненням або йде під час перевірки, а також зміни в компанії наприкінці року.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>Що воно знайшло</h3>
+<p>Реальні помилки, тепер усі виправлені. Після 31 грудня баланс припинив балансувати. Чек, що перетинає дві чверті, засмутив банківський чек. Корпоративний податок ігнорував ПДВ, що зберігається згідно зі схемою єдиної ставки. Попередження про ліміт ПДВ так і не з’явилося для підприємств, які цього потребували. Нагадування про податкову декларацію зникло за три місяці до терміну подання декларації. До весняного переведення годинника не вистачало зворотного відліку. Знайти це стало причиною для його будівництва.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Перевірено на офіційні правила</h3>
+<p>Там, де публікуються офіційні правила, ми перевіряємо їх безпосередньо. Проекти податкових декларацій компанії перевіряються в автономному режимі на відповідність власній опублікованій структурі та бізнес-правилам HMRC. Чорнові рахунки та розрахунки податків перевіряються за офіційними списками тегів за допомогою Arelle, безкоштовного незалежного інструменту перевірки. Симулятор може підтвердити лише те, що ми віримо щодо служби, тому це не замінить власні тестові служби HMRC, які ще не бачили цих документів.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Далі, потенційно: статутні рахунки</h3>
+<p>У нас є робочі чернетки річної звітності, яку має підготувати мікропідприємство (FRS 105) або невелика компанія (FRS 102, розділ 1A), ще немає в жодному випуску, розрахунок податку за встановленою формою HMRC та податкову декларацію компанії (CT600). Вони могли б дозволити маленькій компанії закінчити рік в одному місці. <strong>Ця програма не може подати жодного з них сьогодні, і ми не обіцяємо, що це буде.</strong> Це залежить від перевірки бухгалтера, визнання HMRC програмного забезпечення для податкових декларацій компанії, проходження тестових послуг HMRC і власних вимог Companies House.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Для користувачів Linux: рекомендовано стандартне ядро</h2>
 <p>Chameleon Accounting MTD створено та перевірено на стандартному ядрі, яке встановлюється в кожному основному дистрибутиві Linux. На повну <strong>в реальному часі</strong> ядро (<code>PREEMPT_RT</code>, часто наз <code>-rt</code>) ми спостерігали зависання системи та збій у коді блокування ядра в реальному часі під час роботи програмного забезпечення Dart і Flutter; стандартне ядро ​​тієї ж версії було стабільним. Якщо ви використовуєте ядро ​​реального часу та бачите зависання, перейдіть на стандартне ядро ​​свого дистрибутива (для низької затримки, його <code>preempt=full</code> варіант завантаження є безпечнішим вибором). <code>uname -v</code> шоу <code>PREEMPT_RT</code> на ядрі реального часу. Це не має нічого спільного з шифруванням програми.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Джерела</h2>
+<p>З чим перевіряли податкові правила та ці розробки, читайте у листопаді 2026 року</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Закон про компанії 2006 р., розділ 443: обчислення періоду для подання звітності</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Закон про компанії 2006 р., розділ 444: подання малими компаніями</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Закон про компанії 2006 р., розділ 475: заяви про звільнення від аудиту</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">Положення про невеликі компанії та групи (облікові записи та звіт директорів) 2008, Додаток 1: формати</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Закон про фінанси 2026 року</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: життя компанії, річні потреби</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: Подання ваших облікових записів Companies House, включаючи зміни та дати</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Облікові записи для мікропідприємств, малих і неактивних компаній</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: ставки податку на корпорацію та надбавки</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Зниження основної норми списання надбавок</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: технічні характеристики CT600 (артефакти RIM)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: технічні специфікації XBRL та iXBRL, включаючи формат обчислень CT</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Таксономії, прийняті HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: загальна специфікація IRmark, версія 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: Transaction Engine, Document Submission Protocol (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Рада з фінансової звітності: Таксономічний пакет 2026</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Поширені запитання про облікові записи мікросуб’єктів</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: з квітня 2025 року збільшуються порогові значення розміру компаній у Великобританії</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: терміни сплати податку на корпорацію</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — 新公司账簿上的桌面应用程序</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 新的输入屏幕，包含借方和贷方行以及每行一个增值税代码" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">新条目</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 发票屏幕，在开具任何发票和报价之前" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">发票</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 代理屏幕，它使用只读工具向您自己的 AI 询问分类帐的信息" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">代理人</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 设置屏幕，包含会计期间、联系方式、公司注册密钥和备份" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">设置</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 带有搜索框和帐户过滤器的分类帐屏幕" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">分类帐</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 新输入屏幕：每行显示帐户、借方、贷方和增值税代码，仅在借方等于贷方时发布" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">新条目</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 报告屏幕，包含选定期间的损益表、资产负债表、增值税和审核选项卡" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">报告</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← 返回概述</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>它是如何构建和测试的</h2>
+<p>税务软件必须正确，因此大部分工作都用于证明它</p>
+</div>
+<p>Chameleon Accounting MTD 是用 Dart 和 Flutter 编写的，因此一个代码库可以在 Linux、Windows、macOS、Android 和 iOS 上运行。马科斯设计它并决定它必须做什么；代码是由人工智能在该方向下编写的。一切都不是基于信任：针对每个更改都会运行 500 多个自动化测试。有些检查故意制造错误，以证明检查确实可能失败。会计师尚未审查税务规则，这将在发布之前进行。</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. 每天对抗HMRC的沙箱</h3>
+<p>英国税务海关总署为软件开发人员提供了增值税服务的练习副本，称为沙箱。自 2026 年 9 月 29 日起，该应用程序每天最多自动连接 3 次，以检查其增值税电话以及英国税务海关总署 (HMRC) 每次通话所要求的防欺诈详细信息。截至 2026 年 11 月 4 日，共有 124 次运行，其中 108 次通过，37 天中每一天至少有一次通过。我们已向英国税务海关总署申请使用实时服务的许可，正在等待其决定。沙箱测试我们的软件，而不是您的真实税务记录。</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2.一天一个纳税年度</h3>
+<p>沙盒无法显示一整年发生的情况，因此我们构建了自己的模拟器。一个假时钟全年运行着一家虚构的公司，其中有英国税务海关总署、公司注册处和一名会计师的替身，而应用程序的真实代码则负责这项工作。一个单独的答案键，不与应用程序共享代码，可以计算出每个数字应该是什么。全力以赴，一年只需几秒钟。您还可以观看真实的应用程序以正常速度 365 倍运行：一年一天，在红色横幅下表明它不是真实的。</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>模拟器涵盖的内容</h3>
+<p>不同类型的企业：小额利润、边际减免、亏损、现金会计、统一费率计划、与增值税季度不符的年终、不偿还贷款的董事、超过增值税限额的公司以及个体经营者。它还揭示了出了什么问题：人为的簿记错误、英国税务海关总署（HMRC）的倒闭、会计师在审查期间回复迟到或离开，以及公司的年终数据发生变化。</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>它发现了什么</h3>
+<p>真正的错误，现已全部修复。 12 月 31 日后，资产负债表停止平衡。一张跨越两个25美分的支票打乱了银行支票。公司税忽略了统一税率计划下保留的增值税。对于需要增值税限额的企业来说，从未出现过有关增值税限额的警告。纳税申报表提醒在纳税申报表到期前三个月消失了。春季时钟变更期间的倒计时缩短了一天。找到这些就是建造它的原因。</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>已根据官方规则进行检查</h3>
+<p>在发布官方规则的地方，我们直接对其进行测试。公司纳税申报表草案根据 HMRC 自己发布的结构和业务规则进行离线检查。使用免费、独立的检查工具 Arelle，根据官方标签列表检查草稿账户和税收计算。模拟器只能证明我们对服务的看法，因此这不能替代 HMRC 自己的测试服务，而 HMRC 自己的测试服务尚未看到这些文件。</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. 接下来可能：法定账户</h3>
+<p>我们有微型实体 (FRS 105) 或小型公司 (FRS 102 第 1A 部分) 必须准备的年度账目、HMRC 规定布局中的税务计算以及公司纳税申报表 (CT600) 的工作草案（尚未发布）。他们可以让一家小公司在一个地方进行年终总结。 <strong>该应用程序今天无法归档其中的任何内容，我们也不保证它会这样做。</strong> 这取决于会计师的审查、HMRC 是否认可公司纳税申报表软件、是否通过 HMRC 的测试服务以及 Companies House 自己的要求。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Linux用户：推荐标准内核</h2>
 <p>Chameleon Accounting MTD 是在每个主要 Linux 发行版安装的标准内核上构建和测试的。上一个完整的 <strong>即时的</strong> 内核（<code>PREEMPT_RT</code>, 常被命名为 <code>-rt</code>）我们在运行 Dart 和 Flutter 软件时，在内核的实时锁定代码中看到了系统冻结和崩溃；同版本标准内核稳定。如果您使用实时内核并看到冻结，请切换到您的发行版的标准内核（为了低延迟，其 <code>preempt=full</code> 引导选项是一个更安全的选择）。 <code>uname -v</code> 节目 <code>PREEMPT_RT</code> 在实时内核上。这与应用程序的加密无关。</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>来源</h2>
+<p>税收规则和这些发展的检查依据是什么，2026 年 11 月阅读</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">2006 年公司法第 443 条：计算提交账目的期限</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">2006 年公司法第 444 条：小公司提交申请</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">2006 年公司法第 475 条：审计豁免声明</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">2008 年小型公司和团体（账目和董事报告）条例，附表 1：格式</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">2026 年金融法</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">公司大楼：公司的寿命、年度要求</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">公司大楼：归档您的公司大楼账户，包括变更和日期</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK：微型实体、小型和休眠公司的账户</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK：公司税率和免税额</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK：降低减记津贴的主要比率</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC：CT600 技术规格（RIM 制品）</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC：XBRL 和 iXBRL 技术规范，包括 CT 计算格式</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC：HMRC 接受的分类法</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC：通用 IRmark 规范，版本 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC：交易引擎、文档提交协议 (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">财务报告委员会：2026 分类法套件</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW：微型实体账户常见问题解答</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW：英国公司规模门槛自 2025 年 4 月起提高</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile：公司税缴纳期限</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — 新しい会社のデスクトップ アプリ</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 借方行と貸方行、および各行に VAT コードを含む新しい入力画面" loading="lazy" src="../accounting-assets/xsr-261025121559.png"/><div class="sg-cap">新規エントリー</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 発行前の請求書と見積書を含む請求書画面" loading="lazy" src="../accounting-assets/xsr-261025121643.png"/><div class="sg-cap">請求書</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 読み取り専用ツールを使用して台帳について独自の AI に質問するエージェント画面" loading="lazy" src="../accounting-assets/xsr-261025121708.png"/><div class="sg-cap">エージェント</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — 会計期間、連絡先詳細、社宅キーおよびバックアップを含む設定画面" loading="lazy" src="../accounting-assets/xsr-261025121731.png"/><div class="sg-cap">設定</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 検索ボックスと勘定科目フィルターを備えた元帳画面" loading="lazy" src="../accounting-assets/xsr-261025121535.png"/><div class="sg-cap">元帳</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 新しい入力画面: 各行の口座、借方、貸方、および VAT コード。借方が貸方と等しい場合にのみ転記されます。" loading="lazy" src="../accounting-assets/xsr-261025121549.png"/><div class="sg-cap">新規エントリー</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — 選択した期間の損益、貸借対照表、VAT、レビュー タブを含むレポート画面" loading="lazy" src="../accounting-assets/xsr-261025121620.png"/><div class="sg-cap">レポート</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="../index.html">← 概要に戻る</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>構築とテストの方法</h2>
+<p>税務ソフトウェアは正しくなければならないため、ほとんどの作業はそれを証明することに費やされます</p>
+</div>
+<p>Chameleon Accounting MTD は Dart と Flutter で書かれているため、1 つのコード ベースを Linux、Windows、macOS、Android、iOS で実行できます。マルコスはそれを設計し、それが何をしなければならないかを決定します。コードはその指示に従って AI によって書かれます。何も信頼されていません。変更ごとに 500 を超える自動テストが実行されます。チェックの中には、チェックが実際に失敗する可能性があることを証明するために、意図的なエラーを仕掛けるものもあります。会計士はまだ税務規則を確認しておらず、リリース前に確認される予定です。</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. HMRC のサンドボックスに対して毎日</h3>
+<p>HMRC は、サンドボックスと呼ばれる、ソフトウェア開発者向けの VAT サービスの練習用コピーを実行しています。 2026 年 9 月 29 日以降、アプリは 1 日に最大 3 回自動的に接続し、VAT 請求額と HMRC が通話ごとに要求する不正防止の詳細を確認します。 2026 年 11 月 4 日までに、実行回数は 124 回となり、そのうち 108 回が通過し、37 日間に少なくとも 1 回は通過しました。私たちはライブ サービスの使用許可を HMRC に申請しており、その決定を待っています。サンドボックスは実際の税務記録ではなく、当社のソフトウェアをテストします。</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. 課税年度を 1 日で完了</h3>
+<p>サンドボックスでは 1 年間に何が起こるかを示すことができないため、独自のシミュレーターを構築しました。偽の時計は、HMRC、企業庁、会計士の代役を務めて、架空の会社を年間を通じて運営し、アプリの実際のコードはその仕事を行います。アプリとコードを共有しない別個の回答キーにより、すべての数値がどのようなものであるべきかが決まります。全力で走り続ければ、1 年は数秒で終わります。また、本物ではないことを示す赤いバナーの下で、本物のアプリが通常の 365 倍の速度 (1 日で 1 年) で実行されるのを見ることもできます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>シミュレーターの内容</h3>
+<p>さまざまな種類のビジネス: 利益が少ない、限界救済、損失、現金会計、定額制度、VAT 四半期と一致しない年末、ローンを返済しない取締役、VAT 制限を超える会社、個人事業主。また、簿記上のミスが植え付けられている、HMRC がダウンしている、会計士の返信が遅いかレビュー中に退職している、会社の年度末が変更されているなど、何が問題になっているのかも再現されます。</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>何が見つかったのか</h3>
+<p>本当のバグはすべて修正されました。 12月31日以降、貸借対照表のバランスが崩れた。 4分の2を超えた小切手は銀行小切手をひっくり返しました。法人税は定額制に基づく VAT を無視しました。 VAT 制限に関する警告は、それを必要とする企業には決して表示されませんでした。納税申告書の督促状が申告期限の3か月前に消えてしまいました。春の時計変更期間中、カウントダウンは 1 日短かった。これらを見つけたことが、それを構築した理由でした。</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>公式ルールに照らしてチェック</h3>
+<p>公式ルールが公開されている場合は、それに対して直接テストします。会社の納税申告書草案は、HMRC が独自に公開している構造およびビジネス ルールと照合してオフラインでチェックされます。下書きのアカウントと税金の計算は、無料の独立したチェック ツールである Arelle を使用して、公式のタグ リストと照合されます。シミュレーターは、サービスについて私たちが信じていることを証明することしかできないため、これは、これらのドキュメントをまだ見ていない HMRC 独自のテスト サービスの代替にはなりません。</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. 次に登場する可能性があるのは、法定口座です。</h3>
+<p>私たちは、小規模事業体 (FRS 105) または小規模企業 (FRS 102 セクション 1A) が作成しなければならない年次決算書、HMRC の規定のレイアウトでの税金計算、および法人税申告書 (CT600) について、まだリリースされていない作業草案を持っています。中小企業に年末を一か所でやらせることもできるだろう。 <strong>このアプリは現在、それらをファイルすることはできませんし、そうするという約束もありません。</strong> それは会計士の審査、HMRC が法人税申告書用ソフトウェアを認定すること、HMRC のテスト サービスに合格すること、および Companies House 独自の要件に依存します。</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Linux ユーザー: 標準カーネルを推奨</h2>
 <p>Chameleon Accounting MTD は、すべての主要な Linux ディストリビューションがインストールする標準カーネル上で構築およびテストされています。完全に <strong>リアルタイム</strong> カーネル (<code>PREEMPT_RT</code>、よく名前が付けられます <code>-rt</code>) Dart および Flutter ソフトウェアの実行中に、カーネルのリアルタイム ロック コードでシステムがフリーズし、クラッシュすることが確認されています。同じバージョンの標準カーネルは安定していました。リアルタイム カーネルを使用していてフリーズが発生した場合は、ディストリビューションの標準カーネルに切り替えてください (待ち時間を短くするには、 <code>preempt=full</code> ブート オプションを選択する方が安全です)。 <code>uname -v</code> ショー <code>PREEMPT_RT</code> リアルタイムカーネル上で。これはアプリの暗号化とは関係ありません。</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>情報源</h2>
+<p>税制とこれらの展開がチェックされた内容、2026 年 11 月に読む</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">2006 年会社法第 443 条: 決算申告期間の計算</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">2006 年会社法第 444 条: 中小企業による申請</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">2006 年会社法第 475 条: 監査免除規定</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">2008 年小規模企業およびグループ (会計および取締役報告書) 規則、スケジュール 1: フォーマット</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">2026 年財政法</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: 会社の存続期間、年間要件</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: Companies House アカウントの提出 (変更と日付を含む)</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: 零細企業、小規模企業、休眠企業のアカウント</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: 法人税の税率と控除</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">英国政府: 引当金の主要な評価損率を引き下げる</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: CT600 技術仕様 (RIM アーティファクト)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: CT 計算フォーマットを含む XBRL および iXBRL 技術仕様</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: HMRC によって受け入れられた分類法</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: 汎用 IRmark 仕様、バージョン 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: トランザクション エンジン、文書送信プロトコル (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Financial Reporting Council: 2026 分類スイート</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: マイクロエンティティアカウントに関するよくある質問</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW：英国の企業規模の基準が2025年4月から引き上げられる</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: 法人税の納税期限</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">

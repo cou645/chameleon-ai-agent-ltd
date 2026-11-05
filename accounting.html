@@ -258,6 +258,10 @@
 <p>Chameleon Accounting MTD — the desktop app, on a new company's books</p>
 </div>
 <div class="screenshot-gallery" id="accounting-gallery">
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — New entry screen with debit and credit lines and a VAT code on each line" loading="lazy" src="accounting-assets/xsr-261025121559.png"/><div class="sg-cap">New entry</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Invoices screen with invoices and quotes, before any are issued" loading="lazy" src="accounting-assets/xsr-261025121643.png"/><div class="sg-cap">Invoices</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Agent screen, which asks your own AI about the ledger using read-only tools" loading="lazy" src="accounting-assets/xsr-261025121708.png"/><div class="sg-cap">Agent</div></div>
+<div class="sg-frame"><img alt="Chameleon Accounting MTD — Settings screen with accounting period, contact details, Companies House key and backup" loading="lazy" src="accounting-assets/xsr-261025121731.png"/><div class="sg-cap">Settings</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Ledger screen with a search box and an account filter" loading="lazy" src="accounting-assets/xsr-261025121535.png"/><div class="sg-cap">Ledger</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — New entry screen: account, debit, credit and VAT code on each line, posted only when debits equal credits" loading="lazy" src="accounting-assets/xsr-261025121549.png"/><div class="sg-cap">New entry</div></div>
 <div class="sg-frame"><img alt="Chameleon Accounting MTD — Reports screen with Profit and Loss, Balance Sheet, VAT and Review tabs for the chosen period" loading="lazy" src="accounting-assets/xsr-261025121620.png"/><div class="sg-cap">Reports</div></div>
@@ -339,6 +343,43 @@
 <a class="btn" href="index.html">← Back to overview</a>
 </div>
 <div class="section-title" style="margin-top:3rem;">
+<h2>How it is built and tested</h2>
+<p>Tax software has to be right, so most of the work goes into proving it</p>
+</div>
+<p>Chameleon Accounting MTD is written in Dart and Flutter, so one code base can run on Linux, Windows, macOS, Android and iOS. Marcos designs it and decides what it must do; the code is written by AI under that direction. Nothing is taken on trust: more than 500 automated tests run against each change. Some of the checks plant a deliberate error to prove that the checks really can fail. An accountant has not yet reviewed the tax rules, and that will happen before release.</p>
+<div class="cards">
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>1. Every day against HMRC's sandbox</h3>
+<p>HMRC runs a practice copy of its VAT service for software developers, called the sandbox. Since 29 September 2026 the app has connected to it automatically, up to three times a day, to check its VAT calls and the fraud prevention details HMRC requires with every call. By 4 November 2026 that was 124 runs, of which 108 passed, with at least one pass on every one of the 37 days. We have applied to HMRC for permission to use the live service and are waiting for its decision. The sandbox tests our software, not your real tax records.</p>
+</div>
+<div class="card">
+<div class="card-icon">⏩</div>
+<h3>2. A tax year in a day</h3>
+<p>A sandbox can't show what happens over a whole year, so we built our own simulator. A fake clock runs a made-up company through its year, with stand-ins for HMRC, Companies House and an accountant, while the app's real code does the work. A separate answer key, sharing no code with the app, works out what every figure should be. Run flat out, a year takes seconds. You can also watch the real app run at 365 times normal speed: a year in a day, under a red banner saying it isn't real.</p>
+</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<h3>What the simulator covers</h3>
+<p>Different kinds of business: small profits, marginal relief, a loss, cash accounting, the Flat Rate Scheme, a year end that doesn't match the VAT quarters, a director who doesn't repay a loan, a company crossing the VAT limit, and a sole trader. It also plays out what goes wrong: planted bookkeeping mistakes, HMRC being down, an accountant replying late or leaving during a review, and a company's year end changing.</p>
+</div>
+<div class="card">
+<div class="card-icon">🐞</div>
+<h3>What it has found</h3>
+<p>Real bugs, all now fixed. A balance sheet stopped balancing after 31 December. A cheque crossing two quarters upset the bank check. Corporation Tax ignored VAT kept under the Flat Rate Scheme. The warning about the VAT limit never appeared for the businesses that needed it. A tax return reminder vanished three months before the return was due. Countdowns were a day short across the spring clock change. Finding these was the reason for building it.</p>
+</div>
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Checked against the official rules</h3>
+<p>Where official rules are published, we test against them directly. Draft Company Tax Returns are checked offline against HMRC's own published structure and business rules. Draft accounts and tax computations are checked against the official tag lists using Arelle, a free, independent checking tool. A simulator can only prove what we believe about a service, so this is no substitute for HMRC's own test services, which have not yet seen these documents.</p>
+</div>
+<div class="card">
+<div class="card-icon">📑</div>
+<h3>3. Coming next, potentially: statutory accounts</h3>
+<p>We have working drafts, not yet in any release, of the annual accounts a micro-entity (FRS 105) or small company (FRS 102 Section 1A) must prepare, a tax computation in HMRC's prescribed layout, and a Company Tax Return (CT600). They could let a small company do its year end in one place. <strong>This app cannot file any of them today, and we make no promise that it will.</strong> That depends on an accountant's review, on HMRC recognising the software for Company Tax Returns, on passing HMRC's test services, and on Companies House's own requirements.</p>
+</div>
+</div>
+<div class="section-title" style="margin-top:3rem;">
 <h2>Linux users: standard kernel recommended</h2>
 <p>Chameleon Accounting MTD is built and tested on the standard kernel every major Linux distribution installs. On a full <strong>real-time</strong> kernel (<code>PREEMPT_RT</code>, often named <code>-rt</code>) we have seen the system freeze and crash in the kernel's real-time locking code while running Dart and Flutter software; the standard kernel of the same version was stable. If you use a real-time kernel and see freezes, switch to your distribution's standard kernel (for low latency, its <code>preempt=full</code> boot option is a safer choice). <code>uname -v</code> shows <code>PREEMPT_RT</code> on a real-time kernel. This has nothing to do with the app's encryption.</p>
 </div>
@@ -347,6 +388,31 @@
 </div>
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSF3GNc4DFqTX" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="cou645/chameleon-ai-agent-ltd" data-repo-id="R_kgDOSF3GNQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
+<div class="section-title" style="margin-top:3rem;">
+<h2>Sources</h2>
+<p>What the tax rules and these developments were checked against, read in November 2026</p>
+</div>
+<ul>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/443" rel="noopener">Companies Act 2006, section 443: calculating the period for filing accounts</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/444" rel="noopener">Companies Act 2006, section 444: filing by small companies</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2006/46/section/475" rel="noopener">Companies Act 2006, section 475: audit exemption statements</a></li>
+<li><a href="https://www.legislation.gov.uk/uksi/2008/409/schedule/1" rel="noopener">The Small Companies and Groups (Accounts and Directors' Report) Regulations 2008, Schedule 1: formats</a></li>
+<li><a href="https://www.legislation.gov.uk/ukpga/2026/11/data.html" rel="noopener">Finance Act 2026</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts/life-of-a-company-part-1-accounts" rel="noopener">Companies House: Life of a company, annual requirements</a></li>
+<li><a href="https://www.gov.uk/government/publications/filing-your-companies-house-accounts" rel="noopener">Companies House: Filing your Companies House accounts, including changes and dates</a></li>
+<li><a href="https://www.gov.uk/annual-accounts/microentities-small-and-dormant-companies" rel="noopener">GOV.UK: Accounts for micro-entities, small and dormant companies</a></li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-corporation-tax/rates-and-allowances-corporation-tax" rel="noopener">GOV.UK: Corporation Tax rates and allowances</a></li>
+<li><a href="https://www.gov.uk/government/publications/new-first-year-allowance-and-main-rate-of-writing-down-allowances/capital-allowances-new-first-year-allowance-and-reducing-main-rate-writing-down-allowances" rel="noopener">GOV.UK: Reducing the main rate of writing down allowances</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-ct600-rim-artefacts" rel="noopener">HMRC: CT600 technical specifications (RIM artefacts)</a></li>
+<li><a href="https://www.gov.uk/government/publications/corporation-tax-technical-specifications-xbrl-and-ixbrl" rel="noopener">HMRC: XBRL and iXBRL technical specifications, including the CT Computations Format</a></li>
+<li><a href="https://www.gov.uk/government/publications/taxonomies-accepted-by-hm-revenue-and-customs/taxonomies-accepted-by-hmrc" rel="noopener">HMRC: Taxonomies accepted by HMRC</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5a7db692ed915d2ac884d1b4/generic-irmark-specification-v1-2.pdf" rel="noopener">HMRC: Generic IRmark specification, version 1.2 (PDF)</a></li>
+<li><a href="https://assets.publishing.service.gov.uk/media/5b90f59de5274a0bd7d11954/Transaction.pdf" rel="noopener">HMRC: Transaction Engine, Document Submission Protocol (PDF)</a></li>
+<li><a href="https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/frc-taxonomies/current-frc-taxonomy-suites/2026-frc-taxonomy-suite/" rel="noopener">Financial Reporting Council: 2026 Taxonomy Suite</a></li>
+<li><a href="https://www.icaew.com/technical/corporate-reporting/uk-gaap/uk-gaap-faqs/micro-entities-accounts-faqs" rel="noopener">ICAEW: Micro-entities accounts FAQs</a></li>
+<li><a href="https://www.icaew.com/insights/viewpoints-on-the-news/2024/dec-2024/uk-company-size-thresholds-to-increase-from-april-2025" rel="noopener">ICAEW: UK company size thresholds increase from April 2025</a></li>
+<li><a href="https://gofile.co.uk/knowledgebase/corporation-tax/ct-payment-deadlines/" rel="noopener">GoFile: Corporation Tax payment deadlines</a></li>
+</ul>
 </div>
 <footer>
 <div class="foot-links">
